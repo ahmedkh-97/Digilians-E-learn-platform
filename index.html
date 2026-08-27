@@ -544,6 +544,102 @@
           </div>
         </div>
       </section>
+      <!-- JSON VALIDATOR -->
+      <section id="validatorView" class="view">
+        <div class="context-bar">
+          <button class="back-btn" id="validatorBackBtn">← Back</button>
+          <div class="breadcrumb">Tools / Exam JSON Validator</div>
+          <a class="ghost-btn desktop-only" href="data/exam-template.json" download>Download Template ↓</a>
+        </div>
+
+        <div class="page-heading compact">
+          <div>
+            <span class="eyebrow">ADMIN TOOL</span>
+            <h2>Exam JSON Validator</h2>
+            <p>Check an AI-generated exam before uploading it to GitHub.</p>
+          </div>
+        </div>
+
+        <div class="validator-layout">
+          <section class="validator-upload-card">
+            <div id="validatorDropZone" class="validator-drop-zone" tabindex="0">
+              <div class="validator-drop-icon">{ }</div>
+              <h3>Drop your exam JSON here</h3>
+              <p>or choose a file from your device</p>
+              <input id="validatorFileInput" type="file" accept=".json,application/json" hidden />
+              <button class="primary-btn" id="validatorChooseBtn">Choose JSON File</button>
+              <small>Nothing is uploaded anywhere. Validation runs only in your browser.</small>
+            </div>
+
+            <div class="validator-helper-row">
+              <a class="secondary-btn" href="data/exam-template.json" download>Download JSON Template</a>
+              <a class="secondary-btn" href="docs/EXAM-JSON-SCHEMA.md" target="_blank">Schema Reference ↗</a>
+            </div>
+          </section>
+
+          <section id="validatorEmptyState" class="validator-empty-card">
+            <span class="validator-empty-symbol">✓</span>
+            <h3>Ready to validate</h3>
+            <p>The tool checks structure, question IDs, A–D options, correct answers, Arabic explanations, difficulty, timer settings and source references.</p>
+          </section>
+
+          <section id="validatorResultCard" class="validator-result-card hidden">
+            <div class="validator-result-head">
+              <div>
+                <span class="eyebrow">VALIDATION RESULT</span>
+                <h3 id="validatorResultTitle">Checking...</h3>
+                <p id="validatorFileName"></p>
+              </div>
+              <div id="validatorStatusBadge" class="validator-status-badge">—</div>
+            </div>
+
+            <div id="validatorSummary" class="validator-summary"></div>
+
+            <div class="validator-issues-grid">
+              <div>
+                <div class="validator-issue-head error">
+                  <span>Errors</span>
+                  <strong id="validatorErrorCount">0</strong>
+                </div>
+                <div id="validatorErrors" class="validator-issue-list"></div>
+              </div>
+
+              <div>
+                <div class="validator-issue-head warning">
+                  <span>Warnings</span>
+                  <strong id="validatorWarningCount">0</strong>
+                </div>
+                <div id="validatorWarnings" class="validator-issue-list"></div>
+              </div>
+            </div>
+
+            <section id="registrySection" class="registry-section hidden">
+              <div class="section-title-row">
+                <div>
+                  <span class="eyebrow">READY FOR GITHUB</span>
+                  <h3>Registry entry</h3>
+                </div>
+                <button class="secondary-btn" id="copyRegistryBtn">Copy Entry</button>
+              </div>
+              <p>Save the JSON using the path below, then add this object inside <code>data/exams.json</code>.</p>
+              <div class="registry-path">
+                <span>Suggested file path</span>
+                <strong id="validatorSuggestedPath"></strong>
+              </div>
+              <pre id="validatorRegistryCode"></pre>
+            </section>
+
+            <div class="validator-next-step" id="validatorNextStep">
+              <div>
+                <span class="eyebrow">NEXT STEP</span>
+                <h3>Fix the errors, then validate again.</h3>
+              </div>
+              <button class="primary-btn" id="validateAnotherBtn">Validate Another File →</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
     </main>
 
     <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
@@ -587,6 +683,7 @@
     </div>
 
     <div class="drawer-actions">
+      <button class="primary-btn wide" id="openValidatorBtn">Exam JSON Validator →</button>
       <button class="secondary-btn wide" id="changeNameBtn">Change saved name</button>
     </div>
   </aside>

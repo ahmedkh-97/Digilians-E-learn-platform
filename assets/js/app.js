@@ -6,6 +6,7 @@ import {
 
 import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
 import {submitAttemptOnline,getLeaderboard} from "./online.js";
+import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
 
 const state={
   studentName:"",
@@ -25,11 +26,14 @@ const state={
   previousBest:null,
   filter:"All",
   playerId:null,
-  rankingExamId:null
+  rankingExamId:null,
+  lastValidatorRoute:"dashboardView",
+  validatorPayload:null,
+  validatorRegistryEntry:null
 };
 
 const $=id=>document.getElementById(id);
-const views=["welcomeView","dashboardView","learnView","studyView","examsView","setupView","examView","resultView","reviewView","rankingView"];
+const views=["welcomeView","dashboardView","learnView","studyView","examsView","setupView","examView","resultView","reviewView","rankingView","validatorView"];
 
 function initials(name){
   return (name || "Guest").trim().split(/\s+/).slice(0,2).map(x=>x[0]?.toUpperCase()).join("") || "G";
@@ -824,6 +828,161 @@ $("rankingExamSelect").addEventListener("change",e=>{
   renderRanking();
 });
 $("refreshLeaderboardBtn").addEventListener("click",()=>renderRanking());
+
+function openValidator(){
+  state.lastValidatorRoute = document.querySelector(".view.active")?.id || "dashboardView";
+  closeProfile();
+  resetValidator();
+  routeTo("validatorView");
+}
+
+function resetValidator(){
+  state.validatorPayload=null;
+  state.validatorRegistryEntry=null;
+  $("validatorFileInput").value="";
+  $("validatorResultCard").classList.add("hidden");
+  $("validatorEmptyState").classList.remove("hidden");
+  $("registrySection").classList.add("hidden");
+}
+
+async function handleValidatorFile(file){
+  if(!file)return;
+
+  if(!file.name.toLowerCase().endsWith(".json") && file.type!=="application/json"){
+    showToast("Please choose a JSON file.");
+    return;
+  }
+
+  let text;
+  try{
+    text=await file.text();
+  }catch{
+    showToast("Could not read this file.");
+    return;
+  }
+
+  let payload;
+  try{
+    payload=JSON.parse(text);
+  }catch(error){
+    $("validatorEmptyState").classList.add("hidden");
+    $("validatorResultCard").classList.remove("hidden");
+    $("validatorFileName").textContent=file.name;
+    $("validatorResultTitle").textContent="Invalid JSON syntax";
+    $("validatorStatusBadge").textContent="INVALID";
+    $("validatorStatusBadge").className="validator-status-badge invalid";
+    $("validatorSummary").innerHTML="";
+    $("validatorErrorCount").textContent="1";
+    $("validatorWarningCount").textContent="0";
+    $("validatorErrors").innerHTML=`<div class="validator-issue"><code>JSON parser</code>${escapeHtml(error.message)}</div>`;
+    $("validatorWarnings").innerHTML='<div class="validator-no-issues">No warnings available.</div>';
+    $("registrySection").classList.add("hidden");
+    $("validatorNextStep").querySelector("h3").textContent="Fix the JSON syntax, then validate again.";
+    return;
+  }
+
+  state.validatorPayload=payload;
+  const result=validateExamJson(payload);
+  renderValidatorResult(file.name,result,payload);
+}
+
+function renderValidatorResult(fileName,result,payload){
+  $("validatorEmptyState").classList.add("hidden");
+  $("validatorResultCard").classList.remove("hidden");
+  $("validatorFileName").textContent=fileName;
+
+  const badge=$("validatorStatusBadge");
+  if(result.valid){
+    $("validatorResultTitle").textContent="Exam JSON is valid";
+    badge.textContent="VALID ✓";
+    badge.className="validator-status-badge valid";
+  }else{
+    $("validatorResultTitle").textContent="Exam JSON needs fixes";
+    badge.textContent="INVALID";
+    badge.className="validator-status-badge invalid";
+  }
+
+  const summary=result.summary || {};
+  $("validatorSummary").innerHTML=`
+    <div><span>EXAM</span><strong>${escapeHtml(summary.title || "—")}</strong></div>
+    <div><span>COURSE</span><strong>${escapeHtml(summary.course || "—")}</strong></div>
+    <div><span>QUESTIONS</span><strong>${summary.questionCount ?? 0}</strong></div>
+    <div><span>TOPICS</span><strong>${summary.topicCount ?? 0}</strong></div>
+  `;
+
+  $("validatorErrorCount").textContent=result.errors.length;
+  $("validatorWarningCount").textContent=result.warnings.length;
+  renderValidatorIssues("validatorErrors",result.errors,"No errors. This file passes all required checks.");
+  renderValidatorIssues("validatorWarnings",result.warnings,"No warnings.");
+
+  if(result.valid){
+    const registry=buildRegistryEntry(payload);
+    state.validatorRegistryEntry=registry;
+    $("validatorRegistryCode").textContent=JSON.stringify(registry,null,2);
+    $("validatorSuggestedPath").textContent=registry.file;
+    $("registrySection").classList.remove("hidden");
+    $("validatorNextStep").querySelector("h3").textContent="Valid. Save the file, add the registry entry, then commit to GitHub.";
+  }else{
+    state.validatorRegistryEntry=null;
+    $("registrySection").classList.add("hidden");
+    $("validatorNextStep").querySelector("h3").textContent="Fix the errors, then validate again.";
+  }
+}
+
+function renderValidatorIssues(targetId,issues,emptyMessage){
+  const target=$(targetId);
+  if(!issues.length){
+    target.innerHTML=`<div class="validator-no-issues">${escapeHtml(emptyMessage)}</div>`;
+    return;
+  }
+  target.innerHTML=issues.map(issue=>`
+    <div class="validator-issue">
+      <code>${escapeHtml(issue.path)}</code>
+      ${escapeHtml(issue.message)}
+    </div>
+  `).join("");
+}
+
+$("openValidatorBtn").addEventListener("click",openValidator);
+$("validatorBackBtn").addEventListener("click",()=>routeTo(state.lastValidatorRoute || "dashboardView"));
+$("validatorChooseBtn").addEventListener("click",()=>$("validatorFileInput").click());
+$("validatorFileInput").addEventListener("change",e=>handleValidatorFile(e.target.files?.[0]));
+
+const validatorDropZone=$("validatorDropZone");
+["dragenter","dragover"].forEach(eventName=>{
+  validatorDropZone.addEventListener(eventName,e=>{
+    e.preventDefault();
+    validatorDropZone.classList.add("dragging");
+  });
+});
+["dragleave","drop"].forEach(eventName=>{
+  validatorDropZone.addEventListener(eventName,e=>{
+    e.preventDefault();
+    validatorDropZone.classList.remove("dragging");
+  });
+});
+validatorDropZone.addEventListener("drop",e=>handleValidatorFile(e.dataTransfer?.files?.[0]));
+validatorDropZone.addEventListener("keydown",e=>{
+  if(e.key==="Enter" || e.key===" "){
+    e.preventDefault();
+    $("validatorFileInput").click();
+  }
+});
+
+$("validateAnotherBtn").addEventListener("click",()=>{
+  resetValidator();
+  $("validatorFileInput").click();
+});
+
+$("copyRegistryBtn").addEventListener("click",async()=>{
+  if(!state.validatorRegistryEntry)return;
+  try{
+    await navigator.clipboard.writeText(JSON.stringify(state.validatorRegistryEntry,null,2));
+    showToast("Registry entry copied.");
+  }catch{
+    showToast("Could not copy automatically. Select the code manually.");
+  }
+});
 
 function renderProfile(){
   const stats=getStats();

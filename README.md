@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.4
+# Digilians E-Learn Platform V0.5
 
 A modern, free-first learning and exam platform prototype.
 
@@ -67,3 +67,24 @@ Do not ever replace it with a Supabase Secret key or service_role key.
 
 ### Supabase table expected
 `public.exam_attempts` with RLS allowing `anon` SELECT + INSERT only.
+
+
+## V0.5 — Exam JSON Validator
+- Added an in-browser Exam JSON Validator.
+- Open it from the Profile drawer.
+- Drag/drop or choose an AI-generated `.json` file.
+- Validates:
+  - schema version
+  - exam metadata
+  - timer and feedback settings
+  - duplicate question IDs
+  - exactly four MCQ options A–D
+  - correct-answer mapping
+  - Arabic explanations
+  - topics and difficulty
+  - source traceability warnings
+- Generates a ready-to-copy `data/exams.json` registry entry when valid.
+- Provides a suggested GitHub file path.
+- Added downloadable `data/exam-template.json`.
+- Added `docs/EXAM-JSON-SCHEMA.md`.
+- Validation runs entirely in the browser; the exam file is not uploaded anywhere.
