@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.3.1
+# Digilians E-Learn Platform V0.3.2
 
 A modern, free-first learning and exam platform prototype.
 
@@ -41,3 +41,8 @@ Do not test by double-clicking `index.html` directly.
 ## V0.3.1 readability patch
 - Increased Explanation font size and line-height in Instant Feedback.
 - Increased Explanation font size in Review Answers.
+
+## V0.3.2 Dark Mode Contrast Patch
+- Fixed course-card headings appearing black in Dark Mode.
+- Explicitly bound course-card text to the design-system text tokens.
+- Added a dark-mode contrast safeguard for course titles and metadata.
