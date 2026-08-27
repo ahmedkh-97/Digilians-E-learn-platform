@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.6.1
+# Digilians E-Learn Platform V0.7
 
 A modern, free-first learning and exam platform prototype.
 
@@ -197,3 +197,40 @@ The system no longer treats “enough questions” as equivalent to “curriculu
 
 ### Current state
 All tracks intentionally remain IN PROGRESS because no track has yet been explicitly confirmed complete by the user.
+
+
+## V0.7 — Syllabus Map + Coverage Blueprint Engine
+
+### New Syllabus Maps
+Added track-level syllabus maps under:
+`data/syllabus-maps/`
+
+Each map supports:
+- Major topics
+- Subtopics
+- Importance (`core`, `important`, `supporting`)
+- Curriculum versioning
+
+### New Coverage Blueprints
+Added:
+`data/coverage-blueprints/`
+
+Coverage controls how many questions must come from each major topic.
+
+### SQL Pilot
+The existing SQL Session 1 bank was enriched with:
+- `topicId`
+- `subtopicId`
+- `importance`
+
+A pilot SQL coverage blueprint is included for:
+- 20-question Final share
+- 45-question Track Exam
+
+These pilot weights must be recalculated as additional SQL curriculum is processed.
+
+### Final Engine
+The dynamic exam engine can now apply topic coverage instead of selecting blindly from a large pool.
+
+### Result Analytics
+Topic-level performance is now calculated and displayed after an exam.

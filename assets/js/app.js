@@ -10,6 +10,7 @@ import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
 import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
 import {evaluateTrackReadiness,finalStatusFromTracks} from "./readiness.js";
+import {evaluateCoverageReadiness,topicPerformance} from "./coverage-engine.js";
 
 const state={
   studentName:"",
@@ -19,6 +20,10 @@ const state={
   blueprints:{blueprints:[]},
   curriculumRegistry:{tracks:[]},
   manifests:{},
+  syllabusRegistry:{maps:[]},
+  syllabusMaps:{},
+  coverageRegistry:{blueprints:[]},
+  coverageMaps:{},
   selectedCourse:null,
   selectedTrack:null,
   selectedModule:null,
@@ -115,25 +120,39 @@ async function loadJson(path){
 }
 
 async function loadData(){
-  const [registry,learning,bankRegistry,blueprints,curriculumRegistry]=await Promise.all([
+  const [registry,learning,bankRegistry,blueprints,curriculumRegistry,syllabusRegistry,coverageRegistry]=await Promise.all([
     loadJson("data/exams.json"),
     loadJson("data/learning.json"),
     loadJson("data/question-banks.json"),
     loadJson("data/exam-blueprints.json"),
-    loadJson("data/curriculum.json")
+    loadJson("data/curriculum.json"),
+    loadJson("data/syllabus-maps.json"),
+    loadJson("data/coverage-blueprints.json")
   ]);
   state.registry=registry.exams || [];
   state.learning=learning;
   state.bankRegistry=bankRegistry;
   state.blueprints=blueprints;
   state.curriculumRegistry=curriculumRegistry;
+  state.syllabusRegistry=syllabusRegistry;
+  state.coverageRegistry=coverageRegistry;
 
-  const manifests={};
+  const manifests={},syllabusMaps={},coverageMaps={};
   await Promise.all((curriculumRegistry.tracks||[]).map(async item=>{
     try{ manifests[item.trackId]=await loadJson(item.file); }
     catch(e){ console.warn("Could not load curriculum manifest",item.trackId,e); }
   }));
+  await Promise.all((syllabusRegistry.maps||[]).map(async item=>{
+    try{ syllabusMaps[item.trackId]=await loadJson(item.file); }
+    catch(e){ console.warn("Could not load syllabus map",item.trackId,e); }
+  }));
+  await Promise.all((coverageRegistry.blueprints||[]).map(async item=>{
+    try{ coverageMaps[item.id]=await loadJson(item.file); }
+    catch(e){ console.warn("Could not load coverage blueprint",item.id,e); }
+  }));
   state.manifests=manifests;
+  state.syllabusMaps=syllabusMaps;
+  state.coverageMaps=coverageMaps;
 }
 
 function getUserResults(){
@@ -287,6 +306,70 @@ function getTrackReadiness(trackId){
     sourceTarget:bp.sourceTarget
   });
 }
+function getFinalCoverageForTrack(trackId){
+  const meta=(state.coverageRegistry.blueprints||[]).find(x=>x.trackId===trackId && x.examKind==="final-share");
+  return meta?state.coverageMaps[meta.id]:null;
+}
+
+async function loadQuestionsForTrack(trackId){
+  const banks=(state.bankRegistry.banks||[]).filter(b=>b.trackId===trackId && b.status==="active" && b.file);
+  const all=[];
+  for(const bank of banks){
+    try{
+      const payload=await loadJson(bank.file);
+      all.push(...(payload.questions||[]));
+    }catch(e){ console.warn("Could not load bank for coverage",bank.id,e); }
+  }
+  return all;
+}
+
+async function renderCoverageStatus(course){
+  const panel=$("coverageStatusPanel");
+  if(!panel)return;
+  if(course.id!=="data-analysis"){
+    panel.classList.add("hidden");panel.innerHTML="";return;
+  }
+
+  const trackId=state.selectedTrack?.id || "sql";
+  const syllabus=state.syllabusMaps[trackId];
+  const coverage=getFinalCoverageForTrack(trackId);
+  if(!syllabus){
+    panel.classList.add("hidden");panel.innerHTML="";return;
+  }
+
+  const questions=await loadQuestionsForTrack(trackId);
+  const readiness=evaluateCoverageReadiness({syllabus,coverage,questions});
+  const title=state.selectedTrack?.title || syllabus.track;
+  const configured=coverage?.topics?.length || 0;
+
+  panel.innerHTML=`
+    <div class="coverage-status-head">
+      <div>
+        <span class="eyebrow">SYLLABUS MAP & COVERAGE</span>
+        <h4>${title}</h4>
+        <p>${syllabus.topics.length} major topic${syllabus.topics.length===1?"":"s"} mapped • ${configured} topic${configured===1?"":"s"} configured for Final coverage.</p>
+      </div>
+      <span class="pool-chip ${readiness.ready?"ready":"building"}">${readiness.ready?"COVERAGE READY":"COVERAGE BUILDING"}</span>
+    </div>
+
+    <div class="coverage-topic-grid">
+      ${(syllabus.topics||[]).map(topic=>{
+        const spec=coverage?.topics?.find(x=>x.topicId===topic.id);
+        const available=questions.filter(q=>q.topicId===topic.id && q.finalEligible!==false).length;
+        const target=spec?.target || 0;
+        const ratio=target?Math.min(100,Math.round(available/target*100)):0;
+        return `<article class="coverage-topic-card">
+          <strong>${topic.title}</strong>
+          <span>${topic.importance.toUpperCase()}</span>
+          <small>${topic.subtopics?.length||0} subtopics • ${available} eligible questions${target?` • target ${target}`:""}</small>
+          <div class="coverage-bar"><i style="width:${ratio}%"></i></div>
+        </article>`;
+      }).join("") || `<article class="coverage-topic-card"><strong>No topics mapped yet</strong><small>Topics will appear here as material is processed.</small></article>`}
+    </div>
+  `;
+  panel.classList.remove("hidden");
+}
+
 function renderCurriculumStatus(course){
   const panel=$("curriculumStatusPanel");
   if(!panel)return;
@@ -370,6 +453,7 @@ function renderTrackPanel(course){
   });
 
   renderCurriculumStatus(course);
+  renderCoverageStatus(course);
   renderCourseFinalExamSlot(course);
   panel.classList.remove("hidden");
   panel.scrollIntoView({behavior:"smooth",block:"start"});
@@ -452,6 +536,7 @@ function openTrack(course,track){
   state.selectedCourse=course;
   state.selectedTrack=track;
   state.selectedModule=null;
+  renderCoverageStatus(course);
   renderModulePanel(course,track);
 }
 
@@ -674,10 +759,16 @@ async function prepareExam(registryItem,forcedMode=null){
         showToast(readinessShortText(readiness));
         return;
       }
+      const coverageByTrack={};
+      for(const spec of blueprint.tracks||[]){
+        const coverage=getFinalCoverageForTrack(spec.trackId);
+        if(coverage?.topics?.length)coverageByTrack[spec.trackId]=coverage;
+      }
       payload=await buildExamFromBlueprint({
         blueprint,
         bankRegistry:state.bankRegistry,
-        loadJson
+        loadJson,
+        coverageByTrack
       });
     }else{
       payload=await loadJson(registryItem.file);
@@ -763,7 +854,12 @@ async function resumeProgress(progress){
       payload=progress.generatedExam;
     }else if(item.generator==="question-bank"){
       const blueprint=getBlueprint(item.blueprintId);
-      payload=await buildExamFromBlueprint({blueprint,bankRegistry:state.bankRegistry,loadJson});
+      const coverageByTrack={};
+      for(const spec of blueprint.tracks||[]){
+        const coverage=getFinalCoverageForTrack(spec.trackId);
+        if(coverage?.topics?.length)coverageByTrack[spec.trackId]=coverage;
+      }
+      payload=await buildExamFromBlueprint({blueprint,bankRegistry:state.bankRegistry,loadJson,coverageByTrack});
     }else{
       payload=await loadJson(item.file);
     }
@@ -882,11 +978,12 @@ function finishExam(autoSubmitted){
   const clientAttemptId=crypto.randomUUID();
 
   const subjectBreakdown=calculateSubjectBreakdown();
+  const topicBreakdown=topicPerformance(state.currentExam.questions,state.answers);
   const record={
     examId:state.currentExam.exam.id,examTitle:state.currentExam.exam.title,studentName:state.studentName,
     percentage:result.percentage,correct:result.correct,wrong:result.wrong,unanswered:result.unanswered,
     timeTakenSeconds,submittedAt:new Date().toISOString(),autoSubmitted,
-    clientAttemptId,onlineSynced:false,subjectBreakdown
+    clientAttemptId,onlineSynced:false,subjectBreakdown,topicBreakdown
   };
 
   const onlineAttempt={
@@ -1020,6 +1117,25 @@ function calculateSubjectBreakdown(){
   return groups;
 }
 
+function renderTopicBreakdown(){
+  const section=$("resultTopicBreakdown");
+  const grid=$("resultTopicBreakdownGrid");
+  const data=state.lastResult?.record?.topicBreakdown || [];
+  if(!data.length){
+    section.classList.add("hidden");
+    grid.innerHTML="";
+    return;
+  }
+  const visible=data.slice(0,8);
+  grid.innerHTML=visible.map(t=>`
+    <div class="topic-result-card">
+      <strong>${escapeHtml(t.label)}</strong>
+      <span>${t.percentage}%</span>
+      <small>${t.correct}/${t.total} correct • ${t.wrong} wrong${t.unanswered?` • ${t.unanswered} unanswered`:""}</small>
+    </div>`).join("");
+  section.classList.remove("hidden");
+}
+
 function renderSubjectBreakdown(){
   const section=$("resultSubjectBreakdown");
   const grid=$("resultSubjectBreakdownGrid");
@@ -1064,6 +1180,7 @@ function renderResult(){
   $("correctCount").textContent=score.correct;$("wrongCount").textContent=score.wrong;$("unansweredCount").textContent=score.unanswered;
   $("timeTaken").textContent=formatDuration(record.timeTakenSeconds);
   renderSubjectBreakdown();
+  renderTopicBreakdown();
   $("celebration").classList.toggle("hidden",record.percentage<80);
   setTimeout(()=>animateScore(record.percentage),120);
 

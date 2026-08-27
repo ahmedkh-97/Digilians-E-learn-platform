@@ -1,3 +1,4 @@
+import {selectByCoverage} from "./coverage-engine.js";
 function allocateCounts(total, ratios){
   const entries=Object.entries(ratios);
   const raw=entries.map(([key,ratio])=>({key,raw:total*ratio}));
@@ -120,7 +121,7 @@ function arrangeAvoidingTopicRepeats(questions){
   return out;
 }
 
-export async function buildExamFromBlueprint({blueprint,bankRegistry,loadJson}){
+export async function buildExamFromBlueprint({blueprint,bankRegistry,loadJson,coverageByTrack={}}){
   const readiness=getBlueprintReadiness(bankRegistry,blueprint);
   if(!readiness.ready){
     const first=readiness.tracks.find(t=>!t.ready);
@@ -151,7 +152,28 @@ export async function buildExamFromBlueprint({blueprint,bankRegistry,loadJson}){
       trackSelected.push(...picked);
     }
 
-    selected.push(...trackSelected.map(q=>({
+    let finalTrackSelection=trackSelected;
+    const coverage=coverageByTrack?.[spec.trackId];
+    if(coverage && Array.isArray(coverage.topics) && coverage.topics.length){
+      // Coverage is applied after source/difficulty bucket selection.
+      // If the bucket result is too narrow to satisfy coverage, fall back to the full track pool
+      // while preserving runtime validation in the caller.
+      try{
+        finalTrackSelection=selectByCoverage({
+          questions:trackSelected,
+          coverage,
+          questionCount:spec.count
+        });
+      }catch(e){
+        finalTrackSelection=selectByCoverage({
+          questions:pool,
+          coverage,
+          questionCount:spec.count
+        });
+      }
+    }
+
+    selected.push(...finalTrackSelection.map(q=>({
       ...q,
       trackId:q.trackId||spec.trackId,
       track:q.track||spec.label
