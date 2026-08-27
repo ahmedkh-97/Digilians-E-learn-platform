@@ -67,8 +67,144 @@
       "title": "Data Analysis",
       "icon": "D",
       "accent": "#1caee8",
-      "description": "Future study, practice and assessment content for data analysis.",
-      "modules": []
+      "description": "A structured learning hub for Excel, SQL, Python, Power BI, Statistics and future Data Analysis topics.",
+      "modules": [],
+      "tracks": [
+        {
+          "id": "excel",
+          "title": "Excel",
+          "icon": "X",
+          "accent": "#1f9d63",
+          "description": "Spreadsheets, formulas, analysis workflows and dashboards.",
+          "modules": []
+        },
+        {
+          "id": "sql",
+          "title": "SQL & Databases",
+          "icon": "Q",
+          "accent": "#1caee8",
+          "description": "Relational databases, data modeling, SQL and database concepts.",
+          "modules": [
+            {
+              "id": "sql-session-1",
+              "title": "Session 1 — Relational Databases & Data Modeling",
+              "description": "Database fundamentals, data models, ER modeling, mapping, normalization, and Star vs Snowflake schemas.",
+              "examId": "data-analysis-sql-session1-data-modeling-practice",
+              "study": {
+                "title": "Session 1 — Relational Databases & Data Modeling",
+                "description": "A compact study map based on Session1.pptx before you move to practice and the full exam.",
+                "sections": [
+                  {
+                    "id": "database-foundations",
+                    "title": "Database Foundations",
+                    "paragraphs": [
+                      "A database is an organized collection of data that is stored and accessed electronically.",
+                      "A DBMS supports efficient, reliable, convenient and safe multi-user storage and access to persistent data."
+                    ],
+                    "bullets": [
+                      "Advantages include reduced redundancy, improved consistency, integrity, access and security.",
+                      "Disadvantages listed in the session include complexity, cost, security and compatibility."
+                    ],
+                    "callout": {
+                      "label": "Focus",
+                      "text": "Know the difference between a database and a DBMS, and remember the advantages and disadvantages listed in the session."
+                    }
+                  },
+                  {
+                    "id": "data-models",
+                    "title": "Data Models",
+                    "paragraphs": [
+                      "A data model defines the structure, relationships and constraints of data.",
+                      "The session covers Hierarchical, Network, Object-Oriented, Document, Relational and Entity-Relationship models."
+                    ],
+                    "bullets": [
+                      "Hierarchical: tree-like structure.",
+                      "Network: supports many-to-many relationships.",
+                      "Document: flexible semi-structured documents such as JSON and XML.",
+                      "Relational: data is stored in inter-related tables."
+                    ]
+                  },
+                  {
+                    "id": "er-modeling",
+                    "title": "ER Modeling & Relationships",
+                    "paragraphs": [
+                      "ER modeling visually represents entities, attributes and relationships before creating the database.",
+                      "Relationship degree can be unary, binary or ternary, while cardinality can be 1:1, 1:N or M:N."
+                    ],
+                    "bullets": [
+                      "Entities are shown as rectangles.",
+                      "Attributes are shown as ellipses.",
+                      "Relationships are shown as diamonds.",
+                      "Double line means total participation; single line means partial participation."
+                    ]
+                  },
+                  {
+                    "id": "mapping",
+                    "title": "Mapping ER Diagrams to Relations",
+                    "paragraphs": [
+                      "Entities become tables and attributes become columns.",
+                      "Composite attributes are decomposed into atomic values, while multivalued attributes are mapped to a separate relation."
+                    ],
+                    "bullets": [
+                      "M:N relationships require a new relation containing the keys of both entities.",
+                      "In 1:N, the primary key from the 1 side becomes a foreign key on the N side.",
+                      "Weak entities include the parent entity key."
+                    ]
+                  },
+                  {
+                    "id": "normalization",
+                    "title": "Normalization",
+                    "paragraphs": [
+                      "Normalization organizes tables and attributes to reduce redundancy and dependency.",
+                      "The session covers functional dependency and the progression through 1NF, 2NF and 3NF."
+                    ],
+                    "bullets": [
+                      "2NF removes partial functional dependencies.",
+                      "3NF removes transitive dependencies."
+                    ]
+                  },
+                  {
+                    "id": "star-snowflake",
+                    "title": "Star vs Snowflake",
+                    "paragraphs": [
+                      "A Star Schema uses a simple structure with one fact table and multiple denormalized dimension tables.",
+                      "A Snowflake Schema uses normalized dimensions and may include sub-dimensions."
+                    ],
+                    "bullets": [
+                      "Star: simpler, faster joins, more redundancy.",
+                      "Snowflake: more complex, less redundancy, better suited to complex analytics and storage efficiency."
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "python",
+          "title": "Python for Data Analysis",
+          "icon": "P",
+          "accent": "#7c5ce7",
+          "description": "Python foundations, data handling and analysis workflows.",
+          "modules": []
+        },
+        {
+          "id": "power-bi",
+          "title": "Power BI",
+          "icon": "B",
+          "accent": "#d9a51f",
+          "description": "Data modeling, reports, dashboards and business intelligence.",
+          "modules": []
+        },
+        {
+          "id": "statistics",
+          "title": "Statistics",
+          "icon": "Σ",
+          "accent": "#2cbcc3",
+          "description": "Descriptive statistics and analytical foundations.",
+          "modules": []
+        }
+      ]
     }
   ]
 }

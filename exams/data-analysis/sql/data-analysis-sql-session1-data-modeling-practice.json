@@ -1,0 +1,1681 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-sql-session1-data-modeling-practice",
+    "title": "Session 1 — Relational Databases & Data Modeling Practice Exam",
+    "description": "A comprehensive MCQ practice exam based only on Session1.pptx, covering database fundamentals, data models, ER modeling, relationship mapping, normalization, and Star vs Snowflake schemas.",
+    "course": "Data Analysis",
+    "module": "SQL & Databases — Session 1",
+    "category": "Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-27",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": true,
+        "durationMinutes": 50
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "q001",
+      "question": "What is a database?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A temporary list of unstructured notes"
+        },
+        {
+          "id": "B",
+          "text": "An organized collection of data stored and accessed electronically"
+        },
+        {
+          "id": "C",
+          "text": "A programming language used only for web pages"
+        },
+        {
+          "id": "D",
+          "text": "A backup file that cannot be modified"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "وفقًا للمادة، الـ Database هي مجموعة منظمة من البيانات يتم تخزينها والوصول إليها إلكترونيًا، وتدعم تخزين البيانات والتعامل معها.",
+        "en": ""
+      },
+      "topic": "Database Fundamentals",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 4"
+      }
+    },
+    {
+      "id": "q002",
+      "question": "Which statement best describes the role of a DBMS?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It only formats reports"
+        },
+        {
+          "id": "B",
+          "text": "It provides efficient, reliable, convenient, and safe multi-user access to persistent data"
+        },
+        {
+          "id": "C",
+          "text": "It replaces all database tables with files"
+        },
+        {
+          "id": "D",
+          "text": "It prevents multiple users from accessing data"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة توضح أن الـ DBMS يوفّر تخزينًا ووصولًا متعدد المستخدمين بكفاءة وموثوقية وأمان للبيانات الدائمة.",
+        "en": ""
+      },
+      "topic": "DBMS",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 5"
+      }
+    },
+    {
+      "id": "q003",
+      "question": "Which of the following is listed as an advantage of using databases?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Increased data redundancy"
+        },
+        {
+          "id": "B",
+          "text": "Reduced data integrity"
+        },
+        {
+          "id": "C",
+          "text": "Improved data security"
+        },
+        {
+          "id": "D",
+          "text": "Higher data entry cost"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "من مزايا قواعد البيانات المذكورة في المادة: تحسين أمن البيانات وتقليل التكرار والأخطاء والتكاليف.",
+        "en": ""
+      },
+      "topic": "Database Fundamentals",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 6"
+      }
+    },
+    {
+      "id": "q004",
+      "question": "Which of the following is listed as a disadvantage of databases?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Complexity"
+        },
+        {
+          "id": "B",
+          "text": "Reduced redundancy"
+        },
+        {
+          "id": "C",
+          "text": "Improved consistency"
+        },
+        {
+          "id": "D",
+          "text": "Improved data access"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تذكر Complexity وCost وSecurity وCompatibility ضمن عيوب قواعد البيانات.",
+        "en": ""
+      },
+      "topic": "Database Fundamentals",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 7"
+      }
+    },
+    {
+      "id": "q005",
+      "question": "Which of the following appears in the course as an example of a DBMS/database system?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MySQL"
+        },
+        {
+          "id": "B",
+          "text": "Photoshop"
+        },
+        {
+          "id": "C",
+          "text": "PowerPoint"
+        },
+        {
+          "id": "D",
+          "text": "Figma"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تعرض أمثلة مثل Oracle Database وSybase وMySQL وIBM DB2.",
+        "en": ""
+      },
+      "topic": "DBMS",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 8"
+      }
+    },
+    {
+      "id": "q006",
+      "question": "What does a data model define in a database system?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the physical color of tables"
+        },
+        {
+          "id": "B",
+          "text": "The structure, relationships, and constraints of data"
+        },
+        {
+          "id": "C",
+          "text": "Only user passwords"
+        },
+        {
+          "id": "D",
+          "text": "Only SQL keywords"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Data Model يصف وينظم البيانات ويحدد structure وrelationships وconstraints ويوفر طريقة للوصول إلى البيانات والتعامل معها.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 10"
+      }
+    },
+    {
+      "id": "q007",
+      "question": "Which set contains the main components of a data model as presented in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Entities, attributes, relationships, and constraints"
+        },
+        {
+          "id": "B",
+          "text": "Servers, routers, browsers, and APIs"
+        },
+        {
+          "id": "C",
+          "text": "Queries, charts, themes, and users"
+        },
+        {
+          "id": "D",
+          "text": "Files, folders, slides, and reports"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تذكر أن المكونات الرئيسية للـ Data Model هي entities وattributes وrelationships وconstraints.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 11"
+      }
+    },
+    {
+      "id": "q008",
+      "question": "In which data model is data organized in a tree-like structure with a single parent and potentially multiple children?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Relational Model"
+        },
+        {
+          "id": "B",
+          "text": "Hierarchical Model"
+        },
+        {
+          "id": "C",
+          "text": "Document Model"
+        },
+        {
+          "id": "D",
+          "text": "Object-Oriented Model"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Hierarchical Model ينظم البيانات في شكل شجري؛ كل record له parent واحد ويمكن أن يكون له عدة children.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 12"
+      }
+    },
+    {
+      "id": "q009",
+      "question": "Which data model is described as representing many-to-many relationships among database constraints?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Network Model"
+        },
+        {
+          "id": "B",
+          "text": "Hierarchical Model"
+        },
+        {
+          "id": "C",
+          "text": "Document Model"
+        },
+        {
+          "id": "D",
+          "text": "Schema Instance Model"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تصف الـ Network Model بأنه يُستخدم لتمثيل many-to-many relationships.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 13"
+      }
+    },
+    {
+      "id": "q010",
+      "question": "In the Object-Oriented Model, data is represented as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only rows with no attributes"
+        },
+        {
+          "id": "B",
+          "text": "Objects with attributes and methods"
+        },
+        {
+          "id": "C",
+          "text": "Flat text files"
+        },
+        {
+          "id": "D",
+          "text": "Only key-value pairs"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة تشرح أن البيانات في Object-Oriented Model تُمثل كـ objects لها attributes وmethods تعمل على البيانات.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 14"
+      }
+    },
+    {
+      "id": "q011",
+      "question": "Which data model stores data in flexible semi-structured documents such as JSON or XML?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Document Model"
+        },
+        {
+          "id": "B",
+          "text": "Hierarchical Model"
+        },
+        {
+          "id": "C",
+          "text": "Relational Model only"
+        },
+        {
+          "id": "D",
+          "text": "Binary Relationship Model"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Document Model يخزن البيانات في مستندات flexible وsemi-structured مثل JSON وXML بدل الجداول الصارمة.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 15"
+      }
+    },
+    {
+      "id": "q012",
+      "question": "In the Relational Model, data is mainly organized into:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Inter-related two-dimensional tables"
+        },
+        {
+          "id": "B",
+          "text": "Only XML documents"
+        },
+        {
+          "id": "C",
+          "text": "Only tree nodes"
+        },
+        {
+          "id": "D",
+          "text": "Only graphical diagrams"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Relational Model ينظم البيانات في جداول ثنائية الأبعاد مترابطة تسمى relations، وتتكون من rows وcolumns.",
+        "en": ""
+      },
+      "topic": "Relational Model",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 16"
+      }
+    },
+    {
+      "id": "q013",
+      "question": "Which statement about the Relational Model is presented in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data is stored in tables"
+        },
+        {
+          "id": "B",
+          "text": "It does not allow data independence"
+        },
+        {
+          "id": "C",
+          "text": "It is rarely used"
+        },
+        {
+          "id": "D",
+          "text": "It stores only images"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تذكر أن الـ Relational Model من أكثر النماذج استخدامًا، يسمح بالـ data independence، وتُخزن البيانات فيه في tables.",
+        "en": ""
+      },
+      "topic": "Relational Model",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 17"
+      }
+    },
+    {
+      "id": "q014",
+      "question": "What is the main purpose of an ER diagram in database design?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To create SQL queries"
+        },
+        {
+          "id": "B",
+          "text": "To visually represent entities, attributes, and relationships"
+        },
+        {
+          "id": "C",
+          "text": "To manage data transactions"
+        },
+        {
+          "id": "D",
+          "text": "To back up the database"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة تذكر أن ER Model يمثل entities وrelationships بصورة diagrammatic، ويستخدم كأداة لتصميم قواعد البيانات العلائقية.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 18-20, 67-68"
+      }
+    },
+    {
+      "id": "q015",
+      "question": "Which ERD symbol is associated with an entity in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rectangle"
+        },
+        {
+          "id": "B",
+          "text": "Ellipse"
+        },
+        {
+          "id": "C",
+          "text": "Diamond"
+        },
+        {
+          "id": "D",
+          "text": "Dashed circle"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "في ERD حسب المادة: Entity = rectangle، Attribute = ellipse، Relationship = diamond.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 21"
+      }
+    },
+    {
+      "id": "q016",
+      "question": "Which ERD symbol is associated with a relationship?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rectangle"
+        },
+        {
+          "id": "B",
+          "text": "Diamond"
+        },
+        {
+          "id": "C",
+          "text": "Ellipse"
+        },
+        {
+          "id": "D",
+          "text": "Triangle"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة توضح أن العلاقات في ERD تُمثل بشكل diamond.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 21"
+      }
+    },
+    {
+      "id": "q017",
+      "question": "A weak entity is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "An entity that cannot exist without a strong entity"
+        },
+        {
+          "id": "B",
+          "text": "An entity that has no attributes"
+        },
+        {
+          "id": "C",
+          "text": "An entity with only derived attributes"
+        },
+        {
+          "id": "D",
+          "text": "An entity with multiple keys"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Weak Entity يعتمد في وجوده على Strong/Parent Entity ولا يمكنه الوجود بشكل مستقل.",
+        "en": ""
+      },
+      "topic": "Entities & Attributes",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 22, 32, 71-72"
+      }
+    },
+    {
+      "id": "q018",
+      "question": "Which of the following is an example of a composite attribute?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Phone Number"
+        },
+        {
+          "id": "B",
+          "text": "Full Name (First Name + Last Name)"
+        },
+        {
+          "id": "C",
+          "text": "Date of Birth"
+        },
+        {
+          "id": "D",
+          "text": "Employee ID"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة تعرض Full Name = First Name + Last Name كمثال على Composite Attribute.",
+        "en": ""
+      },
+      "topic": "Entities & Attributes",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 23, 69-70"
+      }
+    },
+    {
+      "id": "q019",
+      "question": "Which attribute type is illustrated by Age calculated from Date of Birth?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Derived attribute"
+        },
+        {
+          "id": "B",
+          "text": "Composite attribute"
+        },
+        {
+          "id": "C",
+          "text": "Multivalued attribute"
+        },
+        {
+          "id": "D",
+          "text": "Key attribute"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تذكر Age from DOB كمثال على Derived Attribute لأنه يتم اشتقاقه من قيمة أخرى.",
+        "en": ""
+      },
+      "topic": "Entities & Attributes",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 23"
+      }
+    },
+    {
+      "id": "q020",
+      "question": "Which attribute type is represented by multiple phone numbers for one entity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Simple"
+        },
+        {
+          "id": "B",
+          "text": "Derived"
+        },
+        {
+          "id": "C",
+          "text": "Multivalued"
+        },
+        {
+          "id": "D",
+          "text": "Composite key"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة تستخدم Phone Numbers كمثال على Multivalued Attribute لأن للكيان أكثر من قيمة لنفس الـattribute.",
+        "en": ""
+      },
+      "topic": "Entities & Attributes",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 23"
+      }
+    },
+    {
+      "id": "q021",
+      "question": "If a relationship involves three entities such as Supplier, Product, and Warehouse, it is called:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Unary"
+        },
+        {
+          "id": "B",
+          "text": "Binary"
+        },
+        {
+          "id": "C",
+          "text": "Ternary"
+        },
+        {
+          "id": "D",
+          "text": "Recursive"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "درجة العلاقة تعتمد على عدد الـentities المشاركة؛ ثلاثة entities تعني Ternary Relationship.",
+        "en": ""
+      },
+      "topic": "Relationships",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 24, 73-74"
+      }
+    },
+    {
+      "id": "q022",
+      "question": "Which example represents a unary (recursive) relationship?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Employee manages Employee"
+        },
+        {
+          "id": "B",
+          "text": "Student enrolls in Course"
+        },
+        {
+          "id": "C",
+          "text": "Supplier supplies Product to Warehouse"
+        },
+        {
+          "id": "D",
+          "text": "Customer buys Product from Supplier"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تعطي Employee manages Employee كمثال على Unary/Recursive Relationship لأن نفس الـentity يشارك في العلاقة.",
+        "en": ""
+      },
+      "topic": "Relationships",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 24"
+      }
+    },
+    {
+      "id": "q023",
+      "question": "What does cardinality ratio describe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The number of attributes in one entity"
+        },
+        {
+          "id": "B",
+          "text": "The number of instances of one entity related to another"
+        },
+        {
+          "id": "C",
+          "text": "The number of database users"
+        },
+        {
+          "id": "D",
+          "text": "The number of columns in a table only"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Cardinality Ratio يحدد عدد instances من entity المرتبطة بentity أخرى مثل 1:1 و1:N وM:N.",
+        "en": ""
+      },
+      "topic": "Relationships",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 25"
+      }
+    },
+    {
+      "id": "q024",
+      "question": "In a 1:N relationship, which statement is correct according to the course quiz?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One student can enroll in one course only"
+        },
+        {
+          "id": "B",
+          "text": "One course can have many students"
+        },
+        {
+          "id": "C",
+          "text": "Many students can have one teacher"
+        },
+        {
+          "id": "D",
+          "text": "Both B and C"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـquiz في المادة يحدد Both (b) and (c) كإجابة صحيحة لأن كلا المثالين يمكن أن يمثل 1:N بحسب جهة القراءة.",
+        "en": ""
+      },
+      "topic": "Relationships",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 75-76"
+      }
+    },
+    {
+      "id": "q025",
+      "question": "Which of the following is an example of an M:N relationship?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One person ↔ One passport"
+        },
+        {
+          "id": "B",
+          "text": "Teacher ↔ Students"
+        },
+        {
+          "id": "C",
+          "text": "Student ↔ Courses"
+        },
+        {
+          "id": "D",
+          "text": "Employee ↔ Department"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة تحدد Student ↔ Courses كمثال على Many-to-Many Relationship.",
+        "en": ""
+      },
+      "topic": "Relationships",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 77-78"
+      }
+    },
+    {
+      "id": "q026",
+      "question": "If every employee must work in a department, the participation of Employee is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Partial Participation"
+        },
+        {
+          "id": "B",
+          "text": "Total Participation"
+        },
+        {
+          "id": "C",
+          "text": "Weak Participation"
+        },
+        {
+          "id": "D",
+          "text": "No Participation"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Total Participation تعني أن كل instance من الـentity يجب أن يشارك في العلاقة، مثل كل Employee يجب أن يعمل في Department.",
+        "en": ""
+      },
+      "topic": "Relationships",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 26, 79-80"
+      }
+    },
+    {
+      "id": "q027",
+      "question": "How is total participation represented in an ERD according to the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Single line"
+        },
+        {
+          "id": "B",
+          "text": "Double line"
+        },
+        {
+          "id": "C",
+          "text": "Dashed diamond"
+        },
+        {
+          "id": "D",
+          "text": "Double ellipse"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة تذكر أن Double line = Total Participation، بينما Single line = Partial Participation.",
+        "en": ""
+      },
+      "topic": "Relationships",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 26"
+      }
+    },
+    {
+      "id": "q028",
+      "question": "When mapping an ER diagram to relational tables, entities become:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tables"
+        },
+        {
+          "id": "B",
+          "text": "Indexes only"
+        },
+        {
+          "id": "C",
+          "text": "Queries"
+        },
+        {
+          "id": "D",
+          "text": "Views only"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تنص على أن Entities become tables وAttributes تتحول إلى columns.",
+        "en": ""
+      },
+      "topic": "ER Mapping",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 28"
+      }
+    },
+    {
+      "id": "q029",
+      "question": "When mapping a strong entity, what should be done with a composite attribute such as Address?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remove it completely"
+        },
+        {
+          "id": "B",
+          "text": "Decompose it into atomic attributes"
+        },
+        {
+          "id": "C",
+          "text": "Turn it into a relationship"
+        },
+        {
+          "id": "D",
+          "text": "Store it only as an image"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة تطلب تفكيك Composite Attributes إلى atomic attributes، مثل Address إلى HouseNo وStreet وTown.",
+        "en": ""
+      },
+      "topic": "ER Mapping",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 30"
+      }
+    },
+    {
+      "id": "q030",
+      "question": "How should a multivalued attribute be mapped for a strong entity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Keep all values in one atomic column"
+        },
+        {
+          "id": "B",
+          "text": "Create a separate relation containing the strong entity primary key and the multivalued attribute"
+        },
+        {
+          "id": "C",
+          "text": "Delete the attribute"
+        },
+        {
+          "id": "D",
+          "text": "Convert it to a weak entity automatically"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة تشرح إنشاء relation منفصلة للـmultivalued attribute، تحتوي PK للـstrong entity والـattribute نفسه، مثل Sur_Skills(EmpNo, Skill).",
+        "en": ""
+      },
+      "topic": "ER Mapping",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 30-31"
+      }
+    },
+    {
+      "id": "q031",
+      "question": "For a weak entity, which key from the parent should be included in the weak entity relation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The parent entity primary key"
+        },
+        {
+          "id": "B",
+          "text": "Only a random surrogate value"
+        },
+        {
+          "id": "C",
+          "text": "No key from the parent"
+        },
+        {
+          "id": "D",
+          "text": "Only the parent's non-key attributes"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "في مثال Dependent، يتم تضمين EmpNo وهو Primary Key للـparent Employee داخل relation الخاصة بالـweak entity.",
+        "en": ""
+      },
+      "topic": "ER Mapping",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 32-33"
+      }
+    },
+    {
+      "id": "q032",
+      "question": "How is an M:N binary relationship typically mapped?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By embedding all keys in one text column"
+        },
+        {
+          "id": "B",
+          "text": "By creating a new relation containing the primary keys of both entities"
+        },
+        {
+          "id": "C",
+          "text": "By deleting one of the entities"
+        },
+        {
+          "id": "D",
+          "text": "By adding no foreign keys"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "في M:N لا يمكن وضع مفتاح أحد الطرفين مباشرة في الآخر؛ الحل في المادة هو relation جديدة تحتوي PK من كلا الطرفين، مثل ThCourses(EmpNo, CrId).",
+        "en": ""
+      },
+      "topic": "ER Mapping",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 34-35"
+      }
+    },
+    {
+      "id": "q033",
+      "question": "In a 1:N relationship, where should the foreign key be placed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "On the 1 side only"
+        },
+        {
+          "id": "B",
+          "text": "On the N side, using the primary key of the 1 side"
+        },
+        {
+          "id": "C",
+          "text": "In a completely unrelated table"
+        },
+        {
+          "id": "D",
+          "text": "It should never be used"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة توضح أن Primary Key من جهة الـ1 يوضع كـForeign Key في جهة الـN.",
+        "en": ""
+      },
+      "topic": "ER Mapping",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 36-37"
+      }
+    },
+    {
+      "id": "q034",
+      "question": "For a 1:1 relationship with total participation on both sides, which implementation is allowed by the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Merge both entities into one relation"
+        },
+        {
+          "id": "B",
+          "text": "Always create an M:N bridge table"
+        },
+        {
+          "id": "C",
+          "text": "Remove both primary keys"
+        },
+        {
+          "id": "D",
+          "text": "Convert the relationship to ternary"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "في حالة 1:1 مع Total Participation على الجانبين، المادة تسمح بدمج الكيانين في relation واحدة أو وضع PK لأحدهما كـFK في الآخر.",
+        "en": ""
+      },
+      "topic": "ER Mapping",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 38-39"
+      }
+    },
+    {
+      "id": "q035",
+      "question": "In the unary 1:1 example Person marries Person, what is PartnerNID?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A foreign key referencing another Person NID"
+        },
+        {
+          "id": "B",
+          "text": "A multivalued attribute"
+        },
+        {
+          "id": "C",
+          "text": "A derived attribute"
+        },
+        {
+          "id": "D",
+          "text": "A separate database instance"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تشرح أن PartnerNID هو Foreign Key يشير إلى NID للشريك داخل نفس entity Person.",
+        "en": ""
+      },
+      "topic": "Unary Relationships",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 42"
+      }
+    },
+    {
+      "id": "q036",
+      "question": "In the unary 1:N employee supervision example, SuperEid stores:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The employee's salary"
+        },
+        {
+          "id": "B",
+          "text": "The Eid of the supervisor"
+        },
+        {
+          "id": "C",
+          "text": "The department name"
+        },
+        {
+          "id": "D",
+          "text": "The number of subordinates only"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "في المثال Employee(Eid, EName, Gender, SuperEid)، فإن SuperEid هو Eid الخاص بالـsupervisor وهو أيضًا Employee.",
+        "en": ""
+      },
+      "topic": "Unary Relationships",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 43"
+      }
+    },
+    {
+      "id": "q037",
+      "question": "In the unary M:N medicine example, which relation is created to record medicine combinations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ingredients(MainDrug, CompDrug)"
+        },
+        {
+          "id": "B",
+          "text": "Department(Eid, Name)"
+        },
+        {
+          "id": "C",
+          "text": "Course(CrId, TeacherNum)"
+        },
+        {
+          "id": "D",
+          "text": "Student(SID, Grade)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تستخدم Ingredients(MainDrug, CompDrug) لتمثيل علاقة M:N الذاتية بين الأدوية، ويمكن إضافة Dose إذا لزم.",
+        "en": ""
+      },
+      "topic": "Unary Relationships",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 44"
+      }
+    },
+    {
+      "id": "q038",
+      "question": "For the complex surgery relationship, why is a separate OperationData relation created?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To store the surgery date together with surgeon, patient, and surgery identifiers"
+        },
+        {
+          "id": "B",
+          "text": "To remove all primary keys"
+        },
+        {
+          "id": "C",
+          "text": "To convert the database into a document model"
+        },
+        {
+          "id": "D",
+          "text": "To avoid storing any relationship attributes"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تحتاج تسجيل SurDate مع surgeon وpatient وsurgery، لذلك تنشئ OperationData(EmpId, PtId, SurCode, SurDate).",
+        "en": ""
+      },
+      "topic": "Complex Relationships",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 45"
+      }
+    },
+    {
+      "id": "q039",
+      "question": "Which order best matches the data modeling process shown in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Conceptual → Logical → Physical"
+        },
+        {
+          "id": "B",
+          "text": "Physical → Conceptual → Logical"
+        },
+        {
+          "id": "C",
+          "text": "Logical → Physical → Conceptual"
+        },
+        {
+          "id": "D",
+          "text": "Physical → Logical → Conceptual"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الرسم في المادة يعرض الانتقال من Conceptual Data Model إلى Logical Data Model ثم Physical Data Model.",
+        "en": ""
+      },
+      "topic": "Data Modeling Process",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 46-47"
+      }
+    },
+    {
+      "id": "q040",
+      "question": "What is a database schema compared with a database instance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The schema is the blueprint, while the instance is a snapshot of data at a moment in time"
+        },
+        {
+          "id": "B",
+          "text": "The schema contains only current data values"
+        },
+        {
+          "id": "C",
+          "text": "The instance never changes over time"
+        },
+        {
+          "id": "D",
+          "text": "There is no difference between them"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تصف Schema بأنه blueprint يحدد البنية والعلاقات والقيود، بينما Database Instance هو snapshot للبيانات في لحظة معينة ويتغير مع الوقت.",
+        "en": ""
+      },
+      "topic": "Schema vs Data",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 48"
+      }
+    },
+    {
+      "id": "q041",
+      "question": "What is normalization?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A process that organizes tables and attributes to reduce redundancy and dependency"
+        },
+        {
+          "id": "B",
+          "text": "A process that adds repeated data intentionally"
+        },
+        {
+          "id": "C",
+          "text": "A method for drawing only ER diagrams"
+        },
+        {
+          "id": "D",
+          "text": "A way to disable primary keys"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Normalization في المادة هو عملية في تصميم قواعد البيانات لتنظيم الجداول والـattributes بهدف تقليل redundancy وdependency.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 49-51"
+      }
+    },
+    {
+      "id": "q042",
+      "question": "What does functional dependency mean?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One attribute or group of attributes determines the value of another attribute"
+        },
+        {
+          "id": "B",
+          "text": "Every attribute must have random values"
+        },
+        {
+          "id": "C",
+          "text": "A foreign key determines the database server"
+        },
+        {
+          "id": "D",
+          "text": "A table must have exactly two columns"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Functional Dependency تعني أن قيمة attribute أو مجموعة attributes تحدد قيمة attribute أخرى.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 51"
+      }
+    },
+    {
+      "id": "q043",
+      "question": "A non-key attribute that depends on only part of a composite primary key demonstrates:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Full functional dependency"
+        },
+        {
+          "id": "B",
+          "text": "Partial functional dependency"
+        },
+        {
+          "id": "C",
+          "text": "Transitive dependency"
+        },
+        {
+          "id": "D",
+          "text": "No dependency"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Partial Functional Dependency تحدث عندما تعتمد قيمة attribute على جزء فقط من Composite Primary Key.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 52"
+      }
+    },
+    {
+      "id": "q044",
+      "question": "A transitive functional dependency occurs when:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A non-key attribute is determined by another non-key attribute that is itself determined by the primary key"
+        },
+        {
+          "id": "B",
+          "text": "Every attribute depends directly on the full composite key"
+        },
+        {
+          "id": "C",
+          "text": "There are no keys in the table"
+        },
+        {
+          "id": "D",
+          "text": "A table has only one row"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تعرف Transitive Functional Dependency بأن attribute يعتمد على non-key attribute آخر، وهذا الـnon-key يعتمد بدوره على الـPrimary Key.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "difficulty": "Hard",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 52"
+      }
+    },
+    {
+      "id": "q045",
+      "question": "What is the key requirement for a relation to be in 2NF?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is in 1NF and every non-key attribute is fully functionally dependent on the primary key"
+        },
+        {
+          "id": "B",
+          "text": "It contains multivalued attributes"
+        },
+        {
+          "id": "C",
+          "text": "It contains transitive dependencies"
+        },
+        {
+          "id": "D",
+          "text": "It has no primary key"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "2NF تتطلب أن يكون الجدول أولًا في 1NF، وأن يعتمد كل non-key attribute اعتمادًا وظيفيًا كاملًا على الـPrimary Key، أي إزالة partial dependencies.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 56-57"
+      }
+    },
+    {
+      "id": "q046",
+      "question": "Which dependency should be removed to reach 3NF according to the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transitive dependencies"
+        },
+        {
+          "id": "B",
+          "text": "All primary key dependencies"
+        },
+        {
+          "id": "C",
+          "text": "All foreign keys"
+        },
+        {
+          "id": "D",
+          "text": "All full functional dependencies"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تذكر أن 3NF = 2NF plus no transitive dependencies.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 58-59"
+      }
+    },
+    {
+      "id": "q047",
+      "question": "Which statement best describes a Star Schema?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One fact table connected to multiple denormalized dimension tables"
+        },
+        {
+          "id": "B",
+          "text": "Only normalized dimension tables with many sub-dimensions"
+        },
+        {
+          "id": "C",
+          "text": "A schema with no fact table"
+        },
+        {
+          "id": "D",
+          "text": "A schema used only for XML documents"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Star Schema في المادة له fact table واحدة متصلة بعدة dimension tables، والـdimensions تكون denormalized لسرعة الاستعلامات.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 60"
+      }
+    },
+    {
+      "id": "q048",
+      "question": "Which statement best describes a Snowflake Schema?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dimensions are normalized and may have sub-dimensions"
+        },
+        {
+          "id": "B",
+          "text": "All dimensions are denormalized and flat"
+        },
+        {
+          "id": "C",
+          "text": "It always uses fewer joins than a Star Schema"
+        },
+        {
+          "id": "D",
+          "text": "It contains no dimension tables"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Snowflake Schema يستخدم normalized dimensions وقد تحتوي الـdimensions على sub-dimensions، وهو أكثر تعقيدًا وأقل redundancy.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "difficulty": "Easy",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 61"
+      }
+    },
+    {
+      "id": "q049",
+      "question": "Compared with a Snowflake Schema, a Star Schema generally has:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Faster joins and more redundancy"
+        },
+        {
+          "id": "B",
+          "text": "Slower joins and less redundancy"
+        },
+        {
+          "id": "C",
+          "text": "More complex maintenance and less redundancy"
+        },
+        {
+          "id": "D",
+          "text": "No fact table"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "جدول المقارنة في المادة يذكر أن Star Schema أبسط، joins أسرع، لكنه أكثر redundancy من Snowflake.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slide 62"
+      }
+    },
+    {
+      "id": "q050",
+      "question": "Which schema is presented as better suited for complex analytics and large datasets?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Snowflake Schema"
+        },
+        {
+          "id": "B",
+          "text": "Star Schema only"
+        },
+        {
+          "id": "C",
+          "text": "Hierarchical Model"
+        },
+        {
+          "id": "D",
+          "text": "Document Model"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تصف Snowflake Schema بأنه أفضل للـcomplex analytics وlarge datasets، مع normalized dimensions وكفاءة أعلى في التخزين.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "difficulty": "Medium",
+      "source": {
+        "file": "Session1.pptx",
+        "reference": "Slides 61-62"
+      }
+    }
+  ]
+}

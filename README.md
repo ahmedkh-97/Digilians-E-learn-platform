@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.5
+# Digilians E-Learn Platform V0.5.1
 
 A modern, free-first learning and exam platform prototype.
 
@@ -88,3 +88,22 @@ Do not ever replace it with a Supabase Secret key or service_role key.
 - Added downloadable `data/exam-template.json`.
 - Added `docs/EXAM-JSON-SCHEMA.md`.
 - Validation runs entirely in the browser; the exam file is not uploaded anywhere.
+
+
+## V0.5.1 — First Real Exam + Data Analysis Track Structure
+- Added the first real course exam:
+  - Data Analysis
+  - SQL & Databases
+  - Session 1 — Relational Databases & Data Modeling
+- Added 50 validated MCQs from the real Session1.pptx material.
+- Added a source-based compact Study page for Session 1.
+- Added Data Analysis sub-tracks:
+  - Excel
+  - SQL & Databases
+  - Python for Data Analysis
+  - Power BI
+  - Statistics
+- Learn navigation now supports Course → Track → Module.
+- Real exam path:
+  `exams/data-analysis/sql/data-analysis-sql-session1-data-modeling-practice.json`
+- Supabase leaderboard integration remains active.

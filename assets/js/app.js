@@ -13,6 +13,7 @@ const state={
   registry:[],
   learning:{courses:[]},
   selectedCourse:null,
+  selectedTrack:null,
   selectedModule:null,
   currentExam:null,
   currentRegistryItem:null,
@@ -209,37 +210,141 @@ function renderCourses(targetId,compact=false){
 
 function openCourse(course){
   state.selectedCourse=course;
+  state.selectedTrack=null;
+  state.selectedModule=null;
   setLastCourse(course.id);
   routeTo("learnView");
-  renderModulePanel(course);
+
+  if(Array.isArray(course.tracks) && course.tracks.length){
+    renderTrackPanel(course);
+  }else{
+    renderModulePanel(course,null);
+  }
 }
 
 function renderLearn(){
   renderCourses("learnCourseGrid");
-  if(state.selectedCourse) renderModulePanel(state.selectedCourse);
+
+  if(state.selectedCourse){
+    if(Array.isArray(state.selectedCourse.tracks) && state.selectedCourse.tracks.length){
+      renderTrackPanel(state.selectedCourse);
+    }else{
+      renderModulePanel(state.selectedCourse,null);
+    }
+  }
 }
 
-function renderModulePanel(course){
-  const panel=$("modulePanel");
-  if(!course.modules.length){
-    panel.classList.remove("hidden");
-    $("moduleBreadcrumb").textContent=`Learn / ${course.title}`;
-    $("modulePanelTitle").textContent=`${course.title} modules are coming next`;
-    $("modulePanelDescription").textContent="The course card is already part of the final UI. Add your material later and modules will populate here.";
-    panel.querySelector(".learning-flow").classList.add("hidden");
-    panel.scrollIntoView({behavior:"smooth",block:"start"});
-    return;
-  }
-  panel.querySelector(".learning-flow").classList.remove("hidden");
-  const module=course.modules[0];
-  state.selectedModule=module;
-  $("moduleBreadcrumb").textContent=`Learn / ${course.title}`;
-  $("modulePanelTitle").textContent=module.title;
-  $("modulePanelDescription").textContent=module.description || "";
+function renderTrackPanel(course){
+  const panel=$("trackPanel");
+  const modulePanel=$("modulePanel");
+  modulePanel.classList.add("hidden");
+
+  $("trackBreadcrumb").textContent=`Learn / ${course.title}`;
+  $("trackPanelTitle").textContent=`${course.title} Tracks`;
+  $("trackPanelDescription").textContent="Choose a track, then open one of its modules.";
+
+  const grid=$("trackGrid");
+  grid.innerHTML="";
+
+  course.tracks.forEach(track=>{
+    const card=document.createElement("button");
+    card.className="track-card";
+    card.style.setProperty("--track-accent",track.accent || "var(--primary)");
+    card.innerHTML=`
+      <div class="track-icon">${track.icon || track.title[0]}</div>
+      <h4>${track.title}</h4>
+      <p>${track.description || ""}</p>
+      <div class="track-footer">
+        <span>${track.modules?.length ? `${track.modules.length} module${track.modules.length===1?"":"s"}` : "Coming soon"}</span>
+        <span class="track-arrow">→</span>
+      </div>
+    `;
+    card.addEventListener("click",()=>openTrack(course,track));
+    grid.appendChild(card);
+  });
+
   panel.classList.remove("hidden");
   panel.scrollIntoView({behavior:"smooth",block:"start"});
 }
-$("closeModulePanel").addEventListener("click",()=>$("modulePanel").classList.add("hidden"));
+
+function openTrack(course,track){
+  state.selectedCourse=course;
+  state.selectedTrack=track;
+  state.selectedModule=null;
+  renderModulePanel(course,track);
+}
+
+function renderModulePanel(course,track=null){
+  const trackPanel=$("trackPanel");
+  const panel=$("modulePanel");
+  const modules=track ? (track.modules || []) : (course.modules || []);
+
+  if(track){
+    $("moduleBreadcrumb").textContent=`Learn / ${course.title} / ${track.title}`;
+  }else{
+    $("moduleBreadcrumb").textContent=`Learn / ${course.title}`;
+  }
+
+  if(!modules.length){
+    panel.classList.remove("hidden");
+    $("modulePanelTitle").textContent=`${track?.title || course.title} modules are coming next`;
+    $("modulePanelDescription").textContent="This track is already part of the platform structure. New modules will appear here as soon as you add their material.";
+    panel.querySelector(".learning-flow").classList.add("hidden");
+
+    const oldList=panel.querySelector(".module-list");
+    if(oldList)oldList.remove();
+
+    panel.scrollIntoView({behavior:"smooth",block:"start"});
+    return;
+  }
+
+  panel.querySelector(".learning-flow").classList.remove("hidden");
+
+  let list=panel.querySelector(".module-list");
+  if(!list){
+    list=document.createElement("div");
+    list.className="module-list";
+    panel.querySelector(".module-panel-head").insertAdjacentElement("afterend",list);
+  }
+
+  list.innerHTML="";
+  modules.forEach((module,index)=>{
+    const row=document.createElement("button");
+    row.className="module-row";
+    row.innerHTML=`
+      <div class="course-icon">${String(index+1).padStart(2,"0")}</div>
+      <div class="module-row-copy">
+        <strong>${module.title}</strong>
+        <small>${module.description || ""}</small>
+      </div>
+      <span class="module-row-arrow">→</span>
+    `;
+    row.addEventListener("click",()=>{
+      state.selectedModule=module;
+      $("modulePanelTitle").textContent=module.title;
+      $("modulePanelDescription").textContent=module.description || "";
+      panel.querySelector(".learning-flow").classList.remove("hidden");
+      panel.scrollIntoView({behavior:"smooth",block:"start"});
+    });
+    list.appendChild(row);
+  });
+
+  state.selectedModule=modules[0];
+  $("modulePanelTitle").textContent=modules[0].title;
+  $("modulePanelDescription").textContent=modules[0].description || "";
+
+  panel.classList.remove("hidden");
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+$("closeTrackPanel").addEventListener("click",()=>{
+  $("trackPanel").classList.add("hidden");
+  $("modulePanel").classList.add("hidden");
+});
+$("closeModulePanel").addEventListener("click",()=>{
+  $("modulePanel").classList.add("hidden");
+  if(state.selectedCourse?.tracks?.length) $("trackPanel").classList.remove("hidden");
+});
 
 $("openStudyBtn").addEventListener("click",()=>openStudy());
 $("openPracticeBtn").addEventListener("click",()=>openModuleExam("instant"));
