@@ -1,176 +1,415 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#eef4ff" />
+  <meta name="description" content="Digilians E-Learn Platform — Study, practice, compete and improve." />
   <title>Digilians E-Learn Platform</title>
+  <link rel="icon" href="assets/images/digilians-logo.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
   <div class="app-shell">
     <header class="topbar">
-      <a class="brand" href="#" id="brandHome">
+      <a href="#" class="brand" id="brandHome" aria-label="Digilians E-Learn home">
         <span class="brand-logo-wrap">
-          <img class="brand-logo" src="assets/images/digilians-logo.jpg" alt="Digilians logo" />
+          <img src="assets/images/digilians-logo.jpg" class="brand-logo" alt="Digilians logo">
         </span>
-        <span>
-          <strong>Digilians E-Learn Platform</strong>
+        <span class="brand-copy">
+          <strong>Digilians E-Learn</strong>
           <small>Study • Practice • Compete</small>
         </span>
       </a>
 
+      <nav class="desktop-nav" aria-label="Primary">
+        <button data-route="dashboardView" class="nav-link active">Home</button>
+        <button data-route="learnView" class="nav-link">Learn</button>
+        <button data-route="examsView" class="nav-link">Exams</button>
+        <button data-route="rankingView" class="nav-link">Ranking</button>
+      </nav>
+
       <div class="top-actions">
-        <span class="user-chip" id="userChip">Guest</span>
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">◐</button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle light and dark mode">
+          <span class="theme-sun">☀</span><span class="theme-moon">☾</span>
+        </button>
+        <button class="profile-button" id="profileButton" aria-label="Open profile">
+          <span class="avatar" id="profileAvatar">G</span>
+          <span class="profile-name" id="profileName">Guest</span>
+        </button>
       </div>
     </header>
 
     <main class="page">
-      <section id="welcomeView" class="view active">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <div class="hero-branding">
-              <img class="hero-logo" src="assets/images/digilians-logo.jpg" alt="Digilians logo" />
-              <div class="hero-branding-text">
-                <span class="eyebrow">DIGILIANS</span>
-                <strong>Digilians E-Learn Platform</strong>
-              </div>
+      <!-- LANDING -->
+      <section id="welcomeView" class="view active landing-view">
+        <div class="landing-grid">
+          <div class="landing-copy">
+            <div class="brand-kicker reveal">
+              <img src="assets/images/digilians-logo.jpg" alt="" />
+              <span>Digilians learning experience</span>
             </div>
-            <span class="eyebrow">FREE STUDY PLATFORM</span>
-            <h1>Revise smarter.<br>Test yourself.<br>Beat your best score.</h1>
-            <p>
-              A lightweight exam platform for your course group.
-              Enter your name and start solving.
+
+            <span class="eyebrow reveal delay-1">LEARN • PRACTICE • COMPETE • IMPROVE</span>
+            <h1 class="reveal delay-2">
+              Your course.<br>
+              Your progress.<br>
+              <span class="gradient-text">Your next level.</span>
+            </h1>
+
+            <p class="hero-subtitle reveal delay-3">
+              One modern place to revise course material, practice with instant feedback,
+              take timed exams and improve your personal best.
             </p>
 
-            <div class="name-card">
-              <label for="studentName">Your name</label>
-              <div class="name-row">
-                <input id="studentName" type="text" placeholder="e.g. Ahmed Khaled" maxlength="40" />
-                <button class="primary-btn" id="startBtn">Start Learning</button>
+            <div class="entry-card reveal delay-4" id="newUserEntry">
+              <label for="studentName">What should we call you?</label>
+              <div class="entry-row">
+                <div class="input-shell">
+                  <span class="input-icon">✦</span>
+                  <input id="studentName" type="text" maxlength="40" autocomplete="name" placeholder="Enter your name" />
+                </div>
+                <button class="primary-btn hero-cta" id="startBtn">
+                  Enter Platform <span>→</span>
+                </button>
               </div>
               <p class="field-note" id="nameError"></p>
             </div>
+
+            <div class="return-card hidden reveal delay-4" id="returningUserEntry">
+              <div>
+                <small>WELCOME BACK</small>
+                <strong id="returningUserName">Ahmed</strong>
+                <span>Your name and progress are saved on this device.</span>
+              </div>
+              <button class="primary-btn hero-cta" id="continueUserBtn">Continue <span>→</span></button>
+            </div>
+
+            <div class="trust-row reveal delay-5">
+              <span>✓ No login required</span>
+              <span>✓ Progress saved locally</span>
+              <span>✓ Mobile friendly</span>
+            </div>
           </div>
 
-          <div class="hero-panel">
-            <div class="metric-card">
-              <span>Exam modes</span>
-              <strong>2</strong>
-              <small>Instant Feedback + Exam Mode</small>
+          <div class="product-preview reveal delay-3" aria-label="Platform preview">
+            <div class="preview-orbit orbit-a"></div>
+            <div class="preview-orbit orbit-b"></div>
+
+            <div class="preview-window float-card">
+              <div class="preview-head">
+                <div class="preview-brand-mini">
+                  <img src="assets/images/digilians-logo.jpg" alt="">
+                  <div><strong>Digilians</strong><small>E-Learn</small></div>
+                </div>
+                <div class="preview-avatar">AK</div>
+              </div>
+
+              <div class="preview-welcome">
+                <small>WELCOME BACK</small>
+                <h3>Ready for the next win?</h3>
+              </div>
+
+              <div class="preview-command">
+                <div>
+                  <span class="preview-pill">CONTINUE</span>
+                  <h4>English • Module 1</h4>
+                  <p>Practice session</p>
+                </div>
+                <div class="preview-progress-ring"><strong>72%</strong></div>
+              </div>
+
+              <div class="preview-stat-row">
+                <div><small>BEST SCORE</small><strong>94%</strong></div>
+                <div><small>COMPLETED</small><strong>4</strong></div>
+                <div><small>BADGES</small><strong>3</strong></div>
+              </div>
+
+              <div class="preview-exam-card">
+                <div class="mini-icon">A</div>
+                <div>
+                  <strong>Practice Exam</strong>
+                  <small>30 Questions • Instant feedback</small>
+                </div>
+                <span>→</span>
+              </div>
             </div>
-            <div class="metric-card">
-              <span>Progress</span>
-              <strong>Saved</strong>
-              <small>Using your browser storage</small>
+
+            <div class="floating-badge badge-one">
+              <span>🏆</span>
+              <div><small>NEW BADGE</small><strong>90% Club</strong></div>
             </div>
-            <div class="metric-card">
-              <span>Retakes</span>
-              <strong>∞</strong>
-              <small>Keep improving your score</small>
+            <div class="floating-badge badge-two">
+              <span>↗</span>
+              <div><small>IMPROVED</small><strong>+8%</strong></div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- HOME -->
       <section id="dashboardView" class="view">
-        <div class="dashboard-head">
+        <div class="page-heading">
           <div>
-            <span class="eyebrow">YOUR DASHBOARD</span>
-            <h2 id="welcomeTitle">Welcome</h2>
-            <p>Choose an exam and keep pushing your best score.</p>
+            <span class="eyebrow">HOME</span>
+            <h2 id="welcomeTitle">Welcome back</h2>
+            <p>Your next step is always one click away.</p>
           </div>
-          <button class="secondary-btn" id="changeNameBtn">Change name</button>
+          <button class="ghost-btn desktop-only" data-route="examsView">Browse all exams →</button>
         </div>
+
+        <section id="continueCard" class="command-center">
+          <div class="command-copy">
+            <span class="command-label"><span class="pulse-dot"></span> CONTINUE WHERE YOU LEFT OFF</span>
+            <h3 id="continueTitle">Start your first exam</h3>
+            <p id="continueSubtitle">Choose a course and begin building your progress.</p>
+            <button class="primary-btn" id="continueAction">Explore Exams <span>→</span></button>
+          </div>
+          <div class="command-visual">
+            <div class="big-progress" id="continueProgress">
+              <strong id="continuePercent">0%</strong>
+              <span>progress</span>
+            </div>
+          </div>
+        </section>
 
         <div class="stats-grid">
           <article class="stat-card">
-            <span>Available Exams</span>
-            <strong id="examCount">0</strong>
+            <div class="stat-icon">✓</div>
+            <div><span>Completed</span><strong id="completedCount">0</strong><small>unique exams</small></div>
           </article>
           <article class="stat-card">
-            <span>Completed</span>
-            <strong id="completedCount">0</strong>
+            <div class="stat-icon">↗</div>
+            <div><span>Best Score</span><strong id="bestScore">—</strong><small>personal best</small></div>
           </article>
           <article class="stat-card">
-            <span>Best Score</span>
-            <strong id="bestScore">—</strong>
+            <div class="stat-icon">◆</div>
+            <div><span>Achievements</span><strong id="achievementCount">0</strong><small>badges unlocked</small></div>
           </article>
+          <article class="stat-card">
+            <div class="stat-icon">◎</div>
+            <div><span>Attempts</span><strong id="attemptCount">0</strong><small>total sessions</small></div>
+          </article>
+        </div>
+
+        <section class="section-block">
+          <div class="section-title-row">
+            <div><span class="eyebrow">LEARN</span><h3>Your courses</h3></div>
+            <button class="text-link" data-route="learnView">View learning path →</button>
+          </div>
+          <div id="homeCourseGrid" class="course-grid"></div>
+        </section>
+
+        <section class="two-column-home">
+          <div class="section-block no-margin">
+            <div class="section-title-row">
+              <div><span class="eyebrow">LATEST</span><h3>Ready to practice</h3></div>
+              <button class="text-link" data-route="examsView">All exams →</button>
+            </div>
+            <div id="homeExamGrid" class="compact-exam-list"></div>
+          </div>
+
+          <div class="section-block achievement-panel no-margin">
+            <div class="section-title-row">
+              <div><span class="eyebrow">MOMENTUM</span><h3>Achievements</h3></div>
+              <button class="text-link" id="openProfileAchievements">View all →</button>
+            </div>
+            <div id="homeAchievements" class="mini-achievements"></div>
+          </div>
+        </section>
+      </section>
+
+      <!-- LEARN -->
+      <section id="learnView" class="view">
+        <div class="page-heading">
+          <div>
+            <span class="eyebrow">LEARN</span>
+            <h2>Choose your learning path</h2>
+            <p>Study first, practice what you learned, then test yourself.</p>
+          </div>
+        </div>
+
+        <div id="learnCourseGrid" class="course-grid large"></div>
+
+        <section id="modulePanel" class="module-panel hidden">
+          <div class="breadcrumb" id="moduleBreadcrumb">Learn / English</div>
+          <div class="module-panel-head">
+            <div>
+              <span class="eyebrow">MODULE</span>
+              <h3 id="modulePanelTitle">Module 1</h3>
+              <p id="modulePanelDescription"></p>
+            </div>
+            <button class="ghost-btn" id="closeModulePanel">Close</button>
+          </div>
+
+          <div class="learning-flow">
+            <article class="flow-card">
+              <span class="flow-number">01</span>
+              <div class="flow-icon">▤</div>
+              <span class="pill">STUDY</span>
+              <h4>Understand the material</h4>
+              <p>Read clear sections, key points, examples and visual notes.</p>
+              <button class="secondary-btn wide" id="openStudyBtn">Start Study <span>→</span></button>
+            </article>
+            <article class="flow-card">
+              <span class="flow-number">02</span>
+              <div class="flow-icon">✦</div>
+              <span class="pill">PRACTICE</span>
+              <h4>Learn from every answer</h4>
+              <p>Practice questions with immediate feedback and explanations.</p>
+              <button class="secondary-btn wide" id="openPracticeBtn">Start Practice <span>→</span></button>
+            </article>
+            <article class="flow-card">
+              <span class="flow-number">03</span>
+              <div class="flow-icon">◉</div>
+              <span class="pill">EXAM</span>
+              <h4>Test your readiness</h4>
+              <p>Take the exam in your preferred feedback mode and track your best.</p>
+              <button class="primary-btn wide" id="openModuleExamBtn">Open Exam <span>→</span></button>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <!-- STUDY -->
+      <section id="studyView" class="view">
+        <div class="context-bar">
+          <button class="back-btn" id="studyBackBtn">← Module</button>
+          <div class="breadcrumb" id="studyBreadcrumb">English / Module 1 / Study</div>
+          <button class="ghost-btn desktop-only" id="studyToPracticeTop">Practice →</button>
+        </div>
+
+        <div class="study-layout">
+          <aside class="study-toc">
+            <span class="eyebrow">ON THIS PAGE</span>
+            <div id="studyTocList"></div>
+          </aside>
+          <article class="study-content">
+            <div class="study-hero">
+              <span class="pill">STUDY MODE</span>
+              <h2 id="studyTitle">Study Module</h2>
+              <p id="studyDescription"></p>
+            </div>
+            <div id="studySections"></div>
+
+            <div class="next-step-card">
+              <div>
+                <span class="eyebrow">NEXT STEP</span>
+                <h3>Ready to practice?</h3>
+                <p>Use instant feedback to strengthen what you just reviewed.</p>
+              </div>
+              <button class="primary-btn" id="studyToPracticeBtn">Start Practice <span>→</span></button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EXAMS -->
+      <section id="examsView" class="view">
+        <div class="page-heading">
+          <div>
+            <span class="eyebrow">EXAMS</span>
+            <h2>Practice & exam library</h2>
+            <p>Choose an exam, set your feedback mode and beat your best score.</p>
+          </div>
         </div>
 
         <div class="library-toolbar">
-          <div>
-            <span class="eyebrow">EXAM LIBRARY</span>
-            <h3>Available exams</h3>
+          <div class="search-shell">
+            <span>⌕</span>
+            <input id="examSearch" type="search" placeholder="Search by course, module or exam..." />
           </div>
-          <input id="examSearch" type="search" placeholder="Search exams..." />
+          <div id="examFilters" class="filter-row"></div>
         </div>
 
         <div id="examGrid" class="exam-grid"></div>
-        <p id="examLoadError" class="error-card hidden"></p>
+        <p id="examLoadError" class="status-card danger hidden"></p>
       </section>
 
+      <!-- SETUP -->
       <section id="setupView" class="view">
-        <button class="text-btn" id="backToLibraryBtn">← Back to exams</button>
-        <div class="setup-card">
-          <div class="exam-meta">
-            <span class="pill" id="setupCategory">Practice</span>
-            <span class="pill subtle" id="setupDifficulty">Mixed</span>
-          </div>
-          <h2 id="setupTitle">Exam title</h2>
-          <p id="setupDescription"></p>
+        <div class="context-bar">
+          <button class="back-btn" id="backToLibraryBtn">← Exams</button>
+          <div class="breadcrumb" id="setupBreadcrumb">English / Module / Exam</div>
+        </div>
 
-          <div class="setup-summary">
-            <div><span>Questions</span><strong id="setupQuestions">0</strong></div>
-            <div><span>Timer</span><strong id="setupTimer">No timer</strong></div>
-            <div><span>Pass score</span><strong id="setupPass">60%</strong></div>
-          </div>
+        <div class="setup-layout">
+          <article class="setup-card">
+            <div class="exam-meta">
+              <span class="pill" id="setupCategory">Practice</span>
+              <span class="pill subtle" id="setupDifficulty">Mixed</span>
+            </div>
+            <h2 id="setupTitle">Exam title</h2>
+            <p id="setupDescription"></p>
 
-          <div class="mode-picker">
-            <h3>Choose feedback mode</h3>
+            <div class="setup-summary">
+              <div><span>Questions</span><strong id="setupQuestions">0</strong></div>
+              <div><span>Timer</span><strong id="setupTimer">No timer</strong></div>
+              <div><span>Pass score</span><strong id="setupPass">60%</strong></div>
+            </div>
+          </article>
 
-            <label class="mode-option">
+          <article class="mode-card">
+            <span class="eyebrow">EXAM SETTINGS</span>
+            <h3>How do you want feedback?</h3>
+            <p>Select a mode. Your choice is always clearly highlighted in light and dark themes.</p>
+
+            <label class="mode-option selected-state">
               <input type="radio" name="feedbackMode" value="instant" checked />
-              <span>
+              <span class="mode-symbol">⚡</span>
+              <span class="mode-copy">
                 <strong>Instant Feedback</strong>
-                <small>See the correct answer and explanation after each answer.</small>
+                <small>See the correct answer and explanation immediately.</small>
               </span>
+              <span class="selection-check">✓</span>
             </label>
 
-            <label class="mode-option">
+            <label class="mode-option selected-state">
               <input type="radio" name="feedbackMode" value="exam" />
-              <span>
+              <span class="mode-symbol">◉</span>
+              <span class="mode-copy">
                 <strong>Exam Mode</strong>
-                <small>No answers are shown until you submit the exam.</small>
+                <small>No feedback until you submit the full exam.</small>
               </span>
+              <span class="selection-check">✓</span>
             </label>
-          </div>
 
-          <button class="primary-btn wide" id="beginExamBtn">Begin Exam</button>
+            <button class="primary-btn wide large-btn" id="beginExamBtn">Begin Exam <span>→</span></button>
+          </article>
         </div>
       </section>
 
-      <section id="examView" class="view">
-        <div class="exam-top">
-          <button class="text-btn" id="exitExamBtn">← Exit</button>
+      <!-- EXAM -->
+      <section id="examView" class="view exam-focus">
+        <div class="context-bar exam-context">
+          <button class="back-btn" id="exitExamBtn">← Exit</button>
           <div class="exam-progress-meta">
             <span id="questionCounter">Question 1 / 10</span>
             <span id="timerDisplay" class="timer hidden">00:00</span>
           </div>
         </div>
 
-        <div class="progress-track">
+        <div class="progress-track large">
           <div class="progress-fill" id="progressFill"></div>
         </div>
 
         <div class="exam-layout">
           <aside class="question-nav-card">
-            <h4>Questions</h4>
+            <div class="nav-card-head">
+              <div><span class="eyebrow">NAVIGATOR</span><h4>Questions</h4></div>
+              <span class="answered-count" id="answeredCount">0 answered</span>
+            </div>
             <div id="questionNavigator" class="question-navigator"></div>
+            <div class="nav-legend">
+              <span><i class="legend-dot current"></i> Current</span>
+              <span><i class="legend-dot answered"></i> Answered</span>
+            </div>
           </aside>
 
           <section class="question-card">
@@ -178,63 +417,162 @@
               <span class="pill subtle" id="questionTopic">Topic</span>
               <span class="pill subtle" id="questionDifficulty">Medium</span>
             </div>
-
             <h2 id="questionText"></h2>
             <div id="optionsList" class="options-list"></div>
-
             <div id="instantFeedback" class="feedback-box hidden"></div>
 
             <div class="exam-actions">
-              <button class="secondary-btn" id="prevQuestionBtn">Previous</button>
-              <button class="secondary-btn" id="nextQuestionBtn">Next</button>
-              <button class="primary-btn hidden" id="submitExamBtn">Submit Exam</button>
+              <button class="secondary-btn" id="prevQuestionBtn">← Previous</button>
+              <button class="primary-btn" id="nextQuestionBtn">Next <span>→</span></button>
+              <button class="primary-btn hidden" id="submitExamBtn">Submit Exam <span>✓</span></button>
             </div>
           </section>
         </div>
       </section>
 
+      <!-- RESULT -->
       <section id="resultView" class="view">
-        <div class="result-card">
-          <div id="celebration" class="celebration"></div>
-          <span class="eyebrow">RESULT</span>
-          <h2 id="resultHeadline">Great work</h2>
-          <div class="score-ring">
-            <strong id="resultPercent">0%</strong>
-            <span id="resultScore">0 / 0</span>
-          </div>
+        <div class="result-shell">
+          <article class="result-card">
+            <div id="celebration" class="celebration"></div>
+            <span class="eyebrow">RESULT</span>
+            <h2 id="resultHeadline">Great work</h2>
+            <p id="resultSubline">Your attempt has been saved on this device.</p>
 
-          <div class="result-stats">
-            <div><span>Correct</span><strong id="correctCount">0</strong></div>
-            <div><span>Wrong</span><strong id="wrongCount">0</strong></div>
-            <div><span>Unanswered</span><strong id="unansweredCount">0</strong></div>
-            <div><span>Time</span><strong id="timeTaken">—</strong></div>
-          </div>
+            <div class="score-ring">
+              <strong id="resultPercent" data-target="0">0%</strong>
+              <span id="resultScore">0 / 0</span>
+            </div>
 
-          <div class="result-actions">
-            <button class="primary-btn" id="reviewBtn">Review Answers</button>
-            <button class="secondary-btn" id="retakeBtn">Retake</button>
-            <button class="secondary-btn" id="resultHomeBtn">Exam Library</button>
-          </div>
+            <div class="result-stats">
+              <div><span>Correct</span><strong id="correctCount">0</strong></div>
+              <div><span>Wrong</span><strong id="wrongCount">0</strong></div>
+              <div><span>Unanswered</span><strong id="unansweredCount">0</strong></div>
+              <div><span>Time</span><strong id="timeTaken">—</strong></div>
+            </div>
+
+            <div id="improvementMessage" class="improvement-card hidden"></div>
+
+            <div class="result-actions">
+              <button class="primary-btn" id="reviewBtn">Review Answers <span>→</span></button>
+              <button class="secondary-btn" id="retakeBtn">Retake</button>
+              <button class="secondary-btn" id="nextExamBtn">Next Exam →</button>
+            </div>
+          </article>
+
+          <aside class="result-side-card">
+            <span class="eyebrow">PERSONAL BEST</span>
+            <strong id="resultBestScore">—</strong>
+            <p>Keep improving. Your best attempt is what will count on the shared leaderboard.</p>
+            <div id="newBadgeNotice" class="new-badge hidden"></div>
+          </aside>
         </div>
       </section>
 
+      <!-- REVIEW -->
       <section id="reviewView" class="view">
-        <div class="dashboard-head">
+        <div class="context-bar">
+          <button class="back-btn" id="reviewHomeBtn">← Exams</button>
+          <div class="breadcrumb">Result / Review answers</div>
+        </div>
+        <div class="page-heading compact">
           <div>
             <span class="eyebrow">REVIEW</span>
             <h2 id="reviewTitle">Answer Review</h2>
+            <p>Focus on mistakes, understand the explanation, then try again.</p>
           </div>
-          <button class="secondary-btn" id="reviewHomeBtn">Back to Library</button>
+          <button class="primary-btn" id="reviewRetakeBtn">Retake Exam →</button>
         </div>
         <div id="reviewList" class="review-list"></div>
       </section>
+
+      <!-- RANKING -->
+      <section id="rankingView" class="view">
+        <div class="page-heading">
+          <div>
+            <span class="eyebrow">RANKING</span>
+            <h2>Leaderboard</h2>
+            <p>The shared class ranking will appear here after Supabase is connected.</p>
+          </div>
+        </div>
+
+        <div class="leaderboard-preview">
+          <div class="podium ghost-podium">
+            <div class="podium-place second"><span>2</span><div class="ghost-avatar"></div><strong>—</strong></div>
+            <div class="podium-place first"><span>1</span><div class="ghost-avatar"></div><strong>—</strong></div>
+            <div class="podium-place third"><span>3</span><div class="ghost-avatar"></div><strong>—</strong></div>
+          </div>
+
+          <div class="status-card info">
+            <div class="status-icon">↗</div>
+            <div>
+              <strong>Leaderboard UI is ready</strong>
+              <p>Next technical step: connect Supabase so scores from all devices are stored online and ranked automatically.</p>
+            </div>
+            <button class="primary-btn" data-route="examsView">Take an Exam →</button>
+          </div>
+
+          <div class="personal-ranking-card">
+            <div>
+              <span class="eyebrow">YOUR LOCAL STATS</span>
+              <h3 id="rankingLocalName">Guest</h3>
+            </div>
+            <div class="rank-local-stats">
+              <div><span>Best</span><strong id="rankingBest">—</strong></div>
+              <div><span>Attempts</span><strong id="rankingAttempts">0</strong></div>
+              <div><span>Badges</span><strong id="rankingBadges">0</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+      <button data-route="dashboardView" class="bottom-nav-item active"><span>⌂</span><small>Home</small></button>
+      <button data-route="learnView" class="bottom-nav-item"><span>▤</span><small>Learn</small></button>
+      <button data-route="examsView" class="bottom-nav-item"><span>◉</span><small>Exams</small></button>
+      <button data-route="rankingView" class="bottom-nav-item"><span>↗</span><small>Ranking</small></button>
+    </nav>
+
     <footer class="footer">
-      <span>Digilians E-Learn Platform V0.2</span>
-      <span>Prepared by Ahmed Khaled • Powered by Digilians</span>
+      <div>
+        <strong>Digilians E-Learn Platform</strong>
+        <span>Built for a smoother learning experience.</span>
+      </div>
+      <div class="footer-credit">
+        Designed &amp; Developed by
+        <a href="https://www.linkedin.com/in/ahmed-khalid97" target="_blank" rel="noopener noreferrer">Ahmed Khaled ↗</a>
+      </div>
     </footer>
   </div>
+
+  <!-- PROFILE DRAWER -->
+  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+  <aside class="profile-drawer" id="profileDrawer" aria-hidden="true">
+    <button class="drawer-close" id="profileClose" aria-label="Close profile">×</button>
+    <div class="profile-hero">
+      <span class="avatar large" id="drawerAvatar">G</span>
+      <h3 id="drawerName">Guest</h3>
+      <p>Your profile lives on this device — no login required.</p>
+    </div>
+
+    <div class="profile-stats">
+      <div><span>Best Score</span><strong id="profileBest">—</strong></div>
+      <div><span>Attempts</span><strong id="profileAttempts">0</strong></div>
+      <div><span>Completed</span><strong id="profileCompleted">0</strong></div>
+    </div>
+
+    <div class="drawer-section">
+      <span class="eyebrow">ACHIEVEMENTS</span>
+      <div id="profileAchievements" class="achievement-grid"></div>
+    </div>
+
+    <div class="drawer-actions">
+      <button class="secondary-btn wide" id="changeNameBtn">Change saved name</button>
+    </div>
+  </aside>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
   <script type="module" src="assets/js/app.js"></script>
 </body>
