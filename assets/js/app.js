@@ -1,10 +1,11 @@
 import {
-  getStudentName,setStudentName,clearStudentName,getTheme,setTheme,getResults,saveResult,
-  getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
-  setLastCourse
+  getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,
+  markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
+  setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt
 } from "./storage.js";
 
 import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
+import {submitAttemptOnline,getLeaderboard} from "./online.js";
 
 const state={
   studentName:"",
@@ -22,7 +23,9 @@ const state={
   timerId:null,
   lastResult:null,
   previousBest:null,
-  filter:"All"
+  filter:"All",
+  playerId:null,
+  rankingExamId:null
 };
 
 const $=id=>document.getElementById(id);
@@ -513,16 +516,129 @@ function finishExam(autoSubmitted){
   const beforeAchievements=getAchievements(getUserResults()).filter(a=>a.unlocked).map(a=>a.id);
   const result=calculateResult(state.currentExam.questions,state.answers);
   const timeTakenSeconds=Math.max(0,Math.floor((Date.now()-state.startedAt)/1000));
+  const clientAttemptId=crypto.randomUUID();
+
   const record={
     examId:state.currentExam.exam.id,examTitle:state.currentExam.exam.title,studentName:state.studentName,
     percentage:result.percentage,correct:result.correct,wrong:result.wrong,unanswered:result.unanswered,
-    timeTakenSeconds,submittedAt:new Date().toISOString(),autoSubmitted
+    timeTakenSeconds,submittedAt:new Date().toISOString(),autoSubmitted,
+    clientAttemptId,onlineSynced:false
   };
-  saveResult(record);clearExamProgress();
-  state.lastResult={...result,record};
+
+  const onlineAttempt={
+    player_id:state.playerId,
+    student_name:state.studentName,
+    exam_id:state.currentExam.exam.id,
+    exam_title:state.currentExam.exam.title,
+    exam_version:state.currentExam.exam.version || "1.0",
+    score:result.correct,
+    wrong:result.wrong,
+    unanswered:result.unanswered,
+    total_questions:state.currentExam.questions.length,
+    percentage:result.percentage,
+    time_taken_seconds:timeTakenSeconds,
+    feedback_mode:state.feedbackMode,
+    client_attempt_id:clientAttemptId
+  };
+
+  saveResult(record);
+  queuePendingAttempt(onlineAttempt);
+  clearExamProgress();
+
+  state.lastResult={...result,record,onlineAttempt};
   const afterAchievements=getAchievements(getUserResults()).filter(a=>a.unlocked);
   state.lastResult.newBadges=afterAchievements.filter(a=>!beforeAchievements.includes(a.id));
-  renderResult();routeTo("resultView");
+
+  renderResult();
+  routeTo("resultView");
+  syncFinishedAttempt(onlineAttempt);
+}
+
+async function syncFinishedAttempt(onlineAttempt){
+  setResultSyncUI("syncing");
+
+  try{
+    await submitAttemptOnline(onlineAttempt);
+    removePendingAttempt(onlineAttempt.client_attempt_id);
+    markResultSynced(onlineAttempt.client_attempt_id);
+
+    const board=await getLeaderboard(onlineAttempt.exam_id);
+    const me=board.find(x=>x.player_id===state.playerId);
+    setResultSyncUI("synced",me,board);
+  }catch(error){
+    console.error("Online result sync failed:",error);
+    setResultSyncUI("offline");
+  }
+}
+
+function setResultSyncUI(mode,me=null,board=[]){
+  const card=$("onlineRankCard");
+  const rank=$("resultOnlineRank");
+  const status=$("resultSyncStatus");
+  if(!card||!rank||!status)return;
+
+  card.classList.remove("synced","offline");
+
+  if(mode==="syncing"){
+    rank.textContent="Syncing…";
+    status.textContent="Saving this attempt online.";
+    return;
+  }
+
+  if(mode==="offline"){
+    card.classList.add("offline");
+    rank.textContent="Saved locally";
+    status.textContent="Online sync failed. The platform will retry automatically next time.";
+    return;
+  }
+
+  card.classList.add("synced");
+  if(me){
+    rank.textContent=`#${me.rank} of ${board.length}`;
+    const previous=board[me.rank-2];
+    if(me.rank===1){
+      status.textContent="You are currently #1 on this exam.";
+    }else if(previous){
+      if(previous.percentage>me.percentage){
+        status.textContent=`${previous.percentage-me.percentage} point${previous.percentage-me.percentage===1?"":"s"} behind #${previous.rank}.`;
+      }else{
+        const seconds=Math.max(0,me.time_taken_seconds-previous.time_taken_seconds);
+        status.textContent=`Same score as #${previous.rank}; ${formatLeaderboardTime(seconds)} slower.`;
+      }
+    }else{
+      status.textContent="Your best attempt is now on the shared leaderboard.";
+    }
+  }else{
+    rank.textContent="Synced ✓";
+    status.textContent="Your attempt was saved online.";
+  }
+}
+
+async function retryPendingAttempts(){
+  const pending=getPendingAttempts();
+  for(const attempt of pending){
+    try{
+      await submitAttemptOnline(attempt);
+      removePendingAttempt(attempt.client_attempt_id);
+      markResultSynced(attempt.client_attempt_id);
+    }catch(error){
+      console.warn("Pending attempt still offline:",error);
+      break;
+    }
+  }
+}
+
+function formatLeaderboardTime(seconds){
+  const total=Math.max(0,Number(seconds)||0);
+  const mins=Math.floor(total/60);
+  const secs=total%60;
+  return mins?`${mins}m ${secs}s`:`${secs}s`;
+}
+
+function escapeHtml(value){
+  return String(value ?? "").replace(/[&<>"']/g,char=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[char]));
 }
 
 function animateScore(target){
@@ -538,6 +654,7 @@ function animateScore(target){
 
 function renderResult(){
   const {record}=state.lastResult,score=state.lastResult,pass=state.currentExam.exam.settings?.passingScore ?? 60;
+  setResultSyncUI("syncing");
   let headline="Keep practicing";
   if(record.percentage>=90)headline="Excellent work";
   else if(record.percentage>=80)headline="Great job";
@@ -588,13 +705,125 @@ function renderReview(){
 }
 $("reviewHomeBtn").addEventListener("click",()=>routeTo("examsView"));
 
-function renderRanking(){
+function populateRankingExamSelect(){
+  const select=$("rankingExamSelect");
+  if(!select)return;
+
+  const current=state.rankingExamId || state.registry.find(x=>x.active!==false)?.id || "";
+  select.innerHTML="";
+
+  state.registry.filter(x=>x.active!==false).forEach(item=>{
+    const option=document.createElement("option");
+    option.value=item.id;
+    option.textContent=`${item.course} — ${item.title}`;
+    if(item.id===current)option.selected=true;
+    select.appendChild(option);
+  });
+
+  state.rankingExamId=select.value || current;
+}
+
+async function renderRanking(){
   const stats=getStats();
   $("rankingLocalName").textContent=state.studentName || "Guest";
-  $("rankingBest").textContent=stats.best===null?"—":`${stats.best}%`;
   $("rankingAttempts").textContent=stats.attempts;
-  $("rankingBadges").textContent=stats.badges.filter(b=>b.unlocked).length;
+
+  populateRankingExamSelect();
+
+  const examId=state.rankingExamId;
+  const status=$("leaderboardStatus");
+  const content=$("leaderboardContent");
+
+  if(!examId){
+    status.classList.remove("hidden");
+    content.classList.add("hidden");
+    status.innerHTML=`<div class="status-icon">↗</div><div><strong>No exams available</strong><p>Add an active exam to start a leaderboard.</p></div>`;
+    return;
+  }
+
+  status.className="status-card info";
+  status.classList.remove("hidden");
+  status.innerHTML=`<div class="status-icon">↗</div><div><strong>Loading leaderboard…</strong><p>Fetching the latest shared results from Supabase.</p></div>`;
+  content.classList.add("hidden");
+
+  try{
+    const board=await getLeaderboard(examId);
+    renderOnlineLeaderboard(board);
+    status.classList.add("hidden");
+    content.classList.remove("hidden");
+  }catch(error){
+    console.error("Leaderboard fetch failed:",error);
+    status.className="status-card danger";
+    status.innerHTML=`<div class="status-icon">!</div><div><strong>Leaderboard is temporarily unavailable</strong><p>Your local exam results are still safe. Check your connection and try Refresh.</p></div>`;
+    content.classList.add("hidden");
+  }
 }
+
+function renderOnlineLeaderboard(board){
+  const podium=$("leaderboardPodium");
+  const list=$("leaderboardList");
+  podium.innerHTML="";
+  list.innerHTML="";
+
+  if(!board.length){
+    podium.innerHTML=`<div class="status-card info"><div class="status-icon">✦</div><div><strong>Be the first on this leaderboard</strong><p>No online attempts have been submitted for this exam yet.</p></div></div>`;
+    list.innerHTML=`<div class="leaderboard-row"><span>—</span><span class="leaderboard-name">No scores yet</span><span>—</span><span>—</span></div>`;
+  }else{
+    const top=board.slice(0,3);
+    const order=top.length>=3?[top[1],top[0],top[2]]:top.length===2?[top[1],top[0]]:top;
+
+    order.forEach(entry=>{
+      const place=document.createElement("div");
+      const classes=entry.rank===1?"first":entry.rank===2?"second":"third";
+      place.className=`podium-place ${classes} ${entry.player_id===state.playerId?"you":""}`;
+      place.innerHTML=`
+        <span>${entry.rank}</span>
+        <div class="avatar">${escapeHtml(initials(entry.student_name))}</div>
+        <strong class="podium-name">${escapeHtml(entry.student_name)}</strong>
+        <div class="podium-score">${entry.percentage}%</div>`;
+      podium.appendChild(place);
+    });
+
+    board.forEach(entry=>{
+      const row=document.createElement("div");
+      const isMe=entry.player_id===state.playerId;
+      row.className=`leaderboard-row ${isMe?"you":""}`;
+      row.innerHTML=`
+        <span class="leaderboard-rank">#${entry.rank}</span>
+        <span class="leaderboard-student">
+          <span class="avatar">${escapeHtml(initials(entry.student_name))}</span>
+          <span class="leaderboard-name">${escapeHtml(entry.student_name)}${isMe?'<span class="you-tag">YOU</span>':""}</span>
+        </span>
+        <span class="leaderboard-score">${entry.percentage}%</span>
+        <span class="leaderboard-time">${formatLeaderboardTime(entry.time_taken_seconds)}</span>`;
+      list.appendChild(row);
+    });
+  }
+
+  const me=board.find(x=>x.player_id===state.playerId);
+  $("rankingOnlineRank").textContent=me?`#${me.rank}`:"—";
+  $("rankingBest").textContent=me?`${me.percentage}%`:"—";
+
+  const gap=$("rankingGap");
+  if(!me){
+    gap.textContent="Complete this exam to join the leaderboard.";
+  }else if(me.rank===1){
+    gap.textContent="You are currently leading this exam.";
+  }else{
+    const previous=board[me.rank-2];
+    if(previous.percentage>me.percentage){
+      gap.textContent=`You are ${previous.percentage-me.percentage} point${previous.percentage-me.percentage===1?"":"s"} behind #${previous.rank}.`;
+    }else{
+      gap.textContent=`Same score as #${previous.rank}; improve your completion time to move up.`;
+    }
+  }
+}
+
+$("rankingExamSelect").addEventListener("change",e=>{
+  state.rankingExamId=e.target.value;
+  renderRanking();
+});
+$("refreshLeaderboardBtn").addEventListener("click",()=>renderRanking());
 
 function renderProfile(){
   const stats=getStats();
@@ -624,12 +853,14 @@ function showToast(message){
 
 async function init(){
   applyTheme(getTheme());
+  state.playerId=getPlayerId();
   try{await loadData()}catch(e){
     console.error(e);
     $("examLoadError").textContent="Could not load platform data. Open this project through GitHub Pages or a local web server.";
     $("examLoadError").classList.remove("hidden");
   }
   state.studentName=getStudentName();syncUserUI();
+  retryPendingAttempts();
   if(state.studentName){
     $("returningUserEntry").classList.remove("hidden");$("newUserEntry").classList.add("hidden");
     $("returningUserName").textContent=state.studentName;

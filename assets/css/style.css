@@ -705,3 +705,62 @@ input::placeholder{color:color-mix(in srgb,var(--muted) 70%,transparent)}
   .next-step-card{align-items:stretch;flex-direction:column}
   .footer{align-items:flex-start;flex-direction:column;padding:20px 0}
 }
+
+
+/* V0.4 — Online leaderboard */
+.online-rank-card{
+  margin-top:18px;padding:14px;border-radius:14px;border:1px solid var(--line);
+  background:var(--surface-solid);text-align:left
+}
+.online-rank-card span,.online-rank-card strong,.online-rank-card small{display:block}
+.online-rank-card span{font-size:7px;color:var(--muted);font-weight:900;letter-spacing:.1em}
+.online-rank-card strong{font-size:23px;letter-spacing:-.04em;margin:5px 0 3px;color:var(--primary)}
+.online-rank-card small{font-size:8px;color:var(--muted);line-height:1.5}
+.online-rank-card.synced{border-color:color-mix(in srgb,var(--success) 30%,var(--line));background:var(--success-soft)}
+.online-rank-card.synced strong{color:var(--success)}
+.online-rank-card.offline{border-color:color-mix(in srgb,var(--warning) 30%,var(--line));background:color-mix(in srgb,var(--warning) 10%,var(--surface))}
+.online-rank-card.offline strong{color:var(--warning)}
+
+.leaderboard-toolbar{
+  display:flex;align-items:center;gap:10px;margin:0 0 18px;
+  padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:var(--surface)
+}
+.leaderboard-toolbar label{font-size:9px;color:var(--muted);font-weight:800}
+.leaderboard-toolbar select{
+  min-width:260px;max-width:100%;padding:10px 34px 10px 12px;border:1px solid var(--line);
+  border-radius:12px;background:var(--surface-solid);color:var(--text);outline:none;font:inherit;font-size:10px;font-weight:800
+}
+.leaderboard-toolbar select:focus{border-color:var(--primary);box-shadow:0 0 0 4px color-mix(in srgb,var(--primary) 8%,transparent)}
+.live-chip{margin-left:auto;display:inline-flex;align-items:center;gap:6px;padding:7px 9px;border-radius:999px;background:var(--success-soft);color:var(--success);font-size:7px;font-weight:900;letter-spacing:.1em}
+.live-chip i{width:6px;height:6px;border-radius:50%;background:var(--success);box-shadow:0 0 0 0 color-mix(in srgb,var(--success) 55%,transparent);animation:pulse 2s infinite}
+
+.leaderboard-table-wrap{border:1px solid var(--line);border-radius:20px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:13px}
+.leaderboard-table-head,.leaderboard-row{
+  display:grid;grid-template-columns:70px minmax(150px,1fr) 110px 110px;align-items:center;gap:10px
+}
+.leaderboard-table-head{padding:12px 16px;background:var(--surface-soft);color:var(--muted);font-size:7px;font-weight:900;text-transform:uppercase;letter-spacing:.09em}
+.leaderboard-row{padding:13px 16px;border-top:1px solid var(--line);font-size:10px}
+.leaderboard-row.you{background:var(--primary-soft);box-shadow:inset 3px 0 0 var(--primary)}
+.leaderboard-rank{font-size:13px;font-weight:900;color:var(--text)}
+.leaderboard-student{display:flex;align-items:center;gap:10px;min-width:0}
+.leaderboard-student .avatar{flex:0 0 32px}
+.leaderboard-name{font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.you-tag{display:inline-block;margin-left:6px;padding:3px 6px;border-radius:999px;background:var(--primary);color:#fff;font-size:6px;font-weight:900;vertical-align:middle}
+.leaderboard-score{font-weight:900;color:var(--primary)}
+.leaderboard-time{color:var(--muted);font-weight:700}
+
+.podium-place{position:relative}
+.podium-place .avatar{width:52px;height:52px;border-radius:17px;font-size:13px}
+.podium-place .podium-name{max-width:120px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px}
+.podium-place .podium-score{font-size:13px;color:var(--primary);font-weight:900}
+.podium-place.you{border-color:var(--primary);box-shadow:0 0 0 4px color-mix(in srgb,var(--primary) 8%,transparent),var(--shadow-sm)}
+.personal-ranking-card small{display:block;color:var(--muted);font-size:8px;margin-top:3px}
+
+@media(max-width:560px){
+  .leaderboard-toolbar{align-items:stretch;flex-direction:column}
+  .leaderboard-toolbar select{width:100%;min-width:0}
+  .live-chip{margin-left:0;align-self:flex-start}
+  .leaderboard-table-head,.leaderboard-row{grid-template-columns:46px minmax(110px,1fr) 68px 70px;gap:6px;padding-left:10px;padding-right:10px}
+  .leaderboard-student .avatar{display:none}
+  .leaderboard-row{font-size:9px}
+}

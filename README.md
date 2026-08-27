@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.3.2
+# Digilians E-Learn Platform V0.4
 
 A modern, free-first learning and exam platform prototype.
 
@@ -46,3 +46,24 @@ Do not test by double-clicking `index.html` directly.
 - Fixed course-card headings appearing black in Dark Mode.
 - Explicitly bound course-card text to the design-system text tokens.
 - Added a dark-mode contrast safeguard for course titles and metadata.
+
+
+## V0.4 — Supabase Online Leaderboard
+- Connected to Supabase using the public Publishable API key.
+- Uses the Data API via `apikey` header only.
+- Every browser gets a persistent `player_id` UUID.
+- Every exam attempt gets a unique `client_attempt_id`.
+- Attempts save locally first, then sync online.
+- Failed online submissions are queued in localStorage and retried on a later visit.
+- Shared leaderboard shows the best attempt only for each player.
+- Ranking: percentage descending, then time ascending.
+- Result page displays online rank after successful sync.
+- Ranking page supports per-exam leaderboards and live refresh.
+- User-generated names are escaped before rendering to prevent HTML injection.
+
+### Public browser configuration
+The publishable key is intentionally present in `assets/js/online.js`.
+Do not ever replace it with a Supabase Secret key or service_role key.
+
+### Supabase table expected
+`public.exam_attempts` with RLS allowing `anon` SELECT + INSERT only.

@@ -463,7 +463,14 @@
           <aside class="result-side-card">
             <span class="eyebrow">PERSONAL BEST</span>
             <strong id="resultBestScore">—</strong>
-            <p>Keep improving. Your best attempt is what will count on the shared leaderboard.</p>
+            <p>Keep improving. Your best attempt is what counts on the shared leaderboard.</p>
+
+            <div class="online-rank-card" id="onlineRankCard">
+              <span>ONLINE RANK</span>
+              <strong id="resultOnlineRank">Syncing…</strong>
+              <small id="resultSyncStatus">Saving this attempt online.</small>
+            </div>
+
             <div id="newBadgeNotice" class="new-badge hidden"></div>
           </aside>
         </div>
@@ -491,36 +498,48 @@
         <div class="page-heading">
           <div>
             <span class="eyebrow">RANKING</span>
-            <h2>Leaderboard</h2>
-            <p>The shared class ranking will appear here after Supabase is connected.</p>
+            <h2>Class leaderboard</h2>
+            <p>Best attempt only. Higher score ranks first; ties are broken by faster completion time.</p>
           </div>
+          <button class="ghost-btn" id="refreshLeaderboardBtn">Refresh ↻</button>
+        </div>
+
+        <div class="leaderboard-toolbar">
+          <label for="rankingExamSelect">Leaderboard for</label>
+          <select id="rankingExamSelect"></select>
+          <span class="live-chip"><i></i> LIVE</span>
         </div>
 
         <div class="leaderboard-preview">
-          <div class="podium ghost-podium">
-            <div class="podium-place second"><span>2</span><div class="ghost-avatar"></div><strong>—</strong></div>
-            <div class="podium-place first"><span>1</span><div class="ghost-avatar"></div><strong>—</strong></div>
-            <div class="podium-place third"><span>3</span><div class="ghost-avatar"></div><strong>—</strong></div>
-          </div>
-
-          <div class="status-card info">
+          <div id="leaderboardStatus" class="status-card info">
             <div class="status-icon">↗</div>
             <div>
-              <strong>Leaderboard UI is ready</strong>
-              <p>Next technical step: connect Supabase so scores from all devices are stored online and ranked automatically.</p>
+              <strong>Loading leaderboard…</strong>
+              <p>Fetching the latest shared results from Supabase.</p>
             </div>
-            <button class="primary-btn" data-route="examsView">Take an Exam →</button>
           </div>
 
-          <div class="personal-ranking-card">
-            <div>
-              <span class="eyebrow">YOUR LOCAL STATS</span>
-              <h3 id="rankingLocalName">Guest</h3>
+          <div id="leaderboardContent" class="hidden">
+            <div class="podium" id="leaderboardPodium"></div>
+
+            <div class="leaderboard-table-wrap">
+              <div class="leaderboard-table-head">
+                <span>Rank</span><span>Student</span><span>Score</span><span>Time</span>
+              </div>
+              <div id="leaderboardList" class="leaderboard-list"></div>
             </div>
-            <div class="rank-local-stats">
-              <div><span>Best</span><strong id="rankingBest">—</strong></div>
-              <div><span>Attempts</span><strong id="rankingAttempts">0</strong></div>
-              <div><span>Badges</span><strong id="rankingBadges">0</strong></div>
+
+            <div class="personal-ranking-card" id="personalOnlineRankCard">
+              <div>
+                <span class="eyebrow">YOUR POSITION</span>
+                <h3 id="rankingLocalName">Guest</h3>
+                <small id="rankingGap">Complete this exam to join the leaderboard.</small>
+              </div>
+              <div class="rank-local-stats">
+                <div><span>Rank</span><strong id="rankingOnlineRank">—</strong></div>
+                <div><span>Best</span><strong id="rankingBest">—</strong></div>
+                <div><span>Attempts</span><strong id="rankingAttempts">0</strong></div>
+              </div>
             </div>
           </div>
         </div>
