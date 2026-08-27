@@ -9,6 +9,7 @@ import {submitAttemptOnline,getLeaderboard} from "./online.js";
 import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
 import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
+import {evaluateTrackReadiness,finalStatusFromTracks} from "./readiness.js";
 
 const state={
   studentName:"",
@@ -16,6 +17,8 @@ const state={
   learning:{courses:[]},
   bankRegistry:{banks:[]},
   blueprints:{blueprints:[]},
+  curriculumRegistry:{tracks:[]},
+  manifests:{},
   selectedCourse:null,
   selectedTrack:null,
   selectedModule:null,
@@ -112,16 +115,25 @@ async function loadJson(path){
 }
 
 async function loadData(){
-  const [registry,learning,bankRegistry,blueprints]=await Promise.all([
+  const [registry,learning,bankRegistry,blueprints,curriculumRegistry]=await Promise.all([
     loadJson("data/exams.json"),
     loadJson("data/learning.json"),
     loadJson("data/question-banks.json"),
-    loadJson("data/exam-blueprints.json")
+    loadJson("data/exam-blueprints.json"),
+    loadJson("data/curriculum.json")
   ]);
   state.registry=registry.exams || [];
   state.learning=learning;
   state.bankRegistry=bankRegistry;
   state.blueprints=blueprints;
+  state.curriculumRegistry=curriculumRegistry;
+
+  const manifests={};
+  await Promise.all((curriculumRegistry.tracks||[]).map(async item=>{
+    try{ manifests[item.trackId]=await loadJson(item.file); }
+    catch(e){ console.warn("Could not load curriculum manifest",item.trackId,e); }
+  }));
+  state.manifests=manifests;
 }
 
 function getUserResults(){
@@ -247,6 +259,87 @@ function renderLearn(){
   }
 }
 
+function statusLabel(status){
+  if(status==="final-ready") return "FINAL READY";
+  if(status==="content-complete-bank-building") return "CONTENT COMPLETE — BANK BUILDING";
+  return "IN PROGRESS";
+}
+function statusClass(status){
+  if(status==="final-ready") return "status-final-ready";
+  if(status==="content-complete-bank-building") return "status-bank-building";
+  return "status-in-progress";
+}
+function trackFinalCount(trackId){
+  const bp=getBlueprint("data-analysis-final-v1");
+  return bp?.tracks?.find(t=>t.trackId===trackId)?.count || 0;
+}
+function getTrackReadiness(trackId){
+  const manifest=state.manifests[trackId];
+  const bp=getBlueprint("data-analysis-final-v1");
+  if(!manifest || !bp)return null;
+  const finalCount=trackFinalCount(trackId);
+  if(!finalCount)return null;
+  return evaluateTrackReadiness({
+    manifest,
+    bankRegistry:state.bankRegistry,
+    finalCount,
+    difficultyTarget:bp.difficultyTarget,
+    sourceTarget:bp.sourceTarget
+  });
+}
+function renderCurriculumStatus(course){
+  const panel=$("curriculumStatusPanel");
+  if(!panel)return;
+  if(course.id!=="data-analysis"){
+    panel.classList.add("hidden");panel.innerHTML="";return;
+  }
+
+  const required=(state.curriculumRegistry.tracks||[]).filter(x=>x.requiredForFinal);
+  const statuses=required.map(meta=>({
+    ...meta,
+    readiness:getTrackReadiness(meta.trackId)
+  }));
+  const finalState=finalStatusFromTracks(statuses);
+
+  panel.innerHTML=`
+    <div class="curriculum-status-head">
+      <div>
+        <span class="eyebrow">CURRICULUM READINESS</span>
+        <h4>Data Analysis Final Coverage</h4>
+        <p>The system separates curriculum completion from question-bank readiness.</p>
+      </div>
+      <span class="pool-chip ${finalState.ready?"ready":"building"}">${finalState.ready?"FINAL READY":`${finalState.readyTracks}/${finalState.totalTracks} READY`}</span>
+    </div>
+
+    <div class="curriculum-status-grid">
+      ${statuses.map(item=>{
+        const r=item.readiness;
+        const manifest=state.manifests[item.trackId];
+        const srcCount=manifest?.processedSources?.length || 0;
+        const topicCount=manifest?.topics?.length || 0;
+        const status=r?.status || "in-progress";
+        const detail=r?.missing?.[0] || "Ready";
+        return `<article class="curriculum-status-card">
+          <strong>${item.track}</strong>
+          <span class="${statusClass(status)}"><i class="status-dot"></i>${statusLabel(status)}</span>
+          <small>${srcCount} source${srcCount===1?"":"s"} processed • ${topicCount} mapped topic${topicCount===1?"":"s"}</small>
+          <div class="readiness-checks">
+            <div class="readiness-check ${r?.checks?.curriculumComplete?"ok":"bad"}">✓ Curriculum</div>
+            <div class="readiness-check ${r?.checks?.validActiveBanks?"ok":"bad"}">✓ Bank</div>
+            <div class="readiness-check ${r?.checks?.enoughHard?"ok":"bad"}">✓ Hard pool</div>
+            <div class="readiness-check ${r?.checks?.enoughExternal?"ok":"bad"}">✓ External pool</div>
+          </div>
+          <small>${detail}</small>
+        </article>`;
+      }).join("")}
+    </div>
+
+    <div class="curriculum-summary-line">
+      The Final Exam unlocks only when all 6 required tracks are curriculum-complete and their banks satisfy the configured coverage, difficulty and source quotas.
+    </div>`;
+  panel.classList.remove("hidden");
+}
+
 function renderTrackPanel(course){
   const panel=$("trackPanel");
   const modulePanel=$("modulePanel");
@@ -276,6 +369,7 @@ function renderTrackPanel(course){
     grid.appendChild(card);
   });
 
+  renderCurriculumStatus(course);
   renderCourseFinalExamSlot(course);
   panel.classList.remove("hidden");
   panel.scrollIntoView({behavior:"smooth",block:"start"});
@@ -300,7 +394,16 @@ function renderCourseFinalExamSlot(course){
 
   const blueprint=getBlueprint(course.finalExamBlueprintId);
   if(!blueprint)return;
-  const readiness=getBlueprintReadiness(state.bankRegistry,blueprint);
+  const poolReadiness=getBlueprintReadiness(state.bankRegistry,blueprint);
+  const required=(state.curriculumRegistry.tracks||[]).filter(x=>x.requiredForFinal);
+  const trackStatuses=required.map(meta=>({...meta,readiness:getTrackReadiness(meta.trackId)}));
+  const curriculumFinal=finalStatusFromTracks(trackStatuses);
+  const readiness={
+    ready:poolReadiness.ready && curriculumFinal.ready,
+    readyTracks:trackStatuses.filter(x=>x.readiness?.status==="final-ready").length,
+    totalTracks:trackStatuses.length,
+    tracks:poolReadiness.tracks
+  };
   const pct=readiness.totalTracks?Math.round((readiness.readyTracks/readiness.totalTracks)*100):0;
 
   const wrapper=document.createElement("article");
@@ -516,8 +619,14 @@ function renderExamLibrary(filter=""){
     const best=getBestForExam(item.id,state.studentName);
     const isGenerated=item.generator==="question-bank";
     const blueprint=isGenerated?getBlueprint(item.blueprintId):null;
-    const readiness=blueprint?getBlueprintReadiness(state.bankRegistry,blueprint):null;
-    const poolText=readiness?`${readiness.readyTracks}/${readiness.totalTracks} pools ready`:"";
+    let readiness=blueprint?getBlueprintReadiness(state.bankRegistry,blueprint):null;
+    if(blueprint?.kind==="final"){
+      const required=(state.curriculumRegistry.tracks||[]).filter(x=>x.requiredForFinal);
+      const trackStatuses=required.map(meta=>({...meta,readiness:getTrackReadiness(meta.trackId)}));
+      const curriculumFinal=finalStatusFromTracks(trackStatuses);
+      readiness={...readiness,ready:readiness.ready && curriculumFinal.ready,readyTracks:trackStatuses.filter(x=>x.readiness?.status==="final-ready").length,totalTracks:trackStatuses.length};
+    }
+    const poolText=readiness?`${readiness.readyTracks}/${readiness.totalTracks} tracks ready`:"";
     const card=document.createElement("article");card.className="exam-card";
     card.innerHTML=`
       <div class="exam-meta"><span class="pill">${item.category || "Exam"}</span><span class="pill subtle">${item.difficulty || "Mixed"}</span></div>
@@ -550,6 +659,17 @@ async function prepareExam(registryItem,forcedMode=null){
       const blueprint=getBlueprint(registryItem.blueprintId);
       if(!blueprint) throw new Error("Missing exam blueprint.");
       const readiness=getBlueprintReadiness(state.bankRegistry,blueprint);
+
+      if(blueprint.kind==="final"){
+        const required=(state.curriculumRegistry.tracks||[]).filter(x=>x.requiredForFinal);
+        const trackStatuses=required.map(meta=>({...meta,readiness:getTrackReadiness(meta.trackId)}));
+        const curriculumFinal=finalStatusFromTracks(trackStatuses);
+        if(!curriculumFinal.ready){
+          showToast(`Final curriculum readiness: ${curriculumFinal.readyTracks}/${curriculumFinal.totalTracks} tracks ready.`);
+          return;
+        }
+      }
+
       if(!readiness.ready){
         showToast(readinessShortText(readiness));
         return;

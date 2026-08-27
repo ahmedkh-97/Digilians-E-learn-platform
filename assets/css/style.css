@@ -1042,3 +1042,45 @@ input::placeholder{color:color-mix(in srgb,var(--muted) 70%,transparent)}
   .final-meta-grid{grid-template-columns:1fr 1fr}
   .setup-composition-grid,.subject-breakdown-grid{grid-template-columns:repeat(2,1fr)}
 }
+
+
+/* V0.6.1 — Curriculum Manifest + Readiness */
+.curriculum-status-panel{
+  margin-top:18px;padding:20px;border:1px solid var(--line);border-radius:20px;
+  background:var(--surface-solid)
+}
+.curriculum-status-head{
+  display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:13px
+}
+.curriculum-status-head h4{margin:5px 0 3px;font-size:18px;color:var(--text)}
+.curriculum-status-head p{margin:0;font-size:9px;color:var(--muted);line-height:1.55}
+.curriculum-status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.curriculum-status-card{
+  padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--surface-soft)
+}
+.curriculum-status-card strong,.curriculum-status-card span,.curriculum-status-card small{display:block}
+.curriculum-status-card strong{font-size:11px;color:var(--text);margin-bottom:6px}
+.curriculum-status-card span{font-size:8px;font-weight:900}
+.curriculum-status-card small{font-size:7px;line-height:1.45;color:var(--muted);margin-top:5px}
+.status-in-progress{color:var(--warning)}
+.status-bank-building{color:var(--primary)}
+.status-final-ready{color:var(--success)}
+.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:5px}
+.readiness-checks{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:5px;margin-top:9px
+}
+.readiness-check{
+  display:flex;align-items:center;gap:5px;font-size:7px;color:var(--muted)
+}
+.readiness-check.ok{color:var(--success)}
+.readiness-check.bad{color:var(--muted)}
+.curriculum-summary-line{
+  margin-top:12px;padding-top:12px;border-top:1px solid var(--line);
+  font-size:8px;color:var(--muted)
+}
+@media(max-width:760px){
+  .curriculum-status-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .curriculum-status-grid{grid-template-columns:1fr}
+}

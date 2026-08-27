@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.6
+# Digilians E-Learn Platform V0.6.1
 
 A modern, free-first learning and exam platform prototype.
 
@@ -162,3 +162,38 @@ The in-platform validator now auto-detects:
 
 ### Current readiness
 Only the SQL Session 1 seed bank exists today. It is valid, but its current Easy/Medium/Hard and course/external mix does not yet satisfy the agreed V2 Final quotas. This is intentional: the engine does not silently lower the standard.
+
+
+## V0.6.1 — Curriculum Manifest + Track Readiness
+
+Added Architecture V2.1.
+
+### New curriculum layer
+Every Data Analysis track now has its own manifest under:
+`data/curriculum/`
+
+Tracked fields include:
+- curriculum status
+- curriculum version
+- processed sources
+- mapped topics
+- explicit user completion confirmation
+
+### Readiness states
+- IN PROGRESS
+- CONTENT COMPLETE — BANK BUILDING
+- FINAL READY
+
+### Final Exam rule
+The 100-question Data Analysis Final remains locked until all six required tracks are FINAL READY:
+- Excel
+- Power BI
+- SQL & Databases
+- Python
+- Tableau
+- Looker Studio
+
+The system no longer treats “enough questions” as equivalent to “curriculum complete”.
+
+### Current state
+All tracks intentionally remain IN PROGRESS because no track has yet been explicitly confirmed complete by the user.
