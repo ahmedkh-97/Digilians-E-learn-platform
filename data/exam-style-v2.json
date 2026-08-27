@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "2.0",
+  "name": "Digilians Data Analysis Exam DNA V2",
+  "topicExam": {
+    "questionCountRange": {
+      "min": 40,
+      "max": 50
+    },
+    "defaultQuestionCount": 45,
+    "difficultyTarget": {
+      "Easy": 0.25,
+      "Medium": 0.5,
+      "Hard": 0.25
+    },
+    "sourceTarget": {
+      "course": 0.8,
+      "external-similar": 0.2,
+      "acceptableCourseRange": [
+        0.75,
+        0.8
+      ],
+      "rule": "External-similar questions must apply concepts already taught in the material and must not introduce new syllabus concepts."
+    }
+  },
+  "finalExam": {
+    "questionCount": 100,
+    "timerMinutes": 120,
+    "difficultyTarget": {
+      "Easy": 0.25,
+      "Medium": 0.5,
+      "Hard": 0.25
+    },
+    "sourceTarget": {
+      "course": 0.8,
+      "external-similar": 0.2
+    },
+    "trackDistribution": {
+      "excel": 20,
+      "power-bi": 20,
+      "sql": 20,
+      "python": 20,
+      "tableau": 10,
+      "looker": 10
+    }
+  },
+  "questionFamilies": {
+    "python": {
+      "direct-knowledge": 0.4,
+      "code-tracing": 0.35,
+      "scenario-application": 0.15,
+      "troubleshooting": 0.1
+    },
+    "sql": {
+      "direct-knowledge": 0.3,
+      "scenario-application": 0.35,
+      "code-tracing": 0.25,
+      "troubleshooting": 0.1
+    },
+    "excel": {
+      "direct-knowledge": 0.35,
+      "scenario-application": 0.35,
+      "calculation-tracing": 0.2,
+      "troubleshooting": 0.1
+    },
+    "power-bi": {
+      "direct-knowledge": 0.3,
+      "scenario-application": 0.3,
+      "best-decision": 0.25,
+      "troubleshooting": 0.15
+    },
+    "tableau": {
+      "direct-knowledge": 0.3,
+      "scenario-application": 0.3,
+      "best-decision": 0.25,
+      "troubleshooting": 0.15
+    },
+    "looker": {
+      "direct-knowledge": 0.3,
+      "scenario-application": 0.3,
+      "best-decision": 0.25,
+      "troubleshooting": 0.15
+    }
+  },
+  "generationRules": [
+    "Use exactly four MCQ options A-D with one correct answer.",
+    "Use realistic distractors from the same concept family; do not use obviously silly distractors.",
+    "Mix Easy, Medium and Hard questions instead of grouping them by difficulty.",
+    "Prioritize confusable concepts and operational details.",
+    "For code-capable topics, include multi-step tracing and realistic edge cases.",
+    "For visualization/BI topics, include scenario, best-decision, validation and troubleshooting questions.",
+    "Avoid repeated concepts back-to-back.",
+    "Keep correct-answer positions approximately balanced across A/B/C/D.",
+    "Every question needs an Arabic explanation and source traceability.",
+    "External-similar questions may change scenario/data/code but may not introduce concepts outside the taught syllabus."
+  ]
+}

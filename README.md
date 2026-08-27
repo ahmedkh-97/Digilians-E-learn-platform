@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.5.1
+# Digilians E-Learn Platform V0.6
 
 A modern, free-first learning and exam platform prototype.
 
@@ -107,3 +107,58 @@ Do not ever replace it with a Supabase Secret key or service_role key.
 - Real exam path:
   `exams/data-analysis/sql/data-analysis-sql-session1-data-modeling-practice.json`
 - Supabase leaderboard integration remains active.
+
+
+## V0.6 — Question Bank Architecture + Dynamic Final Exam Engine
+
+### Architecture
+Material is now processed incrementally:
+`Material → Question Bank → Topic/Track Exam → Final Exam Pool`
+
+The final no longer requires all original course files to be uploaded again.
+
+### Question Bank V2
+Added:
+- `data/question-bank-template.json`
+- `data/question-banks.json`
+- `docs/QUESTION-BANK-SCHEMA-V2.md`
+- `assets/js/bank-validator.js`
+- `assets/js/bank-engine.js`
+
+The existing SQL Session 1 exam was converted into the first real bank:
+`question-banks/data-analysis/sql/session1-data-modeling-bank.json`
+
+### Exam DNA V2
+Added `data/exam-style-v2.json`:
+- Topic exams: 40–50 questions
+- Default difficulty target: 25% Easy / 50% Medium / 25% Hard
+- Source target: 80% course / 20% external-similar
+- External-similar cannot introduce new syllabus concepts
+- Question-family profiles for Python, SQL, Excel, Power BI, Tableau and Looker Studio
+
+### Data Analysis Final
+Added a visible Final Exam area and blueprint:
+- 100 questions
+- 120 minutes
+- Excel 20
+- Power BI 20
+- SQL 20
+- Python 20
+- Tableau 10
+- Looker Studio 10
+
+The Final automatically remains in **POOL BUILDING** state until all required banks contain enough questions by:
+- subject
+- difficulty
+- source type
+
+### Final Result Analytics
+Generated multi-track exams now show a Subject Breakdown.
+
+### Validator Upgrade
+The in-platform validator now auto-detects:
+- Exam JSON V1
+- Question Bank JSON V2
+
+### Current readiness
+Only the SQL Session 1 seed bank exists today. It is valid, but its current Easy/Medium/Hard and course/external mix does not yet satisfy the agreed V2 Final quotas. This is intentional: the engine does not silently lower the standard.

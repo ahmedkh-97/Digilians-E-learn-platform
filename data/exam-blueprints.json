@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0",
+  "blueprints": [
+    {
+      "id": "data-analysis-final-v1",
+      "kind": "final",
+      "title": "Data Analysis — Final Exam Simulation",
+      "description": "100-question final simulation assembled from the Data Analysis question banks.",
+      "courseId": "data-analysis",
+      "course": "Data Analysis",
+      "category": "Final Exam",
+      "difficulty": "Mixed",
+      "questionCount": 100,
+      "timerMinutes": 120,
+      "passingScore": 60,
+      "feedbackModes": [
+        "exam"
+      ],
+      "difficultyTarget": {
+        "Easy": 0.25,
+        "Medium": 0.5,
+        "Hard": 0.25
+      },
+      "sourceTarget": {
+        "course": 0.8,
+        "external-similar": 0.2
+      },
+      "tracks": [
+        {
+          "trackId": "excel",
+          "label": "Excel",
+          "count": 20
+        },
+        {
+          "trackId": "power-bi",
+          "label": "Power BI",
+          "count": 20
+        },
+        {
+          "trackId": "sql",
+          "label": "SQL & Databases",
+          "count": 20
+        },
+        {
+          "trackId": "python",
+          "label": "Python",
+          "count": 20
+        },
+        {
+          "trackId": "tableau",
+          "label": "Tableau",
+          "count": 10
+        },
+        {
+          "trackId": "looker",
+          "label": "Looker Studio",
+          "count": 10
+        }
+      ],
+      "selection": {
+        "shuffleQuestions": true,
+        "avoidAdjacentTopicRepeats": true,
+        "bestEffortBalancedAnswerPositions": true
+      },
+      "version": "1.0",
+      "active": true
+    },
+    {
+      "id": "data-analysis-sql-session1-track-v2",
+      "kind": "track",
+      "title": "SQL & Databases — Session 1 Track Exam V2",
+      "description": "Blueprint for a 45-question topic exam generated from the Session 1 SQL & Databases question bank.",
+      "courseId": "data-analysis",
+      "course": "Data Analysis",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "category": "Track Exam",
+      "difficulty": "Mixed",
+      "questionCount": 45,
+      "timerMinutes": 50,
+      "passingScore": 60,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "difficultyTarget": {
+        "Easy": 0.25,
+        "Medium": 0.5,
+        "Hard": 0.25
+      },
+      "sourceTarget": {
+        "course": 0.8,
+        "external-similar": 0.2
+      },
+      "tracks": [
+        {
+          "trackId": "sql",
+          "label": "SQL & Databases",
+          "count": 45
+        }
+      ],
+      "selection": {
+        "shuffleQuestions": true,
+        "avoidAdjacentTopicRepeats": true,
+        "bestEffortBalancedAnswerPositions": true
+      },
+      "version": "2.0",
+      "active": false,
+      "note": "Draft until the SQL bank is expanded to the agreed V2 difficulty/source mix."
+    }
+  ]
+}

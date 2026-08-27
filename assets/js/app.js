@@ -7,11 +7,15 @@ import {
 import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
 import {submitAttemptOnline,getLeaderboard} from "./online.js";
 import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
+import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
+import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
 
 const state={
   studentName:"",
   registry:[],
   learning:{courses:[]},
+  bankRegistry:{banks:[]},
+  blueprints:{blueprints:[]},
   selectedCourse:null,
   selectedTrack:null,
   selectedModule:null,
@@ -108,9 +112,16 @@ async function loadJson(path){
 }
 
 async function loadData(){
-  const [registry,learning]=await Promise.all([loadJson("data/exams.json"),loadJson("data/learning.json")]);
+  const [registry,learning,bankRegistry,blueprints]=await Promise.all([
+    loadJson("data/exams.json"),
+    loadJson("data/learning.json"),
+    loadJson("data/question-banks.json"),
+    loadJson("data/exam-blueprints.json")
+  ]);
   state.registry=registry.exams || [];
   state.learning=learning;
+  state.bankRegistry=bankRegistry;
+  state.blueprints=blueprints;
 }
 
 function getUserResults(){
@@ -194,6 +205,8 @@ function renderCourses(targetId,compact=false){
   target.innerHTML="";
   state.learning.courses.forEach(course=>{
     const moduleCount=course.modules.length;
+    const trackCount=Array.isArray(course.tracks)?course.tracks.length:0;
+    const countLabel=trackCount?`${trackCount} track${trackCount===1?"":"s"}`:(moduleCount?`${moduleCount} module${moduleCount===1?"":"s"}`:"Coming soon");
     const card=document.createElement("button");
     card.className="course-card";
     card.style.setProperty("--course-accent",course.accent || "var(--primary)");
@@ -201,7 +214,7 @@ function renderCourses(targetId,compact=false){
       <div class="course-icon">${course.icon || course.title[0]}</div>
       <h4>${course.title}</h4>
       <p>${course.description}</p>
-      <div class="course-footer"><span>${moduleCount?`${moduleCount} module${moduleCount===1?"":"s"}`:"Coming soon"}</span><span class="course-arrow">→</span></div>
+      <div class="course-footer"><span>${countLabel}</span><span class="course-arrow">→</span></div>
     `;
     card.addEventListener("click",()=>openCourse(course));
     target.appendChild(card);
@@ -263,8 +276,73 @@ function renderTrackPanel(course){
     grid.appendChild(card);
   });
 
+  renderCourseFinalExamSlot(course);
   panel.classList.remove("hidden");
   panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function getBlueprint(id){
+  return state.blueprints.blueprints?.find(b=>b.id===id) || null;
+}
+
+function readinessShortText(readiness){
+  const missing=readiness.tracks.filter(t=>!t.ready);
+  if(!missing.length) return "All six subject pools are ready.";
+  const first=missing[0];
+  return `${first.label}: ${first.shortages.slice(0,2).join(", ")}${missing.length>1?` • +${missing.length-1} track${missing.length-1===1?"":"s"} still building`:""}`;
+}
+
+function renderCourseFinalExamSlot(course){
+  const slot=$("courseFinalExamSlot");
+  if(!slot)return;
+  slot.innerHTML="";
+  if(!course.finalExamBlueprintId)return;
+
+  const blueprint=getBlueprint(course.finalExamBlueprintId);
+  if(!blueprint)return;
+  const readiness=getBlueprintReadiness(state.bankRegistry,blueprint);
+  const pct=readiness.totalTracks?Math.round((readiness.readyTracks/readiness.totalTracks)*100):0;
+
+  const wrapper=document.createElement("article");
+  wrapper.className="course-final-card";
+  wrapper.innerHTML=`
+    <div class="course-final-head">
+      <div>
+        <span class="eyebrow">FINAL EXAM</span>
+        <h4>${blueprint.title}</h4>
+        <p>${blueprint.description}</p>
+      </div>
+      <span class="pool-chip ${readiness.ready?"ready":"building"}">${readiness.ready?"READY":"POOL BUILDING"}</span>
+    </div>
+
+    <div class="final-meta-grid">
+      <div><span>QUESTIONS</span><strong>${blueprint.questionCount}</strong></div>
+      <div><span>TIME</span><strong>${blueprint.timerMinutes} min</strong></div>
+      <div><span>DIFFICULTY</span><strong>25 / 50 / 25</strong></div>
+    </div>
+
+    <div class="final-track-pills">
+      ${blueprint.tracks.map(t=>`<span class="final-track-pill">${t.label} ${t.count}</span>`).join("")}
+    </div>
+
+    <div class="final-readiness">
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+      <strong>${readiness.readyTracks}/${readiness.totalTracks} pools ready</strong>
+    </div>
+    <div class="readiness-detail">${readinessShortText(readiness)}</div>
+    <button class="primary-btn wide" ${readiness.ready?"":"data-building='true'"}>
+      ${readiness.ready?"Start Final Exam →":"Check Final Pool →"}
+    </button>
+  `;
+  wrapper.querySelector("button").addEventListener("click",()=>{
+    if(!readiness.ready){
+      showToast(readinessShortText(readiness));
+      return;
+    }
+    const item=state.registry.find(x=>x.blueprintId===blueprint.id);
+    if(item) prepareExam(item);
+  });
+  slot.appendChild(wrapper);
 }
 
 function openTrack(course,track){
@@ -436,18 +514,29 @@ function renderExamLibrary(filter=""){
     .filter(x=>`${x.title} ${x.course} ${x.module} ${x.category}`.toLowerCase().includes(filter.toLowerCase()));
   list.forEach(item=>{
     const best=getBestForExam(item.id,state.studentName);
+    const isGenerated=item.generator==="question-bank";
+    const blueprint=isGenerated?getBlueprint(item.blueprintId):null;
+    const readiness=blueprint?getBlueprintReadiness(state.bankRegistry,blueprint):null;
+    const poolText=readiness?`${readiness.readyTracks}/${readiness.totalTracks} pools ready`:"";
     const card=document.createElement("article");card.className="exam-card";
     card.innerHTML=`
       <div class="exam-meta"><span class="pill">${item.category || "Exam"}</span><span class="pill subtle">${item.difficulty || "Mixed"}</span></div>
       <h3>${item.title}</h3><p>${item.description || ""}</p>
+      ${readiness?`<span class="pool-chip ${readiness.ready?"ready":"building"}">${readiness.ready?"READY":poolText}</span>`:""}
       <div class="exam-details">
         <div><span>COURSE</span><strong>${item.course || "—"}</strong></div>
         <div><span>MODULE</span><strong>${item.module || "—"}</strong></div>
         <div><span>QUESTIONS</span><strong>${item.questionCount ?? "—"}</strong></div>
         <div><span>YOUR BEST</span><strong>${best?`${best.percentage}%`:"Not attempted"}</strong></div>
       </div>
-      <button class="primary-btn wide">Open Exam <span>→</span></button>`;
-    card.querySelector("button").addEventListener("click",()=>prepareExam(item));
+      <button class="primary-btn wide">${readiness && !readiness.ready?"Check Pool":"Open Exam"} <span>→</span></button>`;
+    card.querySelector("button").addEventListener("click",()=>{
+      if(readiness && !readiness.ready){
+        showToast(readinessShortText(readiness));
+        return;
+      }
+      prepareExam(item);
+    });
     grid.appendChild(card);
   });
   if(!list.length) grid.innerHTML=`<div class="status-card"><div><strong>No matching exams</strong><p>Try another search or filter.</p></div></div>`;
@@ -456,35 +545,71 @@ $("examSearch").addEventListener("input",e=>renderExamLibrary(e.target.value));
 
 async function prepareExam(registryItem,forcedMode=null){
   try{
-    const payload=await loadJson(registryItem.file);
+    let payload;
+    if(registryItem.generator==="question-bank"){
+      const blueprint=getBlueprint(registryItem.blueprintId);
+      if(!blueprint) throw new Error("Missing exam blueprint.");
+      const readiness=getBlueprintReadiness(state.bankRegistry,blueprint);
+      if(!readiness.ready){
+        showToast(readinessShortText(readiness));
+        return;
+      }
+      payload=await buildExamFromBlueprint({
+        blueprint,
+        bankRegistry:state.bankRegistry,
+        loadJson
+      });
+    }else{
+      payload=await loadJson(registryItem.file);
+    }
+
     const errors=validateExamPayload(payload);
     if(errors.length){showToast("This exam JSON needs validation.");console.error(errors);return}
-    state.currentExam=payload;
-    state.currentRegistryItem=registryItem;
-    state.previousBest=getPreviousBestForExam(payload.exam.id,state.studentName);
-
-    const exam=payload.exam;
-    $("setupCategory").textContent=exam.category || "Exam";
-    $("setupDifficulty").textContent=exam.difficulty || "Mixed";
-    $("setupTitle").textContent=exam.title;
-    $("setupDescription").textContent=exam.description || "";
-    $("setupQuestions").textContent=payload.questions.length;
-    $("setupPass").textContent=`${exam.settings?.passingScore ?? 60}%`;
-    $("setupTimer").textContent=exam.settings?.timer?.enabled?`${exam.settings.timer.durationMinutes} min`:"No timer";
-    $("setupBreadcrumb").textContent=`${exam.course || ""} / ${exam.module || ""} / ${exam.category || "Exam"}`;
-
-    const allowed=exam.settings?.feedbackModes || ["instant","exam"];
-    document.querySelectorAll('input[name="feedbackMode"]').forEach(input=>{
-      input.disabled=!allowed.includes(input.value);
-      input.closest(".mode-option").classList.toggle("hidden",input.disabled);
-    });
-    const desired=forcedMode && allowed.includes(forcedMode)?forcedMode:allowed[0];
-    const radio=document.querySelector(`input[name="feedbackMode"][value="${desired}"]`);
-    if(radio)radio.checked=true;
-    routeTo("setupView");
+    configureExamSetup(payload,registryItem,forcedMode);
   }catch(err){
-    console.error(err);showToast("Could not load this exam.");
+    console.error(err);
+    showToast(err.message || "Could not load this exam.");
   }
+}
+
+function configureExamSetup(payload,registryItem,forcedMode=null){
+  state.currentExam=payload;
+  state.currentRegistryItem=registryItem;
+  state.previousBest=getPreviousBestForExam(payload.exam.id,state.studentName);
+
+  const exam=payload.exam;
+  $("setupCategory").textContent=exam.category || "Exam";
+  $("setupDifficulty").textContent=exam.difficulty || "Mixed";
+  $("setupTitle").textContent=exam.title;
+  $("setupDescription").textContent=exam.description || "";
+  $("setupQuestions").textContent=payload.questions.length;
+  $("setupPass").textContent=`${exam.settings?.passingScore ?? 60}%`;
+  $("setupTimer").textContent=exam.settings?.timer?.enabled?`${exam.settings.timer.durationMinutes} min`:"No timer";
+  $("setupBreadcrumb").textContent=`${exam.course || ""} / ${exam.module || ""} / ${exam.category || "Exam"}`;
+
+  const composition=$("setupComposition");
+  const generated=exam.generatedFromBlueprint;
+  if(generated?.tracks?.length){
+    composition.innerHTML=`
+      <span>EXAM COMPOSITION</span>
+      <div class="setup-composition-grid">
+        ${generated.tracks.map(t=>`<div><small>${t.label}</small><strong>${t.count} questions</strong></div>`).join("")}
+      </div>`;
+    composition.classList.remove("hidden");
+  }else{
+    composition.classList.add("hidden");
+    composition.innerHTML="";
+  }
+
+  const allowed=exam.settings?.feedbackModes || ["instant","exam"];
+  document.querySelectorAll('input[name="feedbackMode"]').forEach(input=>{
+    input.disabled=!allowed.includes(input.value);
+    input.closest(".mode-option").classList.toggle("hidden",input.disabled);
+  });
+  const desired=forcedMode && allowed.includes(forcedMode)?forcedMode:allowed[0];
+  const radio=document.querySelector(`input[name="feedbackMode"][value="${desired}"]`);
+  if(radio)radio.checked=true;
+  routeTo("setupView");
 }
 $("backToLibraryBtn").addEventListener("click",()=>routeTo("examsView"));
 
@@ -513,7 +638,15 @@ async function resumeProgress(progress){
   const item=state.registry.find(x=>x.id===progress.examId);
   if(!item){clearExamProgress();routeTo("examsView");return}
   try{
-    const payload=await loadJson(item.file);
+    let payload;
+    if(progress.generatedExam){
+      payload=progress.generatedExam;
+    }else if(item.generator==="question-bank"){
+      const blueprint=getBlueprint(item.blueprintId);
+      payload=await buildExamFromBlueprint({blueprint,bankRegistry:state.bankRegistry,loadJson});
+    }else{
+      payload=await loadJson(item.file);
+    }
     const errors=validateExamPayload(payload);
     if(errors.length)throw new Error("Invalid exam");
     state.currentExam=payload;state.currentRegistryItem=item;
@@ -532,7 +665,8 @@ function persistProgress(){
     totalQuestions:state.currentExam.questions.length,
     feedbackMode:state.feedbackMode,
     remainingSeconds:state.remainingSeconds,
-    elapsedSeconds:Math.max(0,Math.floor((Date.now()-state.startedAt)/1000))
+    elapsedSeconds:Math.max(0,Math.floor((Date.now()-state.startedAt)/1000)),
+    generatedExam:state.currentRegistryItem?.generator==="question-bank"?state.currentExam:null
   });
 }
 
@@ -627,11 +761,12 @@ function finishExam(autoSubmitted){
   const timeTakenSeconds=Math.max(0,Math.floor((Date.now()-state.startedAt)/1000));
   const clientAttemptId=crypto.randomUUID();
 
+  const subjectBreakdown=calculateSubjectBreakdown();
   const record={
     examId:state.currentExam.exam.id,examTitle:state.currentExam.exam.title,studentName:state.studentName,
     percentage:result.percentage,correct:result.correct,wrong:result.wrong,unanswered:result.unanswered,
     timeTakenSeconds,submittedAt:new Date().toISOString(),autoSubmitted,
-    clientAttemptId,onlineSynced:false
+    clientAttemptId,onlineSynced:false,subjectBreakdown
   };
 
   const onlineAttempt={
@@ -750,6 +885,42 @@ function escapeHtml(value){
   }[char]));
 }
 
+function calculateSubjectBreakdown(){
+  const groups={};
+  for(const q of state.currentExam?.questions || []){
+    const label=q.track || q.trackId;
+    if(!label) continue;
+    groups[label] ||= {total:0,correct:0,wrong:0,unanswered:0};
+    groups[label].total++;
+    const selected=state.answers[q.id] ?? null;
+    if(selected===null) groups[label].unanswered++;
+    else if(selected===q.correctAnswer) groups[label].correct++;
+    else groups[label].wrong++;
+  }
+  return groups;
+}
+
+function renderSubjectBreakdown(){
+  const section=$("resultSubjectBreakdown");
+  const grid=$("resultSubjectBreakdownGrid");
+  const data=state.lastResult?.record?.subjectBreakdown || {};
+  const entries=Object.entries(data);
+  if(entries.length<2){
+    section.classList.add("hidden");
+    grid.innerHTML="";
+    return;
+  }
+  grid.innerHTML=entries.map(([label,s])=>{
+    const pct=s.total?Math.round((s.correct/s.total)*100):0;
+    return `<div class="subject-breakdown-item">
+      <span>${escapeHtml(label)}</span>
+      <strong>${s.correct}/${s.total}</strong>
+      <small>${pct}% • ${s.wrong} wrong${s.unanswered?` • ${s.unanswered} unanswered`:""}</small>
+    </div>`;
+  }).join("");
+  section.classList.remove("hidden");
+}
+
 function animateScore(target){
   const el=$("resultPercent");let current=0;
   const duration=700,start=performance.now();
@@ -772,6 +943,7 @@ function renderResult(){
   $("resultScore").textContent=`${record.correct} / ${state.currentExam.questions.length}`;
   $("correctCount").textContent=score.correct;$("wrongCount").textContent=score.wrong;$("unansweredCount").textContent=score.unanswered;
   $("timeTaken").textContent=formatDuration(record.timeTakenSeconds);
+  renderSubjectBreakdown();
   $("celebration").classList.toggle("hidden",record.percentage<80);
   setTimeout(()=>animateScore(record.percentage),120);
 
@@ -987,30 +1159,31 @@ async function handleValidatorFile(file){
   }
 
   state.validatorPayload=payload;
-  const result=validateExamJson(payload);
-  renderValidatorResult(file.name,result,payload);
+  const isBank=payload?.schemaVersion==="2.0" && payload?.bank;
+  const result=isBank?validateQuestionBank(payload):validateExamJson(payload);
+  renderValidatorResult(file.name,result,payload,isBank?"bank":"exam");
 }
 
-function renderValidatorResult(fileName,result,payload){
+function renderValidatorResult(fileName,result,payload,kind="exam"){
   $("validatorEmptyState").classList.add("hidden");
   $("validatorResultCard").classList.remove("hidden");
   $("validatorFileName").textContent=fileName;
 
   const badge=$("validatorStatusBadge");
   if(result.valid){
-    $("validatorResultTitle").textContent="Exam JSON is valid";
+    $("validatorResultTitle").textContent=kind==="bank"?"Question Bank JSON is valid":"Exam JSON is valid";
     badge.textContent="VALID ✓";
     badge.className="validator-status-badge valid";
   }else{
-    $("validatorResultTitle").textContent="Exam JSON needs fixes";
+    $("validatorResultTitle").textContent=kind==="bank"?"Question Bank JSON needs fixes":"Exam JSON needs fixes";
     badge.textContent="INVALID";
     badge.className="validator-status-badge invalid";
   }
 
   const summary=result.summary || {};
   $("validatorSummary").innerHTML=`
-    <div><span>EXAM</span><strong>${escapeHtml(summary.title || "—")}</strong></div>
-    <div><span>COURSE</span><strong>${escapeHtml(summary.course || "—")}</strong></div>
+    <div><span>${kind==="bank"?"BANK":"EXAM"}</span><strong>${escapeHtml(summary.title || "—")}</strong></div>
+    <div><span>${kind==="bank"?"TRACK":"COURSE"}</span><strong>${escapeHtml((kind==="bank"?summary.track:summary.course) || "—")}</strong></div>
     <div><span>QUESTIONS</span><strong>${summary.questionCount ?? 0}</strong></div>
     <div><span>TOPICS</span><strong>${summary.topicCount ?? 0}</strong></div>
   `;
@@ -1021,12 +1194,17 @@ function renderValidatorResult(fileName,result,payload){
   renderValidatorIssues("validatorWarnings",result.warnings,"No warnings.");
 
   if(result.valid){
-    const registry=buildRegistryEntry(payload);
+    const registry=kind==="bank"?buildBankRegistryEntry(payload):buildRegistryEntry(payload);
     state.validatorRegistryEntry=registry;
     $("validatorRegistryCode").textContent=JSON.stringify(registry,null,2);
     $("validatorSuggestedPath").textContent=registry.file;
+    $("validatorRegistryHelp").innerHTML=kind==="bank"
+      ? 'Save the bank at the suggested path, then add this object inside <code>data/question-banks.json</code>.'
+      : 'Save the exam at the suggested path, then add this object inside <code>data/exams.json</code>.';
     $("registrySection").classList.remove("hidden");
-    $("validatorNextStep").querySelector("h3").textContent="Valid. Save the file, add the registry entry, then commit to GitHub.";
+    $("validatorNextStep").querySelector("h3").textContent=kind==="bank"
+      ?"Valid bank. Add it to the question-bank registry, then the exam engine can use it."
+      :"Valid exam. Save the file, add the registry entry, then commit to GitHub.";
   }else{
     state.validatorRegistryEntry=null;
     $("registrySection").classList.add("hidden");

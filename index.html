@@ -248,6 +248,7 @@
             <button class="ghost-btn" id="closeTrackPanel">Close</button>
           </div>
           <div id="trackGrid" class="track-grid"></div>
+          <div id="courseFinalExamSlot"></div>
         </section>
 
         <section id="modulePanel" class="module-panel hidden">
@@ -366,6 +367,7 @@
               <div><span>Timer</span><strong id="setupTimer">No timer</strong></div>
               <div><span>Pass score</span><strong id="setupPass">60%</strong></div>
             </div>
+            <div id="setupComposition" class="setup-composition hidden"></div>
           </article>
 
           <article class="mode-card">
@@ -464,6 +466,13 @@
               <div><span>Time</span><strong id="timeTaken">—</strong></div>
             </div>
 
+            <section id="resultSubjectBreakdown" class="subject-breakdown hidden">
+              <div class="section-title-row">
+                <div><span class="eyebrow">SUBJECT BREAKDOWN</span><h3>Performance by track</h3></div>
+              </div>
+              <div id="resultSubjectBreakdownGrid" class="subject-breakdown-grid"></div>
+            </section>
+
             <div id="improvementMessage" class="improvement-card hidden"></div>
 
             <div class="result-actions">
@@ -561,15 +570,15 @@
       <section id="validatorView" class="view">
         <div class="context-bar">
           <button class="back-btn" id="validatorBackBtn">← Back</button>
-          <div class="breadcrumb">Tools / Exam JSON Validator</div>
+          <div class="breadcrumb">Tools / Exam & Question Bank Validator</div>
           <a class="ghost-btn desktop-only" href="data/exam-template.json" download>Download Template ↓</a>
         </div>
 
         <div class="page-heading compact">
           <div>
             <span class="eyebrow">ADMIN TOOL</span>
-            <h2>Exam JSON Validator</h2>
-            <p>Check an AI-generated exam before uploading it to GitHub.</p>
+            <h2>Exam & Question Bank Validator</h2>
+            <p>Check an AI-generated Exam JSON or Question Bank JSON before uploading it to GitHub.</p>
           </div>
         </div>
 
@@ -585,15 +594,16 @@
             </div>
 
             <div class="validator-helper-row">
-              <a class="secondary-btn" href="data/exam-template.json" download>Download JSON Template</a>
-              <a class="secondary-btn" href="docs/EXAM-JSON-SCHEMA.md" target="_blank">Schema Reference ↗</a>
+              <a class="secondary-btn" href="data/exam-template.json" download>Exam Template</a>
+              <a class="secondary-btn" href="data/question-bank-template.json" download>Question Bank Template</a>
+              <a class="secondary-btn" href="docs/QUESTION-BANK-SCHEMA-V2.md" target="_blank">Bank Schema ↗</a>
             </div>
           </section>
 
           <section id="validatorEmptyState" class="validator-empty-card">
             <span class="validator-empty-symbol">✓</span>
             <h3>Ready to validate</h3>
-            <p>The tool checks structure, question IDs, A–D options, correct answers, Arabic explanations, difficulty, timer settings and source references.</p>
+            <p>The tool auto-detects Exam JSON V1 or Question Bank JSON V2 and validates IDs, A–D options, answers, Arabic explanations, difficulty, source type, eligibility and source traceability.</p>
           </section>
 
           <section id="validatorResultCard" class="validator-result-card hidden">
@@ -634,7 +644,7 @@
                 </div>
                 <button class="secondary-btn" id="copyRegistryBtn">Copy Entry</button>
               </div>
-              <p>Save the JSON using the path below, then add this object inside <code>data/exams.json</code>.</p>
+              <p id="validatorRegistryHelp">Save the JSON using the suggested path, then add the generated object to the matching registry file.</p>
               <div class="registry-path">
                 <span>Suggested file path</span>
                 <strong id="validatorSuggestedPath"></strong>
@@ -696,7 +706,7 @@
     </div>
 
     <div class="drawer-actions">
-      <button class="primary-btn wide" id="openValidatorBtn">Exam JSON Validator →</button>
+      <button class="primary-btn wide" id="openValidatorBtn">Exam / Bank JSON Validator →</button>
       <button class="secondary-btn wide" id="changeNameBtn">Change saved name</button>
     </div>
   </aside>
