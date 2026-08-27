@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.3
+# Digilians E-Learn Platform V0.3.1
 
 A modern, free-first learning and exam platform prototype.
 
@@ -36,3 +36,8 @@ The app uses `fetch()` for JSON files, so open it through:
 - a local web server such as VS Code Live Server.
 
 Do not test by double-clicking `index.html` directly.
+
+
+## V0.3.1 readability patch
+- Increased Explanation font size and line-height in Instant Feedback.
+- Increased Explanation font size in Review Answers.
