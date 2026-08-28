@@ -1,12 +1,3 @@
-
-function getPreferredHomeCardTitle() {
-  try {
-    const lastOpened = localStorage.getItem('digilians_last_home_card');
-    if (lastOpened) return lastOpened;
-  } catch (e) {}
-  return 'Data Analysis • Official QBank';
-}
-
 import {
   getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,
   markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
@@ -1742,86 +1733,109 @@ $("reviewHomeBtn").addEventListener("click",()=>{
 
 function populateRankingExamSelect(){
   const select=$("rankingExamSelect");if(!select)return;
-  const current=state.rankingExamId || state.registry.find(x=>x.active!==false)?.id || "";
   select.innerHTML="";
 
-  const standardGroup=document.createElement("optgroup");
-  standardGroup.label="Platform Exams";
-  state.registry.filter(x=>x.active!==false).forEach(item=>{
-    const option=document.createElement("option");option.value=item.id;option.textContent=`${item.course} — ${item.title}`;
-    standardGroup.appendChild(option);
-  });
-  if(standardGroup.children.length)select.appendChild(standardGroup);
-
+  const dataAnalysisIds=[];
   const junior=(state.officialRegistry.levels||[]).find(x=>x.levelId==="junior-data-analysis");
-  if(junior){
-    const officialGroup=document.createElement("optgroup");officialGroup.label="Official QBank — Junior Sections";
-    for(const track of junior.tracks||[]){
-      for(const section of track.sections||[]){
-        const option=document.createElement("option");
-        option.value=officialSectionExamId("junior-data-analysis",track.trackId,section.sectionNumber,track.sourceRevision||"source-r1");
-        option.textContent=`Junior • ${track.track} • ${section.title}`;
-        officialGroup.appendChild(option);
-      }
-    }
-    select.appendChild(officialGroup);
 
-    const finalGroup=document.createElement("optgroup");finalGroup.label="Official QBank — Junior Final";
+  // Official Junior QBank first
+  if(junior){
+    const finalGroup=document.createElement("optgroup");
+    finalGroup.label="Data Analysis — Official Junior Final";
     const finalOption=document.createElement("option");
     finalOption.value=state.officialFinalBlueprint?.id || "official-junior-data-analysis-final-v1";
     finalOption.textContent="Junior Data Analysis • Official Final Simulation";
-    finalGroup.appendChild(finalOption);select.appendChild(finalGroup);
-  }
+    finalGroup.appendChild(finalOption);
+    select.appendChild(finalGroup);
+    dataAnalysisIds.push(finalOption.value);
 
-  if([...select.options].some(o=>o.value===current))select.value=current;
-  state.rankingExamId=select.value || current;
-}
-async 
-function getMostUsedOrLastOpenedLeaderboardId(leaderboards) {
-  try {
-    const lastOpened = localStorage.getItem('digilians_last_leaderboard_id');
-    if (lastOpened && leaderboards.some(lb => lb.id === lastOpened)) return lastOpened;
-
-    const usageRaw = localStorage.getItem('digilians_leaderboard_usage');
-    if (usageRaw) {
-      const usage = JSON.parse(usageRaw);
-      let bestId = null;
-      let bestCount = -1;
-      leaderboards.forEach(lb => {
-        const count = Number(usage[lb.id] || 0);
-        if (count > bestCount) {
-          bestCount = count;
-          bestId = lb.id;
-        }
-      });
-      if (bestId && leaderboards.some(lb => lb.id === bestId)) return bestId;
+    const officialGroup=document.createElement("optgroup");
+    officialGroup.label="Data Analysis — Official QBank Sections";
+    for(const track of junior.tracks||[]){
+      for(const section of track.sections||[]){
+        const option=document.createElement("option");
+        option.value=officialSectionExamId(
+          "junior-data-analysis",
+          track.trackId,
+          section.sectionNumber,
+          track.sourceRevision||"source-r1"
+        );
+        option.textContent=`Junior • ${track.track} • ${section.title}`;
+        officialGroup.appendChild(option);
+        dataAnalysisIds.push(option.value);
+      }
     }
-
-    const preferred = leaderboards.find(lb =>
-      /junior data analysis/i.test(lb.title || '') &&
-      /official qbank/i.test(lb.title || '')
-    );
-    if (preferred) return preferred.id;
-
-    const dataAny = leaderboards.find(lb => /data analysis/i.test(lb.title || ''));
-    if (dataAny) return dataAny.id;
-
-    return leaderboards[0] ? leaderboards[0].id : null;
-  } catch (e) {
-    return leaderboards[0] ? leaderboards[0].id : null;
+    if(officialGroup.children.length)select.appendChild(officialGroup);
   }
+
+  // Data Analysis platform exams next
+  const dataGroup=document.createElement("optgroup");
+  dataGroup.label="Data Analysis — Platform Exams";
+  state.registry
+    .filter(x=>x.active!==false && String(x.course||"").toLowerCase()==="data analysis")
+    .forEach(item=>{
+      const option=document.createElement("option");
+      option.value=item.id;
+      option.textContent=`${item.course} — ${item.title}`;
+      dataGroup.appendChild(option);
+      dataAnalysisIds.push(option.value);
+    });
+  if(dataGroup.children.length)select.appendChild(dataGroup);
+
+  // Keep any other legacy/demo exams available, but after Data Analysis.
+  const otherGroup=document.createElement("optgroup");
+  otherGroup.label="Other Platform Exams";
+  state.registry
+    .filter(x=>x.active!==false && String(x.course||"").toLowerCase()!=="data analysis")
+    .forEach(item=>{
+      const option=document.createElement("option");
+      option.value=item.id;
+      option.textContent=`${item.course} — ${item.title}`;
+      otherGroup.appendChild(option);
+    });
+  if(otherGroup.children.length)select.appendChild(otherGroup);
+
+  const availableIds=[...select.options].map(o=>o.value);
+  const validDataIds=dataAnalysisIds.filter(id=>availableIds.includes(id));
+
+  let preferred="";
+
+  // 1) Last selected Data Analysis leaderboard.
+  try{
+    const last=localStorage.getItem("digilians_last_ranking_exam_id") || "";
+    if(last && validDataIds.includes(last))preferred=last;
+  }catch{}
+
+  // 2) Most attempted Data Analysis leaderboard on this device/user.
+  if(!preferred && validDataIds.length){
+    const counts={};
+    for(const result of getUserResults()){
+      if(validDataIds.includes(result.examId)){
+        counts[result.examId]=(counts[result.examId]||0)+1;
+      }
+    }
+    const mostUsed=Object.entries(counts)
+      .sort((a,b)=>b[1]-a[1])[0]?.[0] || "";
+    if(mostUsed)preferred=mostUsed;
+  }
+
+  // 3) Junior Official Final as the clean first-time fallback.
+  if(!preferred){
+    const finalId=state.officialFinalBlueprint?.id || "";
+    if(finalId && validDataIds.includes(finalId))preferred=finalId;
+  }
+
+  // 4) First available Data Analysis leaderboard.
+  if(!preferred && validDataIds.length)preferred=validDataIds[0];
+
+  // 5) Absolute fallback only if no Data Analysis option exists.
+  if(!preferred)preferred=availableIds[0] || "";
+
+  select.value=preferred;
+  state.rankingExamId=select.value || preferred;
 }
 
-function rememberLeaderboardSelection(id) {
-  try {
-    localStorage.setItem('digilians_last_leaderboard_id', id);
-    const usage = JSON.parse(localStorage.getItem('digilians_leaderboard_usage') || '{}');
-    usage[id] = Number(usage[id] || 0) + 1;
-    localStorage.setItem('digilians_leaderboard_usage', JSON.stringify(usage));
-  } catch (e) {}
-}
-
-function renderRanking(){
+async function renderRanking(){
   $("rankingLocalName").textContent=state.studentName || "Guest";
 
   populateRankingExamSelect();
@@ -1918,6 +1932,7 @@ function renderOnlineLeaderboard(board){
 
 $("rankingExamSelect").addEventListener("change",e=>{
   state.rankingExamId=e.target.value;
+  try{localStorage.setItem("digilians_last_ranking_exam_id",state.rankingExamId)}catch{}
   renderRanking();
 });
 $("refreshLeaderboardBtn").addEventListener("click",()=>renderRanking());
@@ -2126,9 +2141,3 @@ async function init(){
   }else routeTo("welcomeView");
 }
 init();
-
-try {
-  if (typeof currentLeaderboardId !== 'undefined' && currentLeaderboardId) {
-    rememberLeaderboardSelection(currentLeaderboardId);
-  }
-} catch (e) {}

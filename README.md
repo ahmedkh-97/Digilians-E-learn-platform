@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.10.8
+# Digilians E-Learn Platform V0.10.9
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -816,20 +816,23 @@ Every official Junior question now includes a concept-specific Arabic summary pl
 The official question text, options and official answer remain locked and unchanged. Platform explanations remain clearly labeled `platform-generated`.
 
 
-## V0.10.8 — Home / Ranking Default Flow UX Update
+## V0.10.9 — Hotfix: Home + Ranking Data Analysis Priority
 
-Updated the initial Home and Ranking experience so the platform now prioritizes **Data Analysis**
-instead of the old English demo fallback.
+Built from the last known-good V0.10.7 baseline after V0.10.8 introduced a runtime regression.
 
-### Changes
-- Home hero course card fallback changed from **English • Module 1** to **Data Analysis • Official QBank**
-- Home hero subtitle changed from **Practice session** to **Resume Track**
-- Ranking page default selection now prioritizes:
-  1. last opened leaderboard
-  2. most used leaderboard
-  3. **Junior Data Analysis — Official QBank**
-  4. any available Data Analysis leaderboard
-  5. first available fallback
-- Leaderboard selection is now remembered in localStorage for a more personalized return experience
-
-This keeps the platform aligned with the primary user journey around Data Analysis.
+### Fixes
+- Restored the original `async function renderRanking()` runtime flow.
+- Landing product preview now shows **Data Analysis • Official QBank** instead of the English demo.
+- Landing preview subtitle now shows **Resume Track**.
+- Ranking dropdown is reordered with Data Analysis first:
+  - Junior Official Final
+  - Official Junior QBank sections
+  - Data Analysis platform exams
+  - other legacy/demo exams last
+- Ranking default now prioritizes:
+  1. last selected Data Analysis leaderboard
+  2. most attempted Data Analysis leaderboard for the current saved user/device
+  3. Junior Data Analysis Official Final
+  4. first available Data Analysis leaderboard
+- Last ranking selection is saved safely in localStorage.
+- No Official QBank question data or source-audit content was changed.
