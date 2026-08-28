@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.7
+# Digilians E-Learn Platform V0.8
 
 A modern, free-first learning and exam platform prototype.
 
@@ -234,3 +234,31 @@ The dynamic exam engine can now apply topic coverage instead of selecting blindl
 
 ### Result Analytics
 Topic-level performance is now calculated and displayed after an exam.
+
+
+## V0.8 - Official Ministry QBank Hub
+
+Integrated the complete 208-page official Junior MCQ Exercise bank as a first-class product area.
+
+### Extracted Questions
+- Total: 830
+- Excel: 230
+- Power BI: 185
+- SQL: 85
+- Python: 85
+- Tableau: 160
+- Looker Studio: 85
+
+### Features
+- Official QBank desktop navigation + mobile bottom navigation
+- Home shortcut
+- Study every official question in original source order
+- Source page and original question number shown
+- Search + topic filter
+- Reviewed / unseen / bookmarks / mistakes filters
+- Local progress persistence
+- Practice 40
+- Exam 50
+- Official-only 100-question / 120-minute Final Simulation
+- Exact official text locked in archive
+- Official answers clearly separated from platform-generated explanations

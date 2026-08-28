@@ -1,0 +1,2265 @@
+{
+  "schemaVersion": "1.0",
+  "bank": {
+    "id": "official-sql-bank-001",
+    "title": "SQL & Databases - Official Ministry QBank",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "sourceType": "official-qbank",
+    "authority": "Official Ministry QBank",
+    "sourceFile": "Junior_MCQ_Exercises.pdf",
+    "officialTextLocked": true
+  },
+  "questions": [
+    {
+      "id": "official-sql-q0001",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 1,
+      "originalQuestionNumber": 1,
+      "question": "You have an Orders table containing CustomerID, OrderDate, and Amount. You want to calculate total sales for each\ncustomer, but only display customers whose total sales exceed $50,000. Which query is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT CustomerID, SUM(Amount)\nFROM Orders\nWHERE SUM(Amount) > 50000\nGROUP BY CustomerID;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT CustomerID, SUM(Amount)\nFROM Orders\nGROUP BY CustomerID\nHAVING SUM(Amount) > 50000;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT CustomerID, SUM(Amount)\nFROM Orders\nHAVING Amount > 50000\nGROUP BY CustomerID;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT CustomerID, Amount\nFROM Orders\nWHERE Amount > 50000;"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5e1f00ccca910007",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 96,
+        "originalQuestionNumber": 1
+      }
+    },
+    {
+      "id": "official-sql-q0002",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 2,
+      "originalQuestionNumber": 2,
+      "question": "You have Customers and Orders. You want only customers who have at least one order. Which JOIN is most appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LEFT JOIN"
+        },
+        {
+          "id": "B",
+          "text": "RIGHT JOIN"
+        },
+        {
+          "id": "C",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "D",
+          "text": "FULL OUTER JOIN"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "joins",
+      "topic": "JOINs",
+      "difficulty": "Hard",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4d53aea6b0883551",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 96,
+        "originalQuestionNumber": 2
+      }
+    },
+    {
+      "id": "official-sql-q0003",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 3,
+      "originalQuestionNumber": 3,
+      "question": "You need a report showing every customer, including customers who have never placed an order. Which JOIN should\nyou use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "B",
+          "text": "LEFT JOIN"
+        },
+        {
+          "id": "C",
+          "text": "CROSS JOIN"
+        },
+        {
+          "id": "D",
+          "text": "SELF JOIN"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "joins",
+      "topic": "JOINs",
+      "difficulty": "Hard",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "97d98ce92bab9b3e",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 97,
+        "originalQuestionNumber": 3
+      }
+    },
+    {
+      "id": "official-sql-q0004",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 4,
+      "originalQuestionNumber": 4,
+      "question": "Which query correctly identifies customers who have never placed an order?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT c.CustomerID\nFROM Customers c\nINNER JOIN Orders o\nON c.CustomerID = o.CustomerID\nWHERE o.CustomerID IS NULL;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT c.CustomerID\nFROM Customers c\nLEFT JOIN Orders o\nON c.CustomerID = o.CustomerID\nWHERE o.CustomerID IS NULL;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT c.CustomerID\nFROM Customers c\nRIGHT JOIN Orders o\nON c.CustomerID = o.CustomerID;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT CustomerID\nFROM Customers\nWHERE CustomerID IS NULL;"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "joins",
+      "topic": "JOINs",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "d5b3f04ef3db7cc3",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 97,
+        "originalQuestionNumber": 4
+      }
+    },
+    {
+      "id": "official-sql-q0005",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 5,
+      "originalQuestionNumber": 5,
+      "question": "You need total revenue for every product category. Which query is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT Category, SUM(Sales)\nFROM Products;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT Category, SUM(Sales)\nFROM Products\nGROUP BY Category;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT SUM(Sales)\nFROM Products\nGROUP BY Sales;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT Category, Sales\nFROM Products\nGROUP BY Sales;"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "e162a66775ee80de",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 97,
+        "originalQuestionNumber": 5
+      }
+    },
+    {
+      "id": "official-sql-q0006",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 6,
+      "originalQuestionNumber": 6,
+      "question": "A Sales table contains thousands of transactions, and the same CustomerID can appear many times. Which expression\ncalculates the number of unique customers?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT(CustomerID)"
+        },
+        {
+          "id": "B",
+          "text": "COUNT(*)"
+        },
+        {
+          "id": "C",
+          "text": "COUNT(DISTINCT CustomerID)"
+        },
+        {
+          "id": "D",
+          "text": "SUM(DISTINCT CustomerID)"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "keys-constraints",
+      "topic": "Keys & Constraints",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "83ad5ece40b0372b",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 98,
+        "originalQuestionNumber": 6
+      }
+    },
+    {
+      "id": "official-sql-q0007",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 7,
+      "originalQuestionNumber": 7,
+      "question": "Which expression correctly checks whether Email contains a NULL value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Email = NULL"
+        },
+        {
+          "id": "B",
+          "text": "Email == NULL"
+        },
+        {
+          "id": "C",
+          "text": "Email IS NULL"
+        },
+        {
+          "id": "D",
+          "text": "Email = 'NULL'"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "keys-constraints",
+      "topic": "Keys & Constraints",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "0f15310e84b39539",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 98,
+        "originalQuestionNumber": 7
+      }
+    },
+    {
+      "id": "official-sql-q0008",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 8,
+      "originalQuestionNumber": 8,
+      "question": "A customer table contains Phone1, Phone2, and Phone3. You want to return the first non-NULL phone number. Which\nfunction is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NULLIF"
+        },
+        {
+          "id": "B",
+          "text": "COALESCE"
+        },
+        {
+          "id": "C",
+          "text": "ISNULLONLY"
+        },
+        {
+          "id": "D",
+          "text": "FIRST_VALUE"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "05f48a7c3db6c57b",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 98,
+        "originalQuestionNumber": 8
+      }
+    },
+    {
+      "id": "official-sql-q0009",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 9,
+      "originalQuestionNumber": 9,
+      "question": "A table contains duplicate city names. Which query returns each city only once?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT UNIQUE City FROM Customers;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT DISTINCT City FROM Customers;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT City ONLY FROM Customers;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT City GROUP FROM Customers;"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5b5d37fd083b3aab",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 99,
+        "originalQuestionNumber": 9
+      }
+    },
+    {
+      "id": "official-sql-q0010",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 10,
+      "originalQuestionNumber": 10,
+      "question": "Which query returns employees from highest salary to lowest salary?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT *\nFROM Employees\nORDER BY Salary ASC;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT *\nFROM Employees\nORDER BY Salary DESC;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT *\nFROM Employees\nSORT BY Salary;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT *\nFROM Employees\nGROUP BY Salary DESC;"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "basics",
+      "topic": "SQL Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "b449fa138554e5ec",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 99,
+        "originalQuestionNumber": 10
+      }
+    },
+    {
+      "id": "official-sql-q0011",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 11,
+      "originalQuestionNumber": 11,
+      "question": "You want to classify employees as \"High\" when salary is at least 100,000 and \"Standard\" otherwise. Which expression\nis appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CASE\nWHEN Salary >= 100000 THEN 'High'\nELSE 'Standard'\nEND"
+        },
+        {
+          "id": "B",
+          "text": "IF Salary >= 100000 THEN 'High'"
+        },
+        {
+          "id": "C",
+          "text": "CASE Salary > 100000"
+        },
+        {
+          "id": "D",
+          "text": "WHEN Salary >= 100000"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3907fcae7ba90cfc",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 99,
+        "originalQuestionNumber": 11
+      }
+    },
+    {
+      "id": "official-sql-q0012",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 12,
+      "originalQuestionNumber": 12,
+      "question": "Which condition returns orders placed between January 1 and January 31, 2026?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE OrderDate BETWEEN '2026-01-01' AND '2026-01-31'"
+        },
+        {
+          "id": "B",
+          "text": "WHERE OrderDate FROM '2026-01-01' TO '2026-01-31'"
+        },
+        {
+          "id": "C",
+          "text": "WHERE OrderDate IN '2026-01-01' AND '2026-01-31'"
+        },
+        {
+          "id": "D",
+          "text": "WHERE OrderDate RANGE '2026-01-01','2026-01-31'"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "45c970441e043cac",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 100,
+        "originalQuestionNumber": 12
+      }
+    },
+    {
+      "id": "official-sql-q0013",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 13,
+      "originalQuestionNumber": 13,
+      "question": "You need employees from the Finance, Sales, or HR departments. Which condition is most concise?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE Department = 'Finance' OR 'Sales' OR 'HR'"
+        },
+        {
+          "id": "B",
+          "text": "WHERE Department IN ('Finance','Sales','HR')"
+        },
+        {
+          "id": "C",
+          "text": "WHERE Department BETWEEN ('Finance','Sales','HR')"
+        },
+        {
+          "id": "D",
+          "text": "WHERE Department LIKE ('Finance','Sales','HR')"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "basics",
+      "topic": "SQL Fundamentals",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "67d77c5d6eaf7075",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 100,
+        "originalQuestionNumber": 13
+      }
+    },
+    {
+      "id": "official-sql-q0014",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 14,
+      "originalQuestionNumber": 14,
+      "question": "Which condition finds customers whose names begin with \"John\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Name LIKE '%John'"
+        },
+        {
+          "id": "B",
+          "text": "Name LIKE 'John%'"
+        },
+        {
+          "id": "C",
+          "text": "Name LIKE '%John%'"
+        },
+        {
+          "id": "D",
+          "text": "Name = 'John%'"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "subqueries-ctes",
+      "topic": "Subqueries & CTEs",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4310d9fe88663bc6",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 100,
+        "originalQuestionNumber": 14
+      }
+    },
+    {
+      "id": "official-sql-q0015",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 15,
+      "originalQuestionNumber": 15,
+      "question": "You need employees whose salary is greater than the average salary of all employees. Which approach is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT *\nFROM Employees\nWHERE Salary > AVG(Salary);"
+        },
+        {
+          "id": "B",
+          "text": "SELECT *\nFROM Employees\nWHERE Salary > (\nSELECT AVG(Salary)\nFROM Employees\n);"
+        },
+        {
+          "id": "C",
+          "text": "SELECT *\nFROM Employees\nHAVING Salary > AVG(Salary);"
+        },
+        {
+          "id": "D",
+          "text": "SELECT *\nFROM Employees\nWHERE Salary > SELECT AVG(Salary);"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "d6b1eeb1df342c78",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 101,
+        "originalQuestionNumber": 15
+      }
+    },
+    {
+      "id": "official-sql-q0016",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 16,
+      "originalQuestionNumber": 16,
+      "question": "You have two queries that return the same number and compatible types of columns. You want to combine their results\nand remove duplicate rows. Which operator should you use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UNION"
+        },
+        {
+          "id": "B",
+          "text": "UNION ALL"
+        },
+        {
+          "id": "C",
+          "text": "JOIN"
+        },
+        {
+          "id": "D",
+          "text": "MERGE"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "joins",
+      "topic": "JOINs",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "fd711ab3c5dc5ae4",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 101,
+        "originalQuestionNumber": 16
+      }
+    },
+    {
+      "id": "official-sql-q0017",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 17,
+      "originalQuestionNumber": 17,
+      "question": "What is the main difference between UNION and UNION ALL?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UNION ALL removes duplicates"
+        },
+        {
+          "id": "B",
+          "text": "UNION removes duplicates, while UNION ALL retains them"
+        },
+        {
+          "id": "C",
+          "text": "UNION requires JOINs"
+        },
+        {
+          "id": "D",
+          "text": "UNION ALL works only with numeric columns"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a5cc4ded3951f09d",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 101,
+        "originalQuestionNumber": 17
+      }
+    },
+    {
+      "id": "official-sql-q0018",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 18,
+      "originalQuestionNumber": 18,
+      "question": "An Employees table contains EmployeeID and ManagerID. You want to display each employee alongside their\nmanager's name. Which technique is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CROSS JOIN"
+        },
+        {
+          "id": "B",
+          "text": "SELF JOIN"
+        },
+        {
+          "id": "C",
+          "text": "UNION"
+        },
+        {
+          "id": "D",
+          "text": "FULL JOIN only"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "joins",
+      "topic": "JOINs",
+      "difficulty": "Hard",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5b0f1057f3b20b21",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 102,
+        "originalQuestionNumber": 18
+      }
+    },
+    {
+      "id": "official-sql-q0019",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 19,
+      "originalQuestionNumber": 19,
+      "question": "CROSS JOIN\nWhat does a CROSS JOIN generally produce?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only matching records"
+        },
+        {
+          "id": "B",
+          "text": "A Cartesian product of the two tables"
+        },
+        {
+          "id": "C",
+          "text": "Only unmatched records"
+        },
+        {
+          "id": "D",
+          "text": "Duplicate columns only"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "joins",
+      "topic": "JOINs",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f69369864d3f0d0d",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 102,
+        "originalQuestionNumber": 19
+      }
+    },
+    {
+      "id": "official-sql-q0020",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 20,
+      "originalQuestionNumber": 20,
+      "question": "You need all customers and all orders, including customers without orders and orders without a matching customer.\nWhich JOIN is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "B",
+          "text": "LEFT JOIN"
+        },
+        {
+          "id": "C",
+          "text": "FULL OUTER JOIN"
+        },
+        {
+          "id": "D",
+          "text": "CROSS JOIN"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "joins",
+      "topic": "JOINs",
+      "difficulty": "Hard",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "ad4313a379fb76ff",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 102,
+        "originalQuestionNumber": 20
+      }
+    },
+    {
+      "id": "official-sql-q0021",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 21,
+      "originalQuestionNumber": 21,
+      "question": "You have a complicated query that needs to define an intermediate result and then reference it in the main query. Which\nfeature improves readability and organization?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CTE"
+        },
+        {
+          "id": "B",
+          "text": "Trigger"
+        },
+        {
+          "id": "C",
+          "text": "Index"
+        },
+        {
+          "id": "D",
+          "text": "Constraint"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "subqueries-ctes",
+      "topic": "Subqueries & CTEs",
+      "difficulty": "Hard",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3f937b3ccfccfb2e",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 102,
+        "originalQuestionNumber": 21
+      }
+    },
+    {
+      "id": "official-sql-q0022",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 22,
+      "originalQuestionNumber": 22,
+      "question": "Which syntax correctly starts a Common Table Expression?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WITH SalesCTE AS (\nSELECT *\nFROM Sales\n)\nSELECT *\nFROM SalesCTE;"
+        },
+        {
+          "id": "B",
+          "text": "CTE SalesCTE AS (\n...\n)"
+        },
+        {
+          "id": "C",
+          "text": "CREATE TEMP CTE SalesCTE"
+        },
+        {
+          "id": "D",
+          "text": "START CTE SalesCTE"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "subqueries-ctes",
+      "topic": "Subqueries & CTEs",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "8738e99d29a5534f",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 102,
+        "originalQuestionNumber": 22
+      }
+    },
+    {
+      "id": "official-sql-q0023",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 23,
+      "originalQuestionNumber": 23,
+      "question": "What is the primary purpose of a primary key?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To allow duplicate records"
+        },
+        {
+          "id": "B",
+          "text": "To uniquely identify each row in a table"
+        },
+        {
+          "id": "C",
+          "text": "To automatically sort every table"
+        },
+        {
+          "id": "D",
+          "text": "To store only numeric values"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "keys-constraints",
+      "topic": "Keys & Constraints",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a3196e915bdd1147",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 103,
+        "originalQuestionNumber": 23
+      }
+    },
+    {
+      "id": "official-sql-q0024",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 24,
+      "originalQuestionNumber": 24,
+      "question": "What is the primary purpose of a foreign key?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To create a relationship between tables"
+        },
+        {
+          "id": "B",
+          "text": "To guarantee every column is unique"
+        },
+        {
+          "id": "C",
+          "text": "To replace the primary key"
+        },
+        {
+          "id": "D",
+          "text": "To encrypt data"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "keys-constraints",
+      "topic": "Keys & Constraints",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "987844a184e40af3",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 103,
+        "originalQuestionNumber": 24
+      }
+    },
+    {
+      "id": "official-sql-q0025",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 25,
+      "originalQuestionNumber": 25,
+      "question": "Which constraint ensures that values in a column or group of columns are unique?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CHECK"
+        },
+        {
+          "id": "B",
+          "text": "UNIQUE"
+        },
+        {
+          "id": "C",
+          "text": "DEFAULT"
+        },
+        {
+          "id": "D",
+          "text": "FOREIGN KEY"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "keys-constraints",
+      "topic": "Keys & Constraints",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "8cdc82d3bffd4f30",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 103,
+        "originalQuestionNumber": 25
+      }
+    },
+    {
+      "id": "official-sql-q0026",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 26,
+      "originalQuestionNumber": 26,
+      "question": "You want to prevent employees from being entered with a negative salary. Which constraint is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CHECK"
+        },
+        {
+          "id": "B",
+          "text": "UNIQUE"
+        },
+        {
+          "id": "C",
+          "text": "FOREIGN KEY"
+        },
+        {
+          "id": "D",
+          "text": "INDEX"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "subqueries-ctes",
+      "topic": "Subqueries & CTEs",
+      "difficulty": "Easy",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "380ba560451d60a3",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 103,
+        "originalQuestionNumber": 26
+      }
+    },
+    {
+      "id": "official-sql-q0027",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 27,
+      "originalQuestionNumber": 27,
+      "question": "You want the Status column to automatically receive \"Active\" when a value isn't provided. Which constraint can\naccomplish this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CHECK"
+        },
+        {
+          "id": "B",
+          "text": "DEFAULT"
+        },
+        {
+          "id": "C",
+          "text": "UNIQUE"
+        },
+        {
+          "id": "D",
+          "text": "FOREIGN KEY"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "keys-constraints",
+      "topic": "Keys & Constraints",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "ec91c59a8e06fd8d",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 104,
+        "originalQuestionNumber": 27
+      }
+    },
+    {
+      "id": "official-sql-q0028",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 28,
+      "originalQuestionNumber": 28,
+      "question": "What is one of the primary objectives of database normalization?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Increase unnecessary duplication"
+        },
+        {
+          "id": "B",
+          "text": "Reduce data redundancy and update anomalies"
+        },
+        {
+          "id": "C",
+          "text": "Eliminate relationships"
+        },
+        {
+          "id": "D",
+          "text": "Store everything in one table"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "normalization-indexes",
+      "topic": "Normalization, Indexes & Views",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f547253d634693d2",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 104,
+        "originalQuestionNumber": 28
+      }
+    },
+    {
+      "id": "official-sql-q0029",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 29,
+      "originalQuestionNumber": 29,
+      "question": "What is the primary purpose of an index?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Improve query performance for appropriate access patterns"
+        },
+        {
+          "id": "B",
+          "text": "Guarantee faster INSERT operations"
+        },
+        {
+          "id": "C",
+          "text": "Replace all constraints"
+        },
+        {
+          "id": "D",
+          "text": "Increase duplicate data"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "normalization-indexes",
+      "topic": "Normalization, Indexes & Views",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "24047d24ebb92156",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 104,
+        "originalQuestionNumber": 29
+      }
+    },
+    {
+      "id": "official-sql-q0030",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 30,
+      "originalQuestionNumber": 30,
+      "question": "You frequently use a complex SELECT statement and want to expose it as a reusable database object. Which object is\nappropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "View"
+        },
+        {
+          "id": "B",
+          "text": "Trigger"
+        },
+        {
+          "id": "C",
+          "text": "Index"
+        },
+        {
+          "id": "D",
+          "text": "Constraint"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "basics",
+      "topic": "SQL Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "fba6b9fa97a69515",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 104,
+        "originalQuestionNumber": 30
+      }
+    },
+    {
+      "id": "official-sql-q0031",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 31,
+      "originalQuestionNumber": 31,
+      "question": "You want to encapsulate reusable SQL logic that can accept parameters and execute multiple SQL statements. What\ndatabase object is commonly used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stored Procedure"
+        },
+        {
+          "id": "B",
+          "text": "View only"
+        },
+        {
+          "id": "C",
+          "text": "Index"
+        },
+        {
+          "id": "D",
+          "text": "Constraint"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "keys-constraints",
+      "topic": "Keys & Constraints",
+      "difficulty": "Hard",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "7dc612be60ab302a",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 104,
+        "originalQuestionNumber": 31
+      }
+    },
+    {
+      "id": "official-sql-q0032",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 32,
+      "originalQuestionNumber": 32,
+      "question": "What is the primary purpose of ROLLBACK?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Permanently save changes"
+        },
+        {
+          "id": "B",
+          "text": "Undo uncommitted transaction changes"
+        },
+        {
+          "id": "C",
+          "text": "Create an index"
+        },
+        {
+          "id": "D",
+          "text": "Execute a SELECT"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "transactions-ddl-dml",
+      "topic": "Transactions, DDL & DML",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "2f1d5f2480855884",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 105,
+        "originalQuestionNumber": 32
+      }
+    },
+    {
+      "id": "official-sql-q0033",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 33,
+      "originalQuestionNumber": 33,
+      "question": "Which statement generally describes TRUNCATE compared with DELETE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TRUNCATE removes all rows and generally has less row-by-row logging than DELETE"
+        },
+        {
+          "id": "B",
+          "text": "TRUNCATE can delete only one row"
+        },
+        {
+          "id": "C",
+          "text": "DELETE always removes the entire table structure"
+        },
+        {
+          "id": "D",
+          "text": "They are identical in every database system"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "subqueries-ctes",
+      "topic": "Subqueries & CTEs",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "575d2c088fc8fa97",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 105,
+        "originalQuestionNumber": 33
+      }
+    },
+    {
+      "id": "official-sql-q0034",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 34,
+      "originalQuestionNumber": 34,
+      "question": "What happens when you execute:\nDROP TABLE Employees;",
+      "options": [
+        {
+          "id": "A",
+          "text": "All rows are deleted but the table remains"
+        },
+        {
+          "id": "B",
+          "text": "The table object is removed"
+        },
+        {
+          "id": "C",
+          "text": "Only duplicate rows are removed"
+        },
+        {
+          "id": "D",
+          "text": "The table is renamed"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "transactions-ddl-dml",
+      "topic": "Transactions, DDL & DML",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "83278d4cd2e02f32",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 105,
+        "originalQuestionNumber": 34
+      }
+    },
+    {
+      "id": "official-sql-q0035",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 35,
+      "originalQuestionNumber": 35,
+      "question": "Which query correctly increases the salary of all employees in the Finance department by 10%?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UPDATE Employees\nSET Salary = Salary * 1.10\nWHERE Department = 'Finance';"
+        },
+        {
+          "id": "B",
+          "text": "UPDATE Employees\nWHERE Department = 'Finance'\nSET Salary = Salary * 1.10;"
+        },
+        {
+          "id": "C",
+          "text": "CHANGE Employees\nSET Salary + 10%\nWHERE Finance;"
+        },
+        {
+          "id": "D",
+          "text": "MODIFY Salary\nFROM Employees\nWHERE Department = Finance;"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "518c9afac72d0ea1",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 105,
+        "originalQuestionNumber": 35
+      }
+    },
+    {
+      "id": "official-sql-q0036",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 36,
+      "originalQuestionNumber": 36,
+      "question": "Why is the following statement potentially dangerous?\nDELETE FROM Employees;",
+      "options": [
+        {
+          "id": "A",
+          "text": "It deletes only one employee"
+        },
+        {
+          "id": "B",
+          "text": "It deletes all rows from the table"
+        },
+        {
+          "id": "C",
+          "text": "It creates a backup"
+        },
+        {
+          "id": "D",
+          "text": "It deletes only duplicate employees"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "transactions-ddl-dml",
+      "topic": "Transactions, DDL & DML",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "940e7420d236f713",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 106,
+        "originalQuestionNumber": 36
+      }
+    },
+    {
+      "id": "official-sql-q0037",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 37,
+      "originalQuestionNumber": 37,
+      "question": "Suppose a table contains 100 rows, but 20 rows have NULL in the Email column. What does the following normally\nreturn?\nSELECT COUNT(Email)\nFROM Customers;",
+      "options": [
+        {
+          "id": "A",
+          "text": "100"
+        },
+        {
+          "id": "B",
+          "text": "80"
+        },
+        {
+          "id": "C",
+          "text": "20"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5683b9be573f9b3b",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 106,
+        "originalQuestionNumber": 37
+      }
+    },
+    {
+      "id": "official-sql-q0038",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 38,
+      "originalQuestionNumber": 38,
+      "question": "Using the same table with 100 rows, including rows where Email is NULL, what does this normally return?\nSELECT COUNT(*)\nFROM Customers;",
+      "options": [
+        {
+          "id": "A",
+          "text": "80"
+        },
+        {
+          "id": "B",
+          "text": "20"
+        },
+        {
+          "id": "C",
+          "text": "100"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "dae7e4c4f840cdff",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 106,
+        "originalQuestionNumber": 38
+      }
+    },
+    {
+      "id": "official-sql-q0039",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 39,
+      "originalQuestionNumber": 39,
+      "question": "Which clause is specifically designed to filter groups after aggregation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE"
+        },
+        {
+          "id": "B",
+          "text": "HAVING"
+        },
+        {
+          "id": "C",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "D",
+          "text": "DISTINCT"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f8c8750add0186d3",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 106,
+        "originalQuestionNumber": 39
+      }
+    },
+    {
+      "id": "official-sql-q0040",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 40,
+      "originalQuestionNumber": 40,
+      "question": "You need to find the five highest-paid employees. Which approach is generally appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sort salary descending and limit/return the first five rows using the database's supported syntax"
+        },
+        {
+          "id": "B",
+          "text": "Use GROUP BY Salary only"
+        },
+        {
+          "id": "C",
+          "text": "Use DISTINCT Salary only"
+        },
+        {
+          "id": "D",
+          "text": "Use DELETE"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "db1e997da78059a2",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 107,
+        "originalQuestionNumber": 40
+      }
+    },
+    {
+      "id": "official-sql-q0041",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 41,
+      "originalQuestionNumber": 41,
+      "question": "A Customers table should contain only one record per email address. You discover multiple rows with the same email\nand need to identify duplicated emails. Which query is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT Email, COUNT(*)\nFROM Customers\nGROUP BY Email\nHAVING COUNT(*) > 1;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT DISTINCT Email\nFROM Customers\nWHERE COUNT(*) > 1;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT Email\nFROM Customers\nWHERE Email > 1;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT COUNT(Email)\nFROM Customers\nWHERE Email IS DUPLICATE;"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "subqueries-ctes",
+      "topic": "Subqueries & CTEs",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "50fdc1c16d63ae03",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 107,
+        "originalQuestionNumber": 41
+      }
+    },
+    {
+      "id": "official-sql-q0042",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 42,
+      "originalQuestionNumber": 42,
+      "question": "You have:\n•   Customers(CustomerID, CustomerName)\n•   Orders(OrderID, CustomerID, OrderDate, Amount)\nManagement wants a report showing every customer, their total order value, and the number of orders. Customers with no\norders must still appear with zero values.\nWhich approach is most appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN Customers to Orders and use COUNT only"
+        },
+        {
+          "id": "B",
+          "text": "LEFT JOIN Customers to Orders, GROUP BY customer information, and use appropriate aggregate handling for\nNULLs"
+        },
+        {
+          "id": "C",
+          "text": "CROSS JOIN Customers and Orders"
+        },
+        {
+          "id": "D",
+          "text": "RIGHT JOIN Orders to Customers without aggregation"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "subqueries-ctes",
+      "topic": "Subqueries & CTEs",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "7f9613f247db3c61",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 107,
+        "originalQuestionNumber": 42
+      }
+    },
+    {
+      "id": "official-sql-q0043",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 43,
+      "originalQuestionNumber": 43,
+      "question": "A company has the following tables:\nCustomers\n---------\nCustomerID\nCustomerName\nRegion\nOrders\n------\nOrderID\nCustomerID\nOrderDate\nAmount\nProducts\n--------\nProductID\nProductName\nCategory\nOrderDetails\n------------\nOrderID\nProductID\nQuantity\nUnitPrice\nManagement wants a report that shows the top 10 customers by total sales in 2026, including customer name, region,\nnumber of orders, total quantity purchased, total sales, and sales rank within their region.\nWhich combination of SQL techniques would provide the most appropriate solution?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only SELECT DISTINCT and ORDER BY"
+        },
+        {
+          "id": "B",
+          "text": "JOINs + WHERE date filtering + GROUP BY + aggregate functions + window functions such as RANK() or\nROW_NUMBER()"
+        },
+        {
+          "id": "C",
+          "text": "Only a CROSS JOIN and DELETE"
+        },
+        {
+          "id": "D",
+          "text": "Only a subquery without JOINs or aggregation"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "advanced-sql",
+      "topic": "Advanced SQL & Analytics",
+      "difficulty": "Hard",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "271df23b26f70a1f",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 108,
+        "originalQuestionNumber": 43
+      }
+    },
+    {
+      "id": "official-sql-q0044",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 44,
+      "originalQuestionNumber": 44,
+      "question": "Finding the Second-Highest Salary\nYou need to find the second-highest distinct salary from an Employees table. Which query is a valid approach?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT MAX(Salary)\nFROM Employees\nWHERE Salary < (\nSELECT MAX(Salary)\nFROM Employees\n);"
+        },
+        {
+          "id": "B",
+          "text": "SELECT MIN(Salary)\nFROM Employees;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT Salary\nFROM Employees\nORDER BY Salary ASC\nLIMIT 1;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT COUNT(Salary)\nFROM Employees;"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Hard",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3663cfa8209c59e4",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 109,
+        "originalQuestionNumber": 44
+      }
+    },
+    {
+      "id": "official-sql-q0045",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 45,
+      "originalQuestionNumber": 45,
+      "question": "Conditional Aggregation\nYou need one query that displays the number of orders in each status:\n•   Completed\n•   Pending\n•   Cancelled\nWhich approach is most appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use multiple CASE expressions inside aggregate functions"
+        },
+        {
+          "id": "B",
+          "text": "Use three separate databases"
+        },
+        {
+          "id": "C",
+          "text": "Use CROSS JOIN"
+        },
+        {
+          "id": "D",
+          "text": "Use only DISTINCT"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "advanced-sql",
+      "topic": "Advanced SQL & Analytics",
+      "difficulty": "Hard",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "eb9685352ba2bbd5",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 110,
+        "originalQuestionNumber": 45
+      }
+    },
+    {
+      "id": "official-sql-q0046",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 46,
+      "originalQuestionNumber": 46,
+      "question": "You have:\nEmployees(EmployeeID, DepartmentID, Salary)\nDepartments(DepartmentID, DepartmentName)\nYou need to increase salaries by 10% for employees working in the Finance department. Which approach is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UPDATE Employees\nSET Salary = Salary * 1.10\nFROM Employees e\nJOIN Departments d\nON e.DepartmentID = d.DepartmentID\nWHERE d.DepartmentName = 'Finance';"
+        },
+        {
+          "id": "B",
+          "text": "UPDATE Departments\nSET Salary = Salary * 1.10\nWHERE DepartmentName = 'Finance';"
+        },
+        {
+          "id": "C",
+          "text": "SELECT Employees\nSET Salary = Salary * 1.10\nWHERE DepartmentName = 'Finance';"
+        },
+        {
+          "id": "D",
+          "text": "ALTER Employees\nSET Salary = Salary * 1.10;"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "joins",
+      "topic": "JOINs",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "898de6f2e20fab5c",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 110,
+        "originalQuestionNumber": 46
+      }
+    },
+    {
+      "id": "official-sql-q0047",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 47,
+      "originalQuestionNumber": 47,
+      "question": "You have two tables:\nCustomers(CustomerID, CustomerName, Region)\nOrders(OrderID, CustomerID, OrderDate, Amount)\nYou need to return customers from the East region who placed orders worth more than $10,000. Which query is most\nappropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT c.CustomerName, o.Amount\nFROM Customers c\nINNER JOIN Orders o\nON c.CustomerID = o.CustomerID\nWHERE c.Region = 'East'\nAND o.Amount > 10000;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT c.CustomerName, o.Amount\nFROM Customers c\nWHERE c.Region = 'East'\nGROUP BY o.Amount;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT c.CustomerName\nFROM Customers c\nINNER JOIN Orders o\nON c.Region = o.Amount\nWHERE o.Amount > 10000;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT *\nFROM Customers\nWHERE Region = 'East'\nHAVING Amount > 10000;"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "basics",
+      "topic": "SQL Fundamentals",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5b1927330e23b11b",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 111,
+        "originalQuestionNumber": 47
+      }
+    },
+    {
+      "id": "official-sql-q0048",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 48,
+      "originalQuestionNumber": 48,
+      "question": "A company wants to calculate total sales for each combination of Region and Product Category. Which query is\ncorrect?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT Region, Category, SUM(Sales)\nFROM Sales\nGROUP BY Region, Category;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT Region, Category, SUM(Sales)\nFROM Sales\nGROUP BY Sales;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT Region, Category, SUM(Sales)\nFROM Sales\nORDER BY Region;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT Region, Category\nFROM Sales\nWHERE SUM(Sales);"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "98f5e0b5ade4a173",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 112,
+        "originalQuestionNumber": 48
+      }
+    },
+    {
+      "id": "official-sql-q0049",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 49,
+      "originalQuestionNumber": 49,
+      "question": "You need to find departments where the average salary is greater than $60,000. Which query is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT Department, AVG(Salary)\nFROM Employees\nWHERE AVG(Salary) > 60000\nGROUP BY Department;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT Department, AVG(Salary)\nFROM Employees\nGROUP BY Department\nHAVING AVG(Salary) > 60000;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT Department, AVG(Salary)\nFROM Employees\nWHERE Salary > 60000;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT Department\nFROM Employees\nHAVING Salary > 60000;"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "bfe815e1306f994d",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 112,
+        "originalQuestionNumber": 49
+      }
+    },
+    {
+      "id": "official-sql-q0050",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 1,
+      "originalOrder": 50,
+      "originalQuestionNumber": 50,
+      "question": "You need to return all employees who earn the maximum salary in the company. If several employees have the same\nhighest salary, all of them should be returned. Which query is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT *\nFROM Employees\nWHERE Salary = (\nSELECT MAX(Salary)\nFROM Employees\n);"
+        },
+        {
+          "id": "B",
+          "text": "SELECT *\nFROM Employees\nWHERE Salary > (\nSELECT MAX(Salary)\nFROM Employees\n);"
+        },
+        {
+          "id": "C",
+          "text": "SELECT MAX(EmployeeName)\nFROM Employees;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT *\nFROM Employees\nGROUP BY Salary;"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "cc534f21cc9f267f",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 113,
+        "originalQuestionNumber": 50
+      }
+    }
+  ]
+}

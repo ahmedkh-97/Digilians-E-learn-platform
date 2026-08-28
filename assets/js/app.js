@@ -1,7 +1,8 @@
 import {
   getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,
   markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
-  setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt
+  setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
+  getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes
 } from "./storage.js";
 
 import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
@@ -11,6 +12,7 @@ import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
 import {evaluateTrackReadiness,finalStatusFromTracks} from "./readiness.js";
 import {evaluateCoverageReadiness,topicPerformance} from "./coverage-engine.js";
+import {loadOfficialTrack,buildOfficialTrackExam,buildOfficialFinal} from "./official-qbank.js";
 
 const state={
   studentName:"",
@@ -42,11 +44,12 @@ const state={
   rankingExamId:null,
   lastValidatorRoute:"dashboardView",
   validatorPayload:null,
-  validatorRegistryEntry:null
+  validatorRegistryEntry:null,
+  officialRegistry:{tracks:[]},officialFinalBlueprint:null,officialTrackId:null,officialQuestions:[],officialFiltered:[],officialIndex:0
 };
 
 const $=id=>document.getElementById(id);
-const views=["welcomeView","dashboardView","learnView","studyView","examsView","setupView","examView","resultView","reviewView","rankingView","validatorView"];
+const views=["welcomeView","dashboardView","learnView","studyView","officialQbankView","officialStudyView","examsView","setupView","examView","resultView","reviewView","rankingView","validatorView"];
 
 function initials(name){
   return (name || "Guest").trim().split(/\s+/).slice(0,2).map(x=>x[0]?.toUpperCase()).join("") || "G";
@@ -58,12 +61,13 @@ function routeTo(id){
   window.scrollTo({top:0,behavior:"smooth"});
   if(id==="dashboardView") renderDashboard();
   if(id==="learnView") renderLearn();
+  if(id==="officialQbankView") renderOfficialHub();
   if(id==="examsView") renderExamLibrary($("examSearch")?.value || "");
   if(id==="rankingView") renderRanking();
 }
 
 function updateNav(viewId){
-  const map={dashboardView:"dashboardView",learnView:"learnView",examsView:"examsView",rankingView:"rankingView"};
+  const map={dashboardView:"dashboardView",learnView:"learnView",officialQbankView:"officialQbankView",officialStudyView:"officialQbankView",examsView:"examsView",rankingView:"rankingView"};
   document.querySelectorAll("[data-route]").forEach(btn=>{
     btn.classList.toggle("active",btn.dataset.route===map[viewId]);
   });
@@ -120,14 +124,16 @@ async function loadJson(path){
 }
 
 async function loadData(){
-  const [registry,learning,bankRegistry,blueprints,curriculumRegistry,syllabusRegistry,coverageRegistry]=await Promise.all([
+  const [registry,learning,bankRegistry,blueprints,curriculumRegistry,syllabusRegistry,coverageRegistry,officialRegistry,officialFinalBlueprint]=await Promise.all([
     loadJson("data/exams.json"),
     loadJson("data/learning.json"),
     loadJson("data/question-banks.json"),
     loadJson("data/exam-blueprints.json"),
     loadJson("data/curriculum.json"),
     loadJson("data/syllabus-maps.json"),
-    loadJson("data/coverage-blueprints.json")
+    loadJson("data/coverage-blueprints.json"),
+    loadJson("data/official-qbank.json"),
+    loadJson("data/official-final-blueprint.json")
   ]);
   state.registry=registry.exams || [];
   state.learning=learning;
@@ -136,6 +142,8 @@ async function loadData(){
   state.curriculumRegistry=curriculumRegistry;
   state.syllabusRegistry=syllabusRegistry;
   state.coverageRegistry=coverageRegistry;
+  state.officialRegistry=officialRegistry;
+  state.officialFinalBlueprint=officialFinalBlueprint;
 
   const manifests={},syllabusMaps={},coverageMaps={};
   await Promise.all((curriculumRegistry.tracks||[]).map(async item=>{
@@ -195,6 +203,7 @@ function renderDashboard(){
   $("attemptCount").textContent=stats.attempts;
 
   renderContinueCard();
+  if($("officialHomeCount")) $("officialHomeCount").textContent=state.officialRegistry.totalQuestions || 0;
   renderCourses("homeCourseGrid",true);
   renderHomeExams();
   renderMiniAchievements();
@@ -229,6 +238,72 @@ function renderContinueCard(){
     $("continueAction").innerHTML='Explore Exams <span>→</span>';
     $("continueAction").onclick=()=>routeTo("examsView");
   }
+}
+
+
+function officialTrackMeta(trackId){return (state.officialRegistry.tracks||[]).find(x=>x.trackId===trackId)||null}
+function officialReviewedTotal(){
+  const stored=getOfficialQbankState();let total=0;for(const meta of state.officialRegistry.tracks||[]){total+=new Set(stored.tracks?.[meta.trackId]?.reviewed||[]).size}return total;
+}
+function renderOfficialHub(){
+  if(!$("officialTrackGrid"))return;
+  $("officialTotalQuestions").textContent=state.officialRegistry.totalQuestions||0;
+  const reviewed=officialReviewedTotal(),total=state.officialRegistry.totalQuestions||1;
+  $("officialOverallProgress").textContent=`${Math.round(reviewed/total*100)}%`;
+  const colors={excel:'#1f9d63','power-bi':'#d9a51f',sql:'#1caee8',python:'#7c5ce7',tableau:'#4d8fd6',looker:'#7656d6'};
+  const grid=$("officialTrackGrid");grid.innerHTML="";
+  for(const meta of state.officialRegistry.tracks||[]){
+    const st=getOfficialTrackState(meta.trackId);const pct=Math.round(new Set(st.reviewed||[]).size/Math.max(1,meta.questionCount)*100);
+    const card=document.createElement('button');card.className='official-track-card';card.style.setProperty('--track-accent',colors[meta.trackId]||'var(--primary)');
+    card.innerHTML=`<span class="official-source-badge">OFFICIAL</span><h4>${escapeHtml(meta.track)}</h4><p>${Object.keys(meta.topics||{}).length} mapped navigation topics</p><div class="official-card-count">${meta.questionCount}</div><div class="official-card-footer"><span>${pct}% reviewed</span><span>Study all →</span></div>`;
+    card.addEventListener('click',()=>openOfficialTrack(meta.trackId));grid.appendChild(card);
+  }
+}
+async function openOfficialTrack(trackId){
+  const meta=officialTrackMeta(trackId);if(!meta)return;
+  state.officialTrackId=trackId;state.officialQuestions=await loadOfficialTrack(state.officialRegistry,trackId,loadJson);
+  const st=getOfficialTrackState(trackId);state.officialIndex=Math.min(st.lastIndex||0,Math.max(0,state.officialQuestions.length-1));
+  $("officialStudyBreadcrumb").textContent=`Official QBank / ${meta.track}`;$("officialStudyTitle").textContent=`${meta.track} Official QBank`;$("officialStudyMeta").textContent=`${meta.questionCount} official questions • original wording preserved`;
+  const topicSelect=$("officialTopicFilter");topicSelect.innerHTML='<option value="all">All topics</option>';
+  const topics=[...new Set(state.officialQuestions.map(q=>q.topic))].sort();for(const topic of topics){const o=document.createElement('option');o.value=topic;o.textContent=topic;topicSelect.appendChild(o)}
+  $("officialSearch").value='';$("officialStateFilter").value='all';applyOfficialFilters();routeTo('officialStudyView');
+}
+function applyOfficialFilters(){
+  const query=($("officialSearch")?.value||'').trim().toLowerCase(),topic=$("officialTopicFilter")?.value||'all',kind=$("officialStateFilter")?.value||'all';
+  const st=getOfficialTrackState(state.officialTrackId);const reviewed=new Set(st.reviewed||[]),bookmarks=new Set(st.bookmarks||[]),mistakes=new Set(st.mistakes||[]);
+  state.officialFiltered=state.officialQuestions.filter(q=>{
+    if(query && !(`${q.question} ${q.options.map(o=>o.text).join(' ')}`).toLowerCase().includes(query))return false;
+    if(topic!=='all' && q.topic!==topic)return false;
+    if(kind==='unseen' && reviewed.has(q.id))return false;if(kind==='reviewed'&&!reviewed.has(q.id))return false;if(kind==='bookmarks'&&!bookmarks.has(q.id))return false;if(kind==='mistakes'&&!mistakes.has(q.id))return false;return true;
+  });
+  if(!state.officialFiltered.length){state.officialIndex=0;renderOfficialQuestionList();renderOfficialEmpty();return}
+  const currentId=state.officialQuestions[state.officialIndex]?.id;let idx=state.officialFiltered.findIndex(q=>q.id===currentId);if(idx<0)idx=0;state.officialIndex=state.officialQuestions.findIndex(q=>q.id===state.officialFiltered[idx].id);renderOfficialQuestionList();renderOfficialStudyQuestion();
+}
+function renderOfficialEmpty(){
+  $("officialQuestionText").textContent='No questions match the current filters.';$("officialOptions").innerHTML='';$("officialAnswerBox").classList.add('hidden');$("officialSourceLine").textContent='';
+}
+function renderOfficialQuestionList(){
+  const list=$("officialQuestionList");if(!list)return;list.innerHTML='';const st=getOfficialTrackState(state.officialTrackId),rev=new Set(st.reviewed||[]),bm=new Set(st.bookmarks||[]);const visible=state.officialFiltered.length?state.officialFiltered:[];
+  for(const q of visible){const btn=document.createElement('button');btn.className='official-qnum';btn.textContent=q.originalOrder;if(q.id===state.officialQuestions[state.officialIndex]?.id)btn.classList.add('current');if(rev.has(q.id))btn.classList.add('reviewed');if(bm.has(q.id))btn.classList.add('bookmarked');btn.addEventListener('click',()=>{state.officialIndex=state.officialQuestions.findIndex(x=>x.id===q.id);renderOfficialQuestionList();renderOfficialStudyQuestion()});list.appendChild(btn)}
+}
+function renderOfficialStudyQuestion(){
+  const q=state.officialQuestions[state.officialIndex];if(!q)return renderOfficialEmpty();const st=getOfficialTrackState(state.officialTrackId),rev=new Set(st.reviewed||[]),bm=new Set(st.bookmarks||[]);
+  $("officialQuestionTopic").textContent=q.topic;$("officialSourceLine").textContent=`Source: ${q.officialSource.file} • Page ${q.officialSource.page}${q.originalQuestionNumber?` • Original Q${q.originalQuestionNumber}`:''} • Set ${q.officialSet}`;$("officialQuestionText").textContent=q.question;
+  const opts=$("officialOptions");opts.innerHTML='';for(const o of q.options){const d=document.createElement('div');d.className='official-option';const a=document.createElement('span');a.className='option-letter';a.textContent=o.id;const b=document.createElement('span');b.textContent=o.text;d.append(a,b);opts.appendChild(d)}
+  $("officialAnswerBox").classList.add('hidden');$("officialAnswerBox").innerHTML='';$("officialShowAnswerBtn").textContent=rev.has(q.id)?'Show Official Answer':'Show Official Answer';$("officialBookmarkBtn").classList.toggle('active',bm.has(q.id));$("officialBookmarkBtn").textContent=bm.has(q.id)?'★':'☆';
+  $("officialPrevBtn").disabled=state.officialIndex===0;$("officialNextBtn").disabled=state.officialIndex===state.officialQuestions.length-1;updateOfficialProgress();
+}
+function updateOfficialProgress(){
+  const st=getOfficialTrackState(state.officialTrackId),meta=officialTrackMeta(state.officialTrackId);const reviewed=new Set(st.reviewed||[]).size,pct=Math.round(reviewed/Math.max(1,meta?.questionCount||1)*100);$("officialTrackProgress").textContent=`${pct}%`;$("officialTrackProgressFill").style.width=`${pct}%`;$("officialReviewedCount").textContent=`${reviewed} of ${meta?.questionCount||0} reviewed`;
+}
+function moveOfficial(delta){
+  let next=Math.max(0,Math.min(state.officialQuestions.length-1,state.officialIndex+delta));state.officialIndex=next;updateOfficialTrackState(state.officialTrackId,{lastIndex:next});renderOfficialQuestionList();renderOfficialStudyQuestion();
+}
+async function prepareOfficialTrack(mode){
+  const meta=officialTrackMeta(state.officialTrackId);if(!meta)return;const payload=buildOfficialTrackExam({trackId:meta.trackId,track:meta.track,title:`${meta.track} - Official Ministry QBank ${mode==='instant'?'Practice':'Exam'}`,questions:state.officialQuestions,count:mode==='instant'?40:50,feedbackModes:[mode],timerMinutes:mode==='exam'?60:null,category:mode==='instant'?'Official Practice':'Official Exam'});const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:meta.track,questionCount:payload.questions.length,generator:'official-qbank'};configureExamSetup(payload,item,mode);
+}
+async function prepareOfficialFinalExam(){
+  const payload=await buildOfficialFinal({registry:state.officialRegistry,blueprint:state.officialFinalBlueprint,loadJson});const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:'Official QBank',questionCount:100,generator:'official-qbank'};configureExamSetup(payload,item,'exam');
 }
 
 function renderCourses(targetId,compact=false){
@@ -737,6 +812,20 @@ function renderExamLibrary(filter=""){
 }
 $("examSearch").addEventListener("input",e=>renderExamLibrary(e.target.value));
 
+if($("openOfficialHomeBtn"))$("openOfficialHomeBtn").addEventListener('click',()=>routeTo('officialQbankView'));
+if($("startOfficialFinalBtn"))$("startOfficialFinalBtn").addEventListener('click',prepareOfficialFinalExam);
+if($("officialStudyBackBtn"))$("officialStudyBackBtn").addEventListener('click',()=>routeTo('officialQbankView'));
+if($("officialSearch"))$("officialSearch").addEventListener('input',applyOfficialFilters);
+if($("officialTopicFilter"))$("officialTopicFilter").addEventListener('change',applyOfficialFilters);
+if($("officialStateFilter"))$("officialStateFilter").addEventListener('change',applyOfficialFilters);
+if($("officialPrevBtn"))$("officialPrevBtn").addEventListener('click',()=>moveOfficial(-1));
+if($("officialNextBtn"))$("officialNextBtn").addEventListener('click',()=>moveOfficial(1));
+if($("officialShowAnswerBtn"))$("officialShowAnswerBtn").addEventListener('click',()=>{const q=state.officialQuestions[state.officialIndex];if(!q)return;markOfficialReviewed(state.officialTrackId,q.id,state.officialIndex);const correct=q.options.find(o=>o.id===q.correctAnswer);$("officialAnswerBox").innerHTML=`<strong>Official Answer: ${q.correctAnswer}</strong>${escapeHtml(correct?.text||'')}<br><small>This answer comes from the official source. No detailed explanation was published with this item.</small>`;$("officialAnswerBox").classList.remove('hidden');renderOfficialQuestionList();updateOfficialProgress()});
+if($("officialBookmarkBtn"))$("officialBookmarkBtn").addEventListener('click',()=>{const q=state.officialQuestions[state.officialIndex];if(!q)return;toggleOfficialBookmark(state.officialTrackId,q.id);renderOfficialQuestionList();renderOfficialStudyQuestion()});
+if($("officialPracticeBtn"))$("officialPracticeBtn").addEventListener('click',()=>prepareOfficialTrack('instant'));
+if($("officialExamBtn"))$("officialExamBtn").addEventListener('click',()=>prepareOfficialTrack('exam'));
+
+
 async function prepareExam(registryItem,forcedMode=null){
   try{
     let payload;
@@ -822,7 +911,7 @@ function configureExamSetup(payload,registryItem,forcedMode=null){
   if(radio)radio.checked=true;
   routeTo("setupView");
 }
-$("backToLibraryBtn").addEventListener("click",()=>routeTo("examsView"));
+$("backToLibraryBtn").addEventListener("click",()=>routeTo(state.currentExam?.exam?.generatedFromOfficialQbank?"officialQbankView":"examsView"));
 
 $("beginExamBtn").addEventListener("click",()=>{
   state.feedbackMode=document.querySelector('input[name="feedbackMode"]:checked')?.value || "instant";
@@ -882,7 +971,7 @@ function persistProgress(){
     feedbackMode:state.feedbackMode,
     remainingSeconds:state.remainingSeconds,
     elapsedSeconds:Math.max(0,Math.floor((Date.now()-state.startedAt)/1000)),
-    generatedExam:state.currentRegistryItem?.generator==="question-bank"?state.currentExam:null
+    generatedExam:["question-bank","official-qbank"].includes(state.currentRegistryItem?.generator)?state.currentExam:null
   });
 }
 
@@ -906,7 +995,7 @@ function renderQuestion(){
   const list=$("optionsList");list.innerHTML="";
   q.options.forEach(option=>{
     const btn=document.createElement("button");btn.className="option-btn";
-    btn.innerHTML=`<span class="option-letter">${option.id}</span><span>${option.text}</span>`;
+    btn.innerHTML=`<span class="option-letter">${escapeHtml(option.id)}</span><span>${escapeHtml(option.text)}</span>`;
     const selected=state.answers[q.id];
     if(selected===option.id)btn.classList.add("selected");
     if(state.feedbackMode==="instant" && selected){
@@ -1001,6 +1090,12 @@ function finishExam(autoSubmitted){
     feedback_mode:state.feedbackMode,
     client_attempt_id:clientAttemptId
   };
+
+  if(state.currentExam.exam.generatedFromOfficialQbank){
+    const wrongByTrack={};
+    for(const q of state.currentExam.questions){if((state.answers[q.id]??null)!==q.correctAnswer){wrongByTrack[q.trackId] ||= [];wrongByTrack[q.trackId].push(q.id)}}
+    Object.entries(wrongByTrack).forEach(([trackId,ids])=>saveOfficialMistakes(trackId,ids));
+  }
 
   saveResult(record);
   queuePendingAttempt(onlineAttempt);
@@ -1213,15 +1308,15 @@ function renderReview(){
     const item=document.createElement("article");item.className="review-item";
     item.innerHTML=`
       <span class="eyebrow">QUESTION ${String(index+1).padStart(2,"0")}</span>
-      <h3>${q.question}</h3>
-      <div class="review-answer ${isCorrect?"correct":"wrong"}"><strong>Your answer:</strong> ${selected?`${selected}. ${selectedOption?.text || ""}`:"Unanswered"}</div>
-      <div class="review-answer correct"><strong>Correct answer:</strong> ${q.correctAnswer}. ${correctOption?.text || ""}</div>
+      <h3>${escapeHtml(q.question)}</h3>
+      <div class="review-answer ${isCorrect?"correct":"wrong"}"><strong>Your answer:</strong> ${selected?`${escapeHtml(selected)}. ${escapeHtml(selectedOption?.text || "")}`:"Unanswered"}</div>
+      <div class="review-answer correct"><strong>Correct answer:</strong> ${escapeHtml(q.correctAnswer)}. ${escapeHtml(correctOption?.text || "")}</div>
       <div class="review-explanation"><strong>Explanation:</strong><br>${q.explanation?.ar || q.explanation?.en || "No explanation provided."}</div>`;
     list.appendChild(item);
   });
   routeTo("reviewView");
 }
-$("reviewHomeBtn").addEventListener("click",()=>routeTo("examsView"));
+$("reviewHomeBtn").addEventListener("click",()=>routeTo(state.currentExam?.exam?.generatedFromOfficialQbank?"officialQbankView":"examsView"));
 
 function populateRankingExamSelect(){
   const select=$("rankingExamSelect");

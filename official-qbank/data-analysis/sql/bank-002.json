@@ -1,0 +1,1590 @@
+{
+  "schemaVersion": "1.0",
+  "bank": {
+    "id": "official-sql-bank-002",
+    "title": "SQL & Databases - Official Ministry QBank",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "sourceType": "official-qbank",
+    "authority": "Official Ministry QBank",
+    "sourceFile": "Junior_MCQ_Exercises.pdf",
+    "officialTextLocked": true
+  },
+  "questions": [
+    {
+      "id": "official-sql-q0051",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 51,
+      "originalQuestionNumber": 1,
+      "question": "Why is this query useful?\nSELECT Category, SUM(Sales)\nFROM Products\nGROUP BY Category;",
+      "options": [
+        {
+          "id": "A",
+          "text": "It calculates sales totals for each category"
+        },
+        {
+          "id": "B",
+          "text": "It sorts categories alphabetically"
+        },
+        {
+          "id": "C",
+          "text": "It removes all repeated products"
+        },
+        {
+          "id": "D",
+          "text": "It calculates one company-wide total only"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "040ff688506f69f2",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 114,
+        "originalQuestionNumber": 1
+      }
+    },
+    {
+      "id": "official-sql-q0052",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 52,
+      "originalQuestionNumber": 2,
+      "question": "What does this query return?\nSELECT Department, COUNT(*)\nFROM Employees\nGROUP BY Department;",
+      "options": [
+        {
+          "id": "A",
+          "text": "One row per employee"
+        },
+        {
+          "id": "B",
+          "text": "One row per department with its employee count"
+        },
+        {
+          "id": "C",
+          "text": "Only departments containing duplicates"
+        },
+        {
+          "id": "D",
+          "text": "One total count for the entire table"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Medium",
+      "questionType": "code-tracing",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1f66bf24c2fdb420",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 114,
+        "originalQuestionNumber": 2
+      }
+    },
+    {
+      "id": "official-sql-q0053",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 53,
+      "originalQuestionNumber": 3,
+      "question": "What is the purpose of this expression?\nSUM(Quantity * Price)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Count sold products"
+        },
+        {
+          "id": "B",
+          "text": "Calculate total value across rows"
+        },
+        {
+          "id": "C",
+          "text": "Find the highest unit price"
+        },
+        {
+          "id": "D",
+          "text": "Calculate average quantity"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "80f2127f41839271",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 114,
+        "originalQuestionNumber": 3
+      }
+    },
+    {
+      "id": "official-sql-q0054",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 54,
+      "originalQuestionNumber": 4,
+      "question": "Which clause should normally contain Salary > 5000 when filtering individual employee rows before grouping?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE"
+        },
+        {
+          "id": "B",
+          "text": "HAVING"
+        },
+        {
+          "id": "C",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "D",
+          "text": "SELECT DISTINCT"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4f4f5f758035cb5c",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 114,
+        "originalQuestionNumber": 4
+      }
+    },
+    {
+      "id": "official-sql-q0055",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 55,
+      "originalQuestionNumber": 5,
+      "question": "Which join keeps every row from the left table even when no matching row exists on the right?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "B",
+          "text": "CROSS JOIN"
+        },
+        {
+          "id": "C",
+          "text": "LEFT JOIN"
+        },
+        {
+          "id": "D",
+          "text": "SELF JOIN"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "joins",
+      "topic": "JOINs",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5fb84b45050dbb88",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 115,
+        "originalQuestionNumber": 5
+      }
+    },
+    {
+      "id": "official-sql-q0056",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 56,
+      "originalQuestionNumber": 6,
+      "question": "What does an INNER JOIN normally return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rows with matching values in the joined tables"
+        },
+        {
+          "id": "B",
+          "text": "Every row from the left table only"
+        },
+        {
+          "id": "C",
+          "text": "Every row from the right table only"
+        },
+        {
+          "id": "D",
+          "text": "Every possible row combination"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "joins",
+      "topic": "JOINs",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "d3c07ce3e0c85f84",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 115,
+        "originalQuestionNumber": 6
+      }
+    },
+    {
+      "id": "official-sql-q0057",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 57,
+      "originalQuestionNumber": 7,
+      "question": "What does this condition select?\nWHERE Salary BETWEEN 4000 AND 7000",
+      "options": [
+        {
+          "id": "A",
+          "text": "Salaries above 4000 and below 7000 only"
+        },
+        {
+          "id": "B",
+          "text": "Salaries from 4000 through 7000, including the two limits"
+        },
+        {
+          "id": "C",
+          "text": "Salaries below 4000 or above 7000"
+        },
+        {
+          "id": "D",
+          "text": "Salaries exactly equal to 4000 only"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "547f8599d944206d",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 115,
+        "originalQuestionNumber": 7
+      }
+    },
+    {
+      "id": "official-sql-q0058",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 58,
+      "originalQuestionNumber": 8,
+      "question": "What does this query do?\nSELECT *\nFROM Employees\nWHERE Name LIKE '%son';",
+      "options": [
+        {
+          "id": "A",
+          "text": "Finds names starting with son"
+        },
+        {
+          "id": "B",
+          "text": "Finds names ending with son"
+        },
+        {
+          "id": "C",
+          "text": "Finds names containing only son"
+        },
+        {
+          "id": "D",
+          "text": "Finds names containing no son"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "20154b832f3b797e",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 115,
+        "originalQuestionNumber": 8
+      }
+    },
+    {
+      "id": "official-sql-q0059",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 59,
+      "originalQuestionNumber": 9,
+      "question": "Which condition selects employees from either HR or Finance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Department = 'HR' AND Department = 'Finance'"
+        },
+        {
+          "id": "B",
+          "text": "Department IN ('HR', 'Finance')"
+        },
+        {
+          "id": "C",
+          "text": "Department BETWEEN 'HR' AND 'Finance'"
+        },
+        {
+          "id": "D",
+          "text": "Department LIKE 'HR,Finance'"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "basics",
+      "topic": "SQL Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "ed007267fe2a25a1",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 116,
+        "originalQuestionNumber": 9
+      }
+    },
+    {
+      "id": "official-sql-q0060",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 60,
+      "originalQuestionNumber": 10,
+      "question": "Which query returns unique department names?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT Department FROM Employees;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT UNIQUE Department FROM Employees;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT DISTINCT Department FROM Employees;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT Department GROUP Employees;"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "keys-constraints",
+      "topic": "Keys & Constraints",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "542bb81c40cd55f0",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 116,
+        "originalQuestionNumber": 10
+      }
+    },
+    {
+      "id": "official-sql-q0061",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 61,
+      "originalQuestionNumber": 11,
+      "question": "Which query sorts employees from highest salary to lowest salary?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ORDER BY Salary"
+        },
+        {
+          "id": "B",
+          "text": "ORDER BY Salary ASC"
+        },
+        {
+          "id": "C",
+          "text": "ORDER BY Salary DESC"
+        },
+        {
+          "id": "D",
+          "text": "GROUP BY Salary DESC"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "basics",
+      "topic": "SQL Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "59cce57b59068cf2",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 116,
+        "originalQuestionNumber": 11
+      }
+    },
+    {
+      "id": "official-sql-q0062",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 62,
+      "originalQuestionNumber": 12,
+      "question": "Which condition finds names beginning with A?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Name LIKE '%A'"
+        },
+        {
+          "id": "B",
+          "text": "Name LIKE 'A%'"
+        },
+        {
+          "id": "C",
+          "text": "Name LIKE '%A%'"
+        },
+        {
+          "id": "D",
+          "text": "Name = 'A%'"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "subqueries-ctes",
+      "topic": "Subqueries & CTEs",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "b1428403c8c6f587",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 116,
+        "originalQuestionNumber": 12
+      }
+    },
+    {
+      "id": "official-sql-q0063",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 63,
+      "originalQuestionNumber": 13,
+      "question": "What does AVG(Salary) return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Total salary"
+        },
+        {
+          "id": "B",
+          "text": "Highest salary"
+        },
+        {
+          "id": "C",
+          "text": "Average salary"
+        },
+        {
+          "id": "D",
+          "text": "Number of salaries"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "fccb97895ac925f2",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 116,
+        "originalQuestionNumber": 13
+      }
+    },
+    {
+      "id": "official-sql-q0064",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 64,
+      "originalQuestionNumber": 14,
+      "question": "Which aggregate function returns the smallest value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MAX"
+        },
+        {
+          "id": "B",
+          "text": "AVG"
+        },
+        {
+          "id": "C",
+          "text": "MIN"
+        },
+        {
+          "id": "D",
+          "text": "SUM"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "804d6887d022c415",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 117,
+        "originalQuestionNumber": 14
+      }
+    },
+    {
+      "id": "official-sql-q0065",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 65,
+      "originalQuestionNumber": 15,
+      "question": "Which clause controls the order of rows returned by a query?",
+      "options": [
+        {
+          "id": "A",
+          "text": "GROUP BY"
+        },
+        {
+          "id": "B",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "C",
+          "text": "HAVING"
+        },
+        {
+          "id": "D",
+          "text": "DISTINCT"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "d05f88dd2c2c3a4c",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 117,
+        "originalQuestionNumber": 15
+      }
+    },
+    {
+      "id": "official-sql-q0066",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 66,
+      "originalQuestionNumber": 16,
+      "question": "Which condition correctly checks for a missing value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ColumnName = NULL"
+        },
+        {
+          "id": "B",
+          "text": "ColumnName IS NULL"
+        },
+        {
+          "id": "C",
+          "text": "ColumnName == NULL"
+        },
+        {
+          "id": "D",
+          "text": "ColumnName NULL ="
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "keys-constraints",
+      "topic": "Keys & Constraints",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "b25e8aa49dd78bda",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 117,
+        "originalQuestionNumber": 16
+      }
+    },
+    {
+      "id": "official-sql-q0067",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 67,
+      "originalQuestionNumber": 17,
+      "question": "Which clause groups rows that share the same value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE"
+        },
+        {
+          "id": "B",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "C",
+          "text": "GROUP BY"
+        },
+        {
+          "id": "D",
+          "text": "DISTINCT BY"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3d7d98e230e1103d",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 117,
+        "originalQuestionNumber": 17
+      }
+    },
+    {
+      "id": "official-sql-q0068",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 68,
+      "originalQuestionNumber": 18,
+      "question": "Which aggregate function calculates the mean of numeric values?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SUM"
+        },
+        {
+          "id": "B",
+          "text": "MAX"
+        },
+        {
+          "id": "C",
+          "text": "AVG"
+        },
+        {
+          "id": "D",
+          "text": "COUNT"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1ee4f4ce6a5e407a",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 117,
+        "originalQuestionNumber": 18
+      }
+    },
+    {
+      "id": "official-sql-q0069",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 69,
+      "originalQuestionNumber": 19,
+      "question": "Which SQL clause is used to sort query results?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "B",
+          "text": "GROUP BY"
+        },
+        {
+          "id": "C",
+          "text": "WHERE"
+        },
+        {
+          "id": "D",
+          "text": "HAVING"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "ef434997c1125ed4",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 118,
+        "originalQuestionNumber": 19
+      }
+    },
+    {
+      "id": "official-sql-q0070",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 70,
+      "originalQuestionNumber": 20,
+      "question": "What does the AND operator require?",
+      "options": [
+        {
+          "id": "A",
+          "text": "At least one condition must be true"
+        },
+        {
+          "id": "B",
+          "text": "Every connected condition must be true"
+        },
+        {
+          "id": "C",
+          "text": "Every condition must be false"
+        },
+        {
+          "id": "D",
+          "text": "Only the first condition is evaluated"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5d24a8c6b2aba519",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 118,
+        "originalQuestionNumber": 20
+      }
+    },
+    {
+      "id": "official-sql-q0071",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 71,
+      "originalQuestionNumber": 21,
+      "question": "What does the OR operator allow?",
+      "options": [
+        {
+          "id": "A",
+          "text": "At least one condition can be true"
+        },
+        {
+          "id": "B",
+          "text": "Every condition must be true"
+        },
+        {
+          "id": "C",
+          "text": "Only numeric conditions are valid"
+        },
+        {
+          "id": "D",
+          "text": "Conditions cannot use text values"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "ef6291cd8b939eab",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 118,
+        "originalQuestionNumber": 21
+      }
+    },
+    {
+      "id": "official-sql-q0072",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 72,
+      "originalQuestionNumber": 22,
+      "question": "Which operator means not equal in SQL?",
+      "options": [
+        {
+          "id": "A",
+          "text": ">="
+        },
+        {
+          "id": "B",
+          "text": "<="
+        },
+        {
+          "id": "C",
+          "text": "<>"
+        },
+        {
+          "id": "D",
+          "text": "=="
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a525904ce49f129c",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 118,
+        "originalQuestionNumber": 22
+      }
+    },
+    {
+      "id": "official-sql-q0073",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 73,
+      "originalQuestionNumber": 23,
+      "question": "Which statement removes selected rows from a table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "REMOVE"
+        },
+        {
+          "id": "B",
+          "text": "DROP COLUMN"
+        },
+        {
+          "id": "C",
+          "text": "DELETE"
+        },
+        {
+          "id": "D",
+          "text": "SELECT"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "subqueries-ctes",
+      "topic": "Subqueries & CTEs",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3496287443c037d8",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 118,
+        "originalQuestionNumber": 23
+      }
+    },
+    {
+      "id": "official-sql-q0074",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 74,
+      "originalQuestionNumber": 24,
+      "question": "Which statement modifies existing rows?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UPDATE"
+        },
+        {
+          "id": "B",
+          "text": "SELECT"
+        },
+        {
+          "id": "C",
+          "text": "CREATE"
+        },
+        {
+          "id": "D",
+          "text": "GROUP BY"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "aggregation",
+      "topic": "Aggregation & GROUP BY",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "49fae2696b23d350",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 119,
+        "originalQuestionNumber": 24
+      }
+    },
+    {
+      "id": "official-sql-q0075",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 75,
+      "originalQuestionNumber": 25,
+      "question": "Which statement adds a new row to a table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT"
+        },
+        {
+          "id": "B",
+          "text": "INSERT"
+        },
+        {
+          "id": "C",
+          "text": "DROP"
+        },
+        {
+          "id": "D",
+          "text": "ORDER BY"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "91a1ea442d0347ca",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 119,
+        "originalQuestionNumber": 25
+      }
+    },
+    {
+      "id": "official-sql-q0076",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 76,
+      "originalQuestionNumber": 26,
+      "question": "Which keyword removes duplicate rows from selected results?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DISTINCT"
+        },
+        {
+          "id": "B",
+          "text": "UNIQUE ROW"
+        },
+        {
+          "id": "C",
+          "text": "GROUP ROW"
+        },
+        {
+          "id": "D",
+          "text": "REMOVE"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "subqueries-ctes",
+      "topic": "Subqueries & CTEs",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "008c69e1b860d42b",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 119,
+        "originalQuestionNumber": 26
+      }
+    },
+    {
+      "id": "official-sql-q0077",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 77,
+      "originalQuestionNumber": 27,
+      "question": "Which function counts rows?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SUM"
+        },
+        {
+          "id": "B",
+          "text": "COUNT"
+        },
+        {
+          "id": "C",
+          "text": "AVG"
+        },
+        {
+          "id": "D",
+          "text": "MIN"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5dca904b44207a7e",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 119,
+        "originalQuestionNumber": 27
+      }
+    },
+    {
+      "id": "official-sql-q0078",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 78,
+      "originalQuestionNumber": 28,
+      "question": "Which function returns the highest value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MIN"
+        },
+        {
+          "id": "B",
+          "text": "COUNT"
+        },
+        {
+          "id": "C",
+          "text": "MAX"
+        },
+        {
+          "id": "D",
+          "text": "AVG"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "44ea7f3de24bd53b",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 119,
+        "originalQuestionNumber": 28
+      }
+    },
+    {
+      "id": "official-sql-q0079",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 79,
+      "originalQuestionNumber": 29,
+      "question": "Which function adds numeric values?",
+      "options": [
+        {
+          "id": "A",
+          "text": "AVG"
+        },
+        {
+          "id": "B",
+          "text": "SUM"
+        },
+        {
+          "id": "C",
+          "text": "COUNT"
+        },
+        {
+          "id": "D",
+          "text": "MAX"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "0065e3bd1346610d",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 120,
+        "originalQuestionNumber": 29
+      }
+    },
+    {
+      "id": "official-sql-q0080",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 80,
+      "originalQuestionNumber": 30,
+      "question": "Which statement returns all columns from Employees?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT ALL FROM Employees;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT * FROM Employees;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT Employees FROM *;"
+        },
+        {
+          "id": "D",
+          "text": "FROM Employees SELECT *;"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "basics",
+      "topic": "SQL Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "e9453283fc8827a4",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 120,
+        "originalQuestionNumber": 30
+      }
+    },
+    {
+      "id": "official-sql-q0081",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 81,
+      "originalQuestionNumber": 31,
+      "question": "What does WHERE do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Filters rows using a condition"
+        },
+        {
+          "id": "B",
+          "text": "Sorts query results"
+        },
+        {
+          "id": "C",
+          "text": "Groups rows"
+        },
+        {
+          "id": "D",
+          "text": "Renames a table"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "07ca14c3bff3436f",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 120,
+        "originalQuestionNumber": 31
+      }
+    },
+    {
+      "id": "official-sql-q0082",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 82,
+      "originalQuestionNumber": 32,
+      "question": "Which keyword specifies the table to read from?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE"
+        },
+        {
+          "id": "B",
+          "text": "FROM"
+        },
+        {
+          "id": "C",
+          "text": "ORDER"
+        },
+        {
+          "id": "D",
+          "text": "VALUES"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3659d470d91a9ca6",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 120,
+        "originalQuestionNumber": 32
+      }
+    },
+    {
+      "id": "official-sql-q0083",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 83,
+      "originalQuestionNumber": 33,
+      "question": "Which SQL statement is used to retrieve data from a table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT"
+        },
+        {
+          "id": "B",
+          "text": "UPDATE"
+        },
+        {
+          "id": "C",
+          "text": "DELETE"
+        },
+        {
+          "id": "D",
+          "text": "INSERT"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "basics",
+      "topic": "SQL Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "d33fb7c6a68371b6",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 120,
+        "originalQuestionNumber": 33
+      }
+    },
+    {
+      "id": "official-sql-q0084",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 84,
+      "originalQuestionNumber": 34,
+      "question": "What does ASC mean in ORDER BY?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Descending order"
+        },
+        {
+          "id": "B",
+          "text": "Ascending order"
+        },
+        {
+          "id": "C",
+          "text": "Random order"
+        },
+        {
+          "id": "D",
+          "text": "Grouped order"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filtering",
+      "topic": "Filtering & Sorting",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3732c019467826d4",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 121,
+        "originalQuestionNumber": 34
+      }
+    },
+    {
+      "id": "official-sql-q0085",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "officialSet": 2,
+      "originalOrder": 85,
+      "originalQuestionNumber": 35,
+      "question": "What does DESC mean?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ascending order"
+        },
+        {
+          "id": "B",
+          "text": "Distinct order"
+        },
+        {
+          "id": "C",
+          "text": "Descending order"
+        },
+        {
+          "id": "D",
+          "text": "Default grouping"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "basics",
+      "topic": "SQL Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "6bf98b77f79817c8",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 121,
+        "originalQuestionNumber": 35
+      }
+    }
+  ]
+}

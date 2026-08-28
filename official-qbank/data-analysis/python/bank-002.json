@@ -1,0 +1,1590 @@
+{
+  "schemaVersion": "1.0",
+  "bank": {
+    "id": "official-python-bank-002",
+    "title": "Python for Data Analysis - Official Ministry QBank",
+    "trackId": "python",
+    "track": "Python for Data Analysis",
+    "sourceType": "official-qbank",
+    "authority": "Official Ministry QBank",
+    "sourceFile": "Junior_MCQ_Exercises.pdf",
+    "officialTextLocked": true
+  },
+  "questions": [
+    {
+      "id": "official-python-q0051",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 51,
+      "originalQuestionNumber": 16,
+      "question": "A DataFrame currently uses employee_id as its index and contains columns name and score.\nThe analyst runs:\ndf = df.reset_index()\ndf = df.set_index(\"name\")\nWhat is the final role of employee_id?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It becomes a normal column"
+        },
+        {
+          "id": "B",
+          "text": "It remains the index together with name"
+        },
+        {
+          "id": "C",
+          "text": "It is deleted from the DataFrame"
+        },
+        {
+          "id": "D",
+          "text": "It becomes the default integer index"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "bac425f3bbd94269",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 137,
+        "originalQuestionNumber": 16
+      }
+    },
+    {
+      "id": "official-python-q0052",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 52,
+      "originalQuestionNumber": 17,
+      "question": "Given:values = [10, 20, 30, 40, 50]\nWhat does values[-4:-1:2] return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[20, 40]"
+        },
+        {
+          "id": "B",
+          "text": "[10, 30]"
+        },
+        {
+          "id": "C",
+          "text": "[20, 30, 40]"
+        },
+        {
+          "id": "D",
+          "text": "[40, 20]"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a4b3fc9855d04385",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 137,
+        "originalQuestionNumber": 17
+      }
+    },
+    {
+      "id": "official-python-q0053",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 53,
+      "originalQuestionNumber": 18,
+      "question": "Why might an analyst use:\ndf.sample(n=5, random_state=7)\ninstead of df.sample(n=5) during a review?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It guarantees the five highest rows"
+        },
+        {
+          "id": "B",
+          "text": "It makes the random sample reproducible"
+        },
+        {
+          "id": "C",
+          "text": "It sorts the sample by index"
+        },
+        {
+          "id": "D",
+          "text": "It removes duplicated rows before sampling"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "b4076f7cc6448765",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 137,
+        "originalQuestionNumber": 18
+      }
+    },
+    {
+      "id": "official-python-q0054",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 54,
+      "originalQuestionNumber": 19,
+      "question": "A DataFrame has columns id, name, and score. After:\ndf = df.set_index(\"id\")\nwhich statement is correct with the default settings?",
+      "options": [
+        {
+          "id": "A",
+          "text": "id is deleted from the source file"
+        },
+        {
+          "id": "B",
+          "text": "id remains a normal column and a new numeric index is added"
+        },
+        {
+          "id": "C",
+          "text": "id becomes the row index and is no longer a regular column"
+        },
+        {
+          "id": "D",
+          "text": "name automatically becomes the second index level"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "99d89292b5ab0a4c",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 137,
+        "originalQuestionNumber": 19
+      }
+    },
+    {
+      "id": "official-python-q0055",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 55,
+      "originalQuestionNumber": 20,
+      "question": "A DataFrame currently uses employee_id as its index. What does:\ndf = df.reset_index()\nnormally do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It permanently deletes employee_id"
+        },
+        {
+          "id": "B",
+          "text": "It sorts rows by employee_id"
+        },
+        {
+          "id": "C",
+          "text": "It changes every index value to zero"
+        },
+        {
+          "id": "D",
+          "text": "It restores employee_id as a column and creates a default integer index"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c63ae8076e4874d0",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 138,
+        "originalQuestionNumber": 20
+      }
+    },
+    {
+      "id": "official-python-q0056",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 56,
+      "originalQuestionNumber": 21,
+      "question": "What is a key difference between df.info() and a DataFrame returned by a calculation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.info() creates a new DataFrame of summary statistics"
+        },
+        {
+          "id": "B",
+          "text": "df.info() returns the first five rows"
+        },
+        {
+          "id": "C",
+          "text": "df.info() sorts the original DataFrame in place"
+        },
+        {
+          "id": "D",
+          "text": "df.info() displays structural information and normally returns None"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f8ca1afbf7fa3f96",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 138,
+        "originalQuestionNumber": 21
+      }
+    },
+    {
+      "id": "official-python-q0057",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 57,
+      "originalQuestionNumber": 22,
+      "question": "A function runs:\ndef status():\nprint(\"Checking\")\nreturn \"Ready\"\nx = status()\nWhich statement is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "x stores \"Checking\" and nothing is printed"
+        },
+        {
+          "id": "B",
+          "text": "x stores None because print is used first"
+        },
+        {
+          "id": "C",
+          "text": "\"Checking\" is printed and x stores \"Ready\""
+        },
+        {
+          "id": "D",
+          "text": "x stores the two strings as a list"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "058caa4cc16a9054",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 139,
+        "originalQuestionNumber": 22
+      }
+    },
+    {
+      "id": "official-python-q0058",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 58,
+      "originalQuestionNumber": 23,
+      "question": "What value is stored in first_odd?\nfirst_odd = None\nfor n in [2, 4, 7, 9]:\nif n % 2 != 0:\nfirst_odd = n\nbreak",
+      "options": [
+        {
+          "id": "A",
+          "text": "9"
+        },
+        {
+          "id": "B",
+          "text": "7"
+        },
+        {
+          "id": "C",
+          "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "None"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Easy",
+      "questionType": "code-tracing",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "823f7c1a2ef247fe",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 139,
+        "originalQuestionNumber": 23
+      }
+    },
+    {
+      "id": "official-python-q0059",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 59,
+      "originalQuestionNumber": 24,
+      "question": "A dictionary is updated:\nd = {\"A\": 1, \"B\": 2}\nd.update({\"B\": 5, \"C\": 3})\nWhich result is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "{\"A\": 1, \"B\": 2, \"C\": 3}"
+        },
+        {
+          "id": "B",
+          "text": "{\"A\": 1, \"B\": 2}"
+        },
+        {
+          "id": "C",
+          "text": "{\"B\": 5, \"C\": 3}"
+        },
+        {
+          "id": "D",
+          "text": "{\"A\": 1, \"B\": 5, \"C\": 3}"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "bfebd260834836a0",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 139,
+        "originalQuestionNumber": 24
+      }
+    },
+    {
+      "id": "official-python-q0060",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 60,
+      "originalQuestionNumber": 25,
+      "question": "A DataFrame index is [3, 1, 2]. What does df.sort_index() do by default?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It orders the rows by index as 1, 2, 3"
+        },
+        {
+          "id": "B",
+          "text": "It sorts every column value independently"
+        },
+        {
+          "id": "C",
+          "text": "It resets the index to 0, 1, 2 without reordering"
+        },
+        {
+          "id": "D",
+          "text": "It sorts rows by the first DataFrame column"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c1ff6f8960efe9b6",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 140,
+        "originalQuestionNumber": 25
+      }
+    },
+    {
+      "id": "official-python-q0061",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 61,
+      "originalQuestionNumber": 26,
+      "question": "Which description best matches df.describe() with its usual default behavior on numeric columns?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It lists only column names and data types"
+        },
+        {
+          "id": "B",
+          "text": "It shows every unique row in the DataFrame"
+        },
+        {
+          "id": "C",
+          "text": "It provides summary statistics such as count, mean, quartiles, and extremes"
+        },
+        {
+          "id": "D",
+          "text": "It converts numeric columns into categorical columns"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "96f94195792cde89",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 140,
+        "originalQuestionNumber": 26
+      }
+    },
+    {
+      "id": "official-python-q0062",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 62,
+      "originalQuestionNumber": 27,
+      "question": "What does this Matplotlib statement primarily control?\nplt.figure(figsize=(8, 4))",
+      "options": [
+        {
+          "id": "A",
+          "text": "The physical width and height of the figure"
+        },
+        {
+          "id": "B",
+          "text": "The visible ranges of the x-axis and y-axis"
+        },
+        {
+          "id": "C",
+          "text": "The number of plotted observations"
+        },
+        {
+          "id": "D",
+          "text": "The font size of every label"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visualization",
+      "topic": "Matplotlib & Seaborn",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5dd1899b3670b2a7",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 140,
+        "originalQuestionNumber": 27
+      }
+    },
+    {
+      "id": "official-python-q0063",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 63,
+      "originalQuestionNumber": 28,
+      "question": "An analyst wants to change the text shown below the horizontal axis without changing the data.\nWhich command is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "plt.title(\"Sales\")"
+        },
+        {
+          "id": "B",
+          "text": "plt.xlabel(\"Month\")"
+        },
+        {
+          "id": "C",
+          "text": "plt.xlim(\"Month\")"
+        },
+        {
+          "id": "D",
+          "text": "plt.legend(\"Month\")"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visualization",
+      "topic": "Matplotlib & Seaborn",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c5f24b48b83fe221",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 140,
+        "originalQuestionNumber": 28
+      }
+    },
+    {
+      "id": "official-python-q0064",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 64,
+      "originalQuestionNumber": 29,
+      "question": "Which Pandas statement correctly renames column old_name to new_name?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.rename(\"old_name\", \"new_name\")"
+        },
+        {
+          "id": "B",
+          "text": "df.rename(columns={\"old_name\": \"new_name\"})"
+        },
+        {
+          "id": "C",
+          "text": "df.columns(\"old_name\", \"new_name\")"
+        },
+        {
+          "id": "D",
+          "text": "df.rename(index={\"old_name\": \"new_name\"})"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4d7679cbba33599c",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 141,
+        "originalQuestionNumber": 29
+      }
+    },
+    {
+      "id": "official-python-q0065",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 65,
+      "originalQuestionNumber": 30,
+      "question": "Which command removes the column temp while keeping the remaining columns?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.drop(columns=[\"temp\"])"
+        },
+        {
+          "id": "B",
+          "text": "df.drop(rows=[\"temp\"])"
+        },
+        {
+          "id": "C",
+          "text": "df.remove(\"temp\")"
+        },
+        {
+          "id": "D",
+          "text": "df.drop(index=[\"temp\"])"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "66e6813a5e77cc47",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 141,
+        "originalQuestionNumber": 30
+      }
+    },
+    {
+      "id": "official-python-q0066",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 66,
+      "originalQuestionNumber": null,
+      "question": "Easy Questions\n31. Which statement saves df to a CSV file without writing the DataFrame index as a separate column?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.to_csv(\"out.csv\")"
+        },
+        {
+          "id": "B",
+          "text": "df.read_csv(\"out.csv\", index=False)"
+        },
+        {
+          "id": "C",
+          "text": "df.to_csv(\"out.csv\", index=False)"
+        },
+        {
+          "id": "D",
+          "text": "df.save_csv(\"out.csv\", index=False)"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "690aca6128e31b21",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 141,
+        "originalQuestionNumber": null
+      }
+    },
+    {
+      "id": "official-python-q0067",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 67,
+      "originalQuestionNumber": 32,
+      "question": "In a Seaborn call such as sns.scatterplot(data=df, x=\"hours\", y=\"score\"), what does x=\"hours\"\nspecify?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The legend title"
+        },
+        {
+          "id": "B",
+          "text": "The DataFrame name"
+        },
+        {
+          "id": "C",
+          "text": "The vertical-axis variable"
+        },
+        {
+          "id": "D",
+          "text": "The variable mapped to the horizontal axis"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visualization",
+      "topic": "Matplotlib & Seaborn",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "95aa95001f21e313",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 141,
+        "originalQuestionNumber": 32
+      }
+    },
+    {
+      "id": "official-python-q0068",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 68,
+      "originalQuestionNumber": 33,
+      "question": "In a Seaborn function such as sns.scatterplot, what does the data=df argument specify?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The chart title"
+        },
+        {
+          "id": "B",
+          "text": "The output file name"
+        },
+        {
+          "id": "C",
+          "text": "The DataFrame that supplies the plotted variables"
+        },
+        {
+          "id": "D",
+          "text": "The number of chart categories"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visualization",
+      "topic": "Matplotlib & Seaborn",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "b0fb5c82404e32c1",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 142,
+        "originalQuestionNumber": 33
+      }
+    },
+    {
+      "id": "official-python-q0069",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 69,
+      "originalQuestionNumber": 34,
+      "question": "Which Pandas attribute reports the data type of each DataFrame column?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.types"
+        },
+        {
+          "id": "B",
+          "text": "df.info"
+        },
+        {
+          "id": "C",
+          "text": "df.dtype"
+        },
+        {
+          "id": "D",
+          "text": "df.dtypes"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "624e8fb1f100c448",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 142,
+        "originalQuestionNumber": 34
+      }
+    },
+    {
+      "id": "official-python-q0070",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 70,
+      "originalQuestionNumber": 35,
+      "question": "Which Pandas attribute is True when a DataFrame contains no rows?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.blank"
+        },
+        {
+          "id": "B",
+          "text": "df.empty"
+        },
+        {
+          "id": "C",
+          "text": "df.none"
+        },
+        {
+          "id": "D",
+          "text": "df.zero"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c40666c870ada061",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 142,
+        "originalQuestionNumber": 35
+      }
+    },
+    {
+      "id": "official-python-q0071",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 71,
+      "originalQuestionNumber": 36,
+      "question": "What is the value of df.ndim for a standard two-dimensional DataFrame?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "It depends on the number of rows"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "ba3afa9dac04dd0a",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 142,
+        "originalQuestionNumber": 36
+      }
+    },
+    {
+      "id": "official-python-q0072",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 72,
+      "originalQuestionNumber": 37,
+      "question": "What does df.T represent in Pandas?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A sorted copy of df"
+        },
+        {
+          "id": "B",
+          "text": "A text version of df"
+        },
+        {
+          "id": "C",
+          "text": "A filtered version of df"
+        },
+        {
+          "id": "D",
+          "text": "The transpose of df with rows and columns exchanged"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1f805b5054d0d775",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 143,
+        "originalQuestionNumber": 37
+      }
+    },
+    {
+      "id": "official-python-q0073",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 73,
+      "originalQuestionNumber": 38,
+      "question": "Given student = {\"name\": \"Ali\", \"age\": 20}, which expression returns Ali?",
+      "options": [
+        {
+          "id": "A",
+          "text": "student[\"name\"]"
+        },
+        {
+          "id": "B",
+          "text": "student[\"Ali\"]"
+        },
+        {
+          "id": "C",
+          "text": "student.name"
+        },
+        {
+          "id": "D",
+          "text": "student[0]"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "871d1ca5d8d1b5f5",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 143,
+        "originalQuestionNumber": 38
+      }
+    },
+    {
+      "id": "official-python-q0074",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 74,
+      "originalQuestionNumber": 39,
+      "question": "What values are produced by range(3) in a loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 2, 3"
+        },
+        {
+          "id": "B",
+          "text": "0, 1, 2"
+        },
+        {
+          "id": "C",
+          "text": "0, 1, 2, 3"
+        },
+        {
+          "id": "D",
+          "text": "1, 2"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "cc83b7ab2631eb38",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 143,
+        "originalQuestionNumber": 39
+      }
+    },
+    {
+      "id": "official-python-q0075",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 75,
+      "originalQuestionNumber": 40,
+      "question": "What is list(range(2, 5))?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[2, 3, 4, 5]"
+        },
+        {
+          "id": "B",
+          "text": "[2, 3, 4]"
+        },
+        {
+          "id": "C",
+          "text": "[3, 4, 5]"
+        },
+        {
+          "id": "D",
+          "text": "[2, 5]"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "7fc8ac7af44b67cc",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 143,
+        "originalQuestionNumber": 40
+      }
+    },
+    {
+      "id": "official-python-q0076",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 76,
+      "originalQuestionNumber": 41,
+      "question": "Which statement about a Python tuple is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Its items are changed using append()"
+        },
+        {
+          "id": "B",
+          "text": "Its elements cannot be reassigned by index"
+        },
+        {
+          "id": "C",
+          "text": "It can store numbers but not text"
+        },
+        {
+          "id": "D",
+          "text": "It always contains exactly two items"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4482a7ec575266bf",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 144,
+        "originalQuestionNumber": 41
+      }
+    },
+    {
+      "id": "official-python-q0077",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 77,
+      "originalQuestionNumber": 42,
+      "question": "What is the purpose of return inside a Python function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To send a value back to the caller"
+        },
+        {
+          "id": "B",
+          "text": "To repeat the function forever"
+        },
+        {
+          "id": "C",
+          "text": "To import another module"
+        },
+        {
+          "id": "D",
+          "text": "To create a dictionary"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "658a352d88c5e634",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 144,
+        "originalQuestionNumber": 42
+      }
+    },
+    {
+      "id": "official-python-q0078",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 78,
+      "originalQuestionNumber": 43,
+      "question": "Which list method adds one item to the end of an existing list?",
+      "options": [
+        {
+          "id": "A",
+          "text": "insert()"
+        },
+        {
+          "id": "B",
+          "text": "extend()"
+        },
+        {
+          "id": "C",
+          "text": "remove()"
+        },
+        {
+          "id": "D",
+          "text": "append()"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "2be7603255a0bc45",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 144,
+        "originalQuestionNumber": 43
+      }
+    },
+    {
+      "id": "official-python-q0079",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 79,
+      "originalQuestionNumber": 44,
+      "question": "Which operator tests whether two Python values are equal?",
+      "options": [
+        {
+          "id": "A",
+          "text": "="
+        },
+        {
+          "id": "B",
+          "text": "!="
+        },
+        {
+          "id": "C",
+          "text": "=="
+        },
+        {
+          "id": "D",
+          "text": ">="
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "342626c5a21553cd",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 144,
+        "originalQuestionNumber": 44
+      }
+    },
+    {
+      "id": "official-python-q0080",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 80,
+      "originalQuestionNumber": 45,
+      "question": "What is the data type of the value 3.0 in Python?",
+      "options": [
+        {
+          "id": "A",
+          "text": "int"
+        },
+        {
+          "id": "B",
+          "text": "str"
+        },
+        {
+          "id": "C",
+          "text": "float"
+        },
+        {
+          "id": "D",
+          "text": "bool"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5a8e32cd7f92cd54",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 145,
+        "originalQuestionNumber": 45
+      }
+    },
+    {
+      "id": "official-python-q0081",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 81,
+      "originalQuestionNumber": 46,
+      "question": "What is the result of len(\"Data\")?",
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "An error"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "code-tracing",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "13979c933494651b",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 145,
+        "originalQuestionNumber": 46
+      }
+    },
+    {
+      "id": "official-python-q0082",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 82,
+      "originalQuestionNumber": 47,
+      "question": "Which keyword is used to start a Python function definition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "func"
+        },
+        {
+          "id": "B",
+          "text": "function"
+        },
+        {
+          "id": "C",
+          "text": "return"
+        },
+        {
+          "id": "D",
+          "text": "def"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "python-basics",
+      "topic": "Python Fundamentals",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "17f3c86bfa47dc22",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 145,
+        "originalQuestionNumber": 47
+      }
+    },
+    {
+      "id": "official-python-q0083",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 83,
+      "originalQuestionNumber": 48,
+      "question": "Which Matplotlib command turns grid lines on for the current axes?",
+      "options": [
+        {
+          "id": "A",
+          "text": "plt.axis(True)"
+        },
+        {
+          "id": "B",
+          "text": "plt.grid(True)"
+        },
+        {
+          "id": "C",
+          "text": "plt.lines(True)"
+        },
+        {
+          "id": "D",
+          "text": "plt.ticks(True)"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visualization",
+      "topic": "Matplotlib & Seaborn",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "58977d6e6374fe0d",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 145,
+        "originalQuestionNumber": 48
+      }
+    },
+    {
+      "id": "official-python-q0084",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 84,
+      "originalQuestionNumber": 49,
+      "question": "Which Matplotlib command adds a title to the current plot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "plt.title(\"Sales\")"
+        },
+        {
+          "id": "B",
+          "text": "plt.label(\"Sales\")"
+        },
+        {
+          "id": "C",
+          "text": "plt.name(\"Sales\")"
+        },
+        {
+          "id": "D",
+          "text": "plt.caption(\"Sales\")"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visualization",
+      "topic": "Matplotlib & Seaborn",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "71f698c25df17e9d",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 146,
+        "originalQuestionNumber": 49
+      }
+    },
+    {
+      "id": "official-python-q0085",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "officialSet": 2,
+      "originalOrder": 85,
+      "originalQuestionNumber": 50,
+      "question": "Which Pandas attribute gives the row labels of a DataFrame?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.rows"
+        },
+        {
+          "id": "B",
+          "text": "df.labels"
+        },
+        {
+          "id": "C",
+          "text": "df.index"
+        },
+        {
+          "id": "D",
+          "text": "df.columns"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pandas-inspection",
+      "topic": "Pandas Inspection & Structure",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "57baa3840b8a34ab",
+      "officialSource": {
+        "file": "Junior_MCQ_Exercises.pdf",
+        "page": 146,
+        "originalQuestionNumber": 50
+      }
+    }
+  ]
+}

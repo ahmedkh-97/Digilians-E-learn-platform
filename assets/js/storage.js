@@ -5,7 +5,8 @@ const KEYS = {
   results: "digilians.results",
   progress: "digilians.examProgress",
   lastCourse: "digilians.lastCourse",
-  pendingAttempts: "digilians.pendingAttempts"
+  pendingAttempts: "digilians.pendingAttempts",
+  officialQbank: "digilians.officialQbank"
 };
 
 export function getStudentName(){ return localStorage.getItem(KEYS.studentName) || ""; }
@@ -81,4 +82,26 @@ export function queuePendingAttempt(attempt){
 export function removePendingAttempt(clientAttemptId){
   const pending = getPendingAttempts().filter(x => x.client_attempt_id !== clientAttemptId);
   localStorage.setItem(KEYS.pendingAttempts, JSON.stringify(pending));
+}
+
+
+export function getOfficialQbankState(){
+  try{return JSON.parse(localStorage.getItem(KEYS.officialQbank)) || {tracks:{}}}catch{return {tracks:{}}}
+}
+function saveOfficialState(state){localStorage.setItem(KEYS.officialQbank,JSON.stringify(state))}
+export function getOfficialTrackState(trackId){
+  const state=getOfficialQbankState();return state.tracks?.[trackId] || {lastIndex:0,reviewed:[],bookmarks:[],mistakes:[]};
+}
+export function updateOfficialTrackState(trackId,patch){
+  const state=getOfficialQbankState();state.tracks ||= {};const current=state.tracks[trackId] || {lastIndex:0,reviewed:[],bookmarks:[],mistakes:[]};
+  state.tracks[trackId]={...current,...patch};saveOfficialState(state);return state.tracks[trackId];
+}
+export function toggleOfficialBookmark(trackId,questionId){
+  const current=getOfficialTrackState(trackId);const set=new Set(current.bookmarks||[]);set.has(questionId)?set.delete(questionId):set.add(questionId);return updateOfficialTrackState(trackId,{bookmarks:[...set]});
+}
+export function markOfficialReviewed(trackId,questionId,index){
+  const current=getOfficialTrackState(trackId);const set=new Set(current.reviewed||[]);set.add(questionId);return updateOfficialTrackState(trackId,{reviewed:[...set],lastIndex:index});
+}
+export function saveOfficialMistakes(trackId,questionIds){
+  const current=getOfficialTrackState(trackId);const set=new Set(current.mistakes||[]);questionIds.forEach(x=>set.add(x));return updateOfficialTrackState(trackId,{mistakes:[...set]});
 }
