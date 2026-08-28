@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.8.3
+# Digilians E-Learn Platform V0.8.5
 
 A modern, free-first learning and exam platform prototype.
 
@@ -334,3 +334,44 @@ The official question text, options and correct answer remain unchanged.
 Explanations are stored separately as `deepExplanation` and are clearly labeled as a Digilians E-Learn educational addition.
 
 Questions outside this 50-question pilot keep the V0.8.2 explanation until the deep layer is expanded after pilot approval.
+
+
+## V0.8.4 — Deep Explanation Batch 2
+
+Expanded the approved Deep Explanation format to Official Excel questions Q51–Q100.
+
+### Cumulative Excel deep coverage
+- Q1–Q50: complete
+- Q51–Q100: complete
+- Total deep explanations: 100 / 230 Excel official questions
+
+Each completed question includes:
+- concept-specific Arabic explanation
+- why the official answer is correct
+- why A is correct/wrong
+- why B is correct/wrong
+- why C is correct/wrong
+- why D is correct/wrong
+
+The official wording, options and correct answers remain unchanged.
+
+
+## V0.8.5 — Deep Explanation Batch 3
+
+Expanded the approved Deep Explanation format to Official Excel questions Q101–Q150.
+
+### Cumulative Excel deep coverage
+- Q1–Q50: complete
+- Q51–Q100: complete
+- Q101–Q150: complete
+- Total deep explanations: 150 / 230 Excel official questions
+
+Each completed question includes:
+- concept-specific Arabic explanation
+- why the official answer is correct
+- why A is correct/wrong
+- why B is correct/wrong
+- why C is correct/wrong
+- why D is correct/wrong
+
+The official wording, options and correct answers remain unchanged.

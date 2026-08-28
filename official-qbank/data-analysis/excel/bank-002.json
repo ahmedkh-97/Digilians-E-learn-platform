@@ -59,6 +59,18 @@
         "ar": "لأن الاختيار «.xlsx» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "من Excel 2007 وما بعده، الامتداد الافتراضي لملف Workbook عادي بدون Macros هو .xlsx. الامتداد .xlsm مخصص للملفات التي تحتوي VBA Macros، و.csv ملف نصي جدولي، و.xls هو الامتداد الأقدم.",
+        "options": {
+          "A": "صح؛ .xlsx هو الامتداد القياسي الافتراضي للـWorkbook الحديثة بدون Macros.",
+          "B": "غلط؛ .xlsm يُستخدم عندما تريد حفظ VBA Macros داخل الملف.",
+          "C": "غلط؛ .csv يحفظ بيانات جدوليّة كنص مفصول بفواصل ولا يحفظ كل خصائص Workbook.",
+          "D": "غلط؛ .xls هو تنسيق Excel القديم قبل Office 2007."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأن الاختيار «=» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Excel يميّز الـFormula عن القيمة العادية بعلامة = في البداية. بدونها، غالبًا سيعامل الإدخال كنص أو قيمة عادية حسب المحتوى.",
+        "options": {
+          "A": "صح؛ = هي العلامة القياسية لبداية أي Formula في Excel.",
+          "B": "غلط؛ # يظهر غالبًا ضمن Error Codes أو رموز أخرى، وليس كبداية Formula.",
+          "C": "غلط؛ + قد يعمل في بعض السياقات القديمة، لكنه ليس الرمز القياسي المطلوب في السؤال.",
+          "D": "غلط؛ @ تُستخدم في سياقات مثل Implicit Intersection وليست بداية كل Formula."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن الاختيار «Cell» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "تقاطع Row مع Column يعطي وحدة واحدة اسمها Cell، مثل A1. الـRange مجموعة Cells، والـTable بنية بيانات، والـSheet صفحة عمل كاملة.",
+        "options": {
+          "A": "غلط؛ Range تعني مجموعة من Cell أو أكثر.",
+          "B": "صح؛ Cell هي نقطة تقاطع Row وColumn.",
+          "C": "غلط؛ Table يتكوّن من نطاق منظم من Rows وColumns.",
+          "D": "غلط؛ Sheet تحتوي عددًا كبيرًا من Cells."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «SUM()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUM هي الدالة القياسية لجمع الأرقام داخل Range. أسماء مثل PLUS وTOTAL وADD ليست دوال Excel القياسية المطلوبة لهذا الغرض.",
+        "options": {
+          "A": "غلط؛ PLUS() ليست دالة Excel قياسية للجمع.",
+          "B": "غلط؛ TOTAL() ليست الدالة القياسية المستخدمة هنا.",
+          "C": "صح؛ SUM() تجمع كل القيم الرقمية المحددة.",
+          "D": "غلط؛ ADD() ليست دالة Excel القياسية للجمع."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن الاختيار «$A$1» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Absolute Reference تثبّت العمود والصف معًا باستخدام $ قبل حرف العمود وقبل رقم الصف، لذلك $A$1 لا يتغير عند نسخ الـFormula.",
+        "options": {
+          "A": "غلط؛ الصياغة A1$ ليست Reference صحيحة بالشكل المعتاد.",
+          "B": "صح؛ $A$1 تثبّت Column A وRow 1 معًا.",
+          "C": "غلط؛ A$1 تثبّت الصف فقط بينما العمود يظل نسبيًا.",
+          "D": "غلط؛ A1 Relative Reference ويتغير عند النسخ."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأن الاختيار «F4» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "مفتاح F4 أثناء تحرير Reference داخل Formula يبدّل بين Relative وAbsolute وMixed References، مثل A1 و$A$1 وA$1 و$A1.",
+        "options": {
+          "A": "غلط؛ F12 مرتبط غالبًا بـSave As وليس تبديل References.",
+          "B": "غلط؛ F2 يدخل وضع تحرير الخلية.",
+          "C": "غلط؛ F9 يعيد حساب Formula/Workbook في سياقات معينة.",
+          "D": "صح؛ F4 يبدّل أنماط الـCell Reference."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن كل Function/Feature في Text & Date Functions لها وظيفة محددة. «AVERAGE()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "AVERAGE تحسب Arithmetic Mean: مجموع القيم ÷ عدد القيم الرقمية. AVG وMEAN ليستا أسماء الدالة القياسية في Excel.",
+        "options": {
+          "A": "غلط؛ AVG() ليست اسم دالة Excel القياسية.",
+          "B": "غلط؛ MID() دالة نصية لاستخراج حروف من منتصف Text.",
+          "C": "صح؛ AVERAGE() ترجع المتوسط الحسابي.",
+          "D": "غلط؛ MEAN() ليست اسم الدالة القياسية في Excel."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأن الاختيار «A number is divided by zero or an empty cell» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "#DIV/0! يظهر عندما تحاول Formula القسمة على صفر أو على Cell فارغة تُعامل كصفر في عملية القسمة.",
+        "options": {
+          "A": "صح؛ السبب المباشر هو القسمة على صفر أو قيمة فارغة تؤدي لذلك.",
+          "B": "غلط؛ Wrong Data Type يرتبط أكثر بـ#VALUE! في كثير من الحالات.",
+          "C": "غلط؛ Invalid Reference عادةً ينتج #REF!.",
+          "D": "غلط؛ ضيق العمود يظهر غالبًا ك##### وليس #DIV/0!."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن الاختيار «#REF!» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "#REF! تعني أن الـFormula تحتوي Reference غير صالح، مثل الإشارة إلى Cell/Column تم حذفها.",
+        "options": {
+          "A": "غلط؛ #NULL! يرتبط عادةً بتقاطع Ranges غير صحيح.",
+          "B": "صح؛ حذف Cell أو Range مشار إليها قد يحول Reference إلى #REF!.",
+          "C": "غلط؛ #VALUE! غالبًا يشير لمشكلة نوع قيمة أو Argument.",
+          "D": "غلط؛ #NAME? يظهر عند عدم تعرف Excel على اسم أو Function."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن الاختيار «The value is not available to the formula» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "#N/A معناها Not Available: الـFormula لم تجد القيمة المطلوبة أو لا توجد نتيجة متاحة، ويظهر كثيرًا مع Lookup Functions عند عدم وجود Match.",
+        "options": {
+          "A": "غلط؛ فساد الملف ليس المعنى المعتاد لـ#N/A.",
+          "B": "غلط؛ طول الـFormula لا يفسر هذا الخطأ.",
+          "C": "غلط؛ حماية Sheet لا تنتج #N/A عادةً.",
+          "D": "صح؛ القيمة المطلوبة غير متاحة للـFormula."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن الاختيار «#NAME?» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "#NAME? يظهر عندما Excel لا يتعرف على اسم داخل الـFormula، مثل كتابة اسم Function بشكل خاطئ أو استخدام Named Range غير معروف.",
+        "options": {
+          "A": "غلط؛ #NUM! يرتبط بمشكلة رقمية في الحساب.",
+          "B": "غلط؛ #DIV/0! للقسمة على صفر.",
+          "C": "غلط؛ #REF! لمرجع غير صالح.",
+          "D": "صح؛ #NAME? يعني أن Excel لم يتعرف على الاسم أو النص المستخدم في الـFormula."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن كل Function/Feature في Conditional Aggregation لها وظيفة محددة. «COUNT()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNT تعد الخلايا التي تحتوي أرقامًا فقط. COUNTA تعد كل الخلايا غير الفارغة، وCOUNTBLANK تعد الفراغات، وCOUNTIF تعد حسب شرط.",
+        "options": {
+          "A": "غلط؛ COUNTIF تحتاج Criteria وتعد ما يحققها.",
+          "B": "غلط؛ COUNTA تعد Text وأرقام وكل Non-empty Cells.",
+          "C": "غلط؛ COUNTBLANK تعد الخلايا الفارغة.",
+          "D": "صح؛ COUNT تعد الخلايا الرقمية فقط."
+        }
       }
     },
     {
@@ -659,6 +803,18 @@
         "ar": "لأن كل Function/Feature في Conditional Aggregation لها وظيفة محددة. «COUNTA()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNTA تعد أي Cell غير فارغة سواء كانت رقمًا أو Text أو قيمة منطقية. COUNT تقتصر على القيم الرقمية.",
+        "options": {
+          "A": "غلط؛ COUNTIFS تعد وفق شروط متعددة.",
+          "B": "غلط؛ COUNTBLANK تعد الفراغات.",
+          "C": "غلط؛ COUNT لا تعد Text.",
+          "D": "صح؛ COUNTA تعد كل Non-empty Cells."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأن الاختيار «1,048,576» هو التعريف أو السلوك الصحيح المرتبط بموضوع Statistics وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Worksheet الحديثة في Excel تحتوي 1,048,576 Row. الرقم 65,536 كان حدًا في إصدارات أقدم.",
+        "options": {
+          "A": "غلط؛ 16,384 هو عدد الأعمدة الحديثة وليس الصفوف.",
+          "B": "غلط؛ 500,000 ليس الحد القياسي.",
+          "C": "صح؛ عدد الصفوف هو 1,048,576.",
+          "D": "غلط؛ 65,536 هو حد قديم قبل الإصدارات الحديثة."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن الاختيار «16,384» هو التعريف أو السلوك الصحيح المرتبط بموضوع Statistics وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Excel الحديثة تحتوي 16,384 Column، وآخر Column اسمها XFD.",
+        "options": {
+          "A": "صح؛ 16,384 هو العدد الصحيح للأعمدة.",
+          "B": "غلط؛ 32,768 ليس الحد القياسي.",
+          "C": "غلط؛ 256 كان عدد الأعمدة في إصدارات أقدم.",
+          "D": "غلط؛ 1,024 أقل من الحد الفعلي."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن الاختيار «Ctrl + S» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Ctrl + S هو Shortcut القياسي لحفظ الـWorkbook الحالي. Ctrl+N ينشئ ملفًا جديدًا، Ctrl+P للطباعة، Ctrl+V للصق.",
+        "options": {
+          "A": "غلط؛ Ctrl+N = New Workbook.",
+          "B": "غلط؛ Ctrl+P = Print.",
+          "C": "غلط؛ Ctrl+V = Paste.",
+          "D": "صح؛ Ctrl+S = Save."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن الاختيار «Ctrl + Z» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Ctrl + Z ينفذ Undo لآخر Action. Ctrl + Y غالبًا Redo/Repeat، وCtrl+X Cut.",
+        "options": {
+          "A": "غلط؛ Ctrl+X = Cut.",
+          "B": "غلط؛ Ctrl+U يرتبط بالتسطير Underline.",
+          "C": "صح؛ Ctrl+Z = Undo.",
+          "D": "غلط؛ Ctrl+Y = Redo/Repeat غالبًا."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن الاختيار «Alt + =» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Alt + = هو Shortcut الخاص بـAutoSum، ويضع SUM Formula تلقائيًا اعتمادًا على النطاق المجاور المتوقع.",
+        "options": {
+          "A": "غلط؛ Shift+= يكتب + عادةً ولا ينفذ AutoSum.",
+          "B": "غلط؛ Alt+S ليس Shortcut القياسي المطلوب هنا.",
+          "C": "صح؛ Alt+= ينفذ AutoSum.",
+          "D": "غلط؛ Ctrl+= ليس Shortcut القياسي لـAutoSum."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الاختيار «In the first (leftmost) column» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "VLOOKUP التقليدية تبحث عن lookup_value في أول Column داخل table_array، ثم ترجع قيمة من Column إلى يمينها حسب col_index_num.",
+        "options": {
+          "A": "غلط؛ لا يلزم أن تكون القيمة في Header Row.",
+          "B": "غلط؛ VLOOKUP لا تبحث في أي Column عشوائي داخل table_array.",
+          "C": "غلط؛ ليست مقيدة بالـLast Column.",
+          "D": "صح؛ lookup_value يجب أن تكون في أول/أيسر Column من table_array."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن الاختيار «Exact match» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "القيمة FALSE أو 0 في Argument الرابع لـVLOOKUP تطلب Exact Match. TRUE أو القيمة الافتراضية التقليدية تستخدم Approximate Match.",
+        "options": {
+          "A": "غلط؛ Approximate Match يرتبط بـTRUE عادةً.",
+          "B": "غلط؛ FALSE لا تعني تجاهل Errors.",
+          "C": "غلط؛ لا تقوم بSort للجدول.",
+          "D": "صح؛ FALSE = Exact Match."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن الاختيار «XLOOKUP» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "XLOOKUP أكثر مرونة من VLOOKUP لأنها تفصل lookup_array عن return_array، لذلك تقدر ترجع قيمة من اليسار أو اليمين.",
+        "options": {
+          "A": "غلط؛ VLOOKUP التقليدية مقيدة بالإرجاع من اليمين داخل table_array.",
+          "B": "صح؛ XLOOKUP تدعم Lookup في اتجاهات أكثر مرونة.",
+          "C": "غلط؛ HLOOKUP تبحث أفقيًا عبر Rows ولا تحل نفس المشكلة بشكل عام.",
+          "D": "غلط؛ SEARCH تبحث عن Text داخل Text ولا تعمل Lookup جدولي."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن كل Function/Feature في Text & Date Functions لها وظيفة محددة. «LEN()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "LEN ترجع عدد Characters داخل Text String، بما فيها المسافات الموجودة ضمن النص.",
+        "options": {
+          "A": "صح؛ LEN() تقيس طول النص بعدد الحروف.",
+          "B": "غلط؛ TEXT() تستخدم لتنسيق قيمة كنص.",
+          "C": "غلط؛ SIZE() ليست الدالة القياسية لهذا الغرض.",
+          "D": "غلط؛ COUNT() تعد Cells رقمية وليس Characters."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن كل Function/Feature في Data Cleaning & Validation لها وظيفة محددة. «TRIM()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "TRIM تزيل المسافات الزائدة في النص وتترك Single Spaces بين الكلمات. CLEAN تستهدف Non-printable Characters، وPROPER تغيّر Capitalization.",
+        "options": {
+          "A": "غلط؛ SUBSTITUTE تستبدل جزءًا محددًا من النص بناءً على ما تكتبه.",
+          "B": "غلط؛ PROPER تجعل أول حرف في كل كلمة Capital.",
+          "C": "غلط؛ CLEAN تزيل Non-printable Characters وليس المسافات الزائدة الأساسية.",
+          "D": "صح؛ TRIM تنظف Extra Spaces."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «PROPER()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "PROPER تحوّل النص إلى Title Case تقريبًا، بحيث يبدأ كل Word بحرف Capital وتصبح بقية الحروف Lowercase غالبًا.",
+        "options": {
+          "A": "غلط؛ TITLE() ليست الدالة القياسية في Excel لهذا الغرض.",
+          "B": "غلط؛ UPPER تحول كل الحروف إلى Capital.",
+          "C": "صح؛ PROPER تجعل كل كلمة تبدأ بحرف Capital.",
+          "D": "غلط؛ LOWER تحول كل الحروف إلى Lowercase."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن كل Function/Feature في Text & Date Functions لها وظيفة محددة. «MID()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "MID تستخرج عددًا محددًا من Characters ابتداءً من Position داخل منتصف النص. LEFT من البداية، RIGHT من النهاية، FIND يرجع Position.",
+        "options": {
+          "A": "صح؛ MID() مصممة للاستخراج من منتصف النص.",
+          "B": "غلط؛ RIGHT() تستخرج من نهاية النص.",
+          "C": "غلط؛ FIND() تحدد موضع Text ولا تستخرج العدد المطلوب من الحروف بنفسها.",
+          "D": "غلط؛ LEFT() تستخرج من بداية النص."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «&» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عامل & يستخدم لعمل Concatenation بين Text Values في Excel، مثل =A1&\" \"&B1.",
+        "options": {
+          "A": "غلط؛ * للضرب.",
+          "B": "صح؛ & لدمج النصوص.",
+          "C": "غلط؛ + للجمع الرقمي أساسًا وليس عامل Text Concatenation القياسي.",
+          "D": "غلط؛ # ليس عامل دمج Text."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «Fail». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الشرط هو A1>50. عندما A1=50 فالعبارة FALSE لأن 50 ليست أكبر من 50، لذلك IF ترجع القيمة الثالثة \"Fail\".",
+        "options": {
+          "A": "غلط؛ IF لا ترجع TRUE هنا لأنها تحتوي Return Values مخصصة.",
+          "B": "صح؛ الشرط False، لذلك ترجع \"Fail\".",
+          "C": "غلط؛ الـFormula صحيحة ولا يوجد Error.",
+          "D": "غلط؛ \"Pass\" ترجع فقط عندما A1>50 بالفعل."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن كل Function/Feature في Conditional Aggregation لها وظيفة محددة. «SUMIF()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUMIF تجمع القيم التي تحقق شرطًا واحدًا. SUM تجمع بدون شرط، وSUBTOTAL تستخدم Aggregation تتفاعل مع Filter، وSUMPRODUCT لها استخدامات مختلفة.",
+        "options": {
+          "A": "غلط؛ SUMPRODUCT ليست الدالة المباشرة القياسية لسؤال شرط واحد هنا.",
+          "B": "غلط؛ SUM لا تحتوي Criteria.",
+          "C": "صح؛ SUMIF تجمع بناءً على شرط واحد.",
+          "D": "غلط؛ SUBTOTAL ليست Function شرطية حسب Criteria نصية."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن كل Function/Feature في Conditional Aggregation لها وظيفة محددة. «COUNTIFS()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNTIFS تسمح بعدّ الصفوف/الخلايا وفق عدة شروط معًا عبر Criteria Ranges متعددة.",
+        "options": {
+          "A": "غلط؛ COUNTIF لشرط واحد في الأساس.",
+          "B": "غلط؛ COUNTA تعد Non-empty Cells بدون عدة Criteria.",
+          "C": "صح؛ COUNTIFS مصممة للشروط المتعددة.",
+          "D": "غلط؛ DCOUNT تعتمد Database Criteria Structure مختلفة وليست الإجابة المقصودة."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «IFERROR()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "IFERROR تغلف Formula وتعيد قيمة بديلة إذا نتج أي Error، مثل =IFERROR(A1/B1,\"Check data\"). ISERROR فقط تختبر وجود Error ولا تستبدله.",
+        "options": {
+          "A": "غلط؛ ISERROR ترجع TRUE/FALSE بدل معالجة الخطأ بقيمة بديلة.",
+          "B": "غلط؛ ERROR.TYPE ترجع رقم نوع الخطأ ولا تعرض رسالة بديلة مباشرة.",
+          "C": "صح؛ IFERROR تعيد نتيجة بديلة عند حدوث Error.",
+          "D": "غلط؛ IFNA تتعامل تحديدًا مع #N/A وليس كل الأخطاء."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن كل Function/Feature في Text & Date Functions لها وظيفة محددة. «TODAY()» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "TODAY() ترجع تاريخ اليوم فقط. NOW() ترجع التاريخ والوقت، وDAY() تستخرج رقم اليوم من تاريخ، وDATE() تبني تاريخًا من Year/Month/Day.",
+        "options": {
+          "A": "صح؛ TODAY() ترجع Current Date بدون Time.",
+          "B": "غلط؛ NOW() تشمل الوقت أيضًا.",
+          "C": "غلط؛ DAY() تستخرج Day Number من Date موجود.",
+          "D": "غلط؛ DATE() تنشئ Date من أجزاء ولا تعني Current Date تلقائيًا."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «=ROUND(3.567,2)» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ROUND(number, num_digits) تقرّب الرقم إلى عدد الخانات المحدد. ROUND(3.567,2) تعطي 3.57 لأن الخانة الثالثة 7 فتزيد الخانة الثانية.",
+        "options": {
+          "A": "غلط؛ INT تحذف الجزء العشري باتجاه العدد الصحيح الأدنى وفق السلوك العددي.",
+          "B": "غلط؛ TRUNC تقطع الخانات بدون التقريب المطلوب.",
+          "C": "غلط؛ ROUNDUP(...,0) سيقرب لأقرب Integer باتجاه الأعلى، وليس إلى خانتين عشريتين.",
+          "D": "صح؛ ROUND(3.567,2)=3.57."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع PivotTables & PivotCharts. الاختيار «To summarize and analyze large amounts of data quickly» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "PivotTable أداة تحليل وتجميع سريعة تسمح بتلخيص آلاف الصفوف حسب Dimensions وAggregations بدون بناء Formulas يدوية لكل مجموعة.",
+        "options": {
+          "A": "غلط؛ Data Validation هي أداة تقييد الإدخال.",
+          "B": "غلط؛ الطباعة ليست الغرض الأساسي من PivotTable.",
+          "C": "غلط؛ حماية Sheet وظيفة أخرى.",
+          "D": "صح؛ الهدف الأساسي تلخيص وتحليل كميات كبيرة من البيانات بسرعة."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن الاختيار «Values» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "داخل PivotTable، منطقة Values هي المكان الذي توضع فيه المقاييس الرقمية التي تريد Sum أو Count أو Average لها.",
+        "options": {
+          "A": "غلط؛ Filters تتحكم في تصفية التقرير.",
+          "B": "غلط؛ Rows تستخدم لتجميع الفئات رأسيًا.",
+          "C": "صح؛ Values مسؤولة عن Numeric Aggregation.",
+          "D": "غلط؛ Columns تنظم Categories أفقيًا."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Charts & Dashboard Design. الاختيار «Pie chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Pie Chart مناسبة عندما تريد إظهار كل Category كنسبة من Total واحد، خاصةً عندما عدد الفئات محدود وواضح.",
+        "options": {
+          "A": "صح؛ Pie Chart تعرض Parts of a Whole.",
+          "B": "غلط؛ Scatter لدراسة العلاقة بين متغيرين رقميين.",
+          "C": "غلط؛ Histogram لعرض Distribution وتكرار القيم ضمن Bins.",
+          "D": "غلط؛ Line Chart مناسبة أكثر للـTrend عبر Time."
+        }
       }
     },
     {
@@ -1809,6 +2229,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Charts & Dashboard Design. الاختيار «Line chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Line Chart من أفضل الاختيارات لعرض تغير Measure عبر Time لأن النقاط المتتابعة وخط الاتصال يوضحان الاتجاه.",
+        "options": {
+          "A": "صح؛ Line Chart توضح Trend over Time.",
+          "B": "غلط؛ Doughnut تعرض Composition/Parts of Whole غالبًا.",
+          "C": "غلط؛ Treemap لعرض Hierarchical Composition.",
+          "D": "غلط؛ Pie ليست مناسبة لسلسلة زمنية طويلة."
+        }
       }
     },
     {
@@ -1859,6 +2291,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Charts & Dashboard Design. الاختيار «Scatter chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Scatter Chart تضع متغيرًا رقميًا على X ومتغيرًا رقميًا على Y، لذلك تسمح برؤية Pattern أو Correlation بينهما.",
+        "options": {
+          "A": "غلط؛ Pie لجزء من كل.",
+          "B": "غلط؛ Bar للمقارنة بين Categories.",
+          "C": "غلط؛ Area غالبًا للTrend/Cumulative Magnitude عبر محور متسلسل.",
+          "D": "صح؛ Scatter لدراسة العلاقة بين متغيرين رقميين."
+        }
       }
     },
     {
@@ -1909,6 +2353,18 @@
         "ar": "لأن الاختيار «Changes cell appearance based on rules or values» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Cleaning & Validation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Conditional Formatting تغيّر مظهر Cell تلقائيًا عند تحقق Rule أو Threshold، مثل تلوين Sales أقل من Target.",
+        "options": {
+          "A": "صح؛ الشكل يتغير حسب Rules أو Values.",
+          "B": "غلط؛ لا تعيد كتابة Formulas تلقائيًا.",
+          "C": "غلط؛ Lock Cells وظيفة Protection.",
+          "D": "غلط؛ تحويل Text إلى Numbers وظيفة تنظيف/تحويل بيانات أخرى."
+        }
       }
     },
     {
@@ -1959,6 +2415,18 @@
         "ar": "لأن كل Function/Feature في Excel Fundamentals لها وظيفة محددة. «Freeze Panes» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Freeze Panes تثبّت Rows أو Columns معينة أثناء Scroll، وبالتالي تقدر تحافظ على Headers ظاهرة في Dataset طويل.",
+        "options": {
+          "A": "صح؛ Freeze Panes هي الأداة المباشرة.",
+          "B": "غلط؛ Group تستخدم لتجميع Rows/Columns وإخفائها/إظهارها.",
+          "C": "غلط؛ Split يقسم نافذة العرض لكنه ليس نفس سلوك التثبيت المعتاد.",
+          "D": "غلط؛ Wrap Text يلف النص داخل Cell."
+        }
       }
     },
     {
@@ -2009,6 +2477,18 @@
         "ar": "لأن الاختيار «Data tab» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Cleaning & Validation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Remove Duplicates موجود ضمن Data tab لأنه جزء من أدوات Data Cleaning وإدارة البيانات.",
+        "options": {
+          "A": "صح؛ الأمر موجود في Data tab.",
+          "B": "غلط؛ Home يحتوي أدوات تنسيق وتحرير أساسية، لكنه ليس مكان الأمر المقصود.",
+          "C": "غلط؛ Review يركز على التعليقات والحماية والمراجعة.",
+          "D": "غلط؛ Insert لإضافة Objects/Charts/Tables."
+        }
       }
     },
     {
@@ -2059,6 +2539,18 @@
         "ar": "لأن الاختيار «Restrict the type of data entered in a cell» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Cleaning & Validation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Data Validation تتحكم في القيم المسموح للمستخدم إدخالها، مثل السماح بأرقام ضمن Range أو اختيار من List.",
+        "options": {
+          "A": "غلط؛ Merge Cells لا علاقة له بتقييد الإدخال.",
+          "B": "غلط؛ لا تحذف Blank Rows.",
+          "C": "غلط؛ لا تنشئ Charts.",
+          "D": "صح؛ تقيد نوع أو نطاق البيانات التي يمكن إدخالها."
+        }
       }
     },
     {
@@ -2109,6 +2601,18 @@
         "ar": "لأن كل Function/Feature في Data Cleaning & Validation لها وظيفة محددة. «Text to Columns» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Text to Columns تقسم Text موجود في Column واحد إلى Columns متعددة بناءً على Delimiter مثل comma أو space، أو Fixed Width.",
+        "options": {
+          "A": "غلط؛ Consolidate تجمع وتلخص بيانات من Ranges متعددة.",
+          "B": "غلط؛ Transpose تبدّل Rows وColumns.",
+          "C": "غلط؛ Flash Fill تتعرف على Pattern وتملأ قيمًا، لكنها ليست الأداة المباشرة التقليدية للتقسيم حسب Delimiter.",
+          "D": "صح؛ Text to Columns تقسم Column واحد إلى عدة Columns."
+        }
       }
     },
     {
@@ -2159,6 +2663,18 @@
         "ar": "لأن الاختيار «Copies or continues a series» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Fill Handle هي المربع الصغير أسفل Corner الخلية، وسحبها يمكن أن ينسخ Formula/Value أو يكمل Series مثل 1,2,3 أو Dates.",
+        "options": {
+          "A": "غلط؛ التعليقات لا تُضاف بالسحب.",
+          "B": "غلط؛ عرض العمود يتم تغييره من حدود Column Header.",
+          "C": "غلط؛ السحب لا يحذف Cell.",
+          "D": "صح؛ تنسخ أو تكمل Series."
+        }
       }
     },
     {
@@ -2209,6 +2725,18 @@
         "ar": "لأن الاختيار «To make formulas easier to read and reuse» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Named Range يعطي اسمًا مفهومًا لنطاق مثل SalesData بدل $A$2:$A$100، وده يجعل الـFormulas أوضح وأسهل في إعادة الاستخدام والصيانة.",
+        "options": {
+          "A": "صح؛ الاسم يحسن القراءة وإعادة الاستخدام.",
+          "B": "غلط؛ لا يضغط حجم الملف بشكل أساسي.",
+          "C": "غلط؛ لا يخفي البيانات بذاته.",
+          "D": "غلط؛ Sort وظيفة مستقلة."
+        }
       }
     },
     {
@@ -2259,6 +2787,18 @@
         "ar": "لأن الاختيار «Combines selected cells into one and centers the content» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Merge & Center تدمج مجموعة Cells محددة إلى Cell واحدة وتوسّط المحتوى داخلها، مع ملاحظة أن الاستخدام الزائد قد يسبب مشاكل في تحليل البيانات.",
+        "options": {
+          "A": "غلط؛ لا يوسّط الـWorksheet كلها.",
+          "B": "صح؛ يدمج الخلايا المختارة ويضع المحتوى في المنتصف.",
+          "C": "غلط؛ لا يدمج Workbooks منفصلة.",
+          "D": "غلط؛ لا يقوم بSorting."
+        }
       }
     },
     {
@@ -2309,6 +2849,18 @@
         "ar": "لأن الاختيار «Wrap Text» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Wrap Text يجعل النص الطويل يظهر على أكثر من سطر داخل نفس Cell بدل أن يمتد خارجها أو يحتاج توسيع العمود.",
+        "options": {
+          "A": "غلط؛ Merge Cells تدمج خلايا ولا تلف النص.",
+          "B": "صح؛ Wrap Text يوزع النص على عدة أسطر داخل Cell.",
+          "C": "غلط؛ Shrink to Fit يصغر حجم الخط ليتسع داخل Cell.",
+          "D": "غلط؛ Justify ليس الخيار المباشر المطلوب هنا."
+        }
       }
     },
     {
@@ -2359,6 +2911,18 @@
         "ar": "لأن الاختيار «The column is too narrow to show the value» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "##### غالبًا تعني أن عرض Column غير كافٍ لإظهار القيمة المهيأة، خصوصًا الأرقام أو التواريخ. توسيع العمود يحل المشكلة في الحالة الشائعة.",
+        "options": {
+          "A": "غلط؛ Formula Error عادةً يظهر كError Code مثل #VALUE! أو #REF!.",
+          "B": "غلط؛ القيمة السالبة لا تتحول تلقائيًا إلى ##### في الحالة المعتادة المقصودة.",
+          "C": "صح؛ Column ضيق جدًا لإظهار القيمة.",
+          "D": "غلط؛ Lock لا يعرض #####."
+        }
       }
     },
     {
@@ -2409,6 +2973,18 @@
         "ar": "لأن كل Function/Feature في Excel Fundamentals لها وظيفة محددة. «Print Titles» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Print Titles تسمح بتحديد Rows/Columns تتكرر على كل Printed Page، مثل تكرار Header Row في أعلى كل صفحة.",
+        "options": {
+          "A": "غلط؛ Freeze Panes تؤثر على العرض أثناء Scroll وليس الطباعة المتكررة.",
+          "B": "غلط؛ Page Break Preview يعرض تقسيم الصفحات.",
+          "C": "غلط؛ Header & Footer يضيف محتوى للطباعة لكنه لا يكرر Row من Sheet كعنوان.",
+          "D": "صح؛ Print Titles تكرر Header Rows/Columns على الصفحات المطبوعة."
+        }
       }
     },
     {
@@ -2459,6 +3035,18 @@
         "ar": "لأن الاختيار «Ctrl + Arrow key» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Ctrl + Arrow ينتقل بسرعة إلى حافة الـCurrent Data Region أو آخر Cell ممتلئة متصلة في اتجاه الحركة، بدل التحرك Cell واحدة فقط.",
+        "options": {
+          "A": "صح؛ Ctrl+Arrow للتنقل السريع إلى نهاية المنطقة في اتجاه معين.",
+          "B": "غلط؛ Shift+Arrow يوسّع Selection عادةً Cell واحدة في كل مرة.",
+          "C": "غلط؛ Tab+Arrow ليس Shortcut القياسي لهذه الوظيفة.",
+          "D": "غلط؛ Alt+Arrow له وظائف أخرى حسب السياق."
+        }
       }
     },
     {
@@ -2509,6 +3097,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Excel Fundamentals. الاختيار «A workbook is the file; a worksheet is a single tab inside it» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Workbook هو ملف Excel الكامل الذي يمكن أن يحتوي عدة Worksheets، أما Worksheet فهي Tab/Sheet واحدة داخل ذلك الملف.",
+        "options": {
+          "A": "غلط؛ التعريف معكوس.",
+          "B": "غلط؛ Workbook يمكن أن يحتوي أكثر من Worksheet.",
+          "C": "غلط؛ المصطلحان مختلفان.",
+          "D": "صح؛ Workbook هو الملف، وWorksheet صفحة/Tab داخل الملف."
+        }
       }
     }
   ]

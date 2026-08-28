@@ -59,6 +59,18 @@
         "ar": "لأن الاختيار «Selected columns used for comparison» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Cleaning & Validation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Remove Duplicates بتحدد الـDuplicate بناءً على الأعمدة اللي المستخدم اختارها في نافذة الأداة. Excel يقارن قيم هذه الأعمدة فقط؛ فإذا كانت متطابقة بين صفين يعتبرهما Duplicate بالنسبة للاختيار الحالي.",
+        "options": {
+          "A": "غلط؛ لون الخلية Formatting وليس معيار المقارنة في Remove Duplicates.",
+          "B": "غلط؛ اسم الـWorksheet لا يدخل في مقارنة الصفوف.",
+          "C": "صح؛ الأعمدة المحددة هي اللي تحدد معنى Duplicate في العملية.",
+          "D": "غلط؛ طول الـFormula لا يستخدم لتحديد تكرار Record."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأن الاختيار «$A1» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما تريد تثبيت الـColumn فقط وترك الـRow تتغير، تحط $ قبل حرف العمود فقط: $A1. عند النسخ يمينًا يظل A ثابت، وعند النسخ لأسفل يتغير رقم الصف.",
+        "options": {
+          "A": "صح؛ $A1 تثبت Column A وتترك Row نسبيًا.",
+          "B": "غلط؛ A$1 تثبت الصف 1 وتترك العمود يتغير.",
+          "C": "غلط؛ $A$1 تثبت العمود والصف معًا.",
+          "D": "غلط؛ A1 Reference نسبي بالكامل."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «AVERAGEIF» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "AVERAGEIF بتحسب متوسط القيم بشرط واحد. هنا الشرط Region='North' والهدف متوسط Sales فقط للسجلات المطابقة.",
+        "options": {
+          "A": "غلط؛ SUMIF تجمع القيم بدل حساب المتوسط.",
+          "B": "غلط؛ COUNTIF تعدّ السجلات المطابقة ولا تحسب Average.",
+          "C": "صح؛ AVERAGEIF مصممة لحساب المتوسط وفق شرط واحد.",
+          "D": "غلط؛ MAX ترجع أكبر قيمة فقط."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع General Formulas & Functions. الاختيار «TRIM» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "TRIM هي الدالة المناسبة لإزالة المسافات الزائدة من النص، خصوصًا Leading/Trailing Spaces، كما تقلل المسافات المتعددة بين الكلمات إلى مسافة واحدة في الاستخدام المعتاد.",
+        "options": {
+          "A": "غلط؛ LEFT تستخرج حروفًا من بداية النص ولا تنظف المسافات.",
+          "B": "غلط؛ RIGHT تستخرج حروفًا من نهاية النص.",
+          "C": "غلط؛ UPPER تحول الحروف إلى Capital ولا تعالج المسافات.",
+          "D": "صح؛ TRIM تنظف الـExtra Spaces."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع General Formulas & Functions. الاختيار «Return an alternative value when a formula results in an error» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "IFERROR بتغلف Formula وتسمح بإرجاع قيمة بديلة لو الـFormula أنتجت Error، مثل رسالة مفهومة أو 0 بدل عرض #DIV/0! أو #N/A.",
+        "options": {
+          "A": "صح؛ ده الغرض الأساسي من IFERROR.",
+          "B": "غلط؛ IFERROR لا تعدّ عدد الأخطاء في Workbook.",
+          "C": "غلط؛ لا تمنع نسخ Formulas.",
+          "D": "غلط؛ لا تحذف Blank Rows."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأن الاختيار «Conditional Formatting» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Cleaning & Validation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Conditional Formatting تطبق Format تلقائي حسب Rule، لذلك تقدر تلوّن Sales أقل من Target باللون الأحمر أو Icon معين بدون تعديل القيمة نفسها.",
+        "options": {
+          "A": "غلط؛ Sort تعيد ترتيب البيانات فقط.",
+          "B": "غلط؛ Freeze Panes تثبت Rows/Columns أثناء Scroll.",
+          "C": "غلط؛ Data Validation تتحكم في الإدخال المسموح، لا في Highlighting القائم على قيمة.",
+          "D": "صح؛ Conditional Formatting هي الأداة المخصصة للتنسيق الشرطي."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع General Formulas & Functions. الاختيار «PivotTable» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "PivotTable مناسبة جدًا لتلخيص Total Sales حسب أكثر من Dimension مثل Department وRegion، وتسمح بتغيير التجميع والفلاتر بسرعة بدون كتابة Formulas كثيرة.",
+        "options": {
+          "A": "غلط؛ Data Validation لتقييد الإدخال.",
+          "B": "صح؛ PivotTable تلخص وتحلل البيانات حسب Categories متعددة.",
+          "C": "غلط؛ Freeze Panes وظيفة عرض فقط.",
+          "D": "غلط؛ Find and Replace للبحث والاستبدال وليس التجميع."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Excel Tables & Structured References. الاختيار «Automatic expansion when new rows are added» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Excel Table تتمدد تلقائيًا عند إضافة Rows جديدة ملاصقة لها، وده يساعد الـFormulas والStructured References والـData Sources المرتبطة بها تواكب النمو.",
+        "options": {
+          "A": "غلط؛ Table لا تحذف Duplicates تلقائيًا.",
+          "B": "غلط؛ لا تحول كل Formulas إلى Values.",
+          "C": "غلط؛ بالعكس يمكن إضافة Rows جديدة بسهولة.",
+          "D": "صح؛ Automatic Expansion من أهم مزايا Excel Tables."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن الاختيار «Control which values may be entered» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Cleaning & Validation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Data Validation هدفها تحديد قواعد الإدخال في Cell، مثل List محددة أو أرقام ضمن Range أو Dates ضمن فترة.",
+        "options": {
+          "A": "صح؛ تتحكم في القيم المسموح إدخالها.",
+          "B": "غلط؛ لا تحسب Totals تلقائيًا.",
+          "C": "غلط؛ لا تنشئ Relationships بين Worksheets.",
+          "D": "غلط؛ Refresh للـPivotTable وظيفة منفصلة."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «They are hidden from the current filtered view» هو التفسير الأقرب للسلوك الصحيح في Excel Fundamentals.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Filter لا يحذف الصفوف التي لا تحقق الشرط؛ هو فقط يخفيها مؤقتًا من الـView الحالي، ويمكن إظهارها مرة أخرى بإلغاء الفلتر.",
+        "options": {
+          "A": "غلط؛ الصفوف لا تُحذف نهائيًا.",
+          "B": "صح؛ يتم إخفاؤها من العرض الحالي فقط.",
+          "C": "غلط؛ البيانات لا تتحول إلى Blank.",
+          "D": "غلط؛ الصفوف لا تنتقل إلى Worksheet أخرى."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Line chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Line Chart مناسبة لإظهار Trend عبر Time، مثل Sales شهر وراء شهر، لأن ترتيب النقاط الزمنية وخط الاتصال يوضح الاتجاه والتغير.",
+        "options": {
+          "A": "غلط؛ Pie مناسبة لـParts of Whole وليس Trend زمني.",
+          "B": "غلط؛ Doughnut أيضًا Composition وليس Time Trend.",
+          "C": "صح؛ Line Chart هي الاختيار الأوضح للبيانات الشهرية المتتابعة.",
+          "D": "غلط؛ Scatter بدون Time Field لا يوضح التسلسل الزمني بشكل مباشر."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Bar or column chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Bar أو Column Chart من أوضح الرسومات لمقارنة Values بين عدد صغير من Departments لأن طول كل Bar/Column يسهل المقارنة المباشرة.",
+        "options": {
+          "A": "غلط؛ Line Chart أفضل للـTrend أو التسلسل.",
+          "B": "صح؛ Bar/Column مناسبة لمقارنة Categories.",
+          "C": "غلط؛ Scatter يستخدم غالبًا لعلاقة بين متغيرين رقميين.",
+          "D": "غلط؛ Pie مع Slices كثيرة تقلل دقة المقارنة، وحتى مع عدد صغير ليست عادةً الأدق لمقارنة قيم مستقلة."
+        }
       }
     },
     {
@@ -659,6 +803,18 @@
         "ar": "لأن كل Function/Feature في Conditional Aggregation لها وظيفة محددة. «COUNTIF» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNTIF تعد عدد الخلايا التي تحقق شرطًا واحدًا. هنا الشرط أن Column A تحتوي النص 'Completed'.",
+        "options": {
+          "A": "غلط؛ SUMIF تجمع قيم مشروطة.",
+          "B": "صح؛ COUNTIF تعد الخلايا المطابقة للـCriteria.",
+          "C": "غلط؛ COUNT تعد القيم الرقمية ولا تبحث عن Text Criteria بالشكل ده.",
+          "D": "غلط؛ AVERAGEIF تحسب متوسطًا مشروطًا."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «MAX» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "MAX ترجع أكبر Numeric Value داخل Range. MIN ترجع الأصغر، AVERAGE المتوسط، وCOUNT عدد الخلايا الرقمية.",
+        "options": {
+          "A": "غلط؛ MIN ترجع أصغر قيمة.",
+          "B": "غلط؛ AVERAGE ترجع المتوسط الحسابي.",
+          "C": "صح؛ MAX ترجع القيمة الأكبر.",
+          "D": "غلط؛ COUNT تعدّ القيم الرقمية."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن الاختيار «Keep selected headings visible while scrolling» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Freeze Panes تثبت Rows أو Columns محددة بحيث تظل ظاهرة أثناء Scroll، وده مفيد خصوصًا مع Header Row في جدول طويل.",
+        "options": {
+          "A": "صح؛ تحافظ على Headings ظاهرة أثناء التمرير.",
+          "B": "غلط؛ لا توقف Recalculation للـFormulas.",
+          "C": "غلط؛ لا تمنع Filtering.",
+          "D": "غلط؛ لا تحذف Hidden Rows."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «IF» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "IF تنفذ Branching بسيط: تختبر Condition، وترجع قيمة لو True وقيمة أخرى لو False.",
+        "options": {
+          "A": "غلط؛ SUM تجمع قيم ولا تختبر شرط لإرجاع نتيجتين مختلفتين.",
+          "B": "صح؛ IF(value_if_true, value_if_false) هي الفكرة المطلوبة.",
+          "C": "غلط؛ COUNT تعد خلايا رقمية.",
+          "D": "غلط؛ MAX ترجع أكبر قيمة."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن كل Function/Feature في Data Cleaning & Validation لها وظيفة محددة. «Data Validation» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Data Validation بنوع List تسمح بعمل Drop-down داخل Cell، فتقيد الاختيار على مجموعة Values محددة.",
+        "options": {
+          "A": "غلط؛ Freeze Panes لا تتحكم في إدخال Cell.",
+          "B": "غلط؛ Conditional Formatting تغير الشكل فقط.",
+          "C": "صح؛ Data Validation List تنشئ Drop-down وتقيّد الإدخال.",
+          "D": "غلط؛ Sort يعيد ترتيب البيانات."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن الاختيار «Summarizing and analyzing data» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "PivotTable هدفها الرئيسي Summarizing and Analyzing Data بسرعة عبر Rows وColumns وValues وFilters.",
+        "options": {
+          "A": "صح؛ ده الاستخدام الأساسي للـPivotTable.",
+          "B": "غلط؛ تغيير Password من إعدادات Protection.",
+          "C": "غلط؛ رسم Shapes وظيفة Insert.",
+          "D": "غلط؛ حماية Formulas ليست وظيفة PivotTable."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=SUM(B2:B6)» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUM(B2:B6) تجمع كل القيم الرقمية من B2 حتى B6. الـColon : يحدد Range متصل.",
+        "options": {
+          "A": "غلط؛ COUNT تعدّ عدد الخلايا الرقمية ولا تجمعها.",
+          "B": "غلط؛ =B2:B6 مجرد Reference Range وليست عملية جمع.",
+          "C": "غلط؛ ADD ليست Function Excel القياسية لهذا الغرض.",
+          "D": "صح؛ SUM على Range B2:B6 تعطي Total."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن كل Function/Feature في Excel Fundamentals لها وظيفة محددة. «Filter» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Filter تعرض فقط الصفوف التي تطابق Criteria محددة وتخفي غير المطابقين مؤقتًا من الـView.",
+        "options": {
+          "A": "غلط؛ Wrap Text خاص بعرض النص داخل Cell.",
+          "B": "غلط؛ Freeze Panes لتثبيت Headers.",
+          "C": "غلط؛ Merge Cells تدمج خلايا.",
+          "D": "صح؛ Filter هي الأداة المطلوبة لإظهار الصفوف المطابقة فقط."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن كل Function/Feature في Excel Fundamentals لها وظيفة محددة. «Sort Ascending» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Sort Ascending ترتب الأرقام من الأصغر إلى الأكبر، والنصوص A→Z، والتواريخ من الأقدم للأحدث عادةً.",
+        "options": {
+          "A": "غلط؛ Filter يخفي/يعرض حسب شروط ولا يرتب بالضرورة.",
+          "B": "صح؛ Sort Ascending هي الترتيب من Low إلى High.",
+          "C": "غلط؛ Wrap Text يغير عرض النص.",
+          "D": "غلط؛ Merge Cells لا علاقة لها بالترتيب."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Column chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Column Chart تعرض Categories باستخدام أعمدة رأسية Vertical Columns، بينما Bar Chart تستخدم أشرطة أفقية.",
+        "options": {
+          "A": "غلط؛ Line تستخدم Lines لا Columns.",
+          "B": "صح؛ Column Chart تستخدم Vertical Bars/Columns.",
+          "C": "غلط؛ Scatter تعرض Points على محاور رقمية.",
+          "D": "غلط؛ Pie تعرض Slices دائرية."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن الاختيار «Displays long text on multiple lines within a cell» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Wrap Text تقسم النص الطويل على أكثر من Line داخل نفس Cell بحيث يظهر المحتوى بدون توسيع Column بشكل مبالغ فيه.",
+        "options": {
+          "A": "صح؛ تعرض النص على عدة أسطر داخل Cell واحدة.",
+          "B": "غلط؛ لا تحذف النص.",
+          "C": "غلط؛ لا تحول Text إلى Numbers.",
+          "D": "غلط؛ لا تدمج الخلايا المجاورة."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «Merge Cells» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Merge Cells تدمج مجموعة Cells محددة في Cell واحدة أكبر. لو فيها بيانات متعددة، لازم الانتباه لأن Excel يحتفظ عادةً بمحتوى Cell واحدة فقط.",
+        "options": {
+          "A": "غلط؛ Filter لا يدمج Cells.",
+          "B": "غلط؛ Sort يرتب البيانات.",
+          "C": "صح؛ Merge Cells هي الأمر المخصص لدمج الخلايا.",
+          "D": "غلط؛ Freeze Panes لتثبيت العرض."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «COUNT» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNT تعد الخلايا التي تحتوي Numeric Values. لو محتاج تعد Non-empty Cells عمومًا تستخدم COUNTA.",
+        "options": {
+          "A": "غلط؛ SUM تجمع الأرقام.",
+          "B": "غلط؛ AVERAGE تحسب المتوسط.",
+          "C": "صح؛ COUNT تعد الخلايا الرقمية.",
+          "D": "غلط؛ IF دالة شرطية."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن كل Function/Feature في Power Pivot & DAX لها وظيفة محددة. «AVERAGE» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Arithmetic Mean = مجموع القيم ÷ عددها، والدالة القياسية في Excel لهذا الحساب هي AVERAGE.",
+        "options": {
+          "A": "غلط؛ COUNT تعد القيم ولا تحسب Mean.",
+          "B": "غلط؛ MAX ترجع أعلى قيمة.",
+          "C": "غلط؛ SUM ترجع المجموع فقط.",
+          "D": "صح؛ AVERAGE تحسب المتوسط الحسابي."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «MAX» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "MAX تبحث داخل Range عن أكبر Numeric Value وتعيدها.",
+        "options": {
+          "A": "صح؛ MAX = Maximum value.",
+          "B": "غلط؛ MIN ترجع Minimum.",
+          "C": "غلط؛ COUNT تعدّ الأرقام.",
+          "D": "غلط؛ AVERAGE تحسب Mean."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «MIN» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "MIN ترجع أصغر Numeric Value في Range.",
+        "options": {
+          "A": "غلط؛ MAX ترجع الأكبر.",
+          "B": "صح؛ MIN ترجع الأصغر.",
+          "C": "غلط؛ COUNT تعد الخلايا الرقمية.",
+          "D": "غلط؛ SUM تجمع القيم."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «*» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Excel Formula، الرمز * هو Operator الضرب، مثل =A1*B1.",
+        "options": {
+          "A": "غلط؛ / للقسمة.",
+          "B": "غلط؛ + للجمع.",
+          "C": "صح؛ * للضرب.",
+          "D": "غلط؛ : يستخدم لتعريف Range مثل A1:A10."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن الاختيار «/» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الرمز / هو Operator القسمة في Excel، مثل =A1/B1.",
+        "options": {
+          "A": "غلط؛ * للضرب.",
+          "B": "غلط؛ - للطرح.",
+          "C": "غلط؛ : لتعريف Range.",
+          "D": "صح؛ / للقسمة."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن الاختيار «An Excel file containing one or more worksheets» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Workbook هو ملف Excel الكامل، ويمكن أن يحتوي Worksheet واحدة أو أكثر بالإضافة إلى Charts وQueries ومكونات أخرى حسب الملف.",
+        "options": {
+          "A": "صح؛ Workbook هو الملف الذي يحتوي Worksheets.",
+          "B": "غلط؛ Cell وحدة واحدة داخل Worksheet.",
+          "C": "غلط؛ Formula جزء من Cell وليست Workbook.",
+          "D": "غلط؛ Chart Title عنصر داخل Chart."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن الاختيار «A spreadsheet page inside a workbook» هو التعريف أو السلوك الصحيح المرتبط بموضوع Excel Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Worksheet هي صفحة Spreadsheet داخل Workbook، وتظهر عادةً كـTab في أسفل الملف.",
+        "options": {
+          "A": "غلط؛ Formula Result قيمة داخل Cell.",
+          "B": "غلط؛ Password إعداد حماية.",
+          "C": "صح؛ Worksheet صفحة داخل Workbook.",
+          "D": "غلط؛ Chart Type نوع رسم بياني."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن الاختيار «A cell reference» هو التعريف أو السلوك الصحيح المرتبط بموضوع Charts & Dashboard Design وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "C5 تعني Cell الموجودة عند تقاطع Column C مع Row 5؛ دي صيغة Cell Reference القياسية في Excel.",
+        "options": {
+          "A": "غلط؛ Worksheet اسم صفحة كاملة وليس Reference مثل C5.",
+          "B": "غلط؛ Chart Name تسمية لعنصر Chart.",
+          "C": "صح؛ C5 Cell Reference.",
+          "D": "غلط؛ Workbook هو ملف Excel الكامل."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن كل Function/Feature في Power Pivot & DAX لها وظيفة محددة. «SUM» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUM هي الدالة القياسية لحساب Total للقيم الرقمية.",
+        "options": {
+          "A": "غلط؛ COUNT تعد الأرقام.",
+          "B": "غلط؛ MAX ترجع أعلى قيمة.",
+          "C": "صح؛ SUM تجمع القيم.",
+          "D": "غلط؛ AVERAGE تحسب المتوسط."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن الاختيار «=» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Formula في Excel تبدأ عادةً بعلامة =، ومنها يعرف Excel إن الإدخال Expression يحتاج حساب.",
+        "options": {
+          "A": "صح؛ = هي بداية Formula القياسية.",
+          "B": "غلط؛ # تستخدم ضمن بعض Error Codes أو رموز أخرى.",
+          "C": "غلط؛ % تمثل Percentage ولا تبدأ كل Formula.",
+          "D": "غلط؛ @ لها استخدامات خاصة وليست بداية Formula العامة."
+        }
       }
     },
     {
@@ -1809,6 +2229,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=XLOOKUP(1,(A:A=H2)*(C:C=H3),D:D)» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لعمل XLOOKUP بشرطين، نقدر نحول الشرطين إلى Boolean Arrays ونضربهم: (A:A=H2)*(C:C=H3). الصف المطابق للشرطين يعطي 1، فنبحث عن 1 ونرجع Salary من D:D.",
+        "options": {
+          "A": "غلط؛ يطابق Employee ID فقط ويتجاهل Year.",
+          "B": "غلط؛ دمج Lookup Value H2&H3 يحتاج Lookup Array مدمجة بنفس الشكل؛ A:A&B:B هنا تستخدم B بدل Year الموجود في C، كما أن الصياغة ليست الأنسب المعتمدة في السؤال.",
+          "C": "صح؛ ضرب الشرطين ينتج 1 فقط للصف الذي يحقق Employee ID وYear معًا.",
+          "D": "غلط؛ الـNested XLOOKUP هنا لا يربط الشرطين Row-by-Row بشكل صحيح، لأن البحث الثاني مستقل عن نتيجة الموظف."
+        }
       }
     },
     {
@@ -1859,6 +2291,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=SUMIFS(D:D,A:A,\"East\",B:B,\"Laptop\",C:C,\">=1/1/2026\",C:C,\"<=1/31/2026\")» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUMIFS مناسبة لعدة شروط. نحدد D:D كـsum_range، ثم Region=East، Product=Laptop، ثم نستخدم شرطين على Date لتحديد بداية ونهاية يناير 2026.",
+        "options": {
+          "A": "غلط؛ SUMIF هنا تطبق شرط Region فقط وتتجاهل Product وDate.",
+          "B": "صح؛ تجمع Sales مع كل الشروط المطلوبة وتستخدم Date Range صحيحًا للشهر.",
+          "C": "غلط؛ SUMIFS تحتاج sum_range منفصلة وCriteria Range/Criteria pairs، وليس A:D مع كلمات متتابعة.",
+          "D": "غلط؛ الصيغة ليست Aggregation صحيحة بهذه الطريقة داخل SUM العادية على Full Columns."
+        }
       }
     },
     {
@@ -1909,6 +2353,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=FILTER(A2:F1000,C2:C1000=\"West\")» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "FILTER(array, include) ترجع كل الصفوف من Array التي يكون فيها include=True. هنا Array هي A2:F1000 وشرط include هو أن Region في C يساوي West.",
+        "options": {
+          "A": "صح؛ ترجع الصفوف الكاملة التي تحقق C='West'.",
+          "B": "غلط؛ عكست array وinclude؛ C2:C1000 ليست البيانات الكاملة المطلوب إرجاعها.",
+          "C": "غلط؛ FILTER تحتاج Boolean include Array وليس كلمة 'West' وحدها.",
+          "D": "غلط؛ XLOOKUP مصممة لإرجاع Match/Value وليست كل الصفوف المطابقة المتعددة بالطريقة المطلوبة."
+        }
       }
     },
     {
@@ -1959,6 +2415,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع General Formulas & Functions. الاختيار «UNIQUE» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "UNIQUE ترجع قائمة Dynamic Array بالقيم الفريدة من Range، ولذلك مناسبة لإنشاء قائمة عملاء تتوسع تلقائيًا مع البيانات المصدر.",
+        "options": {
+          "A": "غلط؛ SORT ترتب القيم لكنها لا تزيل التكرار.",
+          "B": "غلط؛ FILTER تصفي حسب شرط ولا تضمن Unique تلقائيًا.",
+          "C": "صح؛ UNIQUE مصممة لإرجاع القيم المميزة مرة واحدة.",
+          "D": "غلط؛ DISTINCT ليست Function Excel القياسية هنا؛ الاسم معروف أكثر في SQL."
+        }
       }
     },
     {
@@ -2009,6 +2477,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=SORTBY(A2:D100,D2:D100,-1)» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SORTBY تسمح بترتيب Array كاملة اعتمادًا على Range/Column خارجي أو محدد، وهنا نرتب A2:D100 حسب Scores الموجودة في D2:D100 بترتيب -1 = Descending.",
+        "options": {
+          "A": "ممكن SORT تعمل الترتيب أيضًا لو Column 4 داخل الـArray هي Scores، لكن السؤال يختبر أفضل صيغة باستخدام Range محددة للـSort Key، والإجابة الرسمية اختارت SORTBY لأنها أوضح وأكثر مرونة.",
+          "B": "صح؛ ترتب كامل Dataset حسب D من الأعلى للأقل بدون تغيير البيانات الأصلية.",
+          "C": "غلط؛ ترجع Scores فقط ولا تعيد ترتيب باقي Columns مع الموظفين.",
+          "D": "غلط؛ ترتب D2:D100 فقط وتستخدم A2:A100 كـSort Key، بعكس المطلوب."
+        }
       }
     },
     {
@@ -2059,6 +2539,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=COUNTIFS(A:A,\"Finance\",B:B,\">50000\",C:C,\">5\")» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNTIFS تعد الصفوف التي تحقق عدة شروط معًا. هنا Department=Finance وSalary>50000 وExperience>5، لذلك نحتاج 3 Criteria Pairs.",
+        "options": {
+          "A": "غلط؛ COUNTIF لا تستقبل عدة Range/Criteria Pairs بهذه الصيغة.",
+          "B": "صح؛ COUNTIFS تطبق الشروط الثلاثة بمنطق AND.",
+          "C": "غلط؛ COUNT لا تعمل بـText Criteria متعددة.",
+          "D": "غلط؛ COUNTA تعد Non-empty Cells ولا تطبق الشروط المطلوبة."
+        }
       }
     },
     {
@@ -2109,6 +2601,18 @@
         "ar": "لأن الاختيار «Calculated Field» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Traditional PivotTable يمكن إنشاء Calculated Field لحساب قيمة مشتقة من Fields موجودة، مثل Sales/Quantity كمتوسط سعر بيع.",
+        "options": {
+          "A": "صح؛ Calculated Field هي الميزة التقليدية لإضافة Calculation داخل PivotTable.",
+          "B": "غلط؛ Data Validation تتحكم في الإدخال.",
+          "C": "غلط؛ Goal Seek يحل معادلة للوصول إلى Target بتغيير Input.",
+          "D": "غلط؛ Scenario Manager يقارن مجموعات Inputs وليس حساب Field داخل PivotTable."
+        }
       }
     },
     {
@@ -2159,6 +2663,18 @@
         "ar": "لأن الاختيار «Refresh the PivotTable» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "PivotTable لا تعيد قراءة Source Data باستمرار. بعد إضافة Rows جديدة إلى Excel Table، تعمل Refresh علشان تعيد تحميل البيانات وتظهر السجلات الجديدة.",
+        "options": {
+          "A": "غلط؛ لا توجد مشكلة Installation.",
+          "B": "صح؛ Refresh هو الإجراء الطبيعي لتحديث PivotTable.",
+          "C": "غلط؛ تحويل Table إلى Text يفسد بنية البيانات ولا يحل المشكلة.",
+          "D": "غلط؛ حذف Formulas غير متعلق بتحديث Source."
+        }
       }
     },
     {
@@ -2209,6 +2725,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع PivotTables & PivotCharts. الاختيار «Slicer» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Slicer هي Visual Filter على شكل Buttons، ويمكن ربطها بأكثر من PivotTable عبر Report Connections إذا كانت الـPivotTables متوافقة في المصدر/الـData Model.",
+        "options": {
+          "A": "غلط؛ Solver أداة Optimization.",
+          "B": "صح؛ Slicer هي التحكم البصري المناسب لفلترة PivotTables.",
+          "C": "غلط؛ Goal Seek أداة What-if Analysis رقمية.",
+          "D": "غلط؛ Data Consolidation تجمع بيانات ولا تعمل كفلتر تفاعلي."
+        }
       }
     },
     {
@@ -2259,6 +2787,18 @@
         "ar": "لأن الاختيار «Timeline» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Timeline هي أداة Filter تفاعلية مخصصة لحقول التاريخ في PivotTables، وتسمح بالتصفية حسب Years وQuarters وMonths وDays.",
+        "options": {
+          "A": "غلط؛ Slicer عام ويمكن استخدامه مع Date Fields، لكن Timeline مصممة خصيصًا للتنقل الزمني.",
+          "B": "صح؛ Timeline هي الأداة الزمنية المتخصصة المطلوبة.",
+          "C": "غلط؛ Form Control عام وليس Filter زمني Pivot مخصص.",
+          "D": "غلط؛ Data Validation List داخل Cell وليست Timeline تفاعلية للـPivot."
+        }
       }
     },
     {
@@ -2309,6 +2849,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع General Formulas & Functions. الاختيار «Power Query» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Power Query ممتازة لاستيراد ملفات متعددة بنفس Structure، عمل Combine/Transform مرة واحدة، وبعدها Refresh شهريًا بدل إعادة الخطوات يدويًا.",
+        "options": {
+          "A": "غلط؛ Conditional Formatting لا تجمع ملفات أو تحول بيانات.",
+          "B": "صح؛ Power Query مصممة لـETL وCombine Files بشكل قابل للتكرار.",
+          "C": "غلط؛ Goal Seek لتحليل What-if.",
+          "D": "غلط؛ Solver للـOptimization وليس دمج CSVs."
+        }
       }
     },
     {
@@ -2359,6 +2911,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Power Query. الاختيار «Split Column by Delimiter» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Full Name مثل 'John Smith' وتريد فصله حسب المسافة إلى First/Last Name، تستخدم Split Column by Delimiter في Power Query.",
+        "options": {
+          "A": "صح؛ المسافة Delimiter طبيعي للفصل بين الجزأين.",
+          "B": "غلط؛ Group By تجمع Rows حسب Keys وتعمل Aggregations.",
+          "C": "غلط؛ Merge Queries تعمل Join بين Queryين.",
+          "D": "غلط؛ Pivot Column تحول Values إلى Columns."
+        }
       }
     },
     {
@@ -2409,6 +2973,18 @@
         "ar": "لأن الاختيار «Merge» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإضافة Product Name من Products Query إلى Sales Query بناءً على Product ID، نحتاج Join بين الجدولين؛ في Power Query اسم العملية Merge.",
+        "options": {
+          "A": "غلط؛ Append تكدس Rows فوق بعض، ولا تضيف Columns من جدول مرتبط.",
+          "B": "صح؛ Merge تعمل Join على Product ID وتسمح بتوسيع Product Name.",
+          "C": "غلط؛ Group By تلخص Rows ولا تربط جدولين.",
+          "D": "غلط؛ Transpose تبدل Rows/Columns."
+        }
       }
     },
     {
@@ -2459,6 +3035,18 @@
         "ar": "لأن الاختيار «Append» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما Queries يناير وفبراير ومارس عندها نفس الأعمدة وتريد جمع السجلات عموديًا، تستخدم Append لأنها تضيف Rows من Query إلى أخرى.",
+        "options": {
+          "A": "غلط؛ Merge يضيف Columns بالاعتماد على Key/Join.",
+          "B": "صح؛ Append تكدس السجلات Vertical Stack.",
+          "C": "غلط؛ Group By يلخص البيانات.",
+          "D": "غلط؛ Unpivot يحول Columns إلى Rows داخل Dataset واحدة، وليس دمج Queries متعددة."
+        }
       }
     },
     {
@@ -2509,6 +3097,18 @@
         "ar": "لأن الاختيار «Unpivot Columns» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عندما الأشهر موجودة كColumns وتريد تحويلها إلى عمود Month وعمود Sales بحيث كل شهر يصبح Row، تستخدم Unpivot Columns. ده يحول Wide Format إلى Long/Tidy Format.",
+        "options": {
+          "A": "غلط؛ Pivot يعمل العكس تقريبًا: يحول Values إلى Columns.",
+          "B": "صح؛ Unpivot Columns تحول أعمدة الأشهر إلى Rows مع Attribute/Value.",
+          "C": "غلط؛ Merge تربط Queryين.",
+          "D": "غلط؛ Group By تلخص Rows ولا تعيد تشكيل Months Columns إلى Rows."
+        }
       }
     }
   ]
