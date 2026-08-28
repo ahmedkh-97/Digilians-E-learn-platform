@@ -297,6 +297,8 @@ function renderOfficialAnswerBox(q,selected=null,revealOnly=false){
   const correct=q.options.find(o=>o.id===q.correctAnswer);
   const selectedOption=q.options.find(o=>o.id===selected);
   const box=$("officialAnswerBox");
+  const deep=q.deepExplanation || null;
+
   let heading=`Official Answer: ${escapeHtml(q.correctAnswer)}`;
   let statusClass="official-answer-neutral";
   let verdict="";
@@ -308,25 +310,57 @@ function renderOfficialAnswerBox(q,selected=null,revealOnly=false){
       :`Incorrect ✕ — Official Answer: ${escapeHtml(q.correctAnswer)}`;
     statusClass=isCorrect?"official-answer-correct":"official-answer-wrong";
 
+    const exactReason=deep?.options?.[selected];
     if(isCorrect){
-      verdict=`<div class="official-arabic-verdict correct-note"><strong>ليه إجابتك صح؟</strong><p>لأن اختيارك يطابق الإجابة الرسمية المنشورة في بنك الأسئلة.</p></div>`;
+      verdict=`<div class="official-arabic-verdict correct-note">
+        <strong>ليه إجابتك صح؟</strong>
+        <p>${escapeHtml(exactReason || "اختيارك يطابق الإجابة الرسمية المنشورة.")}</p>
+      </div>`;
     }else{
-      verdict=`<div class="official-arabic-verdict wrong-note"><strong>ليه إجابتك غلط؟</strong><p>اختيارك كان <b>${escapeHtml(selected)}</b> — ${escapeHtml(selectedOption?.text||"")}. الاختيار ده لا يحقق المطلوب في السؤال، بينما الإجابة الرسمية هي <b>${escapeHtml(q.correctAnswer)}</b>.</p></div>`;
+      verdict=`<div class="official-arabic-verdict wrong-note">
+        <strong>ليه إجابتك غلط؟</strong>
+        <p><b>اختيارك ${escapeHtml(selected)}:</b> ${escapeHtml(exactReason || selectedOption?.text || "")}</p>
+      </div>`;
     }
   }
 
-  const aiAr=q.aiExplanation?.ar || "الإجابة الصحيحة هي الاختيار الرسمي الظاهر بالأعلى. الشرح العربي التفصيلي غير متوفر لهذا السؤال حاليًا.";
+  let explanationHtml="";
+  if(deep){
+    explanationHtml=`
+      <div class="official-ai-explanation deep">
+        <span class="official-ai-label">DETAILED EXPLANATION — ARABIC</span>
+        <p dir="rtl">${escapeHtml(deep.summary)}</p>
+
+        <details class="official-option-analysis" open>
+          <summary>تحليل كل الاختيارات A / B / C / D</summary>
+          <div class="official-option-analysis-grid">
+            ${q.options.map(o=>{
+              const isCorrect=o.id===q.correctAnswer;
+              return `<div class="official-option-reason ${isCorrect?"is-correct":"is-wrong"}">
+                <div class="reason-head"><span>${o.id}</span><strong>${isCorrect?"✓ صح":"✕ غلط"}</strong></div>
+                <p dir="rtl">${escapeHtml(deep.options?.[o.id] || "")}</p>
+              </div>`;
+            }).join("")}
+          </div>
+        </details>
+      </div>`;
+  }else{
+    const aiAr=q.aiExplanation?.ar || "الشرح التفصيلي لهذا السؤال لم يتم إضافته بعد.";
+    explanationHtml=`
+      <div class="official-ai-explanation">
+        <span class="official-ai-label">AI EXPLANATION — ARABIC</span>
+        <p dir="rtl">${escapeHtml(aiAr)}</p>
+        <small class="deep-pilot-note">الشرح Option-by-Option قيد الإضافة لهذا الجزء من البنك.</small>
+      </div>`;
+  }
 
   box.className=`official-answer-box ${statusClass}`;
   box.innerHTML=`
     <strong>${heading}</strong>
     <div class="official-answer-text">${escapeHtml(correct?.text||"")}</div>
     ${verdict}
-    <div class="official-ai-explanation">
-      <span class="official-ai-label">AI EXPLANATION — ARABIC</span>
-      <p dir="rtl">${escapeHtml(aiAr)}</p>
-    </div>
-    <small>الإجابة أعلاه من المصدر الرسمي. الشرح العربي إضافة تعليمية مولدة بواسطة المنصة وليس جزءًا من ملف الوزارة.</small>
+    ${explanationHtml}
+    <small>الإجابة أعلاه من المصدر الرسمي. الشرح التفصيلي العربي إضافة تعليمية من Digilians E-Learn وليس جزءًا من ملف الوزارة.</small>
   `;
 }
 function answerOfficialQuestion(q,optionId){

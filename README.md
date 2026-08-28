@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.8.2
+# Digilians E-Learn Platform V0.8.3
 
 A modern, free-first learning and exam platform prototype.
 
@@ -306,3 +306,31 @@ After selecting an answer:
 - `Show Official Answer` also displays the Arabic explanation.
 
 The platform explicitly states that the answer is official while the Arabic explanation is an educational platform-generated addition.
+
+
+## V0.8.3 — Deep Explanation Pilot
+
+A real option-by-option Arabic explanation layer was added as a quality pilot.
+
+### Pilot scope
+- Track: Excel
+- Questions: Official Excel Q1–Q50
+- Source pages: 1–10 of the Ministry QBank
+- Each item now contains:
+  - a concept-specific Arabic explanation
+  - why the official answer is correct
+  - why A is correct/wrong
+  - why B is correct/wrong
+  - why C is correct/wrong
+  - why D is correct/wrong
+
+### UI
+After answering:
+- If correct, the exact reason for the selected option is shown.
+- If wrong, the exact reason why the selected distractor is wrong is shown.
+- A detailed section analyzes all four choices.
+
+The official question text, options and correct answer remain unchanged.
+Explanations are stored separately as `deepExplanation` and are clearly labeled as a Digilians E-Learn educational addition.
+
+Questions outside this 50-question pilot keep the V0.8.2 explanation until the deep layer is expanded after pilot approval.
