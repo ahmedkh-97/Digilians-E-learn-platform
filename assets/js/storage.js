@@ -90,10 +90,10 @@ export function getOfficialQbankState(){
 }
 function saveOfficialState(state){localStorage.setItem(KEYS.officialQbank,JSON.stringify(state))}
 export function getOfficialTrackState(trackId){
-  const state=getOfficialQbankState();return state.tracks?.[trackId] || {lastIndex:0,reviewed:[],bookmarks:[],mistakes:[]};
+  const state=getOfficialQbankState();return state.tracks?.[trackId] || {lastIndex:0,reviewed:[],bookmarks:[],mistakes:[],answers:{}};
 }
 export function updateOfficialTrackState(trackId,patch){
-  const state=getOfficialQbankState();state.tracks ||= {};const current=state.tracks[trackId] || {lastIndex:0,reviewed:[],bookmarks:[],mistakes:[]};
+  const state=getOfficialQbankState();state.tracks ||= {};const current=state.tracks[trackId] || {lastIndex:0,reviewed:[],bookmarks:[],mistakes:[],answers:{}};
   state.tracks[trackId]={...current,...patch};saveOfficialState(state);return state.tracks[trackId];
 }
 export function toggleOfficialBookmark(trackId,questionId){

@@ -286,18 +286,122 @@ function renderOfficialQuestionList(){
   const list=$("officialQuestionList");if(!list)return;list.innerHTML='';const st=getOfficialTrackState(state.officialTrackId),rev=new Set(st.reviewed||[]),bm=new Set(st.bookmarks||[]);const visible=state.officialFiltered.length?state.officialFiltered:[];
   for(const q of visible){const btn=document.createElement('button');btn.className='official-qnum';btn.textContent=q.originalOrder;if(q.id===state.officialQuestions[state.officialIndex]?.id)btn.classList.add('current');if(rev.has(q.id))btn.classList.add('reviewed');if(bm.has(q.id))btn.classList.add('bookmarked');btn.addEventListener('click',()=>{state.officialIndex=state.officialQuestions.findIndex(x=>x.id===q.id);renderOfficialQuestionList();renderOfficialStudyQuestion()});list.appendChild(btn)}
 }
+function officialVisibleQuestions(){
+  return state.officialFiltered.length?state.officialFiltered:state.officialQuestions;
+}
+function officialVisiblePosition(){
+  const currentId=state.officialQuestions[state.officialIndex]?.id;
+  return officialVisibleQuestions().findIndex(q=>q.id===currentId);
+}
+function renderOfficialAnswerBox(q,selected=null,revealOnly=false){
+  const correct=q.options.find(o=>o.id===q.correctAnswer);
+  const box=$("officialAnswerBox");
+  let heading=`Official Answer: ${escapeHtml(q.correctAnswer)}`;
+  let statusClass="official-answer-neutral";
+  if(selected){
+    const isCorrect=selected===q.correctAnswer;
+    heading=isCorrect?`Correct ✓ — Official Answer: ${escapeHtml(q.correctAnswer)}`:`Incorrect ✕ — Official Answer: ${escapeHtml(q.correctAnswer)}`;
+    statusClass=isCorrect?"official-answer-correct":"official-answer-wrong";
+  }else if(revealOnly){
+    heading=`Official Answer: ${escapeHtml(q.correctAnswer)}`;
+  }
+  box.className=`official-answer-box ${statusClass}`;
+  box.innerHTML=`<strong>${heading}</strong><div>${escapeHtml(correct?.text||"")}</div><small>This answer comes from the official source. No detailed explanation was published with this item.</small>`;
+}
+function answerOfficialQuestion(q,optionId){
+  const st=getOfficialTrackState(state.officialTrackId);
+  const answers={...(st.answers||{})};
+  if(answers[q.id])return;
+
+  answers[q.id]=optionId;
+  const reviewed=new Set(st.reviewed||[]);
+  const mistakes=new Set(st.mistakes||[]);
+  reviewed.add(q.id);
+  if(optionId!==q.correctAnswer)mistakes.add(q.id);
+
+  updateOfficialTrackState(state.officialTrackId,{
+    answers,
+    reviewed:[...reviewed],
+    mistakes:[...mistakes],
+    lastIndex:state.officialIndex
+  });
+
+  renderOfficialQuestionList();
+  renderOfficialStudyQuestion();
+}
 function renderOfficialStudyQuestion(){
-  const q=state.officialQuestions[state.officialIndex];if(!q)return renderOfficialEmpty();const st=getOfficialTrackState(state.officialTrackId),rev=new Set(st.reviewed||[]),bm=new Set(st.bookmarks||[]);
-  $("officialQuestionTopic").textContent=q.topic;$("officialSourceLine").textContent=`Source: ${q.officialSource.file} • Page ${q.officialSource.page}${q.originalQuestionNumber?` • Original Q${q.originalQuestionNumber}`:''} • Set ${q.officialSet}`;$("officialQuestionText").textContent=q.question;
-  const opts=$("officialOptions");opts.innerHTML='';for(const o of q.options){const d=document.createElement('div');d.className='official-option';const a=document.createElement('span');a.className='option-letter';a.textContent=o.id;const b=document.createElement('span');b.textContent=o.text;d.append(a,b);opts.appendChild(d)}
-  $("officialAnswerBox").classList.add('hidden');$("officialAnswerBox").innerHTML='';$("officialShowAnswerBtn").textContent=rev.has(q.id)?'Show Official Answer':'Show Official Answer';$("officialBookmarkBtn").classList.toggle('active',bm.has(q.id));$("officialBookmarkBtn").textContent=bm.has(q.id)?'★':'☆';
-  $("officialPrevBtn").disabled=state.officialIndex===0;$("officialNextBtn").disabled=state.officialIndex===state.officialQuestions.length-1;updateOfficialProgress();
+  const q=state.officialQuestions[state.officialIndex];
+  if(!q)return renderOfficialEmpty();
+
+  const st=getOfficialTrackState(state.officialTrackId);
+  const rev=new Set(st.reviewed||[]);
+  const bm=new Set(st.bookmarks||[]);
+  const selected=st.answers?.[q.id]||null;
+
+  $("officialQuestionTopic").textContent=q.topic;
+  $("officialSourceLine").textContent=`Source: ${q.officialSource.file} • Page ${q.officialSource.page}${q.originalQuestionNumber?` • Original Q${q.originalQuestionNumber}`:''} • Set ${q.officialSet}`;
+  $("officialQuestionText").textContent=q.question;
+
+  const opts=$("officialOptions");
+  opts.innerHTML="";
+  for(const o of q.options){
+    const btn=document.createElement("button");
+    btn.type="button";
+    btn.className="official-option";
+
+    const letter=document.createElement("span");
+    letter.className="option-letter";
+    letter.textContent=o.id;
+
+    const text=document.createElement("span");
+    text.textContent=o.text;
+
+    btn.append(letter,text);
+
+    if(selected){
+      btn.classList.add("locked");
+      if(o.id===selected)btn.classList.add("selected");
+      if(o.id===q.correctAnswer)btn.classList.add("correct");
+      if(o.id===selected && selected!==q.correctAnswer)btn.classList.add("wrong");
+    }
+
+    btn.addEventListener("click",()=>answerOfficialQuestion(q,o.id));
+    opts.appendChild(btn);
+  }
+
+  if(selected){
+    renderOfficialAnswerBox(q,selected,false);
+  }else{
+    $("officialAnswerBox").className="official-answer-box hidden";
+    $("officialAnswerBox").innerHTML="";
+  }
+
+  $("officialShowAnswerBtn").textContent=selected?"Official Answer Shown":"Show Official Answer";
+  $("officialBookmarkBtn").classList.toggle("active",bm.has(q.id));
+  $("officialBookmarkBtn").textContent=bm.has(q.id)?"★":"☆";
+
+  const pos=officialVisiblePosition();
+  const visible=officialVisibleQuestions();
+  $("officialPrevBtn").disabled=pos<=0;
+  $("officialNextBtn").disabled=pos<0 || pos>=visible.length-1;
+  updateOfficialProgress();
 }
 function updateOfficialProgress(){
   const st=getOfficialTrackState(state.officialTrackId),meta=officialTrackMeta(state.officialTrackId);const reviewed=new Set(st.reviewed||[]).size,pct=Math.round(reviewed/Math.max(1,meta?.questionCount||1)*100);$("officialTrackProgress").textContent=`${pct}%`;$("officialTrackProgressFill").style.width=`${pct}%`;$("officialReviewedCount").textContent=`${reviewed} of ${meta?.questionCount||0} reviewed`;
 }
 function moveOfficial(delta){
-  let next=Math.max(0,Math.min(state.officialQuestions.length-1,state.officialIndex+delta));state.officialIndex=next;updateOfficialTrackState(state.officialTrackId,{lastIndex:next});renderOfficialQuestionList();renderOfficialStudyQuestion();
+  const visible=officialVisibleQuestions();
+  if(!visible.length)return;
+  let pos=officialVisiblePosition();
+  if(pos<0)pos=0;
+  const nextPos=Math.max(0,Math.min(visible.length-1,pos+delta));
+  const target=visible[nextPos];
+  const next=state.officialQuestions.findIndex(q=>q.id===target.id);
+  if(next<0)return;
+  state.officialIndex=next;
+  updateOfficialTrackState(state.officialTrackId,{lastIndex:next});
+  renderOfficialQuestionList();
+  renderOfficialStudyQuestion();
 }
 async function prepareOfficialTrack(mode){
   const meta=officialTrackMeta(state.officialTrackId);if(!meta)return;const payload=buildOfficialTrackExam({trackId:meta.trackId,track:meta.track,title:`${meta.track} - Official Ministry QBank ${mode==='instant'?'Practice':'Exam'}`,questions:state.officialQuestions,count:mode==='instant'?40:50,feedbackModes:[mode],timerMinutes:mode==='exam'?60:null,category:mode==='instant'?'Official Practice':'Official Exam'});const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:meta.track,questionCount:payload.questions.length,generator:'official-qbank'};configureExamSetup(payload,item,mode);
@@ -820,7 +924,15 @@ if($("officialTopicFilter"))$("officialTopicFilter").addEventListener('change',a
 if($("officialStateFilter"))$("officialStateFilter").addEventListener('change',applyOfficialFilters);
 if($("officialPrevBtn"))$("officialPrevBtn").addEventListener('click',()=>moveOfficial(-1));
 if($("officialNextBtn"))$("officialNextBtn").addEventListener('click',()=>moveOfficial(1));
-if($("officialShowAnswerBtn"))$("officialShowAnswerBtn").addEventListener('click',()=>{const q=state.officialQuestions[state.officialIndex];if(!q)return;markOfficialReviewed(state.officialTrackId,q.id,state.officialIndex);const correct=q.options.find(o=>o.id===q.correctAnswer);$("officialAnswerBox").innerHTML=`<strong>Official Answer: ${q.correctAnswer}</strong>${escapeHtml(correct?.text||'')}<br><small>This answer comes from the official source. No detailed explanation was published with this item.</small>`;$("officialAnswerBox").classList.remove('hidden');renderOfficialQuestionList();updateOfficialProgress()});
+if($("officialShowAnswerBtn"))$("officialShowAnswerBtn").addEventListener("click",()=>{
+  const q=state.officialQuestions[state.officialIndex];
+  if(!q)return;
+  const st=getOfficialTrackState(state.officialTrackId);
+  markOfficialReviewed(state.officialTrackId,q.id,state.officialIndex);
+  renderOfficialAnswerBox(q,st.answers?.[q.id]||null,true);
+  renderOfficialQuestionList();
+  updateOfficialProgress();
+});
 if($("officialBookmarkBtn"))$("officialBookmarkBtn").addEventListener('click',()=>{const q=state.officialQuestions[state.officialIndex];if(!q)return;toggleOfficialBookmark(state.officialTrackId,q.id);renderOfficialQuestionList();renderOfficialStudyQuestion()});
 if($("officialPracticeBtn"))$("officialPracticeBtn").addEventListener('click',()=>prepareOfficialTrack('instant'));
 if($("officialExamBtn"))$("officialExamBtn").addEventListener('click',()=>prepareOfficialTrack('exam'));

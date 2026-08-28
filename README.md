@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.8
+# Digilians E-Learn Platform V0.8.1
 
 A modern, free-first learning and exam platform prototype.
 
@@ -262,3 +262,26 @@ Integrated the complete 208-page official Junior MCQ Exercise bank as a first-cl
 - Official-only 100-question / 120-minute Final Simulation
 - Exact official text locked in archive
 - Official answers clearly separated from platform-generated explanations
+
+
+## V0.8.1 — Official QBank Interaction Fix
+
+Fixed the issue visible in the user test recording where answers inside **Study All Questions**
+looked clickable but did not respond.
+
+### Study All behavior now
+- Every A/B/C/D option is a real interactive button.
+- Selecting an answer gives immediate feedback.
+- Correct option is highlighted in green.
+- A wrong selected option is highlighted in red while the official answer is highlighted in green.
+- Answer is saved locally per question.
+- Reviewed and mistake states are updated automatically.
+- Returning to the question restores the previous answer and feedback.
+- `Show Official Answer` remains available for users who want to reveal the answer without attempting it.
+- Previous / Next now respect active search/topic/state filters.
+
+### Readability
+- Official answer option text increased from 10px to 15px on desktop.
+- Official answer option text uses 14px on mobile.
+- Official answer feedback box enlarged.
+- General Exam/Practice answer choices were also enlarged for consistency.
