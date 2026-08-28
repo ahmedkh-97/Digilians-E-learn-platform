@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.10.7" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -93,7 +93,7 @@
             </div>
 
             <div class="trust-row reveal delay-5">
-              <span>✓ No login required</span>
+              <span>✓ No password required</span>
               <span>✓ Progress saved locally</span>
               <span>✓ Mobile friendly</span>
             </div>
@@ -184,7 +184,7 @@
           <div>
             <span class="eyebrow">OFFICIAL MINISTRY QBANK</span>
             <h3>Study the official bank exactly as published</h3>
-            <p><strong id="officialHomeCount">830</strong> official questions across Excel, Power BI, SQL, Python, Tableau and Looker Studio.</p>
+            <p><strong id="officialHomeCount">930</strong> official questions across Excel, Power BI, SQL, Python, Tableau and Looker Studio.</p>
           </div>
           <button class="primary-btn" id="openOfficialHomeBtn">Open Official QBank <span>→</span></button>
         </section>
@@ -336,48 +336,110 @@
         </div>
       </section>
 
-      <!-- OFFICIAL MINISTRY QBANK -->
+      <!-- OFFICIAL MINISTRY QBANK — LEVEL SELECTOR -->
       <section id="officialQbankView" class="view">
         <div class="page-heading official-heading">
           <div>
             <span class="eyebrow">OFFICIAL MINISTRY QBANK</span>
-            <h2>Official Question Bank</h2>
-            <p>Study every published question, practice by track, or simulate the 100-question final.</p>
+            <h2>Choose your Data Analysis level</h2>
+            <p>Junior and Professional banks are completely separate — progress, sections, exams and rankings never mix.</p>
           </div>
           <span class="official-source-badge">OFFICIAL SOURCE</span>
         </div>
 
+        <div id="officialLevelGrid" class="official-level-grid"></div>
+      </section>
+
+      <!-- JUNIOR DATA ANALYSIS HUB -->
+      <section id="officialJuniorView" class="view">
+        <div class="context-bar">
+          <button class="back-btn" id="officialJuniorBackBtn">← Levels</button>
+          <div class="breadcrumb">Official QBank / Junior Data Analysis</div>
+          <span class="official-source-badge desktop-only">JUNIOR</span>
+        </div>
+
+        <div class="page-heading official-heading">
+          <div>
+            <span class="eyebrow">JUNIOR DATA ANALYSIS</span>
+            <h2>Official Junior Question Bank</h2>
+            <p>Choose a track, then solve each official section separately. Every ranked section keeps its own result, retakes and leaderboard.</p>
+          </div>
+          <span class="official-source-badge">930 QUESTIONS</span>
+        </div>
+
         <div class="official-overview-grid">
           <article class="official-overview-card"><span>Total Questions</span><strong id="officialTotalQuestions">0</strong><small>preserved from source</small></article>
-          <article class="official-overview-card"><span>Tracks</span><strong>6</strong><small>Data Analysis</small></article>
-          <article class="official-overview-card"><span>Source</span><strong>208</strong><small>PDF pages</small></article>
-          <article class="official-overview-card"><span>Your Progress</span><strong id="officialOverallProgress">0%</strong><small>reviewed questions</small></article>
+          <article class="official-overview-card"><span>Tracks</span><strong id="officialTrackCount">6</strong><small>Junior Data Analysis</small></article>
+          <article class="official-overview-card"><span>Sections</span><strong id="officialSectionCount">21</strong><small>ranked separately</small></article>
+          <article class="official-overview-card"><span>Your Study Progress</span><strong id="officialOverallProgress">0%</strong><small>reviewed questions</small></article>
         </div>
 
         <section class="official-final-card">
           <div>
-            <span class="eyebrow">OFFICIAL-ONLY FINAL</span>
+            <span class="eyebrow">JUNIOR OFFICIAL FINAL — RANKED</span>
             <h3>100 Questions · 120 Minutes</h3>
-            <p>20 Excel · 20 Power BI · 20 SQL · 20 Python · 10 Tableau · 10 Looker Studio — all selected only from the official bank.</p>
+            <p>20 Excel · 20 Power BI · 20 SQL · 20 Python · 10 Tableau · 10 Looker Studio. A saved name is required before starting.</p>
           </div>
-          <button class="primary-btn" id="startOfficialFinalBtn">Start Official Final →</button>
+          <button class="primary-btn" id="startOfficialFinalBtn">Start Junior Final →</button>
         </section>
 
-        <div class="section-title-row official-track-title"><div><span class="eyebrow">TRACKS</span><h3>Choose a question bank</h3></div></div>
+        <div class="section-title-row official-track-title">
+          <div><span class="eyebrow">TRACKS</span><h3>Choose a Junior question bank</h3></div>
+        </div>
         <div id="officialTrackGrid" class="official-track-grid"></div>
+      </section>
+
+      <!-- OFFICIAL TRACK / SECTIONS -->
+      <section id="officialTrackView" class="view">
+        <div class="context-bar">
+          <button class="back-btn" id="officialTrackBackBtn">← Junior QBank</button>
+          <div class="breadcrumb" id="officialTrackBreadcrumb">Junior / Excel</div>
+          <span class="official-source-badge desktop-only">OFFICIAL</span>
+        </div>
+
+        <div class="official-track-hero">
+          <div>
+            <span class="eyebrow">OFFICIAL TRACK</span>
+            <h2 id="officialTrackTitle">Excel</h2>
+            <p id="officialTrackMeta">230 questions • 5 sections</p>
+          </div>
+          <div class="official-track-hero-actions">
+            <button class="secondary-btn" id="officialStudyAllBtn">Study All Questions</button>
+            <button class="ghost-btn" id="officialRandomPracticeBtn">Random Practice 40</button>
+            <button class="ghost-btn" id="officialRandomExamBtn">Random Exam 50</button>
+          </div>
+        </div>
+
+        <div class="official-track-summary">
+          <div><span>Reviewed</span><strong id="officialTrackHubReviewed">0 / 0</strong></div>
+          <div><span>Best Sections</span><strong id="officialTrackHubCompleted">0 / 0</strong></div>
+          <div><span>Rank Rule</span><strong>Best attempt</strong></div>
+        </div>
+
+        <div class="section-title-row">
+          <div>
+            <span class="eyebrow">SECTIONS</span>
+            <h3>Solve one section at a time</h3>
+            <p>Finish a section to see Correct, Wrong, Accuracy, Retake and your section rank.</p>
+          </div>
+        </div>
+        <div id="officialSectionGrid" class="official-section-grid"></div>
       </section>
 
       <!-- OFFICIAL STUDY BROWSER -->
       <section id="officialStudyView" class="view">
         <div class="context-bar">
-          <button class="back-btn" id="officialStudyBackBtn">← Official QBank</button>
-          <div class="breadcrumb" id="officialStudyBreadcrumb">Official QBank / Excel</div>
+          <button class="back-btn" id="officialStudyBackBtn">← Track Sections</button>
+          <div class="breadcrumb" id="officialStudyBreadcrumb">Official QBank / Junior / Excel</div>
           <span class="official-source-badge desktop-only">OFFICIAL</span>
         </div>
 
         <div class="official-study-head">
-          <div><span class="eyebrow">STUDY ALL QUESTIONS</span><h2 id="officialStudyTitle">Excel Official QBank</h2><p id="officialStudyMeta"></p></div>
-          <div class="official-study-actions"><button class="secondary-btn" id="officialPracticeBtn">Practice 40 →</button><button class="primary-btn" id="officialExamBtn">Exam 50 →</button></div>
+          <div><span class="eyebrow">STUDY OFFICIAL QUESTIONS</span><h2 id="officialStudyTitle">Excel Official QBank</h2><p id="officialStudyMeta"></p></div>
+          <div class="official-study-actions">
+            <button class="secondary-btn" id="officialPracticeBtn">Practice 40 →</button>
+            <button class="primary-btn" id="officialExamBtn">Exam 50 →</button>
+          </div>
         </div>
 
         <div class="official-toolbar">
@@ -388,7 +450,7 @@
 
         <div class="official-study-layout">
           <aside class="official-study-sidebar">
-            <div class="official-study-progress"><span>TRACK PROGRESS</span><strong id="officialTrackProgress">0%</strong><div class="progress-track"><div id="officialTrackProgressFill" class="progress-fill"></div></div><small id="officialReviewedCount">0 reviewed</small></div>
+            <div class="official-study-progress"><span id="officialProgressLabel">SCOPE PROGRESS</span><strong id="officialTrackProgress">0%</strong><div class="progress-track"><div id="officialTrackProgressFill" class="progress-fill"></div></div><small id="officialReviewedCount">0 reviewed</small></div>
             <div id="officialQuestionList" class="official-question-list"></div>
           </aside>
           <article class="official-question-card">
@@ -563,6 +625,7 @@
             <div class="result-actions">
               <button class="primary-btn" id="reviewBtn">Review Answers <span>→</span></button>
               <button class="secondary-btn" id="retakeBtn">Retake</button>
+              <button class="secondary-btn" id="viewResultRankingBtn">View Ranking ↗</button>
               <button class="secondary-btn" id="nextExamBtn">Next Exam →</button>
             </div>
           </article>
@@ -777,7 +840,7 @@
     <div class="profile-hero">
       <span class="avatar large" id="drawerAvatar">G</span>
       <h3 id="drawerName">Guest</h3>
-      <p>Your profile lives on this device — no login required.</p>
+      <p>Your profile lives on this device — no password required. Ranked activities use your saved name.</p>
     </div>
 
     <div class="profile-stats">
@@ -797,8 +860,27 @@
     </div>
   </aside>
 
+
+  <!-- RANKED IDENTITY GATE -->
+  <div class="ranked-identity-backdrop hidden" id="rankedIdentityModal" aria-hidden="true">
+    <article class="ranked-identity-card" role="dialog" aria-modal="true" aria-labelledby="rankedIdentityTitle">
+      <button class="identity-close" id="rankedIdentityCancelBtn" aria-label="Close">×</button>
+      <span class="eyebrow">RANKED ACTIVITY</span>
+      <div class="ranked-identity-icon">↗</div>
+      <h3 id="rankedIdentityTitle">Enter your name to compete</h3>
+      <p id="rankedIdentityReason">Your name is required before any attempt that appears on a leaderboard.</p>
+      <label class="identity-field">
+        <span>Your Name</span>
+        <input id="rankedIdentityName" type="text" autocomplete="name" maxlength="60" placeholder="e.g. Ahmed Khaled" />
+      </label>
+      <p id="rankedIdentityError" class="field-error"></p>
+      <button class="primary-btn wide large-btn" id="rankedIdentitySaveBtn">Save Name & Continue →</button>
+      <small>Your name is saved on this device and attached to ranked attempts. Study-only browsing does not require a name.</small>
+    </article>
+  </div>
+
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/app.js?v=0.10.7"></script>
 </body>
 </html>

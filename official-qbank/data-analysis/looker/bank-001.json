@@ -59,6 +59,18 @@
         "ar": "لأن الاختيار «Connect the Google Sheet as a data source» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboard Design & Navigation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "قبل بناء أي Visualization في Looker Studio لازم توصل التقرير بمصدر البيانات. هنا المصدر هو Google Sheets، وبالتالي أول خطوة هي إضافة الـSheet كـData Source.",
+        "options": {
+          "A": "غلط؛ Calculated Field تأتي بعد وجود Data Source وFields نقدر نحسب منها.",
+          "B": "صح؛ ربط Google Sheet هو الأساس حتى يقرأ Looker Studio البيانات ويتحدث التقرير عند تحديث المصدر.",
+          "C": "غلط؛ Filter Control تحتاج Data Source موجودة أصلًا حتى تعرف أي Field ستفلتره.",
+          "D": "غلط؛ Scorecard Visualization تُبنى بعد الاتصال بالبيانات."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Dashboard Design & Navigation. الاختيار «Scorecards» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Scorecard مصممة لعرض KPI واحدة بشكل بارز، لذلك استخدام أربع Scorecards مناسب لعرض Total Revenue وOrders وProfit وConversion Rate أعلى الـDashboard.",
+        "options": {
+          "A": "صح؛ Scorecards تعرض KPIs الرئيسية بسرعة وبوضوح.",
+          "B": "غلط؛ Maps للبيانات الجغرافية وليست أفضل عرض لأربع KPIs مستقلة.",
+          "C": "غلط؛ Table تعرض تفاصيل متعددة لكنها أقل وضوحًا لعرض KPIs الرئيسية في أعلى الصفحة.",
+          "D": "غلط؛ Scatter Plot لدراسة علاقة بين متغيرين رقميين."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & KPIs. الاختيار «Time series chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Time Series Chart تعرض Metric عبر Date dimension، لذلك هي الاختيار الطبيعي لرؤية تغير Revenue من يناير إلىديسمبر.",
+        "options": {
+          "A": "صح؛ تعرض الاتجاه الزمني بوضوح.",
+          "B": "غلط؛ Pie Chart للنسب من إجمالي وليس Trend زمني.",
+          "C": "غلط؛ Scorecard تعرض قيمة واحدة ولا توضح التغير عبر الشهور.",
+          "D": "غلط؛ Geo Chart للتحليل الجغرافي."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & KPIs. الاختيار «Bar chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Bar Chart مناسبة لمقارنة قيمة رقمية مثل Sales بين Categories منفصلة لأن طول كل Bar يوضح الفروق مباشرة.",
+        "options": {
+          "A": "صح؛ مقارنة خمس Product Categories بالـSales هي Use Case أساسي للBar Chart.",
+          "B": "غلط؛ Time Series تحتاج بُعد زمني.",
+          "C": "غلط؛ Geo Chart تحتاج Geographic dimension.",
+          "D": "غلط؛ Scorecard تعرض قيمة مفردة لا مقارنة خمس فئات."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Pie chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Pie Chart تستخدم لإظهار مساهمة كل Category كنسبة من الإجمالي، وده يطابق Percentage Contribution من Total Revenue.",
+        "options": {
+          "A": "صح؛ تعرض Parts of Whole.",
+          "B": "غلط؛ Time Series للاتجاه عبر الزمن.",
+          "C": "غلط؛ Geo Map للبعد الجغرافي.",
+          "D": "غلط؛ Scorecard تعرض KPI واحدة."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & KPIs. الاختيار «Table» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Table هي الأنسب عندما المطلوب صف لكل Salesperson وأعمدة تفصيلية مثل Sales وOrders وProfit.",
+        "options": {
+          "A": "صح؛ Table تعرض Rows وColumns بالتفصيل.",
+          "B": "غلط؛ Pie Chart لا تعرض عدة Metrics لكل Salesperson بكفاءة.",
+          "C": "غلط؛ Scorecard لا تناسب قائمة طويلة من الأشخاص.",
+          "D": "غلط؛ Geo Chart مخصص للمواقع."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن كل Function/Feature في Dashboard Design & Navigation لها وظيفة محددة. «Filter control» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Filter Control تسمح للمستخدم باختيار Country، وتطبق الاختيار على Charts المتوافقة في نفس الصفحة أوالنطاق.",
+        "options": {
+          "A": "صح؛ هي Feature التفاعل المناسبة للاختيار من Country values.",
+          "B": "غلط؛ Scorecard مجرد Visualization.",
+          "C": "غلط؛ Calculated Field تحسب قيمة جديدة ولا توفر Selector للمستخدم.",
+          "D": "غلط؛ Image عنصر ثابت."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأن الاختيار «Date range control» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters & Controls وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Date Range Control تسمح للمستخدم بتحديد Start/End Date وتحديث الـCharts التي تستجيب للDate range.",
+        "options": {
+          "A": "صح؛ هذه هي الأداة المخصصة لاختيار فترة زمنية.",
+          "B": "غلط؛ Text box لا يتحكم في البيانات.",
+          "C": "غلط؛ Image لا توفر Date filtering.",
+          "D": "غلط؛ Pie Chart Visualization وليست Control."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن الاختيار «Country and Product» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Metrics & Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dimensions تصف البيانات وتستخدم للتقسيم والفلترة، مثل Country وProduct، بينما Revenue وOrders غالبًا Metrics رقمية.",
+        "options": {
+          "A": "صح؛ Country وProduct حقول وصفية تصنيفية.",
+          "B": "غلط؛ Revenue وOrders عادةً Metrics.",
+          "C": "غلط؛ Revenue قيمة رقمية قابلة للAggregation.",
+          "D": "غلط؛ Orders أيضًا Metric في هذا السياق."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن الاختيار «Revenue» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboard Design & Navigation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Revenue قيمة رقمية قابلة للتجميع مثل SUM، ولذلك هي Metric طبيعية في Sales Dashboard.",
+        "options": {
+          "A": "غلط؛ Country Dimension.",
+          "B": "غلط؛ Product Name Dimension.",
+          "C": "صح؛ Revenue Metric.",
+          "D": "غلط؛ Customer Name Dimension."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن الاختيار «Calculated field» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Profit Margin قيمة مشتقة من Fields موجودة Profit وRevenue، لذلك تُنشأ باستخدام Calculated Field.",
+        "options": {
+          "A": "صح؛ Calculated Field مناسبة لصيغة Profit / Revenue.",
+          "B": "غلط؛ Filter Control للتصفية.",
+          "C": "غلط؛ Date Range Control للتحكم في الوقت.",
+          "D": "غلط؛ Theme للتصميم البصري."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن الاختيار «CASE/conditional calculated field» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "التصنيف High Value أوRegular يعتمد على شرط Revenue، لذلك نستخدم Conditional Calculated Field مثل CASE.",
+        "options": {
+          "A": "صح؛ CASE/conditional logic تنفذ التصنيف حسب Revenue.",
+          "B": "غلط؛ Date range تتحكم في الفترة الزمنية.",
+          "C": "غلط؛ Data Source ليست Calculation.",
+          "D": "غلط؛ Theme لا تنشئ تصنيفًا جديدًا."
+        }
       }
     },
     {
@@ -659,6 +803,18 @@
         "ar": "لأن الاختيار «CASE statement» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboard Design & Navigation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CASE Statement مناسبة لعمل Mapping لقيم Campaign Type المحددة إلى Labels جديدة مثل Paid Search وSocial Media.",
+        "options": {
+          "A": "صح؛ CASE تطبق منطق تصنيفي على القيم.",
+          "B": "غلط؛ COUNT يعد القيم فقط.",
+          "C": "غلط؛ SUM تجمع Metrics ولا تعيد تسميات.",
+          "D": "غلط؛ Date filter لا يصنف Campaign types."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأن الاختيار «SUM» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Metrics & Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إذا المطلوب Total Revenue، فAggregation الطبيعية هي SUM لأنها تجمع قيم Revenue عبر السجلات.",
+        "options": {
+          "A": "صح؛ SUM تعطي الإجمالي.",
+          "B": "غلط؛ COUNT تعد Rows/values.",
+          "C": "غلط؛ MIN تعطي أقل قيمة.",
+          "D": "غلط؛ MAX تعطي أعلى قيمة."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن الاختيار «AVG» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Metrics & Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو كل Row تحتوي Order Value جاهزة والمطلوب Average Order Value، فAVG هي Aggregation المناسبة.",
+        "options": {
+          "A": "صح؛ AVG تحسب المتوسط.",
+          "B": "غلط؛ SUM تعطي إجمالي القيم.",
+          "C": "غلط؛ COUNT تعد الطلبات.",
+          "D": "غلط؛ MAX تعطي أكبر Order Value."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن الاختيار «COUNT» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Metrics & Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عندما كل Row تمثل Order واحدة، COUNT على Rows/Order field تعطي عدد الطلبات.",
+        "options": {
+          "A": "صح؛ COUNT مناسب للعد.",
+          "B": "غلط؛ AVG للمتوسط.",
+          "C": "غلط؛ MIN لأقل قيمة.",
+          "D": "غلط؛ SUM للجمع العددي."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Dimensions, Metrics & Aggregation. الاختيار «COUNT DISTINCT» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لأن Customer واحد ممكن يظهر في Orders متعددة، نحتاج COUNT DISTINCT على Customer ID حتى يُحسب كل Customer مرة واحدة.",
+        "options": {
+          "A": "غلط؛ COUNT العادية قد تعد العميل أكثر من مرة.",
+          "B": "صح؛ COUNT DISTINCT تعد Unique Customers.",
+          "C": "غلط؛ SUM لا تستخدم لعد IDs.",
+          "D": "غلط؛ AVG لا تعد العملاء."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن الاختيار «Data blending» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Sources & Connectors وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Data Blending تسمح بجمع Metrics من Sources مختلفة في Chart واحدة باستخدام Field مشتركة مثل Date.",
+        "options": {
+          "A": "صح؛ هذا هو السيناريو المباشر للBlending.",
+          "B": "غلط؛ Theme للتصميم.",
+          "C": "غلط؛ Scorecard وحدها لا تجمع Sources.",
+          "D": "غلط؛ Text box لا تربط بيانات."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الاختيار «Join key» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Blending وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الحقل المشترك المستخدم لمطابقة Records بين Sources يسمى Join Key، مثل Date أوCustomer ID.",
+        "options": {
+          "A": "صح؛ Join Key هي Field الربط.",
+          "B": "غلط؛ Metric قيمة رقمية للتحليل.",
+          "C": "غلط؛ Filter Control واجهة تفاعل.",
+          "D": "غلط؛ Scorecard نوع Visualization."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن الاختيار «Whether the join keys have matching values and compatible formats» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Blending وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Records لا تتطابق أثناء Blending، أول شيء نراجع قيم Join Key وData Type/Format في المصدرين لأن أي اختلاف يمنع الـMatch.",
+        "options": {
+          "A": "صح؛ توافق القيم والصيغ هو أول نقطة تشخيص.",
+          "B": "غلط؛ Dashboard color لا يؤثر على الربط.",
+          "C": "غلط؛ Chart title لا يؤثر على Matches.",
+          "D": "غلط؛ Font size لا علاقة لها بالData join."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن الاختيار «Clean and standardize the data» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "اختلاف Capitalization في Customer Names قد يجعل نفس العميل يظهر كقيم مختلفة، لذلك يجب Standardize القيم قبل Customer-level analysis.",
+        "options": {
+          "A": "صح؛ تنظيف وتوحيد Text يحسن اتساق التحليل.",
+          "B": "غلط؛ المزيد من Charts لا يصلح Data Quality.",
+          "C": "غلط؛ Scorecard لا تعالج اختلاف الأسماء.",
+          "D": "غلط؛ Theme لا تغير البيانات."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن الاختيار «Investigate and appropriately handle the missing values» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboard Design & Navigation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Blank Revenue قد تؤثر على KPIs، لذلك يجب فحص سببها وتحديد طريقة معالجة مناسبة بدل تجاهلها تلقائيًا.",
+        "options": {
+          "A": "صح؛ Investigate ثمHandle هو المسار السليم.",
+          "B": "غلط؛ التجاهل قد يؤدي لنتائج ناقصة أوغير مفهومة.",
+          "C": "غلط؛ تحويل Revenue إلىText يضر الحسابات.",
+          "D": "غلط؛ حذف Dashboard لا يعالج Data Quality."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن الاختيار «Sort by Revenue in descending order» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & KPIs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو المطلوب أعلى Revenue أولًا، نرتب Table باستخدام Revenue Descending.",
+        "options": {
+          "A": "صح؛ Descending يضع أعلى القيم في الأعلى.",
+          "B": "غلط؛ Theme لا تغير ترتيب البيانات.",
+          "C": "غلط؛ Text box لا يرتب Table.",
+          "D": "غلط؛ Date range لا يرتب Products."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن الاختيار «Apply a Top N/filter configuration» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters & Controls وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Top N Filter/Configuration تعرض فقط أعلى 10 Products بناءً على Revenue.",
+        "options": {
+          "A": "صح؛ تطبق Ranking/Limit حسب Metric.",
+          "B": "غلط؛ Theme لا تصفي البيانات.",
+          "C": "غلط؛ Date control يحدد الزمن لا Top Products.",
+          "D": "غلط؛ Text box لا يطبق Ranking."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن كل Function/Feature في Visualizations & KPIs لها وظيفة محددة. «Conditional formatting» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Conditional Formatting تغير تنسيق Cells أوRows حسب قيمة Metric، مثل Green للربح وRed للخسارة.",
+        "options": {
+          "A": "صح؛ مصممة لإبراز القيم حسب شروط.",
+          "B": "غلط؛ Date range control للزمن.",
+          "C": "غلط؛ Blending لدمج Sources.",
+          "D": "غلط؛ Image عنصر مرئي ثابت."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن الاختيار «Geo chart» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Metrics & Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Geo Chart تعرض Metrics حسب Locations جغرافية مثل Country أوCity.",
+        "options": {
+          "A": "صح؛ مناسبة لتحليل Sales by Country.",
+          "B": "غلط؛ Scorecard تعرض KPI واحدة.",
+          "C": "غلط؛ Table تعرض بيانات نصية لكن لا تمثلها جغرافيًا.",
+          "D": "غلط؛ Time Series للزمن."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Dashboard Design & Navigation. الاختيار «Sales metric» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو اللون على الـMap يجب أن يعكس قوة Sales، فالMetric المستخدمة في Color intensity لازم تكون Sales.",
+        "options": {
+          "A": "صح؛ Higher Sales تؤدي إلىلون أقوى بحسب Scale.",
+          "B": "غلط؛ Customer Name Dimension نصية.",
+          "C": "غلط؛ Product ID Identifier وليس Measure الأداء المقصود.",
+          "D": "غلط؛ Dashboard title ليس Data field."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن الاختيار «Multiple report pages» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboard Design & Navigation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Multiple Report Pages تسمح بفصل Executive KPIs وMarketing وSales Detail إلى صفحات منظمة داخل نفس التقرير.",
+        "options": {
+          "A": "صح؛ هذا هو الاستخدام المناسب للPages.",
+          "B": "غلط؛ Scorecards وحدها لا تنشئ أقسام تقارير مستقلة.",
+          "C": "غلط؛ Calculated Fields لا تنظّم Layout إلى صفحات.",
+          "D": "غلط؛ تعدد Data Sources لا يعني تعدد صفحات."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن كل Function/Feature في Dashboard Design & Navigation لها وظيفة محددة. «Navigation controls» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Navigation Controls تساعد المستخدم على الانتقال بين Report Pages مثل Executive Overview وSales وMarketing.",
+        "options": {
+          "A": "صح؛ هي Feature التنقل بين الصفحات.",
+          "B": "غلط؛ Calculated Fields للحساب.",
+          "C": "غلط؛ Data Blending لدمج Sources.",
+          "D": "غلط؛ Metrics قيم رقمية."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن الاختيار «Filter controls» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboard Design & Navigation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Filter Controls هي الميزة الأساسية التي تسمح باختيار Country مرة واحدة وتحديث Charts متعددة متوافقة.",
+        "options": {
+          "A": "صح؛ تدعم Interactive dashboard filtering.",
+          "B": "غلط؛ Static images لا تتفاعل مع البيانات.",
+          "C": "غلط؛ Text boxes غير تفاعلية للفلترة.",
+          "D": "غلط؛ Themes للتصميم."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن كل Function/Feature في Filters & Controls لها وظيفة محددة. «Chart interactions/filtering» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Chart Interaction/Filtering تسمح بالنقر على Bar مثل Electronics واستخدام هذا Selection لتصفية Charts أخرى.",
+        "options": {
+          "A": "صح؛ هذا هو سلوك Cross-filtering/Chart interaction.",
+          "B": "غلط؛ Background لا يؤثر على البيانات.",
+          "C": "غلط؛ Text component لا ينقل Selection.",
+          "D": "غلط؛ Theme settings لا تطبق Interactive filter."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Table with Campaign as the dimension and the metrics as columns» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "للمقارنة بين Campaigns عبر عدة Metrics في نفس الوقت، Table بالCampaign Dimension والMetrics كأعمدة توفر مقارنة مباشرة ومفصلة.",
+        "options": {
+          "A": "صح؛ تعرض كل Campaign مع Impressions وClicks وCost وConversions وRate.",
+          "B": "غلط؛ Map تحتاج Geography.",
+          "C": "غلط؛ Image لا تعرض Data metrics تفاعلية.",
+          "D": "غلط؛ Text box لا تقارن Metrics."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Dashboard Design & Navigation. الاختيار «Simplify the dashboard and prioritize the most important KPIs and visualizations» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dashboard المزدحمة تقلل الفهم، والأفضل تقليل العناصر وترتيب الأولويات حول أهم KPIs والVisuals.",
+        "options": {
+          "A": "صح؛ Simplification تحسن وضوح الرسالة واتخاذ القرار.",
+          "B": "غلط؛ المزيد من Charts يزيد التعقيد.",
+          "C": "غلط؛ Color مختلف لكل Metric قد يزيد Visual noise.",
+          "D": "غلط؛ إزالة كل Titles تزيل Context مهم."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن كل Function/Feature في Dashboard Design & Navigation لها وظيفة محددة. «Theme and layout settings» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Theme and Layout Settings تستخدم لتوحيد Colors وFonts والStyle العام عبر صفحات التقرير.",
+        "options": {
+          "A": "صح؛ هي الأداة المناسبة للاتساق البصري.",
+          "B": "غلط؛ Blending للبيانات.",
+          "C": "غلط؛ Calculated Fields للحسابات.",
+          "D": "غلط؛ Filter Controls للتفاعل مع البيانات."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن الاختيار «Appropriate sharing/view permissions» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboard Design & Navigation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو المديرين يجب أن يشاهدوا التقرير بدون تعديل، نضبط Sharing/View Permissions بحيث يكون الوصول View-only حسب الحاجة.",
+        "options": {
+          "A": "صح؛ الصلاحيات تحدد من يستطيع View أوEdit.",
+          "B": "غلط؛ Calculated Field لا تتحكم في الوصول.",
+          "C": "غلط؛ Chart جديدة لا تغير Permissions.",
+          "D": "غلط؛ Data Source جديدة لا تعالج صلاحيات التقرير."
+        }
       }
     },
     {
@@ -1809,6 +2229,18 @@
         "ar": "لأن الاختيار «Scheduled email/report delivery» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboard Design & Navigation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Scheduled Email/Report Delivery تستخدم لإرسال نسخة أوتحديث من التقرير للمستلمين وفق Schedule منتظم.",
+        "options": {
+          "A": "صح؛ هي الوظيفة المناسبة للتسليم الدوري.",
+          "B": "غلط؛ Blending لدمج Sources.",
+          "C": "غلط؛ Calculated Field للحساب.",
+          "D": "غلط؛ Geo Chart Visualization."
+        }
       }
     },
     {
@@ -1859,6 +2291,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Dashboard Design & Navigation. الاختيار «Connect the Google Sheet, create appropriate dimensions and metrics, build calculated fields\nwhere required, add charts and scorecards, and use filter/date controls for interaction.» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "السيناريو يحتاج Workflow كامل: Connect Google Sheets، تعريف Dimensions/Metrics، Calculated Fields للKPIs، Charts وScorecards، ثم Date وFilter Controls للتفاعل.",
+        "options": {
+          "A": "صح؛ يغطي الاتصال والتحليل والKPIs والVisuals والتفاعل.",
+          "B": "غلط؛ Static image تفقد التفاعل والتحديث.",
+          "C": "غلط؛ Pie chart واحدة لا تناسب كل أنواع التحليل.",
+          "D": "غلط؛ تحويل كل Metrics إلىDimensions يفسد المنطق التحليلي."
+        }
       }
     },
     {
@@ -1909,6 +2353,18 @@
         "ar": "لأن الاختيار «Blend the data sources using Date as the join key» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Blending وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإظهار Sessions وAdvertising Cost معًا حسب Date من مصدرين مختلفين، نستخدم Data Blending على Date كJoin Key.",
+        "options": {
+          "A": "صح؛ يربط المصدرين على البعد الزمني المشترك.",
+          "B": "غلط؛ Date يجب أن تبقى Dimension زمنية لا Metric.",
+          "C": "غلط؛ اختيار Chart قبل ربط البيانات لا يحل المشكلة.",
+          "D": "غلط؛ إزالة Date تلغي مفتاح الربط والتحليل الزمني."
+        }
       }
     },
     {
@@ -1959,6 +2415,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Calculated Fields & Data Cleaning. الاختيار «Revenue - Cost» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Profit مشتقة من Revenue وCost، والصيغة المباشرة هي Revenue - Cost داخل Calculated Field.",
+        "options": {
+          "A": "صح؛ هذه هي معادلة Profit.",
+          "B": "غلط؛ الجمع لا يمثل الربح.",
+          "C": "غلط؛ القسمة تعطي Ratio مختلف.",
+          "D": "غلط؛ COUNT(Revenue) يعد القيم ولا يحسب Profit."
+        }
       }
     },
     {
@@ -2009,6 +2477,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Calculated Fields & Data Cleaning. الاختيار «Create a calculated field using the conversion and session metrics» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Conversion Rate قيمة مشتقة من Conversions/Sessions، ولذلك تُبنى Calculated Field من الMetrics المناسبة.",
+        "options": {
+          "A": "صح؛ هذا هو النهج المباشر.",
+          "B": "غلط؛ Country Dimension لا تدخل في المعادلة نفسها.",
+          "C": "غلط؛ Date Range Control للتصفية الزمنية.",
+          "D": "غلط؛ Conditional Formatting تعرض القيم بصريًا ولا تحسبها."
+        }
       }
     },
     {
@@ -2059,6 +2539,18 @@
         "ar": "لأن الاختيار «A conditional calculated field» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "التصنيف High Performance أوStandard يعتمد على Threshold رقمي، لذلك Conditional Calculated Field هي الأنسب.",
+        "options": {
+          "A": "صح؛ CASE أوIF logic تصنف Campaigns حسب Conversions.",
+          "B": "غلط؛ Geo Chart للتحليل الجغرافي.",
+          "C": "غلط؛ Navigation Control للتنقل.",
+          "D": "غلط؛ Theme للتصميم."
+        }
       }
     },
     {
@@ -2109,6 +2601,18 @@
         "ar": "لأن كل Function/Feature في Dashboard Design & Navigation لها وظيفة محددة. «Date range control» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Date Range Control تسمح للمستخدم بتحديد March إلىAugust أوأي فترة، وتحدّث Charts المرتبطة بالتاريخ.",
+        "options": {
+          "A": "صح؛ هذه Control مصممة للفترة الزمنية.",
+          "B": "غلط؛ Theme لا تغير Date filtering.",
+          "C": "غلط؛ Scorecard تعرض KPI.",
+          "D": "غلط؛ Conditional Formatting للتنسيق حسب قيمة."
+        }
       }
     },
     {
@@ -2159,6 +2663,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & KPIs. الاختيار «Table visualization with Revenue used for descending sorting» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "المطلوب تفاصيل Product وRevenue وOrders وProfit مع ترتيب الأعلى Revenue أولًا، لذلك Table + Descending sort by Revenue هي الأنسب.",
+        "options": {
+          "A": "صح؛ تحقق العرض التفصيلي والترتيب.",
+          "B": "غلط؛ Pie Chart لا تعرض عدة Metrics لكل Product بكفاءة، وProduct ليست Metric.",
+          "C": "غلط؛ Geo Chart لا تناسب Product analysis هنا.",
+          "D": "غلط؛ Scorecard لا تعرض جدول Products ولا Sort by Product Name بهذا الغرض."
+        }
       }
     },
     {
@@ -2209,6 +2725,18 @@
         "ar": "لأن كل Function/Feature في Dimensions, Metrics & Aggregation لها وظيفة محددة. «Country filter control» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Country Filter Control تسمح باختيار Egypt أوSaudi Arabia أوUAE أوJordan وتحديث Charts المرتبطة.",
+        "options": {
+          "A": "صح؛ تحقق Interactive filtering بالCountry.",
+          "B": "غلط؛ Theme للتصميم.",
+          "C": "غلط؛ Calculated Field وحدها لا توفر Selector تفاعلي.",
+          "D": "غلط؛ Text box لا يفلتر."
+        }
       }
     },
     {
@@ -2259,6 +2787,18 @@
         "ar": "لأن الاختيار «Use Sales as the map's metric/color value» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboard Design & Navigation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لجعل لون الدول يعكس مستوى Sales، يجب استخدام Sales كMetric/Color value في الـMap.",
+        "options": {
+          "A": "صح؛ Color intensity ستتبع Sales.",
+          "B": "غلط؛ Customer Name نص وصفي.",
+          "C": "غلط؛ Product ID Identifier لا يمثل الأداء.",
+          "D": "غلط؛ Dashboard title ليس Data value."
+        }
       }
     },
     {
@@ -2309,6 +2849,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & KPIs. الاختيار «Pie chart showing the percentage contribution of each category» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو المطلوب Percentage of Total Sales لكل Category، Pie Chart مناسبة لعرض مساهمة كل فئة من الإجمالي.",
+        "options": {
+          "A": "صح؛ تعرض Parts of Whole حسب Category.",
+          "B": "غلط؛ Scorecard تعرض Total واحد ولا تقسّم الفئات.",
+          "C": "غلط؛ Geo Chart للGeography.",
+          "D": "غلط؛ Time Series للزمن."
+        }
       }
     },
     {
@@ -2359,6 +2911,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Dashboard Design & Navigation. الاختيار «CASE calculated field» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CASE Calculated Field مناسبة لإعادة تصنيف Search وDisplay وSocial إلىLabels Business-friendly جديدة.",
+        "options": {
+          "A": "صح؛ CASE تعمل Mapping للقيم.",
+          "B": "غلط؛ Date Range Control للزمن.",
+          "C": "غلط؛ Geo Chart للمواقع.",
+          "D": "غلط؛ Navigation Control للصفحات."
+        }
       }
     },
     {
@@ -2409,6 +2973,18 @@
         "ar": "لأن كل Function/Feature في Dashboard Design & Navigation لها وظيفة محددة. «Conditional formatting» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Conditional Formatting تستطيع إبراز أعلى قيمة في Table بلون أوتنسيق مختلف بناءً على Rule أوScale.",
+        "options": {
+          "A": "صح؛ مناسبة لجعل 100,000 بارزة.",
+          "B": "غلط؛ Navigation controls لا تنسق القيم.",
+          "C": "غلط؛ Theme وحدها لا تميز القيمة الأعلى بشكل شرطي.",
+          "D": "غلط؛ Date Range Control لا يغير تنسيق القيمة."
+        }
       }
     },
     {
@@ -2459,6 +3035,18 @@
         "ar": "لأن الاختيار «Navigation controls» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboard Design & Navigation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عندما المستخدمين لا يستطيعون التنقل بسهولة بين صفحات Sales وMarketing وExecutive، نضيف Navigation Controls.",
+        "options": {
+          "A": "صح؛ هي المخصصة للتنقل بين الصفحات.",
+          "B": "غلط؛ Calculated Fields لا تحسن Page navigation.",
+          "C": "غلط؛ المزيد من Scorecards لا تحل مشكلة التنقل.",
+          "D": "غلط؛ المزيد من Data Sources تزيد التعقيد بدون حل للمشكلة."
+        }
       }
     },
     {
@@ -2509,6 +3097,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Filters & Controls. الاختيار «Connect the required data sources, use appropriate dimensions and metrics, blend sources\nusing suitable join keys where needed, create calculated fields for KPIs, use\nscorecards/charts/maps/tables, and add date and filter controls for interaction.» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "السيناريو الشامل يحتاج Connect لمصادر البيانات، تعريف Dimensions/Metrics، Blend عند الحاجة، Calculated Fields للKPIs، Visuals مناسبة، ثم Filter وDate Controls للتفاعل.",
+        "options": {
+          "A": "صح؛ يغطي Architecture التحليل كاملة من البيانات إلىDashboard التفاعلية.",
+          "B": "غلط؛ Pie Chart واحدة لا تمثل KPIs وMaps وTrends وTables معًا.",
+          "C": "غلط؛ إزالة Filters وتحويل Dimensions إلىMetrics يفسد التحليل.",
+          "D": "غلط؛ Static images تلغي التفاعل والتحديث الديناميكي."
+        }
       }
     }
   ]

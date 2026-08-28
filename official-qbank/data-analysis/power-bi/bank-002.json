@@ -59,6 +59,18 @@
         "ar": "لأن الاختيار «Transform Data» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد الاتصال بملف Excel، لو محتاج تنظف أو تغيّر شكل البيانات قبل تحميلها للـModel، تختار Transform Data علشان تفتح Power Query Editor وتنفذ خطوات التنظيف والتحويل أولًا.",
+        "options": {
+          "A": "غلط؛ Load يحمل البيانات مباشرةً بدل ما يديك مرحلة تنظيف وتحويل قبل التحميل.",
+          "B": "غلط؛ Publish يستخدم لنشر التقرير إلى Power BI Service، وليس لتنظيف البيانات.",
+          "C": "صح؛ Transform Data يفتح Power Query Editor لتنظيف وتحويل البيانات قبل تحميلها.",
+          "D": "غلط؛ New Measure لإنشاء حساب DAX بعد وجود البيانات في النموذج، وليس لتنظيف الـSource."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Other. الاختيار «Text» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ProductCode مثل 0015 و0087 هو Identifier وليس Quantity للحساب. لو حوّلته Number، الأصفار في البداية ممكن تختفي، لذلك Text هو النوع الأنسب للحفاظ على الكود كما هو.",
+        "options": {
+          "A": "صح؛ Text يحافظ على الأصفار البادئة والقيمة كمعرّف.",
+          "B": "غلط؛ Whole Number قد يحول 0015 إلى 15 ويغيّر شكل الكود.",
+          "C": "غلط؛ Decimal Number غير مناسب لمعرّف غير مستخدم في عمليات حسابية.",
+          "D": "غلط؛ القيم لا تمثل Dates."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن الاختيار «Unpivot Columns» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "وجود Jan وFeb وMar كأعمدة يعني البيانات في Wide Format. Unpivot Columns يحول أسماء الشهور إلى صفوف داخل Month ويضع القيم في Sales، فينتج Long/Tidy Format أسهل للتحليل.",
+        "options": {
+          "A": "غلط؛ Pivot Column يعمل الاتجاه العكسي تقريبًا، بتحويل Values إلى Columns.",
+          "B": "غلط؛ Merge Queries يربط جدولين باستخدام Key.",
+          "C": "غلط؛ Split Column يقسم محتوى عمود واحد، وليس أعمدة شهور متعددة.",
+          "D": "صح؛ Unpivot Columns تحول Jan/Feb/Mar إلى Month وSales."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن الاختيار «Append Queries» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما جدول يناير وجدول فبراير عندهم نفس الأعمدة وتريد جمع المعاملات فوق بعض، تستخدم Append Queries لأنها تكدّس Rows من أكثر من Query.",
+        "options": {
+          "A": "غلط؛ Merge Queries تعمل Join وتضيف Columns بناءً على Key.",
+          "B": "صح؛ Append Queries تجمع Rows من الجداول ذات البنية المتشابهة.",
+          "C": "غلط؛ Group By تلخص Rows حسب Groups.",
+          "D": "غلط؛ Pivot Column تعيد تشكيل بيانات داخل Table."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن الاختيار «Merge Queries» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Sales وProducts مرتبطان بـProductID. المطلوب إضافة Category من Products إلى Sales، لذلك نستخدم Merge Queries لعمل Join على ProductID ثم Expand للعمود المطلوب.",
+        "options": {
+          "A": "صح؛ Merge Queries هي عملية الربط المناسبة بين الجدولين باستخدام ProductID.",
+          "B": "غلط؛ Append تضيف Rows ولا تجلب Column من جدول مرتبط.",
+          "C": "غلط؛ Fill Down تكرر قيمة أعلى Cell إلى الفراغات أسفلها.",
+          "D": "غلط؛ Replace Values تستبدل محتوى داخل Column ولا تربط جدولين."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأن الاختيار «Clean and transform data before loading» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Power Query هي طبقة تجهيز البيانات قبل التحليل: Import, Clean, Transform, Reshape وCombine، وبعد كده يتم تحميل الناتج إلى النموذج.",
+        "options": {
+          "A": "غلط؛ تصميم Charts يتم في Report view.",
+          "B": "غلط؛ Measures تُكتب عادةً بـDAX داخل النموذج.",
+          "C": "صح؛ Power Query مخصصة لتنظيف وتحويل البيانات قبل التحميل.",
+          "D": "غلط؛ العلاقات تُدار أساسًا في Model view، حتى لو Power Query قد يساعد في تجهيز Keys."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن الاختيار «Applied Steps» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Applied Steps تعرض تسلسل كل Transformation تم تطبيقها على الـQuery، مثل Changed Type وFiltered Rows وRemoved Columns، ويمكن مراجعة أو تعديل ترتيبها.",
+        "options": {
+          "A": "غلط؛ Filters pane تخص Filters في التقرير.",
+          "B": "صح؛ Applied Steps هي سجل خطوات تنظيف وتحويل الـQuery.",
+          "C": "غلط؛ Data view تعرض البيانات المحمّلة للنموذج، لا قائمة خطوات Power Query.",
+          "D": "غلط؛ Visualizations pane خاصة بتصميم الـVisuals."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «One output cell may receive several sales values» هو التفسير الأقرب للسلوك الصحيح في Power Query & M.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد Pivot، كل Combination مثل Product + Month يجب أن ينتج Cell واحدة. لو هناك أكثر من Sales Value لنفس الـCombination، Power Query يحتاج Aggregation مثل Sum أو Max لتجميع القيم في خلية واحدة.",
+        "options": {
+          "A": "غلط؛ المشكلة ليست أن Month لازم يكون Date.",
+          "B": "غلط؛ نوع Product لا يحتاج أن يكون Numeric.",
+          "C": "غلط؛ Pivot لا يحذف Duplicates تلقائيًا لحل تعارض القيم.",
+          "D": "صح؛ أكثر من Sales Value قد تتجه لنفس Output Cell، لذلك يلزم Aggregation."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Power Query & M. الاختيار «Remove Other Columns» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Remove Other Columns يحتفظ فقط بالأعمدة المحددة ويحذف كل الأعمدة الأخرى. وده مناسب عندما تريد Customer وSales وProfit فقط حتى لو ظهرت أعمدة إضافية لاحقًا.",
+        "options": {
+          "A": "غلط؛ Remove Duplicates يحذف Rows مكررة، وليس Columns.",
+          "B": "غلط؛ Keep Errors يحتفظ بالRows التي تحتوي Errors.",
+          "C": "صح؛ Remove Other Columns يحتفظ بالColumns المختارة ويزيل الباقي.",
+          "D": "غلط؛ Remove Top Rows يحذف Rows من أعلى الجدول."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن الاختيار «Replace Errors» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Replace Errors تستبدل Error Values بقيمة تحددها مثل 0، وبالتالي تحتفظ بكل الـRows بدل حذفها.",
+        "options": {
+          "A": "صح؛ Replace Errors تحقق المطلوب: Keep rows واستبدال Error بـ0.",
+          "B": "غلط؛ Remove Errors ستحذف Rows التي تحتوي Errors.",
+          "C": "غلط؛ Keep Errors تحتفظ فقط بالRows ذات الأخطاء ولا تصلح القيم.",
+          "D": "غلط؛ Remove Duplicates غير مرتبط بمعالجة Errors."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Other. الاختيار «Move the N/A cleaning step before the type change» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "سبب الخطأ إن تحويل Sales إلى Decimal حصل قبل تنظيف النص N/A. الحل الأفضل هو إعادة ترتيب الخطوات: نظف/استبدل N/A أولًا، ثم غيّر Data Type إلى Decimal.",
+        "options": {
+          "A": "غلط؛ حذف Sales يضيّع البيانات بدل إصلاح خطوات التحويل.",
+          "B": "غلط؛ تحويل كل الأعمدة إلى Text يمنع الاستفادة من الأنواع الصحيحة في الحسابات.",
+          "C": "غلط؛ Append Table جديدة لا تعالج سبب الـType Error.",
+          "D": "صح؛ نقل خطوة تنظيف N/A قبل Changed Type يمنع ظهور Error."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Data Modeling & Relationships. الاختيار «Star dimensions are direct, while Snowflake dimensions are normalized into related tables» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Star Schema تتصل Dimensions عادةً مباشرةً بالFact Table. في Snowflake تكون بعض Dimensions Normalized إلى جداول فرعية مرتبطة، فتزيد مستويات العلاقات.",
+        "options": {
+          "A": "غلط؛ كلا التصميمين يمكن أن يحتوي Fact Table.",
+          "B": "صح؛ Star Dimensions مباشرة، بينما Snowflake يقسم Dimensions إلى Related normalized tables.",
+          "C": "غلط؛ الفرق ليس أن Star تستخدم DAX وSnowflake تستخدم Power Query.",
+          "D": "غلط؛ كلاهما Data Modeling Designs وليس واحدًا للCharts والآخر للعلاقات."
+        }
       }
     },
     {
@@ -617,8 +761,8 @@
       "track": "Power BI",
       "officialSet": 2,
       "originalOrder": 63,
-      "originalQuestionNumber": null,
-      "question": "related tables\nQuestion 13. In the following basic M query, which part determines the final result returned by\nthe query?\nlet\nSource = Excel.CurrentWorkbook(),\nFilteredRows = Table.SelectRows(Source, each [Sales] > 100)\nin\nFilteredRows",
+      "originalQuestionNumber": 13,
+      "question": "In the following basic M query, which part determines the final result returned by\nthe query?\nlet\nSource = Excel.CurrentWorkbook(),\nFilteredRows = Table.SelectRows(Source, each [Sales] > 100)\nin\nFilteredRows",
       "options": [
         {
           "id": "A",
@@ -649,16 +793,28 @@
       "curriculumTopicId": null,
       "trackExamEligible": true,
       "finalEligible": true,
-      "fingerprint": "125e163dc173267c",
+      "fingerprint": "aa913612f6a44b92",
       "officialSource": {
         "file": "Junior_MCQ_Exercises.pdf",
         "page": 60,
-        "originalQuestionNumber": null
+        "originalQuestionNumber": 13
       },
       "aiExplanation": {
         "ar": "لأن الاختيار «in FilteredRows» هو التعريف أو السلوك الصحيح المرتبط بموضوع DAX & Measures وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في M، let يعرّف خطوات أو Variables، وin يحدد أي Expression/Step سيتم إرجاعه كنتيجة نهائية للQuery. هنا النتيجة هي FilteredRows.",
+        "options": {
+          "A": "غلط؛ let يبدأ تعريف الخطوات لكنه لا يحدد وحده الـFinal Output.",
+          "B": "غلط؛ Source خطوة وسيطة، لكن الـQuery لا ترجعها لأن in يشير لغيرها.",
+          "C": "صح؛ in FilteredRows يحدد أن FilteredRows هي النتيجة النهائية.",
+          "D": "غلط؛ each [Sales] > 100 هو شرط داخل خطوة التصفية، وليس الـFinal Result."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «Applies the condition to each row». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "each في M هي طريقة مختصرة لكتابة Function تُطبق على كل Row. هنا يتم اختبار [Amount] > 500 لكل Row لتحديد إذا كان سيتم الاحتفاظ به.",
+        "options": {
+          "A": "صح؛ each تطبق الشرط على كل Row.",
+          "B": "غلط؛ لا تجمع Amount Values.",
+          "C": "غلط؛ لا تغير Data Type.",
+          "D": "غلط؛ لا تقوم بSorting."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن الاختيار «Creating Power Query steps» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "M هي اللغة التي يعمل بها Power Query خلف واجهة التحويلات، وكل Applied Step يمكن تمثيلها كتعبير M.",
+        "options": {
+          "A": "غلط؛ تصميم Charts يتم في Report Canvas.",
+          "B": "صح؛ M تُستخدم في إنشاء وتنفيذ Power Query transformations.",
+          "C": "غلط؛ Relationships تُدار في Model view.",
+          "D": "غلط؛ Dashboard Formatting ليست الاستخدام الأساسي للـM."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Data Modeling & Relationships. الاختيار «One row per order line» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Grain معناها ماذا يمثل كل Row. بما أن OrderID يتكرر لأن كل Row يمثل Product مختلف داخل Order، إذن كل Row يمثل Order Line وليس Order كامل.",
+        "options": {
+          "A": "غلط؛ العميل قد يكون له عدة Orders وعدة Lines.",
+          "B": "غلط؛ الـRow لا يمثل Product بشكل مستقل؛ هو Product داخل Order محدد.",
+          "C": "غلط؛ لو كان Grain = Order، كان OrderID يظهر مرة واحدة لكل Order.",
+          "D": "صح؛ كل Row يمثل Order Line."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن الاختيار «Its values must be unique» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في One-to-Many، الـ1 side يجب أن يحتوي Key فريد؛ كل قيمة تظهر مرة واحدة فقط، علشان كل Row في الـMany side ترتبط بسجل واحد واضح.",
+        "options": {
+          "A": "صح؛ Key على جهة 1 يجب أن يكون Unique.",
+          "B": "غلط؛ Key يمكن أن يكون Text أو رقم حسب التصميم.",
+          "C": "غلط؛ التكرار يكون عادةً على جهة Many لا جهة 1.",
+          "D": "غلط؛ Keys ليست Measures."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن الاختيار «Customers (1) to Sales (*)» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Customers فيها CustomerID فريد، بينما Sales فيها معاملات كثيرة لنفس CustomerID، لذلك العلاقة Customers (1) → Sales (*) هي الصحيحة.",
+        "options": {
+          "A": "غلط؛ Customer واحد قد يملك معاملات كثيرة، فليست One-to-One.",
+          "B": "غلط؛ ليست Many-to-Many طالما CustomerID فريد في Customers.",
+          "C": "صح؛ Customers جهة 1 وSales جهة Many.",
+          "D": "غلط؛ Sales لا يمكن أن تكون جهة 1 لأن CustomerID يتكرر فيها."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الاختيار «Dimension table» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dimension Table تحتوي Descriptive Attributes تستخدم للتصنيف والفلترة، مثل ProductName وCategory وBrand. Fact Table تحتوي Events/Transactions وMeasures/Keys.",
+        "options": {
+          "A": "غلط؛ Fact Table تركز عادةً على معاملات ومقاييس ومفاتيح.",
+          "B": "صح؛ Dimension Table هي مكان الحقول الوصفية.",
+          "C": "غلط؛ Transaction Table غالبًا نوع من Fact Table.",
+          "D": "غلط؛ Measure Table تنظيمي للحسابات وليس لتخزين Product attributes."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Ambiguous filter paths can appear» هو التفسير الأقرب للسلوك الصحيح في Data Modeling & Relationships.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Both Cross-filter Direction يسمح بانتشار Filters في الاتجاهين. لو النموذج فيه عدة مسارات، ممكن Filter يوصل لنفس الجدول من أكثر من طريق، فينشأ Ambiguous Filter Path.",
+        "options": {
+          "A": "غلط؛ Cross-filter direction لا تحذف Duplicate Rows.",
+          "B": "غلط؛ لا تعطل Refresh.",
+          "C": "غلط؛ لا تحول Measures إلى Columns.",
+          "D": "صح؛ Both قد تخلق Ambiguous filter paths في Models معقدة."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن الاختيار «The direction in which filters propagate between tables» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Cross-filter Direction تحدد اتجاه انتقال Filter Context عبر Relationship من Table إلى Table أخرى، مثل من Dimension إلى Fact فقط أو في الاتجاهين.",
+        "options": {
+          "A": "غلط؛ لا تتحكم في لون العلاقة.",
+          "B": "غلط؛ لا تغير Size الجداول.",
+          "C": "صح؛ تتحكم في اتجاه Propagation للFilters.",
+          "D": "غلط؛ لا تحدد نوع الـVisual."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن الاختيار «A central fact table connected to dimension tables» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Star Schema القياسية تحتوي Fact Table مركزية مرتبطة مباشرةً بعدة Dimension Tables مثل Date وProduct وCustomer.",
+        "options": {
+          "A": "صح؛ ده الشكل الأساسي للStar Schema.",
+          "B": "غلط؛ لو Dimensions مرتبطة ببعض فقط بدون Fact مركزية فده مش Star القياسية.",
+          "C": "غلط؛ Fact Tables بدون Dimensions لا تحقق تصميم Star.",
+          "D": "غلط؛ لا يتم إنشاء Table مستقلة لكل Measure كجزء من تعريف Star Schema."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Multiple active paths could make filtering ambiguous» هو التفسير الأقرب للسلوك الصحيح في Data Modeling & Relationships.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Calendar مرتبطة بـOrderDate وShipDate في نفس Fact Table، وجود أكثر من Relationship Active بين نفس المسارين قد يجعل انتقال الـFilter غير واضح. لذلك غالبًا واحدة Active والأخرى Inactive وتُستخدم عند الحاجة.",
+        "options": {
+          "A": "غلط؛ Calendar يمكن أن ترتبط بFact Table طبيعيًا.",
+          "B": "غلط؛ ShipDate لا يجب أن تكون Calculated Column.",
+          "C": "غلط؛ Fact Table يمكن أن تحتوي Relationships متعددة.",
+          "D": "صح؛ Multiple active paths يمكن أن تسبب Ambiguous Filtering."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Data Modeling & Relationships. الاختيار «A bridge table between Students and Courses» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Students↔Courses علاقة Many-to-Many: الطالب يمكنه دخول عدة Courses والCourse فيها عدة Students. Bridge Table مثل Enrollments تحوّل العلاقة إلى Students 1-* Enrollments *-1 Courses.",
+        "options": {
+          "A": "غلط؛ العلاقة ليست One-to-One.",
+          "B": "صح؛ Bridge Table هي التصميم المناسب للMany-to-Many.",
+          "C": "غلط؛ حذف Courses يضيّع كيان أساسي.",
+          "D": "غلط؛ Measure لا تستبدل Relationship Structure."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن الاختيار «Analyze related data from multiple tables» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Relationships تسمح للFilters والحسابات بالعمل عبر Tables مرتبطة، فتقدر تستخدم Attributes من Dimension مع Measures من Fact في نفس التحليل.",
+        "options": {
+          "A": "صح؛ العلاقات تمكّنك من تحليل Related Data عبر جداول متعددة.",
+          "B": "غلط؛ لا تعيد تسمية Columns تلقائيًا.",
+          "C": "غلط؛ لا تزيل Duplicates أثناء Refresh.",
+          "D": "غلط؛ لا تصمم Visuals تلقائيًا."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن الاختيار «View tables and manage relationships» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Model view مخصصة لرؤية Tables والColumns والعلاقات بينها، وإنشاء/تعديل Relationships وفهم بنية النموذج.",
+        "options": {
+          "A": "غلط؛ Power Query steps تكتب وتدار في Power Query Editor.",
+          "B": "غلط؛ Report colors تُضبط في Report view.",
+          "C": "صح؛ Model view لإدارة Tables وRelationships.",
+          "D": "غلط؛ Publish يتم من Power BI Desktop/Home أو Service flow."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأن الاختيار «The unmatched values may appear under a blank member» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Report Design وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Fact Table تحتوي CustomerID غير موجود في Dimension Customers، السجل لا يملك Match صالح. في Visuals مجمعة بالCustomer، ممكن يظهر تحت Blank/Unknown member.",
+        "options": {
+          "A": "غلط؛ المشكلة لا تجعل Sales rows duplicates تلقائيًا.",
+          "B": "صح؛ Unmatched Fact Rows قد تظهر تحت Blank member.",
+          "C": "غلط؛ Customers Table لا تُحذف.",
+          "D": "غلط؛ العلاقة لا تتحول تلقائيًا إلى One-to-One."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & Report Design. الاختيار «Line chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "24 شهر تمثل سلسلة زمنية متصلة، وLine Chart تسمح بمتابعة اتجاه Sales عبر هذه الشهور بوضوح.",
+        "options": {
+          "A": "غلط؛ Funnel مناسب للمراحل المتتابعة في Process.",
+          "B": "غلط؛ Card تعرض قيمة واحدة فقط.",
+          "C": "غلط؛ Gauge تقارن قيمة بهدف.",
+          "D": "صح؛ Line Chart هي الأنسب للTrend عبر 24 شهر."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & Report Design. الاختيار «Bar chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "مع 15 Category وأسماء طويلة، Horizontal Bar Chart توفر مساحة أفضل للLabels وتسهل مقارنة طول الأشرطة بين الفئات.",
+        "options": {
+          "A": "غلط؛ Pie Chart مع 15 Slice تصبح مزدحمة وصعبة المقارنة.",
+          "B": "غلط؛ Gauge يعرض KPI مقابل Target وليس Categories كثيرة.",
+          "C": "صح؛ Bar Chart مناسبة للفئات الكثيرة والأسماء الطويلة.",
+          "D": "غلط؛ Card تعرض قيمة واحدة."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Card» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإبراز KPI واحد مثل Total Profit = 2.5M، Card Visual تعرض الرقم بشكل مباشر وبارز بدون تشتيت.",
+        "options": {
+          "A": "صح؛ Card هي الأنسب لقيمة KPI واحدة.",
+          "B": "غلط؛ Scatter Chart لعلاقة بين متغيرين.",
+          "C": "غلط؛ Funnel لمراحل Process.",
+          "D": "غلط؛ Matrix لعرض تفاصيل متعددة في Rows/Columns."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & Report Design. الاختيار «Funnel chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Recruitment من Applications إلى Interviews إلى Hired يمثل Stages في Process، وFunnel Chart مصممة لإظهار حجم البيانات عبر مراحل متتابعة.",
+        "options": {
+          "A": "غلط؛ Line للTrend عبر محور متصل مثل الزمن.",
+          "B": "صح؛ Funnel مناسبة لمراحل Recruitment Pipeline.",
+          "C": "غلط؛ Scatter للعلاقة بين متغيرين Numeric.",
+          "D": "غلط؛ Map للبيانات الجغرافية."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Data Modeling & Relationships. الاختيار «Scatter chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Advertising Cost وSales متغيران رقميان، ولكل Store نقطة. Scatter Chart تضع Cost على محور وSales على الآخر لتوضيح العلاقة بينهما.",
+        "options": {
+          "A": "غلط؛ Matrix تعرض جدولًا تحليليًا ولا تظهر Correlation بصريًا بنفس الوضوح.",
+          "B": "غلط؛ Funnel لمراحل Process.",
+          "C": "غلط؛ Card لقيمة واحدة.",
+          "D": "صح؛ Scatter Chart هي الأنسب للعلاقة بين متغيرين Numeric."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Pie or donut chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Pie أو Donut Chart تعرض كل Category كنسبة أو جزء من Total، لذلك هي مناسبة لسؤال Share of Total عندما عدد الفئات مناسب.",
+        "options": {
+          "A": "صح؛ Pie/Donut مصممة لParts of a Whole.",
+          "B": "غلط؛ Line للTrend.",
+          "C": "غلط؛ Scatter للعلاقات بين متغيرين.",
+          "D": "غلط؛ Gauge لقيمة مقابل Target/Range."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن الاختيار «Slicer» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Report Design وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Slicer تسمح للمستخدم باختيار Year واحدة أو أكثر، وتقوم بفلترة Visuals المرتبطة فورًا على الصفحة.",
+        "options": {
+          "A": "غلط؛ Card تعرض قيمة ولا تعمل كفلتر.",
+          "B": "غلط؛ Table تعرض بيانات، لكنها ليست Control مخصص للFiltering مثل Slicer.",
+          "C": "صح؛ Slicer هي الأداة التفاعلية لاختيار Years وفلترة التقرير.",
+          "D": "غلط؛ Gauge لعرض KPI مقابل Target."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن كل Function/Feature في Power Query & M لها وظيفة محددة. «Drill-through» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Drill-through ينقل المستخدم من Summary Page إلى Detail Page مع تمرير Context العنصر المحدد، مثل Product المختار.",
+        "options": {
+          "A": "غلط؛ Bookmark يمكنها Navigation لكن لا تمرر Product Filter Context بهذه الطريقة كوظيفة Drillthrough.",
+          "B": "غلط؛ Append Queries عملية ETL.",
+          "C": "غلط؛ Tooltip تعرض معلومات عند Hover ولا تفتح Detail Page كاملة عادةً.",
+          "D": "صح؛ Drill-through مصمم للانتقال إلى تفاصيل نفس Product."
+        }
       }
     },
     {
@@ -1809,6 +2229,18 @@
         "ar": "لأن الاختيار «It explains what information the chart displays» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Report Design وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Clear Chart Title تساعد المستخدم يفهم بسرعة ما الذي يقيسه الرسم، والفترة أو الفئة المعروضة، بدون الحاجة لتخمين معنى الـVisual.",
+        "options": {
+          "A": "غلط؛ Title لا تزيد Rows.",
+          "B": "صح؛ توضح ما الذي يعرضه Chart.",
+          "C": "غلط؛ لا تغير Data Type.",
+          "D": "غلط؛ لا تنشئ Relationship."
+        }
       }
     },
     {
@@ -1859,6 +2291,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Visualizations & Report Design. الاختيار «The axis baseline creates a misleading impression» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بدء Axis عند 99,000 بدل Zero يضخم بصريًا فرق 5,000 بين 100,000 و105,000، فيجعل الفرق يبدو أكبر بكثير من حقيقته. دي مشكلة Misleading Baseline.",
+        "options": {
+          "A": "غلط؛ وجود فرعين فقط ليس سبب التضليل الأساسي.",
+          "B": "غلط؛ Legend غير مطلوبة إذا كانت الفئات واضحة، وليست سبب تضخيم الفرق.",
+          "C": "صح؛ محور يبدأ قريبًا من القيم يبالغ في الفرق البصري.",
+          "D": "غلط؛ القيم يجب أن تبقى Numeric، وتحويلها Text سيضر التحليل."
+        }
       }
     },
     {
@@ -1909,6 +2353,18 @@
         "ar": "لأن الاختيار «Total Sales that changes with report filters» هو التعريف أو السلوك الصحيح المرتبط بموضوع DAX & Measures وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Measure تُحسب وقت العرض داخل Filter Context، لذلك Total Sales التي يجب أن تتغير مع Region/Year/Slicers هي Measure. Calculated Columns تُحسب Row-by-Row وتُخزن في النموذج.",
+        "options": {
+          "A": "صح؛ Total Sales الديناميكية مع Filters هي مثال مثالي للMeasure.",
+          "B": "غلط؛ Full Name لكل Row يناسب Calculated Column أو Power Query.",
+          "C": "غلط؛ استخراج Order Year لكل Row يناسب Column.",
+          "D": "غلط؛ Product Group المبني على اسم Product لكل Row يناسب Column."
+        }
       }
     },
     {
@@ -1959,6 +2415,18 @@
         "ar": "لأن الاختيار «250» هو التعريف أو السلوك الصحيح المرتبط بموضوع DAX & Measures وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUM في DAX تجمع القيم الرقمية وتتجاهل BLANK. إذن 120 + 80 + 50 = 250.",
+        "options": {
+          "A": "غلط؛ 200 يستبعد قيمة 50.",
+          "B": "غلط؛ 300 ليست مجموع القيم المعطاة.",
+          "C": "غلط؛ 4 هو عدد العناصر الظاهرة وليس مجموعها، وحتى BLANK لا تضيف قيمة للمجموع.",
+          "D": "صح؛ 120+80+50 = 250 وBLANK لا تضيف شيئًا."
+        }
       }
     },
     {
@@ -2009,6 +2477,18 @@
         "ar": "لأن الاختيار «3» هو التعريف أو السلوك الصحيح المرتبط بموضوع DAX & Measures وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DISTINCTCOUNT تحسب القيم المميزة في Column، ووفق سلوك DAX تشمل BLANK كقيمة مميزة. القيم المختلفة هنا هي A وB وBLANK، إذن النتيجة 3.",
+        "options": {
+          "A": "غلط؛ 2 ستحسب A وB فقط وتتجاهل BLANK، لكن DISTINCTCOUNT تشمل BLANK.",
+          "B": "صح؛ القيم المميزة هي A وB وBLANK = 3.",
+          "C": "غلط؛ 4 لا تمثل عدد القيم المميزة.",
+          "D": "غلط؛ 5 هو عدد Rows وليس Distinct Values."
+        }
       }
     },
     {
@@ -2059,6 +2539,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «Loss». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الشرط Profit > 0. عندما Profit=0 فالشرط False، لذلك IF ترجع القيمة الثالثة وهي \"Loss\".",
+        "options": {
+          "A": "صح؛ 0 ليست أكبر من 0، لذلك النتيجة Loss.",
+          "B": "غلط؛ Profit ترجع فقط إذا كانت القيمة >0.",
+          "C": "غلط؛ IF هنا لها value_if_false واضحة وليست BLANK.",
+          "D": "غلط؛ الدالة ترجع Text المحدد، لا Boolean TRUE."
+        }
       }
     },
     {
@@ -2109,6 +2601,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «48». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUMX Iterator تمر على كل Row وتحسب Price*Quantity ثم تجمع النتائج: 10×3=30، 5×2=10، 8×1=8؛ الإجمالي 30+10+8=48.",
+        "options": {
+          "A": "غلط؛ 40 يساوي أول صفين فقط 30+10 ويهمل الصف الثالث.",
+          "B": "غلط؛ 45 لا ينتج من الحساب Row-by-Row الصحيح.",
+          "C": "صح؛ 30+10+8 = 48.",
+          "D": "غلط؛ 56 ليست نتيجة مجموع حاصل الضرب لكل صف."
+        }
       }
     },
     {
@@ -2159,6 +2663,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «300». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CALCULATE تضيف Filter Region=\"East\" ثم SUM تجمع East فقط: 100 + 200 = 300.",
+        "options": {
+          "A": "غلط؛ 650 هو Total كل Regions وليس East فقط.",
+          "B": "صح؛ East = 100+200 = 300.",
+          "C": "غلط؛ 200 هي معاملة East واحدة فقط.",
+          "D": "غلط؛ 100 هي معاملة East واحدة فقط."
+        }
       }
     },
     {
@@ -2209,6 +2725,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «3». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "FILTER تحتفظ بالRows التي Amount>=100: القيم 100 و150 و200. COUNTROWS تعد هذه الصفوف، إذن النتيجة 3.",
+        "options": {
+          "A": "غلط؛ يوجد 3 Values تحقق الشرط وليس 2.",
+          "B": "غلط؛ 4 ستشمل قيمة 80 رغم أنها أقل من 100.",
+          "C": "غلط؛ 5 هو عدد كل Rows قبل التصفية.",
+          "D": "صح؛ 100 و150 و200 = 3 Rows."
+        }
       }
     },
     {
@@ -2259,6 +2787,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «BLANK». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DIVIDE(numerator, denominator, alternateResult) تعيد alternateResult إذا المقام صفر. هنا المقام 0 والبديل BLANK()، لذلك النتيجة BLANK.",
+        "options": {
+          "A": "غلط؛ 90 لا تُرجع لأن القسمة غير ممكنة على صفر.",
+          "B": "غلط؛ البديل المحدد ليس 0 بل BLANK().",
+          "C": "صح؛ DIVIDE ترجع BLANK() لأن denominator=0.",
+          "D": "غلط؛ ميزة DIVIDE إنها تتعامل مع القسمة على صفر بالAlternate Result بدل Error مباشر."
+        }
       }
     },
     {
@@ -2309,6 +2849,18 @@
         "ar": "لأن الاختيار «350» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters & Slicers وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Measure Total Sales = SUM(Sales[Amount]) تُقيّم في الـFilter Context الحالي. بعد اختيار Region في Slicer، السياق أصبح Sales الخاصة بالRegion = 350، فتظهر 350.",
+        "options": {
+          "A": "صح؛ Measure تستجيب للSlicer وتعرض 350.",
+          "B": "غلط؛ 1,000 هي القيمة قبل تطبيق Filter.",
+          "C": "غلط؛ لا يتم جمع القيمة الأصلية مع المفلترة.",
+          "D": "غلط؛ يوجد بيانات مطابقة، لذلك النتيجة ليست BLANK."
+        }
       }
     },
     {
@@ -2359,6 +2911,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «The stored column values do not change» هو التفسير الأقرب للسلوك الصحيح في DAX & Measures.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Calculated Column تُحسب لكل Row أثناء Data Refresh/Processing وتُخزن في النموذج. تغيير Slicer يغير Filter Context للVisuals لكنه لا يعيد حساب Stored Row Values للColumn.",
+        "options": {
+          "A": "غلط؛ ده سلوك أقرب للMeasures، مش Calculated Column المخزنة.",
+          "B": "غلط؛ Column لا تتحول إلى Measure.",
+          "C": "غلط؛ القيم لا تصبح BLANK بسبب Slicer.",
+          "D": "صح؛ Stored column values تظل كما هي عند تغيير Slicer."
+        }
       }
     },
     {
@@ -2409,6 +2973,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «280». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CALCULATE تطبق Filter Region=\"West\"، ثم SUM تجمع West rows: 200 + 80 = 280.",
+        "options": {
+          "A": "غلط؛ 200 هي واحدة من معاملات West فقط.",
+          "B": "صح؛ 200+80 = 280.",
+          "C": "غلط؛ 300 لا يساوي مجموع West.",
+          "D": "غلط؛ 450 هو Total كل Regions."
+        }
       }
     },
     {
@@ -2459,6 +3035,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «450». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "FILTER تحتفظ بالقيم >=100: 100 و150 و200. SUMX تمر على هذه Rows وتجمع Amount نفسها: 100+150+200 = 450.",
+        "options": {
+          "A": "غلط؛ 300 يستبعد جزءًا من القيم المطابقة.",
+          "B": "غلط؛ 400 ليست مجموع 100 و150 و200.",
+          "C": "صح؛ 100+150+200 = 450.",
+          "D": "غلط؛ 500 هو Total كل القيم بما فيها 50 التي لا تحقق الشرط."
+        }
       }
     },
     {
@@ -2509,6 +3097,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «40%». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Numerator يحسب East Sales: 120+80=200. Denominator يحسب Total Sales في السياق الحالي: 120+200+80+100=500. DIVIDE = 200/500 = 0.4 = 40%.",
+        "options": {
+          "A": "صح؛ East تمثل 200 من إجمالي 500، أي 40%.",
+          "B": "غلط؛ 50% كانت ستحتاج East = 250 من 500.",
+          "C": "غلط؛ 60% لا تطابق 200/500.",
+          "D": "غلط؛ 80% أعلى بكثير من نسبة East الفعلية."
+        }
       }
     }
   ]

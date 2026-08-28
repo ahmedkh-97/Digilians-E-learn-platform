@@ -59,6 +59,18 @@
         "ar": "لأن الاختيار «str» هو التعريف أو السلوك الصحيح المرتبط بموضوع Python Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Customer ID مثل 001245 هو Identifier وليس رقمًا للحساب. استخدام str يحافظ على الأصفار في البداية كما هي.",
+        "options": {
+          "A": "غلط؛ int سيحوّل 001245 إلى 1245 ويفقد الـleading zeros.",
+          "B": "غلط؛ float غير مناسب للمعرّفات وقد يغيّر شكل القيمة.",
+          "C": "صح؛ str تحفظ القيمة نصيًا بدون تغيير.",
+          "D": "غلط؛ bool مخصص لـTrue/False فقط."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Filtering & Sorting. الاختيار «List» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "List مناسبة عندما تحتاج مجموعة مرتبة يمكن تعديلها أثناء التنفيذ بإضافة أو حذف أو تغيير العناصر.",
+        "options": {
+          "A": "غلط؛ Tuple غير قابلة للتعديل بعد إنشائها.",
+          "B": "صح؛ List mutable ومناسبة لقائمة Departments قابلة للتعديل.",
+          "C": "غلط؛ String تمثل نصًا واحدًا وليست مجموعة عناصر مستقلة قابلة للتعديل.",
+          "D": "غلط؛ Set mutable لكن غير مرتبة ولا تحفظ التكرار، وعبارة only تجعلها غير الأنسب."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Filtering & Sorting. الاختيار «Dictionary» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dictionary تخزن البيانات كأزواج key:value، لذلك تناسب EmployeeID→1025 وName→Ahmed وSalary→75000.",
+        "options": {
+          "A": "غلط؛ List تعتمد على positions وليس keys وصفية.",
+          "B": "غلط؛ Tuple تعتمد على ترتيب العناصر وليس mapping بالاسم.",
+          "C": "صح؛ Dictionary توفر keys واضحة لكل خاصية.",
+          "D": "غلط؛ NumPy array مناسبة أكثر للبيانات العددية المتجانسة."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «sales[1:5]» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Python slicing تبدأ من index البداية وتستبعد index النهاية. sales[1:5] ترجع العناصر ذات indexes 1,2,3,4 أي القيم الثانية حتى الخامسة.",
+        "options": {
+          "A": "صح؛ تبدأ من العنصر الثاني وتتوقف قبل index 5.",
+          "B": "غلط؛ sales[2:5] تبدأ من العنصر الثالث.",
+          "C": "غلط؛ sales[1:4] ترجع العناصر الثانية حتى الرابعة فقط.",
+          "D": "غلط؛ sales[0:5] تبدأ من أول عنصر."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «data[2][1]» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "القوائم تبدأ من index 0. الصف الثالث index=2، والعنصر الثاني داخله index=1، لذلك data[2][1] = 80.",
+        "options": {
+          "A": "غلط؛ data[1][2] = 60.",
+          "B": "صح؛ data[2][1] = 80.",
+          "C": "غلط؛ data[1][1] = 50.",
+          "D": "غلط؛ data[2][2] = 90."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Filtering & Sorting. الاختيار «if / elif / else» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "التصنيف له شروط متبادلة حسب Salary، لذلك if / elif / else هي البنية الطبيعية لاختيار تصنيف واحد من عدة مستويات.",
+        "options": {
+          "A": "صح؛ تسمح بفحص الحدود بالترتيب وإرجاع Junior أوMid-Level أوSenior.",
+          "B": "غلط؛ while loops للتكرار وليس لاختيار Category.",
+          "C": "غلط؛ try/except لمعالجة Exceptions.",
+          "D": "غلط؛ for/else مرتبطة بالتكرار وليست الأنسب لتصنيف Salary."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن الاختيار «for loop» هو التعريف أو السلوك الصحيح المرتبط بموضوع Python Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "للتعامل مع كل Transaction في List واحدة تلو الأخرى نستخدم for loop، ثم نجمع القيم أو ننفذ الحساب المطلوب.",
+        "options": {
+          "A": "غلط؛ if تفحص شرطًا ولا تكرر على كل العناصر.",
+          "B": "صح؛ for loop مخصصة للIteration على List.",
+          "C": "غلط؛ try لمعالجة Exceptions.",
+          "D": "غلط؛ class لتعريف Objects وليس Iteration بحد ذاته."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «[x for x in sales if x > 100]» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "List comprehension الصحيحة تضع expression أولًا ثم for ثم if. هنا نحتفظ فقط بالقيم x > 100.",
+        "options": {
+          "A": "صح؛ [x for x in sales if x > 100] ترجع [250, 400].",
+          "B": "غلط؛ الصياغة غير صحيحة بهذا الترتيب بدون else.",
+          "C": "غلط؛ sales > 100 لا تعمل بهذه الطريقة على Python list عادية.",
+          "D": "غلط؛ list لا تحتوي method باسم filter بهذه الصياغة."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Filtering & Sorting. الاختيار «def annual_salary(monthly):\nreturn monthly * 12» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الدالة الصحيحة في Python تبدأ بـdef، ثم الاسم والParameters، وتستخدم return لإرجاع النتيجة.",
+        "options": {
+          "A": "صح؛ الصياغة صحيحة وتعيد monthly * 12.",
+          "B": "غلط؛ function ليست keyword في Python.",
+          "C": "غلط؛ ينقصها أقواس parameters بعد اسم الدالة.",
+          "D": "غلط؛ هذا Assignment وليس Function reusable."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن الاختيار «def calculate_tax(salary, rate=0.10):» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Default argument يكتب داخل تعريف الدالة rate=0.10، فيستخدم 10% تلقائيًا إذا لم يرسل المستخدم قيمة.",
+        "options": {
+          "A": "صح؛ هذه صياغة Default Parameter صحيحة.",
+          "B": "غلط؛ rate يبقى Parameter مطلوب، ثم يتم تجاهل القيمة المرسلة واستبدالها.",
+          "C": "غلط؛ الصياغة غير صحيحة نحويًا.",
+          "D": "غلط؛ Python لا تستخدم function ولا 10% بهذه الطريقة."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Python Fundamentals. الاختيار «return» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "return تعيد قيمة من Function إلى الكود الذي استدعاها، فتقدر تخزنها وتستخدمها في Calculation أخرى.",
+        "options": {
+          "A": "غلط؛ print تعرض القيمة فقط ولا تعيدها للاستعمال البرمجي.",
+          "B": "صح؛ return ترجع النتيجة للمستدعي.",
+          "C": "غلط؛ input تقرأ إدخال المستخدم.",
+          "D": "غلط؛ break توقف Loop."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن الاختيار «lambda x: x[\"salary\"]» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "كل عنصر Employee هو Dictionary، لذلك للوصول للSalary نستخدم x['salary'] داخل lambda.",
+        "options": {
+          "A": "صح؛ ترجع قيمة salary لكل Dictionary.",
+          "B": "غلط؛ ترجع employees نفسها ولا تستخرج Salary.",
+          "C": "غلط؛ x هنا dict وليس Object بattribute salary.",
+          "D": "غلط؛ lambda تحتاج Parameter ثم colon."
+        }
       }
     },
     {
@@ -659,6 +803,18 @@
         "ar": "لأن الاختيار «try / except» هو التعريف أو السلوك الصحيح المرتبط بموضوع Python Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "تحويل input إلى int قد يرفع ValueError لو المستخدم كتب نصًا. try/except تسمح بالتعامل مع الخطأ بدل توقف البرنامج.",
+        "options": {
+          "A": "صح؛ مناسبة لالتقاط Exception ومعالجة الإدخال الخاطئ.",
+          "B": "غلط؛ for/else لا يعالج Conversion exceptions.",
+          "C": "غلط؛ if/import لا تلتقط Runtime exception تلقائيًا.",
+          "D": "غلط؛ lambda/return ليست آلية Error Handling."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع NumPy. الاختيار «NumPy» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "NumPy مصممة للعمليات العددية السريعة على Arrays كبيرة ومتجانسة وتوفر vectorized operations فعالة.",
+        "options": {
+          "A": "صح؛ NumPy هي المكتبة الأساسية للNumerical array operations.",
+          "B": "غلط؛ Seaborn للVisualization الإحصائي.",
+          "C": "غلط؛ Matplotlib للرسم.",
+          "D": "غلط؛ CSV تنسيق ملفات وليس مكتبة numerical arrays."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن الاختيار «(2, 3)» هو التعريف أو السلوك الصحيح المرتبط بموضوع NumPy وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "المصفوفة فيها صفان وكل صف 3 أعمدة، لذلك shape = (2, 3).",
+        "options": {
+          "A": "صح؛ 2 rows × 3 columns.",
+          "B": "غلط؛ هذا يعكس الأبعاد.",
+          "C": "غلط؛ (6,) تعني 1D array من 6 عناصر.",
+          "D": "غلط؛ (2,) تعني بعدًا واحدًا بطول 2."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «data[1, 1]» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "NumPy تستخدم zero-based indexing. القيمة 50 موجودة في الصف الثاني index 1 والعمود الثاني index 1.",
+        "options": {
+          "A": "غلط؛ data[0,1] = 20.",
+          "B": "صح؛ data[1,1] = 50.",
+          "C": "غلط؛ data[1,2] = 60.",
+          "D": "غلط؛ data[0,2] = 30."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن الاختيار «np.mean()» هو التعريف أو السلوك الصحيح المرتبط بموضوع NumPy وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "np.mean() تحسب المتوسط الحسابي لقيم NumPy array.",
+        "options": {
+          "A": "صح؛ هي الدالة القياسية للAverage.",
+          "B": "غلط؛ np.middle ليست دالة NumPy القياسية.",
+          "C": "غلط؛ np.center ليست دالة المتوسط.",
+          "D": "غلط؛ np.total_average ليست دالة قياسية."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن الاختيار «np.sum(data, axis=0)» هو التعريف أو السلوك الصحيح المرتبط بموضوع NumPy وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "axis=0 يجمع نزولًا عبر الصفوف لكل Column، فيرجع Total مستقل لكل عمود.",
+        "options": {
+          "A": "صح؛ np.sum(data, axis=0) يعطي Column totals.",
+          "B": "غلط؛ axis=1 يعطي Row totals.",
+          "C": "غلط؛ المصفوفة 2D ولا يوجد axis=2 هنا.",
+          "D": "غلط؛ np.total بهذه الصياغة ليست الدالة القياسية."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «data.reshape(3, 4)» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Reshape يجب أن يحافظ على عدد العناصر. 3×4 = 12، لذلك reshape(3,4) صالحة.",
+        "options": {
+          "A": "صح؛ تحول 12 عنصرًا إلى 3 rows و4 columns.",
+          "B": "غلط؛ 4×3×2 = 24 عنصرًا.",
+          "C": "غلط؛ 12×12 يحتاج 144 عنصرًا.",
+          "D": "غلط؛ resize(3) لا ينشئ الشكل المطلوب 3×4."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «prices[prices > 100]» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Boolean indexing في NumPy تنشئ mask بالشرط prices > 100 ثم تستخدمه لاختيار العناصر المطابقة.",
+        "options": {
+          "A": "صح؛ ترجع [120, 200, 150].",
+          "B": "غلط؛ ترجع Boolean mask فقط وليس الأسعار نفسها.",
+          "C": "غلط؛ ndarray لا تحتوي filter بهذه الصياغة.",
+          "D": "غلط؛ np.filter ليست الدالة القياسية لهذا الاستخدام."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن الاختيار «DataFrame» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DataFrame هي بنية Pandas ثنائية الأبعاد بRows وColumns، لذلك تناسب جدول 500,000 Customer records.",
+        "options": {
+          "A": "غلط؛ Series أحادية البعد عادةً وتمثل Column واحدة.",
+          "B": "صح؛ DataFrame تمثل جدولًا كاملًا.",
+          "C": "غلط؛ Tuple ليست بنية تحليل جدولي متقدمة.",
+          "D": "غلط؛ Lambda دالة مختصرة وليست Data Structure."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «pd.read_csv(\"sales.csv\")» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "pd.read_csv() هي دالة Pandas القياسية لقراءة ملف CSV وتحويله إلى DataFrame.",
+        "options": {
+          "A": "صح؛ هذه الصياغة الصحيحة.",
+          "B": "غلط؛ pd.load ليست دالة CSV القياسية.",
+          "C": "غلط؛ pd.open_csv غير موجودة كدالة قياسية.",
+          "D": "غلط؛ pd.csv ليست الدالة الصحيحة."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Inspection & Structure. الاختيار «df.info()» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "df.info() تعرض Columns، Data Types، Non-null counts، عدد الصفوف واستخدام الذاكرة بشكل سريع.",
+        "options": {
+          "A": "صح؛ هي الأنسب لفحص Structure وData Quality مبدئيًا.",
+          "B": "غلط؛ df.plot() للرسم.",
+          "C": "غلط؛ df.sum() تجمع القيم.",
+          "D": "غلط؛ sort_values للترتيب."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن الاختيار «df.describe()» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "df.describe() تعطي Summary Statistics للأعمدة الرقمية مثل count وmean وstd وmin وquartiles وmax.",
+        "options": {
+          "A": "صح؛ هذه هي وظيفة describe().",
+          "B": "غلط؛ summary() ليست method القياسية المطلوبة.",
+          "C": "غلط؛ statistics() ليست method DataFrame قياسية.",
+          "D": "غلط؛ info() تعرض metadata وليس statistical summary."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «df[[\"Name\", \"Salary\"]]» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لاختيار أكثر من Column في Pandas نمرر List من أسماء الأعمدة داخل brackets مزدوجة.",
+        "options": {
+          "A": "صح؛ df[['Name','Salary']] ترجع DataFrame بهذين العمودين.",
+          "B": "غلط؛ هذه الصياغة تُفسر بشكل مختلف وغير صحيحة لاختيار عمودين عاديين.",
+          "C": "غلط؛ select ليست الطريقة القياسية هنا.",
+          "D": "غلط؛ df.columns ليست Function لاختيار أعمدة بهذه الصياغة."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «df[\n((df[\"Department\"] == \"Finance\") |\n(df[\"Department\"] == \"Sales\")) &\n(df[\"Salary\"] > 60000)\n]» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Pandas نستخدم | للOR و& للAND مع Series boolean، ويجب وضع كل شرط في أقواس بسبب أولوية العمليات.",
+        "options": {
+          "A": "صح؛ الصياغة تجمع Finance أوSales ثم تشترط Salary > 60000.",
+          "B": "غلط؛ الأقواس غير كافية وقد تُقيّم العمليات بترتيب خاطئ.",
+          "C": "غلط؛ OR النصية بهذه الصياغة ليست Pandas boolean filtering.",
+          "D": "غلط؛ and لا تعمل element-wise على Pandas Series."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Filtering & Sorting. الاختيار «df.groupby(\"Region\")[\"Sales\"].sum()» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "groupby('Region') ينشئ Group لكل Region ثم ['Sales'].sum() تجمع Sales داخل كل Group.",
+        "options": {
+          "A": "صح؛ هذه الصياغة القياسية لإجمالي Sales لكل Region.",
+          "B": "غلط؛ لا توجد هذه الصياغة في Pandas.",
+          "C": "غلط؛ group/total ليست methods القياسية المطلوبة.",
+          "D": "غلط؛ df.sum لا تستقبل Region وSales بهذه الطريقة."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Filtering & Sorting. الاختيار «df.groupby(\"Region\")[\"Sales\"].agg(\n[\"sum\", \"mean\", \"count\"])» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "agg تسمح بتطبيق أكثر من Aggregate Function على نفس Group، مثل sum وmean وcount.",
+        "options": {
+          "A": "صح؛ ترجع الثلاثة Metrics لكل Region.",
+          "B": "غلط؛ sales() ليست method قياسية لهذا الغرض.",
+          "C": "غلط؛ aggregate_regions غير موجودة.",
+          "D": "غلط؛ groupby_all ليست method قياسية."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن الاختيار «df.sort_values(\"Sales\", ascending=False)» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "sort_values مع ascending=False يرتب Sales تنازليًا، فيظهر أعلى Product Sales أولًا.",
+        "options": {
+          "A": "صح؛ هذه الصياغة الصحيحة.",
+          "B": "غلط؛ sort وDESC ليست Pandas syntax.",
+          "C": "غلط؛ order_by ليست method Pandas القياسية.",
+          "D": "غلط؛ rank تعطي ranks ولا ترتب DataFrame بهذه الصياغة."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن الاختيار «df[\"Salary\"] = df[\"Salary\"].fillna(\ndf[\"Salary\"].median())» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "fillna مع median() تستبدل القيم المفقودة في Salary بMedian Salary بدل حذف الصفوف.",
+        "options": {
+          "A": "صح؛ تحقق المطلوب وتحافظ على الصفوف.",
+          "B": "غلط؛ dropna يحذف القيم/الصفوف حسب الاستخدام ولا يستبدلها بالMedian.",
+          "C": "غلط؛ delete_null ليست method قياسية.",
+          "D": "غلط؛ replace_missing ليست method قياسية."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «df.isnull().sum()» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "isnull() ترجع Boolean mask للقيم المفقودة، وsum() تجمع True لكل Column فتنتج عدد Missing Values في كل عمود.",
+        "options": {
+          "A": "صح؛ هذه الطريقة القياسية.",
+          "B": "غلط؛ nulls() ليست method القياسية.",
+          "C": "غلط؛ missing().count() ليست صياغة Pandas قياسية.",
+          "D": "غلط؛ count_nulls() ليست method قياسية."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن الاختيار «df.drop_duplicates()» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "drop_duplicates() تزيل Rows المتطابقة بالكامل افتراضيًا مع الاحتفاظ بأول نسخة.",
+        "options": {
+          "A": "صح؛ هي method القياسية لإزالة duplicate rows.",
+          "B": "غلط؛ remove_duplicates غير موجودة كmethod قياسية.",
+          "C": "غلط؛ unique() تستخدم عادةً مع Series وليس DataFrame كامل لإزالة rows.",
+          "D": "غلط؛ delete_same ليست method قياسية."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن الاختيار «df.duplicated(subset=[\"CustomerID\"])» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "duplicated(subset=['CustomerID']) تفحص التكرار اعتمادًا على CustomerID فقط بدل مقارنة كل Columns.",
+        "options": {
+          "A": "صح؛ تحدد Rows التي CustomerID فيها مكرر.",
+          "B": "غلط؛ drop_duplicates() بدون subset تفحص الصف كامل افتراضيًا.",
+          "C": "غلط؛ unique_rows ليست method قياسية.",
+          "D": "غلط؛ count_duplicates_only ليست method قياسية."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «age = 25» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Python لا تحتاج إعلان نوع المتغير قبل الاسم. Assignment الطبيعي هو age = 25.",
+        "options": {
+          "A": "غلط؛ int age = 25 صياغة أقرب للغات أخرى وليست Python.",
+          "B": "صح؛ هذه صياغة Assignment صحيحة.",
+          "C": "غلط؛ var ليست keyword مطلوبة في Python.",
+          "D": "غلط؛ walrus operator له استخدام مختلف، وهذه الصياغة ليست المطلوبة لتعريف متغير عادي."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن الاختيار «df[\"Name\"].str.strip()» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "str.strip() تزيل whitespace من بداية ونهاية كل String في Series.",
+        "options": {
+          "A": "صح؛ مناسبة لتنظيف ' Ahmed ' إلى 'Ahmed'.",
+          "B": "غلط؛ str.clean() ليست method قياسية.",
+          "C": "غلط؛ strip_all ليست method قياسية.",
+          "D": "غلط؛ remove_space ليست method Pandas قياسية."
+        }
       }
     },
     {
@@ -1809,6 +2229,18 @@
         "ar": "لأن الاختيار «df[\"Gender\"].str.lower()» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "str.lower() تحول كل النصوص في Series إلى lowercase، فتوحّد Male/male/MALE إلى male.",
+        "options": {
+          "A": "صح؛ هذه method النصية الصحيحة.",
+          "B": "غلط؛ lowercase() ليست method Series القياسية.",
+          "C": "غلط؛ to_lowercase غير موجودة كmethod قياسية.",
+          "D": "غلط؛ convert_lower ليست method قياسية."
+        }
       }
     },
     {
@@ -1859,6 +2291,18 @@
         "ar": "لأن الاختيار «IQR» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "IQR = Q3 - Q1 ويُستخدم كثيرًا لاكتشاف Outliers بالقواعد Q1-1.5×IQR وQ3+1.5×IQR.",
+        "options": {
+          "A": "صح؛ يعتمد مباشرةً على الربعين الأول والثالث.",
+          "B": "غلط؛ Mean وحدها لا تعتمد على Q1 وQ3 ولا تكفي لتحديد outliers بهذه الطريقة.",
+          "C": "غلط؛ Mode أكثر قيمة تكرارًا ولا تستخدم quartiles.",
+          "D": "غلط؛ value_counts تعد التكرارات وليست طريقة IQR."
+        }
       }
     },
     {
@@ -1909,6 +2353,18 @@
         "ar": "لأن الاختيار «pd.merge()» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "pd.merge() تربط DataFrames باستخدام Key مشتركة مثل CustomerID، وهي النظير الأقرب لـSQL JOIN.",
+        "options": {
+          "A": "صح؛ مناسبة لدمج Customers مع Orders على CustomerID.",
+          "B": "غلط؛ concat غالبًا تكدس rows/columns ولا تعمل Join على Key تلقائيًا.",
+          "C": "غلط؛ stack تعيد تشكيل البيانات.",
+          "D": "غلط؛ append_columns ليست function Pandas قياسية."
+        }
       }
     },
     {
@@ -1959,6 +2415,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «True». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "x = 10 ثم x > 5 تقارن القيم وتعيد Boolean. بما أن 10 أكبر من 5 فالنتيجة True.",
+        "options": {
+          "A": "غلط؛ print يعرض نتيجة المقارنة وليس قيمة x نفسها.",
+          "B": "غلط؛ لا يعرض الرقم 5.",
+          "C": "صح؛ 10 > 5 تساوي True.",
+          "D": "غلط؛ المقارنة صحيحة وليست False."
+        }
       }
     },
     {
@@ -2009,6 +2477,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Inspection & Structure. الاختيار «pd.concat([jan, feb, mar])» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "pd.concat([jan,feb,mar]) تكدس DataFrames ذات الأعمدة المتشابهة رأسيًا بشكل افتراضي.",
+        "options": {
+          "A": "صح؛ مناسبة لجمع شهور متعددة تحت بعضها.",
+          "B": "غلط؛ merge تحتاج Keys وتنفذ Join.",
+          "C": "غلط؛ join ليست الصياغة المناسبة لقائمة DataFrames بهذا الشكل.",
+          "D": "غلط؛ combine_columns ليست function قياسية."
+        }
       }
     },
     {
@@ -2059,6 +2539,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Line chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Line Chart هي الأنسب لMonthly Revenue عبر الزمن لأنها تظهر اتجاه القيم من شهر لآخر.",
+        "options": {
+          "A": "صح؛ ممتازة لإظهار Trend عبر Time.",
+          "B": "غلط؛ Pie لParts of Whole.",
+          "C": "غلط؛ Heatmap ليست الاختيار المباشر لسلسلة زمنية بسيطة.",
+          "D": "غلط؛ Box Plot لتوزيع القيم واكتشاف outliers."
+        }
       }
     },
     {
@@ -2109,6 +2601,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Bar chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Bar Chart تسهّل مقارنة Total Sales بين Categories منفصلة مثل Regions.",
+        "options": {
+          "A": "صح؛ طول كل Bar يوضح الفرق بين المناطق.",
+          "B": "غلط؛ Histogram لتوزيع Variable مستمر.",
+          "C": "غلط؛ Scatter لدراسة علاقة بين متغيرين.",
+          "D": "غلط؛ Box Plot لتوزيعات، وليس مقارنة Total واحد لكل Region."
+        }
       }
     },
     {
@@ -2159,6 +2663,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Matplotlib & Seaborn. الاختيار «Scatter plot» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Scatter Plot تضع Advertising Cost على محور وSales Revenue على الآخر، فتوضح العلاقة والاتجاه بين متغيرين رقميين.",
+        "options": {
+          "A": "صح؛ هي الأنسب لدراسة Association/Correlation بصريًا.",
+          "B": "غلط؛ Pie للنسب.",
+          "C": "غلط؛ Histogram لتوزيع Variable واحد.",
+          "D": "غلط؛ Bar Chart للمقارنة بين Categories وليس العلاقة بين متغيرين مستمرين."
+        }
       }
     },
     {
@@ -2209,6 +2725,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Histogram» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Histogram تقسم Ages إلى bins وتعرض عدد القيم في كل Range، فتوضح شكل التوزيع وتركيزه.",
+        "options": {
+          "A": "صح؛ هي الأنسب لفهم Distribution لأعمار العملاء.",
+          "B": "غلط؛ Line Chart للTrend عبر ترتيب أوTime.",
+          "C": "غلط؛ Pie للنسب من إجمالي.",
+          "D": "غلط؛ Heatmap مناسبة لمصفوفات أوCorrelation أكثر من Distribution أحادي."
+        }
       }
     },
     {
@@ -2259,6 +2787,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Filtering & Sorting. الاختيار «sns.boxplot()» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Box Plot تعرض Median وQuartiles والSpread ونقاط Outliers، ولذلك ممتازة لمقارنة Salary distributions بين Departments.",
+        "options": {
+          "A": "صح؛ sns.boxplot() مناسبة للتوزيع واكتشاف extreme values.",
+          "B": "غلط؛ lineplot للTrends.",
+          "C": "غلط؛ heatmap لمصفوفة قيم/Correlation.",
+          "D": "غلط؛ sns.pieplot ليست function Seaborn قياسية."
+        }
       }
     },
     {
@@ -2309,6 +2849,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Python Fundamentals. الاختيار «sns.heatmap(df.corr(numeric_only=True), annot=True)» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "df.corr(numeric_only=True) تنشئ Correlation Matrix، وsns.heatmap(..., annot=True) تعرضها بألوان مع القيم.",
+        "options": {
+          "A": "صح؛ هذا هو النمط الشائع لعرض Correlations.",
+          "B": "غلط؛ barplot ليست مناسبة لمصفوفة Correlation كاملة بهذه الطريقة.",
+          "C": "غلط؛ plt.correlation ليست function Matplotlib القياسية.",
+          "D": "غلط؛ sns.correlation_matrix ليست function Seaborn قياسية."
+        }
       }
     },
     {
@@ -2359,6 +2911,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Matplotlib & Seaborn. الاختيار «sns.scatterplot()» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "sns.scatterplot() مناسبة لAge مقابل Spending، ويمكن استخدام hue لتلوين Customer Segments.",
+        "options": {
+          "A": "صح؛ Scatter Plot تدعم relationship + color grouping.",
+          "B": "غلط؛ Heatmap ليست الأنسب لعرض نقاط كل Customer.",
+          "C": "غلط؛ Boxplot لا يوضح علاقة مباشرة بين متغيرين continuous بنفس الطريقة.",
+          "D": "غلط؛ sns.histogram ليست function Seaborn الصحيحة، وHistogram أصلًا للتوزيع."
+        }
       }
     },
     {
@@ -2409,6 +2973,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Clean and validate the data before performing the final analysis and visualization» هو التفسير الأقرب للسلوك الصحيح في Pandas Data Cleaning.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "قبل أي Analysis نهائي لازم تنظف وتتحقق من البيانات: duplicates، missing values، data types، text consistency وoutliers، لأن الرسوم المبنية على بيانات غير نظيفة قد تكون مضللة.",
+        "options": {
+          "A": "غلط؛ الرسم قبل التنظيف قد ينتج Insights خاطئة.",
+          "B": "صح؛ Clean + Validate قبل Final Analysis/Visualization هو المسار الصحيح.",
+          "C": "غلط؛ حذف كل Missing rows تلقائيًا قد يضيّع بيانات مهمة بدون مبرر.",
+          "D": "غلط؛ تحويل كل الأعمدة إلى String يفسد الحسابات والتحليل العددي."
+        }
       }
     },
     {
@@ -2459,6 +3035,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Inspection & Structure. الاختيار «Group by region, calculate the appropriate order-level/customer-level metric, and then sort the\nresulting aggregated DataFrame» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Top 5 Regions by Average Order Value يتطلب أولًا تعريف Metric على المستوى الصحيح ثم GroupBy Region وحساب المتوسط ثم Sort للناتج المجمع.",
+        "options": {
+          "A": "صح؛ يحترم Grain الحساب ثم يرتب Aggregated result.",
+          "B": "غلط؛ ترتيب Raw rows لا يعطي Average Order Value لكل Region.",
+          "C": "غلط؛ head(5) قبل Grouping يقتطع البيانات ويشوّه الحساب.",
+          "D": "غلط؛ الاختيار العشوائي لا يجيب عن Top-performing regions."
+        }
       }
     },
     {
@@ -2509,6 +3097,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Data Cleaning. الاختيار «Load data with Pandas → inspect structure and data quality → clean missing values, duplicates, text\nand data types → investigate outliers → merge required datasets → perform exploratory analysis with\nPandas/NumPy → calculate KPIs → create appropriate Matplotlib/Seaborn visualizations → validate\nresults» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "أفضل Workflow تبدأ بفهم وجودة البيانات، ثم Cleaning وTypes وDuplicates وMissing وOutliers، ثم دمج وتحليل وKPIs ورسوم مناسبة، وأخيرًا Validation قبل عرض النتائج.",
+        "options": {
+          "A": "غلط؛ إنشاء Charts قبل تنظيف البيانات يعرض نتائج غير موثوقة.",
+          "B": "صح؛ يغطي Data Loading → Inspection → Cleaning → Integration → EDA → KPIs → Visualization → Validation.",
+          "C": "غلط؛ تحويل كل شيء إلى Text واستخدام Pie Charts فقط يضيّع أنواع البيانات والتحليل المناسب.",
+          "D": "غلط؛ حذف كل Missing rows واستخدام NumPy فقط وChart واحدة تبسيط مخل ولا يغطي المتطلبات."
+        }
       }
     }
   ]

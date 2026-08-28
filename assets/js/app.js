@@ -12,7 +12,7 @@ import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
 import {evaluateTrackReadiness,finalStatusFromTracks} from "./readiness.js";
 import {evaluateCoverageReadiness,topicPerformance} from "./coverage-engine.js";
-import {loadOfficialTrack,buildOfficialTrackExam,buildOfficialFinal} from "./official-qbank.js";
+import {loadOfficialTrack,loadOfficialSection,buildOfficialSectionExam,buildOfficialTrackExam,buildOfficialFinal,officialSectionExamId} from "./official-qbank.js";
 
 const state={
   studentName:"",
@@ -45,29 +45,37 @@ const state={
   lastValidatorRoute:"dashboardView",
   validatorPayload:null,
   validatorRegistryEntry:null,
-  officialRegistry:{tracks:[]},officialFinalBlueprint:null,officialTrackId:null,officialQuestions:[],officialFiltered:[],officialIndex:0
+  officialRegistry:{tracks:[],levels:[]},officialFinalBlueprint:null,
+  officialLevelId:"junior-data-analysis",officialTrackId:null,officialSectionId:null,officialQuestions:[],officialFiltered:[],officialIndex:0,
+  currentRankedActivity:false,identityContinuation:null
 };
 
 const $=id=>document.getElementById(id);
-const views=["welcomeView","dashboardView","learnView","studyView","officialQbankView","officialStudyView","examsView","setupView","examView","resultView","reviewView","rankingView","validatorView"];
+const views=["welcomeView","dashboardView","learnView","studyView","officialQbankView","officialJuniorView","officialTrackView","officialStudyView","examsView","setupView","examView","resultView","reviewView","rankingView","validatorView"];
 
 function initials(name){
   return (name || "Guest").trim().split(/\s+/).slice(0,2).map(x=>x[0]?.toUpperCase()).join("") || "G";
 }
 
 function routeTo(id){
+  if(id==="rankingView" && !state.studentName){
+    requireRankedIdentity(()=>routeTo("rankingView"),"A saved name is required to view or join ranked leaderboards.");
+    return;
+  }
   views.forEach(v=>$(v)?.classList.toggle("active",v===id));
   updateNav(id);
   window.scrollTo({top:0,behavior:"smooth"});
   if(id==="dashboardView") renderDashboard();
   if(id==="learnView") renderLearn();
   if(id==="officialQbankView") renderOfficialHub();
+  if(id==="officialJuniorView") renderOfficialJuniorHub();
+  if(id==="officialTrackView") renderOfficialTrackHub();
   if(id==="examsView") renderExamLibrary($("examSearch")?.value || "");
   if(id==="rankingView") renderRanking();
 }
 
 function updateNav(viewId){
-  const map={dashboardView:"dashboardView",learnView:"learnView",officialQbankView:"officialQbankView",officialStudyView:"officialQbankView",examsView:"examsView",rankingView:"rankingView"};
+  const map={dashboardView:"dashboardView",learnView:"learnView",officialQbankView:"officialQbankView",officialJuniorView:"officialQbankView",officialTrackView:"officialQbankView",officialStudyView:"officialQbankView",examsView:"examsView",rankingView:"rankingView"};
   document.querySelectorAll("[data-route]").forEach(btn=>{
     btn.classList.toggle("active",btn.dataset.route===map[viewId]);
   });
@@ -99,6 +107,53 @@ function syncUserUI(){
   $("drawerName").textContent=name;
   $("rankingLocalName").textContent=name;
 }
+
+function closeRankedIdentity(){
+  const modal=$("rankedIdentityModal");
+  if(!modal)return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden","true");
+  $("rankedIdentityError").textContent="";
+  state.identityContinuation=null;
+}
+function requireRankedIdentity(continuation,reason="Your name is required before any ranked activity."){
+  if(state.studentName){
+    continuation?.();
+    return true;
+  }
+  state.identityContinuation=continuation || null;
+  $("rankedIdentityReason").textContent=reason;
+  $("rankedIdentityName").value="";
+  $("rankedIdentityError").textContent="";
+  $("rankedIdentityModal").classList.remove("hidden");
+  $("rankedIdentityModal").setAttribute("aria-hidden","false");
+  setTimeout(()=>$("rankedIdentityName")?.focus(),40);
+  return false;
+}
+function saveRankedIdentity(){
+  const name=$("rankedIdentityName").value.trim();
+  if(name.length<2){
+    $("rankedIdentityError").textContent="Please enter a valid name before continuing.";
+    return;
+  }
+  setStudentName(name);
+  state.studentName=name;
+  syncUserUI();
+  $("returningUserName").textContent=name;
+  $("returningUserEntry").classList.remove("hidden");
+  $("newUserEntry").classList.add("hidden");
+  const continuation=state.identityContinuation;
+  $("rankedIdentityModal").classList.add("hidden");
+  $("rankedIdentityModal").setAttribute("aria-hidden","true");
+  $("rankedIdentityError").textContent="";
+  state.identityContinuation=null;
+  showToast(`Ranked profile saved: ${name}`);
+  continuation?.();
+}
+$("rankedIdentitySaveBtn")?.addEventListener("click",saveRankedIdentity);
+$("rankedIdentityCancelBtn")?.addEventListener("click",closeRankedIdentity);
+$("rankedIdentityName")?.addEventListener("keydown",e=>{if(e.key==="Enter")saveRankedIdentity();if(e.key==="Escape")closeRankedIdentity()});
+$("rankedIdentityModal")?.addEventListener("click",e=>{if(e.target===$("rankedIdentityModal"))closeRankedIdentity()});
 
 function handleNameSubmit(){
   const name=$("studentName").value.trim();
@@ -241,54 +296,209 @@ function renderContinueCard(){
 }
 
 
-function officialTrackMeta(trackId){return (state.officialRegistry.tracks||[]).find(x=>x.trackId===trackId)||null}
+function officialLevelMeta(levelId=state.officialLevelId){
+  return (state.officialRegistry.levels||[]).find(x=>x.levelId===levelId)||null;
+}
+function officialTracks(){
+  return officialLevelMeta()?.tracks || [];
+}
+function officialTrackMeta(trackId=state.officialTrackId){
+  return officialTracks().find(x=>x.trackId===trackId)||null;
+}
+function officialTrackRevision(trackId=state.officialTrackId){
+  return officialTrackMeta(trackId)?.sourceRevision || "source-r1";
+}
+function officialSectionMeta(sectionId=state.officialSectionId){
+  return officialTrackMeta()?.sections?.find(x=>x.sectionId===sectionId)||null;
+}
 function officialReviewedTotal(){
-  const stored=getOfficialQbankState();let total=0;for(const meta of state.officialRegistry.tracks||[]){total+=new Set(stored.tracks?.[meta.trackId]?.reviewed||[]).size}return total;
+  let total=0;
+  for(const meta of officialTracks()){
+    const st=getOfficialTrackState(meta.trackId,state.officialLevelId,officialTrackRevision(meta.trackId));
+    total+=new Set(st.reviewed||[]).size;
+  }
+  return total;
 }
 function renderOfficialHub(){
-  if(!$("officialTrackGrid"))return;
-  $("officialTotalQuestions").textContent=state.officialRegistry.totalQuestions||0;
-  const reviewed=officialReviewedTotal(),total=state.officialRegistry.totalQuestions||1;
-  $("officialOverallProgress").textContent=`${Math.round(reviewed/total*100)}%`;
-  const colors={excel:'#1f9d63','power-bi':'#d9a51f',sql:'#1caee8',python:'#7c5ce7',tableau:'#4d8fd6',looker:'#7656d6'};
-  const grid=$("officialTrackGrid");grid.innerHTML="";
-  for(const meta of state.officialRegistry.tracks||[]){
-    const st=getOfficialTrackState(meta.trackId);const pct=Math.round(new Set(st.reviewed||[]).size/Math.max(1,meta.questionCount)*100);
-    const card=document.createElement('button');card.className='official-track-card';card.style.setProperty('--track-accent',colors[meta.trackId]||'var(--primary)');
-    card.innerHTML=`<span class="official-source-badge">OFFICIAL</span><h4>${escapeHtml(meta.track)}</h4><p>${Object.keys(meta.topics||{}).length} mapped navigation topics</p><div class="official-card-count">${meta.questionCount}</div><div class="official-card-footer"><span>${pct}% reviewed</span><span>Study all →</span></div>`;
-    card.addEventListener('click',()=>openOfficialTrack(meta.trackId));grid.appendChild(card);
+  const grid=$("officialLevelGrid");if(!grid)return;
+  grid.innerHTML="";
+  const levels=state.officialRegistry.levels?.length?state.officialRegistry.levels:[
+    {levelId:"junior-data-analysis",title:"Junior Data Analysis",description:"Official Junior Data Analysis Ministry Question Bank.",available:true,status:"active",questionCount:state.officialRegistry.totalQuestions||0,tracks:state.officialRegistry.tracks||[]},
+    {levelId:"professional-data-analysis",title:"Professional Data Analysis",description:"Professional bank will be added separately.",available:false,status:"coming-soon",questionCount:0,tracks:[]}
+  ];
+  for(const level of levels){
+    const trackCount=level.tracks?.length||0;
+    const sectionCount=(level.tracks||[]).reduce((sum,t)=>sum+(t.sections?.length||0),0);
+    const card=document.createElement("article");
+    card.className=`official-level-card ${level.available?"available":"coming-soon"}`;
+    card.innerHTML=`
+      <div class="level-card-top">
+        <span class="official-source-badge">${level.available?"OFFICIAL":"COMING SOON"}</span>
+        <span class="level-status-dot"></span>
+      </div>
+      <div class="level-icon">${level.levelId.startsWith("junior")?"J":"P"}</div>
+      <h3>${escapeHtml(level.title)}</h3>
+      <p>${escapeHtml(level.description||"")}</p>
+      <div class="level-stats">
+        <div><span>Questions</span><strong>${level.questionCount||0}</strong></div>
+        <div><span>Tracks</span><strong>${trackCount}</strong></div>
+        <div><span>Sections</span><strong>${sectionCount}</strong></div>
+      </div>
+      <button class="${level.available?"primary-btn":"secondary-btn"} wide" ${level.available?"":"disabled"}>
+        ${level.available?"Open Level →":"Waiting for Professional QBank"}
+      </button>`;
+    if(level.available){
+      card.querySelector("button").addEventListener("click",()=>{
+        state.officialLevelId=level.levelId;
+        state.officialTrackId=null;state.officialSectionId=null;
+        routeTo("officialJuniorView");
+      });
+    }
+    grid.appendChild(card);
   }
 }
-async function openOfficialTrack(trackId){
-  const meta=officialTrackMeta(trackId);if(!meta)return;
-  state.officialTrackId=trackId;state.officialQuestions=await loadOfficialTrack(state.officialRegistry,trackId,loadJson);
-  const st=getOfficialTrackState(trackId);state.officialIndex=Math.min(st.lastIndex||0,Math.max(0,state.officialQuestions.length-1));
-  $("officialStudyBreadcrumb").textContent=`Official QBank / ${meta.track}`;$("officialStudyTitle").textContent=`${meta.track} Official QBank`;$("officialStudyMeta").textContent=`${meta.questionCount} official questions • original wording preserved`;
+function renderOfficialJuniorHub(){
+  const level=officialLevelMeta();if(!level)return;
+  $("officialTotalQuestions").textContent=level.questionCount||0;
+  $("officialTrackCount").textContent=level.tracks?.length||0;
+  const sectionCount=(level.tracks||[]).reduce((sum,t)=>sum+(t.sections?.length||0),0);
+  $("officialSectionCount").textContent=sectionCount;
+  const reviewed=officialReviewedTotal(),total=level.questionCount||1;
+  $("officialOverallProgress").textContent=`${Math.round(reviewed/total*100)}%`;
+
+  const colors={excel:'#1f9d63','power-bi':'#d9a51f',sql:'#1caee8',python:'#7c5ce7',tableau:'#4d8fd6',looker:'#7656d6'};
+  const grid=$("officialTrackGrid");grid.innerHTML="";
+  for(const meta of officialTracks()){
+    const st=getOfficialTrackState(meta.trackId,state.officialLevelId,officialTrackRevision(meta.trackId));
+    const pct=Math.round(new Set(st.reviewed||[]).size/Math.max(1,meta.questionCount)*100);
+    const sectionDone=(meta.sections||[]).filter(s=>getBestForExam(officialSectionExamId(state.officialLevelId,meta.trackId,s.sectionNumber,meta.sourceRevision||"source-r1"),state.studentName)).length;
+    const card=document.createElement('button');card.className='official-track-card';
+    card.style.setProperty('--track-accent',colors[meta.trackId]||'var(--primary)');
+    card.innerHTML=`
+      <span class="official-source-badge">OFFICIAL</span>
+      <h4>${escapeHtml(meta.track)}</h4>
+      <p>${meta.sections?.length||0} sections • ${Object.keys(meta.topics||{}).length} mapped topics</p>
+      <div class="official-card-count">${meta.questionCount}</div>
+      <div class="official-card-footer"><span>${pct}% studied</span><span>${sectionDone}/${meta.sections?.length||0} ranked sections →</span></div>`;
+    card.addEventListener('click',()=>{
+      state.officialTrackId=meta.trackId;state.officialSectionId=null;
+      routeTo("officialTrackView");
+    });
+    grid.appendChild(card);
+  }
+}
+function renderOfficialTrackHub(){
+  const meta=officialTrackMeta();if(!meta)return;
+  $("officialTrackBreadcrumb").textContent=`Junior Data Analysis / ${meta.track}`;
+  $("officialTrackTitle").textContent=meta.track;
+  $("officialTrackMeta").textContent=`${meta.questionCount} official questions • ${meta.sections?.length||0} sections • original wording preserved`;
+  const st=getOfficialTrackState(meta.trackId,state.officialLevelId,officialTrackRevision(meta.trackId));
+  const reviewed=new Set(st.reviewed||[]).size;
+  $("officialTrackHubReviewed").textContent=`${reviewed} / ${meta.questionCount}`;
+  const completed=(meta.sections||[]).filter(s=>getBestForExam(officialSectionExamId(state.officialLevelId,meta.trackId,s.sectionNumber,meta.sourceRevision||"source-r1"),state.studentName)).length;
+  $("officialTrackHubCompleted").textContent=`${completed} / ${meta.sections?.length||0}`;
+
+  const grid=$("officialSectionGrid");grid.innerHTML="";
+  for(const section of meta.sections||[]){
+    const examId=officialSectionExamId(state.officialLevelId,meta.trackId,section.sectionNumber,meta.sourceRevision||"source-r1");
+    const best=state.studentName?getBestForExam(examId,state.studentName):null;
+    const attempts=state.studentName?getUserResults().filter(r=>r.examId===examId).length:0;
+    const card=document.createElement("article");
+    card.className="official-section-card";
+    card.innerHTML=`
+      <div class="section-card-head">
+        <span class="section-number">${String(section.sectionNumber).padStart(2,"0")}</span>
+        <span class="official-source-badge">OFFICIAL</span>
+      </div>
+      <h3>${escapeHtml(section.title)}</h3>
+      <p>${section.questionCount} questions • ${escapeHtml(section.questionRange||"")}</p>
+      <div class="section-score-strip">
+        <div><span>Best</span><strong>${best?`${best.percentage}%`:"—"}</strong></div>
+        <div><span>Attempts</span><strong>${attempts}</strong></div>
+        <div><span>Status</span><strong>${best?"Completed":"New"}</strong></div>
+      </div>
+      <div class="section-card-actions">
+        <button class="ghost-btn section-study-btn">Study</button>
+        <button class="primary-btn section-solve-btn">Solve & Rank →</button>
+        <button class="secondary-btn section-rank-btn">Ranking ↗</button>
+      </div>`;
+    card.querySelector(".section-study-btn").addEventListener("click",()=>openOfficialStudyScope(section.sectionId));
+    card.querySelector(".section-solve-btn").addEventListener("click",()=>requireRankedIdentity(()=>prepareOfficialSection(section.sectionId),"Enter your name before solving a ranked Official QBank section."));
+    card.querySelector(".section-rank-btn").addEventListener("click",()=>requireRankedIdentity(()=>{
+      state.rankingExamId=examId;routeTo("rankingView");
+    },"Enter your name before opening a section leaderboard."));
+    grid.appendChild(card);
+  }
+}
+async function openOfficialStudyScope(sectionId=null){
+  const meta=officialTrackMeta();if(!meta)return;
+  state.officialSectionId=sectionId;
+  if(sectionId){
+    state.officialQuestions=await loadOfficialSection(state.officialRegistry,state.officialLevelId,meta.trackId,sectionId,loadJson);
+  }else{
+    state.officialQuestions=await loadOfficialTrack(state.officialRegistry,meta.trackId,loadJson,state.officialLevelId);
+  }
+  const st=getOfficialTrackState(meta.trackId,state.officialLevelId,officialTrackRevision(meta.trackId));
+  const lastId=st.lastQuestionId;
+  const savedIndex=lastId?state.officialQuestions.findIndex(q=>q.id===lastId):-1;
+  state.officialIndex=savedIndex>=0?savedIndex:0;
+
+  const section=officialSectionMeta(sectionId);
+  $("officialStudyBreadcrumb").textContent=section
+    ?`Official QBank / Junior / ${meta.track} / ${section.title}`
+    :`Official QBank / Junior / ${meta.track} / Study All`;
+  $("officialStudyTitle").textContent=section?`${meta.track} — ${section.title}`:`${meta.track} Official QBank`;
+  $("officialStudyMeta").textContent=section
+    ?`${section.questionCount} official questions • ${section.questionRange} • study mode is not ranked`
+    :`${meta.questionCount} official questions • original order • study mode is not ranked`;
+
+  $("officialProgressLabel").textContent=section?`${section.title.toUpperCase()} PROGRESS`:"TRACK STUDY PROGRESS";
+  $("officialPracticeBtn").textContent=section?"Solve Section & Rank →":"Random Practice 40 →";
+  $("officialExamBtn").classList.toggle("hidden",Boolean(section));
+  if(!section)$("officialExamBtn").textContent="Random Exam 50 →";
+
   const topicSelect=$("officialTopicFilter");topicSelect.innerHTML='<option value="all">All topics</option>';
-  const topics=[...new Set(state.officialQuestions.map(q=>q.topic))].sort();for(const topic of topics){const o=document.createElement('option');o.value=topic;o.textContent=topic;topicSelect.appendChild(o)}
-  $("officialSearch").value='';$("officialStateFilter").value='all';applyOfficialFilters();routeTo('officialStudyView');
+  const topics=[...new Set(state.officialQuestions.map(q=>q.topic))].sort();
+  for(const topic of topics){const o=document.createElement('option');o.value=topic;o.textContent=topic;topicSelect.appendChild(o)}
+  $("officialSearch").value='';$("officialStateFilter").value='all';
+  applyOfficialFilters();routeTo('officialStudyView');
 }
 function applyOfficialFilters(){
   const query=($("officialSearch")?.value||'').trim().toLowerCase(),topic=$("officialTopicFilter")?.value||'all',kind=$("officialStateFilter")?.value||'all';
-  const st=getOfficialTrackState(state.officialTrackId);const reviewed=new Set(st.reviewed||[]),bookmarks=new Set(st.bookmarks||[]),mistakes=new Set(st.mistakes||[]);
+  const st=getOfficialTrackState(state.officialTrackId,state.officialLevelId,officialTrackRevision(state.officialTrackId));
+  const reviewed=new Set(st.reviewed||[]),bookmarks=new Set(st.bookmarks||[]),mistakes=new Set(st.mistakes||[]);
   state.officialFiltered=state.officialQuestions.filter(q=>{
     if(query && !(`${q.question} ${q.options.map(o=>o.text).join(' ')}`).toLowerCase().includes(query))return false;
     if(topic!=='all' && q.topic!==topic)return false;
-    if(kind==='unseen' && reviewed.has(q.id))return false;if(kind==='reviewed'&&!reviewed.has(q.id))return false;if(kind==='bookmarks'&&!bookmarks.has(q.id))return false;if(kind==='mistakes'&&!mistakes.has(q.id))return false;return true;
+    if(kind==='unseen' && reviewed.has(q.id))return false;
+    if(kind==='reviewed'&&!reviewed.has(q.id))return false;
+    if(kind==='bookmarks'&&!bookmarks.has(q.id))return false;
+    if(kind==='mistakes'&&!mistakes.has(q.id))return false;
+    return true;
   });
   if(!state.officialFiltered.length){state.officialIndex=0;renderOfficialQuestionList();renderOfficialEmpty();return}
-  const currentId=state.officialQuestions[state.officialIndex]?.id;let idx=state.officialFiltered.findIndex(q=>q.id===currentId);if(idx<0)idx=0;state.officialIndex=state.officialQuestions.findIndex(q=>q.id===state.officialFiltered[idx].id);renderOfficialQuestionList();renderOfficialStudyQuestion();
+  const currentId=state.officialQuestions[state.officialIndex]?.id;
+  let idx=state.officialFiltered.findIndex(q=>q.id===currentId);if(idx<0)idx=0;
+  state.officialIndex=state.officialQuestions.findIndex(q=>q.id===state.officialFiltered[idx].id);
+  renderOfficialQuestionList();renderOfficialStudyQuestion();
 }
 function renderOfficialEmpty(){
-  $("officialQuestionText").textContent='No questions match the current filters.';$("officialOptions").innerHTML='';$("officialAnswerBox").classList.add('hidden');$("officialSourceLine").textContent='';
+  $("officialQuestionText").textContent='No questions match the current filters.';
+  $("officialOptions").innerHTML='';$("officialAnswerBox").classList.add('hidden');$("officialSourceLine").textContent='';
 }
 function renderOfficialQuestionList(){
-  const list=$("officialQuestionList");if(!list)return;list.innerHTML='';const st=getOfficialTrackState(state.officialTrackId),rev=new Set(st.reviewed||[]),bm=new Set(st.bookmarks||[]);const visible=state.officialFiltered.length?state.officialFiltered:[];
-  for(const q of visible){const btn=document.createElement('button');btn.className='official-qnum';btn.textContent=q.originalOrder;if(q.id===state.officialQuestions[state.officialIndex]?.id)btn.classList.add('current');if(rev.has(q.id))btn.classList.add('reviewed');if(bm.has(q.id))btn.classList.add('bookmarked');btn.addEventListener('click',()=>{state.officialIndex=state.officialQuestions.findIndex(x=>x.id===q.id);renderOfficialQuestionList();renderOfficialStudyQuestion()});list.appendChild(btn)}
+  const list=$("officialQuestionList");if(!list)return;list.innerHTML='';
+  const st=getOfficialTrackState(state.officialTrackId,state.officialLevelId,officialTrackRevision(state.officialTrackId)),rev=new Set(st.reviewed||[]),bm=new Set(st.bookmarks||[]);
+  const visible=state.officialFiltered.length?state.officialFiltered:[];
+  for(const q of visible){
+    const btn=document.createElement('button');btn.className='official-qnum';btn.textContent=q.originalOrder;
+    if(q.id===state.officialQuestions[state.officialIndex]?.id)btn.classList.add('current');
+    if(rev.has(q.id))btn.classList.add('reviewed');if(bm.has(q.id))btn.classList.add('bookmarked');
+    btn.addEventListener('click',()=>{state.officialIndex=state.officialQuestions.findIndex(x=>x.id===q.id);renderOfficialQuestionList();renderOfficialStudyQuestion()});
+    list.appendChild(btn);
+  }
 }
-function officialVisibleQuestions(){
-  return state.officialFiltered.length?state.officialFiltered:state.officialQuestions;
-}
+function officialVisibleQuestions(){return state.officialFiltered.length?state.officialFiltered:state.officialQuestions}
 function officialVisiblePosition(){
   const currentId=state.officialQuestions[state.officialIndex]?.id;
   return officialVisibleQuestions().findIndex(q=>q.id===currentId);
@@ -298,171 +508,108 @@ function renderOfficialAnswerBox(q,selected=null,revealOnly=false){
   const selectedOption=q.options.find(o=>o.id===selected);
   const box=$("officialAnswerBox");
   const deep=q.deepExplanation || null;
-
   let heading=`Official Answer: ${escapeHtml(q.correctAnswer)}`;
   let statusClass="official-answer-neutral";
   let verdict="";
-
   if(selected){
     const isCorrect=selected===q.correctAnswer;
-    heading=isCorrect
-      ?`Correct ✓ — Official Answer: ${escapeHtml(q.correctAnswer)}`
-      :`Incorrect ✕ — Official Answer: ${escapeHtml(q.correctAnswer)}`;
+    heading=isCorrect?`Correct ✓ — Official Answer: ${escapeHtml(q.correctAnswer)}`:`Incorrect ✕ — Official Answer: ${escapeHtml(q.correctAnswer)}`;
     statusClass=isCorrect?"official-answer-correct":"official-answer-wrong";
-
     const exactReason=deep?.options?.[selected];
     if(isCorrect){
-      verdict=`<div class="official-arabic-verdict correct-note">
-        <strong>ليه إجابتك صح؟</strong>
-        <p>${escapeHtml(exactReason || "اختيارك يطابق الإجابة الرسمية المنشورة.")}</p>
-      </div>`;
+      verdict=`<div class="official-arabic-verdict correct-note"><strong>ليه إجابتك صح؟</strong><p>${escapeHtml(exactReason || "اختيارك يطابق الإجابة الرسمية المنشورة.")}</p></div>`;
     }else{
-      verdict=`<div class="official-arabic-verdict wrong-note">
-        <strong>ليه إجابتك غلط؟</strong>
-        <p><b>اختيارك ${escapeHtml(selected)}:</b> ${escapeHtml(exactReason || selectedOption?.text || "")}</p>
-      </div>`;
+      verdict=`<div class="official-arabic-verdict wrong-note"><strong>ليه إجابتك غلط؟</strong><p><b>اختيارك ${escapeHtml(selected)}:</b> ${escapeHtml(exactReason || selectedOption?.text || "")}</p></div>`;
     }
   }
-
   let explanationHtml="";
   if(deep){
-    explanationHtml=`
-      <div class="official-ai-explanation deep">
-        <span class="official-ai-label">DETAILED EXPLANATION — ARABIC</span>
-        <p dir="rtl">${escapeHtml(deep.summary)}</p>
-
-        <details class="official-option-analysis" open>
-          <summary>تحليل كل الاختيارات A / B / C / D</summary>
-          <div class="official-option-analysis-grid">
-            ${q.options.map(o=>{
-              const isCorrect=o.id===q.correctAnswer;
-              return `<div class="official-option-reason ${isCorrect?"is-correct":"is-wrong"}">
-                <div class="reason-head"><span>${o.id}</span><strong>${isCorrect?"✓ صح":"✕ غلط"}</strong></div>
-                <p dir="rtl">${escapeHtml(deep.options?.[o.id] || "")}</p>
-              </div>`;
-            }).join("")}
-          </div>
-        </details>
-      </div>`;
+    explanationHtml=`<div class="official-ai-explanation deep"><span class="official-ai-label">DETAILED EXPLANATION — ARABIC</span><p dir="rtl">${escapeHtml(deep.summary)}</p>
+      <details class="official-option-analysis" open><summary>تحليل كل الاختيارات A / B / C / D</summary><div class="official-option-analysis-grid">
+      ${q.options.map(o=>{const isCorrect=o.id===q.correctAnswer;return `<div class="official-option-reason ${isCorrect?"is-correct":"is-wrong"}"><div class="reason-head"><span>${o.id}</span><strong>${isCorrect?"✓ صح":"✕ غلط"}</strong></div><p dir="rtl">${escapeHtml(deep.options?.[o.id] || "")}</p></div>`}).join("")}
+      </div></details></div>`;
   }else{
     const aiAr=q.aiExplanation?.ar || "الشرح التفصيلي لهذا السؤال لم يتم إضافته بعد.";
-    explanationHtml=`
-      <div class="official-ai-explanation">
-        <span class="official-ai-label">AI EXPLANATION — ARABIC</span>
-        <p dir="rtl">${escapeHtml(aiAr)}</p>
-        <small class="deep-pilot-note">الشرح Option-by-Option قيد الإضافة لهذا الجزء من البنك.</small>
-      </div>`;
+    explanationHtml=`<div class="official-ai-explanation"><span class="official-ai-label">AI EXPLANATION — ARABIC</span><p dir="rtl">${escapeHtml(aiAr)}</p><small class="deep-pilot-note">الشرح Option-by-Option قيد الإضافة لهذا الجزء من البنك.</small></div>`;
   }
-
   box.className=`official-answer-box ${statusClass}`;
-  box.innerHTML=`
-    <strong>${heading}</strong>
-    <div class="official-answer-text">${escapeHtml(correct?.text||"")}</div>
-    ${verdict}
-    ${explanationHtml}
-    <small>الإجابة أعلاه من المصدر الرسمي. الشرح التفصيلي العربي إضافة تعليمية من Digilians E-Learn وليس جزءًا من ملف الوزارة.</small>
-  `;
+  box.innerHTML=`<strong>${heading}</strong><div class="official-answer-text">${escapeHtml(correct?.text||"")}</div>${verdict}${explanationHtml}<small>الإجابة أعلاه من المصدر الرسمي. الشرح التفصيلي العربي إضافة تعليمية من Digilians E-Learn وليس جزءًا من ملف الوزارة.</small>`;
 }
 function answerOfficialQuestion(q,optionId){
-  const st=getOfficialTrackState(state.officialTrackId);
-  const answers={...(st.answers||{})};
-  if(answers[q.id])return;
-
+  const st=getOfficialTrackState(state.officialTrackId,state.officialLevelId,officialTrackRevision(state.officialTrackId));
+  const answers={...(st.answers||{})};if(answers[q.id])return;
   answers[q.id]=optionId;
-  const reviewed=new Set(st.reviewed||[]);
-  const mistakes=new Set(st.mistakes||[]);
-  reviewed.add(q.id);
-  if(optionId!==q.correctAnswer)mistakes.add(q.id);
-
-  updateOfficialTrackState(state.officialTrackId,{
-    answers,
-    reviewed:[...reviewed],
-    mistakes:[...mistakes],
-    lastIndex:state.officialIndex
-  });
-
-  renderOfficialQuestionList();
-  renderOfficialStudyQuestion();
+  const reviewed=new Set(st.reviewed||[]),mistakes=new Set(st.mistakes||[]);
+  reviewed.add(q.id);if(optionId!==q.correctAnswer)mistakes.add(q.id);
+  updateOfficialTrackState(state.officialTrackId,{answers,reviewed:[...reviewed],mistakes:[...mistakes],lastIndex:state.officialIndex,lastQuestionId:q.id},state.officialLevelId,officialTrackRevision());
+  renderOfficialQuestionList();renderOfficialStudyQuestion();
 }
 function renderOfficialStudyQuestion(){
-  const q=state.officialQuestions[state.officialIndex];
-  if(!q)return renderOfficialEmpty();
-
-  const st=getOfficialTrackState(state.officialTrackId);
-  const rev=new Set(st.reviewed||[]);
-  const bm=new Set(st.bookmarks||[]);
-  const selected=st.answers?.[q.id]||null;
-
+  const q=state.officialQuestions[state.officialIndex];if(!q)return renderOfficialEmpty();
+  const st=getOfficialTrackState(state.officialTrackId,state.officialLevelId,officialTrackRevision(state.officialTrackId));
+  const bm=new Set(st.bookmarks||[]),selected=st.answers?.[q.id]||null;
   $("officialQuestionTopic").textContent=q.topic;
   $("officialSourceLine").textContent=`Source: ${q.officialSource.file} • Page ${q.officialSource.page}${q.originalQuestionNumber?` • Original Q${q.originalQuestionNumber}`:''} • Set ${q.officialSet}`;
   $("officialQuestionText").textContent=q.question;
-
-  const opts=$("officialOptions");
-  opts.innerHTML="";
+  const opts=$("officialOptions");opts.innerHTML="";
+  if(q.integrityStatus==="source-parse-review-required"){
+    const warn=document.createElement("div");
+    warn.className="official-integrity-warning";
+    warn.innerHTML="<strong>Source parsing review required</strong><span>This official item was merged with following source text during extraction. It remains visible for source completeness but is temporarily excluded from ranked exams until reparsed.</span>";
+    opts.appendChild(warn);
+  }
   for(const o of q.options){
-    const btn=document.createElement("button");
-    btn.type="button";
-    btn.className="official-option";
-
-    const letter=document.createElement("span");
-    letter.className="option-letter";
-    letter.textContent=o.id;
-
-    const text=document.createElement("span");
-    text.textContent=o.text;
-
-    btn.append(letter,text);
-
-    if(selected){
-      btn.classList.add("locked");
-      if(o.id===selected)btn.classList.add("selected");
-      if(o.id===q.correctAnswer)btn.classList.add("correct");
-      if(o.id===selected && selected!==q.correctAnswer)btn.classList.add("wrong");
-    }
-
-    btn.addEventListener("click",()=>answerOfficialQuestion(q,o.id));
-    opts.appendChild(btn);
+    const btn=document.createElement("button");btn.type="button";btn.className="official-option";
+    const letter=document.createElement("span");letter.className="option-letter";letter.textContent=o.id;
+    const text=document.createElement("span");text.textContent=o.text;btn.append(letter,text);
+    if(selected){btn.classList.add("locked");if(o.id===selected)btn.classList.add("selected");if(o.id===q.correctAnswer)btn.classList.add("correct");if(o.id===selected&&selected!==q.correctAnswer)btn.classList.add("wrong")}
+    btn.addEventListener("click",()=>answerOfficialQuestion(q,o.id));opts.appendChild(btn);
   }
-
-  if(selected){
-    renderOfficialAnswerBox(q,selected,false);
-  }else{
-    $("officialAnswerBox").className="official-answer-box hidden";
-    $("officialAnswerBox").innerHTML="";
-  }
-
+  if(selected)renderOfficialAnswerBox(q,selected,false);else{$("officialAnswerBox").className="official-answer-box hidden";$("officialAnswerBox").innerHTML=""}
   $("officialShowAnswerBtn").textContent=selected?"Official Answer Shown":"Show Official Answer";
-  $("officialBookmarkBtn").classList.toggle("active",bm.has(q.id));
-  $("officialBookmarkBtn").textContent=bm.has(q.id)?"★":"☆";
-
-  const pos=officialVisiblePosition();
-  const visible=officialVisibleQuestions();
-  $("officialPrevBtn").disabled=pos<=0;
-  $("officialNextBtn").disabled=pos<0 || pos>=visible.length-1;
+  $("officialBookmarkBtn").classList.toggle("active",bm.has(q.id));$("officialBookmarkBtn").textContent=bm.has(q.id)?"★":"☆";
+  const pos=officialVisiblePosition(),visible=officialVisibleQuestions();
+  $("officialPrevBtn").disabled=pos<=0;$("officialNextBtn").disabled=pos<0||pos>=visible.length-1;
   updateOfficialProgress();
 }
 function updateOfficialProgress(){
-  const st=getOfficialTrackState(state.officialTrackId),meta=officialTrackMeta(state.officialTrackId);const reviewed=new Set(st.reviewed||[]).size,pct=Math.round(reviewed/Math.max(1,meta?.questionCount||1)*100);$("officialTrackProgress").textContent=`${pct}%`;$("officialTrackProgressFill").style.width=`${pct}%`;$("officialReviewedCount").textContent=`${reviewed} of ${meta?.questionCount||0} reviewed`;
+  const st=getOfficialTrackState(state.officialTrackId,state.officialLevelId,officialTrackRevision(state.officialTrackId));
+  const reviewedSet=new Set(st.reviewed||[]);
+  const scopeIds=new Set(state.officialQuestions.map(q=>q.id));
+  const reviewed=[...reviewedSet].filter(id=>scopeIds.has(id)).length;
+  const total=Math.max(1,state.officialQuestions.length);
+  const pct=Math.round(reviewed/total*100);
+  $("officialTrackProgress").textContent=`${pct}%`;$("officialTrackProgressFill").style.width=`${pct}%`;
+  $("officialReviewedCount").textContent=`${reviewed} of ${state.officialQuestions.length} reviewed`;
 }
 function moveOfficial(delta){
-  const visible=officialVisibleQuestions();
-  if(!visible.length)return;
-  let pos=officialVisiblePosition();
-  if(pos<0)pos=0;
-  const nextPos=Math.max(0,Math.min(visible.length-1,pos+delta));
-  const target=visible[nextPos];
-  const next=state.officialQuestions.findIndex(q=>q.id===target.id);
-  if(next<0)return;
+  const visible=officialVisibleQuestions();if(!visible.length)return;
+  let pos=officialVisiblePosition();if(pos<0)pos=0;
+  const nextPos=Math.max(0,Math.min(visible.length-1,pos+delta)),target=visible[nextPos];
+  const next=state.officialQuestions.findIndex(q=>q.id===target.id);if(next<0)return;
   state.officialIndex=next;
-  updateOfficialTrackState(state.officialTrackId,{lastIndex:next});
-  renderOfficialQuestionList();
-  renderOfficialStudyQuestion();
+  updateOfficialTrackState(state.officialTrackId,{lastIndex:next,lastQuestionId:target.id},state.officialLevelId,officialTrackRevision());
+  renderOfficialQuestionList();renderOfficialStudyQuestion();
+}
+async function prepareOfficialSection(sectionId=state.officialSectionId){
+  const meta=officialTrackMeta();const section=(meta?.sections||[]).find(x=>x.sectionId===sectionId);if(!meta||!section)return;
+  const questions=await loadOfficialSection(state.officialRegistry,state.officialLevelId,meta.trackId,section.sectionId,loadJson);
+  const payload=buildOfficialSectionExam({levelId:state.officialLevelId,trackId:meta.trackId,track:meta.track,section,questions,sourceRevision:meta.sourceRevision||"source-r1"});
+  const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:meta.track,questionCount:payload.questions.length,generator:'official-qbank',ranked:true};
+  state.officialSectionId=section.sectionId;
+  configureExamSetup(payload,item,'instant');
 }
 async function prepareOfficialTrack(mode){
-  const meta=officialTrackMeta(state.officialTrackId);if(!meta)return;const payload=buildOfficialTrackExam({trackId:meta.trackId,track:meta.track,title:`${meta.track} - Official Ministry QBank ${mode==='instant'?'Practice':'Exam'}`,questions:state.officialQuestions,count:mode==='instant'?40:50,feedbackModes:[mode],timerMinutes:mode==='exam'?60:null,category:mode==='instant'?'Official Practice':'Official Exam'});const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:meta.track,questionCount:payload.questions.length,generator:'official-qbank'};configureExamSetup(payload,item,mode);
+  const meta=officialTrackMeta();if(!meta)return;
+  const questions=await loadOfficialTrack(state.officialRegistry,meta.trackId,loadJson,state.officialLevelId);
+  const payload=buildOfficialTrackExam({levelId:state.officialLevelId,trackId:meta.trackId,track:meta.track,title:`${meta.track} - Official Ministry QBank ${mode==='instant'?'Practice':'Exam'}`,questions,count:mode==='instant'?40:50,feedbackModes:[mode],timerMinutes:mode==='exam'?60:null,category:mode==='instant'?'Official Practice':'Official Exam',sourceRevision:meta.sourceRevision||'source-r1'});
+  const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:meta.track,questionCount:payload.questions.length,generator:'official-qbank',ranked:true};
+  configureExamSetup(payload,item,mode);
 }
 async function prepareOfficialFinalExam(){
-  const payload=await buildOfficialFinal({registry:state.officialRegistry,blueprint:state.officialFinalBlueprint,loadJson});const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:'Official QBank',questionCount:100,generator:'official-qbank'};configureExamSetup(payload,item,'exam');
+  const payload=await buildOfficialFinal({registry:state.officialRegistry,blueprint:state.officialFinalBlueprint,loadJson});
+  const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:'Junior Official QBank',questionCount:100,generator:'official-qbank',ranked:true};
+  configureExamSetup(payload,item,'exam');
 }
 
 function renderCourses(targetId,compact=false){
@@ -972,26 +1119,37 @@ function renderExamLibrary(filter=""){
 $("examSearch").addEventListener("input",e=>renderExamLibrary(e.target.value));
 
 if($("openOfficialHomeBtn"))$("openOfficialHomeBtn").addEventListener('click',()=>routeTo('officialQbankView'));
-if($("startOfficialFinalBtn"))$("startOfficialFinalBtn").addEventListener('click',prepareOfficialFinalExam);
-if($("officialStudyBackBtn"))$("officialStudyBackBtn").addEventListener('click',()=>routeTo('officialQbankView'));
+if($("officialJuniorBackBtn"))$("officialJuniorBackBtn").addEventListener('click',()=>routeTo('officialQbankView'));
+if($("officialTrackBackBtn"))$("officialTrackBackBtn").addEventListener('click',()=>routeTo('officialJuniorView'));
+if($("startOfficialFinalBtn"))$("startOfficialFinalBtn").addEventListener('click',()=>requireRankedIdentity(prepareOfficialFinalExam,"Enter your name before starting the ranked Junior Official Final."));
+if($("officialStudyBackBtn"))$("officialStudyBackBtn").addEventListener('click',()=>routeTo('officialTrackView'));
+if($("officialStudyAllBtn"))$("officialStudyAllBtn").addEventListener('click',()=>openOfficialStudyScope(null));
+if($("officialRandomPracticeBtn"))$("officialRandomPracticeBtn").addEventListener('click',()=>requireRankedIdentity(()=>prepareOfficialTrack('instant'),"Enter your name before starting ranked Official Practice."));
+if($("officialRandomExamBtn"))$("officialRandomExamBtn").addEventListener('click',()=>requireRankedIdentity(()=>prepareOfficialTrack('exam'),"Enter your name before starting a ranked Official Exam."));
 if($("officialSearch"))$("officialSearch").addEventListener('input',applyOfficialFilters);
 if($("officialTopicFilter"))$("officialTopicFilter").addEventListener('change',applyOfficialFilters);
 if($("officialStateFilter"))$("officialStateFilter").addEventListener('change',applyOfficialFilters);
 if($("officialPrevBtn"))$("officialPrevBtn").addEventListener('click',()=>moveOfficial(-1));
 if($("officialNextBtn"))$("officialNextBtn").addEventListener('click',()=>moveOfficial(1));
 if($("officialShowAnswerBtn"))$("officialShowAnswerBtn").addEventListener("click",()=>{
-  const q=state.officialQuestions[state.officialIndex];
-  if(!q)return;
-  const st=getOfficialTrackState(state.officialTrackId);
-  markOfficialReviewed(state.officialTrackId,q.id,state.officialIndex);
-  renderOfficialAnswerBox(q,st.answers?.[q.id]||null,true);
-  renderOfficialQuestionList();
-  updateOfficialProgress();
+  const q=state.officialQuestions[state.officialIndex];if(!q)return;
+  const st=getOfficialTrackState(state.officialTrackId,state.officialLevelId,officialTrackRevision(state.officialTrackId));
+  markOfficialReviewed(state.officialTrackId,q.id,state.officialIndex,state.officialLevelId,officialTrackRevision());
+  updateOfficialTrackState(state.officialTrackId,{lastQuestionId:q.id},state.officialLevelId,officialTrackRevision());
+  renderOfficialAnswerBox(q,st.answers?.[q.id]||null,true);renderOfficialQuestionList();updateOfficialProgress();
 });
-if($("officialBookmarkBtn"))$("officialBookmarkBtn").addEventListener('click',()=>{const q=state.officialQuestions[state.officialIndex];if(!q)return;toggleOfficialBookmark(state.officialTrackId,q.id);renderOfficialQuestionList();renderOfficialStudyQuestion()});
-if($("officialPracticeBtn"))$("officialPracticeBtn").addEventListener('click',()=>prepareOfficialTrack('instant'));
-if($("officialExamBtn"))$("officialExamBtn").addEventListener('click',()=>prepareOfficialTrack('exam'));
-
+if($("officialBookmarkBtn"))$("officialBookmarkBtn").addEventListener('click',()=>{
+  const q=state.officialQuestions[state.officialIndex];if(!q)return;
+  toggleOfficialBookmark(state.officialTrackId,q.id,state.officialLevelId,officialTrackRevision());renderOfficialQuestionList();renderOfficialStudyQuestion();
+});
+if($("officialPracticeBtn"))$("officialPracticeBtn").addEventListener('click',()=>{
+  if(state.officialSectionId){
+    requireRankedIdentity(()=>prepareOfficialSection(state.officialSectionId),"Enter your name before solving this ranked section.");
+  }else{
+    requireRankedIdentity(()=>prepareOfficialTrack('instant'),"Enter your name before starting ranked Official Practice.");
+  }
+});
+if($("officialExamBtn"))$("officialExamBtn").addEventListener('click',()=>requireRankedIdentity(()=>prepareOfficialTrack('exam'),"Enter your name before starting a ranked Official Exam."));
 
 async function prepareExam(registryItem,forcedMode=null){
   try{
@@ -1042,7 +1200,8 @@ async function prepareExam(registryItem,forcedMode=null){
 function configureExamSetup(payload,registryItem,forcedMode=null){
   state.currentExam=payload;
   state.currentRegistryItem=registryItem;
-  state.previousBest=getPreviousBestForExam(payload.exam.id,state.studentName);
+  state.currentRankedActivity=registryItem?.ranked!==false;
+  state.previousBest=state.studentName?getPreviousBestForExam(payload.exam.id,state.studentName):null;
 
   const exam=payload.exam;
   $("setupCategory").textContent=exam.category || "Exam";
@@ -1078,14 +1237,30 @@ function configureExamSetup(payload,registryItem,forcedMode=null){
   if(radio)radio.checked=true;
   routeTo("setupView");
 }
-$("backToLibraryBtn").addEventListener("click",()=>routeTo(state.currentExam?.exam?.generatedFromOfficialQbank?"officialQbankView":"examsView"));
+$("backToLibraryBtn").addEventListener("click",()=>{
+  const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
+  if(ctx?.kind==="section" || ctx?.kind==="track-random")routeTo("officialTrackView");
+  else if(ctx?.kind==="final")routeTo("officialJuniorView");
+  else routeTo("examsView");
+});
 
 $("beginExamBtn").addEventListener("click",()=>{
-  state.feedbackMode=document.querySelector('input[name="feedbackMode"]:checked')?.value || "instant";
-  startExam();
+  const begin=()=>{
+    state.feedbackMode=document.querySelector('input[name="feedbackMode"]:checked')?.value || "instant";
+    startExam();
+  };
+  if(state.currentRankedActivity && !state.studentName){
+    requireRankedIdentity(begin,"Your name is required before this ranked attempt can begin.");
+    return;
+  }
+  begin();
 });
 
 function startExam(restored=null){
+  if(state.currentRankedActivity && !state.studentName){
+    requireRankedIdentity(()=>startExam(restored),"Your name is required before this ranked attempt can begin.");
+    return;
+  }
   stopTimer();
   if(restored){
     state.answers=restored.answers || {};
@@ -1102,7 +1277,18 @@ function startExam(restored=null){
 }
 
 async function resumeProgress(progress){
-  const item=state.registry.find(x=>x.id===progress.examId);
+  let item=state.registry.find(x=>x.id===progress.examId);
+  if(!item && progress.generatedExam){
+    item={
+      id:progress.examId,
+      title:progress.generatedExam.exam?.title||"Saved Exam",
+      course:progress.generatedExam.exam?.course||"Data Analysis",
+      module:progress.generatedExam.exam?.module||"",
+      questionCount:progress.generatedExam.questions?.length||0,
+      generator:progress.generatedExam.exam?.generatedFromOfficialQbank?"official-qbank":"question-bank",
+      ranked:true
+    };
+  }
   if(!item){clearExamProgress();routeTo("examsView");return}
   try{
     let payload;
@@ -1121,8 +1307,8 @@ async function resumeProgress(progress){
     }
     const errors=validateExamPayload(payload);
     if(errors.length)throw new Error("Invalid exam");
-    state.currentExam=payload;state.currentRegistryItem=item;
-    state.previousBest=getPreviousBestForExam(payload.exam.id,state.studentName);
+    state.currentExam=payload;state.currentRegistryItem=item;state.currentRankedActivity=item?.ranked!==false;
+    state.previousBest=state.studentName?getPreviousBestForExam(payload.exam.id,state.studentName):null;
     startExam(progress);
   }catch(e){clearExamProgress();showToast("Saved progress could not be restored.");routeTo("examsView")}
 }
@@ -1176,6 +1362,8 @@ function renderQuestion(){
   $("prevQuestionBtn").disabled=state.currentIndex===0;
   $("nextQuestionBtn").classList.toggle("hidden",state.currentIndex===qs.length-1);
   $("submitExamBtn").classList.toggle("hidden",state.currentIndex!==qs.length-1);
+  const officialKind=state.currentExam?.exam?.generatedFromOfficialQbank?.kind;
+  $("submitExamBtn").innerHTML=officialKind==="section"?'Finish Section <span>✓</span>':'Submit Exam <span>✓</span>';
 }
 
 function selectAnswer(q,optionId){
@@ -1188,9 +1376,19 @@ function renderInstantFeedback(q){
   const selected=state.answers[q.id];
   if(state.feedbackMode!=="instant" || !selected)return;
   const correct=selected===q.correctAnswer;
-  const explanation=q.explanation?.ar || q.explanation?.en || "No explanation provided.";
   box.className=`feedback-box ${correct?"success":"error"}`;
-  box.innerHTML=`<strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${q.correctAnswer}`}</strong><div>${explanation}</div>`;
+  if(q.deepExplanation){
+    const selectedReason=q.deepExplanation.options?.[selected]||"";
+    box.innerHTML=`
+      <strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${escapeHtml(q.correctAnswer)}`}</strong>
+      <div class="ranked-official-feedback" dir="rtl">
+        <p><b>${correct?"ليه اختيارك صح؟":"ليه اختيارك غلط؟"}</b> ${escapeHtml(selectedReason)}</p>
+        <p><b>شرح المفهوم:</b> ${escapeHtml(q.deepExplanation.summary||"")}</p>
+      </div>`;
+  }else{
+    const explanation=q.aiExplanation?.ar || q.explanation?.ar || q.explanation?.en || "No explanation provided.";
+    box.innerHTML=`<strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${escapeHtml(q.correctAnswer)}`}</strong><div dir="rtl">${escapeHtml(explanation)}</div>`;
+  }
 }
 
 function updateNavigator(){
@@ -1235,11 +1433,12 @@ function finishExam(autoSubmitted){
 
   const subjectBreakdown=calculateSubjectBreakdown();
   const topicBreakdown=topicPerformance(state.currentExam.questions,state.answers);
+  const officialContext=state.currentExam.exam.generatedFromOfficialQbank || null;
   const record={
     examId:state.currentExam.exam.id,examTitle:state.currentExam.exam.title,studentName:state.studentName,
     percentage:result.percentage,correct:result.correct,wrong:result.wrong,unanswered:result.unanswered,
     timeTakenSeconds,submittedAt:new Date().toISOString(),autoSubmitted,
-    clientAttemptId,onlineSynced:false,subjectBreakdown,topicBreakdown
+    clientAttemptId,onlineSynced:false,subjectBreakdown,topicBreakdown,officialContext
   };
 
   const onlineAttempt={
@@ -1261,7 +1460,8 @@ function finishExam(autoSubmitted){
   if(state.currentExam.exam.generatedFromOfficialQbank){
     const wrongByTrack={};
     for(const q of state.currentExam.questions){if((state.answers[q.id]??null)!==q.correctAnswer){wrongByTrack[q.trackId] ||= [];wrongByTrack[q.trackId].push(q.id)}}
-    Object.entries(wrongByTrack).forEach(([trackId,ids])=>saveOfficialMistakes(trackId,ids));
+    const levelId=state.currentExam.exam.generatedFromOfficialQbank.levelId || "junior-data-analysis";
+    Object.entries(wrongByTrack).forEach(([trackId,ids])=>saveOfficialMistakes(trackId,ids,levelId,officialTrackRevision(trackId)));
   }
 
   saveResult(record);
@@ -1432,12 +1632,18 @@ function animateScore(target){
 
 function renderResult(){
   const {record}=state.lastResult,score=state.lastResult,pass=state.currentExam.exam.settings?.passingScore ?? 60;
+  const officialCtx=state.currentExam.exam.generatedFromOfficialQbank || null;
   setResultSyncUI("syncing");
   let headline="Keep practicing";
-  if(record.percentage>=90)headline="Excellent work";
+  if(officialCtx?.kind==="section")headline="Section Completed";
+  else if(record.percentage>=90)headline="Excellent work";
   else if(record.percentage>=80)headline="Great job";
   else if(record.percentage>=pass)headline="Good progress";
-  $("resultHeadline").textContent=headline;$("resultPercent").textContent="0%";
+  $("resultHeadline").textContent=headline;
+  $("resultSubline").textContent=officialCtx?.kind==="section"
+    ?`Junior Data Analysis • ${state.currentExam.exam.module} • Section ${officialCtx.sectionNumber} — your attempt is saved and ranked by your best score.`
+    :"Your attempt has been saved on this device.";
+  $("resultPercent").textContent="0%";
   $("resultScore").textContent=`${record.correct} / ${state.currentExam.questions.length}`;
   $("correctCount").textContent=score.correct;$("wrongCount").textContent=score.wrong;$("unansweredCount").textContent=score.unanswered;
   $("timeTaken").textContent=formatDuration(record.timeTakenSeconds);
@@ -1448,6 +1654,17 @@ function renderResult(){
 
   const best=getBestForExam(record.examId,state.studentName);
   $("resultBestScore").textContent=best?`${best.percentage}%`:`${record.percentage}%`;
+  const resultCtx=state.currentExam.exam.generatedFromOfficialQbank || null;
+  $("viewResultRankingBtn").classList.toggle("hidden",!state.currentRankedActivity);
+  if(resultCtx?.kind==="section"){
+    const meta=officialTrackMeta(resultCtx.trackId);
+    const hasNext=Boolean(meta?.sections?.some(s=>s.sectionNumber===resultCtx.sectionNumber+1));
+    $("nextExamBtn").textContent=hasNext?"Next Section →":"Back to Track →";
+    $("retakeBtn").textContent="Retake Section";
+  }else{
+    $("nextExamBtn").textContent=resultCtx?.kind==="final"?"Back to Junior QBank →":resultCtx?.kind==="track-random"?"Back to Track →":"Next Exam →";
+    $("retakeBtn").textContent="Retake";
+  }
 
   const improve=$("improvementMessage");
   if(state.previousBest && record.percentage>state.previousBest.percentage){
@@ -1464,7 +1681,27 @@ function renderResult(){
 $("reviewBtn").addEventListener("click",renderReview);
 $("retakeBtn").addEventListener("click",()=>routeTo("setupView"));
 $("reviewRetakeBtn").addEventListener("click",()=>routeTo("setupView"));
-$("nextExamBtn").addEventListener("click",()=>routeTo("examsView"));
+$("viewResultRankingBtn").addEventListener("click",()=>{
+  if(!state.lastResult?.record?.examId)return;
+  requireRankedIdentity(()=>{state.rankingExamId=state.lastResult.record.examId;routeTo("rankingView")},"Enter your name to open this leaderboard.");
+});
+$("nextExamBtn").addEventListener("click",()=>{
+  const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
+  if(ctx?.kind==="section"){
+    const meta=officialTrackMeta(ctx.trackId);
+    const next=meta?.sections?.find(s=>s.sectionNumber===ctx.sectionNumber+1);
+    if(next){
+      state.officialTrackId=ctx.trackId;state.officialSectionId=next.sectionId;
+      requireRankedIdentity(()=>prepareOfficialSection(next.sectionId),"Your saved name is required for the next ranked section.");
+    }else{
+      state.officialTrackId=ctx.trackId;state.officialSectionId=null;routeTo("officialTrackView");
+    }
+    return;
+  }
+  if(ctx?.kind==="final"){routeTo("officialJuniorView");return}
+  if(ctx?.kind==="track-random"){routeTo("officialTrackView");return}
+  routeTo("examsView");
+});
 
 function renderReview(){
   const list=$("reviewList");list.innerHTML="";$("reviewTitle").textContent=state.currentExam.exam.title;
@@ -1478,39 +1715,65 @@ function renderReview(){
       <h3>${escapeHtml(q.question)}</h3>
       <div class="review-answer ${isCorrect?"correct":"wrong"}"><strong>Your answer:</strong> ${selected?`${escapeHtml(selected)}. ${escapeHtml(selectedOption?.text || "")}`:"Unanswered"}</div>
       <div class="review-answer correct"><strong>Correct answer:</strong> ${escapeHtml(q.correctAnswer)}. ${escapeHtml(correctOption?.text || "")}</div>
-      <div class="review-explanation"><strong>Explanation:</strong><br>${q.explanation?.ar || q.explanation?.en || "No explanation provided."}</div>`;
+      <div class="review-explanation">
+        <strong>Explanation:</strong><br>
+        <div dir="rtl">${escapeHtml(q.deepExplanation?.summary || q.aiExplanation?.ar || q.explanation?.ar || q.explanation?.en || "No explanation provided.")}</div>
+        ${q.deepExplanation?`<div class="review-option-reasons" dir="rtl">${q.options.map(o=>`<p><b>${escapeHtml(o.id)} ${o.id===q.correctAnswer?"✓":"✕"}:</b> ${escapeHtml(q.deepExplanation.options?.[o.id]||"")}</p>`).join("")}</div>`:""}
+      </div>`;
     list.appendChild(item);
   });
   routeTo("reviewView");
 }
-$("reviewHomeBtn").addEventListener("click",()=>routeTo(state.currentExam?.exam?.generatedFromOfficialQbank?"officialQbankView":"examsView"));
+$("reviewHomeBtn").addEventListener("click",()=>{
+  const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
+  if(ctx?.kind==="section"||ctx?.kind==="track-random")routeTo("officialTrackView");
+  else if(ctx?.kind==="final")routeTo("officialJuniorView");
+  else routeTo("examsView");
+});
 
 function populateRankingExamSelect(){
-  const select=$("rankingExamSelect");
-  if(!select)return;
-
+  const select=$("rankingExamSelect");if(!select)return;
   const current=state.rankingExamId || state.registry.find(x=>x.active!==false)?.id || "";
   select.innerHTML="";
 
+  const standardGroup=document.createElement("optgroup");
+  standardGroup.label="Platform Exams";
   state.registry.filter(x=>x.active!==false).forEach(item=>{
-    const option=document.createElement("option");
-    option.value=item.id;
-    option.textContent=`${item.course} — ${item.title}`;
-    if(item.id===current)option.selected=true;
-    select.appendChild(option);
+    const option=document.createElement("option");option.value=item.id;option.textContent=`${item.course} — ${item.title}`;
+    standardGroup.appendChild(option);
   });
+  if(standardGroup.children.length)select.appendChild(standardGroup);
 
+  const junior=(state.officialRegistry.levels||[]).find(x=>x.levelId==="junior-data-analysis");
+  if(junior){
+    const officialGroup=document.createElement("optgroup");officialGroup.label="Official QBank — Junior Sections";
+    for(const track of junior.tracks||[]){
+      for(const section of track.sections||[]){
+        const option=document.createElement("option");
+        option.value=officialSectionExamId("junior-data-analysis",track.trackId,section.sectionNumber,track.sourceRevision||"source-r1");
+        option.textContent=`Junior • ${track.track} • ${section.title}`;
+        officialGroup.appendChild(option);
+      }
+    }
+    select.appendChild(officialGroup);
+
+    const finalGroup=document.createElement("optgroup");finalGroup.label="Official QBank — Junior Final";
+    const finalOption=document.createElement("option");
+    finalOption.value=state.officialFinalBlueprint?.id || "official-junior-data-analysis-final-v1";
+    finalOption.textContent="Junior Data Analysis • Official Final Simulation";
+    finalGroup.appendChild(finalOption);select.appendChild(finalGroup);
+  }
+
+  if([...select.options].some(o=>o.value===current))select.value=current;
   state.rankingExamId=select.value || current;
 }
-
 async function renderRanking(){
-  const stats=getStats();
   $("rankingLocalName").textContent=state.studentName || "Guest";
-  $("rankingAttempts").textContent=stats.attempts;
 
   populateRankingExamSelect();
 
   const examId=state.rankingExamId;
+  $("rankingAttempts").textContent=getUserResults().filter(r=>r.examId===examId).length;
   const status=$("leaderboardStatus");
   const content=$("leaderboardContent");
 
@@ -1783,7 +2046,7 @@ function openProfile(){renderProfile();$("drawerBackdrop").classList.remove("hid
 function closeProfile(){$("drawerBackdrop").classList.add("hidden");$("profileDrawer").classList.remove("open");$("profileDrawer").setAttribute("aria-hidden","true")}
 $("profileButton").addEventListener("click",openProfile);$("profileClose").addEventListener("click",closeProfile);$("drawerBackdrop").addEventListener("click",closeProfile);
 $("changeNameBtn").addEventListener("click",()=>{
-  closeProfile();clearStudentName();state.studentName="";syncUserUI();
+  closeProfile();closeRankedIdentity();clearStudentName();state.studentName="";syncUserUI();
   $("studentName").value="";$("returningUserEntry").classList.add("hidden");$("newUserEntry").classList.remove("hidden");routeTo("welcomeView");
 });
 

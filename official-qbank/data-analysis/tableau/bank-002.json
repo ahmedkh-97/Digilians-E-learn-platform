@@ -59,6 +59,18 @@
         "ar": "لأن كل Function/Feature في Analytics لها وظيفة محددة. «Parameter» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما المستخدم يختار قيمة واحدة مثل 1000 أو2000 أو3000 علشان تتحكم في Calculation، فالـParameter هي الأنسب لأنها تخزن Input واحدة قابلة للتغيير.",
+        "options": {
+          "A": "غلط؛ Group تجمع Members من Dimension في Category واحدة، ولا تخزن Threshold واحدة يختارها المستخدم.",
+          "B": "غلط؛ Hierarchy تنظّم مستويات Detail مرتبطة، مثل Region ثمCity.",
+          "C": "غلط؛ Cluster تجمع Marks المتشابهة تحليليًا، ولا تعمل كInput value.",
+          "D": "صح؛ Parameter تخزن قيمة واحدة يختارها المستخدم ويمكن استخدامها في Sales Threshold calculation."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأن الاختيار «Standard» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Calculations وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الشرط يفحص هل Sales أكبر من أوتساوي 1000. بما أن 850 أقل من 1000، يتم تنفيذ ELSE وإرجاع Standard.",
+        "options": {
+          "A": "صح؛ 850 لا تحقق شرط >=1000، لذلك النتيجة Standard.",
+          "B": "غلط؛ High تظهر فقط إذا كانت Sales على الأقل 1000.",
+          "C": "غلط؛ Calculation ترجع نصًا High أوStandard، وليس الرقم 850.",
+          "D": "غلط؛ الـIF هنا ترجع Text result وليس Boolean."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن الاختيار «Create a calculated field such as [Sales] - [Cost].» هو التعريف أو السلوك الصحيح المرتبط بموضوع Parameters, Sets, Groups & Hierarchies وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإنشاء قيمة جديدة لكل Record اعتمادًا على Fields موجودة، نستخدم Calculated Field بصيغة مثل [Sales] - [Cost].",
+        "options": {
+          "A": "غلط؛ Hierarchy تنظم مستويات Dimensions ولا تنفذ طرحًا بين Measures.",
+          "B": "صح؛ Calculated Field هي الأداة المناسبة لحساب Sales minus Cost.",
+          "C": "غلط؛ Group تجمع Members وليست عملية حسابية.",
+          "D": "غلط؛ Story تنظّم تسلسل Views ولا تحسب قيمة لكل Record."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Filters. الاختيار «Top filter: Top 10 by SUM(Sales)» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "المطلوب اختيار أعلى 10 Products حسب SUM(Sales)، وده بالضبط استخدام Top filter المبني على Measure مجمعة.",
+        "options": {
+          "A": "غلط؛ Wildcard filter تبحث في Text pattern، وليس Top 10 حسب Sales.",
+          "B": "غلط؛ اختيار أول 10 أسماء لا يضمن أنهم الأعلى مبيعًا.",
+          "C": "غلط؛ Product Name ليس رقمًا للمقارنة >10، والشرط لا يمثل ترتيبًا حسب Sales.",
+          "D": "صح؛ Top 10 by SUM(Sales) يطابق المتطلب مباشرة."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Bar chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Bar chart تعرض القيم باستخدام أشرطة، وطول كل Bar يمثل مقدار القيمة.",
+        "options": {
+          "A": "غلط؛ Pie chart تستخدم Slices.",
+          "B": "غلط؛ Line chart تستخدم خطوطًا تربط النقاط.",
+          "C": "صح؛ Bar chart تعتمد على Bars.",
+          "D": "غلط؛ Map تمثل البيانات مكانيًا."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأن الاختيار «Wildcard filter» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو المطلوب الاحتفاظ بأسماء تبدأ بحرف A، فالـWildcard filter هي الأكثر مباشرة لأنها تدعم Pattern matching على Text.",
+        "options": {
+          "A": "صح؛ يمكن ضبطها على Starts With A.",
+          "B": "غلط؛ Top filter تعتمد على Ranking وليس بداية النص.",
+          "C": "غلط؛ Context filter تتعلق بأولوية/سياق التصفية وليس Text pattern.",
+          "D": "غلط؛ Measure Names filter تخص أسماء Measures."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن الاختيار «A dashboard» هو التعريف أو السلوك الصحيح المرتبط بموضوع Spatial & Maps وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dashboard هي المكان الذي يجمع Worksheets متعددة على شاشة واحدة مع إمكانية التفاعل بينها.",
+        "options": {
+          "A": "غلط؛ Hierarchy تنظم مستويات Detail داخل Fields.",
+          "B": "غلط؛ Calculated Field تنتج قيمة مشتقة.",
+          "C": "صح؛ Dashboard تجمع Sales Trend وCategory وMap على شاشة واحدة.",
+          "D": "غلط؛ Data-source filter تقيد البيانات ولا تجمع Views."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Spatial & Maps. الاختيار «A filter action between the two views» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Filter Action تسمح لاختيار Mark في Worksheet أن يفلتر Worksheet أخرى داخل Dashboard، مثل Category bar يفلتر Map.",
+        "options": {
+          "A": "غلط؛ Hierarchy داخل الخريطة لا تربط Click event بين Views.",
+          "B": "صح؛ Filter action تنقل التحديد كFilter للView الهدف.",
+          "C": "غلط؛ Group للمدن لا تربط التفاعل بين Chart وMap.",
+          "D": "غلط؛ Parameter باسم Dashboard لا تحقق Click-to-filter المطلوب."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Story» هو التفسير الأقرب للسلوك الصحيح في Analytics.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Story مصممة لتقديم تحليل في تسلسل منطقي من Story Points، مثل Overview ثمIssue ثمDetail ثمRecommendation.",
+        "options": {
+          "A": "غلط؛ Set تمثل Membership لمجموعة.",
+          "B": "غلط؛ Group تجمع Dimension members.",
+          "C": "غلط؛ Cluster تجمع Marks متشابهة.",
+          "D": "صح؛ Story هي الميزة الخاصة بالتسلسل السردي للViews."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Spatial & Maps. الاختيار «MAKEPOINT([Latitude], [Longitude])» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "MAKEPOINT تجمع Latitude وLongitude في Spatial Point واحدة لكل Row.",
+        "options": {
+          "A": "غلط؛ DISTANCE تحتاج Spatial points لقياس المسافة بينها، ولا تنشئ نقطة من إحداثيين.",
+          "B": "صح؛ MAKEPOINT([Latitude],[Longitude]) هي الحساب المناسب.",
+          "C": "غلط؛ GROUP ليست Spatial calculation.",
+          "D": "غلط؛ CLUSTER لا تنشئ Geometry."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن الاختيار «Worksheet» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Design وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الChart الفردية يتم إنشاؤها عادةً داخل Worksheet.",
+        "options": {
+          "A": "صح؛ Worksheet هي مساحة بناء View/Chart منفردة.",
+          "B": "غلط؛ Story تجمع تسلسل Views.",
+          "C": "غلط؛ Parameter Input value.",
+          "D": "غلط؛ Data Source page لإدارة الاتصال والبيانات."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن كل Function/Feature في Parameters, Sets, Groups & Hierarchies لها وظيفة محددة. «Cluster» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Cluster تستخدم لتجميع Stores ذات الأنماط المتشابهة تلقائيًا بناءً على Measures مثل Sales وProfit.",
+        "options": {
+          "A": "غلط؛ Hierarchy للتنقل بين مستويات Detail.",
+          "B": "غلط؛ Parameter قيمة يحددها المستخدم.",
+          "C": "غلط؛ Story لتسلسل التحليل.",
+          "D": "صح؛ Cluster هي الميزة المخصصة للتجميع التلقائي حسب التشابه."
+        }
       }
     },
     {
@@ -659,6 +803,18 @@
         "ar": "لأن الاختيار «Dashboard» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Design وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dashboard تجمع عدة Charts/Worksheets في Layout واحدة تفاعلية.",
+        "options": {
+          "A": "غلط؛ Group تجمع Dimension members.",
+          "B": "غلط؛ Calculated field للحساب.",
+          "C": "صح؛ Dashboard هي المكان المناسب لتجميع Charts.",
+          "D": "غلط؛ Filter تقيد البيانات ولا تجمع Views."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأن الاختيار «Connect Tableau to the data» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Design وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "قبل بناء Charts لازم Tableau تكون متصلة بمصدر البيانات الذي ستستخدمه.",
+        "options": {
+          "A": "غلط؛ Python ليست خطوة إلزامية لبداية Tableau.",
+          "B": "صح؛ الاتصال بالبيانات هو البداية الطبيعية.",
+          "C": "غلط؛ Dashboard تأتي بعد وجود Worksheets.",
+          "D": "غلط؛ Story تبنى بعد وجود Views للتحليل."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & Design. الاختيار «Line chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Line chart هي الأنسب غالبًا لعرض تغير Sales عبر الزمن لأنها توضح Trend من نقطة زمنية لأخرى.",
+        "options": {
+          "A": "صح؛ مناسبة للسلاسل الزمنية.",
+          "B": "غلط؛ Pie chart لParts of Whole.",
+          "C": "غلط؛ Map للتحليل الجغرافي.",
+          "D": "غلط؛ Text table تعرض أرقامًا لكن لا توضح Trend بصريًا بنفس القوة."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن الاختيار «Customer Name» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Customer Name Field وصفية تصنيفية، لذلك هي الأكثر احتمالًا أن تكون Dimension.",
+        "options": {
+          "A": "غلط؛ Sales عادةً Measure رقمية.",
+          "B": "غلط؛ Profit عادةً Measure رقمية.",
+          "C": "صح؛ Customer Name Field وصفية.",
+          "D": "غلط؛ Quantity عادةً Measure رقمية."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن الاختيار «Sales» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Sales قيمة رقمية قابلة للتجميع، لذلك هي Measure نموذجية.",
+        "options": {
+          "A": "غلط؛ Product Name Dimension وصفية.",
+          "B": "غلط؛ Region Dimension تصنيفية.",
+          "C": "غلط؛ Category Dimension تصنيفية.",
+          "D": "صح؛ Sales Measure رقمية قابلة للAggregation."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Map» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإظهار Sales حسب Country، الـMap هي Visualization الطبيعية لأنها تربط القيمة بالموقع الجغرافي.",
+        "options": {
+          "A": "صح؛ Map مناسبة للCountry-level geographic analysis.",
+          "B": "غلط؛ Bar chart يمكنها المقارنة لكنها لا تعرض البعد الجغرافي مكانيًا.",
+          "C": "غلط؛ Parameter ليست Visualization.",
+          "D": "غلط؛ Story تسلسل Views وليست Chart type."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الاختيار «A Sales comparison by Category» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Calculations وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Category على Rows وSales على Columns ينتج عادةً مقارنة Sales بين Categories، غالبًا في شكل Bars حسب الإعدادات الافتراضية.",
+        "options": {
+          "A": "غلط؛ لا يوجد Geographic field لإنشاء Map.",
+          "B": "صح؛ Field placement ينتج Comparison by Category.",
+          "C": "غلط؛ لا يطلب Customer field.",
+          "D": "غلط؛ Story لا تُنشأ بوضع Fields على Rows/Columns."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن الاختيار «Filter» هو التعريف أو السلوك الصحيح المرتبط بموضوع Analytics وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإظهار Category واحدة فقط نستخدم Filter على Category.",
+        "options": {
+          "A": "غلط؛ Cluster للتجميع حسب التشابه.",
+          "B": "غلط؛ Hierarchy للتنقل بين مستويات.",
+          "C": "صح؛ Filter تقيد البيانات للقيمة المختارة.",
+          "D": "غلط؛ Story لا تستخدم لتقييد Category واحدة."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن الاختيار «Color» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Color على Marks card تتحكم في لون Marks ويمكن استخدامها لتمييز Categories أوتمثيل Measure بالألوان.",
+        "options": {
+          "A": "غلط؛ Data Source لإدارة مصدر البيانات.",
+          "B": "غلط؛ Pages تتحكم في تسلسل Pages حسب Field.",
+          "C": "غلط؛ Tooltip للمعلومات عند Hover.",
+          "D": "صح؛ Color تغير ألوان Marks."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Its values appear as text on the chart» هو التفسير الأقرب للسلوك الصحيح في Visualizations & Design.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "وضع Field على Label يجعل قيمها تظهر كنصوص على Marks في الـView.",
+        "options": {
+          "A": "صح؛ Label تضيف Text labels على الرسم.",
+          "B": "غلط؛ الحقل لا يُحذف.",
+          "C": "غلط؛ لا تنشئ Dashboard.",
+          "D": "غلط؛ Label لا تحول البيانات إلى Map."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Dashboards, Actions & Stories. الاختيار «Show information when the pointer is over a mark» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Tooltip تعرض معلومات إضافية عندما يمر Pointer فوق Mark.",
+        "options": {
+          "A": "غلط؛ Data source type لا تتغير بالTooltip.",
+          "B": "صح؛ هذا هو استخدامها الأساسي.",
+          "C": "غلط؛ Dashboard هي التي تجمع Worksheets.",
+          "D": "غلط؛ Tooltip لا تنظف Nulls."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن كل Function/Feature في Visualizations & Design لها وظيفة محددة. «Show Me or the Marks card» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Show Me أوMarks card تسمح بتغيير نوع Visualization مثل التحويل من Bar إلىLine.",
+        "options": {
+          "A": "غلط؛ Data pane لإدارة Fields.",
+          "B": "غلط؛ Filters shelf للتصفية.",
+          "C": "صح؛ كلاهما يساعد في تغيير نوع Chart.",
+          "D": "غلط؛ Story pane لبناء التسلسل السردي."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن الاختيار «A filter control for selecting values» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Show Filter تعرض Filter Control في الـView أوDashboard ليسمح للمستخدم باختيار Values.",
+        "options": {
+          "A": "غلط؛ لا تنشئ Calculated Field.",
+          "B": "غلط؛ لا تضيف Data Source.",
+          "C": "غلط؛ لا تنشئ Worksheet.",
+          "D": "صح؛ يظهر Filter control للتفاعل مع القيم."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Filters. الاختيار «A measure range filter based on the aggregated Profit value.» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما الشرط على Measure مجمعة مثل Profit ويجب أن تقع بين 5000 و20000، Measure range filter هي الأنسب.",
+        "options": {
+          "A": "غلط؛ Hierarchy ليست Filter Range على Profit.",
+          "B": "غلط؛ Wildcard filter مخصصة للنصوص وليست نطاقًا عدديًا.",
+          "C": "صح؛ Measure range filter تطابق شرط Aggregated Profit بين حدين.",
+          "D": "غلط؛ Geographic filter لا يناسب Profit."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأن الاختيار «Separate year headers become positions on a continuous axis.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Calculations وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "تحويل YEAR(Order Date) من Discrete إلىContinuous يحوّل السنوات من Headers منفصلة إلى Positions على Axis مستمر مع بقاء مستوى التاريخ Year.",
+        "options": {
+          "A": "غلط؛ لا يتم التوسع تلقائيًا إلىQuarter/Month بسبب Continuous فقط.",
+          "B": "غلط؛ Year لا تتحول إلى Measure لمجرد تغيير Discrete/Continuous.",
+          "C": "غلط؛ Aggregation للMeasures لا تتحول تلقائيًا إلىAVG.",
+          "D": "صح؛ Headers المنفصلة تصبح نقاطًا على Continuous axis."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن الاختيار «Use a quarter-level date value that preserves the year in the timeline.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Design وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو تريد نقطة لكل Quarter عبر عدة Years، لازم تستخدم Quarter-level Date تحافظ على السنة داخل Timeline حتى لا تتجمع نفس الأرباع من سنوات مختلفة.",
+        "options": {
+          "A": "غلط؛ Quarter names وحدها Q1-Q4 قد تجمع نفس الQuarter عبر سنوات متعددة.",
+          "B": "غلط؛ تحويل التاريخ إلىText وترتيبه أبجديًا يضعف التسلسل الزمني.",
+          "C": "صح؛ Quarter-level date مع Year context تحفظ Timeline الصحيح.",
+          "D": "غلط؛ DAY level أدق من المطلوب ولا يعكس Quarter مباشرة."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «The month categories omit the year, so values from different years aggregate together.» هو التفسير الأقرب للسلوك الصحيح في Dimensions, Measures & Field Types.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "استخدام Month Name discrete فقط مع سنوات متعددة يزيل Year context، فتتجمع مثلًا كل قيم January من سنوات مختلفة تحت Category واحدة.",
+        "options": {
+          "A": "غلط؛ المشكلة الأساسية ليست Sorting by Sales.",
+          "B": "صح؛ غياب Year يجعل نفس الشهور عبر السنوات تتجمع.",
+          "C": "غلط؛ Month Name لا يفلتر تلقائيًا لأحدث سنة.",
+          "D": "غلط؛ وجود سنوات متعددة لا يحول Date إلىMeasure."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Dashboards, Actions & Stories. الاختيار «Detail can increase the number of marks, while Tooltip only adds information shown on interaction.» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Detail تدخل Field في مستوى تفصيل Marks وقد تزيد عدد الـMarks، بينما Tooltip تضيف معلومات تظهر عندHover بدون تغيير Granularity وحدها.",
+        "options": {
+          "A": "غلط؛ Detail لا تعني Filtering تلقائيًا.",
+          "B": "غلط؛ العكس تقريبًا: Detail تؤثر فيGranularity وTooltip في الوصف.",
+          "C": "صح؛ Detail قد تزيد Marks، Tooltip فقط تعرض معلومات إضافية عند التفاعل.",
+          "D": "غلط؛ Tooltip لا تحول Customer ID إلىMeasure."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & Design. الاختيار «Review the color range and choose a scale that communicates the central values without hiding the outliers.» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Outliers تجعل باقي Marks متقاربة لونًا، الأفضل مراجعة Color Range/Scale بحيث تظل القيم المركزية قابلة للقراءة من غير إخفاء Outliers.",
+        "options": {
+          "A": "صح؛ تعديل Scale يحسن التمييز مع الحفاظ على البيانات.",
+          "B": "غلط؛ تحويل Profit إلىText يفقد معناها العددي ويحوّل اللون إلى Categories منفصلة.",
+          "C": "غلط؛ Pages ليست حلًا لمشكلة Color scale.",
+          "D": "غلط؛ حذف كل Negative Profit يغيّر البيانات وقد يزيل معلومات مهمة."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن الاختيار «When the analysis needs to emphasize an interval rather than one benchmark value.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Analytics وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Reference Band تبرز Range أوInterval كامل، بينما Reference Line تمثل قيمة Benchmark واحدة.",
+        "options": {
+          "A": "غلط؛ لا تستبدل Marks بنصوص.",
+          "B": "غلط؛ لا تحول Dimension إلىMeasure.",
+          "C": "صح؛ Band أفضل عندما يكون المهم Interval بين حدين.",
+          "D": "غلط؛ ليس لها علاقة بالاتصال بمصدر ثاني."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن الاختيار «A continuous monthly timeline with an aggregated Sales measure and sufficient history.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Analytics وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Forecast يحتاج Timeline زمنية واضحة مع Measure مجمعة وتاريخ كافٍ. Continuous monthly timeline مع Sales هي الأنسب بين الخيارات.",
+        "options": {
+          "A": "غلط؛ صورة Dashboard بأرقام مكتوبة يدويًا ليست Time Series data قابلة للتحليل.",
+          "B": "غلط؛ لا يوجد Date field.",
+          "C": "غلط؛ Region وCategory فقط لا يوفران Timeline زمنية.",
+          "D": "صح؛ Continuous monthly timeline + aggregated Sales + history مناسبة للForecast."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «The available space may shrink objects beyond a readable or useful size.» هو التفسير الأقرب للسلوك الصحيح في Dashboards, Actions & Stories.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Automatic layout قد تصغّر Objects لتناسب شاشة ضيقة، وده ممكن يجعل النصوص والCharts غير مقروءة أوغير عملية.",
+        "options": {
+          "A": "غلط؛ Automatic sizing لا يعني تعطيل Filters على كل الأجهزة الصغيرة.",
+          "B": "غلط؛ لا تزيل Titles تلقائيًا كقاعدة.",
+          "C": "صح؛ المساحة المحدودة قد تضغط Objects أكثر من اللازم.",
+          "D": "غلط؛ نوع الشاشة لا يحول Measures من Continuous إلىDiscrete."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Their independent coordinates can produce overlaps or inconsistent spacing.» هو التفسير الأقرب للسلوك الصحيح في Dashboards, Actions & Stories.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Floating Objects تعتمد على Coordinates مستقلة، ومع Resize يمكن أن تتداخل أوتظهر بمسافات غير متناسقة.",
+        "options": {
+          "A": "صح؛ ده Risk معروف في Layouts القابلة لتغيير الحجم.",
+          "B": "غلط؛ Floating لا تعدل Source Tables.",
+          "C": "غلط؛ لا تنشئ Worksheet جديدة.",
+          "D": "غلط؛ لا تمنع Actions تلقائيًا من استقبال Selection."
+        }
       }
     },
     {
@@ -1809,6 +2229,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Its numbers identify categories and should not normally be summed or averaged.» هو التفسير الأقرب للسلوك الصحيح في Dimensions, Measures & Field Types.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Employee ID حتى لو Numeric فهي Identifier تصنيفي، فلا معنى عادةً لجمعها أوحساب متوسطها؛ لذلك تُعامل كDimension.",
+        "options": {
+          "A": "غلط؛ Tableau يمكنها عرض Numerical Measures عادي.",
+          "B": "صح؛ الرقم يمثل Category/Identity وليس Quantity قابلة للتجميع.",
+          "C": "غلط؛ تغيير Role لا يزيل duplicates من البيانات.",
+          "D": "غلط؛ وجود Nulls لا يتطلب أن تكون Dimension."
+        }
       }
     },
     {
@@ -1859,6 +2291,18 @@
         "ar": "لأن الاختيار «Starts With should replace the broader Contains rule.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو الشرط هو Values تبدأ بـTech، فلازم استخدام Starts With بدل Contains؛ Contains أوسع ويمكن أن يطابق Biotechnology لأنها تحتوي Tech داخل النص.",
+        "options": {
+          "A": "صح؛ Starts With تطابق بداية النص فقط.",
+          "B": "غلط؛ Ends With تبحث في نهاية النص.",
+          "C": "غلط؛ Measure range filter للأرقام وليس Text pattern.",
+          "D": "غلط؛ COUNTD لا يحل Pattern matching."
+        }
       }
     },
     {
@@ -1909,6 +2353,18 @@
         "ar": "لأن الاختيار «Show a relevant Top N ranking and provide a detailed view for further exploration.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Design وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما 70 Product تجعل الـChart غير مقروءة، Top N يحافظ على أهم المعلومات، مع View تفصيلية لاستكشاف باقي المنتجات.",
+        "options": {
+          "A": "صح؛ يقلل التشويش ويحافظ على Decision value.",
+          "B": "غلط؛ تحويل Product Name إلىMeasure وحساب Average غير منطقي.",
+          "C": "غلط؛ 70 لونًا وLabels تزيد الفوضى.",
+          "D": "غلط؛ تصغير الخط جدًا يضر القراءة بدل تحسين التحليل."
+        }
       }
     },
     {
@@ -1959,6 +2415,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Filters. الاختيار «The original view remains available as a comparison and recovery point.» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Duplicate Worksheet تتيح تجربة Filter Strategy مختلفة مع الاحتفاظ بالView الأصلية للمقارنة أوالرجوع.",
+        "options": {
+          "A": "غلط؛ Duplicate لا تعطل Aggregation.",
+          "B": "غلط؛ لا تنشئ Copy مستقلة من Source data.",
+          "C": "صح؛ تحفظ الأصل كReference/Recovery point.",
+          "D": "غلط؛ يمكن إنشاء Filters بدون Duplicate."
+        }
       }
     },
     {
@@ -2009,6 +2477,18 @@
         "ar": "لأن الاختيار «Quarterly Profit by Customer Segment - 2026 (USD)» هو التعريف أو السلوك الصحيح المرتبط بموضوع Products & Publishing وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "العنوان الأفضل يذكر Metric وDimension/segment والزمن والوحدة، فيعطي Context تحليلي واضح.",
+        "options": {
+          "A": "صح؛ Quarterly Profit by Customer Segment - 2026 (USD) محدد وواضح.",
+          "B": "غلط؛ عام جدًا ولا يذكر Segment أوTime أوUnit.",
+          "C": "غلط؛ مبهم وطويل بدون Context محدد.",
+          "D": "غلط؛ عنوان عام لا يصف التحليل."
+        }
       }
     },
     {
@@ -2059,6 +2539,18 @@
         "ar": "لأن كل Function/Feature في Calculated Fields & Calculations لها وظيفة محددة. «COUNTD» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNTD تحسب عدد القيم المميزة Unique غيرNull وفق صياغة السؤال.",
+        "options": {
+          "A": "غلط؛ SUM تجمع قيمًا رقمية.",
+          "B": "صح؛ COUNTD = Count Distinct.",
+          "C": "غلط؛ CONCAT تجمع Text.",
+          "D": "غلط؛ AVG تحسب المتوسط."
+        }
       }
     },
     {
@@ -2109,6 +2601,18 @@
         "ar": "لأن الاختيار «Navigate between related levels of detail» هو التعريف أو السلوك الصحيح المرتبط بموضوع Parameters, Sets, Groups & Hierarchies وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Hierarchy تساعد المستخدم على التنقل بين Levels مترابطة من Detail مثل Country ثمState ثمCity.",
+        "options": {
+          "A": "غلط؛ لا تصدر Worksheet كDriver.",
+          "B": "غلط؛ لا تزيل Filters منDashboard.",
+          "C": "صح؛ وظيفتها Drill between related levels.",
+          "D": "غلط؛ لا تحول Numeric data إلىText."
+        }
       }
     },
     {
@@ -2159,6 +2663,18 @@
         "ar": "لأن الاختيار «A group» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "جمع Dimension members مختارة في Category واحدة ينتج Group.",
+        "options": {
+          "A": "غلط؛ Continuous axis نوع عرض لمحور.",
+          "B": "غلط؛ Reference line Benchmark.",
+          "C": "صح؛ Group تجمع Members تحت Category واحدة.",
+          "D": "غلط؛ Forecast توقع زمني."
+        }
       }
     },
     {
@@ -2209,6 +2725,18 @@
         "ar": "لأن الاختيار «A discrete field» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Tableau، الـBlue pill تدل عادةً على Field Discrete.",
+        "options": {
+          "A": "صح؛ Blue = Discrete وفق convention القياسي في Tableau.",
+          "B": "غلط؛ Deleted field لا يشار لها بهذه الطريقة.",
+          "C": "غلط؛ Continuous عادةً Green.",
+          "D": "غلط؛ لون الـpill لا يعني disconnected source."
+        }
       }
     },
     {
@@ -2259,6 +2787,18 @@
         "ar": "لأن الاختيار «A continuous field» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Tableau، الـGreen pill تدل عادةً على Field Continuous.",
+        "options": {
+          "A": "غلط؛ Story لا تمثل Green pill.",
+          "B": "صح؛ Green = Continuous.",
+          "C": "غلط؛ Discrete عادةً Blue.",
+          "D": "غلط؛ Hidden worksheet ليست معنى Green pill."
+        }
       }
     },
     {
@@ -2309,6 +2849,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Dimensions, Measures & Field Types. الاختيار «To control how marks are encoded and displayed» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Marks card تتحكم في Encoding وطريقة عرض Marks مثل Color وSize وLabel وDetail وTooltip.",
+        "options": {
+          "A": "غلط؛ Rename workbook ليس دور Marks.",
+          "B": "غلط؛ User passwords ليست من Marks.",
+          "C": "غلط؛ Database drivers لا تُثبت منها.",
+          "D": "صح؛ تتحكم في كيفية تمثيل Marks وعرضها."
+        }
       }
     },
     {
@@ -2359,6 +2911,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Visualizations & Design. الاختيار «Color» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Color property على Marks card تستخدم لتمييز Categories بألوان مختلفة أوتمثيل قيمة لونية.",
+        "options": {
+          "A": "غلط؛ Pages للتحريك/التقسيم حسب Field.",
+          "B": "صح؛ Color هي Property المسؤولة عن الألوان.",
+          "C": "غلط؛ Detail تغير مستوى Granularity.",
+          "D": "غلط؛ Columns Shelf ليست Marks property للون."
+        }
       }
     },
     {
@@ -2409,6 +2973,18 @@
         "ar": "لأن الاختيار «Tooltip» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Tooltip property تضيف معلومات تظهر عندHover على Mark.",
+        "options": {
+          "A": "غلط؛ Color للون.",
+          "B": "صح؛ Tooltip للمعلومات عند Hover.",
+          "C": "غلط؛ Size لحجم Mark.",
+          "D": "غلط؛ Detail للGranularity."
+        }
       }
     },
     {
@@ -2459,6 +3035,18 @@
         "ar": "لأن الاختيار «Worksheets and supporting objects in one interactive layout» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboards, Actions & Stories وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dashboard تجمع Worksheets مع Supporting Objects مثل Text وFilters وImages داخل Interactive Layout واحدة.",
+        "options": {
+          "A": "غلط؛ ليست مجرد Connection logs.",
+          "B": "غلط؛ لا تجمع Calculated formulas فقط.",
+          "C": "صح؛ هذا تعريف Dashboard.",
+          "D": "غلط؛ Passwords ليست محتوى Dashboard."
+        }
       }
     },
     {
@@ -2509,6 +3097,18 @@
         "ar": "لأن الاختيار «A sequence of analytical views or points» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboards, Actions & Stories وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Tableau Story تعرض Sequence من analytical views أوStory Points لشرح التحليل خطوة بخطوة.",
+        "options": {
+          "A": "غلط؛ لا تعرض Hidden passwords.",
+          "B": "صح؛ Sequence of analytical views or points هو الغرض.",
+          "C": "غلط؛ ليست Raw record واحدة.",
+          "D": "غلط؛ ليست قائمة Drivers."
+        }
       }
     }
   ]

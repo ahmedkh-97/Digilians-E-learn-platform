@@ -89,19 +89,40 @@ export function getOfficialQbankState(){
   try{return JSON.parse(localStorage.getItem(KEYS.officialQbank)) || {tracks:{}}}catch{return {tracks:{}}}
 }
 function saveOfficialState(state){localStorage.setItem(KEYS.officialQbank,JSON.stringify(state))}
-export function getOfficialTrackState(trackId){
-  const state=getOfficialQbankState();return state.tracks?.[trackId] || {lastIndex:0,reviewed:[],bookmarks:[],mistakes:[],answers:{}};
+function officialTrackKey(trackId,levelId="junior-data-analysis",sourceRevision="source-r1"){return `${levelId}::${sourceRevision}::${trackId}`}
+function emptyOfficialTrack(){return {lastIndex:0,reviewed:[],bookmarks:[],mistakes:[],answers:{}}}
+export function getOfficialTrackState(trackId,levelId="junior-data-analysis",sourceRevision="source-r1"){
+  const state=getOfficialQbankState();state.tracks ||= {};
+  const key=officialTrackKey(trackId,levelId,sourceRevision);
+  // Safe migration is allowed only for unchanged r1 sources.
+  if(!state.tracks[key] && sourceRevision.endsWith("-r1")){
+    const prior=state.tracks[`${levelId}::${trackId}`] || state.tracks[trackId];
+    if(prior){state.tracks[key]=prior;saveOfficialState(state)}
+  }
+  return state.tracks[key] || emptyOfficialTrack();
 }
-export function updateOfficialTrackState(trackId,patch){
-  const state=getOfficialQbankState();state.tracks ||= {};const current=state.tracks[trackId] || {lastIndex:0,reviewed:[],bookmarks:[],mistakes:[],answers:{}};
-  state.tracks[trackId]={...current,...patch};saveOfficialState(state);return state.tracks[trackId];
+export function updateOfficialTrackState(trackId,patch,levelId="junior-data-analysis",sourceRevision="source-r1"){
+  const state=getOfficialQbankState();state.tracks ||= {};
+  const key=officialTrackKey(trackId,levelId,sourceRevision);
+  let current=state.tracks[key];
+  if(!current && sourceRevision.endsWith("-r1")){
+    current=state.tracks[`${levelId}::${trackId}`] || state.tracks[trackId];
+  }
+  current=current || emptyOfficialTrack();
+  state.tracks[key]={...current,...patch};saveOfficialState(state);return state.tracks[key];
 }
-export function toggleOfficialBookmark(trackId,questionId){
-  const current=getOfficialTrackState(trackId);const set=new Set(current.bookmarks||[]);set.has(questionId)?set.delete(questionId):set.add(questionId);return updateOfficialTrackState(trackId,{bookmarks:[...set]});
+export function toggleOfficialBookmark(trackId,questionId,levelId="junior-data-analysis",sourceRevision="source-r1"){
+  const current=getOfficialTrackState(trackId,levelId,sourceRevision);const set=new Set(current.bookmarks||[]);
+  set.has(questionId)?set.delete(questionId):set.add(questionId);
+  return updateOfficialTrackState(trackId,{bookmarks:[...set]},levelId,sourceRevision);
 }
-export function markOfficialReviewed(trackId,questionId,index){
-  const current=getOfficialTrackState(trackId);const set=new Set(current.reviewed||[]);set.add(questionId);return updateOfficialTrackState(trackId,{reviewed:[...set],lastIndex:index});
+export function markOfficialReviewed(trackId,questionId,index,levelId="junior-data-analysis",sourceRevision="source-r1"){
+  const current=getOfficialTrackState(trackId,levelId,sourceRevision);const set=new Set(current.reviewed||[]);
+  set.add(questionId);
+  return updateOfficialTrackState(trackId,{reviewed:[...set],lastIndex:index},levelId,sourceRevision);
 }
-export function saveOfficialMistakes(trackId,questionIds){
-  const current=getOfficialTrackState(trackId);const set=new Set(current.mistakes||[]);questionIds.forEach(x=>set.add(x));return updateOfficialTrackState(trackId,{mistakes:[...set]});
+export function saveOfficialMistakes(trackId,questionIds,levelId="junior-data-analysis",sourceRevision="source-r1"){
+  const current=getOfficialTrackState(trackId,levelId,sourceRevision);const set=new Set(current.mistakes||[]);
+  questionIds.forEach(x=>set.add(x));
+  return updateOfficialTrackState(trackId,{mistakes:[...set]},levelId,sourceRevision);
 }

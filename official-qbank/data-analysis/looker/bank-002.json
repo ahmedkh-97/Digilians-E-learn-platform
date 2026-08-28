@@ -59,6 +59,18 @@
         "ar": "لأن الاختيار «Their types and values must be compatible enough to match correctly.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Blending وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لكي يعمل Data Blending بشكل صحيح، يجب أن تكون Join Keys في المصدرين متوافقة في النوع والقيم، مثل Date بنفس التنسيق أوCustomer ID بنفس الشكل.",
+        "options": {
+          "A": "غلط؛ ألوان الـCharts لا تؤثر على مطابقة السجلات.",
+          "B": "صح؛ توافق Data Type والقيم هو الأساس لنجاح الـJoin.",
+          "C": "غلط؛ تساوي عدد الأحرف ليس شرطًا عامًا للJoin.",
+          "D": "غلط؛ لا يلزم تجميع Join Key باستخدام AVG قبل الربط."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Reducing unnecessary fields can improve clarity and report performance.» هو التفسير الأقرب للسلوك الصحيح في Data Blending.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "كلما احتوى الـBlend فقط على Fields المطلوبة، أصبح أوضح وأسهل في الصيانة وقد يقل الحمل على التقرير.",
+        "options": {
+          "A": "صح؛ تقليل الحقول غير المستخدمة يحسن الوضوح وقد يساعد الأداء.",
+          "B": "غلط؛ Looker Studio لا تعطل Filters تلقائيًا بسبب وصول Blend لخمسة Fields.",
+          "C": "غلط؛ إضافة Field لا تغيّر Join Type تلقائيًا.",
+          "D": "غلط؛ الحقول غير المستخدمة لا تُنشر تلقائيًا كمصادر عامة."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Calculated Fields & Data Cleaning. الاختيار «A date configuration that retains the year as part of the timeline.» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو كل January من سنوات مختلفة تندمج معًا، فالمشكلة أن Month وحده لا يحتفظ بسياق Year. نحتاج Date configuration تشمل السنة ضمن الـTimeline.",
+        "options": {
+          "A": "غلط؛ Scorecard بعدد الصفحات لا تحل مشكلة تجميع الشهور.",
+          "B": "صح؛ يجب الحفاظ على Year داخل Date timeline.",
+          "C": "غلط؛ Geographic field لا علاقة لها بالمشكلة الزمنية.",
+          "D": "غلط؛ تحويل Month إلىUppercase لا يعيد Year context."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Calculated Fields & Data Cleaning. الاختيار «Zero is a known value, while null usually represents unavailable or missing information.» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Zero قيمة معروفة تساوي صفر، بينما Null عادةً تعني Missing/Unknown. الخلط بينهما قد يغيّر معنى KPIs والتحليل.",
+        "options": {
+          "A": "غلط؛ Null ليست قيمة رقمية أكبر من zero.",
+          "B": "غلط؛ Null لا تتحول تلقائيًا إلى Negative number.",
+          "C": "صح؛ صفر = قيمة معروفة، Null = غالبًا بيانات مفقودة/غير متاحة.",
+          "D": "غلط؛ Scorecard يمكن أن تعرض zero."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & KPIs. الاختيار «Convert or redefine the field using an appropriate date type.» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Time Series تحتاج Field من نوع Date/DateTime. إذا التاريخ مخزن كنص، أول خطوة هي تحويله أوإعادة تعريفه كDate Type صحيحة.",
+        "options": {
+          "A": "غلط؛ Theme تغير التصميم وليس Data Type.",
+          "B": "صح؛ تحويل الحقل إلى Date مناسب يتيح استخدامه زمنيًا.",
+          "C": "غلط؛ وضعه في Scorecard لا يصلح نوع البيانات.",
+          "D": "غلط؛ جمع Text باستخدام SUM غير مناسب."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأن الاختيار «Compare totals and category counts with the original data and expected business rules.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد أي Cleaning Formula يجب التحقق من أن النتائج منطقية بمقارنة Totals وCategory Counts وقواعد العمل مع البيانات الأصلية.",
+        "options": {
+          "A": "غلط؛ تحويل الناتج إلىText دائمًا قد يفسد استخدامه.",
+          "B": "صح؛ Validation بالمقارنة مع الأصل والقواعد أهم خطوة.",
+          "C": "غلط؛ النشر قبل المراجعة يزيد خطر عرض أخطاء.",
+          "D": "غلط؛ حذف Raw fields يمنع التحقق ولا يثبت صحة التنظيف."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن الاختيار «When several known categories must be mapped to standardized labels.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CASE مناسبة عندما توجد مجموعة من القيم المعروفة نريد Mapping لها إلى Labels موحدة، وتكون أوضح من سلسلة IF متداخلة طويلة.",
+        "options": {
+          "A": "غلط؛ Google Account لا علاقة لها بصيغة CASE.",
+          "B": "صح؛ CASE ممتازة لتوحيد عدة Categories معروفة.",
+          "C": "غلط؛ نقل Chart بين الصفحات Layout task.",
+          "D": "غلط؛ Resize صورة لا يحتاج CASE."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «UPPER(TRIM(Customer_Name))» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "TRIM تزيل المسافات الزائدة من بداية ونهاية النص، ثم UPPER تحول الحروف إلىUppercase، لذلك UPPER(TRIM(Customer_Name)) تحقق المطلوب.",
+        "options": {
+          "A": "غلط؛ SUM لا تعمل على Text بهذا الشكل.",
+          "B": "غلط؛ SAFE_DIVIDE للقسمة وليس تنظيف النص.",
+          "C": "غلط؛ COUNT تعد القيم ولا تحقق المطلوب.",
+          "D": "صح؛ تنظف Outer Spaces ثم توحد Case إلىUppercase."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «IFNULL(Discount, 0)» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إذا كان Missing Discount يعني Business-wise عدم وجود خصم، فIFNULL(Discount,0) تستبدل Null بصفر.",
+        "options": {
+          "A": "غلط؛ COUNT_DISTINCT تعد القيم المختلفة.",
+          "B": "صح؛ IFNULL تعيد 0 عندما Discount مفقودة.",
+          "C": "غلط؛ UPPER للنصوص.",
+          "D": "غلط؛ TRIM لإزالة المسافات من النص."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Its data type does not support the intended numerical aggregation.» هو التفسير الأقرب للسلوك الصحيح في Dimensions, Metrics & Aggregation.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUM وAVG تحتاج بيانات رقمية. إذا كانت الأرقام مخزنة Text، فلن يدعم Data Type الـAggregation العددية المطلوبة بشكل صحيح.",
+        "options": {
+          "A": "غلط؛ المشكلة ليست استبعاد Nulls تلقائيًا.",
+          "B": "غلط؛ لا يلزم استخدام Field كControl أولًا.",
+          "C": "غلط؛ SUM وAVG لا تقتصران على Geographic dimensions.",
+          "D": "صح؛ Data Type النصية غير مناسبة للتجميع العددي."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن الاختيار «Add a comparison with a relevant prior period or target.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & KPIs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Total Sales تصبح أكثر فائدة إداريًا عندما نعرضها مع Context مثل مقارنة بالفترة السابقة أوTarget بدل رقم منفرد بلا مرجع.",
+        "options": {
+          "A": "غلط؛ إزالة Label أوتكبير Border لا تضيف Business context.",
+          "B": "غلط؛ Customer ID KPI غير مرتبط لا يفسر الأداء.",
+          "C": "غلط؛ تحويل Sales إلىText يلغي استخدامها كMetric.",
+          "D": "صح؛ Comparison مع prior period أوtarget يوضح اتجاه الأداء."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «A combo chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Combo Chart تسمح بعرض Sales كBars وTarget كLine على نفس المحور الزمني، فتكون المقارنة مباشرة.",
+        "options": {
+          "A": "صح؛ تجمع Bar وLine في Visual واحدة.",
+          "B": "غلط؛ Pie Chart لا تناسب Time trend مع Target line.",
+          "C": "غلط؛ Text box لا تعرض مقارنة كمية ديناميكية.",
+          "D": "غلط؛ Scorecard واحدة لا توضح Sales vs Target عبر الزمن."
+        }
       }
     },
     {
@@ -659,6 +803,18 @@
         "ar": "لأن الاختيار «The time period used by compatible charts in the report.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters & Controls وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Date Range Control تسمح للمستخدم بتغيير الفترة الزمنية التي تستخدمها Charts المتوافقة، مثل Last 30 Days أوCustom Range.",
+        "options": {
+          "A": "غلط؛ لا تغير Owner أوPermissions.",
+          "B": "غلط؛ لا تغير Data Types في Source.",
+          "C": "غلط؛ لا تعدل Calculated Field formulas.",
+          "D": "صح؛ تتحكم في Time Period المستخدمة بواسطة Charts."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Clear names make transformations easier to understand, reuse, and maintain.» هو التفسير الأقرب للسلوك الصحيح في Calculated Fields & Data Cleaning.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "أسماء مثل Clean_Product تجعل Transformation واضحة وتساعد أي محلل يفهم وظيفة Field ويعيد استخدامها ويصونها لاحقًا.",
+        "options": {
+          "A": "صح؛ Descriptive naming تحسن الفهم وإعادة الاستخدام والصيانة.",
+          "B": "غلط؛ الاسم لا يخفي Formula عن Editors.",
+          "C": "غلط؛ Prefix لا يجبر Looker Studio على تصنيف Field كMetric.",
+          "D": "غلط؛ الاسم وحده لا يزيل Duplicates."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Dimensions, Metrics & Aggregation. الاختيار «Product Category as the dimension and SUM(Sales) as the bar metric.» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لمقارنة Sales بين Product Categories، نستخدم Product Category كDimension وSUM(Sales) كMetric في Bar Chart.",
+        "options": {
+          "A": "صح؛ هذا هو التكوين المنطقي للمقارنة بين الفئات.",
+          "B": "غلط؛ Sales ليست Geographic dimension وProduct Category ليست Latitude.",
+          "C": "غلط؛ Product Category لا تُستخدم كDate Range Field.",
+          "D": "غلط؛ عكس Dimension/Metric يجعل التحليل غير منطقي."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن الاختيار «At least one compatible shared key» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Blending وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لكي يكون Blending ذا معنى، يجب وجود Shared Key متوافقة واحدة على الأقل يمكن استخدامها لمطابقة Records بين المصدرين.",
+        "options": {
+          "A": "غلط؛ Background التقرير لا يؤثر على الربط.",
+          "B": "غلط؛ File Name لا يلزم أن يكون نفسه.",
+          "C": "غلط؛ عدد Charts غير مرتبط بالBlend.",
+          "D": "صح؛ Compatible shared key مثل Date أوCustomer ID مطلوبة."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن الاختيار «Combining fields from multiple data sources» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Blending وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Data Blending تستخدم لدمج Fields/Metrics من أكثر من Data Source داخل Analysis أوChart واحدة.",
+        "options": {
+          "A": "غلط؛ Font من Theme/Layout.",
+          "B": "غلط؛ لا تنشئ Google Accounts.",
+          "C": "صح؛ هذا هو الغرض الأساسي للBlending.",
+          "D": "غلط؛ لا تستخدم لحذف Calculated Fields."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن الاختيار «A new field created from a formula» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Calculated Field هي Field جديدة تُنشأ من Formula تعتمد على Fields موجودة، مثل Profit = Revenue - Cost.",
+        "options": {
+          "A": "غلط؛ Copied page ليست Field.",
+          "B": "غلط؛ Background image ليست Data field.",
+          "C": "غلط؛ User access group ليست Calculation.",
+          "D": "صح؛ Formula تنتج Field جديدة."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الاختيار «Missing values» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "IFNULL تُستخدم للتعامل مع Missing/Null values بإرجاع قيمة بديلة عند وجود Null.",
+        "options": {
+          "A": "غلط؛ Page Navigation Feature مختلفة.",
+          "B": "غلط؛ Font choices من Theme.",
+          "C": "غلط؛ Chart borders تصميم.",
+          "D": "صح؛ IFNULL تتعامل مع القيم المفقودة."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Users can find the highest-priority information quickly» هو التفسير الأقرب للسلوك الصحيح في Dashboard Design & Navigation.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "وضع أهم KPIs أعلى الـDashboard يجعل المستخدم يرى المعلومات ذات الأولوية فورًا بدون بحث داخل الصفحة.",
+        "options": {
+          "A": "صح؛ Top placement تدعم Information hierarchy واضحة.",
+          "B": "غلط؛ مكان العنصر لا يغير Aggregation إلىSUM.",
+          "C": "غلط؛ لا يجعل KPI قابلة للتعديل تلقائيًا.",
+          "D": "غلط؛ لا يزيل Nulls."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Consistent meanings make the report easier to understand» هو التفسير الأقرب للسلوك الصحيح في Dashboard Design & Navigation.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "استخدام ألوان بمعاني ثابتة عبر الـDashboard يجعل القراءة أسرع ويقلل الالتباس، مثل Green=positive وRed=negative بشكل متسق.",
+        "options": {
+          "A": "غلط؛ Colors لا تتحكم في Permissions.",
+          "B": "غلط؛ لا تنظف Missing values.",
+          "C": "غلط؛ لا تحول Dimensions إلىMetrics.",
+          "D": "صح؛ الاتساق اللوني يحسن الفهم."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن الاختيار «Restrict charts to selected data values» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters & Controls وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Interactive Filter تسمح للمستخدم باختيار Values محددة وتقييد Charts لتعرض البيانات الموافقة فقط.",
+        "options": {
+          "A": "غلط؛ لا تحول Metric إلىPassword.",
+          "B": "غلط؛ لا تثبت Database Server.",
+          "C": "صح؛ تقيد Charts بالData values المختارة.",
+          "D": "غلط؛ لا تحذف Source records نهائيًا."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن الاختيار «Viewer» هو التعريف أو السلوك الصحيح المرتبط بموضوع Sharing & Delivery وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Viewer Permission تسمح للشخص بمشاهدة التقرير دون تعديل تصميمه أوإعداداته.",
+        "options": {
+          "A": "صح؛ Viewer = View-only.",
+          "B": "غلط؛ Administrator صلاحيات أعلى.",
+          "C": "غلط؛ Editor يستطيع التعديل.",
+          "D": "غلط؛ Owner يملك أعلى تحكم."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن الاختيار «A category or descriptive attribute» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Metrics & Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dimension تصف Category أوAttribute مثل Country أوProduct أوCustomer Name وتستخدم للتقسيم والفلترة.",
+        "options": {
+          "A": "غلط؛ النتيجة الرقمية المجمعة أقرب لMetric.",
+          "B": "صح؛ هذا هو تعريف Dimension.",
+          "C": "غلط؛ ليست Password.",
+          "D": "غلط؛ لا تصف Billing limit."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن الاختيار «A numerical value used for measurement» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Metrics & Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Metric تمثل قيمة رقمية قابلة للقياس أوAggregation مثل Revenue أوOrders أوProfit.",
+        "options": {
+          "A": "غلط؛ Access role ليست Metric.",
+          "B": "صح؛ Metric = Numerical measurement.",
+          "C": "غلط؛ Descriptive category هي Dimension.",
+          "D": "غلط؛ Navigation icon ليست Metric."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Calculated Fields & Data Cleaning. الاختيار «To identify and correct data-quality problems» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Data Cleaning تهدف لاكتشاف وتصحيح مشكلات الجودة مثل Missing Values وDuplicates وWrong Types وInconsistent Text.",
+        "options": {
+          "A": "صح؛ هذا هو الهدف الأساسي.",
+          "B": "غلط؛ إضافة Decorative images ليست Cleaning.",
+          "C": "غلط؛ لا تنشئ Google Account.",
+          "D": "غلط؛ لا تغير Viewer permissions."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «A duplicate record» هو التفسير الأقرب للسلوك الصحيح في Dashboard Design & Navigation.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عندما نفس Record يظهر أكثر من مرة بدون داعٍ، فهذه Duplicate Record وقد تؤدي إلىDouble counting.",
+        "options": {
+          "A": "غلط؛ Theme تصميم بصري.",
+          "B": "غلط؛ Geographic Role تخص الموقع.",
+          "C": "صح؛ Duplicate record هي التسمية الصحيحة.",
+          "D": "غلط؛ Date range فترة زمنية."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن الاختيار «Removes unnecessary outer spaces» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "TRIM تزيل المسافات غير الضرورية من بداية ونهاية Text value.",
+        "options": {
+          "A": "صح؛ هذا هو استخدام TRIM.",
+          "B": "غلط؛ لا تحول النص إلىDate range.",
+          "C": "غلط؛ لا تعمل Data Blending.",
+          "D": "غلط؛ لا تحسب Average رقمي."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «A line chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Line Chart مناسبة لعرض تغير Metric عبر الزمن وإظهار Trend.",
+        "options": {
+          "A": "غلط؛ Page divider Layout element.",
+          "B": "غلط؛ Static image لا تعكس Data trend ديناميكيًا.",
+          "C": "صح؛ Line chart هي الاختيار المناسب.",
+          "D": "غلط؛ Text heading ليست Visualization للTrend."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «A bar chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Bar Chart مناسبة لمقارنة قيم Metric بين Categories منفصلة.",
+        "options": {
+          "A": "غلط؛ Sharing dialog ليست Chart.",
+          "B": "صح؛ Bar chart ممتازة للمقارنات الفئوية.",
+          "C": "غلط؛ Date selector Control.",
+          "D": "غلط؛ Report title نص."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن الاختيار «To display an important metric prominently» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & KPIs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Scorecard وظيفتها إبراز Metric مهمة واحدة مثل Total Revenue أوConversion Rate بشكل واضح.",
+        "options": {
+          "A": "صح؛ هذا هو دورها الأساسي.",
+          "B": "غلط؛ Table هي الأنسب لعرض كل Rows.",
+          "C": "غلط؛ لا تغير Data Credentials.",
+          "D": "غلط؛ لا تنظف Text Fields."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن الاختيار «Google Sheets» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Sources & Connectors وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Google Sheets من المصادر المدعومة مباشرة في Looker Studio ويمكن ربطها كData Source.",
+        "options": {
+          "A": "صح؛ Google Sheets Connector مدعوم مباشرة.",
+          "B": "غلط؛ Google Keep drawings ليست Data Source قياسية.",
+          "C": "غلط؛ Google Photos albums ليست Source تحليلية مباشرة هنا.",
+          "D": "غلط؛ Calendar reminders ليست المصدر المقصود."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن الاختيار «CSV» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Sources & Connectors وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CSV File يمكن رفعها واستخدامها كمصدر بيانات جدولي، بخلاف ملفات تنفيذية مثل EXE/BAT/DLL.",
+        "options": {
+          "A": "غلط؛ DLL ملف مكتبة تنفيذية.",
+          "B": "غلط؛ BAT Script file.",
+          "C": "صح؛ CSV Data file مدعوم.",
+          "D": "غلط؛ EXE ملف تنفيذي."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن الاختيار «Converts letters to uppercase» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "UPPER تحول أحرف النص إلىUppercase مع الحفاظ على محتوى النص نفسه.",
+        "options": {
+          "A": "صح؛ هذا هو الغرض من UPPER.",
+          "B": "غلط؛ لا تنشئ Permissions.",
+          "C": "غلط؛ لا تحسب Total Sales.",
+          "D": "غلط؛ لا تزيل Duplicate rows."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن الاختيار «Converts letters to lowercase» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Data Cleaning وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "LOWER تحول أحرف النص إلىLowercase، وتفيد في Standardization قبل المقارنة أوالتجميع.",
+        "options": {
+          "A": "غلط؛ لا تحول Nulls إلىDates.",
+          "B": "غلط؛ لا تبني Combo Chart.",
+          "C": "غلط؛ لا تضبط Scheduled Email.",
+          "D": "صح؛ تحول الحروف إلىLowercase."
+        }
       }
     }
   ]

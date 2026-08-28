@@ -59,6 +59,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «It calculates sales totals for each category» هو التفسير الأقرب للسلوك الصحيح في Aggregation & GROUP BY.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الاستعلام يجمع Rows حسب Category ثم يحسب SUM(Sales) داخل كل Group، فالناتج يكون إجمالي المبيعات لكل Category بشكل مستقل.",
+        "options": {
+          "A": "صح؛ GROUP BY Category ينشئ Group لكل Category وSUM(Sales) تحسب Total Sales داخل كل Group.",
+          "B": "غلط؛ لا يوجد ORDER BY في الاستعلام، لذلك لا يطلب ترتيب Categories أبجديًا.",
+          "C": "غلط؛ GROUP BY لا يعني إزالة كل المنتجات المكررة؛ هو يجمع الصفوف لأغراض Aggregation.",
+          "D": "غلط؛ لو المطلوب Total واحد للشركة بالكامل كنا هنستخدم SUM(Sales) بدون GROUP BY Category."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «One row per department with its employee count». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "GROUP BY Department تجمع الموظفين حسب القسم، وCOUNT(*) تعد عدد Rows في كل Group، لذلك يرجع Row واحدة لكل Department مع عدد الموظفين.",
+        "options": {
+          "A": "غلط؛ التجميع يقلل عدة Employee rows إلى نتيجة واحدة لكل Department.",
+          "B": "صح؛ كل Department يظهر مرة واحدة ومعه COUNT الموظفين.",
+          "C": "غلط؛ الاستعلام لا يبحث فقط عن Duplicates؛ كل Department موجود يظهر.",
+          "D": "غلط؛ وجود GROUP BY يمنع النتيجة من أن تكون Count واحدة لكل الجدول."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Aggregation & GROUP BY. الاختيار «Calculate total value across rows» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "التعبير يضرب Quantity × Price لكل Row ثم يجمع النتائج، فيمثل إجمالي القيمة عبر الصفوف.",
+        "options": {
+          "A": "غلط؛ COUNT هي الوظيفة المناسبة لعد Rows أوProducts، وليس SUM لهذا التعبير.",
+          "B": "صح؛ Quantity*Price تعطي قيمة Row، وSUM تجمع قيم كل Rows.",
+          "C": "غلط؛ MAX(Price) هي التي تبحث عن أعلى Unit Price.",
+          "D": "غلط؛ AVG(Quantity) هي التي تحسب متوسط Quantity."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن كل Function/Feature في Aggregation & GROUP BY لها وظيفة محددة. «WHERE» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Salary > 5000 شرط على كل Employee row قبل أي Grouping، ولذلك مكانه الطبيعي WHERE.",
+        "options": {
+          "A": "صح؛ WHERE تفرز Rows الفردية قبل GROUP BY.",
+          "B": "غلط؛ HAVING تُستخدم عادةً لفلترة Groups بعد Aggregation.",
+          "C": "غلط؛ ORDER BY للترتيب وليس التصفية.",
+          "D": "غلط؛ SELECT DISTINCT لإزالة التكرار من النتيجة، وليس لوضع شروط Row-level."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن الاختيار «LEFT JOIN» هو التعريف أو السلوك الصحيح المرتبط بموضوع JOINs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "LEFT JOIN تحتفظ بكل Rows من Left Table سواء وجدت Match في Right Table أم لا، وتظهر NULL في أعمدة اليمين عند عدم وجود Match.",
+        "options": {
+          "A": "غلط؛ INNER JOIN ترجع Matches فقط.",
+          "B": "غلط؛ CROSS JOIN تنتج كل Combinations الممكنة.",
+          "C": "صح؛ LEFT JOIN تحفظ كل Rows من الجدول اليسار.",
+          "D": "غلط؛ SELF JOIN هو Join للجدول بنفسه وليس تعريف الاحتفاظ بكل Left rows."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «Rows with matching values in the joined tables». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "INNER JOIN ترجع فقط Rows التي تحقق شرط المطابقة بين الجداول، مثل نفس CustomerID في Customers وOrders.",
+        "options": {
+          "A": "صح؛ Matching rows هي جوهر INNER JOIN.",
+          "B": "غلط؛ ده أقرب لسلوك LEFT JOIN.",
+          "C": "غلط؛ ده أقرب للاحتفاظ بالRight side وليس INNER JOIN.",
+          "D": "غلط؛ كل combinations هي CROSS JOIN."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن الاختيار «Salaries from 4000 through 7000, including the two limits» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "BETWEEN في SQL تشمل الحدين، لذلك Salary BETWEEN 4000 AND 7000 تعني Salary >= 4000 وSalary <= 7000.",
+        "options": {
+          "A": "غلط؛ الاختيار يستبعد الحدين بينما BETWEEN تشملهم عادةً.",
+          "B": "صح؛ من 4000 إلى 7000 مع تضمين الحدين.",
+          "C": "غلط؛ ده عكس Range المطلوب.",
+          "D": "غلط؛ الشرط لا يساوي 4000 فقط بل مدى كامل."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «Finds names ending with son». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في LIKE، % قبل كلمة son يعني أي Prefix مسموح، وعدم وجود % بعدها يعني النص لازم ينتهي بـson.",
+        "options": {
+          "A": "غلط؛ لو يبدأ بـson كانت الصيغة 'son%'.",
+          "B": "صح؛ '%son' تعني Names ending with son.",
+          "C": "غلط؛ لو المطلوب يحتوي son في أي مكان تكون '%son%'.",
+          "D": "غلط؛ الصيغة تبحث عن وجود son في النهاية، لا غيابه."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن الاختيار «Department IN ('HR', 'Finance')» هو التعريف أو السلوك الصحيح المرتبط بموضوع SQL Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "IN مناسبة لاختبار نفس Column مقابل قائمة قيم بديلة، مثل HR أو Finance.",
+        "options": {
+          "A": "غلط؛ نفس Department لا يمكن أن يساوي HR وFinance في نفس الوقت.",
+          "B": "صح؛ IN ('HR','Finance') تعني أي واحدة من القيمتين.",
+          "C": "غلط؛ BETWEEN للمدى وليس قائمة Departments منفصلة.",
+          "D": "غلط؛ LIKE 'HR,Finance' تبحث عن Pattern نصي واحد بهذا الشكل."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT DISTINCT Department FROM Employees;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DISTINCT تزيل القيم المكررة من نتيجة SELECT، لذلك كل Department يظهر مرة واحدة.",
+        "options": {
+          "A": "غلط؛ SELECT Department بدون DISTINCT يعيد كل الصفوف بما فيها التكرار.",
+          "B": "غلط؛ UNIQUE ليست الصياغة القياسية المطلوبة في SELECT هنا.",
+          "C": "صح؛ SELECT DISTINCT Department يعيد Unique department names.",
+          "D": "غلط؛ الصياغة غير صحيحة ولا تستخدم GROUP BY بطريقة سليمة."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «ORDER BY Salary DESC» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DESC تعني Descending، وبالتالي ORDER BY Salary DESC تضع أعلى Salary أولًا.",
+        "options": {
+          "A": "غلط؛ ORDER BY Salary بدون تحديد غالبًا يكون ASC افتراضيًا.",
+          "B": "غلط؛ ASC يرتب من الأقل للأعلى.",
+          "C": "صح؛ DESC يرتب من الأعلى للأقل.",
+          "D": "غلط؛ GROUP BY ليس Clause للترتيب."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن الاختيار «Name LIKE 'A%'» هو التعريف أو السلوك الصحيح المرتبط بموضوع Subqueries & CTEs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "LIKE 'A%' تعني النص يبدأ بالحرف A ثم يمكن أن يأتي بعده أي عدد من الأحرف.",
+        "options": {
+          "A": "غلط؛ '%A' تعني ينتهي بـA.",
+          "B": "صح؛ 'A%' تعني يبدأ بـA.",
+          "C": "غلط؛ '%A%' تعني يحتوي A في أي مكان.",
+          "D": "غلط؛ = لا تفسر % كWildcard."
+        }
       }
     },
     {
@@ -659,6 +803,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «Average salary». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "AVG(Salary) تحسب Arithmetic Mean لقيم Salary غير NULL: مجموع القيم ÷ عدد القيم المحتسبة.",
+        "options": {
+          "A": "غلط؛ SUM تعيد إجمالي الرواتب.",
+          "B": "غلط؛ MAX تعيد أعلى Salary.",
+          "C": "صح؛ AVG تعيد متوسط Salary.",
+          "D": "غلط؛ COUNT تعيد عدد القيم/الصفوف حسب الصيغة."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأن الاختيار «MIN» هو التعريف أو السلوك الصحيح المرتبط بموضوع Other وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "MIN هي Aggregate Function التي تعيد أصغر قيمة ضمن المجموعة أو النتيجة الحالية.",
+        "options": {
+          "A": "غلط؛ MAX تعيد أكبر قيمة.",
+          "B": "غلط؛ AVG تعيد المتوسط.",
+          "C": "صح؛ MIN تعيد Minimum value.",
+          "D": "غلط؛ SUM تجمع القيم."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن كل Function/Feature في Aggregation & GROUP BY لها وظيفة محددة. «ORDER BY» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ORDER BY تتحكم في ترتيب Rows النهائية وفق Column أوExpression وباتجاه ASC أوDESC.",
+        "options": {
+          "A": "غلط؛ GROUP BY للتجميع.",
+          "B": "صح؛ ORDER BY للSorting.",
+          "C": "غلط؛ HAVING لفلترة Groups.",
+          "D": "غلط؛ DISTINCT لإزالة Duplicate rows من النتيجة."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن الاختيار «ColumnName IS NULL» هو التعريف أو السلوك الصحيح المرتبط بموضوع Keys & Constraints وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "NULL تمثل Missing/Unknown value، والاختبار القياسي لها هو IS NULL وليس = NULL.",
+        "options": {
+          "A": "غلط؛ المقارنة باستخدام = NULL لا تعمل كاختبار NULL الصحيح.",
+          "B": "صح؛ ColumnName IS NULL هي الصياغة الصحيحة.",
+          "C": "غلط؛ == ليست الصياغة القياسية ولا تحل مشكلة NULL semantics.",
+          "D": "غلط؛ ترتيب الكلمات والصياغة غير صحيحين."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن كل Function/Feature في Aggregation & GROUP BY لها وظيفة محددة. «GROUP BY» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "GROUP BY تجمع Rows التي تشترك في نفس قيمة Column أوCombination من الأعمدة لتطبيق Aggregates على كل Group.",
+        "options": {
+          "A": "غلط؛ WHERE لفلترة Rows.",
+          "B": "غلط؛ ORDER BY للترتيب.",
+          "C": "صح؛ GROUP BY هي Clause الخاصة بتجميع الصفوف المشتركة.",
+          "D": "غلط؛ DISTINCT BY ليست Clause قياسية بهذا الاسم."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن الاختيار «AVG» هو التعريف أو السلوك الصحيح المرتبط بموضوع Other وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "AVG هي Aggregate Function المخصصة لحساب Mean للقيم الرقمية غير NULL.",
+        "options": {
+          "A": "غلط؛ SUM تعيد Total.",
+          "B": "غلط؛ MAX تعيد أعلى قيمة.",
+          "C": "صح؛ AVG تعيد Mean.",
+          "D": "غلط؛ COUNT تعيد عدد القيم أوRows."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الاختيار «ORDER BY» هو التعريف أو السلوك الصحيح المرتبط بموضوع Aggregation & GROUP BY وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ORDER BY هي Clause القياسية المستخدمة لترتيب Query Results.",
+        "options": {
+          "A": "صح؛ ORDER BY تنفذ Sorting.",
+          "B": "غلط؛ GROUP BY تنشئ Groups.",
+          "C": "غلط؛ WHERE تفرز Rows حسب شرط.",
+          "D": "غلط؛ HAVING تفرز Groups بعد Aggregation."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن الاختيار «Every connected condition must be true» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "AND تربط Conditions بحيث يجب أن تكون كلها True حتى يعتبر Row مطابقًا للشرط.",
+        "options": {
+          "A": "غلط؛ ده سلوك OR.",
+          "B": "صح؛ كل الشروط المرتبطة بـAND يجب أن تتحقق.",
+          "C": "غلط؛ AND لا تطلب أن تكون كلها False.",
+          "D": "غلط؛ منطق AND يعتمد على كل الشروط، مش أول شرط فقط."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن الاختيار «At least one condition can be true» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "OR ترجع True إذا تحقق شرط واحد على الأقل من الشروط المتصلة.",
+        "options": {
+          "A": "صح؛ يكفي Condition واحدة True.",
+          "B": "غلط؛ ده سلوك AND.",
+          "C": "غلط؛ OR تعمل مع شروط نصية ورقمية وغيرها.",
+          "D": "غلط؛ يمكن استخدام Text comparisons داخل OR بشكل طبيعي."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن كل Function/Feature في Filtering & Sorting لها وظيفة محددة. «<>» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "<> هي Operator القياسية في SQL للدلالة على Not Equal، مع وجود != أيضًا في أنظمة كثيرة، لكن الإجابة الرسمية هنا <>.",
+        "options": {
+          "A": "غلط؛ >= تعني Greater Than or Equal.",
+          "B": "غلط؛ <= تعني Less Than or Equal.",
+          "C": "صح؛ <> تعني Not Equal في SQL القياسية.",
+          "D": "غلط؛ == ليست Operator القياسية العامة في SQL."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «DELETE» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DELETE Statement تزيل Rows من Table، ويمكن تحديد Rows المستهدفة باستخدام WHERE.",
+        "options": {
+          "A": "غلط؛ REMOVE ليست SQL DML statement القياسية.",
+          "B": "غلط؛ DROP COLUMN تزيل Column من Structure الجدول.",
+          "C": "صح؛ DELETE تستخدم لحذف Rows.",
+          "D": "غلط؛ SELECT تسترجع بيانات ولا تحذفها."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «UPDATE» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "UPDATE Statement تعدل القيم الموجودة في Rows حالية باستخدام SET، وغالبًا تقيد Rows بـWHERE.",
+        "options": {
+          "A": "صح؛ UPDATE هي Statement تعديل Rows.",
+          "B": "غلط؛ SELECT للاسترجاع.",
+          "C": "غلط؛ CREATE لإنشاء Objects جديدة.",
+          "D": "غلط؛ GROUP BY لتجميع النتائج."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «INSERT» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "INSERT Statement تضيف Row جديدة أو أكثر إلى Table.",
+        "options": {
+          "A": "غلط؛ SELECT لاسترجاع البيانات.",
+          "B": "صح؛ INSERT تستخدم لإضافة Rows جديدة.",
+          "C": "غلط؛ DROP لإزالة Object مثل Table.",
+          "D": "غلط؛ ORDER BY للترتيب."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن الاختيار «DISTINCT» هو التعريف أو السلوك الصحيح المرتبط بموضوع Subqueries & CTEs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DISTINCT تجعل SELECT تعيد كل Combination مختار مرة واحدة فقط، فتزيل Duplicate rows من النتيجة.",
+        "options": {
+          "A": "صح؛ DISTINCT هي الكلمة القياسية المطلوبة.",
+          "B": "غلط؛ UNIQUE ROW ليست صياغة SELECT القياسية هنا.",
+          "C": "غلط؛ GROUP ROW ليست Keyword صحيحة.",
+          "D": "غلط؛ REMOVE ليست Keyword لإزالة Duplicate query results."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأن كل Function/Feature في Other لها وظيفة محددة. «COUNT» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNT هي Aggregate Function المستخدمة لعد Rows أوقيم بحسب الصيغة، مثل COUNT(*) أوCOUNT(Column).",
+        "options": {
+          "A": "غلط؛ SUM تجمع أرقام.",
+          "B": "صح؛ COUNT للعد.",
+          "C": "غلط؛ AVG للمتوسط.",
+          "D": "غلط؛ MIN لأصغر قيمة."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن كل Function/Feature في Other لها وظيفة محددة. «MAX» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "MAX تعيد أكبر قيمة في Column أوGroup.",
+        "options": {
+          "A": "غلط؛ MIN تعيد أصغر قيمة.",
+          "B": "غلط؛ COUNT تعد القيم.",
+          "C": "صح؛ MAX تعيد Highest value.",
+          "D": "غلط؛ AVG تعيد المتوسط."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن كل Function/Feature في Other لها وظيفة محددة. «SUM» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUM هي Aggregate Function المخصصة لجمع Numeric Values.",
+        "options": {
+          "A": "غلط؛ AVG تحسب المتوسط.",
+          "B": "صح؛ SUM تجمع القيم الرقمية.",
+          "C": "غلط؛ COUNT تعد القيم.",
+          "D": "غلط؛ MAX تعيد أكبر قيمة."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT * FROM Employees;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "النجمة * في SELECT تعني جميع الأعمدة من الجدول المحدد في FROM.",
+        "options": {
+          "A": "غلط؛ SELECT ALL FROM ليست الصياغة القياسية لاختيار كل Columns.",
+          "B": "صح؛ SELECT * FROM Employees; تعيد جميع أعمدة Employees.",
+          "C": "غلط؛ ترتيب SELECT وFROM والنجمة غير صحيح.",
+          "D": "غلط؛ SQL القياسية تبدأ SELECT ثم FROM."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن الاختيار «Filters rows using a condition» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "WHERE تطبق Condition على Rows وتحتفظ فقط بالRows التي تحقق الشرط.",
+        "options": {
+          "A": "صح؛ WHERE للRow filtering.",
+          "B": "غلط؛ Sorting يتم بـORDER BY.",
+          "C": "غلط؛ Grouping يتم بـGROUP BY.",
+          "D": "غلط؛ Rename يتم عادةً بأوامر DDL مثل ALTER حسب النظام."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن الاختيار «FROM» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "FROM تحدد Table أوSource الذي ستقرأ منه SELECT البيانات.",
+        "options": {
+          "A": "غلط؛ WHERE تضيف Conditions.",
+          "B": "صح؛ FROM تحدد مصدر البيانات.",
+          "C": "غلط؛ ORDER جزء من ORDER BY للترتيب.",
+          "D": "غلط؛ VALUES تستخدم عادةً مع INSERT أوConstructs أخرى وليس لتحديد Table المصدر."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن الاختيار «SELECT» هو التعريف أو السلوك الصحيح المرتبط بموضوع SQL Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SELECT هي DQL Statement الأساسية لاسترجاع Rows وColumns من Table أوView أوQuery أخرى.",
+        "options": {
+          "A": "صح؛ SELECT تسترجع البيانات.",
+          "B": "غلط؛ UPDATE تعدل البيانات.",
+          "C": "غلط؛ DELETE تحذف Rows.",
+          "D": "غلط؛ INSERT تضيف Rows."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن الاختيار «Ascending order» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ASC اختصار Ascending، ويعني ترتيب القيم من الأصغر للأكبر أو أبجديًا من A إلى Z حسب نوع البيانات.",
+        "options": {
+          "A": "غلط؛ Descending هي DESC.",
+          "B": "صح؛ ASC = Ascending order.",
+          "C": "غلط؛ لا يعني Random.",
+          "D": "غلط؛ لا يعني Grouped order."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن الاختيار «Descending order» هو التعريف أو السلوك الصحيح المرتبط بموضوع SQL Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DESC اختصار Descending، ويعني ترتيب القيم من الأكبر للأصغر أو أبجديًا عكسيًا حسب نوع البيانات.",
+        "options": {
+          "A": "غلط؛ Ascending هي ASC.",
+          "B": "غلط؛ Distinct مفهوم مختلف لإزالة التكرارات.",
+          "C": "صح؛ DESC = Descending order.",
+          "D": "غلط؛ لا علاقة لها بالGrouping."
+        }
       }
     }
   ]

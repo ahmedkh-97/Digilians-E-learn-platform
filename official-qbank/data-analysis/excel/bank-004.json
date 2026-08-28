@@ -59,6 +59,18 @@
         "ar": "لأن الاختيار «Power Pivot» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Pivot & DAX وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Power Pivot هو الجزء المصمم داخل Excel لبناء Data Model يحتوي جداول متعددة وعلاقات بينها، والتعامل مع أحجام بيانات أكبر من التحليل التقليدي بورقة واحدة.",
+        "options": {
+          "A": "صح؛ Power Pivot يدعم Data Model والعلاقات بين Customers وProducts وDates وSales.",
+          "B": "غلط؛ WordArt للتنسيق البصري للنصوص وليس لنمذجة البيانات.",
+          "C": "غلط؛ Flash Fill للتعرف على Patterns في النصوص والبيانات، وليس لبناء Relationships.",
+          "D": "غلط؛ Scenario Manager أداة What-if Analysis وليس Data Modeling."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأن الاختيار «One-to-many» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Pivot & DAX وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Customers فيها صف واحد لكل CustomerID وSales فيها معاملات كثيرة لنفس العميل، فالعلاقة الطبيعية هي One-to-Many من Customers إلى Sales.",
+        "options": {
+          "A": "غلط؛ One-to-One تحتاج قيمة واحدة مقابلة لقيمة واحدة في الجدولين.",
+          "B": "صح؛ Customer واحد يمكن أن يكون له Transactions كثيرة.",
+          "C": "غلط؛ منطق Many-to-One يصف الاتجاه المعاكس، لكن السؤال يطلب نوع العلاقة من Customers إلى Sales.",
+          "D": "غلط؛ Many-to-Many ليست مناسبة طالما CustomerID فريد في جدول Customers."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Power Pivot & DAX. الاختيار «Total Sales := SUM(Sales[Amount])» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـMeasure الديناميكية لازم تُحسب وقت الاستعلام داخل Filter Context الحالي. SUM(Sales[Amount]) كـMeasure تتغير تلقائيًا حسب Slicers وFilters.",
+        "options": {
+          "A": "صح؛ SUM هي DAX Aggregation صحيحة لحساب Total Sales كـMeasure.",
+          "B": "غلط؛ ADD ليست دالة DAX القياسية لهذا الغرض.",
+          "C": "غلط؛ TOTAL ليست الصيغة القياسية لجمع Column في DAX.",
+          "D": "غلط؛ SUMIF دالة Excel Worksheet وليست صيغة DAX المناسبة هنا."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن الاختيار «CALCULATE» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Pivot & DAX وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CALCULATE هي الدالة الأساسية في DAX لتغيير أو إضافة Filter Context أثناء تقييم Expression، لذلك تُستخدم لحساب Sales لRegion محددة مع احترام باقي سياق التقرير.",
+        "options": {
+          "A": "غلط؛ SUM تجمع فقط ولا تعدل Filter Context بنفسها.",
+          "B": "صح؛ CALCULATE تعدل Filter Context ثم تقيم التعبير.",
+          "C": "غلط؛ COUNT تعد القيم أو الصفوف حسب نوع الدالة ولا تغير السياق المطلوب.",
+          "D": "غلط؛ CONCATENATE دالة نصية."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن الاختيار «$B$2» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما Tax Rate في B2 لازم يفضل ثابت عند النسخ رأسيًا وأفقيًا، نستخدم Absolute Reference $B$2 لتثبيت العمود B والصف 2 معًا.",
+        "options": {
+          "A": "غلط؛ B2 Relative ويتغير في الاتجاهين.",
+          "B": "غلط؛ $B2 يثبت العمود فقط ويترك الصف يتغير.",
+          "C": "غلط؛ B$2 يثبت الصف فقط ويترك العمود يتغير.",
+          "D": "صح؛ $B$2 يثبت الاثنين."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأن الاختيار «$A2» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو الـFormula لازم تفضل تشير دائمًا إلى Column A لكن Row تتغير عند النسخ لأسفل، نثبت العمود فقط: $A2.",
+        "options": {
+          "A": "غلط؛ $A$2 يثبت العمود والصف معًا.",
+          "B": "غلط؛ A$2 يثبت الصف ويترك العمود نسبيًا.",
+          "C": "صح؛ $A2 يثبت Column A ويترك Row متغيرة.",
+          "D": "غلط؛ A2 يترك العمود والصف نسبيين."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن الاختيار «=$F2>100000» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Cleaning & Validation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Conditional Formatting لتلوين Row كاملة بناءً على قيمة Column F، نثبت العمود F بـ$ ونترك رقم الصف نسبيًا حتى يتغير لكل Row: =$F2>100000.",
+        "options": {
+          "A": "صح؛ Column F ثابت وRow تتغير حسب كل صف في النطاق.",
+          "B": "غلط؛ F$2 يثبت Row 2 لكل الصفوف، وده لا يختبر كل Row على حدة.",
+          "C": "غلط؛ $F$2 يثبت الخلية نفسها لجميع الصفوف.",
+          "D": "غلط؛ F2 بدون تثبيت العمود قد يتحرك Reference عند تطبيق Rule على Columns متعددة."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Excel Fundamentals. الاختيار «Data Validation – List» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Data Validation بنوع List هي الميزة المناسبة لإنشاء Drop-down من قيم محددة مثل Finance وHR وSales وIT.",
+        "options": {
+          "A": "غلط؛ Conditional Formatting تغير شكل الخلية ولا تقيد اختيار المستخدم.",
+          "B": "صح؛ Data Validation – List تنشئ قائمة اختيار محددة.",
+          "C": "غلط؛ Solver أداة Optimization.",
+          "D": "غلط؛ Goal Seek تبحث عن Input يحقق Target."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Excel Tables & Structured References. الاختيار «Structured references can be used» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Excel Tables تدعم Structured References، يعني تقدر تشير للأعمدة بأسمائها بدل References تقليدية، وده يحسن القراءة ويواكب تمدد الجدول.",
+        "options": {
+          "A": "غلط؛ Tables لا تلغي كل Calculation Errors.",
+          "B": "صح؛ Structured References من أهم مزايا Excel Tables.",
+          "C": "غلط؛ Table لا تنشئ VBA Macros تلقائيًا.",
+          "D": "غلط؛ Tables تدعم Sorting وFiltering ولا تمنعهم."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن الاختيار «SalesData[Amount]» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Structured Reference لعمود Amount داخل Table اسمها SalesData تكتب SalesData[Amount].",
+        "options": {
+          "A": "غلط؛ النقطة . ليست Syntax القياسية للـStructured Reference.",
+          "B": "صح؛ اسم Table ثم اسم Column بين [].",
+          "C": "غلط؛ ! تستخدم عادةً للفصل بين Sheet Name وCell Reference.",
+          "D": "غلط؛ الصياغة [SalesData].Amount ليست Structured Reference صحيحة."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «TEXTJOIN» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "TEXTJOIN مناسبة لدمج عدة Text Values باستخدام Delimiter مثل المسافة، ومع Argument ignore_empty=TRUE تقدر تتجاهل الخلايا الفارغة بدون إنتاج مسافات زائدة.",
+        "options": {
+          "A": "غلط؛ CONCATENATE يمكنها الدمج لكنها لا تقدم تجاهل Blank Cells بنفس مرونة TEXTJOIN.",
+          "B": "صح؛ TEXTJOIN تجمع النصوص بفاصل وتستطيع تجاهل الفراغات.",
+          "C": "غلط؛ SPLIT تفصل النص بدل دمجه.",
+          "D": "غلط؛ MERGE ليست دالة Text قياسية لهذا الغرض."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «TEXTSPLIT» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "TEXTSPLIT مصممة لتقسيم Text ديناميكيًا باستخدام Delimiter. لو النص London,UK,England فالـComma هو الفاصل المناسب.",
+        "options": {
+          "A": "غلط؛ TEXTJOIN تدمج النصوص بدل تقسيمها.",
+          "B": "صح؛ TEXTSPLIT تقسم النص إلى أجزاء بناءً على الفاصل.",
+          "C": "غلط؛ CONCAT تدمج Text.",
+          "D": "غلط؛ LEFT تستخرج عدد حروف من البداية ولا تقسم كل الأجزاء."
+        }
       }
     },
     {
@@ -659,6 +803,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=MID(A2,5,4)» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في ABC-2026-001 تبدأ سنة 2026 من الحرف الخامس وطولها 4 حروف، لذلك MID(A2,5,4) هي الصيغة المناسبة.",
+        "options": {
+          "A": "غلط؛ LEFT(A2,4) ستعيد أول 4 حروف مثل ABC- وليس 2026.",
+          "B": "غلط؛ RIGHT(A2,4) سترجع آخر 4 حروف مثل -001 أو حسب طول النص.",
+          "C": "صح؛ MID من Position 5 بطول 4 يعيد 2026.",
+          "D": "غلط؛ البداية والطول لا يطابقان الجزء المطلوب."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأن الاختيار «Goal Seek» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Goal Seek مناسب عندما تعرف النتيجة المطلوبة في Formula وتريد Excel يغيّر Input واحد للوصول إليها.",
+        "options": {
+          "A": "غلط؛ Solver أقوى عندما يكون عندك عدة Variables وConstraints، لكنه ليس الأداة الأبسط للحالة ذات Input واحد.",
+          "B": "صح؛ Goal Seek مصممة لمعادلة Target واحد بتغيير Cell واحدة.",
+          "C": "غلط؛ Scenario Manager يقارن سيناريوهات Inputs مختلفة ولا يحل Target تلقائيًا.",
+          "D": "غلط؛ Data Table تعرض نتائج متعددة لمدخلات مختلفة ضمن What-if Analysis."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع General Formulas & Functions. الاختيار «Solver» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Solver يستخدم Optimization مع عدة Decision Variables وConstraints، مثل تعظيم Profit مع حدود Labor وMaterial وBudget.",
+        "options": {
+          "A": "غلط؛ Goal Seek يغيّر Input واحد فقط للوصول إلى Target ولا يتعامل جيدًا مع عدة Constraints.",
+          "B": "صح؛ Solver هو الأنسب لمسائل Optimization متعددة القيود.",
+          "C": "غلط؛ Flash Fill لمعالجة Patterns.",
+          "D": "غلط؛ Remove Duplicates لتنظيف التكرار."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Charts & Dashboard Design. الاختيار «Scatter chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Scatter Chart هي الأنسب لدراسة العلاقة بين متغيرين Numeric Continuous، مثل Advertising Spend وSales، لأنها تضع كل Observation كنقطة على محوري X وY.",
+        "options": {
+          "A": "غلط؛ Pie لعرض Parts of Whole.",
+          "B": "صح؛ Scatter توضح Association/Correlation بين متغيرين رقميين.",
+          "C": "غلط؛ Doughnut للComposition.",
+          "D": "غلط؛ Stacked Bar للمقارنة والتركيب بين Categories."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن الاختيار «Remove Duplicates» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Cleaning & Validation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Remove Duplicates تحذف السجلات المتكررة فعليًا من الـWorking Range اعتمادًا على الأعمدة المختارة.",
+        "options": {
+          "A": "صح؛ هي الأداة المخصصة للحذف الدائم للتكرارات من النطاق.",
+          "B": "غلط؛ UNIQUE ترجع قائمة فريدة ديناميكية لكنها لا تحذف الـSource Records نفسها.",
+          "C": "غلط؛ Conditional Formatting قد يبرز التكرارات فقط.",
+          "D": "غلط؛ Goal Seek غير متعلق بتنظيف البيانات."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «Advanced Filter» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Advanced Filter تدعم Criteria Range فيها شروط مركبة AND/OR، وتقدر تطبق منطق مثل East مع Sales>50000 أو West مع Sales>100000.",
+        "options": {
+          "A": "صح؛ Advanced Filter تدعم Criteria Range ومنطق مركب.",
+          "B": "غلط؛ Find and Replace للبحث والاستبدال وليس Complex Filtering.",
+          "C": "غلط؛ Flash Fill يتعرف على Patterns ولا يطبق Criteria Logic.",
+          "D": "غلط؛ Goal Seek أداة What-if وليست Filter."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الاختيار «Disable macros unless the source is trusted» هو التعريف أو السلوك الصحيح المرتبط بموضوع What-If Analysis & Macros وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Macros يمكن أن تحتوي Code قادر على تنفيذ Actions على الجهاز أو الملفات، لذلك المصدر غير الموثوق يمثل Risk. الأفضل تعطيلها حتى يتم التحقق من الثقة.",
+        "options": {
+          "A": "غلط؛ Enable All Macros تلقائيًا يرفع المخاطر الأمنية.",
+          "B": "صح؛ تعطيل Macros غير الموثوقة هو النهج الآمن العام.",
+          "C": "غلط؛ Rename للWorkbook لا يجعل Macro آمنة.",
+          "D": "غلط؛ التحويل إلى CSV يزيل كثيرًا من خصائص Workbook لكنه ليس إجراء فحص أمني مناسب للملف الأصلي."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن الاختيار «Use Relative References» هو التعريف أو السلوك الصحيح المرتبط بموضوع What-If Analysis & Macros وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Use Relative References أثناء Macro Recording يجعل خطوات الماكرو تعتمد على موقع الخلية الحالية بدل عناوين Cells ثابتة من التسجيل الأصلي.",
+        "options": {
+          "A": "صح؛ يجعل التسجيل Relative للموقع الحالي.",
+          "B": "غلط؛ Absolute References تجعل الماكرو يعود لنفس العناوين المحددة.",
+          "C": "غلط؛ Dynamic Formatting ليست Option تسجيل قياسية لهذا المعنى.",
+          "D": "غلط؛ Formula References ليست اسم وضع تسجيل Macro المقصود."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن الاختيار «.xlsm» هو التعريف أو السلوك الصحيح المرتبط بموضوع What-If Analysis & Macros وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Workbook التي تحتوي VBA Macros يجب حفظها عادةً بصيغة Macro-Enabled Workbook وهي .xlsm حتى يحتفظ الملف بالكود.",
+        "options": {
+          "A": "غلط؛ .xlsx لا يحفظ VBA Macros.",
+          "B": "غلط؛ .csv ملف نصي جدولي ولا يحتفظ بـVBA.",
+          "C": "صح؛ .xlsm هو تنسيق Excel Macro-Enabled.",
+          "D": "غلط؛ .txt لا يحتفظ ببنية Workbook أو Macros."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن كل Function/Feature في Excel Fundamentals لها وظيفة محددة. «Freeze Panes» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Freeze Panes تثبّت Header Row أثناء النزول في Dataset كبير، فتظل أسماء الأعمدة مرئية.",
+        "options": {
+          "A": "غلط؛ Split يقسم نافذة العرض لكنه ليس نفس التثبيت المعتاد.",
+          "B": "صح؛ Freeze Panes تحافظ على Headers أثناء Scroll.",
+          "C": "غلط؛ Group يجمع Rows/Columns لإظهارها أو إخفائها.",
+          "D": "غلط؛ Hide يخفي Rows/Columns بدل تثبيتها."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «It allows proper date calculations and filtering» هو التفسير الأقرب للسلوك الصحيح في Power Query.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Date مخزنة كنص، Power Query قد لا يقدر يطبق Date Filtering أو Date Arithmetic بشكل صحيح. تحويل Data Type إلى Date يجعل النظام يتعامل معها كقيمة زمنية حقيقية.",
+        "options": {
+          "A": "صح؛ النوع الصحيح ضروري للحسابات والترتيب والفلترة الزمنية.",
+          "B": "غلط؛ تغيير النوع لا ينشئ PivotTables تلقائيًا.",
+          "C": "غلط؛ لا يزيل Duplicates تلقائيًا.",
+          "D": "غلط؛ لا يشفّر البيانات."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Power Query. الاختيار «The query can be refreshed to repeat the defined transformation steps» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Power Query تسجل Transformation Steps، لذلك بعد تحديث الـSource تقدر تعمل Refresh وتُعاد نفس الخطوات تلقائيًا على البيانات الجديدة.",
+        "options": {
+          "A": "صح؛ Refresh تعيد تنفيذ خطوات الـQuery على المصدر المحدّث.",
+          "B": "غلط؛ لا تحتاج إعادة بناء Transformations كل مرة.",
+          "C": "غلط؛ Query لا تحذف Source Data تلقائيًا.",
+          "D": "غلط؛ لا تحول البيانات إلى VBA."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «SUBTOTAL» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUBTOTAL صممت للتعامل مع البيانات المفلترة، وبحسب Function Number المستخدم تتجاهل Rows المخفية بالFilter، لذلك Total يتغير مع العرض الحالي.",
+        "options": {
+          "A": "غلط؛ SUM العادية تجمع القيم حتى في Rows المخفية بواسطة Filter في الحالة التقليدية.",
+          "B": "صح؛ SUBTOTAL مناسبة لمجموع Visible Rows.",
+          "C": "غلط؛ PRODUCT تضرب القيم.",
+          "D": "غلط؛ COUNTIF تعد حسب شرط وليست Total ديناميكي للصفوف الظاهرة."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن الاختيار «Power Query + Data Model/Power Pivot + DAX measures + PivotTables/PivotCharts +\nSlicers/Timelines» هو التعريف أو السلوك الصحيح المرتبط بموضوع Charts & Dashboard Design وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الحل الأقوى داخل Excel لDashboard كبيرة يبدأ بـPower Query لتنظيف وتجميع البيانات، ثم Data Model/Power Pivot للعلاقات، DAX للMeasures، وPivotTables/PivotCharts مع Slicers/Timelines للتفاعل.",
+        "options": {
+          "A": "غلط؛ Static Charts وManual Formatting لا تتوسع جيدًا مع ملايين السجلات والتحليل التفاعلي.",
+          "B": "صح؛ ده Workflow متكامل وقابل للتحديث والتحليل.",
+          "C": "غلط؛ WordArt وMerged Cells وScreenshots لا تبني Analytical System.",
+          "D": "غلط؛ Text Files وManual Calculations غير مناسبة لحجم وتعقيد الحالة."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأن الاختيار «Replace or remove errors and assign an appropriate numeric data type» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Numeric Column فيها قيم مثل N/A وUnknown، لازم تعالجها قبل أو أثناء تحويل النوع: Replace/Remove Errors ثم تعيين Numeric Type مناسب حتى لا تفشل الحسابات.",
+        "options": {
+          "A": "غلط؛ Binary Type غير مناسب لقيم مبيعات/أرقام.",
+          "B": "صح؛ تنظيف الأخطاء وضبط Data Type يحافظ على التحليل العددي.",
+          "C": "غلط؛ حذف Query بالكامل غير ضروري.",
+          "D": "غلط؛ تحويل كل الأرقام إلى Text يمنع أو يعقد الحسابات الرقمية."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Power Query. الاختيار «Group By» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Group By في Power Query يجمع Rows حسب Keys مثل Region وProduct ويطبق Aggregation مثل Sum على Sales.",
+        "options": {
+          "A": "غلط؛ Split Column تفصل محتوى عمود.",
+          "B": "صح؛ Group By مصممة للتجميع والحساب حسب مجموعات.",
+          "C": "غلط؛ Unpivot يعيد تشكيل Columns إلى Rows.",
+          "D": "غلط؛ Transpose تبدل Rows وColumns."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Power Pivot & DAX. الاختيار «Total Revenue := SUMX(Sales, Sales[Quantity] * Sales[Unit Price])» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUMX Iterator تمر على كل Row في Sales، تحسب Quantity*Unit Price لكل Transaction، ثم تجمع النتائج. ده يختلف عن ضرب SUM(Quantity) في SUM(Unit Price) الذي يعطي نتيجة مختلفة.",
+        "options": {
+          "A": "غلط؛ ضرب مجموع الكميات في مجموع الأسعار لا يساوي مجموع حاصل الضرب Row-by-Row.",
+          "B": "صح؛ SUMX تنفذ الحساب لكل Row ثم تجمعه.",
+          "C": "غلط؛ PRODUCT بهذه الصيغة ليست DAX Measure مناسبة للمطلوب.",
+          "D": "غلط؛ SUMIF ليست DAX Function لهذه الحالة."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن الاختيار «CALCULATE» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Pivot & DAX وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CALCULATE هي الأداة الأساسية لتعديل Filter Context في DAX، لذلك تستخدم عند حساب Sales لسنة محددة أو تجاهل/استبدال بعض Filters حسب الـExpression.",
+        "options": {
+          "A": "غلط؛ CONCATENATE دالة نصية.",
+          "B": "صح؛ CALCULATE تعدّل السياق الذي يتم فيه تقييم Measure.",
+          "C": "غلط؛ FORMAT تغير طريقة عرض القيمة ولا تعدّل Filter Context.",
+          "D": "غلط؛ DISTINCT تعيد قيمًا فريدة/جدولًا ولا تقوم بالمطلوب وحدها."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن الاختيار «Show Values As → % of Grand Total» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Show Values As → % of Grand Total تحوّل عرض قيمة Pivot من Raw Value إلى نسبة مساهمة كل Product من الإجمالي بدون تغيير الـSource Data.",
+        "options": {
+          "A": "صح؛ هذه الخاصية تحسب نسبة كل قيمة من Grand Total.",
+          "B": "غلط؛ مجرد Format Cells كPercentage سيعرض الرقم كنسبة لكنه لن يحسب نسبة من الإجمالي.",
+          "C": "غلط؛ Group Selection لتجميع Items.",
+          "D": "غلط؛ Calculated Field ليس الخيار المباشر المطلوب هنا."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع PivotTables & PivotCharts. الاختيار «Top 10 Value Filter» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Value Filters في PivotTable تشمل Top 10، وتسمح بإظهار أعلى Items حسب Measure مثل Total Sales.",
+        "options": {
+          "A": "صح؛ Top 10 Value Filter مصممة للحالة دي.",
+          "B": "غلط؛ Conditional Formatting تبرز القيم لكنها لا تخفي باقي Salespeople.",
+          "C": "غلط؛ Data Validation لتقييد الإدخال.",
+          "D": "غلط؛ Group Dates لتجميع التواريخ وليس Ranking."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Statistics. الاختيار «It can reduce unnecessary data duplication and support flexible analysis» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "استخدام جداول منفصلة بعلاقات يقلل تكرار Descriptive Data ويتيح تحليل مرن شبيه بالStar Schema بدل تكرار Customers/Products في كل Transaction.",
+        "options": {
+          "A": "صح؛ يقلل Redundancy ويدعم التحليل عبر الجداول.",
+          "B": "غلط؛ العلاقات لا تمنع PivotTables بل تدعمها.",
+          "C": "غلط؛ ما زلت تحتاج Measures/Calculations.",
+          "D": "غلط؛ العلاقات لا تحول البيانات كلها إلى Text."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Remove unnecessary columns before loading the data into the model» هو التفسير الأقرب للسلوك الصحيح في Power Pivot & DAX.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Data Model، كل Column محملة تستهلك Memory وقد تؤثر على الأداء. إزالة الأعمدة غير المستخدمة قبل التحميل تقلل حجم النموذج وتحسن الكفاءة.",
+        "options": {
+          "A": "غلط؛ تحميل كل الأعمدة يزيد الحجم بدون فائدة لو لم تُستخدم.",
+          "B": "صح؛ إزالة الأعمدة غير الضرورية Best Practice.",
+          "C": "غلط؛ تحويل الكل إلى Text غالبًا يزيد المشاكل ولا يحل الأداء.",
+          "D": "غلط؛ Duplicate للDataset يضاعف الحجم."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=VLOOKUP(H2,A:E,5,FALSE)» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Employee ID في H2 يجب البحث عنه في أول Column من A:E، وSalary في Column الخامسة، ولضمان Match دقيق نستخدم FALSE: =VLOOKUP(H2,A:E,5,FALSE).",
+        "options": {
+          "A": "غلط؛ TRUE تستخدم Approximate Match وقد ترجع Record غير مطابق في بعض الحالات.",
+          "B": "صح؛ تبحث في A وتعيد Column 5 E مع Exact Match.",
+          "C": "غلط؛ VLOOKUP تحتاج Lookup Column تكون أول عمود في table_array، وE:A ليست Range صحيحة بالترتيب العكسي المعتاد.",
+          "D": "غلط؛ Column 4 هي Job Title، وليس Salary."
+        }
       }
     },
     {
@@ -1809,6 +2229,18 @@
         "ar": "لأن الاختيار «$A$1» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Absolute Reference الكامل يضع $ قبل Column وRow، لذلك $A$1 لا يتغير عند نسخ الـFormula لأي مكان.",
+        "options": {
+          "A": "غلط؛ A1 نسبي بالكامل.",
+          "B": "غلط؛ $A1 يثبت العمود فقط.",
+          "C": "غلط؛ A$1 يثبت الصف فقط.",
+          "D": "صح؛ $A$1 يثبت الاثنين."
+        }
       }
     },
     {
@@ -1859,6 +2291,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Excel Fundamentals. الاختيار «Display and edit the content of the active cell» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Formula Bar تعرض محتوى الـActive Cell، سواء قيمة أو Formula، وتسمح بتحريره بسهولة خاصة لو النص أو الـFormula طويلة.",
+        "options": {
+          "A": "صح؛ ده الغرض الأساسي للـFormula Bar.",
+          "B": "غلط؛ Rename Worksheets يتم من Sheet Tab.",
+          "C": "غلط؛ Filters من Data/Home حسب السياق.",
+          "D": "غلط؛ Charts يتم إنشاؤها من Insert."
+        }
       }
     },
     {
@@ -1909,6 +2353,18 @@
         "ar": "لأن كل Function/Feature في Data Cleaning & Validation لها وظيفة محددة. «TRIM» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "TRIM هي الأنسب لإزالة المسافات الزائدة في النصوص المستوردة، خصوصًا المسافات في البداية والنهاية والمسافات المتكررة بين الكلمات.",
+        "options": {
+          "A": "غلط؛ CLEAN تستهدف Non-printable Characters أكثر من Extra Spaces.",
+          "B": "غلط؛ LEFT تستخرج حروفًا من البداية.",
+          "C": "صح؛ TRIM تنظف المسافات الزائدة.",
+          "D": "غلط؛ FIND تبحث عن Position لنص معين."
+        }
       }
     },
     {
@@ -1959,6 +2415,18 @@
         "ar": "لأن كل Function/Feature في Power Pivot & DAX لها وظيفة محددة. «Goal Seek» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Goal Seek مناسبة عندما تعرف Target Profit وتريد تغيير Input واحد مثل Sales حتى تصل Formula للTarget.",
+        "options": {
+          "A": "صح؛ تغير Cell واحدة لتحقيق نتيجة محددة.",
+          "B": "غلط؛ PivotTable تلخص البيانات.",
+          "C": "غلط؛ Filter تخفي/تعرض Rows.",
+          "D": "غلط؛ Flash Fill تكمل Patterns."
+        }
       }
     },
     {
@@ -2009,6 +2477,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «Flash Fill» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Flash Fill تتعلم Pattern من أمثلة يكتبها المستخدم، ثم تكمل بقية القيم مثل فصل First Name أو دمج Text وفق النمط.",
+        "options": {
+          "A": "غلط؛ Goal Seek What-if Analysis.",
+          "B": "غلط؛ Data Validation تقيّد الإدخال.",
+          "C": "صح؛ Flash Fill تتعرف على Pattern من أمثلة.",
+          "D": "غلط؛ Consolidate تجمع بيانات من Ranges متعددة."
+        }
       }
     },
     {
@@ -2059,6 +2539,18 @@
         "ar": "لأن الاختيار «Splits data from one column into multiple columns» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Cleaning & Validation وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Text to Columns تقسم محتوى Column واحد إلى عدة Columns باستخدام Delimiter أو Fixed Width.",
+        "options": {
+          "A": "غلط؛ لا تدمج Columns بل تفصلها.",
+          "B": "صح؛ Splits one column into multiple columns.",
+          "C": "غلط؛ لا تحذف Duplicates.",
+          "D": "غلط؛ لا تحول Numbers إلى Charts."
+        }
       }
     },
     {
@@ -2109,6 +2601,18 @@
         "ar": "لأن كل Function/Feature في Conditional Aggregation لها وظيفة محددة. «COUNT» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNT تعد Cells التي تحتوي Numbers فقط. COUNTA تعد أي Non-empty Cell، وCOUNTIF تحتاج شرط.",
+        "options": {
+          "A": "غلط؛ COUNTA تعد Text وأرقام.",
+          "B": "غلط؛ COUNTIF للعد بشرط.",
+          "C": "صح؛ COUNT تعد الخلايا الرقمية فقط.",
+          "D": "غلط؛ SUM تجمع الأرقام."
+        }
       }
     },
     {
@@ -2159,6 +2663,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «COUNTA» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNTA تعد كل Cell غير فارغة مهما كان نوعها، مثل Text أو Number أو Logical Value.",
+        "options": {
+          "A": "صح؛ COUNTA = Count non-empty cells.",
+          "B": "غلط؛ COUNT تعد الأرقام فقط.",
+          "C": "غلط؛ SUM تجمع القيم الرقمية.",
+          "D": "غلط؛ AVERAGE تحسب المتوسط."
+        }
       }
     },
     {
@@ -2209,6 +2725,18 @@
         "ar": "لأن الاختيار «Pass» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "B2=75 والشرط B2>=60 صحيح، لذلك IF ترجع value_if_true وهي 'Pass'.",
+        "options": {
+          "A": "غلط؛ Fail ترجع فقط إذا كان الشرط False.",
+          "B": "غلط؛ 60 مجرد Threshold داخل الشرط وليست Return Value.",
+          "C": "غلط؛ IF هنا ترجع Text مخصص وليس TRUE.",
+          "D": "صح؛ 75>=60 وبالتالي النتيجة Pass."
+        }
       }
     },
     {
@@ -2259,6 +2787,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع General Formulas & Functions. الاختيار «AND» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "للحصول على Bonus لازم الشرطان يتحققوا معًا: Sales>20000 وRating>=4. دالة AND ترجع TRUE فقط إذا كانت كل الشروط True.",
+        "options": {
+          "A": "غلط؛ OR تكفيها حالة واحدة True.",
+          "B": "صح؛ AND تتطلب تحقق الشرطين.",
+          "C": "غلط؛ NOT تعكس نتيجة شرط واحد.",
+          "D": "غلط؛ COUNT للعد وليس للمنطق الشرطي."
+        }
       }
     },
     {
@@ -2309,6 +2849,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «OR» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "كلمة either تعني يكفي تحقق واحد من الشرطين: Project>80 أو Final Exam>80، وبالتالي OR هي المناسبة داخل IF.",
+        "options": {
+          "A": "صح؛ OR ترجع TRUE إذا تحقق شرط واحد على الأقل.",
+          "B": "غلط؛ AND ستشترط نجاح الاثنين معًا.",
+          "C": "غلط؛ COUNT لا تنفذ منطق either/or.",
+          "D": "غلط؛ SUM تجمع قيم ولا تختبر شروط منطقية."
+        }
       }
     },
     {
@@ -2359,6 +2911,18 @@
         "ar": "لأن كل Function/Feature في General Formulas & Functions لها وظيفة محددة. «MAX» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "MAX ترجع أكبر قيمة مباشرة. LARGE تحتاج تحديد k مثل LARGE(range,1) للأكبر أو LARGE(range,2) للثاني.",
+        "options": {
+          "A": "غلط؛ LARGE تحتاج Position k، والسؤال يطلب بدون تحديد 1st/2nd/3rd.",
+          "B": "صح؛ MAX تعيد أكبر قيمة مباشرة.",
+          "C": "غلط؛ RANK.EQ تعطي ترتيب قيمة داخل مجموعة ولا ترجع أكبر قيمة مباشرة بنفس الغرض.",
+          "D": "غلط؛ TOP ليست Function Excel القياسية."
+        }
       }
     },
     {
@@ -2409,6 +2973,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Power Pivot & DAX. الاختيار «SUBTOTAL» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUBTOTAL تتفاعل مع Filters وتقدر تجمع Visible Rows فقط، لذلك Total يتغير لما Region مختلفة تظهر أو تختفي.",
+        "options": {
+          "A": "غلط؛ SUM العادية قد تشمل Rows المفلترة المخفية.",
+          "B": "غلط؛ COUNT تعد القيم ولا تحسب Total Sales.",
+          "C": "غلط؛ AVERAGE تحسب المتوسط وليس المجموع.",
+          "D": "صح؛ SUBTOTAL هي الأنسب للFiltered Data."
+        }
       }
     },
     {
@@ -2459,6 +3035,18 @@
         "ar": "لأن الاختيار «Median» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Median مقاومة أكثر للOutliers من Mean لأن القيم المتطرفة لا تسحب القيمة الوسطى بنفس القوة. لذلك هي أفضل لو الهدف وصف Typical Value في Dataset فيها Extremes.",
+        "options": {
+          "A": "غلط؛ Mean تتأثر جدًا بالقيم المتطرفة.",
+          "B": "غلط؛ Maximum هو أكبر قيمة وليس Typical Value.",
+          "C": "غلط؛ Range يقيس الفرق بين Max وMin وليس المركز.",
+          "D": "صح؛ Median أكثر Robust للOutliers."
+        }
       }
     },
     {
@@ -2509,6 +3097,18 @@
         "ar": "لأن الاختيار «Strong positive relationship» هو التعريف أو السلوك الصحيح المرتبط بموضوع Statistics وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Correlation قريب من +1 يعني أن المتغيرين يتحركان غالبًا في نفس الاتجاه بعلاقة خطية قوية: لما واحد يزيد، الآخر يميل للزيادة.",
+        "options": {
+          "A": "صح؛ +1 يدل على Strong Positive Linear Relationship.",
+          "B": "غلط؛ Strong Negative تكون قريبة من -1.",
+          "C": "غلط؛ No Linear Relationship تكون أقرب إلى 0.",
+          "D": "غلط؛ الCorrelation لا تعني أن كل القيم متساوية."
+        }
       }
     }
   ]

@@ -59,6 +59,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT CustomerID, SUM(Amount)\nFROM Orders\nGROUP BY CustomerID\nHAVING SUM(Amount) > 50000;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما تعمل Aggregation مثل SUM لكل Customer، الشرط على الناتج المجمع لازم يتحط في HAVING بعد GROUP BY، لأن WHERE يفلتر الصفوف قبل التجميع.",
+        "options": {
+          "A": "غلط؛ WHERE لا تُستخدم لفلترة SUM(Amount) بعد التجميع.",
+          "B": "صح؛ GROUP BY يجمع الطلبات لكل Customer ثم HAVING يفلتر العملاء whose SUM(Amount) > 50000.",
+          "C": "غلط؛ ترتيب الصياغة غير صحيح، وHAVING هنا مستخدمة قبل GROUP BY وبشرط غير مجمع.",
+          "D": "غلط؛ ده يفلتر Orders الفردية الأكبر من 50000، وليس العملاء الذين مجموع مبيعاتهم تجاوز 50000."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع JOINs. الاختيار «INNER JOIN» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "INNER JOIN ترجع فقط الصفوف التي لها Match في الجدولين، لذلك هي الأنسب لو عايز Customers عندهم Order واحد على الأقل.",
+        "options": {
+          "A": "غلط؛ LEFT JOIN ترجع كل Customers حتى لو ماعندهمش Orders.",
+          "B": "غلط؛ RIGHT JOIN تعتمد على الجدول الموجود يمينًا وقد ترجع Orders بدون Customer حسب البيانات.",
+          "C": "صح؛ INNER JOIN تحتفظ فقط بالCustomers الذين لهم Matching Orders.",
+          "D": "غلط؛ FULL OUTER JOIN ترجع Matches وغير Matches من الجانبين."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن الاختيار «LEFT JOIN» هو التعريف أو السلوك الصحيح المرتبط بموضوع JOINs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "LEFT JOIN تحتفظ بكل Rows من الجدول الموجود على اليسار، وتضيف بيانات Orders لو وُجد Match، وإلا ترجع NULL في أعمدة Orders.",
+        "options": {
+          "A": "غلط؛ INNER JOIN تستبعد Customers بدون Orders.",
+          "B": "صح؛ LEFT JOIN تضمن ظهور كل Customers حتى بدون Order.",
+          "C": "غلط؛ CROSS JOIN يعمل Cartesian Product ولا يعبر عن علاقة Customer-Order.",
+          "D": "غلط؛ SELF JOIN يكون الجدول مرتبطًا بنفسه، وليس الحالة هنا."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT c.CustomerID\nFROM Customers c\nLEFT JOIN Orders o\nON c.CustomerID = o.CustomerID\nWHERE o.CustomerID IS NULL;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الطريقة الشائعة لاكتشاف Customers بدون Orders هي LEFT JOIN ثم البحث عن Rows التي لم تجد Match في Orders باستخدام WHERE o.CustomerID IS NULL.",
+        "options": {
+          "A": "غلط؛ INNER JOIN يستبعد أصلًا الصفوف التي بدون Match، فشرط IS NULL لن يحقق الغرض.",
+          "B": "صح؛ LEFT JOIN يحافظ على Customer، وNULL في جهة Orders يعني عدم وجود Order مطابق.",
+          "C": "غلط؛ RIGHT JOIN هنا يركز على Orders وليس على كل Customers بدون Orders.",
+          "D": "غلط؛ CustomerID في Customers نفسها ليس المفروض يكون NULL لتحديد من ليس لديه Orders."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT Category, SUM(Sales)\nFROM Products\nGROUP BY Category;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو عايز Total Revenue لكل Category، لازم تجمع Rows حسب Category باستخدام GROUP BY ثم تطبق SUM(Sales) لكل Group.",
+        "options": {
+          "A": "غلط؛ فيها Category غير مجمعة بدون GROUP BY.",
+          "B": "صح؛ GROUP BY Category ثم SUM(Sales) يعطي إجمالي Sales لكل Category.",
+          "C": "غلط؛ التجميع حسب Sales لا يحقق إجمالي كل Category.",
+          "D": "غلط؛ Category وSales مع GROUP BY Sales لا ينتج Total Revenue حسب Category."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «COUNT(DISTINCT CustomerID)» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNT(DISTINCT CustomerID) تعد القيم المختلفة فقط، لذلك كل Customer يتحسب مرة واحدة حتى لو له معاملات كثيرة.",
+        "options": {
+          "A": "غلط؛ COUNT(CustomerID) تعد كل القيم غير NULL بما فيها التكرارات.",
+          "B": "غلط؛ COUNT(*) تعد كل الصفوف.",
+          "C": "صح؛ COUNT(DISTINCT CustomerID) تعد Unique Customers.",
+          "D": "غلط؛ SUM لا تُستخدم لعد العملاء المميزين."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «Email IS NULL» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "NULL ليست قيمة عادية يمكن مقارنتها بعلامة =؛ في SQL نستخدم IS NULL لاختبار غياب القيمة.",
+        "options": {
+          "A": "غلط؛ = NULL لا يعطي اختبار NULL الصحيح.",
+          "B": "غلط؛ == ليست الصياغة القياسية في SQL لاختبار NULL.",
+          "C": "صح؛ IS NULL هي الصياغة الصحيحة.",
+          "D": "غلط؛ 'NULL' نص حرفي مختلف عن قيمة NULL."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأن الاختيار «COALESCE» هو التعريف أو السلوك الصحيح المرتبط بموضوع Other وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COALESCE ترجع أول Expression غير NULL من اليسار لليمين، فمناسبة لاختيار Phone1 ثم Phone2 ثم Phone3.",
+        "options": {
+          "A": "غلط؛ NULLIF تقارن قيمتين وترجع NULL لو متساويتين.",
+          "B": "صح؛ COALESCE(Phone1,Phone2,Phone3) ترجع أول رقم غير NULL.",
+          "C": "غلط؛ ISNULLONLY ليست Function قياسية.",
+          "D": "غلط؛ FIRST_VALUE Window Function ولا تعني أول قيمة غير NULL بين Columns متعددة."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT DISTINCT City FROM Customers;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DISTINCT تزيل التكرارات من نتيجة SELECT، لذلك ترجع كل City مرة واحدة.",
+        "options": {
+          "A": "غلط؛ UNIQUE ليست صياغة SELECT القياسية في هذا السياق.",
+          "B": "صح؛ SELECT DISTINCT City يعيد القيم المختلفة فقط.",
+          "C": "غلط؛ ONLY ليست كلمة الصياغة المناسبة.",
+          "D": "غلط؛ GROUP ليست صياغة صحيحة بدون BY."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT *\nFROM Employees\nORDER BY Salary DESC;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DESC تعني ترتيب تنازلي، لذلك أعلى Salary تظهر أولًا ثم الأقل.",
+        "options": {
+          "A": "غلط؛ ASC يرتب من الأقل للأعلى.",
+          "B": "صح؛ ORDER BY Salary DESC يرتب من الأعلى للأقل.",
+          "C": "غلط؛ SORT BY ليست الصياغة القياسية المطلوبة هنا.",
+          "D": "غلط؛ GROUP BY ليس للترتيب ولا يقبل DESC بهذه الطريقة."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «CASE\nWHEN Salary >= 100000 THEN 'High'\nELSE 'Standard'\nEND» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CASE Expression مناسبة للتصنيف الشرطي داخل SELECT: لو Salary >= 100000 ترجع High وإلا Standard.",
+        "options": {
+          "A": "صح؛ صياغة CASE WHEN ... THEN ... ELSE ... END صحيحة.",
+          "B": "غلط؛ الصياغة المكتوبة ليست CASE القياسية في SQL.",
+          "C": "غلط؛ CASE Salary > 100000 ناقصة WHEN/THEN/END.",
+          "D": "غلط؛ WHEN وحدها لا تكفي بدون CASE وباقي الصياغة."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن الاختيار «WHERE OrderDate BETWEEN '2026-01-01' AND '2026-01-31'» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filtering & Sorting وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "BETWEEN تستخدم لاختبار أن القيمة تقع داخل مدى شامل للحدين بحسب دلالة البيانات، وهنا من 1 يناير إلى 31 يناير 2026.",
+        "options": {
+          "A": "صح؛ BETWEEN ... AND هي الصياغة الصحيحة.",
+          "B": "غلط؛ FROM ... TO ليست صياغة WHERE القياسية لهذا الغرض.",
+          "C": "غلط؛ IN تستخدم لقائمة قيم وليس Range بهذه الصياغة.",
+          "D": "غلط؛ RANGE ليست الصياغة القياسية هنا."
+        }
       }
     },
     {
@@ -659,6 +803,18 @@
         "ar": "لأن الاختيار «WHERE Department IN ('Finance','Sales','HR')» هو التعريف أو السلوك الصحيح المرتبط بموضوع SQL Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "IN تختصر عدة مساواة OR لنفس العمود، فتجعل الشرط أوضح وأسهل صيانة.",
+        "options": {
+          "A": "غلط؛ Department = 'Finance' OR 'Sales' OR 'HR' لا تقارن العمود بكل قيمة بشكل صحيح.",
+          "B": "صح؛ IN ('Finance','Sales','HR') هي الصياغة المختصرة الصحيحة.",
+          "C": "غلط؛ BETWEEN للمدى وليس قائمة Departments.",
+          "D": "غلط؛ LIKE للPatterns وليس قائمة قيم متعددة بهذه الصياغة."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأن الاختيار «Name LIKE 'John%'» هو التعريف أو السلوك الصحيح المرتبط بموضوع Subqueries & CTEs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في LIKE، الرمز % يعني أي عدد من الأحرف. 'John%' يعني القيمة تبدأ بـJohn وبعدها أي نص.",
+        "options": {
+          "A": "غلط؛ '%John' تعني تنتهي بـJohn.",
+          "B": "صح؛ 'John%' تعني تبدأ بـJohn.",
+          "C": "غلط؛ '%John%' تعني تحتوي John في أي مكان.",
+          "D": "غلط؛ = لا يفسر % كWildcard."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن الاختيار «SELECT *\nFROM Employees\nWHERE Salary > (\nSELECT AVG(Salary)\nFROM Employees\n);» هو التعريف أو السلوك الصحيح المرتبط بموضوع Aggregation & GROUP BY وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "AVG(Salary) Aggregate على كل الجدول، وللمقارنة بكل Employee نحتاج Scalar Subquery ترجع المتوسط ثم نستخدمها داخل WHERE.",
+        "options": {
+          "A": "غلط؛ AVG(Salary) لا تُستخدم مباشرة في WHERE بهذا الشكل على نفس المستوى.",
+          "B": "صح؛ الـSubquery تحسب المتوسط ثم WHERE تقارن كل Salary به.",
+          "C": "غلط؛ HAVING مخصصة لGroups بعد Aggregation وليست الاختيار المناسب هنا دون Grouping.",
+          "D": "غلط؛ الصياغة غير صحيحة لأن SELECT AVG تحتاج Subquery بين أقواس."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن كل Function/Feature في JOINs لها وظيفة محددة. «UNION» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "UNION تجمع نتائج Queryين متوافقين وتزيل Duplicate Rows من النتيجة النهائية.",
+        "options": {
+          "A": "صح؛ UNION تجمع النتائج وتزيل التكرار.",
+          "B": "غلط؛ UNION ALL تحتفظ بالتكرارات.",
+          "C": "غلط؛ JOIN تربط Rows أفقيًا بناءً على شرط علاقة.",
+          "D": "غلط؛ MERGE تستخدم عادةً لمزامنة/تعديل بيانات حسب Match، وليس لجمع نتيجتي SELECT بهذه الطريقة."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Filtering & Sorting. الاختيار «UNION removes duplicates, while UNION ALL retains them» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الفرق الأساسي أن UNION تعمل Distinct على الناتج، بينما UNION ALL لا تزيل Duplicate Rows.",
+        "options": {
+          "A": "غلط؛ العكس هو الصحيح.",
+          "B": "صح؛ UNION removes duplicates وUNION ALL retains them.",
+          "C": "غلط؛ UNION لا تتطلب JOINs.",
+          "D": "غلط؛ UNION ALL ليست محصورة في الأعمدة الرقمية."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن الاختيار «SELF JOIN» هو التعريف أو السلوك الصحيح المرتبط بموضوع JOINs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SELF JOIN معناها ربط الجدول بنفسه باستخدام Aliases مختلفة، وهي مناسبة لما Employee وManager موجودين في نفس Employees table.",
+        "options": {
+          "A": "غلط؛ CROSS JOIN يعمل Cartesian Product.",
+          "B": "صح؛ SELF JOIN يسمح بربط Employee row مع Manager row في نفس الجدول.",
+          "C": "غلط؛ UNION تجمع نتائج ولا تربط Employee بManager.",
+          "D": "غلط؛ FULL JOIN ليس المطلوب الأساسي للحالة."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الاختيار «A Cartesian product of the two tables» هو التعريف أو السلوك الصحيح المرتبط بموضوع JOINs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CROSS JOIN ترجع كل Combination ممكن بين Rows الجدولين، وعدد الصفوف عادةً يساوي rows_table1 × rows_table2.",
+        "options": {
+          "A": "غلط؛ ده وصف INNER JOIN.",
+          "B": "صح؛ CROSS JOIN تنتج Cartesian Product.",
+          "C": "غلط؛ لا تختص فقط بالUnmatched rows.",
+          "D": "غلط؛ الموضوع ليس مجرد Duplicate Columns بل كل تركيبات الصفوف."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن الاختيار «FULL OUTER JOIN» هو التعريف أو السلوك الصحيح المرتبط بموضوع JOINs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "FULL OUTER JOIN تحافظ على Matches بالإضافة إلى الصفوف غير المطابقة من كلا الجدولين.",
+        "options": {
+          "A": "غلط؛ INNER JOIN ترجع Matches فقط.",
+          "B": "غلط؛ LEFT JOIN تحفظ كل Customers لكن قد تستبعد Orders غير المطابقة.",
+          "C": "صح؛ FULL OUTER JOIN تعرض كل Customers وكل Orders سواء matched أو unmatched.",
+          "D": "غلط؛ CROSS JOIN ينتج كل التركيبات وليس دمجًا حسب المفتاح."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن الاختيار «CTE» هو التعريف أو السلوك الصحيح المرتبط بموضوع Subqueries & CTEs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CTE توفر Result Set مؤقتًا باسم واضح داخل نفس Statement، فتجزئ الاستعلام المعقد وتزيد القراءة والتنظيم.",
+        "options": {
+          "A": "صح؛ CTE مناسبة لتعريف Intermediate Result وإعادة استخدامه في الاستعلام التالي.",
+          "B": "غلط؛ Trigger تنفذ تلقائيًا عند Events على البيانات.",
+          "C": "غلط؛ Index لتحسين Access Patterns.",
+          "D": "غلط؛ Constraint لفرض قواعد على البيانات."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن الاختيار «WITH SalesCTE AS (\nSELECT *\nFROM Sales\n)\nSELECT *\nFROM SalesCTE;» هو التعريف أو السلوك الصحيح المرتبط بموضوع Subqueries & CTEs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Common Table Expression تبدأ بكلمة WITH ثم اسم CTE ثم AS ثم Query بين أقواس، وبعدها Query تستخدم الـCTE.",
+        "options": {
+          "A": "صح؛ WITH SalesCTE AS (...) SELECT ... هي الصياغة الصحيحة.",
+          "B": "غلط؛ لا تبدأ بهذه الصياغة CTE SalesCTE AS.",
+          "C": "غلط؛ CREATE TEMP CTE ليست الصياغة القياسية.",
+          "D": "غلط؛ START CTE ليست صياغة SQL قياسية."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Keys & Constraints. الاختيار «To uniquely identify each row in a table» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Primary Key تعرّف كل Row بشكل فريد، وعادةً تمنع التكرار وNULL بحسب نظام قاعدة البيانات.",
+        "options": {
+          "A": "غلط؛ الغرض عكس ذلك: منع تكرار هوية الصف.",
+          "B": "صح؛ uniquely identify each row هو الهدف الأساسي.",
+          "C": "غلط؛ Primary Key لا تعني ترتيب الجدول تلقائيًا.",
+          "D": "غلط؛ المفتاح يمكن أن يكون غير رقمي حسب التصميم."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Keys & Constraints. الاختيار «To create a relationship between tables» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Foreign Key تربط Child table بParent table من خلال الإشارة إلى Key موجودة في جدول آخر وتدعم Referential Integrity.",
+        "options": {
+          "A": "صح؛ الغرض الأساسي إنشاء علاقة مرجعية بين الجداول.",
+          "B": "غلط؛ لا تضمن أن كل قيم العمود Unique.",
+          "C": "غلط؛ لا تستبدل Primary Key.",
+          "D": "غلط؛ ليس لها علاقة بتشفير البيانات."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن الاختيار «UNIQUE» هو التعريف أو السلوك الصحيح المرتبط بموضوع Keys & Constraints وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "UNIQUE Constraint تمنع تكرار نفس القيمة أو نفس Combination من الأعمدة بحسب تعريفها.",
+        "options": {
+          "A": "غلط؛ CHECK تفرض شرطًا منطقيًا.",
+          "B": "صح؛ UNIQUE تضمن uniqueness.",
+          "C": "غلط؛ DEFAULT توفر قيمة افتراضية عند غياب الإدخال.",
+          "D": "غلط؛ FOREIGN KEY تفرض مرجعية لجدول آخر."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن الاختيار «CHECK» هو التعريف أو السلوك الصحيح المرتبط بموضوع Subqueries & CTEs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CHECK Constraint مناسبة لفرض شرط مثل Salary >= 0 ومنع إدخال قيمة تخالف قاعدة العمل.",
+        "options": {
+          "A": "صح؛ CHECK يمكنها منع الرواتب السالبة.",
+          "B": "غلط؛ UNIQUE تمنع التكرار لا القيم السالبة.",
+          "C": "غلط؛ FOREIGN KEY للعلاقات المرجعية.",
+          "D": "غلط؛ INDEX لتحسين الاستعلام وليس فرض Range على Salary."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأن الاختيار «DEFAULT» هو التعريف أو السلوك الصحيح المرتبط بموضوع Keys & Constraints وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DEFAULT Constraint تضع قيمة تلقائية عند عدم إرسال قيمة صريحة للعمود.",
+        "options": {
+          "A": "غلط؛ CHECK تتحقق من شرط ولا تعطي قيمة افتراضية.",
+          "B": "صح؛ DEFAULT 'Active' تحقق المطلوب.",
+          "C": "غلط؛ UNIQUE تمنع التكرار.",
+          "D": "غلط؛ FOREIGN KEY تنشئ علاقة مرجعية."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن الاختيار «Reduce data redundancy and update anomalies» هو التعريف أو السلوك الصحيح المرتبط بموضوع Normalization, Indexes & Views وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Normalization تهدف لتقليل Redundancy وتنظيم Dependencies بحيث تقل Update/Insert/Delete anomalies ويصبح النموذج أكثر اتساقًا.",
+        "options": {
+          "A": "غلط؛ الهدف تقليل duplication غير الضروري لا زيادته.",
+          "B": "صح؛ تقليل Redundancy وUpdate anomalies هدف رئيسي.",
+          "C": "غلط؛ Normalization لا تلغي العلاقات بل غالبًا تنتج جداول مرتبطة بشكل أوضح.",
+          "D": "غلط؛ تخزين كل شيء في جدول واحد يخالف هدف التطبيع."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Normalization, Indexes & Views. الاختيار «Improve query performance for appropriate access patterns» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Index يبني بنية تساعد Database Engine على الوصول للRows المطلوبة بسرعة في Queries المناسبة، مقابل تكلفة إضافية في التخزين وبعض عمليات الكتابة.",
+        "options": {
+          "A": "صح؛ Improve query performance for suitable access patterns هو الغرض الأساسي.",
+          "B": "غلط؛ Index قد يجعل INSERT/UPDATE أبطأ لأن الفهرس يحتاج تحديث.",
+          "C": "غلط؛ لا يستبدل Constraints.",
+          "D": "غلط؛ لا يهدف لزيادة Duplicate Data."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن الاختيار «View» هو التعريف أو السلوك الصحيح المرتبط بموضوع SQL Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "View هي Database Object مبنية على SELECT وتسمح بعرض الاستعلام المعقد باسم قابل لإعادة الاستخدام.",
+        "options": {
+          "A": "صح؛ View مناسبة لإعادة استخدام SELECT معقدة.",
+          "B": "غلط؛ Trigger مرتبطة بأحداث مثل INSERT/UPDATE/DELETE.",
+          "C": "غلط؛ Index لتحسين الوصول.",
+          "D": "غلط؛ Constraint لفرض قواعد."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن الاختيار «Stored Procedure» هو التعريف أو السلوك الصحيح المرتبط بموضوع Keys & Constraints وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Stored Procedure مناسبة لتجميع Logic قابلة لإعادة الاستخدام، وتستطيع استقبال Parameters وتنفيذ عدة Statements بحسب نظام قاعدة البيانات.",
+        "options": {
+          "A": "صح؛ Stored Procedure تحقق هذه المتطلبات.",
+          "B": "غلط؛ View تمثل SELECT ولا تُستخدم عادةً لتنفيذ عدة Statements بمعاملات.",
+          "C": "غلط؛ Index ليس Logic executable.",
+          "D": "غلط؛ Constraint ليست وحدة برمجية قابلة للنداء."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Transactions, DDL & DML. الاختيار «Undo uncommitted transaction changes» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ROLLBACK تلغي التغييرات غير الملتزم بها داخل Transaction وترجع البيانات لحالة قبل هذه التغييرات.",
+        "options": {
+          "A": "غلط؛ COMMIT هو الذي يحفظ التغييرات نهائيًا داخل Transaction.",
+          "B": "صح؛ ROLLBACK undo uncommitted changes.",
+          "C": "غلط؛ لا تنشئ Index.",
+          "D": "غلط؛ ليست Statement لتنفيذ SELECT."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «TRUNCATE removes all rows and generally has less row-by-row logging than DELETE» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "TRUNCATE مخصصة لإزالة كل Rows من Table بسرعة، وغالبًا تسجل أقل على مستوى الصفوف من DELETE، مع اختلافات تنفيذية بين أنظمة قواعد البيانات.",
+        "options": {
+          "A": "صح؛ ده الوصف العام المقصود في السؤال.",
+          "B": "غلط؛ TRUNCATE لا تستهدف Row واحدة.",
+          "C": "غلط؛ DELETE لا تحذف Table Structure.",
+          "D": "غلط؛ توجد فروق مهمة بينهما وتختلف التفاصيل حسب DBMS."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «The table object is removed» هو التفسير الأقرب للسلوك الصحيح في Transactions, DDL & DML.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DROP TABLE تزيل كيان الجدول نفسه، بما فيه Definition والبيانات التابعة له، وليس فقط Rows.",
+        "options": {
+          "A": "غلط؛ ده أقرب لـDELETE/TRUNCATE مع بقاء الجدول.",
+          "B": "صح؛ Table object نفسها تُزال.",
+          "C": "غلط؛ لا تختص بحذف duplicates فقط.",
+          "D": "غلط؛ لا تعيد تسمية الجدول."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «UPDATE Employees\nSET Salary = Salary * 1.10\nWHERE Department = 'Finance';» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "UPDATE الصحيحة تحدد Table ثم SET للقيمة الجديدة ثم WHERE لتقييد Rows المستهدفة. ضرب Salary في 1.10 يضيف 10%.",
+        "options": {
+          "A": "صح؛ الصياغة صحيحة وتستهدف Finance فقط.",
+          "B": "غلط؛ ترتيب WHERE قبل SET غير صحيح في الصياغة القياسية.",
+          "C": "غلط؛ CHANGE و% بهذه الصياغة ليست SQL صحيحة.",
+          "D": "غلط؛ MODIFY Salary FROM ليست صياغة UPDATE صحيحة، وFinance غير مكتوبة كنص."
+        }
       }
     },
     {
@@ -1809,6 +2229,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «It deletes all rows from the table» هو التفسير الأقرب للسلوك الصحيح في Transactions, DDL & DML.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DELETE FROM Employees بدون WHERE تطبق الحذف على كل Rows في الجدول، لذلك خطيرة لو لم يكن ذلك مقصودًا.",
+        "options": {
+          "A": "غلط؛ لا تقتصر على Row واحدة.",
+          "B": "صح؛ بدون WHERE يتم حذف جميع Rows.",
+          "C": "غلط؛ DELETE لا تنشئ Backup.",
+          "D": "غلط؛ لا تكتفي بالDuplicates."
+        }
       }
     },
     {
@@ -1859,6 +2291,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «80». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNT(column) تعد القيم غير NULL فقط. لو 20 من 100 Email = NULL، المتبقي 80 قيمة محسوبة.",
+        "options": {
+          "A": "غلط؛ 100 هي COUNT(*) وليس COUNT(Email) في الحالة دي.",
+          "B": "صح؛ 100 - 20 NULL = 80.",
+          "C": "غلط؛ 20 هو عدد NULLs وليس غير NULL.",
+          "D": "غلط؛ توجد 80 قيمة غير NULL."
+        }
       }
     },
     {
@@ -1909,6 +2353,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «100». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNT(*) تعد Rows كلها بغض النظر عن NULL في عمود معين، لذلك النتيجة 100.",
+        "options": {
+          "A": "غلط؛ 80 هي عدد Email غير NULL.",
+          "B": "غلط؛ 20 هي عدد Rows التي Email فيها NULL.",
+          "C": "صح؛ COUNT(*) تعد كل 100 Row.",
+          "D": "غلط؛ الجدول غير فارغ."
+        }
       }
     },
     {
@@ -1959,6 +2415,18 @@
         "ar": "لأن كل Function/Feature في Aggregation & GROUP BY لها وظيفة محددة. «HAVING» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "HAVING صُممت لفلترة Groups بعد GROUP BY وAggregation، بينما WHERE تعمل قبل التجميع على Rows.",
+        "options": {
+          "A": "غلط؛ WHERE تسبق Aggregation ولا تفلتر Aggregate groups مباشرة.",
+          "B": "صح؛ HAVING هي clause المخصصة لفلترة Groups.",
+          "C": "غلط؛ ORDER BY للترتيب.",
+          "D": "غلط؛ DISTINCT لإزالة تكرار النتيجة."
+        }
       }
     },
     {
@@ -2009,6 +2477,18 @@
         "ar": "لأن الاختيار «Sort salary descending and limit/return the first five rows using the database's supported syntax» هو التعريف أو السلوك الصحيح المرتبط بموضوع Aggregation & GROUP BY وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإيجاد أعلى خمسة رواتب، ترتب Salary DESC ثم تستخدم syntax النظام مثل LIMIT 5 أو TOP 5 أو FETCH FIRST 5 حسب DBMS.",
+        "options": {
+          "A": "صح؛ ده الأسلوب العام الصحيح عبر الأنظمة مع اختلاف صياغة Limit.",
+          "B": "غلط؛ GROUP BY Salary لا تختار أعلى خمسة Employees.",
+          "C": "غلط؛ DISTINCT Salary يزيل تكرار الرواتب ولا يحدد أعلى خمسة موظفين.",
+          "D": "غلط؛ DELETE تحذف بيانات ولا تُستخدم للاستعلام."
+        }
       }
     },
     {
@@ -2059,6 +2539,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT Email, COUNT(*)\nFROM Customers\nGROUP BY Email\nHAVING COUNT(*) > 1;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لتحديد Duplicate Emails تجمع حسب Email ثم تستخدم HAVING COUNT(*) > 1 لإظهار القيم التي ظهرت أكثر من مرة.",
+        "options": {
+          "A": "صح؛ GROUP BY + HAVING COUNT(*) > 1 هي الصياغة القياسية لاكتشاف التكرار.",
+          "B": "غلط؛ COUNT(*) لا تُستخدم في WHERE بهذه الطريقة، وDISTINCT يخفي التكرار بدل قياسه.",
+          "C": "غلط؛ Email > 1 مقارنة غير ذات معنى لاكتشاف duplicates.",
+          "D": "غلط؛ IS DUPLICATE ليست صياغة SQL قياسية."
+        }
       }
     },
     {
@@ -2109,6 +2601,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Subqueries & CTEs. الاختيار «LEFT JOIN Customers to Orders, GROUP BY customer information, and use appropriate aggregate handling for\nNULLs» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإظهار كل Customer حتى بدون Orders نبدأ بـLEFT JOIN. بعد ذلك GROUP BY بيانات العميل ونستخدم Aggregates، ومع القيم الفارغة نستخدم معالجة مناسبة مثل COALESCE على SUM عند الحاجة.",
+        "options": {
+          "A": "غلط؛ INNER JOIN تستبعد Customers بدون Orders.",
+          "B": "صح؛ LEFT JOIN + GROUP BY + Aggregate handling تحقق كل المتطلبات.",
+          "C": "غلط؛ CROSS JOIN تضاعف كل Customer مع كل Order.",
+          "D": "غلط؛ RIGHT JOIN بدون Aggregation لا يعطي Total Order Value ولا Number of Orders."
+        }
       }
     },
     {
@@ -2159,6 +2663,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Advanced SQL & Analytics. الاختيار «JOINs + WHERE date filtering + GROUP BY + aggregate functions + window functions such as RANK() or\nROW_NUMBER()» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "التقرير المطلوب يجمع بيانات من عدة Tables، يفلتر 2026، يجمع Measures لكل Customer، ثم يرتب/يرتب داخل Region؛ لذلك يحتاج JOINs + WHERE + GROUP BY + Aggregates + Window Function.",
+        "options": {
+          "A": "غلط؛ DISTINCT وORDER BY وحدهما لا تحسب Total Sales أوQuantity أوRank.",
+          "B": "صح؛ المجموعة دي من التقنيات تغطي كل متطلبات التقرير.",
+          "C": "غلط؛ CROSS JOIN يخلق combinations غير صحيحة وDELETE لا علاقة لها بالتقرير.",
+          "D": "غلط؛ Subquery وحدها بدون JOIN/Aggregation لا تكفي للبيانات المطلوبة."
+        }
       }
     },
     {
@@ -2209,6 +2725,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT MAX(Salary)\nFROM Employees\nWHERE Salary < (\nSELECT MAX(Salary)\nFROM Employees\n);» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "أحد الأساليب الصحيحة للSecond-highest distinct salary هو إيجاد MAX Salary أقل من أعلى MAX Salary. كده لو أعلى راتب مكرر، ننتقل لأعلى قيمة مميزة أقل منه.",
+        "options": {
+          "A": "صح؛ MAX(Salary) بشرط Salary < global MAX يعيد ثاني أعلى Salary مميزة.",
+          "B": "غلط؛ MIN ترجع أقل راتب.",
+          "C": "غلط؛ ORDER BY ASC LIMIT 1 يعيد أقل راتب.",
+          "D": "غلط؛ COUNT لا يعيد قيمة ثاني أعلى راتب."
+        }
       }
     },
     {
@@ -2259,6 +2787,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Advanced SQL & Analytics. الاختيار «Use multiple CASE expressions inside aggregate functions» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Conditional Aggregation تستخدم CASE داخل Aggregates مثل SUM(CASE WHEN Status='Completed' THEN 1 ELSE 0 END) لإرجاع عدة Counts في Row واحدة.",
+        "options": {
+          "A": "صح؛ Multiple CASE expressions داخل Aggregates هي التقنية المناسبة.",
+          "B": "غلط؛ لا تحتاج قواعد بيانات منفصلة لكل Status.",
+          "C": "غلط؛ CROSS JOIN لا يحسب Counts حسب الحالة.",
+          "D": "غلط؛ DISTINCT وحدها لا تنتج Counts المطلوبة."
+        }
       }
     },
     {
@@ -2309,6 +2849,18 @@
         "ar": "لأن الاختيار «UPDATE Employees\nSET Salary = Salary * 1.10\nFROM Employees e\nJOIN Departments d\nON e.DepartmentID = d.DepartmentID\nWHERE d.DepartmentName = 'Finance';» هو التعريف أو السلوك الصحيح المرتبط بموضوع JOINs وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "المطلوب UPDATE على Employees بعد تحديد الموظفين التابعين لقسم Finance عبر JOIN مع Departments. الخيار A يعبر عن هذا النمط كما هو مقصود في السؤال.",
+        "options": {
+          "A": "صح؛ يربط Employees مع Departments على DepartmentID ثم يحدّث Salaries للFinance بنسبة 10%.",
+          "B": "غلط؛ Salary موجودة في Employees وليس Departments بحسب الـSchema.",
+          "C": "غلط؛ SELECT لا تستخدم لتعديل البيانات بهذه الصياغة.",
+          "D": "غلط؛ ALTER لتعديل Structure الجدول وليس قيم Rows."
+        }
       }
     },
     {
@@ -2359,6 +2911,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT c.CustomerName, o.Amount\nFROM Customers c\nINNER JOIN Orders o\nON c.CustomerID = o.CustomerID\nWHERE c.Region = 'East'\nAND o.Amount > 10000;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "نحتاج CustomerName من Customers وAmount من Orders، لذلك نعمل INNER JOIN على CustomerID ثم نطبق شرط Region='East' وAmount>10000 في WHERE.",
+        "options": {
+          "A": "صح؛ يربط الجداول بالمفتاح الصحيح ويطبق الشرطين المطلوبين.",
+          "B": "غلط؛ لا يوجد JOIN ومع ذلك يشير إلى o.Amount غير معرف.",
+          "C": "غلط؛ شرط الربط c.Region = o.Amount غير منطقي ومفتاح العلاقة الصحيح CustomerID.",
+          "D": "غلط؛ Amount ليست في Customers، وHAVING ليست المكان المناسب بدون Aggregation."
+        }
       }
     },
     {
@@ -2409,6 +2973,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT Region, Category, SUM(Sales)\nFROM Sales\nGROUP BY Region, Category;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لحساب Total Sales لكل Combination من Region وCategory، لازم Grouping على العمودين معًا ثم SUM(Sales).",
+        "options": {
+          "A": "صح؛ GROUP BY Region, Category يعطي Group لكل Combination ويجمع Sales داخله.",
+          "B": "غلط؛ GROUP BY Sales لا يجمع حسب Region+Category.",
+          "C": "غلط؛ ORDER BY فقط لا ينشئ Aggregation Groups.",
+          "D": "غلط؛ WHERE SUM(Sales) ليست صياغة صحيحة للتجميع."
+        }
       }
     },
     {
@@ -2459,6 +3035,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT Department, AVG(Salary)\nFROM Employees\nGROUP BY Department\nHAVING AVG(Salary) > 60000;» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "AVG(Salary) Aggregate لكل Department، وبالتالي الشرط على المتوسط بعد GROUP BY يوضع في HAVING.",
+        "options": {
+          "A": "غلط؛ WHERE AVG(Salary) غير صحيح لأنها تعمل قبل Aggregation.",
+          "B": "صح؛ GROUP BY Department ثم HAVING AVG(Salary)>60000.",
+          "C": "غلط؛ ده يفلتر الموظفين الفرديين >60000 ثم يحسب متوسطهم، وليس Departments whose average >60000.",
+          "D": "غلط؛ لا يوجد GROUP BY مناسب، وSalary ليست Aggregate في HAVING."
+        }
       }
     },
     {
@@ -2509,6 +3097,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «SELECT *\nFROM Employees\nWHERE Salary = (\nSELECT MAX(Salary)\nFROM Employees\n);» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Subquery SELECT MAX(Salary) ترجع أعلى Salary، ثم WHERE Salary = هذه القيمة يعيد كل Employees الذين يشاركون نفس الراتب الأعلى.",
+        "options": {
+          "A": "صح؛ يعيد كل Rows التي Salary تساوي MAX Salary.",
+          "B": "غلط؛ لا توجد Salary أكبر من MAX Salary.",
+          "C": "غلط؛ MAX(EmployeeName) لا علاقة لها بأعلى Salary.",
+          "D": "غلط؛ GROUP BY Salary لا يضمن إعادة كل الموظفين ذوي أعلى Salary."
+        }
       }
     }
   ]

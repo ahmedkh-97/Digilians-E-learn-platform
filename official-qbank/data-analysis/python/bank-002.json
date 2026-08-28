@@ -59,6 +59,18 @@
         "ar": "لأن الاختيار «It becomes a normal column» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "reset_index() يعيد الـindex الحالي إلى Column عادية، ثم set_index('name') يجعل name هي الـindex الجديدة. لذلك employee_id يظل موجودًا كColumn عادية.",
+        "options": {
+          "A": "صح؛ employee_id تتحول إلى Column بعد reset_index() وتبقى كذلك بعد جعل name هي الـindex.",
+          "B": "غلط؛ set_index('name') لا ينشئ MultiIndex هنا بالإعدادات الافتراضية.",
+          "C": "غلط؛ reset_index() لا تحذف employee_id، بل ترجعها إلى الأعمدة.",
+          "D": "غلط؛ الـdefault integer index تنشأ بعد reset_index() مؤقتًا، ثم يتم استبدالها بـname عند set_index()."
+        }
       }
     },
     {
@@ -109,6 +121,18 @@
         "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «[20, 40]». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "السالب في الـslicing يبدأ العد من نهاية القائمة. -4 يشير إلى 20 و-1 يشير إلى 50 لكنه غير مشمول، ومع step=2 نأخذ 20 ثم 40.",
+        "options": {
+          "A": "صح؛ values[-4:-1:2] ترجع العناصر عند 20 ثم 40.",
+          "B": "غلط؛ 10 و30 لا يطابقان نقطة البداية أوالخطوة.",
+          "C": "غلط؛ الـstep=2 يعني تخطي عنصر بين كل اختيارين.",
+          "D": "غلط؛ الترتيب هنا للأمام لأن step موجب."
+        }
       }
     },
     {
@@ -159,6 +183,18 @@
         "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «It makes the random sample reproducible» هو التفسير الأقرب للسلوك الصحيح في Pandas Inspection & Structure.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "random_state يثبت Seed العشوائية، فيجعل نفس العينة تظهر عند إعادة تشغيل نفس الكود، وده مهم للمراجعة وإعادة إنتاج النتائج.",
+        "options": {
+          "A": "غلط؛ sample لا تختار أعلى Rows إلا لو تم ترتيب البيانات واختيار head، وليس بسبب random_state.",
+          "B": "صح؛ random_state يجعل العينة Reproducible.",
+          "C": "غلط؛ sample لا ترتب حسب Index تلقائيًا.",
+          "D": "غلط؛ sample لا تحذف duplicates قبل الاختيار."
+        }
       }
     },
     {
@@ -209,6 +245,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «id becomes the row index and is no longer a regular column» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "set_index('id') بالإعدادات الافتراضية تجعل id هي Row Index وتزيلها من قائمة الأعمدة العادية.",
+        "options": {
+          "A": "غلط؛ لا تحذف id من Source File الخارجي، بل تغيّر تمثيل DataFrame فقط.",
+          "B": "غلط؛ id لا تبقى Column عادية افتراضيًا عند drop=True الافتراضي.",
+          "C": "صح؛ id تصبح Index ولا تبقى Regular Column.",
+          "D": "غلط؛ name لا تتحول تلقائيًا إلى مستوى Index إضافي."
+        }
       }
     },
     {
@@ -259,6 +307,18 @@
         "ar": "لأن الاختيار «It restores employee_id as a column and creates a default integer index» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "reset_index() تعيد الـindex الحالية إلى Column وتُنشئ RangeIndex افتراضية 0,1,2... بدلها.",
+        "options": {
+          "A": "غلط؛ employee_id لا تُحذف، بل تُستعاد كColumn.",
+          "B": "غلط؛ العملية لا تهدف للSorting.",
+          "C": "غلط؛ لا تجعل كل القيم صفرًا.",
+          "D": "صح؛ employee_id تعود Column ويُنشأ Default Integer Index."
+        }
       }
     },
     {
@@ -309,6 +369,18 @@
         "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Pandas Inspection & Structure. الاختيار «df.info() displays structural information and normally returns None» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "df.info() تطبع معلومات بنيوية عن DataFrame مثل Columns وdtypes وnon-null counts والذاكرة، وعادةً لا ترجع DataFrame بل None.",
+        "options": {
+          "A": "غلط؛ لا تُنشئ DataFrame إحصائية جديدة.",
+          "B": "غلط؛ أول خمس Rows تُعرض عادةً بـhead().",
+          "C": "غلط؛ لا ترتب البيانات.",
+          "D": "صح؛ تعرض Structural Information وعادةً return value تكون None."
+        }
       }
     },
     {
@@ -359,6 +431,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «\"Checking\" is printed and x stores \"Ready\"» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "print('Checking') تنفذ أولًا وتعرض النص، ثم return 'Ready' تعيد القيمة إلى المتغير x.",
+        "options": {
+          "A": "غلط؛ x لا تخزن ما تم طباعته.",
+          "B": "غلط؛ وجود print لا يمنع return من إرجاع قيمة.",
+          "C": "صح؛ يتم طباعة Checking وx = 'Ready'.",
+          "D": "غلط؛ لا يتم تكوين List."
+        }
       }
     },
     {
@@ -409,6 +493,18 @@
         "ar": "لأن الاختيار «7» هو التعريف أو السلوك الصحيح المرتبط بموضوع Other وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـloop تمر على 2 ثم4 ثم7. أول قيمة تحقق n % 2 != 0 هي 7، وبعدها break يوقف الـloop فورًا.",
+        "options": {
+          "A": "غلط؛ 9 لن يتم الوصول لها بسبب break عند 7.",
+          "B": "صح؛ أول رقم فردي هو 7.",
+          "C": "غلط؛ 2 زوجي.",
+          "D": "غلط؛ first_odd يتم تحديثها إلى 7 قبل break."
+        }
       }
     },
     {
@@ -459,6 +555,18 @@
         "ar": "لأن الاختيار «{\"A\": 1, \"B\": 5, \"C\": 3}» هو التعريف أو السلوك الصحيح المرتبط بموضوع Python Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "dict.update() تضيف Keys الجديدة وتستبدل قيمة أي Key موجود بالفعل. لذلك B تتغير من 2 إلى5 وتضاف C=3.",
+        "options": {
+          "A": "غلط؛ B لا تبقى 2 بعد update.",
+          "B": "غلط؛ C تُضاف وB تتغير.",
+          "C": "غلط؛ A لا تُحذف.",
+          "D": "صح؛ النتيجة {'A':1,'B':5,'C':3}."
+        }
       }
     },
     {
@@ -509,6 +617,18 @@
         "ar": "لأن الاختيار «It orders the rows by index as 1, 2, 3» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "sort_index() ترتب Rows حسب قيم الـindex تصاعديًا افتراضيًا، فتتحول [3,1,2] إلى [1,2,3].",
+        "options": {
+          "A": "صح؛ هذا هو السلوك الافتراضي.",
+          "B": "غلط؛ لا ترتب كل Column بشكل مستقل.",
+          "C": "غلط؛ reset_index() هي التي تنشئ 0,1,2 وليس sort_index().",
+          "D": "غلط؛ sort_values() هي المستخدمة للترتيب حسب Column."
+        }
       }
     },
     {
@@ -559,6 +679,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Pandas Inspection & Structure. الاختيار «It provides summary statistics such as count, mean, quartiles, and extremes» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "df.describe() تعطي Summary Statistics للأعمدة الرقمية افتراضيًا مثل count وmean وstd وquartiles وmin/max.",
+        "options": {
+          "A": "غلط؛ Data Types وColumns تُفحص أكثر بـinfo().",
+          "B": "غلط؛ لا تعرض كل Unique Rows.",
+          "C": "صح؛ هذا هو الاستخدام الأساسي لـdescribe().",
+          "D": "غلط؛ لا تغيّر Data Types."
+        }
       }
     },
     {
@@ -609,6 +741,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Matplotlib & Seaborn. الاختيار «The physical width and height of the figure» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "figsize=(8,4) تحدد أبعاد Figure بالبوصة تقريبًا: العرض 8 والارتفاع 4، ولا تغيّر مدى المحاور أوعدد البيانات.",
+        "options": {
+          "A": "صح؛ تتحكم في Width وHeight للFigure.",
+          "B": "غلط؛ xlim/ylim تتحكم في Axis ranges.",
+          "C": "غلط؛ عدد Observations تحدده البيانات.",
+          "D": "غلط؛ Font Size تُضبط بإعدادات أخرى."
+        }
       }
     },
     {
@@ -659,6 +803,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «plt.xlabel(\"Month\")» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "xlabel() تغيّر النص الظاهر أسفل المحور الأفقي X دون التأثير على البيانات نفسها.",
+        "options": {
+          "A": "غلط؛ title() تضيف عنوان الرسم.",
+          "B": "صح؛ xlabel('Month') تسمي المحور الأفقي.",
+          "C": "غلط؛ xlim() يحدد حدود محور X.",
+          "D": "غلط؛ legend() يدير وسيلة الإيضاح."
+        }
       }
     },
     {
@@ -709,6 +865,18 @@
         "ar": "لأن الاختيار «df.rename(columns={\"old_name\": \"new_name\"})» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "rename(columns={...}) هي الصياغة القياسية لإعادة تسمية Columns في Pandas.",
+        "options": {
+          "A": "غلط؛ rename لا تستقبل الاسمين بهذه الصيغة البسيطة.",
+          "B": "صح؛ columns mapping يربط old_name بـnew_name.",
+          "C": "غلط؛ df.columns ليست Function لإعادة التسمية بهذه الطريقة.",
+          "D": "غلط؛ index= يعيد تسمية Row Labels وليس Column Names."
+        }
       }
     },
     {
@@ -759,6 +927,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «df.drop(columns=[\"temp\"])» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "drop(columns=['temp']) تزيل Column temp من الناتج وتُبقي باقي الأعمدة.",
+        "options": {
+          "A": "صح؛ هذه الصياغة القياسية لحذف Column.",
+          "B": "غلط؛ rows ليست Parameter القياسي هنا.",
+          "C": "غلط؛ remove ليست DataFrame method قياسية.",
+          "D": "غلط؛ index=['temp'] يحاول حذف Row label اسمها temp."
+        }
       }
     },
     {
@@ -809,6 +989,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «df.to_csv(\"out.csv\", index=False)» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "to_csv(..., index=False) تحفظ DataFrame بدون كتابة الـindex كعمود إضافي في ملف CSV.",
+        "options": {
+          "A": "غلط؛ بدون index=False سيتم عادةً كتابة الـindex في الملف.",
+          "B": "غلط؛ read_csv للقراءة وليس الحفظ.",
+          "C": "صح؛ to_csv مع index=False هي الصياغة الصحيحة.",
+          "D": "غلط؛ save_csv ليست method Pandas القياسية."
+        }
       }
     },
     {
@@ -859,6 +1051,18 @@
         "ar": "لأن الاختيار «The variable mapped to the horizontal axis» هو التعريف أو السلوك الصحيح المرتبط بموضوع Matplotlib & Seaborn وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Seaborn، x='hours' يحدد Column hours كالمتغير المرسوم على المحور الأفقي.",
+        "options": {
+          "A": "غلط؛ Legend Title لا تحدده x.",
+          "B": "غلط؛ DataFrame يحددها data=df.",
+          "C": "غلط؛ المتغير الرأسي يحدده y.",
+          "D": "صح؛ hours تُرسم على Horizontal Axis."
+        }
       }
     },
     {
@@ -909,6 +1113,18 @@
         "ar": "لأن الاختيار «The DataFrame that supplies the plotted variables» هو التعريف أو السلوك الصحيح المرتبط بموضوع Matplotlib & Seaborn وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "data=df تخبر Seaborn أن أسماء الأعمدة المذكورة في x وy وغيرها يجب قراءتها من DataFrame المسماة df.",
+        "options": {
+          "A": "غلط؛ Chart Title يُضبط منفصلًا.",
+          "B": "غلط؛ Output filename لا تحدده data.",
+          "C": "صح؛ df هي مصدر المتغيرات المراد رسمها.",
+          "D": "غلط؛ عدد Categories لا يُحدد بهذه الوسيطة."
+        }
       }
     },
     {
@@ -959,6 +1175,18 @@
         "ar": "لأن الاختيار «df.dtypes» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "df.dtypes تعرض dtype لكل Column في DataFrame، مثل int64 أوfloat64 أوobject/string.",
+        "options": {
+          "A": "غلط؛ df.types ليست attribute القياسية.",
+          "B": "غلط؛ df.info method وليست attribute مباشرة لأنواع الأعمدة.",
+          "C": "غلط؛ dtype مفردة تُستخدم عادةً مع Series/array، وليس DataFrame كلها.",
+          "D": "صح؛ df.dtypes تعرض نوع كل Column."
+        }
       }
     },
     {
@@ -1009,6 +1237,18 @@
         "ar": "لأن الاختيار «df.empty» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "df.empty ترجع True عندما لا تحتوي DataFrame على أي عناصر، وتُستخدم كاختبار سريع للفراغ.",
+        "options": {
+          "A": "غلط؛ blank ليست attribute قياسية.",
+          "B": "صح؛ df.empty هي attribute الصحيحة.",
+          "C": "غلط؛ none ليست attribute قياسية.",
+          "D": "غلط؛ zero ليست attribute قياسية."
+        }
       }
     },
     {
@@ -1059,6 +1299,18 @@
         "ar": "لأن الاختيار «2» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DataFrame قياسية ثنائية الأبعاد: Rows وColumns، لذلك ndim = 2.",
+        "options": {
+          "A": "صح؛ DataFrame 2D.",
+          "B": "غلط؛ Series هي غالبًا 1D.",
+          "C": "غلط؛ DataFrame ليست 3D.",
+          "D": "غلط؛ ndim يصف عدد الأبعاد وليس عدد الصفوف."
+        }
       }
     },
     {
@@ -1109,6 +1361,18 @@
         "ar": "لأن الاختيار «The transpose of df with rows and columns exchanged» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "df.T هي Transpose للDataFrame، فتتبدل Rows وColumns.",
+        "options": {
+          "A": "غلط؛ لا تعني Sorted copy.",
+          "B": "غلط؛ لا تحوّل DataFrame إلى Text.",
+          "C": "غلط؛ لا تطبق Filtering.",
+          "D": "صح؛ Transpose تستبدل الصفوف بالأعمدة والعكس."
+        }
       }
     },
     {
@@ -1159,6 +1423,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «student[\"name\"]» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dictionary values تُقرأ باستخدام الـkey بين brackets. الـkey 'name' قيمته 'Ali'.",
+        "options": {
+          "A": "صح؛ student['name'] ترجع Ali.",
+          "B": "غلط؛ 'Ali' قيمة وليست Key.",
+          "C": "غلط؛ dict القياسية لا تستخدم attribute access student.name.",
+          "D": "غلط؛ Dictionary لا تعتمد index رقمي 0 للوصول لهذا العنصر."
+        }
       }
     },
     {
@@ -1209,6 +1485,18 @@
         "ar": "لأن الاختيار «0, 1, 2» هو التعريف أو السلوك الصحيح المرتبط بموضوع Python Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "range(3) تبدأ من 0 افتراضيًا وتتوقف قبل 3، فتنتج 0,1,2.",
+        "options": {
+          "A": "غلط؛ تبدأ من 0 وليس1، ولا تشمل 3.",
+          "B": "صح؛ 0,1,2.",
+          "C": "غلط؛ stop value 3 غير مشمولة.",
+          "D": "غلط؛ 0 مفقودة وrange لا تبدأ من1 افتراضيًا."
+        }
       }
     },
     {
@@ -1259,6 +1547,18 @@
         "ar": "لأن الاختيار «[2, 3, 4]» هو التعريف أو السلوك الصحيح المرتبط بموضوع Python Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "range(2,5) تبدأ من2 وتتوقف قبل5، لذلك list الناتجة [2,3,4].",
+        "options": {
+          "A": "غلط؛ 5 غير مشمولة.",
+          "B": "صح؛ [2,3,4].",
+          "C": "غلط؛ البداية 2 وليس3.",
+          "D": "غلط؛ range تنتج كل القيم بين البداية والنهاية وفق step."
+        }
       }
     },
     {
@@ -1309,6 +1609,18 @@
         "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «Its elements cannot be reassigned by index» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Tuple immutable؛ لا يمكن إعادة تعيين عنصر معين بالindex بعد إنشائها.",
+        "options": {
+          "A": "غلط؛ tuple لا تدعم append لتعديلها.",
+          "B": "صح؛ عناصرها لا تُعاد Assignment بالindex.",
+          "C": "غلط؛ Tuple يمكن أن تحتوي Text وأي أنواع أخرى.",
+          "D": "غلط؛ يمكن أن تحتوي أي عدد من العناصر."
+        }
       }
     },
     {
@@ -1359,6 +1671,18 @@
         "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Python Fundamentals. الاختيار «To send a value back to the caller» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "return ترسل قيمة من داخل Function إلى الكود الذي استدعاها، ويمكن تخزينها أو استخدامها في تعبير آخر.",
+        "options": {
+          "A": "صح؛ هذا هو الغرض الأساسي.",
+          "B": "غلط؛ return تنهي تنفيذ Function الحالية ولا تكررها للأبد.",
+          "C": "غلط؛ import هي Keyword تحميل Modules.",
+          "D": "غلط؛ Dictionary تُنشأ بصياغة أخرى."
+        }
       }
     },
     {
@@ -1409,6 +1733,18 @@
         "ar": "لأن الاختيار «append()» هو التعريف أو السلوك الصحيح المرتبط بموضوع Python Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "append(item) تضيف عنصرًا واحدًا في نهاية List الموجودة.",
+        "options": {
+          "A": "غلط؛ insert تضيف عنصرًا في موضع محدد.",
+          "B": "غلط؛ extend تضيف عناصر Iterable متعددة.",
+          "C": "غلط؛ remove تحذف عنصرًا.",
+          "D": "صح؛ append تضيف عنصرًا واحدًا للنهاية."
+        }
       }
     },
     {
@@ -1459,6 +1795,18 @@
         "ar": "لأن كل Function/Feature في Python Fundamentals لها وظيفة محددة. «==» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "== هي Equality Comparison Operator، بينما = مخصصة للAssignment.",
+        "options": {
+          "A": "غلط؛ = تسند قيمة لمتغير.",
+          "B": "غلط؛ != تعني Not Equal.",
+          "C": "صح؛ == تختبر المساواة.",
+          "D": "غلط؛ >= تعني Greater Than or Equal."
+        }
       }
     },
     {
@@ -1509,6 +1857,18 @@
         "ar": "لأن الاختيار «float» هو التعريف أو السلوك الصحيح المرتبط بموضوع Python Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "وجود الجزء العشري .0 يجعل القيمة 3.0 من نوع float في Python.",
+        "options": {
+          "A": "غلط؛ 3 بدون .0 تكون int عادةً.",
+          "B": "غلط؛ ليست String لأنها غير محاطة بعلامات اقتباس.",
+          "C": "صح؛ 3.0 نوعها float.",
+          "D": "غلط؛ bool هي True أوFalse."
+        }
       }
     },
     {
@@ -1559,6 +1919,18 @@
         "ar": "لأن الاختيار «4» هو التعريف أو السلوك الصحيح المرتبط بموضوع Python Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "len('Data') تعد عدد Characters في String. الحروف D,a,t,a = 4.",
+        "options": {
+          "A": "صح؛ طول النص 4.",
+          "B": "غلط؛ هناك أربعة أحرف.",
+          "C": "غلط؛ لا توجد خمسة أحرف.",
+          "D": "غلط؛ len تعمل بشكل طبيعي على String."
+        }
       }
     },
     {
@@ -1609,6 +1981,18 @@
         "ar": "لأن الاختيار «def» هو التعريف أو السلوك الصحيح المرتبط بموضوع Python Fundamentals وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "def هي Keyword المستخدمة لبدء تعريف Function في Python.",
+        "options": {
+          "A": "غلط؛ func ليست Keyword Python.",
+          "B": "غلط؛ function ليست Keyword Python.",
+          "C": "غلط؛ return تستخدم داخل Function لإرجاع قيمة.",
+          "D": "صح؛ def تبدأ Function Definition."
+        }
       }
     },
     {
@@ -1659,6 +2043,18 @@
         "ar": "لأن الاختيار «plt.grid(True)» هو التعريف أو السلوك الصحيح المرتبط بموضوع Matplotlib & Seaborn وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "plt.grid(True) تفعّل Grid Lines على الـAxes الحالية.",
+        "options": {
+          "A": "غلط؛ axis() للتحكم في المحاور بطرق أخرى.",
+          "B": "صح؛ grid(True) تشغّل خطوط الشبكة.",
+          "C": "غلط؛ lines ليست command لهذا الغرض.",
+          "D": "غلط؛ ticks تتحكم في علامات المحاور وليس Grid."
+        }
       }
     },
     {
@@ -1709,6 +2105,18 @@
         "ar": "لأن الاختيار «plt.title(\"Sales\")» هو التعريف أو السلوك الصحيح المرتبط بموضوع Matplotlib & Seaborn وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "plt.title('Sales') تضيف Title أعلى الرسم الحالي.",
+        "options": {
+          "A": "صح؛ هذه هي الدالة الصحيحة.",
+          "B": "غلط؛ label ليست command عامة لعنوان الرسم.",
+          "C": "غلط؛ name ليست الدالة الصحيحة.",
+          "D": "غلط؛ caption ليست Matplotlib command القياسية."
+        }
       }
     },
     {
@@ -1759,6 +2167,18 @@
         "ar": "لأن الاختيار «df.index» هو التعريف أو السلوك الصحيح المرتبط بموضوع Pandas Inspection & Structure وفقًا لصياغة السؤال والإجابة الرسمية.",
         "source": "ai-generated",
         "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "df.index ترجع Index object الذي يحتوي Row Labels للDataFrame.",
+        "options": {
+          "A": "غلط؛ df.rows ليست attribute Pandas القياسية.",
+          "B": "غلط؛ df.labels ليست attribute القياسية هنا.",
+          "C": "صح؛ df.index تمثل Row Labels.",
+          "D": "غلط؛ df.columns تمثل أسماء الأعمدة."
+        }
       }
     }
   ]
