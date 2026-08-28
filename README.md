@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.10.7
+# Digilians E-Learn Platform V0.10.8
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -814,3 +814,22 @@ Completed Official Junior Looker Studio Q51-Q85.
 
 Every official Junior question now includes a concept-specific Arabic summary plus an A/B/C/D option analysis.
 The official question text, options and official answer remain locked and unchanged. Platform explanations remain clearly labeled `platform-generated`.
+
+
+## V0.10.8 — Home / Ranking Default Flow UX Update
+
+Updated the initial Home and Ranking experience so the platform now prioritizes **Data Analysis**
+instead of the old English demo fallback.
+
+### Changes
+- Home hero course card fallback changed from **English • Module 1** to **Data Analysis • Official QBank**
+- Home hero subtitle changed from **Practice session** to **Resume Track**
+- Ranking page default selection now prioritizes:
+  1. last opened leaderboard
+  2. most used leaderboard
+  3. **Junior Data Analysis — Official QBank**
+  4. any available Data Analysis leaderboard
+  5. first available fallback
+- Leaderboard selection is now remembered in localStorage for a more personalized return experience
+
+This keeps the platform aligned with the primary user journey around Data Analysis.

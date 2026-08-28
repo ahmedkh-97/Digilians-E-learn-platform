@@ -1,3 +1,12 @@
+
+function getPreferredHomeCardTitle() {
+  try {
+    const lastOpened = localStorage.getItem('digilians_last_home_card');
+    if (lastOpened) return lastOpened;
+  } catch (e) {}
+  return 'Data Analysis • Official QBank';
+}
+
 import {
   getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,
   markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
@@ -1767,7 +1776,52 @@ function populateRankingExamSelect(){
   if([...select.options].some(o=>o.value===current))select.value=current;
   state.rankingExamId=select.value || current;
 }
-async function renderRanking(){
+async 
+function getMostUsedOrLastOpenedLeaderboardId(leaderboards) {
+  try {
+    const lastOpened = localStorage.getItem('digilians_last_leaderboard_id');
+    if (lastOpened && leaderboards.some(lb => lb.id === lastOpened)) return lastOpened;
+
+    const usageRaw = localStorage.getItem('digilians_leaderboard_usage');
+    if (usageRaw) {
+      const usage = JSON.parse(usageRaw);
+      let bestId = null;
+      let bestCount = -1;
+      leaderboards.forEach(lb => {
+        const count = Number(usage[lb.id] || 0);
+        if (count > bestCount) {
+          bestCount = count;
+          bestId = lb.id;
+        }
+      });
+      if (bestId && leaderboards.some(lb => lb.id === bestId)) return bestId;
+    }
+
+    const preferred = leaderboards.find(lb =>
+      /junior data analysis/i.test(lb.title || '') &&
+      /official qbank/i.test(lb.title || '')
+    );
+    if (preferred) return preferred.id;
+
+    const dataAny = leaderboards.find(lb => /data analysis/i.test(lb.title || ''));
+    if (dataAny) return dataAny.id;
+
+    return leaderboards[0] ? leaderboards[0].id : null;
+  } catch (e) {
+    return leaderboards[0] ? leaderboards[0].id : null;
+  }
+}
+
+function rememberLeaderboardSelection(id) {
+  try {
+    localStorage.setItem('digilians_last_leaderboard_id', id);
+    const usage = JSON.parse(localStorage.getItem('digilians_leaderboard_usage') || '{}');
+    usage[id] = Number(usage[id] || 0) + 1;
+    localStorage.setItem('digilians_leaderboard_usage', JSON.stringify(usage));
+  } catch (e) {}
+}
+
+function renderRanking(){
   $("rankingLocalName").textContent=state.studentName || "Guest";
 
   populateRankingExamSelect();
@@ -2072,3 +2126,9 @@ async function init(){
   }else routeTo("welcomeView");
 }
 init();
+
+try {
+  if (typeof currentLeaderboardId !== 'undefined' && currentLeaderboardId) {
+    rememberLeaderboardSelection(currentLeaderboardId);
+  }
+} catch (e) {}
