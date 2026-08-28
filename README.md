@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.8.1
+# Digilians E-Learn Platform V0.8.2
 
 A modern, free-first learning and exam platform prototype.
 
@@ -285,3 +285,24 @@ looked clickable but did not respond.
 - Official answer option text uses 14px on mobile.
 - Official answer feedback box enlarged.
 - General Exam/Practice answer choices were also enlarged for consistency.
+
+
+## V0.8.2 — Official QBank Arabic Explanation Layer
+
+Added Arabic educational explanations to all 830 Official Ministry QBank questions.
+
+### Source integrity
+- Official question text remains unchanged.
+- Official options remain unchanged.
+- Official correct answer remains unchanged.
+- `officialTextLocked` remains untouched.
+- Arabic explanations are stored separately in `aiExplanation`.
+- The UI clearly labels them as **AI Explanation — Arabic**.
+
+### Feedback behavior
+After selecting an answer:
+- Correct selection: Arabic note explains that the choice matches the official answer, followed by an Arabic concept explanation.
+- Wrong selection: shows the chosen option, identifies it as incorrect, shows the official answer, then gives an Arabic explanation.
+- `Show Official Answer` also displays the Arabic explanation.
+
+The platform explicitly states that the answer is official while the Arabic explanation is an educational platform-generated addition.

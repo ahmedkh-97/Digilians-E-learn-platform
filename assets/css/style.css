@@ -1141,3 +1141,64 @@ input::placeholder{color:color-mix(in srgb,var(--muted) 70%,transparent)}
   .official-answer-box strong{font-size:14px}
   .option-btn>span:last-child{font-size:14px;line-height:1.6}
 }
+
+
+/* V0.8.2 — Official QBank Arabic AI explanations */
+.official-answer-text{
+  font-size:15px;
+  line-height:1.65;
+  font-weight:650;
+}
+.official-arabic-verdict{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:12px;
+  text-align:right;
+  direction:rtl;
+}
+.official-arabic-verdict strong{
+  font-size:14px;
+  margin-bottom:4px;
+}
+.official-arabic-verdict p{
+  margin:0;
+  font-size:13px;
+  line-height:1.7;
+}
+.official-arabic-verdict.correct-note{
+  background:color-mix(in srgb,var(--success) 10%,var(--surface-solid));
+  border:1px solid color-mix(in srgb,var(--success) 22%,var(--line));
+  color:var(--text);
+}
+.official-arabic-verdict.wrong-note{
+  background:color-mix(in srgb,var(--danger) 8%,var(--surface-solid));
+  border:1px solid color-mix(in srgb,var(--danger) 20%,var(--line));
+  color:var(--text);
+}
+.official-ai-explanation{
+  margin-top:14px;
+  padding:15px 16px;
+  border-radius:13px;
+  background:var(--surface-solid);
+  border:1px solid var(--line);
+  color:var(--text);
+}
+.official-ai-label{
+  display:block;
+  font-size:8px;
+  letter-spacing:.12em;
+  font-weight:900;
+  color:var(--primary);
+  margin-bottom:7px;
+}
+.official-ai-explanation p{
+  margin:0;
+  font-size:14px;
+  line-height:1.8;
+  text-align:right;
+}
+@media(max-width:600px){
+  .official-answer-text{font-size:14px}
+  .official-arabic-verdict p{font-size:12.5px}
+  .official-ai-explanation p{font-size:13.5px;line-height:1.75}
+}

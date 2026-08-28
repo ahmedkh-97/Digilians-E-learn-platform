@@ -295,18 +295,39 @@ function officialVisiblePosition(){
 }
 function renderOfficialAnswerBox(q,selected=null,revealOnly=false){
   const correct=q.options.find(o=>o.id===q.correctAnswer);
+  const selectedOption=q.options.find(o=>o.id===selected);
   const box=$("officialAnswerBox");
   let heading=`Official Answer: ${escapeHtml(q.correctAnswer)}`;
   let statusClass="official-answer-neutral";
+  let verdict="";
+
   if(selected){
     const isCorrect=selected===q.correctAnswer;
-    heading=isCorrect?`Correct ✓ — Official Answer: ${escapeHtml(q.correctAnswer)}`:`Incorrect ✕ — Official Answer: ${escapeHtml(q.correctAnswer)}`;
+    heading=isCorrect
+      ?`Correct ✓ — Official Answer: ${escapeHtml(q.correctAnswer)}`
+      :`Incorrect ✕ — Official Answer: ${escapeHtml(q.correctAnswer)}`;
     statusClass=isCorrect?"official-answer-correct":"official-answer-wrong";
-  }else if(revealOnly){
-    heading=`Official Answer: ${escapeHtml(q.correctAnswer)}`;
+
+    if(isCorrect){
+      verdict=`<div class="official-arabic-verdict correct-note"><strong>ليه إجابتك صح؟</strong><p>لأن اختيارك يطابق الإجابة الرسمية المنشورة في بنك الأسئلة.</p></div>`;
+    }else{
+      verdict=`<div class="official-arabic-verdict wrong-note"><strong>ليه إجابتك غلط؟</strong><p>اختيارك كان <b>${escapeHtml(selected)}</b> — ${escapeHtml(selectedOption?.text||"")}. الاختيار ده لا يحقق المطلوب في السؤال، بينما الإجابة الرسمية هي <b>${escapeHtml(q.correctAnswer)}</b>.</p></div>`;
+    }
   }
+
+  const aiAr=q.aiExplanation?.ar || "الإجابة الصحيحة هي الاختيار الرسمي الظاهر بالأعلى. الشرح العربي التفصيلي غير متوفر لهذا السؤال حاليًا.";
+
   box.className=`official-answer-box ${statusClass}`;
-  box.innerHTML=`<strong>${heading}</strong><div>${escapeHtml(correct?.text||"")}</div><small>This answer comes from the official source. No detailed explanation was published with this item.</small>`;
+  box.innerHTML=`
+    <strong>${heading}</strong>
+    <div class="official-answer-text">${escapeHtml(correct?.text||"")}</div>
+    ${verdict}
+    <div class="official-ai-explanation">
+      <span class="official-ai-label">AI EXPLANATION — ARABIC</span>
+      <p dir="rtl">${escapeHtml(aiAr)}</p>
+    </div>
+    <small>الإجابة أعلاه من المصدر الرسمي. الشرح العربي إضافة تعليمية مولدة بواسطة المنصة وليس جزءًا من ملف الوزارة.</small>
+  `;
 }
 function answerOfficialQuestion(q,optionId){
   const st=getOfficialTrackState(state.officialTrackId);
