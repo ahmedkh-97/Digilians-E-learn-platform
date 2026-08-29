@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.17.3
+# Digilians E-Learn Platform V0.18.1
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1630,3 +1630,145 @@ Current Python parser audit:
 - 0 fragmented multi-block Python programs
 
 Universal technical renderer QA remains active across the full current JSON payload set.
+
+
+## V0.18.0 — SQL Study V2 & Learner/Admin Information Architecture
+
+### SQL Study V2
+All 34 SQL Study sections now use a teaching-oriented structure:
+
+`What Is It? → Why It Matters → Visual Model / Query → Key Terms → Key Takeaways → Quick Check → Source Trace`
+
+The new Study layer covers all 8 SQL sessions.
+
+### Visual learning
+34/34 SQL Study sections include a visual clarification.
+
+Examples include:
+- DDL / DML / DQL command families
+- ER entities and relationships
+- M:N relational mapping
+- normalization before/after
+- Star Schema
+- constraints and rejected data
+- SELECT before/result tables
+- WHERE filtering
+- GROUP BY aggregation
+- INNER JOIN matching
+- nested subqueries
+- UNION
+- Window Functions
+- CTE flow
+- Pivot row-to-column transformation
+- TRY/CATCH flow
+- Views
+- Stored Procedures
+
+Illustrative values created by the platform are explicitly labeled:
+
+`PLATFORM VISUAL CLARIFICATION — based on the course concept`
+
+They are not presented as source screenshots or official course examples.
+
+### SQL Quick Checks
+Each SQL Study section now contains one course-derived Quick Check.
+
+Current result:
+- 34 Study sections
+- 34 Quick Checks
+- 34 unique source question IDs
+
+Quick Check state uses the existing local save system.
+
+### Learner-facing Course Map
+Selecting SQL now shows a clean Course Map:
+- Sessions
+- Topics
+- Practice Questions
+- Final-ready status
+- learner-friendly `What You'll Learn` topic groups
+
+### Curriculum / coverage diagnostics
+`SYLLABUS MAP & COVERAGE` and detailed curriculum readiness were not deleted.
+
+They are now inside a collapsed:
+
+`Platform Diagnostics`
+
+section labeled as an internal QA view.
+
+This keeps exam-production information available while removing it from the normal learner flow.
+
+### Final Exam card
+The learner-facing Final Exam card no longer exposes:
+- Hard pool
+- External pool
+- quota shortages
+- pool-building implementation details
+
+It now shows only:
+- question count
+- time
+- required tracks ready
+- available / coming soon status
+
+Technical diagnostics remain available in Platform Diagnostics.
+
+### Source protection
+Assessment payloads were not edited for this release.
+
+Only `data/learning.json` is intentionally changed to add SQL Study V2 teaching metadata.
+
+
+## V0.18.1 — Technical Feedback CSS Hotfix
+
+### Problem
+Multi-line technical answers rendered correctly as code, but a broad feedback selector:
+
+`.technical-feedback-answer span`
+
+also targeted the syntax-highlighting `<span>` tokens inside SQL/Python/DAX/Excel/Power Query code.
+
+That caused tokens such as `SELECT`, `CustomerID`, `SUM`, `FROM`, `GROUP BY`, and `HAVING` to become block elements and appear almost one word per visual line.
+
+A similar historical Official QBank selector used:
+
+`.official-option span:last-child`
+
+which could also target nested syntax tokens.
+
+### Fix
+Feedback label styling is now scoped only to the direct label:
+
+`.technical-feedback-answer > div > span`
+
+Official option typography now targets the explicit wrapper:
+
+`.official-option > .option-content`
+
+Additional defensive rules preserve:
+- `.technical-code-line` as flex
+- `.technical-code-source` as preformatted block
+- syntax token spans as inline content
+
+### Exact regression
+The reported SQL case is now a shipped regression:
+
+`official-sql-q0001`
+
+Correct answer B must render as one SQL block with exactly 4 source lines:
+
+- SELECT CustomerID, SUM(Amount)
+- FROM Orders
+- GROUP BY CustomerID
+- HAVING SUM(Amount) > 50000;
+
+### Browser component QA
+The exact SQL answer was rendered in Chromium with the real production CSS.
+
+Verified:
+- 4 visual lines per answer card
+- syntax keyword tokens remain inline
+- code source keeps `white-space: pre`
+- code block height remains compact
+- no page-level horizontal overflow

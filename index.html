@@ -10,13 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.17.3" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.18.1" />
 </head>
 <body>
-  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.17.3">
+  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.18.1">
     <strong>DIGILIANS TEST MODE</strong>
     <span>This is a LOCAL TEST build — not the live GitHub site.</span>
-    <b>V0.17.3</b>
+    <b>V0.18.1</b>
   </div>
   <script>
     (function () {
@@ -33,7 +33,7 @@
   <!-- STARTUP / CRASH RECOVERY — independent from app.js -->
   <div id="fatalRecovery" class="fatal-recovery hidden" role="alertdialog" aria-modal="true" aria-labelledby="fatalRecoveryTitle">
     <article class="fatal-recovery-card">
-      <span class="fatal-recovery-badge">RECOVERY MODE · V0.17.3</span>
+      <span class="fatal-recovery-badge">RECOVERY MODE · V0.18.1</span>
       <div class="fatal-recovery-icon">!</div>
       <h2 id="fatalRecoveryTitle">The platform could not start correctly.</h2>
       <p id="fatalRecoveryMessage">A startup error prevented the application from loading.</p>
@@ -344,9 +344,21 @@
             <button class="ghost-btn" id="closeTrackPanel">Close</button>
           </div>
           <div id="trackGrid" class="track-grid"></div>
-          <section id="curriculumStatusPanel" class="curriculum-status-panel hidden"></section>
-          <section id="coverageStatusPanel" class="coverage-status-panel hidden"></section>
           <div id="courseFinalExamSlot"></div>
+
+          <details id="adminDiagnosticsPanel" class="admin-diagnostics">
+            <summary>
+              <span>
+                <b>Platform Diagnostics</b>
+                <small>Curriculum readiness & exam coverage — internal QA view</small>
+              </span>
+              <i>Open diagnostics</i>
+            </summary>
+            <div class="admin-diagnostics-body">
+              <section id="curriculumStatusPanel" class="curriculum-status-panel hidden"></section>
+              <section id="coverageStatusPanel" class="coverage-status-panel hidden"></section>
+            </div>
+          </details>
         </section>
 
         <section id="modulePanel" class="module-panel hidden">
@@ -359,6 +371,8 @@
             </div>
             <button class="ghost-btn" id="closeModulePanel">Close</button>
           </div>
+
+          <section id="trackLearningMapPanel" class="track-learning-map hidden"></section>
 
           <div id="selectedModuleNotice" class="selected-module-notice" aria-live="polite">
             <div class="selected-module-check">✓</div>
@@ -1051,6 +1065,6 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/app.js?v=0.17.3"></script>
+  <script type="module" src="assets/js/app.js?v=0.18.1"></script>
 </body>
 </html>
