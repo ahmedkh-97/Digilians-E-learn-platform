@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-python-session13-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "python",
+    "track": "Python for Data Analysis",
+    "moduleId": "python-session-13",
+    "module": "Session 13 — Advanced Visualization, Seaborn & Geospatial Analytics",
+    "title": "Python Session 13 — Production Bank 001",
+    "version": "1.0-final",
+    "status": "active",
+    "sourceFiles": [
+      "Data Visualization with Python_session_3.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-python-s13-q001",
+      "question": "Which statement best describes `Waffle Charts` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Waffle Chart is a grid visualization used to show parts-to-whole relationships; the source describes a 100-square percentage-style grid."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A Waffle Chart is a grid visualization used to show parts-to-whole relationships; the source describes a 100-square percentage-style grid. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Waffle Charts",
+      "topicId": "waffle-chart",
+      "subtopicId": "parts-to-whole",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-waffle-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 5–8 — Waffle Charts"
+      }
+    },
+    {
+      "id": "da-python-s13-q002",
+      "question": "Which taught tool or pattern is most appropriate when you want to show a simple parts-to-whole composition in a square grid?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Waffle chart / pywaffle"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Waffle chart / pywaffle`.",
+        "en": ""
+      },
+      "topic": "Waffle Charts",
+      "topicId": "waffle-chart",
+      "subtopicId": "parts-to-whole",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-waffle-2",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 5–8 — Waffle Charts"
+      }
+    },
+    {
+      "id": "da-python-s13-q003",
+      "question": "What does each square conceptually represent in the described 100-square waffle grid?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "About 1% or one unit of the total, depending on the configuration."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: About 1% or one unit of the total, depending on the configuration..",
+        "en": ""
+      },
+      "topic": "Waffle Charts",
+      "topicId": "waffle-chart",
+      "subtopicId": "parts-to-whole",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-waffle-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 5–8 — Waffle Charts"
+      }
+    },
+    {
+      "id": "da-python-s13-q004",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Waffle Charts`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Use waffle charts for clear part-to-whole comparisons; do not use them for continuous time trends."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Use waffle charts for clear part-to-whole comparisons; do not use them for continuous time trends.",
+        "en": ""
+      },
+      "topic": "Waffle Charts",
+      "topicId": "waffle-chart",
+      "subtopicId": "parts-to-whole",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-waffle-4",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 5–8 — Waffle Charts"
+      }
+    },
+    {
+      "id": "da-python-s13-q005",
+      "question": "Which statement best describes `pywaffle Retention vs Churn` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The source uses pywaffle to visualize customer Retained versus Churned proportions."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The source uses pywaffle to visualize customer Retained versus Churned proportions. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "pywaffle Retention vs Churn",
+      "topicId": "pywaffle",
+      "subtopicId": "retention",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-pywaffle-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 7–10 — Customer Retention vs Churn"
+      }
+    },
+    {
+      "id": "da-python-s13-q006",
+      "question": "Which taught tool or pattern is most appropriate when you want to visualize retained versus churned customer shares with the taught specialized chart?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Create a Waffle figure using pywaffle"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Create a Waffle figure using pywaffle`.",
+        "en": ""
+      },
+      "topic": "pywaffle Retention vs Churn",
+      "topicId": "pywaffle",
+      "subtopicId": "retention",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-pywaffle-2",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 7–10 — Customer Retention vs Churn"
+      }
+    },
+    {
+      "id": "da-python-s13-q007",
+      "question": "Which business categories are compared in the source waffle example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Retained and Churned customers."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: Retained and Churned customers..",
+        "en": ""
+      },
+      "topic": "pywaffle Retention vs Churn",
+      "topicId": "pywaffle",
+      "subtopicId": "retention",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-pywaffle-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 7–10 — Customer Retention vs Churn"
+      }
+    },
+    {
+      "id": "da-python-s13-q008",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `pywaffle Retention vs Churn`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Pass meaningful category values/labels to the waffle chart and interpret it as composition, not a time-series chart."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Pass meaningful category values/labels to the waffle chart and interpret it as composition, not a time-series chart.",
+        "en": ""
+      },
+      "topic": "pywaffle Retention vs Churn",
+      "topicId": "pywaffle",
+      "subtopicId": "retention",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-pywaffle-4",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 7–10 — Customer Retention vs Churn"
+      }
+    },
+    {
+      "id": "da-python-s13-q009",
+      "question": "Which statement best describes `Word Clouds` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Word Cloud represents textual frequency visually: more frequent words appear larger."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A Word Cloud represents textual frequency visually: more frequent words appear larger. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Word Clouds",
+      "topicId": "wordcloud",
+      "subtopicId": "frequency",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-wordcloud-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 11–14 — Word Clouds"
+      }
+    },
+    {
+      "id": "da-python-s13-q010",
+      "question": "Which taught tool or pattern is most appropriate when you want to visualize frequently occurring words in text feedback?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Generate a WordCloud from cleaned text"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Generate a WordCloud from cleaned text`.",
+        "en": ""
+      },
+      "topic": "Word Clouds",
+      "topicId": "wordcloud",
+      "subtopicId": "frequency",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-wordcloud-2",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 11–14 — Word Clouds"
+      }
+    },
+    {
+      "id": "da-python-s13-q011",
+      "question": "What determines a word's relative visual prominence in a word cloud?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Its frequency in the processed text."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: Its frequency in the processed text..",
+        "en": ""
+      },
+      "topic": "Word Clouds",
+      "topicId": "wordcloud",
+      "subtopicId": "frequency",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-wordcloud-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 11–14 — Word Clouds"
+      }
+    },
+    {
+      "id": "da-python-s13-q012",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Word Clouds`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Preprocess/clean the text appropriately before interpreting word size as meaningful frequency."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Preprocess/clean the text appropriately before interpreting word size as meaningful frequency.",
+        "en": ""
+      },
+      "topic": "Word Clouds",
+      "topicId": "wordcloud",
+      "subtopicId": "frequency",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-wordcloud-4",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 11–14 — Word Clouds"
+      }
+    },
+    {
+      "id": "da-python-s13-q013",
+      "question": "Which statement best describes `Positive & Negative Feedback Word Clouds` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The source demonstrates separate word clouds to compare frequently occurring terms in positive and negative customer feedback."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The source demonstrates separate word clouds to compare frequently occurring terms in positive and negative customer feedback. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Positive & Negative Feedback Word Clouds",
+      "topicId": "text-sentiment-clouds",
+      "subtopicId": "feedback",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-feedback-cloud-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 13–14 — Customer Feedback word clouds"
+      }
+    },
+    {
+      "id": "da-python-s13-q014",
+      "question": "Which taught tool or pattern is most appropriate when you want to compare frequent terms in positive and negative feedback separately?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Build separate word clouds for the two feedback groups"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Build separate word clouds for the two feedback groups`.",
+        "en": ""
+      },
+      "topic": "Positive & Negative Feedback Word Clouds",
+      "topicId": "text-sentiment-clouds",
+      "subtopicId": "feedback",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-feedback-cloud-2",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 13–14 — Customer Feedback word clouds"
+      }
+    },
+    {
+      "id": "da-python-s13-q015",
+      "question": "Why create separate positive and negative word clouds in the demonstrated workflow?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "To compare dominant terms in the two feedback groups."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: To compare dominant terms in the two feedback groups..",
+        "en": ""
+      },
+      "topic": "Positive & Negative Feedback Word Clouds",
+      "topicId": "text-sentiment-clouds",
+      "subtopicId": "feedback",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-feedback-cloud-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 13–14 — Customer Feedback word clouds"
+      }
+    },
+    {
+      "id": "da-python-s13-q016",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Positive & Negative Feedback Word Clouds`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Keep the groups separated consistently before generating the clouds; otherwise the comparison loses meaning."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. ده Platform clarification مبني على نفس concept في المصدر: Keep the groups separated consistently before generating the clouds; otherwise the comparison loses meaning.",
+        "en": ""
+      },
+      "topic": "Positive & Negative Feedback Word Clouds",
+      "topicId": "text-sentiment-clouds",
+      "subtopicId": "feedback",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-feedback-cloud-4",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 13–14 — Customer Feedback word clouds"
+      }
+    },
+    {
+      "id": "da-python-s13-q017",
+      "question": "Which statement best describes `Seaborn Statistical Visualization` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Seaborn is built on Matplotlib and provides a high-level interface for attractive statistical graphics."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Seaborn is built on Matplotlib and provides a high-level interface for attractive statistical graphics. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Seaborn Statistical Visualization",
+      "topicId": "seaborn",
+      "subtopicId": "statistical",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-seaborn-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 15–16 — Seaborn / Regression Plots"
+      }
+    },
+    {
+      "id": "da-python-s13-q018",
+      "question": "Which taught tool or pattern is most appropriate when you want to draw a statistical relationship with a fitted trend?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Use Seaborn regression plotting such as regplot/lmplot"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Use Seaborn regression plotting such as regplot/lmplot`.",
+        "en": ""
+      },
+      "topic": "Seaborn Statistical Visualization",
+      "topicId": "seaborn",
+      "subtopicId": "statistical",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-seaborn-2",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 15–16 — Seaborn / Regression Plots"
+      }
+    },
+    {
+      "id": "da-python-s13-q019",
+      "question": "What is Seaborn built on according to the source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Matplotlib."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: Matplotlib..",
+        "en": ""
+      },
+      "topic": "Seaborn Statistical Visualization",
+      "topicId": "seaborn",
+      "subtopicId": "statistical",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-seaborn-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 15–16 — Seaborn / Regression Plots"
+      }
+    },
+    {
+      "id": "da-python-s13-q020",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Seaborn Statistical Visualization`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Use Seaborn for statistical visual patterns while still interpreting variables and scales correctly."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Use Seaborn for statistical visual patterns while still interpreting variables and scales correctly.",
+        "en": ""
+      },
+      "topic": "Seaborn Statistical Visualization",
+      "topicId": "seaborn",
+      "subtopicId": "statistical",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-seaborn-4",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 15–16 — Seaborn / Regression Plots"
+      }
+    },
+    {
+      "id": "da-python-s13-q021",
+      "question": "Which statement best describes `Regression Plots & Confidence Interval` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Regression plots visualize the relationship/trend between variables and can display an estimated regression line with a confidence interval."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Regression plots visualize the relationship/trend between variables and can display an estimated regression line with a confidence interval. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Regression Plots & Confidence Interval",
+      "topicId": "regression-plot",
+      "subtopicId": "regression",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-regplot-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 16–18 — Regression / advertising spend"
+      }
+    },
+    {
+      "id": "da-python-s13-q022",
+      "question": "Which taught tool or pattern is most appropriate when you want to inspect the relationship between advertising spend and sales?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Use a Seaborn regression plot"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Use a Seaborn regression plot`.",
+        "en": ""
+      },
+      "topic": "Regression Plots & Confidence Interval",
+      "topicId": "regression-plot",
+      "subtopicId": "regression",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-regplot-2",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 16–18 — Regression / advertising spend"
+      }
+    },
+    {
+      "id": "da-python-s13-q023",
+      "question": "What does the fitted line in the advertising-spend example help communicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "The estimated trend/relationship between advertising spend and sales."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: The estimated trend/relationship between advertising spend and sales..",
+        "en": ""
+      },
+      "topic": "Regression Plots & Confidence Interval",
+      "topicId": "regression-plot",
+      "subtopicId": "regression",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-regplot-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 16–18 — Regression / advertising spend"
+      }
+    },
+    {
+      "id": "da-python-s13-q024",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Regression Plots & Confidence Interval`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Do not claim causation from the regression visual alone; interpret the trend and uncertainty shown."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Do not claim causation from the regression visual alone; interpret the trend and uncertainty shown.",
+        "en": ""
+      },
+      "topic": "Regression Plots & Confidence Interval",
+      "topicId": "regression-plot",
+      "subtopicId": "regression",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-regplot-4",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 16–18 — Regression / advertising spend"
+      }
+    },
+    {
+      "id": "da-python-s13-q025",
+      "question": "Which statement best describes `Diminishing Returns Insight` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The source discusses an advertising example where sales growth can flatten at higher spend, illustrating diminishing returns."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The source discusses an advertising example where sales growth can flatten at higher spend, illustrating diminishing returns. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Diminishing Returns Insight",
+      "topicId": "diminishing-returns",
+      "subtopicId": "business-insight",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-diminishing-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 17–18 — Advertising Spend vs Sales"
+      }
+    },
+    {
+      "id": "da-python-s13-q026",
+      "question": "Which taught tool or pattern is most appropriate when you want to identify whether more advertising spend keeps producing proportional sales gains?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Inspect the regression/scatter pattern for flattening at higher spend"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Inspect the regression/scatter pattern for flattening at higher spend`.",
+        "en": ""
+      },
+      "topic": "Diminishing Returns Insight",
+      "topicId": "diminishing-returns",
+      "subtopicId": "business-insight",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-diminishing-2",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 17–18 — Advertising Spend vs Sales"
+      }
+    },
+    {
+      "id": "da-python-s13-q027",
+      "question": "What does a flattening sales response at high advertising spend suggest in the source example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Diminishing returns."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: Diminishing returns..",
+        "en": ""
+      },
+      "topic": "Diminishing Returns Insight",
+      "topicId": "diminishing-returns",
+      "subtopicId": "business-insight",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-diminishing-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 17–18 — Advertising Spend vs Sales"
+      }
+    },
+    {
+      "id": "da-python-s13-q028",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Diminishing Returns Insight`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Interpret the shape of the relationship rather than assuming every additional spend produces the same gain."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. ده Platform clarification مبني على نفس concept في المصدر: Interpret the shape of the relationship rather than assuming every additional spend produces the same gain.",
+        "en": ""
+      },
+      "topic": "Diminishing Returns Insight",
+      "topicId": "diminishing-returns",
+      "subtopicId": "business-insight",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-diminishing-4",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 17–18 — Advertising Spend vs Sales"
+      }
+    },
+    {
+      "id": "da-python-s13-q029",
+      "question": "Which statement best describes `Folium Interactive Maps` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Folium creates interactive web maps in Python and can be centered using latitude/longitude with a zoom level."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Folium creates interactive web maps in Python and can be centered using latitude/longitude with a zoom level. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Folium Interactive Maps",
+      "topicId": "folium",
+      "subtopicId": "base-map",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-folium-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 19–20 — Introduction to Folium"
+      }
+    },
+    {
+      "id": "da-python-s13-q030",
+      "question": "Which taught tool or pattern is most appropriate when you want to create an interactive geographic base map?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "folium.Map(location=[lat, lon], zoom_start=...)"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `folium.Map(location=[lat, lon], zoom_start=...)`.",
+        "en": ""
+      },
+      "topic": "Folium Interactive Maps",
+      "topicId": "folium",
+      "subtopicId": "base-map",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-folium-2",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 19–20 — Introduction to Folium"
+      }
+    },
+    {
+      "id": "da-python-s13-q031",
+      "question": "What two location values are fundamental for centering a basic Folium map?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Latitude and longitude."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: Latitude and longitude..",
+        "en": ""
+      },
+      "topic": "Folium Interactive Maps",
+      "topicId": "folium",
+      "subtopicId": "base-map",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-folium-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 19–20 — Introduction to Folium"
+      }
+    },
+    {
+      "id": "da-python-s13-q032",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Folium Interactive Maps`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Use valid geographic coordinates and an appropriate zoom; a map without meaningful location context does not answer the spatial question."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Use valid geographic coordinates and an appropriate zoom; a map without meaningful location context does not answer the spatial question.",
+        "en": ""
+      },
+      "topic": "Folium Interactive Maps",
+      "topicId": "folium",
+      "subtopicId": "base-map",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-folium-4",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 19–20 — Introduction to Folium"
+      }
+    },
+    {
+      "id": "da-python-s13-q033",
+      "question": "Which statement best describes `Folium Markers & Branch Performance` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The source uses markers/CircleMarker concepts to place business locations and encode branch information on an interactive map."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The source uses markers/CircleMarker concepts to place business locations and encode branch information on an interactive map. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Folium Markers & Branch Performance",
+      "topicId": "folium-markers",
+      "subtopicId": "markers",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-markers-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 20–22 — Markers / Branch Performance"
+      }
+    },
+    {
+      "id": "da-python-s13-q034",
+      "question": "Which taught tool or pattern is most appropriate when you want to show branch locations and attach branch-level information?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Add Folium Marker/CircleMarker objects at branch coordinates"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Add Folium Marker/CircleMarker objects at branch coordinates`.",
+        "en": ""
+      },
+      "topic": "Folium Markers & Branch Performance",
+      "topicId": "folium-markers",
+      "subtopicId": "markers",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-markers-2",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 20–22 — Markers / Branch Performance"
+      }
+    },
+    {
+      "id": "da-python-s13-q035",
+      "question": "What is the role of a marker in the branch-performance map?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "To represent a branch/location at its geographic coordinates and expose associated information."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: To represent a branch/location at its geographic coordinates and expose associated information..",
+        "en": ""
+      },
+      "topic": "Folium Markers & Branch Performance",
+      "topicId": "folium-markers",
+      "subtopicId": "markers",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-markers-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 20–22 — Markers / Branch Performance"
+      }
+    },
+    {
+      "id": "da-python-s13-q036",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Folium Markers & Branch Performance`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Keep marker coordinates and business records aligned; a misplaced marker leads to a misleading spatial interpretation."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده تصحيح مباشر متسق مع المصدر: Keep marker coordinates and business records aligned; a misplaced marker leads to a misleading spatial interpretation.",
+        "en": ""
+      },
+      "topic": "Folium Markers & Branch Performance",
+      "topicId": "folium-markers",
+      "subtopicId": "markers",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-markers-4",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 20–22 — Markers / Branch Performance"
+      }
+    },
+    {
+      "id": "da-python-s13-q037",
+      "question": "Which statement best describes `Choropleth & Geospatial Analytics Workflow` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Choropleth maps use color gradients to represent values across geographic regions, and the final workflow links wrangling, exploratory analysis, and spatial visualization."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Choropleth maps use color gradients to represent values across geographic regions, and the final workflow links wrangling, exploratory analysis, and spatial visualization. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Choropleth & Geospatial Analytics Workflow",
+      "topicId": "choropleth-workflow",
+      "subtopicId": "choropleth",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-choropleth-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 22–24 — Choropleth / Market Opportunity / workflow"
+      }
+    },
+    {
+      "id": "da-python-s13-q038",
+      "question": "Which taught tool or pattern is most appropriate when you want to compare a metric such as market opportunity across countries/regions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Use a choropleth joined to geographic region boundaries"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Use a choropleth joined to geographic region boundaries`.",
+        "en": ""
+      },
+      "topic": "Choropleth & Geospatial Analytics Workflow",
+      "topicId": "choropleth-workflow",
+      "subtopicId": "choropleth",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-choropleth-2",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 22–24 — Choropleth / Market Opportunity / workflow"
+      }
+    },
+    {
+      "id": "da-python-s13-q039",
+      "question": "What does the color gradient in a choropleth encode?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "The data value associated with each geographic region."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: The data value associated with each geographic region..",
+        "en": ""
+      },
+      "topic": "Choropleth & Geospatial Analytics Workflow",
+      "topicId": "choropleth-workflow",
+      "subtopicId": "choropleth",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-choropleth-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 22–24 — Choropleth / Market Opportunity / workflow"
+      }
+    },
+    {
+      "id": "da-python-s13-q040",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Choropleth & Geospatial Analytics Workflow`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Join the correct region keys/GeoJSON boundaries to the metric before interpreting the color pattern."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. ده تصحيح مباشر متسق مع المصدر: Join the correct region keys/GeoJSON boundaries to the metric before interpreting the color pattern.",
+        "en": ""
+      },
+      "topic": "Choropleth & Geospatial Analytics Workflow",
+      "topicId": "choropleth-workflow",
+      "subtopicId": "choropleth",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-choropleth-4",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 22–24 — Choropleth / Market Opportunity / workflow"
+      }
+    }
+  ]
+}

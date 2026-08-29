@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-python-session11-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "python",
+    "track": "Python for Data Analysis",
+    "moduleId": "python-session-11",
+    "module": "Session 11 — Data Visualization Foundations & Matplotlib Essentials",
+    "title": "Python Session 11 — Production Bank 001",
+    "version": "1.0-final",
+    "status": "active",
+    "sourceFiles": [
+      "Data Visualization with Python_session_2.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-python-s11-q001",
+      "question": "Which statement best describes `Data Visualization Foundations` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data visualization represents data graphically to uncover patterns, trends, and insights."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Data visualization represents data graphically to uncover patterns, trends, and insights. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Data Visualization Foundations",
+      "topicId": "viz-foundations",
+      "subtopicId": "definition",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-viz-definition-1",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 5–6 — What is Data Visualization? / Objectives"
+      }
+    },
+    {
+      "id": "da-python-s11-q002",
+      "question": "Which taught tool or pattern is most appropriate when you want to turn complex data into a visual form that is easier to interpret?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Data visualization"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Data visualization`.",
+        "en": ""
+      },
+      "topic": "Data Visualization Foundations",
+      "topicId": "viz-foundations",
+      "subtopicId": "definition",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-viz-definition-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 5–6 — What is Data Visualization? / Objectives"
+      }
+    },
+    {
+      "id": "da-python-s11-q003",
+      "question": "What is the main analytical purpose of data visualization in the source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "To reveal patterns, trends, relationships, and insights in data."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: To reveal patterns, trends, relationships, and insights in data..",
+        "en": ""
+      },
+      "topic": "Data Visualization Foundations",
+      "topicId": "viz-foundations",
+      "subtopicId": "definition",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-viz-definition-3",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 5–6 — What is Data Visualization? / Objectives"
+      }
+    },
+    {
+      "id": "da-python-s11-q004",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Data Visualization Foundations`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Choose a visual based on the analytical question instead of treating visualization as decoration."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Choose a visual based on the analytical question instead of treating visualization as decoration.",
+        "en": ""
+      },
+      "topic": "Data Visualization Foundations",
+      "topicId": "viz-foundations",
+      "subtopicId": "definition",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-viz-definition-4",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 5–6 — What is Data Visualization? / Objectives"
+      }
+    },
+    {
+      "id": "da-python-s11-q005",
+      "question": "Which statement best describes `Univariate, Bivariate & Multivariate Plots` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Plot families can be classified by how many variables they represent: univariate, bivariate, or multivariate."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Plot families can be classified by how many variables they represent: univariate, bivariate, or multivariate. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Univariate, Bivariate & Multivariate Plots",
+      "topicId": "plot-types",
+      "subtopicId": "variable-count",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-plot-variable-count-1",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 7–8 — Types of Plots"
+      }
+    },
+    {
+      "id": "da-python-s11-q006",
+      "question": "Which taught tool or pattern is most appropriate when you want to show the distribution of one numerical variable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Histogram"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Histogram`.",
+        "en": ""
+      },
+      "topic": "Univariate, Bivariate & Multivariate Plots",
+      "topicId": "plot-types",
+      "subtopicId": "variable-count",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-plot-variable-count-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 7–8 — Types of Plots"
+      }
+    },
+    {
+      "id": "da-python-s11-q007",
+      "question": "A histogram of one numerical column belongs to which family?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Univariate plot."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: Univariate plot..",
+        "en": ""
+      },
+      "topic": "Univariate, Bivariate & Multivariate Plots",
+      "topicId": "plot-types",
+      "subtopicId": "variable-count",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-plot-variable-count-3",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 7–8 — Types of Plots"
+      }
+    },
+    {
+      "id": "da-python-s11-q008",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Univariate, Bivariate & Multivariate Plots`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Match the chart to the number and type of variables being investigated."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Match the chart to the number and type of variables being investigated.",
+        "en": ""
+      },
+      "topic": "Univariate, Bivariate & Multivariate Plots",
+      "topicId": "plot-types",
+      "subtopicId": "variable-count",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-plot-variable-count-4",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 7–8 — Types of Plots"
+      }
+    },
+    {
+      "id": "da-python-s11-q009",
+      "question": "Which statement best describes `Python Visualization Libraries` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The source distinguishes Matplotlib, Seaborn, Plotly, and Altair by their visualization strengths."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The source distinguishes Matplotlib, Seaborn, Plotly, and Altair by their visualization strengths. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Python Visualization Libraries",
+      "topicId": "plot-libraries",
+      "subtopicId": "library-choice",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-libraries-1",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slide 9 — Plot Libraries"
+      }
+    },
+    {
+      "id": "da-python-s11-q010",
+      "question": "Which taught tool or pattern is most appropriate when you want to create a highly customizable foundational static 2D plot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Matplotlib"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Matplotlib`.",
+        "en": ""
+      },
+      "topic": "Python Visualization Libraries",
+      "topicId": "plot-libraries",
+      "subtopicId": "library-choice",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-libraries-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slide 9 — Plot Libraries"
+      }
+    },
+    {
+      "id": "da-python-s11-q011",
+      "question": "Which library is described as the foundation for static 2D plots?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Matplotlib."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: Matplotlib..",
+        "en": ""
+      },
+      "topic": "Python Visualization Libraries",
+      "topicId": "plot-libraries",
+      "subtopicId": "library-choice",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-libraries-3",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slide 9 — Plot Libraries"
+      }
+    },
+    {
+      "id": "da-python-s11-q012",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Python Visualization Libraries`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Do not assume all libraries have the same purpose: use the library aligned with the intended static/statistical/interactive workflow."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Do not assume all libraries have the same purpose: use the library aligned with the intended static/statistical/interactive workflow.",
+        "en": ""
+      },
+      "topic": "Python Visualization Libraries",
+      "topicId": "plot-libraries",
+      "subtopicId": "library-choice",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-libraries-4",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slide 9 — Plot Libraries"
+      }
+    },
+    {
+      "id": "da-python-s11-q013",
+      "question": "Which statement best describes `Matplotlib & pyplot Basics` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Matplotlib is a comprehensive visualization library and pyplot provides a MATLAB-like plotting interface."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Matplotlib is a comprehensive visualization library and pyplot provides a MATLAB-like plotting interface. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Matplotlib & pyplot Basics",
+      "topicId": "matplotlib-basics",
+      "subtopicId": "pyplot",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-pyplot-1",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 11–13 — Introduction / Basic Plotting"
+      }
+    },
+    {
+      "id": "da-python-s11-q014",
+      "question": "Which taught tool or pattern is most appropriate when you want to create a basic line plot with pyplot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "plt.plot(x, y)"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `plt.plot(x, y)`.",
+        "en": ""
+      },
+      "topic": "Matplotlib & pyplot Basics",
+      "topicId": "matplotlib-basics",
+      "subtopicId": "pyplot",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-pyplot-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 11–13 — Introduction / Basic Plotting"
+      }
+    },
+    {
+      "id": "da-python-s11-q015",
+      "question": "In the basic example, what does `plt.plot(x, y)` create?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "A line plot connecting the x/y data points."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: A line plot connecting the x/y data points..",
+        "en": ""
+      },
+      "topic": "Matplotlib & pyplot Basics",
+      "topicId": "matplotlib-basics",
+      "subtopicId": "pyplot",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-pyplot-3",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 11–13 — Introduction / Basic Plotting"
+      }
+    },
+    {
+      "id": "da-python-s11-q016",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Matplotlib & pyplot Basics`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Use pyplot plotting functions for the intended chart and label axes/title so the visual is interpretable."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. ده Platform clarification مبني على نفس concept في المصدر: Use pyplot plotting functions for the intended chart and label axes/title so the visual is interpretable.",
+        "en": ""
+      },
+      "topic": "Matplotlib & pyplot Basics",
+      "topicId": "matplotlib-basics",
+      "subtopicId": "pyplot",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-pyplot-4",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 11–13 — Introduction / Basic Plotting"
+      }
+    },
+    {
+      "id": "da-python-s11-q017",
+      "question": "Which statement best describes `Canada Immigration Dataset Structure` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The dataset stores countries, continent/region fields, yearly immigration columns from 1980–2013, and a Total field."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The dataset stores countries, continent/region fields, yearly immigration columns from 1980–2013, and a Total field. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Canada Immigration Dataset Structure",
+      "topicId": "canada-dataset",
+      "subtopicId": "columns",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-canada-schema-1",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 15–16 — Dataset on Immigration to Canada"
+      }
+    },
+    {
+      "id": "da-python-s11-q018",
+      "question": "Which taught tool or pattern is most appropriate when you want to identify the country of origin in the immigration dataset?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Country column"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Country column`.",
+        "en": ""
+      },
+      "topic": "Canada Immigration Dataset Structure",
+      "topicId": "canada-dataset",
+      "subtopicId": "columns",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-canada-schema-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 15–16 — Dataset on Immigration to Canada"
+      }
+    },
+    {
+      "id": "da-python-s11-q019",
+      "question": "What do the year columns 1980–2013 represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "The number of immigrants from each country in each year."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: The number of immigrants from each country in each year..",
+        "en": ""
+      },
+      "topic": "Canada Immigration Dataset Structure",
+      "topicId": "canada-dataset",
+      "subtopicId": "columns",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-canada-schema-3",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 15–16 — Dataset on Immigration to Canada"
+      }
+    },
+    {
+      "id": "da-python-s11-q020",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Canada Immigration Dataset Structure`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Interpret the dataset schema before plotting; do not treat the year columns as unrelated categorical labels."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Interpret the dataset schema before plotting; do not treat the year columns as unrelated categorical labels.",
+        "en": ""
+      },
+      "topic": "Canada Immigration Dataset Structure",
+      "topicId": "canada-dataset",
+      "subtopicId": "columns",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-canada-schema-4",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 15–16 — Dataset on Immigration to Canada"
+      }
+    },
+    {
+      "id": "da-python-s11-q021",
+      "question": "Which statement best describes `Data Inspection before Visualization` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The workflow inspects shape/columns, missing values, duplicates, data types, and descriptive summaries before analysis."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The workflow inspects shape/columns, missing values, duplicates, data types, and descriptive summaries before analysis. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Data Inspection before Visualization",
+      "topicId": "data-inspection",
+      "subtopicId": "inspection",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-inspect-1",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 18–22 — Understand data"
+      }
+    },
+    {
+      "id": "da-python-s11-q022",
+      "question": "Which taught tool or pattern is most appropriate when you want to check missing values in a DataFrame?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "df.isnull().sum()"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `df.isnull().sum()`.",
+        "en": ""
+      },
+      "topic": "Data Inspection before Visualization",
+      "topicId": "data-inspection",
+      "subtopicId": "inspection",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-inspect-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 18–22 — Understand data"
+      }
+    },
+    {
+      "id": "da-python-s11-q023",
+      "question": "What does `df.duplicated().sum()` check in the demonstrated workflow?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "The number of duplicated rows."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: The number of duplicated rows..",
+        "en": ""
+      },
+      "topic": "Data Inspection before Visualization",
+      "topicId": "data-inspection",
+      "subtopicId": "inspection",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-inspect-3",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 18–22 — Understand data"
+      }
+    },
+    {
+      "id": "da-python-s11-q024",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Data Inspection before Visualization`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Inspect data quality and structure before drawing conclusions from charts."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Inspect data quality and structure before drawing conclusions from charts.",
+        "en": ""
+      },
+      "topic": "Data Inspection before Visualization",
+      "topicId": "data-inspection",
+      "subtopicId": "inspection",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-inspect-4",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 18–22 — Understand data"
+      }
+    },
+    {
+      "id": "da-python-s11-q025",
+      "question": "Which statement best describes `Descriptive Analysis with describe()` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`describe()` summarizes numerical variables, while `describe(include=['object'])` summarizes categorical variables."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`describe()` summarizes numerical variables, while `describe(include=['object'])` summarizes categorical variables. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Descriptive Analysis with describe()",
+      "topicId": "descriptive-analysis",
+      "subtopicId": "describe",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-describe-1",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 20–21 — Descriptive Analysis"
+      }
+    },
+    {
+      "id": "da-python-s11-q026",
+      "question": "Which taught tool or pattern is most appropriate when you want to summarize categorical columns?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "df.describe(include=['object'])"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `df.describe(include=['object'])`.",
+        "en": ""
+      },
+      "topic": "Descriptive Analysis with describe()",
+      "topicId": "descriptive-analysis",
+      "subtopicId": "describe",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-describe-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 20–21 — Descriptive Analysis"
+      }
+    },
+    {
+      "id": "da-python-s11-q027",
+      "question": "Which information is associated with categorical `describe(include=['object'])`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "count, unique, top, and frequency information."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: count, unique, top, and frequency information..",
+        "en": ""
+      },
+      "topic": "Descriptive Analysis with describe()",
+      "topicId": "descriptive-analysis",
+      "subtopicId": "describe",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-describe-3",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 20–21 — Descriptive Analysis"
+      }
+    },
+    {
+      "id": "da-python-s11-q028",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Descriptive Analysis with describe()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Use the describe form that matches numerical versus categorical variables."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. ده Platform clarification مبني على نفس concept في المصدر: Use the describe form that matches numerical versus categorical variables.",
+        "en": ""
+      },
+      "topic": "Descriptive Analysis with describe()",
+      "topicId": "descriptive-analysis",
+      "subtopicId": "describe",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-describe-4",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 20–21 — Descriptive Analysis"
+      }
+    },
+    {
+      "id": "da-python-s11-q029",
+      "question": "Which statement best describes `Peak-Year Immigration Analysis` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The source's bar chart identifies 2010 as the year with the highest total immigration to Canada in the dataset analysis."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The source's bar chart identifies 2010 as the year with the highest total immigration to Canada in the dataset analysis. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Peak-Year Immigration Analysis",
+      "topicId": "peak-year-analysis",
+      "subtopicId": "2010",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-peak2010-1",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 23–25 — Peak year / top continents / top countries"
+      }
+    },
+    {
+      "id": "da-python-s11-q030",
+      "question": "Which taught tool or pattern is most appropriate when you want to investigate the year with the highest immigration total?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Aggregate by year, identify the maximum, then explore 2010"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Aggregate by year, identify the maximum, then explore 2010`.",
+        "en": ""
+      },
+      "topic": "Peak-Year Immigration Analysis",
+      "topicId": "peak-year-analysis",
+      "subtopicId": "2010",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-peak2010-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 23–25 — Peak year / top continents / top countries"
+      }
+    },
+    {
+      "id": "da-python-s11-q031",
+      "question": "Which year is identified by the source as the immigration peak?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "2010."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: 2010..",
+        "en": ""
+      },
+      "topic": "Peak-Year Immigration Analysis",
+      "topicId": "peak-year-analysis",
+      "subtopicId": "2010",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-peak2010-3",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 23–25 — Peak year / top continents / top countries"
+      }
+    },
+    {
+      "id": "da-python-s11-q032",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Peak-Year Immigration Analysis`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Base the peak-year conclusion on the aggregated values/chart rather than assuming the last year is automatically the maximum."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Base the peak-year conclusion on the aggregated values/chart rather than assuming the last year is automatically the maximum.",
+        "en": ""
+      },
+      "topic": "Peak-Year Immigration Analysis",
+      "topicId": "peak-year-analysis",
+      "subtopicId": "2010",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-peak2010-4",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 23–25 — Peak year / top continents / top countries"
+      }
+    },
+    {
+      "id": "da-python-s11-q033",
+      "question": "Which statement best describes `Country Trend Analysis across Years` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Canada workflow compares country immigration over 1980–2013 to reveal changing trends over time."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The Canada workflow compares country immigration over 1980–2013 to reveal changing trends over time. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Country Trend Analysis across Years",
+      "topicId": "trend-analysis",
+      "subtopicId": "line-trend",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-country-trends-1",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 26–29 — Country trends / top 10 in 2013"
+      }
+    },
+    {
+      "id": "da-python-s11-q034",
+      "question": "Which taught tool or pattern is most appropriate when you want to compare several countries across many years?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "A multi-series line plot"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `A multi-series line plot`.",
+        "en": ""
+      },
+      "topic": "Country Trend Analysis across Years",
+      "topicId": "trend-analysis",
+      "subtopicId": "line-trend",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-country-trends-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 26–29 — Country trends / top 10 in 2013"
+      }
+    },
+    {
+      "id": "da-python-s11-q035",
+      "question": "What insight does the source describe about the UK, China, and India over time?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "The UK led in early years, while China and India rose later and eventually surpassed it."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: The UK led in early years, while China and India rose later and eventually surpassed it..",
+        "en": ""
+      },
+      "topic": "Country Trend Analysis across Years",
+      "topicId": "trend-analysis",
+      "subtopicId": "line-trend",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-country-trends-3",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 26–29 — Country trends / top 10 in 2013"
+      }
+    },
+    {
+      "id": "da-python-s11-q036",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Country Trend Analysis across Years`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Use time on the x-axis and compare series consistently; do not infer a time trend from a single-year bar."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده تصحيح مباشر متسق مع المصدر: Use time on the x-axis and compare series consistently; do not infer a time trend from a single-year bar.",
+        "en": ""
+      },
+      "topic": "Country Trend Analysis across Years",
+      "topicId": "trend-analysis",
+      "subtopicId": "line-trend",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-country-trends-4",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 26–29 — Country trends / top 10 in 2013"
+      }
+    },
+    {
+      "id": "da-python-s11-q037",
+      "question": "Which statement best describes `Regional Immigration Analysis` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The workflow identifies leading regions and then drills into Southern Asia's immigration trend over 1980–2013."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The workflow identifies leading regions and then drills into Southern Asia's immigration trend over 1980–2013. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Regional Immigration Analysis",
+      "topicId": "regional-analysis",
+      "subtopicId": "southern-asia",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-regional-drill-1",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 30–32 — Top regions / Southern Asia trend"
+      }
+    },
+    {
+      "id": "da-python-s11-q038",
+      "question": "Which taught tool or pattern is most appropriate when you want to drill from top regions into one region's time trend?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Filter the selected region, aggregate yearly values, then plot across years"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Filter the selected region, aggregate yearly values, then plot across years`.",
+        "en": ""
+      },
+      "topic": "Regional Immigration Analysis",
+      "topicId": "regional-analysis",
+      "subtopicId": "southern-asia",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-regional-drill-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 30–32 — Top regions / Southern Asia trend"
+      }
+    },
+    {
+      "id": "da-python-s11-q039",
+      "question": "Which region is highlighted as the largest contributor in the source's regional analysis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Southern Asia."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: Southern Asia..",
+        "en": ""
+      },
+      "topic": "Regional Immigration Analysis",
+      "topicId": "regional-analysis",
+      "subtopicId": "southern-asia",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-regional-drill-3",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 30–32 — Top regions / Southern Asia trend"
+      }
+    },
+    {
+      "id": "da-python-s11-q040",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Regional Immigration Analysis`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "After identifying a top region, filter that region and aggregate its yearly values before interpreting its time trend."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. ده تصحيح مباشر متسق مع المصدر: After identifying a top region, filter that region and aggregate its yearly values before interpreting its time trend.",
+        "en": ""
+      },
+      "topic": "Regional Immigration Analysis",
+      "topicId": "regional-analysis",
+      "subtopicId": "southern-asia",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-regional-drill-4",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 30–32 — Top regions / Southern Asia trend"
+      }
+    }
+  ]
+}

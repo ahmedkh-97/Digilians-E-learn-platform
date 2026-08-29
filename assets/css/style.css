@@ -1851,3 +1851,276 @@ input::placeholder{color:color-mix(in srgb,var(--muted) 70%,transparent)}
 @media(prefers-reduced-motion:reduce){
   #moduleLearningFlow.selection-focus{animation:none}
 }
+
+
+/* V0.15.0 — Python Code Learning System */
+.python-code-study .study-layout{
+  grid-template-columns:235px minmax(0,940px);
+  gap:30px;
+}
+.python-code-study .study-toc{
+  max-height:calc(100vh - 42px);
+  overflow:auto;
+}
+.python-code-study .study-toc button{
+  direction:ltr;
+  text-align:left;
+  line-height:1.35;
+  padding:10px 9px;
+}
+.python-study-section{
+  padding:32px 34px;
+  border-radius:25px;
+  margin-bottom:20px;
+}
+.python-section-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:18px;
+  margin-bottom:20px;
+}
+.python-section-head h3{
+  margin:6px 0 0;
+  font-size:28px;
+  line-height:1.2;
+  letter-spacing:-.04em;
+  text-align:left;
+}
+.python-example-count{
+  flex:0 0 auto;
+  padding:7px 9px;
+  border:1px solid color-mix(in srgb,#7c5cff 32%,var(--line));
+  border-radius:999px;
+  background:color-mix(in srgb,#7c5cff 10%,var(--surface));
+  color:#7c5cff;
+  font-size:7px;
+  font-weight:950;
+  letter-spacing:.05em;
+}
+.python-concept-summary{
+  padding:20px 22px;
+  border:1px solid color-mix(in srgb,#7c5cff 25%,var(--line));
+  border-radius:18px;
+  background:linear-gradient(135deg,color-mix(in srgb,#7c5cff 11%,var(--surface)),var(--surface));
+  text-align:right;
+  margin-bottom:16px;
+}
+.python-concept-summary .study-ar-label,
+.python-concepts .study-ar-label,
+.python-example-explanation .study-ar-label{
+  color:#7c5cff;
+}
+.python-concept-summary p,
+.python-example-explanation p{
+  margin:0;
+  color:var(--text);
+  font-size:15px;
+  line-height:2;
+  unicode-bidi:plaintext;
+}
+.python-keyterms{
+  margin:16px 0;
+}
+.python-keyterms .study-term-chip{
+  border-color:color-mix(in srgb,#7c5cff 22%,var(--line));
+}
+.python-concepts{
+  margin:18px 0;
+  text-align:right;
+}
+.python-concept-list{
+  display:grid;
+  gap:9px;
+}
+.python-concept-item{
+  display:grid;
+  grid-template-columns:26px minmax(0,1fr);
+  gap:10px;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--surface-solid);
+  line-height:1.8;
+}
+.python-concept-item>span{
+  width:25px;height:25px;border-radius:8px;
+  display:grid;place-items:center;
+  background:color-mix(in srgb,#7c5cff 13%,var(--surface));
+  color:#7c5cff;font-weight:950;font-size:10px;
+}
+.python-concept-item p{margin:0;font-size:13px}
+.python-analysis-flow{
+  margin:20px 0;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--surface-soft);
+}
+.python-flow-steps{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  padding-bottom:2px;
+}
+.python-flow-step{
+  min-width:145px;
+  flex:1;
+  padding:11px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--surface-solid);
+}
+.python-flow-step span{
+  display:block;color:#7c5cff;font-size:7px;font-weight:950;margin-bottom:5px
+}
+.python-flow-step strong{font-size:9px;line-height:1.4}
+.python-examples-stack{display:grid;gap:18px;margin-top:22px}
+.python-code-example{
+  border:1px solid color-mix(in srgb,#7c5cff 20%,var(--line));
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--surface-solid);
+  box-shadow:var(--shadow-sm);
+}
+.python-example-head{
+  display:flex;justify-content:space-between;gap:14px;align-items:center;
+  padding:15px 17px;border-bottom:1px solid var(--line);
+}
+.python-example-head h4{margin:5px 0 0;font-size:15px;letter-spacing:-.02em}
+.python-source-kind{
+  display:inline-flex;padding:5px 7px;border-radius:999px;
+  background:color-mix(in srgb,#7c5cff 13%,var(--surface));
+  color:#7c5cff;font-size:6.5px;font-weight:950;letter-spacing:.06em
+}
+.python-source-kind.clarification{
+  background:color-mix(in srgb,#e7a32b 13%,var(--surface));
+  color:#b87500
+}
+.python-source-kind.correction{
+  background:color-mix(in srgb,#16a86b 13%,var(--surface));
+  color:#168354
+}
+.python-copy-code{
+  flex:0 0 auto;
+  padding:7px 10px;border-radius:9px;
+  border:1px solid var(--line);
+  background:var(--surface-soft);color:var(--text);
+  font-size:8px;font-weight:900;cursor:pointer
+}
+.python-code-shell{
+  background:#07111f;
+  border-bottom:1px solid var(--line);
+}
+.python-code-toolbar{
+  min-height:34px;padding:8px 14px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:#0d1b2c;border-bottom:1px solid #1d3048;color:#8fa5c2
+}
+.python-code-toolbar>span{display:flex;gap:5px}
+.python-code-toolbar i{
+  display:block;width:7px;height:7px;border-radius:50%;background:#41536c
+}
+.python-code-toolbar strong{font-size:7px;letter-spacing:.1em}
+.python-code-block{
+  margin:0;padding:15px 0;
+  overflow:auto;direction:ltr;text-align:left;
+  font-family:Consolas,"SFMono-Regular",Menlo,monospace;
+  color:#e5f0ff;font-size:11px;line-height:1.65;
+}
+.python-code-line{
+  display:grid;grid-template-columns:42px minmax(max-content,1fr);
+  min-height:19px;
+}
+.python-code-number{
+  color:#52647d;text-align:right;padding-right:12px;
+  user-select:none;border-right:1px solid #1a2d45
+}
+.python-code-text{
+  white-space:pre;padding-left:13px;
+}
+.python-example-explanation{
+  padding:17px 18px;
+  text-align:right;
+  border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,#7c5cff 5%,var(--surface));
+}
+.python-details-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;padding:14px;
+}
+.python-detail-card{
+  min-width:0;padding:14px;
+  border:1px solid var(--line);
+  border-radius:13px;background:var(--surface-soft);
+  text-align:right;
+}
+.python-detail-label{
+  display:block;margin-bottom:8px;
+  color:#7c5cff;font-size:7px;font-weight:950;letter-spacing:.07em;
+  direction:ltr;text-align:left
+}
+.python-detail-card p{margin:0;color:var(--text);font-size:11px;line-height:1.75}
+.python-detail-card ul,.python-detail-card ol{margin:0;padding-right:18px}
+.python-detail-card li{margin:5px 0;font-size:11px;line-height:1.65}
+.python-line-explanations{display:grid;gap:7px}
+.python-line-explanations>div{
+  display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:start
+}
+.python-line-explanations bdi{
+  display:grid;place-items:center;min-height:25px;border-radius:7px;
+  background:#07111f;color:#a9c3e6;font-size:8px;font-weight:900
+}
+.python-line-explanations p{margin:0}
+.python-trace-list{counter-reset:item}
+.python-output-card{
+  direction:ltr;text-align:left;background:#07111f;border-color:#1c3048
+}
+.python-output-card .python-detail-label{color:#81b7ff}
+.python-output-card pre{
+  margin:0;padding:10px;border-radius:9px;
+  background:#0d1b2c;color:#dff3ff;
+  white-space:pre-wrap;font-family:Consolas,monospace;font-size:10px;line-height:1.6
+}
+.python-warning-card{
+  background:color-mix(in srgb,#e7a32b 6%,var(--surface));
+  border-color:color-mix(in srgb,#e7a32b 22%,var(--line))
+}
+.python-warning-card .python-detail-label{color:#b87500}
+.python-tip-card{
+  background:color-mix(in srgb,#16a86b 6%,var(--surface));
+  border-color:color-mix(in srgb,#16a86b 22%,var(--line))
+}
+.python-tip-card .python-detail-label{color:#168354}
+.python-example-source{
+  padding:11px 15px;border-top:1px solid var(--line);
+  background:var(--surface-soft);text-align:left
+}
+.python-example-source span{
+  color:var(--muted);font-size:6.5px;font-weight:950;letter-spacing:.08em
+}
+.python-example-source p{margin:3px 0 0;font-size:8px;color:var(--muted);line-height:1.5}
+.python-section-source{margin-top:20px}
+.python-code-study .study-source-trace{
+  border-color:color-mix(in srgb,#7c5cff 23%,var(--line));
+  background:color-mix(in srgb,#7c5cff 7%,var(--surface))
+}
+.python-code-study .study-source-trace .study-block-label{color:#7c5cff}
+
+@media(max-width:820px){
+  .python-code-study .study-layout{grid-template-columns:1fr;gap:16px}
+  .python-code-study .study-toc{position:static;max-height:none}
+  .python-details-grid{grid-template-columns:1fr}
+  .python-study-section{padding:22px 18px}
+  .python-section-head{display:block}
+  .python-example-count{display:inline-flex;margin-top:10px}
+}
+@media(max-width:560px){
+  .python-example-head{align-items:flex-start}
+  .python-example-head h4{font-size:13px}
+  .python-flow-step{min-width:130px}
+  .python-code-block{font-size:10px}
+}

@@ -1190,10 +1190,192 @@ function renderSqlStudySection(s,i,id){
     ${trace}`;
   return article;
 }
+function pythonExampleLabel(sourceKind){
+  if(sourceKind==="platform-clarification-based-on-course-concept")return "PLATFORM CLARIFICATION";
+  if(sourceKind==="platform-presentation-correction")return "PRESENTATION CORRECTION";
+  return "SOURCE-BASED CODE WALKTHROUGH";
+}
+function renderPythonCodeLines(code){
+  return String(code||"").split("\n").map((line,index)=>`
+    <span class="python-code-line">
+      <span class="python-code-number">${index+1}</span>
+      <span class="python-code-text">${escapeHtml(line) || " "}</span>
+    </span>`).join("");
+}
+function renderPythonStudySection(s,i,id){
+  const article=document.createElement("section");
+  article.className="study-section python-study-section";
+  article.id=id;
+
+  const summary=s.summaryAr
+    ?`<div class="python-concept-summary" dir="rtl">
+        <span class="study-ar-label">الفكرة الأساسية</span>
+        <p dir="auto">${formatStudyMixedText(s.summaryAr)}</p>
+      </div>`
+    :"";
+
+  const keyTerms=(s.keyTerms||[]).length
+    ?`<div class="study-keyterms python-keyterms" dir="ltr">
+        <span class="study-block-label">KEY TERMS</span>
+        <div class="study-term-list">
+          ${(s.keyTerms||[]).map(term=>`<span class="study-term-chip"><bdi dir="ltr">${escapeHtml(term)}</bdi></span>`).join("")}
+        </div>
+      </div>`
+    :"";
+
+  const concepts=(s.conceptsAr||[]).length
+    ?`<div class="python-concepts" dir="rtl">
+        <span class="study-ar-label">شرح المفهوم</span>
+        <div class="python-concept-list">
+          ${(s.conceptsAr||[]).map(item=>`
+            <div class="python-concept-item" dir="auto">
+              <span>✓</span><p>${formatStudyMixedText(item)}</p>
+            </div>`).join("")}
+        </div>
+      </div>`
+    :"";
+
+  const analysis=(s.analysisFlow||[]).length
+    ?`<div class="python-analysis-flow" dir="ltr">
+        <span class="study-block-label">ANALYSIS FLOW</span>
+        <div class="python-flow-steps">
+          ${(s.analysisFlow||[]).map((step,idx)=>`
+            <div class="python-flow-step">
+              <span>${String(idx+1).padStart(2,"0")}</span>
+              <strong>${escapeHtml(step)}</strong>
+            </div>`).join("")}
+        </div>
+      </div>`
+    :"";
+
+  const examples=(s.codeExamples||[]).map((ex,exampleIndex)=>{
+    const lineByLine=(ex.lineByLine||[]).length
+      ?`<div class="python-detail-card python-line-card" dir="rtl">
+          <span class="python-detail-label">LINE-BY-LINE</span>
+          <div class="python-line-explanations">
+            ${(ex.lineByLine||[]).map((line,idx)=>`
+              <div>
+                <bdi dir="ltr">${escapeHtml(String(line.line ?? idx+1))}</bdi>
+                <p dir="auto">${formatStudyMixedText(line.ar||"")}</p>
+              </div>`).join("")}
+          </div>
+        </div>`
+      :"";
+
+    const trace=(ex.executionTrace||[]).length
+      ?`<div class="python-detail-card" dir="rtl">
+          <span class="python-detail-label">EXECUTION TRACE</span>
+          <ol class="python-trace-list">
+            ${(ex.executionTrace||[]).map(step=>`<li dir="auto">${formatStudyMixedText(step)}</li>`).join("")}
+          </ol>
+        </div>`
+      :"";
+
+    const output=ex.expectedOutput!==undefined && ex.expectedOutput!==null && String(ex.expectedOutput)!==""
+      ?`<div class="python-detail-card python-output-card" dir="ltr">
+          <span class="python-detail-label">EXPECTED OUTPUT</span>
+          <pre><code>${escapeHtml(String(ex.expectedOutput))}</code></pre>
+        </div>`
+      :"";
+
+    const why=ex.whyItWorks
+      ?`<div class="python-detail-card" dir="rtl">
+          <span class="python-detail-label">WHY IT WORKS</span>
+          <p dir="auto">${formatStudyMixedText(ex.whyItWorks)}</p>
+        </div>`
+      :"";
+
+    const mistakes=(ex.commonMistakes||[]).length
+      ?`<div class="python-detail-card python-warning-card" dir="rtl">
+          <span class="python-detail-label">COMMON MISTAKES</span>
+          <ul>${(ex.commonMistakes||[]).map(x=>`<li dir="auto">${formatStudyMixedText(x)}</li>`).join("")}</ul>
+        </div>`
+      :"";
+
+    const tips=(ex.examTips||[]).length
+      ?`<div class="python-detail-card python-tip-card" dir="rtl">
+          <span class="python-detail-label">EXAM / TRACING TIPS</span>
+          <ul>${(ex.examTips||[]).map(x=>`<li dir="auto">${formatStudyMixedText(x)}</li>`).join("")}</ul>
+        </div>`
+      :"";
+
+    const source=ex.sourceTrace
+      ?`<div class="python-example-source" dir="ltr">
+          <span>SOURCE TRACE</span><p>${escapeHtml(ex.sourceTrace)}</p>
+        </div>`
+      :"";
+
+    return `<article class="python-code-example">
+      <header class="python-example-head" dir="ltr">
+        <div>
+          <span class="python-source-kind ${ex.sourceKind==="platform-clarification-based-on-course-concept"?"clarification":ex.sourceKind==="platform-presentation-correction"?"correction":""}">
+            ${pythonExampleLabel(ex.sourceKind)}
+          </span>
+          <h4>${escapeHtml(ex.title||`Code Example ${exampleIndex+1}`)}</h4>
+        </div>
+        <button class="python-copy-code" type="button" data-python-code="${encodeURIComponent(ex.code||"")}" aria-label="Copy Python code">Copy code</button>
+      </header>
+
+      <div class="python-code-shell" dir="ltr">
+        <div class="python-code-toolbar">
+          <span><i></i><i></i><i></i></span>
+          <strong>PYTHON</strong>
+        </div>
+        <pre class="python-code-block"><code>${renderPythonCodeLines(ex.code||"")}</code></pre>
+      </div>
+
+      ${ex.explanationAr?`<div class="python-example-explanation" dir="rtl">
+        <span class="study-ar-label">الكود بيعمل إيه؟</span>
+        <p dir="auto">${formatStudyMixedText(ex.explanationAr)}</p>
+      </div>`:""}
+
+      <div class="python-details-grid">
+        ${lineByLine}${trace}${output}${why}${mistakes}${tips}
+      </div>
+      ${source}
+    </article>`;
+  }).join("");
+
+  const sectionTrace=s.sourceTrace
+    ?`<div class="study-source-trace python-section-source" dir="ltr">
+        <span class="study-block-label">TOPIC SOURCE TRACE</span>
+        <p>${escapeHtml(s.sourceTrace)}</p>
+      </div>`
+    :"";
+
+  article.innerHTML=`
+    <header class="study-section-head python-section-head" dir="ltr">
+      <div>
+        <span class="eyebrow">SECTION ${String(i+1).padStart(2,"0")}</span>
+        <h3>${escapeHtml(s.title)}</h3>
+      </div>
+      ${(s.codeExamples||[]).length?`<span class="python-example-count">${s.codeExamples.length} CODE ${s.codeExamples.length===1?"WALKTHROUGH":"WALKTHROUGHS"}</span>`:""}
+    </header>
+    ${summary}
+    ${keyTerms}
+    ${concepts}
+    ${analysis}
+    ${examples?`<div class="python-examples-stack">${examples}</div>`:""}
+    ${sectionTrace}`;
+
+  article.querySelectorAll(".python-copy-code").forEach(btn=>btn.addEventListener("click",async()=>{
+    const code=decodeURIComponent(btn.dataset.pythonCode||"");
+    try{
+      await navigator.clipboard.writeText(code);
+      const old=btn.textContent;btn.textContent="Copied ✓";
+      setTimeout(()=>btn.textContent=old,1200);
+    }catch{
+      showToast("Copy is unavailable in this browser. Select the code manually.");
+    }
+  }));
+
+  return article;
+}
 function openStudy(){
   const c=state.selectedCourse,m=state.selectedModule;
   if(!c||!m?.study)return;
   const isSqlStudy=state.selectedTrack?.id==="sql" || String(m.id||"").startsWith("sql-session-");
+  const isPythonStudy=state.selectedTrack?.id==="python" || String(m.id||"").startsWith("python-session-");
 
   $("studyBreadcrumb").textContent=`${c.title} / ${m.title} / Study`;
   $("studyTitle").textContent=m.study.title;
@@ -1201,6 +1383,7 @@ function openStudy(){
 
   const studyView=$("studyView");
   studyView?.classList.toggle("sql-readable-study",isSqlStudy);
+  studyView?.classList.toggle("python-code-study",isPythonStudy);
 
   const toc=$("studyTocList"),sections=$("studySections");
   toc.innerHTML="";sections.innerHTML="";
@@ -1214,6 +1397,10 @@ function openStudy(){
 
     if(isSqlStudy){
       sections.appendChild(renderSqlStudySection(s,i,id));
+      return;
+    }
+    if(isPythonStudy){
+      sections.appendChild(renderPythonStudySection(s,i,id));
       return;
     }
 

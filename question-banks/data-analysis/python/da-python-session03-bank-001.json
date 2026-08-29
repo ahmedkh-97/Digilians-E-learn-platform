@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-python-session03-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "python",
+    "track": "Python for Data Analysis",
+    "moduleId": "python-session-03",
+    "module": "Session 3 — Loops, Iteration & Nested Control Flow",
+    "title": "Python Session 3 — Production Bank 001",
+    "version": "1.0-stage1",
+    "status": "active",
+    "sourceFiles": [
+      "Python Session 5.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-python-s03-q001",
+      "question": "What is a for loop used for in the source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Iterating over a sequence and running a block for each item."
+        },
+        {
+          "id": "B",
+          "text": "Only checking one condition once"
+        },
+        {
+          "id": "C",
+          "text": "Storing key-value pairs"
+        },
+        {
+          "id": "D",
+          "text": "Creating files"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "for loop تتكرر على sequence مثل list/string/range وتنفذ block لكل item.",
+        "en": ""
+      },
+      "topic": "for Loops",
+      "topicId": "for-loop",
+      "subtopicId": "sequence-iteration",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "for-sequence-v1",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 5–9 — for loop and examples"
+      }
+    },
+    {
+      "id": "da-python-s03-q002",
+      "question": "What values does `range(5)` generate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 2, 3, 4, 5"
+        },
+        {
+          "id": "B",
+          "text": "0, 1, 2, 3, 4"
+        },
+        {
+          "id": "C",
+          "text": "0 through 5 inclusive"
+        },
+        {
+          "id": "D",
+          "text": "5 only"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "for loop تتكرر على sequence مثل list/string/range وتنفذ block لكل item.",
+        "en": ""
+      },
+      "topic": "for Loops",
+      "topicId": "for-loop",
+      "subtopicId": "sequence-iteration",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "for-sequence-v2",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 5–9 — for loop and examples"
+      }
+    },
+    {
+      "id": "da-python-s03-q003",
+      "question": "When iterating `for ch in \"Python\"`, what does ch represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The full string every time"
+        },
+        {
+          "id": "B",
+          "text": "A dictionary key only"
+        },
+        {
+          "id": "C",
+          "text": "One character at a time."
+        },
+        {
+          "id": "D",
+          "text": "A Boolean"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "for loop تتكرر على sequence مثل list/string/range وتنفذ block لكل item.",
+        "en": ""
+      },
+      "topic": "for Loops",
+      "topicId": "for-loop",
+      "subtopicId": "sequence-iteration",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "for-sequence-v3",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 5–9 — for loop and examples"
+      }
+    },
+    {
+      "id": "da-python-s03-q004",
+      "question": "A learner expects `range(5)` to include 5. What rule fixes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The start value is excluded"
+        },
+        {
+          "id": "B",
+          "text": "range only works on strings"
+        },
+        {
+          "id": "C",
+          "text": "range always starts at 1"
+        },
+        {
+          "id": "D",
+          "text": "The stop value in range is excluded."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. for loop تتكرر على sequence مثل list/string/range وتنفذ block لكل item.",
+        "en": ""
+      },
+      "topic": "for Loops",
+      "topicId": "for-loop",
+      "subtopicId": "sequence-iteration",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "for-sequence-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 5–9 — for loop and examples"
+      }
+    },
+    {
+      "id": "da-python-s03-q005",
+      "question": "When does a for-loop else execute according to the source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When the loop completes naturally without break."
+        },
+        {
+          "id": "B",
+          "text": "Only after break"
+        },
+        {
+          "id": "C",
+          "text": "Before the loop"
+        },
+        {
+          "id": "D",
+          "text": "After every iteration"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Loop else تنفذ عند natural completion بدون break.",
+        "en": ""
+      },
+      "topic": "Loop else",
+      "topicId": "loop-else",
+      "subtopicId": "for-else",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "for-else-v1",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 10, 27 — for else and summary"
+      }
+    },
+    {
+      "id": "da-python-s03-q006",
+      "question": "If a for loop finishes all iterations and never breaks, what happens to its else?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is skipped"
+        },
+        {
+          "id": "B",
+          "text": "The else block executes."
+        },
+        {
+          "id": "C",
+          "text": "It runs before the loop"
+        },
+        {
+          "id": "D",
+          "text": "It causes an error"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Loop else تنفذ عند natural completion بدون break.",
+        "en": ""
+      },
+      "topic": "Loop else",
+      "topicId": "loop-else",
+      "subtopicId": "for-else",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "for-else-v2",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 10, 27 — for else and summary"
+      }
+    },
+    {
+      "id": "da-python-s03-q007",
+      "question": "What event prevents natural completion in the taught loop-else rule?",
+      "options": [
+        {
+          "id": "A",
+          "text": "continue"
+        },
+        {
+          "id": "B",
+          "text": "print"
+        },
+        {
+          "id": "C",
+          "text": "break"
+        },
+        {
+          "id": "D",
+          "text": "range"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Loop else تنفذ عند natural completion بدون break.",
+        "en": ""
+      },
+      "topic": "Loop else",
+      "topicId": "loop-else",
+      "subtopicId": "for-else",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "for-else-v3",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 10, 27 — for else and summary"
+      }
+    },
+    {
+      "id": "da-python-s03-q008",
+      "question": "A student expects loop-else to run after break. What is the correction?",
+      "options": [
+        {
+          "id": "A",
+          "text": "else always runs twice"
+        },
+        {
+          "id": "B",
+          "text": "break only skips one print"
+        },
+        {
+          "id": "C",
+          "text": "for cannot have else"
+        },
+        {
+          "id": "D",
+          "text": "break prevents the natural-completion else."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Loop else تنفذ عند natural completion بدون break.",
+        "en": ""
+      },
+      "topic": "Loop else",
+      "topicId": "loop-else",
+      "subtopicId": "for-else",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "for-else-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 10, 27 — for else and summary"
+      }
+    },
+    {
+      "id": "da-python-s03-q009",
+      "question": "What controls a while loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A condition that is checked repeatedly."
+        },
+        {
+          "id": "B",
+          "text": "A fixed dictionary key"
+        },
+        {
+          "id": "C",
+          "text": "A plot title"
+        },
+        {
+          "id": "D",
+          "text": "A tuple only"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "while تكرر block طالما condition=True وتناسب عدد iterations غير المعروف مسبقًا.",
+        "en": ""
+      },
+      "topic": "while Loops",
+      "topicId": "while-loop",
+      "subtopicId": "condition-loop",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "while-basic-v1",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 13–14 — while loop and basic example"
+      }
+    },
+    {
+      "id": "da-python-s03-q010",
+      "question": "For `count=0` with `while count < 5`, what is the last value printed if count is printed before increment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "6"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "while تكرر block طالما condition=True وتناسب عدد iterations غير المعروف مسبقًا.",
+        "en": ""
+      },
+      "topic": "while Loops",
+      "topicId": "while-loop",
+      "subtopicId": "condition-loop",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "while-basic-v2",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 13–14 — while loop and basic example"
+      }
+    },
+    {
+      "id": "da-python-s03-q011",
+      "question": "Which loop better matches a task whose number of repetitions is not known beforehand?",
+      "options": [
+        {
+          "id": "A",
+          "text": "for over a fixed list only"
+        },
+        {
+          "id": "B",
+          "text": "set intersection"
+        },
+        {
+          "id": "C",
+          "text": "while loop"
+        },
+        {
+          "id": "D",
+          "text": "string slicing"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "while تكرر block طالما condition=True وتناسب عدد iterations غير المعروف مسبقًا.",
+        "en": ""
+      },
+      "topic": "while Loops",
+      "topicId": "while-loop",
+      "subtopicId": "condition-loop",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "while-basic-v3",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 13–14 — while loop and basic example"
+      }
+    },
+    {
+      "id": "da-python-s03-q012",
+      "question": "A while condition remains True forever because the counter is never changed. What is the main risk?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tuple mutation"
+        },
+        {
+          "id": "B",
+          "text": "Set sorting"
+        },
+        {
+          "id": "C",
+          "text": "Automatic exit after one iteration"
+        },
+        {
+          "id": "D",
+          "text": "Infinite loop"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. while تكرر block طالما condition=True وتناسب عدد iterations غير المعروف مسبقًا.",
+        "en": ""
+      },
+      "topic": "while Loops",
+      "topicId": "while-loop",
+      "subtopicId": "condition-loop",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "while-basic-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 13–14 — while loop and basic example"
+      }
+    },
+    {
+      "id": "da-python-s03-q013",
+      "question": "What does `break` do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stops the current loop immediately."
+        },
+        {
+          "id": "B",
+          "text": "Skips only one iteration"
+        },
+        {
+          "id": "C",
+          "text": "Restarts the loop"
+        },
+        {
+          "id": "D",
+          "text": "Runs else immediately"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "break تنهي loop فورًا.",
+        "en": ""
+      },
+      "topic": "break & continue",
+      "topicId": "break-continue",
+      "subtopicId": "break",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "break-v1",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 15, 17, 27 — break examples"
+      }
+    },
+    {
+      "id": "da-python-s03-q014",
+      "question": "In a loop that stops when count reaches 5, which statement performs the immediate exit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "continue"
+        },
+        {
+          "id": "B",
+          "text": "break"
+        },
+        {
+          "id": "C",
+          "text": "elif"
+        },
+        {
+          "id": "D",
+          "text": "append"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "break تنهي loop فورًا.",
+        "en": ""
+      },
+      "topic": "break & continue",
+      "topicId": "break-continue",
+      "subtopicId": "break",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "break-v2",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 15, 17, 27 — break examples"
+      }
+    },
+    {
+      "id": "da-python-s03-q015",
+      "question": "Which statement is best when a target has been found and no more searching is needed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "continue"
+        },
+        {
+          "id": "B",
+          "text": "else"
+        },
+        {
+          "id": "C",
+          "text": "break"
+        },
+        {
+          "id": "D",
+          "text": "pass through all remaining items"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "break تنهي loop فورًا.",
+        "en": ""
+      },
+      "topic": "break & continue",
+      "topicId": "break-continue",
+      "subtopicId": "break",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "break-v3",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 15, 17, 27 — break examples"
+      }
+    },
+    {
+      "id": "da-python-s03-q016",
+      "question": "A learner uses continue expecting the loop to terminate. What should replace it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "else"
+        },
+        {
+          "id": "B",
+          "text": "range"
+        },
+        {
+          "id": "C",
+          "text": "append"
+        },
+        {
+          "id": "D",
+          "text": "break"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. break تنهي loop فورًا.",
+        "en": ""
+      },
+      "topic": "break & continue",
+      "topicId": "break-continue",
+      "subtopicId": "break",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "break-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 15, 17, 27 — break examples"
+      }
+    },
+    {
+      "id": "da-python-s03-q017",
+      "question": "What does `continue` do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Skips the rest of the current iteration and moves to the next one."
+        },
+        {
+          "id": "B",
+          "text": "Terminates the whole loop"
+        },
+        {
+          "id": "C",
+          "text": "Restarts the program"
+        },
+        {
+          "id": "D",
+          "text": "Runs loop else immediately"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "continue تتخطى بقية current iteration وتنتقل للتالية.",
+        "en": ""
+      },
+      "topic": "break & continue",
+      "topicId": "break-continue",
+      "subtopicId": "continue",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "continue-v1",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 16, 27 — continue example and summary"
+      }
+    },
+    {
+      "id": "da-python-s03-q018",
+      "question": "In the taught example, which count is skipped from printing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "All counts"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "continue تتخطى بقية current iteration وتنتقل للتالية.",
+        "en": ""
+      },
+      "topic": "break & continue",
+      "topicId": "break-continue",
+      "subtopicId": "continue",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "continue-v2",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 16, 27 — continue example and summary"
+      }
+    },
+    {
+      "id": "da-python-s03-q019",
+      "question": "Which statement is best for ignoring one unwanted item while continuing the loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "break"
+        },
+        {
+          "id": "B",
+          "text": "else"
+        },
+        {
+          "id": "C",
+          "text": "continue"
+        },
+        {
+          "id": "D",
+          "text": "return from the program"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "continue تتخطى بقية current iteration وتنتقل للتالية.",
+        "en": ""
+      },
+      "topic": "break & continue",
+      "topicId": "break-continue",
+      "subtopicId": "continue",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "continue-v3",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 16, 27 — continue example and summary"
+      }
+    },
+    {
+      "id": "da-python-s03-q020",
+      "question": "A while loop increments the counter after a possible continue, causing the counter not to change on skipped iterations. What should be reviewed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Convert the counter to a set"
+        },
+        {
+          "id": "B",
+          "text": "Remove the condition"
+        },
+        {
+          "id": "C",
+          "text": "Use a tuple"
+        },
+        {
+          "id": "D",
+          "text": "Move/update the counter before the continue can skip it."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. continue تتخطى بقية current iteration وتنتقل للتالية.",
+        "en": ""
+      },
+      "topic": "break & continue",
+      "topicId": "break-continue",
+      "subtopicId": "continue",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "continue-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 16, 27 — continue example and summary"
+      }
+    },
+    {
+      "id": "da-python-s03-q021",
+      "question": "What user input ends the taught infinite loop example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "exit"
+        },
+        {
+          "id": "B",
+          "text": "stop always"
+        },
+        {
+          "id": "C",
+          "text": "0 only"
+        },
+        {
+          "id": "D",
+          "text": "Python"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المصدر يستخدم infinite while loop تنتهي عندما المستخدم يكتب exit ويحدث break.",
+        "en": ""
+      },
+      "topic": "while Loops",
+      "topicId": "while-loop",
+      "subtopicId": "input-until-exit",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "infinite-user-v1",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 17 — Infinite while with break"
+      }
+    },
+    {
+      "id": "da-python-s03-q022",
+      "question": "Which statement is triggered after the stop word in the example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "continue"
+        },
+        {
+          "id": "B",
+          "text": "break"
+        },
+        {
+          "id": "C",
+          "text": "append"
+        },
+        {
+          "id": "D",
+          "text": "elif"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المصدر يستخدم infinite while loop تنتهي عندما المستخدم يكتب exit ويحدث break.",
+        "en": ""
+      },
+      "topic": "while Loops",
+      "topicId": "while-loop",
+      "subtopicId": "input-until-exit",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "infinite-user-v2",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 17 — Infinite while with break"
+      }
+    },
+    {
+      "id": "da-python-s03-q023",
+      "question": "Which loop pattern best fits repeated user input until a stop word appears?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fixed one-iteration for loop"
+        },
+        {
+          "id": "B",
+          "text": "Set operation"
+        },
+        {
+          "id": "C",
+          "text": "while loop with a break condition"
+        },
+        {
+          "id": "D",
+          "text": "Tuple indexing"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المصدر يستخدم infinite while loop تنتهي عندما المستخدم يكتب exit ويحدث break.",
+        "en": ""
+      },
+      "topic": "while Loops",
+      "topicId": "while-loop",
+      "subtopicId": "input-until-exit",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "infinite-user-v3",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 17 — Infinite while with break"
+      }
+    },
+    {
+      "id": "da-python-s03-q024",
+      "question": "A program uses `while True` but has no reachable break. What is the problem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It cannot execute at all"
+        },
+        {
+          "id": "B",
+          "text": "It becomes a list"
+        },
+        {
+          "id": "C",
+          "text": "It always executes once"
+        },
+        {
+          "id": "D",
+          "text": "It can run indefinitely."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. المصدر يستخدم infinite while loop تنتهي عندما المستخدم يكتب exit ويحدث break.",
+        "en": ""
+      },
+      "topic": "while Loops",
+      "topicId": "while-loop",
+      "subtopicId": "input-until-exit",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "infinite-user-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 17 — Infinite while with break"
+      }
+    },
+    {
+      "id": "da-python-s03-q025",
+      "question": "What is a nested loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A loop inside another loop."
+        },
+        {
+          "id": "B",
+          "text": "A dictionary inside a list"
+        },
+        {
+          "id": "C",
+          "text": "A string inside a tuple"
+        },
+        {
+          "id": "D",
+          "text": "A condition with no loop"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Nested loop هي loop داخل loop؛ inner loop تكتمل لكل outer iteration.",
+        "en": ""
+      },
+      "topic": "Nested Loops",
+      "topicId": "nested-loops",
+      "subtopicId": "nested-definition",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-definition-v1",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 19–20 — nested loops and time complexity"
+      }
+    },
+    {
+      "id": "da-python-s03-q026",
+      "question": "If the outer loop runs 3 times and the inner loop 2 times, how many body executions occur?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "2"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Nested loop هي loop داخل loop؛ inner loop تكتمل لكل outer iteration.",
+        "en": ""
+      },
+      "topic": "Nested Loops",
+      "topicId": "nested-loops",
+      "subtopicId": "nested-definition",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-definition-v2",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 19–20 — nested loops and time complexity"
+      }
+    },
+    {
+      "id": "da-python-s03-q027",
+      "question": "If outer runs n times and inner m times, what total work model is taught?",
+      "options": [
+        {
+          "id": "A",
+          "text": "n + m"
+        },
+        {
+          "id": "B",
+          "text": "n - m"
+        },
+        {
+          "id": "C",
+          "text": "n × m"
+        },
+        {
+          "id": "D",
+          "text": "m only"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Nested loop هي loop داخل loop؛ inner loop تكتمل لكل outer iteration.",
+        "en": ""
+      },
+      "topic": "Nested Loops",
+      "topicId": "nested-loops",
+      "subtopicId": "nested-definition",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-definition-v3",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 19–20 — nested loops and time complexity"
+      }
+    },
+    {
+      "id": "da-python-s03-q028",
+      "question": "A student says every nested loop is O(n²). What correction matches the source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nested loops are O(1)"
+        },
+        {
+          "id": "B",
+          "text": "They have no complexity"
+        },
+        {
+          "id": "C",
+          "text": "They are always O(n log n)"
+        },
+        {
+          "id": "D",
+          "text": "General nested work is O(n×m); O(n²) applies when both dimensions depend on n."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Nested loop هي loop داخل loop؛ inner loop تكتمل لكل outer iteration.",
+        "en": ""
+      },
+      "topic": "Nested Loops",
+      "topicId": "nested-loops",
+      "subtopicId": "nested-definition",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-definition-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 19–20 — nested loops and time complexity"
+      }
+    },
+    {
+      "id": "da-python-s03-q029",
+      "question": "Which is a taught use case for nested loops?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Iterating over rows and columns of a matrix."
+        },
+        {
+          "id": "B",
+          "text": "Making strings mutable"
+        },
+        {
+          "id": "C",
+          "text": "Changing input type"
+        },
+        {
+          "id": "D",
+          "text": "Removing all duplicates only"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المصدر يذكر matrices/grids/pairwise comparisons/patterns/tables كحالات استخدام.",
+        "en": ""
+      },
+      "topic": "Nested Loops",
+      "topicId": "nested-loops",
+      "subtopicId": "use-cases",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-use-v1",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 21–23 — nested examples and use cases"
+      }
+    },
+    {
+      "id": "da-python-s03-q030",
+      "question": "What does the inner loop do for each outer iteration?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It runs once total"
+        },
+        {
+          "id": "B",
+          "text": "It runs through its own iterations completely."
+        },
+        {
+          "id": "C",
+          "text": "It is skipped"
+        },
+        {
+          "id": "D",
+          "text": "It changes the outer loop into a set"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المصدر يذكر matrices/grids/pairwise comparisons/patterns/tables كحالات استخدام.",
+        "en": ""
+      },
+      "topic": "Nested Loops",
+      "topicId": "nested-loops",
+      "subtopicId": "use-cases",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-use-v2",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 21–23 — nested examples and use cases"
+      }
+    },
+    {
+      "id": "da-python-s03-q031",
+      "question": "Which task naturally fits nested loops?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reading one Boolean"
+        },
+        {
+          "id": "B",
+          "text": "Assigning one variable"
+        },
+        {
+          "id": "C",
+          "text": "Generating a multiplication table or grid."
+        },
+        {
+          "id": "D",
+          "text": "Printing one static string"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المصدر يذكر matrices/grids/pairwise comparisons/patterns/tables كحالات استخدام.",
+        "en": ""
+      },
+      "topic": "Nested Loops",
+      "topicId": "nested-loops",
+      "subtopicId": "use-cases",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-use-v3",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 21–23 — nested examples and use cases"
+      }
+    },
+    {
+      "id": "da-python-s03-q032",
+      "question": "A pairwise comparison needs every item compared with every other item. Which taught pattern matches?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Single print"
+        },
+        {
+          "id": "B",
+          "text": "Set slicing"
+        },
+        {
+          "id": "C",
+          "text": "Input casting"
+        },
+        {
+          "id": "D",
+          "text": "Nested loops"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. المصدر يذكر matrices/grids/pairwise comparisons/patterns/tables كحالات استخدام.",
+        "en": ""
+      },
+      "topic": "Nested Loops",
+      "topicId": "nested-loops",
+      "subtopicId": "use-cases",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-use-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 21–23 — nested examples and use cases"
+      }
+    },
+    {
+      "id": "da-python-s03-q033",
+      "question": "How many iterations is 1,000 × 1,000 nested work?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1,000,000"
+        },
+        {
+          "id": "B",
+          "text": "2,000"
+        },
+        {
+          "id": "C",
+          "text": "100,000"
+        },
+        {
+          "id": "D",
+          "text": "10,000"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Nested loops تضاعف work؛ 1000×1000 = 1,000,000 iteration في مثال المصدر.",
+        "en": ""
+      },
+      "topic": "Loop Optimization",
+      "topicId": "loop-optimization",
+      "subtopicId": "cost",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-cost-v1",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 24 — When to Avoid Nested Loops"
+      }
+    },
+    {
+      "id": "da-python-s03-q034",
+      "question": "Why can nested loops become slow on large datasets?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Python stops using variables"
+        },
+        {
+          "id": "B",
+          "text": "The combined number of iterations multiplies."
+        },
+        {
+          "id": "C",
+          "text": "Strings become mutable"
+        },
+        {
+          "id": "D",
+          "text": "Sets add duplicates"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Nested loops تضاعف work؛ 1000×1000 = 1,000,000 iteration في مثال المصدر.",
+        "en": ""
+      },
+      "topic": "Loop Optimization",
+      "topicId": "loop-optimization",
+      "subtopicId": "cost",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-cost-v2",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 24 — When to Avoid Nested Loops"
+      }
+    },
+    {
+      "id": "da-python-s03-q035",
+      "question": "When does the source advise avoiding nested loops?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Whenever a loop has two lines"
+        },
+        {
+          "id": "B",
+          "text": "Only with strings"
+        },
+        {
+          "id": "C",
+          "text": "When large-data work can use vectorized/built-in or better algorithmic approaches."
+        },
+        {
+          "id": "D",
+          "text": "Never"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Nested loops تضاعف work؛ 1000×1000 = 1,000,000 iteration في مثال المصدر.",
+        "en": ""
+      },
+      "topic": "Loop Optimization",
+      "topicId": "loop-optimization",
+      "subtopicId": "cost",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-cost-v3",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 24 — When to Avoid Nested Loops"
+      }
+    },
+    {
+      "id": "da-python-s03-q036",
+      "question": "A developer uses two huge explicit loops for numerical array operations although vectorization exists. What is the better taught direction?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Add a third loop"
+        },
+        {
+          "id": "B",
+          "text": "Convert numbers to strings"
+        },
+        {
+          "id": "C",
+          "text": "Use more nested ifs"
+        },
+        {
+          "id": "D",
+          "text": "Use vectorized operations where appropriate."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Nested loops تضاعف work؛ 1000×1000 = 1,000,000 iteration في مثال المصدر.",
+        "en": ""
+      },
+      "topic": "Loop Optimization",
+      "topicId": "loop-optimization",
+      "subtopicId": "cost",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-cost-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slide 24 — When to Avoid Nested Loops"
+      }
+    },
+    {
+      "id": "da-python-s03-q037",
+      "question": "Which taught technique can perform numerical operations without explicit Python loops?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vectorization with NumPy"
+        },
+        {
+          "id": "B",
+          "text": "Nested if only"
+        },
+        {
+          "id": "C",
+          "text": "String escaping"
+        },
+        {
+          "id": "D",
+          "text": "Dictionary pop only"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المصدر يقترح list comprehensions، built-ins، NumPy vectorization، وalgorithms/data structures أفضل.",
+        "en": ""
+      },
+      "topic": "Loop Optimization",
+      "topicId": "loop-optimization",
+      "subtopicId": "alternatives",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "optimization-v1",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 25–26 — List comprehensions, built-ins, vectorization, algorithms"
+      }
+    },
+    {
+      "id": "da-python-s03-q038",
+      "question": "Which concise construct is suggested for some list-building tasks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nested dictionary only"
+        },
+        {
+          "id": "B",
+          "text": "List comprehension"
+        },
+        {
+          "id": "C",
+          "text": "Escape sequence"
+        },
+        {
+          "id": "D",
+          "text": "Boolean literal"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المصدر يقترح list comprehensions، built-ins، NumPy vectorization، وalgorithms/data structures أفضل.",
+        "en": ""
+      },
+      "topic": "Loop Optimization",
+      "topicId": "loop-optimization",
+      "subtopicId": "alternatives",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "optimization-v2",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 25–26 — List comprehensions, built-ins, vectorization, algorithms"
+      }
+    },
+    {
+      "id": "da-python-s03-q039",
+      "question": "Which complexity example is given for a better sorting approach?",
+      "options": [
+        {
+          "id": "A",
+          "text": "O(n²) exactly"
+        },
+        {
+          "id": "B",
+          "text": "O(n³)"
+        },
+        {
+          "id": "C",
+          "text": "O(n log n)"
+        },
+        {
+          "id": "D",
+          "text": "O(2^n)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المصدر يقترح list comprehensions، built-ins، NumPy vectorization، وalgorithms/data structures أفضل.",
+        "en": ""
+      },
+      "topic": "Loop Optimization",
+      "topicId": "loop-optimization",
+      "subtopicId": "alternatives",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "optimization-v3",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 25–26 — List comprehensions, built-ins, vectorization, algorithms"
+      }
+    },
+    {
+      "id": "da-python-s03-q040",
+      "question": "For searching, what data-structure idea is suggested instead of repeated pairwise scans?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only tuples"
+        },
+        {
+          "id": "B",
+          "text": "Only strings"
+        },
+        {
+          "id": "C",
+          "text": "Pie charts"
+        },
+        {
+          "id": "D",
+          "text": "Hash tables such as dictionaries"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المصدر يقترح list comprehensions، built-ins، NumPy vectorization، وalgorithms/data structures أفضل.",
+        "en": ""
+      },
+      "topic": "Loop Optimization",
+      "topicId": "loop-optimization",
+      "subtopicId": "alternatives",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "optimization-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 25–26 — List comprehensions, built-ins, vectorization, algorithms"
+      }
+    }
+  ]
+}

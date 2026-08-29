@@ -139,7 +139,7 @@ function selectByValidatedSignatures(pool,profile,count){
       if(unique.length>=spec.quota)candidates=unique;
     }
     if(candidates.length<spec.quota){
-      throw new Error(`Validated SQL profile shortage for ${spec.signature}: ${candidates.length}/${spec.quota}.`);
+      throw new Error(`Validated profile shortage for ${spec.signature}: ${candidates.length}/${spec.quota}.`);
     }
     const picked=candidates.slice(0,spec.quota);
     for(const q of picked){
@@ -229,7 +229,7 @@ export async function buildExamFromBlueprint({blueprint,bankRegistry,loadJson,co
       title:blueprint.title,
       description:blueprint.description,
       course:blueprint.course,
-      module:"All Final Tracks",
+      module:blueprint.kind==="track"?(blueprint.track||blueprint.title):"All Final Tracks",
       category:blueprint.category||"Final Exam",
       uploadedBy:"Digilians E-Learn Question Bank Engine",
       createdAt:new Date().toISOString().slice(0,10),

@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-python-session12-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "python",
+    "track": "Python for Data Analysis",
+    "moduleId": "python-session-12",
+    "module": "Session 12 — Applied Matplotlib, Distribution & Exploratory Data Analysis",
+    "title": "Python Session 12 — Production Bank 001",
+    "version": "1.0-final",
+    "status": "active",
+    "sourceFiles": [
+      "Data Visualization with Python_session_1.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-python-s12-q001",
+      "question": "Which statement best describes `Matplotlib Core Plotting` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Matplotlib supports static, animated, and interactive visualizations and pyplot provides simple plotting functions."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Matplotlib supports static, animated, and interactive visualizations and pyplot provides simple plotting functions. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Matplotlib Core Plotting",
+      "topicId": "matplotlib-intro",
+      "subtopicId": "intro",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-mpl-intro-1",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 5–8 — Introduction / features"
+      }
+    },
+    {
+      "id": "da-python-s12-q002",
+      "question": "Which taught tool or pattern is most appropriate when you want to import the pyplot interface using the taught alias?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "import matplotlib.pyplot as plt"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `import matplotlib.pyplot as plt`.",
+        "en": ""
+      },
+      "topic": "Matplotlib Core Plotting",
+      "topicId": "matplotlib-intro",
+      "subtopicId": "intro",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-mpl-intro-2",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 5–8 — Introduction / features"
+      }
+    },
+    {
+      "id": "da-python-s12-q003",
+      "question": "What alias is used for `matplotlib.pyplot` in the source examples?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "plt."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: plt..",
+        "en": ""
+      },
+      "topic": "Matplotlib Core Plotting",
+      "topicId": "matplotlib-intro",
+      "subtopicId": "intro",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-mpl-intro-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 5–8 — Introduction / features"
+      }
+    },
+    {
+      "id": "da-python-s12-q004",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Matplotlib Core Plotting`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Import pyplot correctly and call the chart function that matches the intended visual."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Import pyplot correctly and call the chart function that matches the intended visual.",
+        "en": ""
+      },
+      "topic": "Matplotlib Core Plotting",
+      "topicId": "matplotlib-intro",
+      "subtopicId": "intro",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-mpl-intro-4",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 5–8 — Introduction / features"
+      }
+    },
+    {
+      "id": "da-python-s12-q005",
+      "question": "Which statement best describes `Line Plots` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Line plots are used to show trends or continuous changes and can compare multiple trends."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Line plots are used to show trends or continuous changes and can compare multiple trends. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Line Plots",
+      "topicId": "line-plot",
+      "subtopicId": "trend",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-line-1",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 9–11 — Line Plot examples"
+      }
+    },
+    {
+      "id": "da-python-s12-q006",
+      "question": "Which taught tool or pattern is most appropriate when you want to show sales values changing over years?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "plt.plot(years, sales)"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `plt.plot(years, sales)`.",
+        "en": ""
+      },
+      "topic": "Line Plots",
+      "topicId": "line-plot",
+      "subtopicId": "trend",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-line-2",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 9–11 — Line Plot examples"
+      }
+    },
+    {
+      "id": "da-python-s12-q007",
+      "question": "What analytical task is the sales-over-time line example designed for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Showing a trend over time."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: Showing a trend over time..",
+        "en": ""
+      },
+      "topic": "Line Plots",
+      "topicId": "line-plot",
+      "subtopicId": "trend",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-line-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 9–11 — Line Plot examples"
+      }
+    },
+    {
+      "id": "da-python-s12-q008",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Line Plots`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Use a line plot when order/time progression matters; do not use it as a default for unrelated categories."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Use a line plot when order/time progression matters; do not use it as a default for unrelated categories.",
+        "en": ""
+      },
+      "topic": "Line Plots",
+      "topicId": "line-plot",
+      "subtopicId": "trend",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-line-4",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 9–11 — Line Plot examples"
+      }
+    },
+    {
+      "id": "da-python-s12-q009",
+      "question": "Which statement best describes `Scatter Plots` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Scatter plots show the relationship between two numerical variables; size and transparency can improve readability."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Scatter plots show the relationship between two numerical variables; size and transparency can improve readability. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Scatter Plots",
+      "topicId": "scatter-plot",
+      "subtopicId": "relationship",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-scatter-1",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 12–14 — Scatter Plot"
+      }
+    },
+    {
+      "id": "da-python-s12-q010",
+      "question": "Which taught tool or pattern is most appropriate when you want to show the relationship between age and salary?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "plt.scatter(age, salary)"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `plt.scatter(age, salary)`.",
+        "en": ""
+      },
+      "topic": "Scatter Plots",
+      "topicId": "scatter-plot",
+      "subtopicId": "relationship",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-scatter-2",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 12–14 — Scatter Plot"
+      }
+    },
+    {
+      "id": "da-python-s12-q011",
+      "question": "What do the `s` and `alpha` arguments affect in the styled scatter example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Point size and transparency."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: Point size and transparency..",
+        "en": ""
+      },
+      "topic": "Scatter Plots",
+      "topicId": "scatter-plot",
+      "subtopicId": "relationship",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-scatter-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 12–14 — Scatter Plot"
+      }
+    },
+    {
+      "id": "da-python-s12-q012",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Scatter Plots`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Keep x/y as paired numerical variables and use styling parameters to improve readability rather than changing the analytical meaning."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Keep x/y as paired numerical variables and use styling parameters to improve readability rather than changing the analytical meaning.",
+        "en": ""
+      },
+      "topic": "Scatter Plots",
+      "topicId": "scatter-plot",
+      "subtopicId": "relationship",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-scatter-4",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 12–14 — Scatter Plot"
+      }
+    },
+    {
+      "id": "da-python-s12-q013",
+      "question": "Which statement best describes `Bar Charts` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Bar charts compare categorical groups using rectangular bars whose heights correspond to values."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Bar charts compare categorical groups using rectangular bars whose heights correspond to values. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Bar Charts",
+      "topicId": "bar-chart",
+      "subtopicId": "categories",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-bar-1",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 15–17 — Bar Chart"
+      }
+    },
+    {
+      "id": "da-python-s12-q014",
+      "question": "Which taught tool or pattern is most appropriate when you want to compare student counts across countries?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "plt.bar(countries, students)"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `plt.bar(countries, students)`.",
+        "en": ""
+      },
+      "topic": "Bar Charts",
+      "topicId": "bar-chart",
+      "subtopicId": "categories",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-bar-2",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 15–17 — Bar Chart"
+      }
+    },
+    {
+      "id": "da-python-s12-q015",
+      "question": "What does the height of each bar represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "The value associated with that category."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: The value associated with that category..",
+        "en": ""
+      },
+      "topic": "Bar Charts",
+      "topicId": "bar-chart",
+      "subtopicId": "categories",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-bar-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 15–17 — Bar Chart"
+      }
+    },
+    {
+      "id": "da-python-s12-q016",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Bar Charts`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Use categories on one axis and comparable values on the other; do not interpret bar width as the measured quantity."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. ده Platform clarification مبني على نفس concept في المصدر: Use categories on one axis and comparable values on the other; do not interpret bar width as the measured quantity.",
+        "en": ""
+      },
+      "topic": "Bar Charts",
+      "topicId": "bar-chart",
+      "subtopicId": "categories",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-bar-4",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 15–17 — Bar Chart"
+      }
+    },
+    {
+      "id": "da-python-s12-q017",
+      "question": "Which statement best describes `Histograms & Bins` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Histograms show the distribution of a numerical variable by grouping observations into bins."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Histograms show the distribution of a numerical variable by grouping observations into bins. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Histograms & Bins",
+      "topicId": "histogram",
+      "subtopicId": "distribution",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-hist-1",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 18–20 — Histogram"
+      }
+    },
+    {
+      "id": "da-python-s12-q018",
+      "question": "Which taught tool or pattern is most appropriate when you want to visualize a score distribution?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "plt.hist(scores, bins=...)"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `plt.hist(scores, bins=...)`.",
+        "en": ""
+      },
+      "topic": "Histograms & Bins",
+      "topicId": "histogram",
+      "subtopicId": "distribution",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-hist-2",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 18–20 — Histogram"
+      }
+    },
+    {
+      "id": "da-python-s12-q019",
+      "question": "What does the `bins` parameter control in `plt.hist()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "How the numerical range is divided into intervals for counting frequency."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: How the numerical range is divided into intervals for counting frequency..",
+        "en": ""
+      },
+      "topic": "Histograms & Bins",
+      "topicId": "histogram",
+      "subtopicId": "distribution",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-hist-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 18–20 — Histogram"
+      }
+    },
+    {
+      "id": "da-python-s12-q020",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Histograms & Bins`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Do not read a histogram like a category bar chart; interpret bin ranges and frequencies."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Do not read a histogram like a category bar chart; interpret bin ranges and frequencies.",
+        "en": ""
+      },
+      "topic": "Histograms & Bins",
+      "topicId": "histogram",
+      "subtopicId": "distribution",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-hist-4",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 18–20 — Histogram"
+      }
+    },
+    {
+      "id": "da-python-s12-q021",
+      "question": "Which statement best describes `Box Plots & IQR` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A box plot summarizes median, Q1, Q3, IQR, whiskers, and potential outliers."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A box plot summarizes median, Q1, Q3, IQR, whiskers, and potential outliers. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Box Plots & IQR",
+      "topicId": "box-plot",
+      "subtopicId": "box-anatomy",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-box-1",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 21–22 — Box Plot"
+      }
+    },
+    {
+      "id": "da-python-s12-q022",
+      "question": "Which taught tool or pattern is most appropriate when you want to compare distributions and quickly inspect potential outliers?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "plt.boxplot(data)"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `plt.boxplot(data)`.",
+        "en": ""
+      },
+      "topic": "Box Plots & IQR",
+      "topicId": "box-plot",
+      "subtopicId": "box-anatomy",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-box-2",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 21–22 — Box Plot"
+      }
+    },
+    {
+      "id": "da-python-s12-q023",
+      "question": "What does the box itself represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "The middle 50% of the data from Q1 to Q3."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: The middle 50% of the data from Q1 to Q3..",
+        "en": ""
+      },
+      "topic": "Box Plots & IQR",
+      "topicId": "box-plot",
+      "subtopicId": "box-anatomy",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-box-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 21–22 — Box Plot"
+      }
+    },
+    {
+      "id": "da-python-s12-q024",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Box Plots & IQR`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Treat points beyond whiskers as potential outliers, not automatically as data errors."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Treat points beyond whiskers as potential outliers, not automatically as data errors.",
+        "en": ""
+      },
+      "topic": "Box Plots & IQR",
+      "topicId": "box-plot",
+      "subtopicId": "box-anatomy",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-box-4",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 21–22 — Box Plot"
+      }
+    },
+    {
+      "id": "da-python-s12-q025",
+      "question": "Which statement best describes `Subplots` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Subplots place multiple plots inside a single figure for side-by-side comparison."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Subplots place multiple plots inside a single figure for side-by-side comparison. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Subplots",
+      "topicId": "subplots",
+      "subtopicId": "multi-panel",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-subplots-1",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 23–24 — Subplots"
+      }
+    },
+    {
+      "id": "da-python-s12-q026",
+      "question": "Which taught tool or pattern is most appropriate when you want to show a histogram and box plot in the same figure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Use subplot positions such as plt.subplot(1, 2, 1) and plt.subplot(1, 2, 2)"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Use subplot positions such as plt.subplot(1, 2, 1) and plt.subplot(1, 2, 2)`.",
+        "en": ""
+      },
+      "topic": "Subplots",
+      "topicId": "subplots",
+      "subtopicId": "multi-panel",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-subplots-2",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 23–24 — Subplots"
+      }
+    },
+    {
+      "id": "da-python-s12-q027",
+      "question": "What does `plt.subplot(1, 2, 1)` identify?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "The first plot in a 1-row, 2-column subplot layout."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: The first plot in a 1-row, 2-column subplot layout..",
+        "en": ""
+      },
+      "topic": "Subplots",
+      "topicId": "subplots",
+      "subtopicId": "multi-panel",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-subplots-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 23–24 — Subplots"
+      }
+    },
+    {
+      "id": "da-python-s12-q028",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Subplots`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Keep subplot positions and layout dimensions consistent so charts do not overwrite or appear in unintended panels."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. ده Platform clarification مبني على نفس concept في المصدر: Keep subplot positions and layout dimensions consistent so charts do not overwrite or appear in unintended panels.",
+        "en": ""
+      },
+      "topic": "Subplots",
+      "topicId": "subplots",
+      "subtopicId": "multi-panel",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-subplots-4",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 23–24 — Subplots"
+      }
+    },
+    {
+      "id": "da-python-s12-q029",
+      "question": "Which statement best describes `Plot Customization` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Matplotlib plots can be customized with titles, axis labels, legends, colors, and styles."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Matplotlib plots can be customized with titles, axis labels, legends, colors, and styles. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Plot Customization",
+      "topicId": "plot-customization",
+      "subtopicId": "labels-legends",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-custom-1",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 7, 25 — Customization"
+      }
+    },
+    {
+      "id": "da-python-s12-q030",
+      "question": "Which taught tool or pattern is most appropriate when you want to explain what each axis and series represents?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Add title/axis labels and a legend when needed"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Add title/axis labels and a legend when needed`.",
+        "en": ""
+      },
+      "topic": "Plot Customization",
+      "topicId": "plot-customization",
+      "subtopicId": "labels-legends",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-custom-2",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 7, 25 — Customization"
+      }
+    },
+    {
+      "id": "da-python-s12-q031",
+      "question": "Which elements help make a multi-series plot interpretable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Clear labels/title and a legend identifying the series."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: Clear labels/title and a legend identifying the series..",
+        "en": ""
+      },
+      "topic": "Plot Customization",
+      "topicId": "plot-customization",
+      "subtopicId": "labels-legends",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-custom-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 7, 25 — Customization"
+      }
+    },
+    {
+      "id": "da-python-s12-q032",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Plot Customization`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Use customization to communicate meaning, not to obscure or distort the data."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده Platform clarification مبني على نفس concept في المصدر: Use customization to communicate meaning, not to obscure or distort the data.",
+        "en": ""
+      },
+      "topic": "Plot Customization",
+      "topicId": "plot-customization",
+      "subtopicId": "labels-legends",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-custom-4",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 7, 25 — Customization"
+      }
+    },
+    {
+      "id": "da-python-s12-q033",
+      "question": "Which statement best describes `Outliers` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Outliers are observations that deviate substantially from the rest and may be errors or valid rare cases; they can distort statistics and models."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Outliers are observations that deviate substantially from the rest and may be errors or valid rare cases; they can distort statistics and models. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Outliers",
+      "topicId": "outliers",
+      "subtopicId": "definition-impact",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-outlier-1",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 26–27 — Outliers"
+      }
+    },
+    {
+      "id": "da-python-s12-q034",
+      "question": "Which taught tool or pattern is most appropriate when you want to flag unusual observations for investigation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Inspect outliers rather than automatically deleting them"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Inspect outliers rather than automatically deleting them`.",
+        "en": ""
+      },
+      "topic": "Outliers",
+      "topicId": "outliers",
+      "subtopicId": "definition-impact",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-outlier-2",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 26–27 — Outliers"
+      }
+    },
+    {
+      "id": "da-python-s12-q035",
+      "question": "Does the source say every outlier is an error?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "No; an outlier may represent a rare but valid case."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: No; an outlier may represent a rare but valid case..",
+        "en": ""
+      },
+      "topic": "Outliers",
+      "topicId": "outliers",
+      "subtopicId": "definition-impact",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-outlier-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 26–27 — Outliers"
+      }
+    },
+    {
+      "id": "da-python-s12-q036",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Outliers`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Investigate the cause and context before deciding how to manage an outlier."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده تصحيح مباشر متسق مع المصدر: Investigate the cause and context before deciding how to manage an outlier.",
+        "en": ""
+      },
+      "topic": "Outliers",
+      "topicId": "outliers",
+      "subtopicId": "definition-impact",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-outlier-4",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 26–27 — Outliers"
+      }
+    },
+    {
+      "id": "da-python-s12-q037",
+      "question": "Which statement best describes `Visual Outlier Detection` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The source lists box plots, scatter plots, histograms, and density plots as visual ways to identify unusual observations."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The source lists box plots, scatter plots, histograms, and density plots as visual ways to identify unusual observations. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Visual Outlier Detection",
+      "topicId": "outlier-visuals",
+      "subtopicId": "methods",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-outlier-methods-1",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slide 27 — Identifying Outliers"
+      }
+    },
+    {
+      "id": "da-python-s12-q038",
+      "question": "Which taught tool or pattern is most appropriate when you want to visually detect points far from the main cluster in a two-variable relationship?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Scatter plot"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Scatter plot`.",
+        "en": ""
+      },
+      "topic": "Visual Outlier Detection",
+      "topicId": "outlier-visuals",
+      "subtopicId": "methods",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-outlier-methods-2",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slide 27 — Identifying Outliers"
+      }
+    },
+    {
+      "id": "da-python-s12-q039",
+      "question": "How can a box plot visually indicate a potential outlier?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "As an individual point outside the whiskers."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: As an individual point outside the whiskers..",
+        "en": ""
+      },
+      "topic": "Visual Outlier Detection",
+      "topicId": "outlier-visuals",
+      "subtopicId": "methods",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-outlier-methods-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slide 27 — Identifying Outliers"
+      }
+    },
+    {
+      "id": "da-python-s12-q040",
+      "question": "A learner applies the concept incorrectly. Which correction best matches the course for `Visual Outlier Detection`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the visualization/analysis with an unrelated OS operation."
+        },
+        {
+          "id": "B",
+          "text": "Assume every chart or map answers the same analytical question."
+        },
+        {
+          "id": "C",
+          "text": "Ignore the variable types and the meaning of the axes/regions."
+        },
+        {
+          "id": "D",
+          "text": "Choose the detection visual that fits the variable structure and do not treat visual distance alone as a full causal diagnosis."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. ده تصحيح مباشر متسق مع المصدر: Choose the detection visual that fits the variable structure and do not treat visual distance alone as a full causal diagnosis.",
+        "en": ""
+      },
+      "topic": "Visual Outlier Detection",
+      "topicId": "outlier-visuals",
+      "subtopicId": "methods",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-outlier-methods-4",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slide 27 — Identifying Outliers"
+      }
+    }
+  ]
+}

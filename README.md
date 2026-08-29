@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.14.2
+# Digilians E-Learn Platform V0.15.0
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1143,3 +1143,38 @@ Improved the Learn module/session selection UX.
 - The default first module is selected without forcing an unwanted scroll when the track first opens.
 - Smooth scrolling respects `prefers-reduced-motion`.
 - SQL V0.14.1 readability improvements remain unchanged.
+
+
+## V0.15.0 — Complete Python Curriculum Integration
+
+Integrated the finalized Python Production V1.0 into `Learn → Data Analysis → Python for Data Analysis`.
+
+### Curriculum
+- 13 professionally named sessions based on actual content, not uploaded filenames.
+- 75 detailed Study Sections.
+- 47 structured Python code walkthroughs.
+- Dedicated Python Code Learning renderer:
+  - Arabic concept explanation
+  - LTR selectable code with line numbers and Copy Code
+  - Line-by-Line explanation
+  - Execution Trace
+  - Expected Output
+  - Why It Works
+  - Common Mistakes
+  - Exam / Tracing Tips
+  - Source Trace
+- Platform clarification and presentation-correction examples are visibly labeled.
+
+### Assessment
+- 13 active Python Question Banks.
+- 520 total production questions.
+- 13 Session Practice exams × 40 questions.
+- Dynamic Full Python Track Exam: 50 questions.
+- Python share in the Data Analysis Final: 20 questions using a validated signature profile.
+- 70 assessment topics are mapped directly from the actual question-bank taxonomy and configured for Final coverage.
+
+### Runtime status
+- Python curriculum readiness: `final-ready`.
+- SQL remains `final-ready`.
+- Data Analysis Final is still intentionally unavailable because Excel, Power BI, Tableau and Looker Studio production curricula are not complete yet (2/6 required tracks ready).
+- Junior/Professional Official QBank and Ranking V2 remain independent and unchanged.

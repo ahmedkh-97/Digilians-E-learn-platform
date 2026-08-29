@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-python-session08-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "python",
+    "track": "Python for Data Analysis",
+    "moduleId": "python-session-08",
+    "module": "Session 8 — NumPy Fundamentals, Arrays & Vectorized Data Operations",
+    "title": "Python Session 8 — Production Bank 001",
+    "version": "1.0",
+    "status": "active",
+    "sourceFiles": [
+      "Numpy_1.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-python-s08-q001",
+      "question": "Which statement best describes `NumPy ndarray` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NumPy provides efficient N-dimensional arrays for numerical computing and forms the base for many data-science libraries."
+        },
+        {
+          "id": "B",
+          "text": "`shape` is a tuple describing the size of each array dimension."
+        },
+        {
+          "id": "C",
+          "text": "`np.zeros()` and `np.ones()` initialize arrays filled with 0 or 1 using a requested shape."
+        },
+        {
+          "id": "D",
+          "text": "`np.arange()` creates values over a range with an optional step, stopping before the stop value."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "NumPy provides efficient N-dimensional arrays for numerical computing and forms the base for many data-science libraries.",
+        "en": ""
+      },
+      "topic": "NumPy ndarray",
+      "topicId": "numpy-fundamentals",
+      "subtopicId": "ndarray",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-ndarray-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 5–6 — NumPy Introduction"
+      }
+    },
+    {
+      "id": "da-python-s08-q002",
+      "question": "Which taught function/pattern is most appropriate when you want to create an efficient numerical array?",
+      "options": [
+        {
+          "id": "A",
+          "text": "arr.shape"
+        },
+        {
+          "id": "B",
+          "text": "np.array(...)"
+        },
+        {
+          "id": "C",
+          "text": "np.zeros(shape) / np.ones(shape)"
+        },
+        {
+          "id": "D",
+          "text": "np.arange(start, stop, step)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`np.array(...)` is the course-aligned choice for this task: create an efficient numerical array.",
+        "en": ""
+      },
+      "topic": "NumPy ndarray",
+      "topicId": "numpy-fundamentals",
+      "subtopicId": "ndarray",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-ndarray-v2",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 5–6 — NumPy Introduction"
+      }
+    },
+    {
+      "id": "da-python-s08-q003",
+      "question": "Which structure does NumPy center around for numerical work?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dictionary-only tables"
+        },
+        {
+          "id": "B",
+          "text": "File objects"
+        },
+        {
+          "id": "C",
+          "text": "N-dimensional arrays / ndarrays"
+        },
+        {
+          "id": "D",
+          "text": "Python sets"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `NumPy ndarray` behavior: NumPy provides efficient N-dimensional arrays for numerical computing and forms the base for many data-science libraries.",
+        "en": ""
+      },
+      "topic": "NumPy ndarray",
+      "topicId": "numpy-fundamentals",
+      "subtopicId": "ndarray",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-ndarray-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 5–6 — NumPy Introduction"
+      }
+    },
+    {
+      "id": "da-python-s08-q004",
+      "question": "A learner uses plain Python lists for a task that specifically needs the taught NumPy vectorized numerical operations. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `arr.shape` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `NumPy ndarray` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `np.zeros()/np.ones()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Create a NumPy array and use NumPy operations when the course concept calls for array computing."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Create a NumPy array and use NumPy operations when the course concept calls for array computing.",
+        "en": ""
+      },
+      "topic": "NumPy ndarray",
+      "topicId": "numpy-fundamentals",
+      "subtopicId": "ndarray",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-ndarray-v4",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 5–6 — NumPy Introduction"
+      }
+    },
+    {
+      "id": "da-python-s08-q005",
+      "question": "Which statement best describes `Array Shape` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`shape` is a tuple describing the size of each array dimension."
+        },
+        {
+          "id": "B",
+          "text": "`np.zeros()` and `np.ones()` initialize arrays filled with 0 or 1 using a requested shape."
+        },
+        {
+          "id": "C",
+          "text": "`np.arange()` creates values over a range with an optional step, stopping before the stop value."
+        },
+        {
+          "id": "D",
+          "text": "`np.linspace()` creates a requested number of evenly spaced values between two endpoints."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`shape` is a tuple describing the size of each array dimension.",
+        "en": ""
+      },
+      "topic": "Array Shape",
+      "topicId": "numpy-fundamentals",
+      "subtopicId": "shape",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-shape-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 9, 18 — Shape"
+      }
+    },
+    {
+      "id": "da-python-s08-q006",
+      "question": "Which taught function/pattern is most appropriate when you want to inspect array dimensions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "np.zeros(shape) / np.ones(shape)"
+        },
+        {
+          "id": "B",
+          "text": "arr.shape"
+        },
+        {
+          "id": "C",
+          "text": "np.arange(start, stop, step)"
+        },
+        {
+          "id": "D",
+          "text": "np.linspace(start, stop, num)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `arr.shape` is the course-aligned choice for this task: inspect array dimensions.",
+        "en": ""
+      },
+      "topic": "Array Shape",
+      "topicId": "numpy-fundamentals",
+      "subtopicId": "shape",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-shape-v2",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 9, 18 — Shape"
+      }
+    },
+    {
+      "id": "da-python-s08-q007",
+      "question": "If a 2D array has 2 rows and 3 columns, what shape is taught?",
+      "options": [
+        {
+          "id": "A",
+          "text": "(3, 2)"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "(2, 3)"
+        },
+        {
+          "id": "D",
+          "text": "[2,3,1]"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Array Shape` behavior: `shape` is a tuple describing the size of each array dimension.",
+        "en": ""
+      },
+      "topic": "Array Shape",
+      "topicId": "numpy-fundamentals",
+      "subtopicId": "shape",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-shape-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 9, 18 — Shape"
+      }
+    },
+    {
+      "id": "da-python-s08-q008",
+      "question": "A learner reads shape as the total element count rather than dimensions. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `np.zeros(shape) / np.ones(shape)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Array Shape` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `np.arange()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Interpret shape as one size per dimension, e.g. rows and columns."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Interpret shape as one size per dimension, e.g. rows and columns.",
+        "en": ""
+      },
+      "topic": "Array Shape",
+      "topicId": "numpy-fundamentals",
+      "subtopicId": "shape",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-shape-v4",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 9, 18 — Shape"
+      }
+    },
+    {
+      "id": "da-python-s08-q009",
+      "question": "Which statement best describes `np.zeros()/np.ones()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`np.zeros()` and `np.ones()` initialize arrays filled with 0 or 1 using a requested shape."
+        },
+        {
+          "id": "B",
+          "text": "`np.arange()` creates values over a range with an optional step, stopping before the stop value."
+        },
+        {
+          "id": "C",
+          "text": "`np.linspace()` creates a requested number of evenly spaced values between two endpoints."
+        },
+        {
+          "id": "D",
+          "text": "NumPy can generate random floating arrays and random integer arrays for simulation/test data."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`np.zeros()` and `np.ones()` initialize arrays filled with 0 or 1 using a requested shape.",
+        "en": ""
+      },
+      "topic": "np.zeros()/np.ones()",
+      "topicId": "numpy-creation",
+      "subtopicId": "zeros-ones",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-zeros-ones-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 11–12 — Zeros and Ones"
+      }
+    },
+    {
+      "id": "da-python-s08-q010",
+      "question": "Which taught function/pattern is most appropriate when you want to initialize an array with zeros or ones?",
+      "options": [
+        {
+          "id": "A",
+          "text": "np.arange(start, stop, step)"
+        },
+        {
+          "id": "B",
+          "text": "np.zeros(shape) / np.ones(shape)"
+        },
+        {
+          "id": "C",
+          "text": "np.linspace(start, stop, num)"
+        },
+        {
+          "id": "D",
+          "text": "np.random..."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`np.zeros(shape) / np.ones(shape)` is the course-aligned choice for this task: initialize an array with zeros or ones.",
+        "en": ""
+      },
+      "topic": "np.zeros()/np.ones()",
+      "topicId": "numpy-creation",
+      "subtopicId": "zeros-ones",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-zeros-ones-v2",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 11–12 — Zeros and Ones"
+      }
+    },
+    {
+      "id": "da-python-s08-q011",
+      "question": "What does `np.zeros((2,3))` create?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A list with two zeros"
+        },
+        {
+          "id": "B",
+          "text": "A 3×2 identity matrix"
+        },
+        {
+          "id": "C",
+          "text": "A 2×3 array filled with zeros"
+        },
+        {
+          "id": "D",
+          "text": "A random array"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `np.zeros()/np.ones()` behavior: `np.zeros()` and `np.ones()` initialize arrays filled with 0 or 1 using a requested shape.",
+        "en": ""
+      },
+      "topic": "np.zeros()/np.ones()",
+      "topicId": "numpy-creation",
+      "subtopicId": "zeros-ones",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-zeros-ones-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 11–12 — Zeros and Ones"
+      }
+    },
+    {
+      "id": "da-python-s08-q012",
+      "question": "A learner passes a scalar count when the goal is a 2D shape. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `np.arange(start, stop, step)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `np.zeros()/np.ones()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `np.linspace()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Pass the intended shape tuple such as `(2, 3)` for a 2D array."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Pass the intended shape tuple such as `(2, 3)` for a 2D array.",
+        "en": ""
+      },
+      "topic": "np.zeros()/np.ones()",
+      "topicId": "numpy-creation",
+      "subtopicId": "zeros-ones",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-zeros-ones-v4",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 11–12 — Zeros and Ones"
+      }
+    },
+    {
+      "id": "da-python-s08-q013",
+      "question": "Which statement best describes `np.arange()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`np.arange()` creates values over a range with an optional step, stopping before the stop value."
+        },
+        {
+          "id": "B",
+          "text": "`np.linspace()` creates a requested number of evenly spaced values between two endpoints."
+        },
+        {
+          "id": "C",
+          "text": "NumPy can generate random floating arrays and random integer arrays for simulation/test data."
+        },
+        {
+          "id": "D",
+          "text": "NumPy supports 1D indexing/slicing and 2D row/column indexing for subsetting arrays."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`np.arange()` creates values over a range with an optional step, stopping before the stop value.",
+        "en": ""
+      },
+      "topic": "np.arange()",
+      "topicId": "numpy-creation",
+      "subtopicId": "arange",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-arange-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 13–14 — arange"
+      }
+    },
+    {
+      "id": "da-python-s08-q014",
+      "question": "Which taught function/pattern is most appropriate when you want to generate regularly stepped values?",
+      "options": [
+        {
+          "id": "A",
+          "text": "np.linspace(start, stop, num)"
+        },
+        {
+          "id": "B",
+          "text": "np.arange(start, stop, step)"
+        },
+        {
+          "id": "C",
+          "text": "np.random..."
+        },
+        {
+          "id": "D",
+          "text": "arr[row, col] / arr[start:end]"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`np.arange(start, stop, step)` is the course-aligned choice for this task: generate regularly stepped values.",
+        "en": ""
+      },
+      "topic": "np.arange()",
+      "topicId": "numpy-creation",
+      "subtopicId": "arange",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-arange-v2",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 13–14 — arange"
+      }
+    },
+    {
+      "id": "da-python-s08-q015",
+      "question": "What does `np.arange(0,10,2)` produce?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[0,2,4,6,8,10]"
+        },
+        {
+          "id": "B",
+          "text": "[2,4,6,8,10]"
+        },
+        {
+          "id": "C",
+          "text": "[0, 2, 4, 6, 8]"
+        },
+        {
+          "id": "D",
+          "text": "[0,1,2,3,4]"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `np.arange()` behavior: `np.arange()` creates values over a range with an optional step, stopping before the stop value.",
+        "en": ""
+      },
+      "topic": "np.arange()",
+      "topicId": "numpy-creation",
+      "subtopicId": "arange",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-arange-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 13–14 — arange"
+      }
+    },
+    {
+      "id": "da-python-s08-q016",
+      "question": "A learner expects the stop value 10 to be included automatically. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `np.linspace(start, stop, num)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `np.arange()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Random Arrays` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Remember that the stop value is excluded in the taught arange pattern."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Remember that the stop value is excluded in the taught arange pattern.",
+        "en": ""
+      },
+      "topic": "np.arange()",
+      "topicId": "numpy-creation",
+      "subtopicId": "arange",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-arange-v4",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 13–14 — arange"
+      }
+    },
+    {
+      "id": "da-python-s08-q017",
+      "question": "Which statement best describes `np.linspace()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`np.linspace()` creates a requested number of evenly spaced values between two endpoints."
+        },
+        {
+          "id": "B",
+          "text": "NumPy can generate random floating arrays and random integer arrays for simulation/test data."
+        },
+        {
+          "id": "C",
+          "text": "NumPy supports 1D indexing/slicing and 2D row/column indexing for subsetting arrays."
+        },
+        {
+          "id": "D",
+          "text": "NumPy applies arithmetic element-wise and can broadcast compatible scalars/smaller shapes across larger arrays."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`np.linspace()` creates a requested number of evenly spaced values between two endpoints.",
+        "en": ""
+      },
+      "topic": "np.linspace()",
+      "topicId": "numpy-creation",
+      "subtopicId": "linspace",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-linspace-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slide 15 — linspace"
+      }
+    },
+    {
+      "id": "da-python-s08-q018",
+      "question": "Which taught function/pattern is most appropriate when you want to generate a fixed count of evenly spaced values?",
+      "options": [
+        {
+          "id": "A",
+          "text": "np.random..."
+        },
+        {
+          "id": "B",
+          "text": "np.linspace(start, stop, num)"
+        },
+        {
+          "id": "C",
+          "text": "arr[row, col] / arr[start:end]"
+        },
+        {
+          "id": "D",
+          "text": "arr + scalar / array operations"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `np.linspace(start, stop, num)` is the course-aligned choice for this task: generate a fixed count of evenly spaced values.",
+        "en": ""
+      },
+      "topic": "np.linspace()",
+      "topicId": "numpy-creation",
+      "subtopicId": "linspace",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-linspace-v2",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slide 15 — linspace"
+      }
+    },
+    {
+      "id": "da-python-s08-q019",
+      "question": "What is the key distinction of `np.linspace(0,1,5)`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It steps by exactly 5"
+        },
+        {
+          "id": "B",
+          "text": "It returns integers only"
+        },
+        {
+          "id": "C",
+          "text": "It returns 5 evenly spaced values from 0 to 1."
+        },
+        {
+          "id": "D",
+          "text": "It excludes both endpoints always"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `np.linspace()` behavior: `np.linspace()` creates a requested number of evenly spaced values between two endpoints.",
+        "en": ""
+      },
+      "topic": "np.linspace()",
+      "topicId": "numpy-creation",
+      "subtopicId": "linspace",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-linspace-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slide 15 — linspace"
+      }
+    },
+    {
+      "id": "da-python-s08-q020",
+      "question": "A learner uses arange when they specifically need an exact count of evenly spaced values across an interval. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `np.random...` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `np.linspace()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Indexing & Slicing` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `linspace` when the number of points is the important requirement."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `linspace` when the number of points is the important requirement.",
+        "en": ""
+      },
+      "topic": "np.linspace()",
+      "topicId": "numpy-creation",
+      "subtopicId": "linspace",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-linspace-v4",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slide 15 — linspace"
+      }
+    },
+    {
+      "id": "da-python-s08-q021",
+      "question": "Which statement best describes `Random Arrays` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NumPy can generate random floating arrays and random integer arrays for simulation/test data."
+        },
+        {
+          "id": "B",
+          "text": "NumPy supports 1D indexing/slicing and 2D row/column indexing for subsetting arrays."
+        },
+        {
+          "id": "C",
+          "text": "NumPy applies arithmetic element-wise and can broadcast compatible scalars/smaller shapes across larger arrays."
+        },
+        {
+          "id": "D",
+          "text": "`np.dot()` performs dot product/matrix multiplication and is used in linear algebra and prediction examples."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "NumPy can generate random floating arrays and random integer arrays for simulation/test data.",
+        "en": ""
+      },
+      "topic": "Random Arrays",
+      "topicId": "numpy-creation",
+      "subtopicId": "random",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-random-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 16–17 — Random Arrays"
+      }
+    },
+    {
+      "id": "da-python-s08-q022",
+      "question": "Which taught function/pattern is most appropriate when you want to generate random sample arrays?",
+      "options": [
+        {
+          "id": "A",
+          "text": "arr[row, col] / arr[start:end]"
+        },
+        {
+          "id": "B",
+          "text": "np.random..."
+        },
+        {
+          "id": "C",
+          "text": "arr + scalar / array operations"
+        },
+        {
+          "id": "D",
+          "text": "np.dot(a, b)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`np.random...` is the course-aligned choice for this task: generate random sample arrays.",
+        "en": ""
+      },
+      "topic": "Random Arrays",
+      "topicId": "numpy-creation",
+      "subtopicId": "random",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-random-v2",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 16–17 — Random Arrays"
+      }
+    },
+    {
+      "id": "da-python-s08-q023",
+      "question": "What kind of values are taught for the random float example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only negative integers"
+        },
+        {
+          "id": "B",
+          "text": "Strings"
+        },
+        {
+          "id": "C",
+          "text": "Floating-point values between 0 and 1"
+        },
+        {
+          "id": "D",
+          "text": "Booleans only"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `Random Arrays` behavior: NumPy can generate random floating arrays and random integer arrays for simulation/test data.",
+        "en": ""
+      },
+      "topic": "Random Arrays",
+      "topicId": "numpy-creation",
+      "subtopicId": "random",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-random-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 16–17 — Random Arrays"
+      }
+    },
+    {
+      "id": "da-python-s08-q024",
+      "question": "A learner assumes random output will be identical on every run without controlling randomness. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `arr[row, col] / arr[start:end]` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Random Arrays` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Element-wise Operations & Broadcasting` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Treat generated random values as variable unless a controlled seed is part of the setup."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Treat generated random values as variable unless a controlled seed is part of the setup.",
+        "en": ""
+      },
+      "topic": "Random Arrays",
+      "topicId": "numpy-creation",
+      "subtopicId": "random",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-random-v4",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 16–17 — Random Arrays"
+      }
+    },
+    {
+      "id": "da-python-s08-q025",
+      "question": "Which statement best describes `Indexing & Slicing` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NumPy supports 1D indexing/slicing and 2D row/column indexing for subsetting arrays."
+        },
+        {
+          "id": "B",
+          "text": "NumPy applies arithmetic element-wise and can broadcast compatible scalars/smaller shapes across larger arrays."
+        },
+        {
+          "id": "C",
+          "text": "`np.dot()` performs dot product/matrix multiplication and is used in linear algebra and prediction examples."
+        },
+        {
+          "id": "D",
+          "text": "NumPy provides mean/sum/max/min and is applied to score analysis, growth, temperature, normalization and reshaping."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "NumPy supports 1D indexing/slicing and 2D row/column indexing for subsetting arrays.",
+        "en": ""
+      },
+      "topic": "Indexing & Slicing",
+      "topicId": "numpy-access",
+      "subtopicId": "index-slice",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-index-slice-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 20–23 — Indexing and Slicing"
+      }
+    },
+    {
+      "id": "da-python-s08-q026",
+      "question": "Which taught function/pattern is most appropriate when you want to select specific elements or subarrays?",
+      "options": [
+        {
+          "id": "A",
+          "text": "arr + scalar / array operations"
+        },
+        {
+          "id": "B",
+          "text": "arr[row, col] / arr[start:end]"
+        },
+        {
+          "id": "C",
+          "text": "np.dot(a, b)"
+        },
+        {
+          "id": "D",
+          "text": "np.mean()/np.sum()/np.max()/np.min()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`arr[row, col] / arr[start:end]` is the course-aligned choice for this task: select specific elements or subarrays.",
+        "en": ""
+      },
+      "topic": "Indexing & Slicing",
+      "topicId": "numpy-access",
+      "subtopicId": "index-slice",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-index-slice-v2",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 20–23 — Indexing and Slicing"
+      }
+    },
+    {
+      "id": "da-python-s08-q027",
+      "question": "For a 2D array, what does `arr[0,2]` conceptually select?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Third row, first column"
+        },
+        {
+          "id": "B",
+          "text": "All rows"
+        },
+        {
+          "id": "C",
+          "text": "First row, third column"
+        },
+        {
+          "id": "D",
+          "text": "The array shape"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Indexing & Slicing` behavior: NumPy supports 1D indexing/slicing and 2D row/column indexing for subsetting arrays.",
+        "en": ""
+      },
+      "topic": "Indexing & Slicing",
+      "topicId": "numpy-access",
+      "subtopicId": "index-slice",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-index-slice-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 20–23 — Indexing and Slicing"
+      }
+    },
+    {
+      "id": "da-python-s08-q028",
+      "question": "A learner uses one-dimensional indexing when the task needs a specific 2D row and column. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `arr + scalar / array operations` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Indexing & Slicing` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `np.dot()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Specify both row and column indexes for direct 2D element access."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Specify both row and column indexes for direct 2D element access.",
+        "en": ""
+      },
+      "topic": "Indexing & Slicing",
+      "topicId": "numpy-access",
+      "subtopicId": "index-slice",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-index-slice-v4",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 20–23 — Indexing and Slicing"
+      }
+    },
+    {
+      "id": "da-python-s08-q029",
+      "question": "Which statement best describes `Element-wise Operations & Broadcasting` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NumPy applies arithmetic element-wise and can broadcast compatible scalars/smaller shapes across larger arrays."
+        },
+        {
+          "id": "B",
+          "text": "`np.dot()` performs dot product/matrix multiplication and is used in linear algebra and prediction examples."
+        },
+        {
+          "id": "C",
+          "text": "NumPy provides mean/sum/max/min and is applied to score analysis, growth, temperature, normalization and reshaping."
+        },
+        {
+          "id": "D",
+          "text": "NumPy provides efficient N-dimensional arrays for numerical computing and forms the base for many data-science libraries."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "NumPy applies arithmetic element-wise and can broadcast compatible scalars/smaller shapes across larger arrays.",
+        "en": ""
+      },
+      "topic": "Element-wise Operations & Broadcasting",
+      "topicId": "numpy-operations",
+      "subtopicId": "broadcasting",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-broadcasting-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 24–25, 32 — Element-wise & Broadcasting"
+      }
+    },
+    {
+      "id": "da-python-s08-q030",
+      "question": "Which taught function/pattern is most appropriate when you want to perform vectorized element-wise arithmetic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "np.dot(a, b)"
+        },
+        {
+          "id": "B",
+          "text": "arr + scalar / array operations"
+        },
+        {
+          "id": "C",
+          "text": "np.mean()/np.sum()/np.max()/np.min()"
+        },
+        {
+          "id": "D",
+          "text": "np.array(...)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`arr + scalar / array operations` is the course-aligned choice for this task: perform vectorized element-wise arithmetic.",
+        "en": ""
+      },
+      "topic": "Element-wise Operations & Broadcasting",
+      "topicId": "numpy-operations",
+      "subtopicId": "broadcasting",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-broadcasting-v2",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 24–25, 32 — Element-wise & Broadcasting"
+      }
+    },
+    {
+      "id": "da-python-s08-q031",
+      "question": "What happens in the taught `arr + 10` broadcasting example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the first element changes"
+        },
+        {
+          "id": "B",
+          "text": "The array becomes a string"
+        },
+        {
+          "id": "C",
+          "text": "10 is added to each compatible array element."
+        },
+        {
+          "id": "D",
+          "text": "The shape always doubles"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Element-wise Operations & Broadcasting` behavior: NumPy applies arithmetic element-wise and can broadcast compatible scalars/smaller shapes across larger arrays.",
+        "en": ""
+      },
+      "topic": "Element-wise Operations & Broadcasting",
+      "topicId": "numpy-operations",
+      "subtopicId": "broadcasting",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-broadcasting-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 24–25, 32 — Element-wise & Broadcasting"
+      }
+    },
+    {
+      "id": "da-python-s08-q032",
+      "question": "A learner assumes any two shapes can be combined even when broadcasting rules do not align. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `np.dot(a, b)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Element-wise Operations & Broadcasting` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Statistics & Practical Preprocessing` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Check shape compatibility; NumPy raises an error for unresolved dimensional mismatch."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Check shape compatibility; NumPy raises an error for unresolved dimensional mismatch.",
+        "en": ""
+      },
+      "topic": "Element-wise Operations & Broadcasting",
+      "topicId": "numpy-operations",
+      "subtopicId": "broadcasting",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-broadcasting-v4",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 24–25, 32 — Element-wise & Broadcasting"
+      }
+    },
+    {
+      "id": "da-python-s08-q033",
+      "question": "Which statement best describes `np.dot()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`np.dot()` performs dot product/matrix multiplication and is used in linear algebra and prediction examples."
+        },
+        {
+          "id": "B",
+          "text": "NumPy provides mean/sum/max/min and is applied to score analysis, growth, temperature, normalization and reshaping."
+        },
+        {
+          "id": "C",
+          "text": "NumPy provides efficient N-dimensional arrays for numerical computing and forms the base for many data-science libraries."
+        },
+        {
+          "id": "D",
+          "text": "`shape` is a tuple describing the size of each array dimension."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`np.dot()` performs dot product/matrix multiplication and is used in linear algebra and prediction examples.",
+        "en": ""
+      },
+      "topic": "np.dot()",
+      "topicId": "numpy-operations",
+      "subtopicId": "dot",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-dot-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 26, 31, 37 — Matrix Multiplication"
+      }
+    },
+    {
+      "id": "da-python-s08-q034",
+      "question": "Which taught function/pattern is most appropriate when you want to perform dot product or matrix multiplication?",
+      "options": [
+        {
+          "id": "A",
+          "text": "np.mean()/np.sum()/np.max()/np.min()"
+        },
+        {
+          "id": "B",
+          "text": "np.dot(a, b)"
+        },
+        {
+          "id": "C",
+          "text": "np.array(...)"
+        },
+        {
+          "id": "D",
+          "text": "arr.shape"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`np.dot(a, b)` is the course-aligned choice for this task: perform dot product or matrix multiplication.",
+        "en": ""
+      },
+      "topic": "np.dot()",
+      "topicId": "numpy-operations",
+      "subtopicId": "dot",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-dot-v2",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 26, 31, 37 — Matrix Multiplication"
+      }
+    },
+    {
+      "id": "da-python-s08-q035",
+      "question": "Which function is explicitly taught for matrix multiplication?",
+      "options": [
+        {
+          "id": "A",
+          "text": "np.mean()"
+        },
+        {
+          "id": "B",
+          "text": "np.arange()"
+        },
+        {
+          "id": "C",
+          "text": "np.dot()"
+        },
+        {
+          "id": "D",
+          "text": "np.min()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `np.dot()` behavior: `np.dot()` performs dot product/matrix multiplication and is used in linear algebra and prediction examples.",
+        "en": ""
+      },
+      "topic": "np.dot()",
+      "topicId": "numpy-operations",
+      "subtopicId": "dot",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-dot-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 26, 31, 37 — Matrix Multiplication"
+      }
+    },
+    {
+      "id": "da-python-s08-q036",
+      "question": "A learner uses element-wise multiplication when the task specifically requires the taught matrix dot product. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `np.mean()/np.sum()/np.max()/np.min()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `np.dot()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `NumPy ndarray` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `np.dot()` for the matrix/dot-product operation in the source examples."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `np.dot()` for the matrix/dot-product operation in the source examples.",
+        "en": ""
+      },
+      "topic": "np.dot()",
+      "topicId": "numpy-operations",
+      "subtopicId": "dot",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-dot-v4",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 26, 31, 37 — Matrix Multiplication"
+      }
+    },
+    {
+      "id": "da-python-s08-q037",
+      "question": "Which statement best describes `Statistics & Practical Preprocessing` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NumPy provides mean/sum/max/min and is applied to score analysis, growth, temperature, normalization and reshaping."
+        },
+        {
+          "id": "B",
+          "text": "NumPy provides efficient N-dimensional arrays for numerical computing and forms the base for many data-science libraries."
+        },
+        {
+          "id": "C",
+          "text": "`shape` is a tuple describing the size of each array dimension."
+        },
+        {
+          "id": "D",
+          "text": "`np.zeros()` and `np.ones()` initialize arrays filled with 0 or 1 using a requested shape."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "NumPy provides mean/sum/max/min and is applied to score analysis, growth, temperature, normalization and reshaping.",
+        "en": ""
+      },
+      "topic": "Statistics & Practical Preprocessing",
+      "topicId": "numpy-operations",
+      "subtopicId": "stats-preprocessing",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-stats-preprocessing-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 27–30, 33–38 — Statistics and Practical Examples"
+      }
+    },
+    {
+      "id": "da-python-s08-q038",
+      "question": "Which taught function/pattern is most appropriate when you want to summarize numerical arrays efficiently?",
+      "options": [
+        {
+          "id": "A",
+          "text": "np.array(...)"
+        },
+        {
+          "id": "B",
+          "text": "np.mean()/np.sum()/np.max()/np.min()"
+        },
+        {
+          "id": "C",
+          "text": "arr.shape"
+        },
+        {
+          "id": "D",
+          "text": "np.zeros(shape) / np.ones(shape)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`np.mean()/np.sum()/np.max()/np.min()` is the course-aligned choice for this task: summarize numerical arrays efficiently.",
+        "en": ""
+      },
+      "topic": "Statistics & Practical Preprocessing",
+      "topicId": "numpy-operations",
+      "subtopicId": "stats-preprocessing",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-stats-preprocessing-v2",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 27–30, 33–38 — Statistics and Practical Examples"
+      }
+    },
+    {
+      "id": "da-python-s08-q039",
+      "question": "Which functions are taught for array mean and total?",
+      "options": [
+        {
+          "id": "A",
+          "text": "np.dot() and np.arange()"
+        },
+        {
+          "id": "B",
+          "text": "open() and close()"
+        },
+        {
+          "id": "C",
+          "text": "np.mean() and np.sum()"
+        },
+        {
+          "id": "D",
+          "text": "groupby() and apply()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Statistics & Practical Preprocessing` behavior: NumPy provides mean/sum/max/min and is applied to score analysis, growth, temperature, normalization and reshaping.",
+        "en": ""
+      },
+      "topic": "Statistics & Practical Preprocessing",
+      "topicId": "numpy-operations",
+      "subtopicId": "stats-preprocessing",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-stats-preprocessing-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 27–30, 33–38 — Statistics and Practical Examples"
+      }
+    },
+    {
+      "id": "da-python-s08-q040",
+      "question": "A learner computes summary statistics with unrelated string methods. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `np.array(...)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Statistics & Practical Preprocessing` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Array Shape` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use the NumPy statistical functions taught for numerical arrays."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Use the NumPy statistical functions taught for numerical arrays.",
+        "en": ""
+      },
+      "topic": "Statistics & Practical Preprocessing",
+      "topicId": "numpy-operations",
+      "subtopicId": "stats-preprocessing",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-stats-preprocessing-v4",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 27–30, 33–38 — Statistics and Practical Examples"
+      }
+    }
+  ]
+}
