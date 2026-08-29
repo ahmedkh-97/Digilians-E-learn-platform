@@ -1,0 +1,1751 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-python-session04-practice-v1",
+    "title": "Session 4 — Python Practice",
+    "description": "40-question source-scoped practice for Practical Looping Patterns & Problem Solving.",
+    "course": "Data Analysis",
+    "module": "Python for Data Analysis — Session 4",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-python-s04-q001",
+      "question": "What state does the maximum-scan loop maintain?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The largest value seen so far."
+        },
+        {
+          "id": "B",
+          "text": "A sorted copy of the list"
+        },
+        {
+          "id": "C",
+          "text": "A set of duplicates"
+        },
+        {
+          "id": "D",
+          "text": "A plot title"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "max_value تبدأ بأول عنصر وتتحدث فقط عند العثور على قيمة أكبر.",
+        "en": ""
+      },
+      "topic": "Maximum & Collection Scans",
+      "topicId": "max-common",
+      "subtopicId": "maximum",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "maximum-v1",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 5 — Finding Maximum Value"
+      }
+    },
+    {
+      "id": "da-python-s04-q002",
+      "question": "For `[3,5,2,8,1,9,4]`, what maximum is found?",
+      "options": [
+        {
+          "id": "A",
+          "text": "8"
+        },
+        {
+          "id": "B",
+          "text": "9"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "max_value تبدأ بأول عنصر وتتحدث فقط عند العثور على قيمة أكبر.",
+        "en": ""
+      },
+      "topic": "Maximum & Collection Scans",
+      "topicId": "max-common",
+      "subtopicId": "maximum",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "maximum-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 5 — Finding Maximum Value"
+      }
+    },
+    {
+      "id": "da-python-s04-q003",
+      "question": "Why initialize `max_value` from the first element?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It guarantees the first item is largest"
+        },
+        {
+          "id": "B",
+          "text": "It sorts the list"
+        },
+        {
+          "id": "C",
+          "text": "It provides a valid starting value from the actual data."
+        },
+        {
+          "id": "D",
+          "text": "It removes duplicates"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "max_value تبدأ بأول عنصر وتتحدث فقط عند العثور على قيمة أكبر.",
+        "en": ""
+      },
+      "topic": "Maximum & Collection Scans",
+      "topicId": "max-common",
+      "subtopicId": "maximum",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "maximum-v3",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 5 — Finding Maximum Value"
+      }
+    },
+    {
+      "id": "da-python-s04-q004",
+      "question": "A maximum scan initializes max to 0 but all list values could be negative. What is safer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Always keep 0"
+        },
+        {
+          "id": "B",
+          "text": "Use an empty string"
+        },
+        {
+          "id": "C",
+          "text": "Use True"
+        },
+        {
+          "id": "D",
+          "text": "Initialize from the first list element."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. max_value تبدأ بأول عنصر وتتحدث فقط عند العثور على قيمة أكبر.",
+        "en": ""
+      },
+      "topic": "Maximum & Collection Scans",
+      "topicId": "max-common",
+      "subtopicId": "maximum",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "maximum-v4",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 5 — Finding Maximum Value"
+      }
+    },
+    {
+      "id": "da-python-s04-q005",
+      "question": "What method is applied before checking whether a character is a vowel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "lower()"
+        },
+        {
+          "id": "B",
+          "text": "append()"
+        },
+        {
+          "id": "C",
+          "text": "pop()"
+        },
+        {
+          "id": "D",
+          "text": "range()"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ loop تمر على كل char وتزيد counter فقط إذا char.lower() داخل aeiou.",
+        "en": ""
+      },
+      "topic": "Text Processing",
+      "topicId": "text-looping",
+      "subtopicId": "vowel-count",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "vowels-v1",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 6 — Counting Vowels"
+      }
+    },
+    {
+      "id": "da-python-s04-q006",
+      "question": "What vowel count is shown for `Hello, how are you?`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "7"
+        },
+        {
+          "id": "C",
+          "text": "6"
+        },
+        {
+          "id": "D",
+          "text": "8"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ loop تمر على كل char وتزيد counter فقط إذا char.lower() داخل aeiou.",
+        "en": ""
+      },
+      "topic": "Text Processing",
+      "topicId": "text-looping",
+      "subtopicId": "vowel-count",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "vowels-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 6 — Counting Vowels"
+      }
+    },
+    {
+      "id": "da-python-s04-q007",
+      "question": "Why is the counter increment inside the vowel condition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Every character is a vowel"
+        },
+        {
+          "id": "B",
+          "text": "It sorts the string"
+        },
+        {
+          "id": "C",
+          "text": "Only matching vowel characters should be counted."
+        },
+        {
+          "id": "D",
+          "text": "It changes the string type"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ loop تمر على كل char وتزيد counter فقط إذا char.lower() داخل aeiou.",
+        "en": ""
+      },
+      "topic": "Text Processing",
+      "topicId": "text-looping",
+      "subtopicId": "vowel-count",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "vowels-v3",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 6 — Counting Vowels"
+      }
+    },
+    {
+      "id": "da-python-s04-q008",
+      "question": "A vowel counter increments on every character. What should be fixed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remove the loop"
+        },
+        {
+          "id": "B",
+          "text": "Convert the text to a tuple"
+        },
+        {
+          "id": "C",
+          "text": "Increment by zero"
+        },
+        {
+          "id": "D",
+          "text": "Increment only inside the vowel membership condition."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. الـ loop تمر على كل char وتزيد counter فقط إذا char.lower() داخل aeiou.",
+        "en": ""
+      },
+      "topic": "Text Processing",
+      "topicId": "text-looping",
+      "subtopicId": "vowel-count",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "vowels-v4",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 6 — Counting Vowels"
+      }
+    },
+    {
+      "id": "da-python-s04-q009",
+      "question": "What makes the prime checker reject a candidate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Finding a divisor and breaking the inner loop."
+        },
+        {
+          "id": "B",
+          "text": "Finding a vowel"
+        },
+        {
+          "id": "C",
+          "text": "Appending the candidate automatically"
+        },
+        {
+          "id": "D",
+          "text": "Sorting the range"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Prime checker يستخدم outer range loop وinner divisor loop، مع break عند وجود divisor وelse عند عدم وجوده.",
+        "en": ""
+      },
+      "topic": "Number Algorithms",
+      "topicId": "number-algorithms",
+      "subtopicId": "prime",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "prime-v1",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 7 — Prime Numbers in a Range"
+      }
+    },
+    {
+      "id": "da-python-s04-q010",
+      "question": "Which primes are shown from 10 to 20?",
+      "options": [
+        {
+          "id": "A",
+          "text": "10,12,14,16"
+        },
+        {
+          "id": "B",
+          "text": "11, 13, 17, 19"
+        },
+        {
+          "id": "C",
+          "text": "11,15,17,20"
+        },
+        {
+          "id": "D",
+          "text": "12,13,18,19"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Prime checker يستخدم outer range loop وinner divisor loop، مع break عند وجود divisor وelse عند عدم وجوده.",
+        "en": ""
+      },
+      "topic": "Number Algorithms",
+      "topicId": "number-algorithms",
+      "subtopicId": "prime",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "prime-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 7 — Prime Numbers in a Range"
+      }
+    },
+    {
+      "id": "da-python-s04-q011",
+      "question": "Why can loop-else help prime detection?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It runs only after a divisor"
+        },
+        {
+          "id": "B",
+          "text": "It converts the number to string"
+        },
+        {
+          "id": "C",
+          "text": "The else can run when no divisor caused a break."
+        },
+        {
+          "id": "D",
+          "text": "It calculates factorial"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Prime checker يستخدم outer range loop وinner divisor loop، مع break عند وجود divisor وelse عند عدم وجوده.",
+        "en": ""
+      },
+      "topic": "Number Algorithms",
+      "topicId": "number-algorithms",
+      "subtopicId": "prime",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "prime-v3",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 7 — Prime Numbers in a Range"
+      }
+    },
+    {
+      "id": "da-python-s04-q012",
+      "question": "A prime checker keeps testing divisors after one divisor is found. What should it use for early exit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "continue only"
+        },
+        {
+          "id": "B",
+          "text": "append"
+        },
+        {
+          "id": "C",
+          "text": "upper"
+        },
+        {
+          "id": "D",
+          "text": "break"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Prime checker يستخدم outer range loop وinner divisor loop، مع break عند وجود divisor وelse عند عدم وجوده.",
+        "en": ""
+      },
+      "topic": "Number Algorithms",
+      "topicId": "number-algorithms",
+      "subtopicId": "prime",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "prime-v4",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 7 — Prime Numbers in a Range"
+      }
+    },
+    {
+      "id": "da-python-s04-q013",
+      "question": "Which loop type is used in the taught Fibonacci example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "while loop"
+        },
+        {
+          "id": "B",
+          "text": "for-else only"
+        },
+        {
+          "id": "C",
+          "text": "nested if only"
+        },
+        {
+          "id": "D",
+          "text": "set comprehension"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "while تبني sequence من seed values 0 و1 وتحدث a,b حتى الوصول للطول المطلوب.",
+        "en": ""
+      },
+      "topic": "Fibonacci",
+      "topicId": "fibonacci",
+      "subtopicId": "sequence",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "fibonacci-v1",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 8 — Fibonacci Sequence"
+      }
+    },
+    {
+      "id": "da-python-s04-q014",
+      "question": "What are the seed values in the example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2"
+        },
+        {
+          "id": "B",
+          "text": "0 and 1"
+        },
+        {
+          "id": "C",
+          "text": "2 and 3"
+        },
+        {
+          "id": "D",
+          "text": "0 and 2"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "while تبني sequence من seed values 0 و1 وتحدث a,b حتى الوصول للطول المطلوب.",
+        "en": ""
+      },
+      "topic": "Fibonacci",
+      "topicId": "fibonacci",
+      "subtopicId": "sequence",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "fibonacci-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 8 — Fibonacci Sequence"
+      }
+    },
+    {
+      "id": "da-python-s04-q015",
+      "question": "What 10-value sequence is shown?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[0,1,2,3,4,5,6,7,8,9]"
+        },
+        {
+          "id": "B",
+          "text": "[1,1,2,3,5,8,13,21,34,55]"
+        },
+        {
+          "id": "C",
+          "text": "[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]"
+        },
+        {
+          "id": "D",
+          "text": "[0,1,1,2,4,8,16,32,64,128]"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "while تبني sequence من seed values 0 و1 وتحدث a,b حتى الوصول للطول المطلوب.",
+        "en": ""
+      },
+      "topic": "Fibonacci",
+      "topicId": "fibonacci",
+      "subtopicId": "sequence",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "fibonacci-v3",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 8 — Fibonacci Sequence"
+      }
+    },
+    {
+      "id": "da-python-s04-q016",
+      "question": "A learner updates `a` before computing the new `b` and loses the old pair. What taught pattern avoids that?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use a set"
+        },
+        {
+          "id": "B",
+          "text": "Use string slicing"
+        },
+        {
+          "id": "C",
+          "text": "Reset both to zero each time"
+        },
+        {
+          "id": "D",
+          "text": "Use simultaneous assignment such as `a, b = b, a + b`."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. while تبني sequence من seed values 0 و1 وتحدث a,b حتى الوصول للطول المطلوب.",
+        "en": ""
+      },
+      "topic": "Fibonacci",
+      "topicId": "fibonacci",
+      "subtopicId": "sequence",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "fibonacci-v4",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 8 — Fibonacci Sequence"
+      }
+    },
+    {
+      "id": "da-python-s04-q017",
+      "question": "Which variable represents the remaining money in the ATM example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "balance"
+        },
+        {
+          "id": "B",
+          "text": "vowel_count"
+        },
+        {
+          "id": "C",
+          "text": "factorial"
+        },
+        {
+          "id": "D",
+          "text": "keys"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ATM loop checks withdrawal against balance, updates state, and exits when balance reaches zero.",
+        "en": ""
+      },
+      "topic": "Interactive Loops",
+      "topicId": "interactive-loops",
+      "subtopicId": "atm",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "atm-v1",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 9 — ATM Withdrawal"
+      }
+    },
+    {
+      "id": "da-python-s04-q018",
+      "question": "When does the shown ATM loop exit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "After exactly one withdrawal"
+        },
+        {
+          "id": "B",
+          "text": "When balance reaches zero."
+        },
+        {
+          "id": "C",
+          "text": "Whenever balance is positive"
+        },
+        {
+          "id": "D",
+          "text": "When a vowel is found"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ATM loop checks withdrawal against balance, updates state, and exits when balance reaches zero.",
+        "en": ""
+      },
+      "topic": "Interactive Loops",
+      "topicId": "interactive-loops",
+      "subtopicId": "atm",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "atm-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 9 — ATM Withdrawal"
+      }
+    },
+    {
+      "id": "da-python-s04-q019",
+      "question": "If withdrawal exceeds balance, which taught branch should handle it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Subtract anyway"
+        },
+        {
+          "id": "B",
+          "text": "Set balance negative intentionally"
+        },
+        {
+          "id": "C",
+          "text": "Insufficient balance"
+        },
+        {
+          "id": "D",
+          "text": "Generate Fibonacci"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "ATM loop checks withdrawal against balance, updates state, and exits when balance reaches zero.",
+        "en": ""
+      },
+      "topic": "Interactive Loops",
+      "topicId": "interactive-loops",
+      "subtopicId": "atm",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "atm-v3",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 9 — ATM Withdrawal"
+      }
+    },
+    {
+      "id": "da-python-s04-q020",
+      "question": "A withdrawal loop subtracts money before checking available balance. What should be corrected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use a tuple"
+        },
+        {
+          "id": "B",
+          "text": "Remove the condition"
+        },
+        {
+          "id": "C",
+          "text": "Convert balance to string"
+        },
+        {
+          "id": "D",
+          "text": "Check `withdrawal <= balance` before subtracting."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. ATM loop checks withdrawal against balance, updates state, and exits when balance reaches zero.",
+        "en": ""
+      },
+      "topic": "Interactive Loops",
+      "topicId": "interactive-loops",
+      "subtopicId": "atm",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "atm-v4",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 9 — ATM Withdrawal"
+      }
+    },
+    {
+      "id": "da-python-s04-q021",
+      "question": "How does the common-elements example decide whether to append an item?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It checks membership in the second list."
+        },
+        {
+          "id": "B",
+          "text": "It checks only whether item is zero"
+        },
+        {
+          "id": "C",
+          "text": "It sorts both lists obligatorily"
+        },
+        {
+          "id": "D",
+          "text": "It uses file input"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المثال يفحص كل item في list1 ويضيفه إذا كان موجودًا في list2.",
+        "en": ""
+      },
+      "topic": "Maximum & Collection Scans",
+      "topicId": "max-common",
+      "subtopicId": "common-elements",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "common-elements-v1",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 10 — Common Elements in Two Lists"
+      }
+    },
+    {
+      "id": "da-python-s04-q022",
+      "question": "For `[1,2,3,4,5]` and `[4,5,6,7,8]`, what common list is shown?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[1,2,3]"
+        },
+        {
+          "id": "B",
+          "text": "[4, 5]"
+        },
+        {
+          "id": "C",
+          "text": "[6,7,8]"
+        },
+        {
+          "id": "D",
+          "text": "[]"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المثال يفحص كل item في list1 ويضيفه إذا كان موجودًا في list2.",
+        "en": ""
+      },
+      "topic": "Maximum & Collection Scans",
+      "topicId": "max-common",
+      "subtopicId": "common-elements",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "common-elements-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 10 — Common Elements in Two Lists"
+      }
+    },
+    {
+      "id": "da-python-s04-q023",
+      "question": "What collection operation is conceptually being performed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reversing both lists"
+        },
+        {
+          "id": "B",
+          "text": "Calculating factorial"
+        },
+        {
+          "id": "C",
+          "text": "Finding the intersection/common membership."
+        },
+        {
+          "id": "D",
+          "text": "Converting to strings"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المثال يفحص كل item في list1 ويضيفه إذا كان موجودًا في list2.",
+        "en": ""
+      },
+      "topic": "Maximum & Collection Scans",
+      "topicId": "max-common",
+      "subtopicId": "common-elements",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "common-elements-v3",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 10 — Common Elements in Two Lists"
+      }
+    },
+    {
+      "id": "da-python-s04-q024",
+      "question": "A learner appends every item from list1 without checking list2. What is missing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A nested dictionary"
+        },
+        {
+          "id": "B",
+          "text": "A file close"
+        },
+        {
+          "id": "C",
+          "text": "A Boolean literal"
+        },
+        {
+          "id": "D",
+          "text": "The membership condition `if item in list2`."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. المثال يفحص كل item في list1 ويضيفه إذا كان موجودًا في list2.",
+        "en": ""
+      },
+      "topic": "Maximum & Collection Scans",
+      "topicId": "max-common",
+      "subtopicId": "common-elements",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "common-elements-v4",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 10 — Common Elements in Two Lists"
+      }
+    },
+    {
+      "id": "da-python-s04-q025",
+      "question": "What is 5! in the taught example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "120"
+        },
+        {
+          "id": "B",
+          "text": "25"
+        },
+        {
+          "id": "C",
+          "text": "60"
+        },
+        {
+          "id": "D",
+          "text": "125"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Factorial تراكم ضرب يبدأ من 1، وsum of digits تستخدم modulus لاستخراج digits.",
+        "en": ""
+      },
+      "topic": "Number Algorithms",
+      "topicId": "number-algorithms",
+      "subtopicId": "factorial-digits",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "factorial-digits-v1",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 11, 13 — Factorial and Sum of Digits"
+      }
+    },
+    {
+      "id": "da-python-s04-q026",
+      "question": "Why does factorial start from 1 rather than 0?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0 is not a Python number"
+        },
+        {
+          "id": "B",
+          "text": "Starting at 0 would make the entire product 0."
+        },
+        {
+          "id": "C",
+          "text": "range forbids 0"
+        },
+        {
+          "id": "D",
+          "text": "Lists cannot contain 0"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Factorial تراكم ضرب يبدأ من 1، وsum of digits تستخدم modulus لاستخراج digits.",
+        "en": ""
+      },
+      "topic": "Number Algorithms",
+      "topicId": "number-algorithms",
+      "subtopicId": "factorial-digits",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "factorial-digits-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 11, 13 — Factorial and Sum of Digits"
+      }
+    },
+    {
+      "id": "da-python-s04-q027",
+      "question": "Which operation extracts the last digit in a numeric digit-summing pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`* 10`"
+        },
+        {
+          "id": "B",
+          "text": "upper()"
+        },
+        {
+          "id": "C",
+          "text": "`% 10`"
+        },
+        {
+          "id": "D",
+          "text": "set intersection"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Factorial تراكم ضرب يبدأ من 1، وsum of digits تستخدم modulus لاستخراج digits.",
+        "en": ""
+      },
+      "topic": "Number Algorithms",
+      "topicId": "number-algorithms",
+      "subtopicId": "factorial-digits",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "factorial-digits-v3",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 11, 13 — Factorial and Sum of Digits"
+      }
+    },
+    {
+      "id": "da-python-s04-q028",
+      "question": "A factorial program starts `factorial = 0`. What is the likely error?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The result becomes a string"
+        },
+        {
+          "id": "B",
+          "text": "It creates duplicates"
+        },
+        {
+          "id": "C",
+          "text": "It causes set indexing"
+        },
+        {
+          "id": "D",
+          "text": "Every multiplication keeps the result at 0."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Factorial تراكم ضرب يبدأ من 1، وsum of digits تستخدم modulus لاستخراج digits.",
+        "en": ""
+      },
+      "topic": "Number Algorithms",
+      "topicId": "number-algorithms",
+      "subtopicId": "factorial-digits",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "factorial-digits-v4",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 11, 13 — Factorial and Sum of Digits"
+      }
+    },
+    {
+      "id": "da-python-s04-q029",
+      "question": "What does the validation loop keep doing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Asking until a value greater than 10 is entered."
+        },
+        {
+          "id": "B",
+          "text": "Sorting a list forever"
+        },
+        {
+          "id": "C",
+          "text": "Generating primes only"
+        },
+        {
+          "id": "D",
+          "text": "Creating dictionary keys"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Validation repeats input until condition valid، وpassword loop يحدد 3 attempts ويستخدم break عند النجاح.",
+        "en": ""
+      },
+      "topic": "Interactive Loops",
+      "topicId": "interactive-loops",
+      "subtopicId": "validation-password",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "validation-password-v1",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 12, 17 — Input Validation and Password Check"
+      }
+    },
+    {
+      "id": "da-python-s04-q030",
+      "question": "What control statement exits after valid input?",
+      "options": [
+        {
+          "id": "A",
+          "text": "continue"
+        },
+        {
+          "id": "B",
+          "text": "break"
+        },
+        {
+          "id": "C",
+          "text": "append"
+        },
+        {
+          "id": "D",
+          "text": "elif"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Validation repeats input until condition valid، وpassword loop يحدد 3 attempts ويستخدم break عند النجاح.",
+        "en": ""
+      },
+      "topic": "Interactive Loops",
+      "topicId": "interactive-loops",
+      "subtopicId": "validation-password",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "validation-password-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 12, 17 — Input Validation and Password Check"
+      }
+    },
+    {
+      "id": "da-python-s04-q031",
+      "question": "How many password attempts are allowed in the taught password example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One"
+        },
+        {
+          "id": "B",
+          "text": "Unlimited"
+        },
+        {
+          "id": "C",
+          "text": "Three"
+        },
+        {
+          "id": "D",
+          "text": "Ten"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Validation repeats input until condition valid، وpassword loop يحدد 3 attempts ويستخدم break عند النجاح.",
+        "en": ""
+      },
+      "topic": "Interactive Loops",
+      "topicId": "interactive-loops",
+      "subtopicId": "validation-password",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "validation-password-v3",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 12, 17 — Input Validation and Password Check"
+      }
+    },
+    {
+      "id": "da-python-s04-q032",
+      "question": "A password loop never decreases remaining attempts after a wrong password. What is the risk?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The password becomes a set"
+        },
+        {
+          "id": "B",
+          "text": "Python changes to float"
+        },
+        {
+          "id": "C",
+          "text": "The loop becomes a list"
+        },
+        {
+          "id": "D",
+          "text": "The intended attempt limit may not work."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Validation repeats input until condition valid، وpassword loop يحدد 3 attempts ويستخدم break عند النجاح.",
+        "en": ""
+      },
+      "topic": "Interactive Loops",
+      "topicId": "interactive-loops",
+      "subtopicId": "validation-password",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "validation-password-v4",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 12, 17 — Input Validation and Password Check"
+      }
+    },
+    {
+      "id": "da-python-s04-q033",
+      "question": "What does the outer loop control in the star-pattern example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The rows"
+        },
+        {
+          "id": "B",
+          "text": "The password"
+        },
+        {
+          "id": "C",
+          "text": "The balance"
+        },
+        {
+          "id": "D",
+          "text": "The dictionary keys only"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Nested loops تبني rows/stars، وfor loop تولد multiplication table من 1 إلى limit.",
+        "en": ""
+      },
+      "topic": "Patterns & Mapping",
+      "topicId": "patterns-mapping",
+      "subtopicId": "patterns-table",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "patterns-v1",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 14, 18 — Pattern and Multiplication Table"
+      }
+    },
+    {
+      "id": "da-python-s04-q034",
+      "question": "What does the inner loop control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The file path"
+        },
+        {
+          "id": "B",
+          "text": "The stars/items printed within each row."
+        },
+        {
+          "id": "C",
+          "text": "The input type"
+        },
+        {
+          "id": "D",
+          "text": "The factorial seed"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Nested loops تبني rows/stars، وfor loop تولد multiplication table من 1 إلى limit.",
+        "en": ""
+      },
+      "topic": "Patterns & Mapping",
+      "topicId": "patterns-mapping",
+      "subtopicId": "patterns-table",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "patterns-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 14, 18 — Pattern and Multiplication Table"
+      }
+    },
+    {
+      "id": "da-python-s04-q035",
+      "question": "What does the multiplication-table example do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Adds every dictionary key"
+        },
+        {
+          "id": "B",
+          "text": "Sorts a tuple"
+        },
+        {
+          "id": "C",
+          "text": "Multiplies a chosen number by each value from 1 to the limit."
+        },
+        {
+          "id": "D",
+          "text": "Removes vowels"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Nested loops تبني rows/stars، وfor loop تولد multiplication table من 1 إلى limit.",
+        "en": ""
+      },
+      "topic": "Patterns & Mapping",
+      "topicId": "patterns-mapping",
+      "subtopicId": "patterns-table",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "patterns-v3",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 14, 18 — Pattern and Multiplication Table"
+      }
+    },
+    {
+      "id": "da-python-s04-q036",
+      "question": "A pattern prints the same number of stars on every row, but a growing triangle was intended. What should be reviewed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Whether strings are immutable"
+        },
+        {
+          "id": "B",
+          "text": "Whether input returns str"
+        },
+        {
+          "id": "C",
+          "text": "Whether sets are ordered"
+        },
+        {
+          "id": "D",
+          "text": "How the inner-loop range depends on the outer-loop row."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Nested loops تبني rows/stars، وfor loop تولد multiplication table من 1 إلى limit.",
+        "en": ""
+      },
+      "topic": "Patterns & Mapping",
+      "topicId": "patterns-mapping",
+      "subtopicId": "patterns-table",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "patterns-v4",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slides 14, 18 — Pattern and Multiplication Table"
+      }
+    },
+    {
+      "id": "da-python-s04-q037",
+      "question": "How are keys and values paired in the taught dictionary-building loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By corresponding index positions."
+        },
+        {
+          "id": "B",
+          "text": "Randomly"
+        },
+        {
+          "id": "C",
+          "text": "By sorting alphabetically always"
+        },
+        {
+          "id": "D",
+          "text": "By converting them to sets"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المثال يربط keys[i] مع values[i] عند نفس index لبناء dictionary.",
+        "en": ""
+      },
+      "topic": "Patterns & Mapping",
+      "topicId": "patterns-mapping",
+      "subtopicId": "dict-from-lists",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dict-from-lists-v1",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 16 — Dictionary from Two Lists"
+      }
+    },
+    {
+      "id": "da-python-s04-q038",
+      "question": "If keys are `[\"a\",\"b\"]` and values `[1,2]`, what mapping follows the taught pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "{\"a\":2,\"b\":1}"
+        },
+        {
+          "id": "B",
+          "text": "{\"a\": 1, \"b\": 2}"
+        },
+        {
+          "id": "C",
+          "text": "[(\"a\",\"b\"),(1,2)]"
+        },
+        {
+          "id": "D",
+          "text": "{1:\"a\",2:\"b\"}"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المثال يربط keys[i] مع values[i] عند نفس index لبناء dictionary.",
+        "en": ""
+      },
+      "topic": "Patterns & Mapping",
+      "topicId": "patterns-mapping",
+      "subtopicId": "dict-from-lists",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dict-from-lists-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 16 — Dictionary from Two Lists"
+      }
+    },
+    {
+      "id": "da-python-s04-q039",
+      "question": "What assumption is important in an index-based pairing of two lists?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They must be sets"
+        },
+        {
+          "id": "B",
+          "text": "They must contain only strings"
+        },
+        {
+          "id": "C",
+          "text": "They have corresponding positions available."
+        },
+        {
+          "id": "D",
+          "text": "They must be immutable"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المثال يربط keys[i] مع values[i] عند نفس index لبناء dictionary.",
+        "en": ""
+      },
+      "topic": "Patterns & Mapping",
+      "topicId": "patterns-mapping",
+      "subtopicId": "dict-from-lists",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dict-from-lists-v3",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 16 — Dictionary from Two Lists"
+      }
+    },
+    {
+      "id": "da-python-s04-q040",
+      "question": "There are 3 keys but only 2 values. What issue can index-based pairing encounter?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Python invents the third value"
+        },
+        {
+          "id": "B",
+          "text": "The last value duplicates automatically"
+        },
+        {
+          "id": "C",
+          "text": "The dictionary becomes a set"
+        },
+        {
+          "id": "D",
+          "text": "A missing corresponding value / index error."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المثال يربط keys[i] مع values[i] عند نفس index لبناء dictionary.",
+        "en": ""
+      },
+      "topic": "Patterns & Mapping",
+      "topicId": "patterns-mapping",
+      "subtopicId": "dict-from-lists",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dict-from-lists-v4",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 16 — Dictionary from Two Lists"
+      }
+    }
+  ]
+}

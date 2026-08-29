@@ -1,0 +1,1751 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-python-session06-practice-v1",
+    "title": "Session 6 — Python Practice",
+    "description": "40-question source-scoped practice for Functional Problem Solving & Mini Applications.",
+    "course": "Data Analysis",
+    "module": "Python for Data Analysis — Session 6",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-python-s06-q001",
+      "question": "Which statement best describes `Average Function` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A function can aggregate a list of numbers and return their average."
+        },
+        {
+          "id": "B",
+          "text": "The function scans words and returns the longest one encountered."
+        },
+        {
+          "id": "C",
+          "text": "The taught `is_prime(n)` checks divisibility up to the square root and returns a Boolean."
+        },
+        {
+          "id": "D",
+          "text": "Two functions convert Celsius↔Fahrenheit and return converted numeric values."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A function can aggregate a list of numbers and return their average.",
+        "en": ""
+      },
+      "topic": "Average Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "average",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-average-v1",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 5 — Average Function"
+      }
+    },
+    {
+      "id": "da-python-s06-q002",
+      "question": "Which taught function/pattern is most appropriate when you want to calculate the average of a list?",
+      "options": [
+        {
+          "id": "A",
+          "text": "longest-word scan"
+        },
+        {
+          "id": "B",
+          "text": "sum(numbers) / len(numbers)"
+        },
+        {
+          "id": "C",
+          "text": "is_prime(n)"
+        },
+        {
+          "id": "D",
+          "text": "celsius_to_fahrenheit / fahrenheit_to_celsius"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`sum(numbers) / len(numbers)` is the course-aligned choice for this task: calculate the average of a list.",
+        "en": ""
+      },
+      "topic": "Average Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "average",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-average-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 5 — Average Function"
+      }
+    },
+    {
+      "id": "da-python-s06-q003",
+      "question": "What output is shown for the taught average example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "30"
+        },
+        {
+          "id": "B",
+          "text": "25.0"
+        },
+        {
+          "id": "C",
+          "text": "30.0"
+        },
+        {
+          "id": "D",
+          "text": "60.0"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Average Function` behavior: A function can aggregate a list of numbers and return their average.",
+        "en": ""
+      },
+      "topic": "Average Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "average",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-average-v3",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 5 — Average Function"
+      }
+    },
+    {
+      "id": "da-python-s06-q004",
+      "question": "A learner divides by a fixed number that does not match the list length. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `longest-word scan` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Average Function` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Prime Function` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Divide the total by the actual number of values, as in the taught average pattern."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Divide the total by the actual number of values, as in the taught average pattern.",
+        "en": ""
+      },
+      "topic": "Average Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "average",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-average-v4",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 5 — Average Function"
+      }
+    },
+    {
+      "id": "da-python-s06-q005",
+      "question": "Which statement best describes `Longest Word` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The function scans words and returns the longest one encountered."
+        },
+        {
+          "id": "B",
+          "text": "The taught `is_prime(n)` checks divisibility up to the square root and returns a Boolean."
+        },
+        {
+          "id": "C",
+          "text": "Two functions convert Celsius↔Fahrenheit and return converted numeric values."
+        },
+        {
+          "id": "D",
+          "text": "A function can return a new list built with a list comprehension."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The function scans words and returns the longest one encountered.",
+        "en": ""
+      },
+      "topic": "Longest Word",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "longest-word",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-longest-word-v1",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 6 — Longest Word"
+      }
+    },
+    {
+      "id": "da-python-s06-q006",
+      "question": "Which taught function/pattern is most appropriate when you want to find the longest word in a list?",
+      "options": [
+        {
+          "id": "A",
+          "text": "is_prime(n)"
+        },
+        {
+          "id": "B",
+          "text": "longest-word scan"
+        },
+        {
+          "id": "C",
+          "text": "celsius_to_fahrenheit / fahrenheit_to_celsius"
+        },
+        {
+          "id": "D",
+          "text": "[expression for item in iterable]"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `longest-word scan` is the course-aligned choice for this task: find the longest word in a list.",
+        "en": ""
+      },
+      "topic": "Longest Word",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "longest-word",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-longest-word-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 6 — Longest Word"
+      }
+    },
+    {
+      "id": "da-python-s06-q007",
+      "question": "Which word is shown as the longest in the source example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "apple"
+        },
+        {
+          "id": "B",
+          "text": "kiwi"
+        },
+        {
+          "id": "C",
+          "text": "banana"
+        },
+        {
+          "id": "D",
+          "text": "a"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Longest Word` behavior: The function scans words and returns the longest one encountered.",
+        "en": ""
+      },
+      "topic": "Longest Word",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "longest-word",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-longest-word-v3",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 6 — Longest Word"
+      }
+    },
+    {
+      "id": "da-python-s06-q008",
+      "question": "A learner updates the current longest word even when a candidate is shorter. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `is_prime(n)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Longest Word` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Temperature Conversion` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Update the stored longest word only when a longer candidate is found."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Update the stored longest word only when a longer candidate is found.",
+        "en": ""
+      },
+      "topic": "Longest Word",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "longest-word",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-longest-word-v4",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 6 — Longest Word"
+      }
+    },
+    {
+      "id": "da-python-s06-q009",
+      "question": "Which statement best describes `Prime Function` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The taught `is_prime(n)` checks divisibility up to the square root and returns a Boolean."
+        },
+        {
+          "id": "B",
+          "text": "Two functions convert Celsius↔Fahrenheit and return converted numeric values."
+        },
+        {
+          "id": "C",
+          "text": "A function can return a new list built with a list comprehension."
+        },
+        {
+          "id": "D",
+          "text": "The function totals prices and then applies a tax rate to calculate the final amount."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The taught `is_prime(n)` checks divisibility up to the square root and returns a Boolean.",
+        "en": ""
+      },
+      "topic": "Prime Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "prime-function",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-prime-function-v1",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 7 — Prime Check"
+      }
+    },
+    {
+      "id": "da-python-s06-q010",
+      "question": "Which taught function/pattern is most appropriate when you want to test whether a number is prime?",
+      "options": [
+        {
+          "id": "A",
+          "text": "celsius_to_fahrenheit / fahrenheit_to_celsius"
+        },
+        {
+          "id": "B",
+          "text": "is_prime(n)"
+        },
+        {
+          "id": "C",
+          "text": "[expression for item in iterable]"
+        },
+        {
+          "id": "D",
+          "text": "calculate_total_price(prices, tax_rate)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`is_prime(n)` is the course-aligned choice for this task: test whether a number is prime.",
+        "en": ""
+      },
+      "topic": "Prime Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "prime-function",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-prime-function-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 7 — Prime Check"
+      }
+    },
+    {
+      "id": "da-python-s06-q011",
+      "question": "What Boolean output is shown for the taught prime example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "False"
+        },
+        {
+          "id": "B",
+          "text": "None"
+        },
+        {
+          "id": "C",
+          "text": "True"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `Prime Function` behavior: The taught `is_prime(n)` checks divisibility up to the square root and returns a Boolean.",
+        "en": ""
+      },
+      "topic": "Prime Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "prime-function",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-prime-function-v3",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 7 — Prime Check"
+      }
+    },
+    {
+      "id": "da-python-s06-q012",
+      "question": "A learner checks only divisibility by 2 and declares every odd number prime. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `celsius_to_fahrenheit / fahrenheit_to_celsius` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Prime Function` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `List Comprehension in Function` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Test the required divisor range according to the taught prime-check logic."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Test the required divisor range according to the taught prime-check logic.",
+        "en": ""
+      },
+      "topic": "Prime Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "prime-function",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-prime-function-v4",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 7 — Prime Check"
+      }
+    },
+    {
+      "id": "da-python-s06-q013",
+      "question": "Which statement best describes `Temperature Conversion` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Two functions convert Celsius↔Fahrenheit and return converted numeric values."
+        },
+        {
+          "id": "B",
+          "text": "A function can return a new list built with a list comprehension."
+        },
+        {
+          "id": "C",
+          "text": "The function totals prices and then applies a tax rate to calculate the final amount."
+        },
+        {
+          "id": "D",
+          "text": "Built-in `min()` and `max()` can return the smallest and largest values in a list."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Two functions convert Celsius↔Fahrenheit and return converted numeric values.",
+        "en": ""
+      },
+      "topic": "Temperature Conversion",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "temperature-conversion",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-temperature-conversion-v1",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 8 — Temperature Conversion"
+      }
+    },
+    {
+      "id": "da-python-s06-q014",
+      "question": "Which taught function/pattern is most appropriate when you want to convert between Celsius and Fahrenheit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[expression for item in iterable]"
+        },
+        {
+          "id": "B",
+          "text": "celsius_to_fahrenheit / fahrenheit_to_celsius"
+        },
+        {
+          "id": "C",
+          "text": "calculate_total_price(prices, tax_rate)"
+        },
+        {
+          "id": "D",
+          "text": "min(numbers), max(numbers)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`celsius_to_fahrenheit / fahrenheit_to_celsius` is the course-aligned choice for this task: convert between Celsius and Fahrenheit.",
+        "en": ""
+      },
+      "topic": "Temperature Conversion",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "temperature-conversion",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-temperature-conversion-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 8 — Temperature Conversion"
+      }
+    },
+    {
+      "id": "da-python-s06-q015",
+      "question": "Which two outputs are shown in the source conversion example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "25.0 and 77.0 only in the same direction"
+        },
+        {
+          "id": "B",
+          "text": "0 and 100"
+        },
+        {
+          "id": "C",
+          "text": "77.0 and 25.0"
+        },
+        {
+          "id": "D",
+          "text": "32 and 212"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Temperature Conversion` behavior: Two functions convert Celsius↔Fahrenheit and return converted numeric values.",
+        "en": ""
+      },
+      "topic": "Temperature Conversion",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "temperature-conversion",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-temperature-conversion-v3",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 8 — Temperature Conversion"
+      }
+    },
+    {
+      "id": "da-python-s06-q016",
+      "question": "A learner uses the same formula in both conversion directions. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `[expression for item in iterable]` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Temperature Conversion` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Tax Calculation` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use the corresponding conversion formula for each direction."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Use the corresponding conversion formula for each direction.",
+        "en": ""
+      },
+      "topic": "Temperature Conversion",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "temperature-conversion",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-temperature-conversion-v4",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 8 — Temperature Conversion"
+      }
+    },
+    {
+      "id": "da-python-s06-q017",
+      "question": "Which statement best describes `List Comprehension in Function` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A function can return a new list built with a list comprehension."
+        },
+        {
+          "id": "B",
+          "text": "The function totals prices and then applies a tax rate to calculate the final amount."
+        },
+        {
+          "id": "C",
+          "text": "Built-in `min()` and `max()` can return the smallest and largest values in a list."
+        },
+        {
+          "id": "D",
+          "text": "The taught basic check looks for `@` and a `.` after the `@`."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A function can return a new list built with a list comprehension.",
+        "en": ""
+      },
+      "topic": "List Comprehension in Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "listcomp-function",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-listcomp-function-v1",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slides 9–10 — Squares and Uppercase"
+      }
+    },
+    {
+      "id": "da-python-s06-q018",
+      "question": "Which taught function/pattern is most appropriate when you want to transform every list item inside a function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "calculate_total_price(prices, tax_rate)"
+        },
+        {
+          "id": "B",
+          "text": "[expression for item in iterable]"
+        },
+        {
+          "id": "C",
+          "text": "min(numbers), max(numbers)"
+        },
+        {
+          "id": "D",
+          "text": "\"@\" in email and \".\" after @"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `[expression for item in iterable]` is the course-aligned choice for this task: transform every list item inside a function.",
+        "en": ""
+      },
+      "topic": "List Comprehension in Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "listcomp-function",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-listcomp-function-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slides 9–10 — Squares and Uppercase"
+      }
+    },
+    {
+      "id": "da-python-s06-q019",
+      "question": "What square list is shown for inputs 1 through 5?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[1,2,3,4,5]"
+        },
+        {
+          "id": "B",
+          "text": "[2,4,6,8,10]"
+        },
+        {
+          "id": "C",
+          "text": "[1, 4, 9, 16, 25]"
+        },
+        {
+          "id": "D",
+          "text": "[1,8,27,64,125]"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `List Comprehension in Function` behavior: A function can return a new list built with a list comprehension.",
+        "en": ""
+      },
+      "topic": "List Comprehension in Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "listcomp-function",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-listcomp-function-v3",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slides 9–10 — Squares and Uppercase"
+      }
+    },
+    {
+      "id": "da-python-s06-q020",
+      "question": "A learner mutates the original list even though the goal is to return a newly transformed list. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `calculate_total_price(prices, tax_rate)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `List Comprehension in Function` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `min()/max()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Build and return a new list using the taught comprehension pattern."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Build and return a new list using the taught comprehension pattern.",
+        "en": ""
+      },
+      "topic": "List Comprehension in Function",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "listcomp-function",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-listcomp-function-v4",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slides 9–10 — Squares and Uppercase"
+      }
+    },
+    {
+      "id": "da-python-s06-q021",
+      "question": "Which statement best describes `Tax Calculation` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The function totals prices and then applies a tax rate to calculate the final amount."
+        },
+        {
+          "id": "B",
+          "text": "Built-in `min()` and `max()` can return the smallest and largest values in a list."
+        },
+        {
+          "id": "C",
+          "text": "The taught basic check looks for `@` and a `.` after the `@`."
+        },
+        {
+          "id": "D",
+          "text": "The function counts each character and returns a dictionary of character→frequency."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The function totals prices and then applies a tax rate to calculate the final amount.",
+        "en": ""
+      },
+      "topic": "Tax Calculation",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "tax",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-tax-v1",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 11 — Total Price Including Tax"
+      }
+    },
+    {
+      "id": "da-python-s06-q022",
+      "question": "Which taught function/pattern is most appropriate when you want to calculate a total including tax?",
+      "options": [
+        {
+          "id": "A",
+          "text": "min(numbers), max(numbers)"
+        },
+        {
+          "id": "B",
+          "text": "calculate_total_price(prices, tax_rate)"
+        },
+        {
+          "id": "C",
+          "text": "\"@\" in email and \".\" after @"
+        },
+        {
+          "id": "D",
+          "text": "frequency dictionary"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`calculate_total_price(prices, tax_rate)` is the course-aligned choice for this task: calculate a total including tax.",
+        "en": ""
+      },
+      "topic": "Tax Calculation",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "tax",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-tax-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 11 — Total Price Including Tax"
+      }
+    },
+    {
+      "id": "da-python-s06-q023",
+      "question": "What output is shown for the taught tax example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "600.0"
+        },
+        {
+          "id": "B",
+          "text": "60.0"
+        },
+        {
+          "id": "C",
+          "text": "660.0"
+        },
+        {
+          "id": "D",
+          "text": "720.0"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `Tax Calculation` behavior: The function totals prices and then applies a tax rate to calculate the final amount.",
+        "en": ""
+      },
+      "topic": "Tax Calculation",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "tax",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-tax-v3",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 11 — Total Price Including Tax"
+      }
+    },
+    {
+      "id": "da-python-s06-q024",
+      "question": "A learner adds the tax rate as a raw number instead of applying it proportionally to the total. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `min(numbers), max(numbers)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Tax Calculation` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Email Validation` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Apply the tax rate as a percentage/proportion of the total price."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Apply the tax rate as a percentage/proportion of the total price.",
+        "en": ""
+      },
+      "topic": "Tax Calculation",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "tax",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-tax-v4",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 11 — Total Price Including Tax"
+      }
+    },
+    {
+      "id": "da-python-s06-q025",
+      "question": "Which statement best describes `min()/max()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Built-in `min()` and `max()` can return the smallest and largest values in a list."
+        },
+        {
+          "id": "B",
+          "text": "The taught basic check looks for `@` and a `.` after the `@`."
+        },
+        {
+          "id": "C",
+          "text": "The function counts each character and returns a dictionary of character→frequency."
+        },
+        {
+          "id": "D",
+          "text": "A lambda can provide a custom sort key, such as the second tuple element or a score field."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Built-in `min()` and `max()` can return the smallest and largest values in a list.",
+        "en": ""
+      },
+      "topic": "min()/max()",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "min-max",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-min-max-v1",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 12 — Min and Max"
+      }
+    },
+    {
+      "id": "da-python-s06-q026",
+      "question": "Which taught function/pattern is most appropriate when you want to find minimum and maximum values?",
+      "options": [
+        {
+          "id": "A",
+          "text": "\"@\" in email and \".\" after @"
+        },
+        {
+          "id": "B",
+          "text": "min(numbers), max(numbers)"
+        },
+        {
+          "id": "C",
+          "text": "frequency dictionary"
+        },
+        {
+          "id": "D",
+          "text": "key=lambda x: ..."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`min(numbers), max(numbers)` is the course-aligned choice for this task: find minimum and maximum values.",
+        "en": ""
+      },
+      "topic": "min()/max()",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "min-max",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-min-max-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 12 — Min and Max"
+      }
+    },
+    {
+      "id": "da-python-s06-q027",
+      "question": "Which pair is shown in the source output?",
+      "options": [
+        {
+          "id": "A",
+          "text": "9 and 2 only as labels reversed"
+        },
+        {
+          "id": "B",
+          "text": "0 and 10"
+        },
+        {
+          "id": "C",
+          "text": "2 and 9"
+        },
+        {
+          "id": "D",
+          "text": "1 and 8"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `min()/max()` behavior: Built-in `min()` and `max()` can return the smallest and largest values in a list.",
+        "en": ""
+      },
+      "topic": "min()/max()",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "min-max",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-min-max-v3",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 12 — Min and Max"
+      }
+    },
+    {
+      "id": "da-python-s06-q028",
+      "question": "A learner manually initializes min/max to arbitrary values outside the data when built-ins are appropriate. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `\"@\" in email and \".\" after @` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `min()/max()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Character Frequency` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use the taught `min()` and `max()` built-ins for this task."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Use the taught `min()` and `max()` built-ins for this task.",
+        "en": ""
+      },
+      "topic": "min()/max()",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "min-max",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-min-max-v4",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 12 — Min and Max"
+      }
+    },
+    {
+      "id": "da-python-s06-q029",
+      "question": "Which statement best describes `Email Validation` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The taught basic check looks for `@` and a `.` after the `@`."
+        },
+        {
+          "id": "B",
+          "text": "The function counts each character and returns a dictionary of character→frequency."
+        },
+        {
+          "id": "C",
+          "text": "A lambda can provide a custom sort key, such as the second tuple element or a score field."
+        },
+        {
+          "id": "D",
+          "text": "A function can aggregate a list of numbers and return their average."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The taught basic check looks for `@` and a `.` after the `@`.",
+        "en": ""
+      },
+      "topic": "Email Validation",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "email-validation",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-email-validation-v1",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 13 — Basic Email Validation"
+      }
+    },
+    {
+      "id": "da-python-s06-q030",
+      "question": "Which taught function/pattern is most appropriate when you want to perform the taught basic email-format check?",
+      "options": [
+        {
+          "id": "A",
+          "text": "frequency dictionary"
+        },
+        {
+          "id": "B",
+          "text": "\"@\" in email and \".\" after @"
+        },
+        {
+          "id": "C",
+          "text": "key=lambda x: ..."
+        },
+        {
+          "id": "D",
+          "text": "sum(numbers) / len(numbers)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`\"@\" in email and \".\" after @` is the course-aligned choice for this task: perform the taught basic email-format check.",
+        "en": ""
+      },
+      "topic": "Email Validation",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "email-validation",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-email-validation-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 13 — Basic Email Validation"
+      }
+    },
+    {
+      "id": "da-python-s06-q031",
+      "question": "What Boolean output is shown for the taught valid-email example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "False"
+        },
+        {
+          "id": "B",
+          "text": "None"
+        },
+        {
+          "id": "C",
+          "text": "True"
+        },
+        {
+          "id": "D",
+          "text": "Email object"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Email Validation` behavior: The taught basic check looks for `@` and a `.` after the `@`.",
+        "en": ""
+      },
+      "topic": "Email Validation",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "email-validation",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-email-validation-v3",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 13 — Basic Email Validation"
+      }
+    },
+    {
+      "id": "da-python-s06-q032",
+      "question": "A learner treats this simple check as a complete real-world email standard validator. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `frequency dictionary` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Email Validation` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Lambda Sorting` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Keep it framed as the basic source-taught check, not a full email-validation standard."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Keep it framed as the basic source-taught check, not a full email-validation standard.",
+        "en": ""
+      },
+      "topic": "Email Validation",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "email-validation",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-email-validation-v4",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 13 — Basic Email Validation"
+      }
+    },
+    {
+      "id": "da-python-s06-q033",
+      "question": "Which statement best describes `Character Frequency` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The function counts each character and returns a dictionary of character→frequency."
+        },
+        {
+          "id": "B",
+          "text": "A lambda can provide a custom sort key, such as the second tuple element or a score field."
+        },
+        {
+          "id": "C",
+          "text": "A function can aggregate a list of numbers and return their average."
+        },
+        {
+          "id": "D",
+          "text": "The function scans words and returns the longest one encountered."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The function counts each character and returns a dictionary of character→frequency.",
+        "en": ""
+      },
+      "topic": "Character Frequency",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "char-frequency",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-char-frequency-v1",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 14 — Character Frequency"
+      }
+    },
+    {
+      "id": "da-python-s06-q034",
+      "question": "Which taught function/pattern is most appropriate when you want to count character occurrences in text?",
+      "options": [
+        {
+          "id": "A",
+          "text": "key=lambda x: ..."
+        },
+        {
+          "id": "B",
+          "text": "frequency dictionary"
+        },
+        {
+          "id": "C",
+          "text": "sum(numbers) / len(numbers)"
+        },
+        {
+          "id": "D",
+          "text": "longest-word scan"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`frequency dictionary` is the course-aligned choice for this task: count character occurrences in text.",
+        "en": ""
+      },
+      "topic": "Character Frequency",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "char-frequency",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-char-frequency-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 14 — Character Frequency"
+      }
+    },
+    {
+      "id": "da-python-s06-q035",
+      "question": "In the shown output for “hello world”, what is the count for `l`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `Character Frequency` behavior: The function counts each character and returns a dictionary of character→frequency.",
+        "en": ""
+      },
+      "topic": "Character Frequency",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "char-frequency",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-char-frequency-v3",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 14 — Character Frequency"
+      }
+    },
+    {
+      "id": "da-python-s06-q036",
+      "question": "A learner uses a list when the requirement is to map each character to its count. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `key=lambda x: ...` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Character Frequency` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Average Function` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use a dictionary keyed by character to store frequencies."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use a dictionary keyed by character to store frequencies.",
+        "en": ""
+      },
+      "topic": "Character Frequency",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "char-frequency",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-char-frequency-v4",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 14 — Character Frequency"
+      }
+    },
+    {
+      "id": "da-python-s06-q037",
+      "question": "Which statement best describes `Lambda Sorting` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A lambda can provide a custom sort key, such as the second tuple element or a score field."
+        },
+        {
+          "id": "B",
+          "text": "A function can aggregate a list of numbers and return their average."
+        },
+        {
+          "id": "C",
+          "text": "The function scans words and returns the longest one encountered."
+        },
+        {
+          "id": "D",
+          "text": "The taught `is_prime(n)` checks divisibility up to the square root and returns a Boolean."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A lambda can provide a custom sort key, such as the second tuple element or a score field.",
+        "en": ""
+      },
+      "topic": "Lambda Sorting",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "lambda-sorting",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-lambda-sorting-v1",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slides 19–20 — Sorting with Lambda"
+      }
+    },
+    {
+      "id": "da-python-s06-q038",
+      "question": "Which taught function/pattern is most appropriate when you want to sort records by a custom field?",
+      "options": [
+        {
+          "id": "A",
+          "text": "sum(numbers) / len(numbers)"
+        },
+        {
+          "id": "B",
+          "text": "key=lambda x: ..."
+        },
+        {
+          "id": "C",
+          "text": "longest-word scan"
+        },
+        {
+          "id": "D",
+          "text": "is_prime(n)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`key=lambda x: ...` is the course-aligned choice for this task: sort records by a custom field.",
+        "en": ""
+      },
+      "topic": "Lambda Sorting",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "lambda-sorting",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-lambda-sorting-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slides 19–20 — Sorting with Lambda"
+      }
+    },
+    {
+      "id": "da-python-s06-q039",
+      "question": "For tuple sorting by the second element, which lambda index is taught?",
+      "options": [
+        {
+          "id": "A",
+          "text": "x[0] only"
+        },
+        {
+          "id": "B",
+          "text": "x[-3]"
+        },
+        {
+          "id": "C",
+          "text": "x[1]"
+        },
+        {
+          "id": "D",
+          "text": "x[2] always"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Lambda Sorting` behavior: A lambda can provide a custom sort key, such as the second tuple element or a score field.",
+        "en": ""
+      },
+      "topic": "Lambda Sorting",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "lambda-sorting",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-lambda-sorting-v3",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slides 19–20 — Sorting with Lambda"
+      }
+    },
+    {
+      "id": "da-python-s06-q040",
+      "question": "A learner sorts by the whole tuple when the requirement is specifically the second element. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `sum(numbers) / len(numbers)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Lambda Sorting` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Longest Word` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Provide a sort key such as `lambda x: x[1]` as taught."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Provide a sort key such as `lambda x: x[1]` as taught.",
+        "en": ""
+      },
+      "topic": "Lambda Sorting",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "lambda-sorting",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-lambda-sorting-v4",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slides 19–20 — Sorting with Lambda"
+      }
+    }
+  ]
+}

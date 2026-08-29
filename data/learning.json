@@ -1503,8 +1503,3568 @@
           "title": "Python for Data Analysis",
           "icon": "P",
           "accent": "#7c5ce7",
-          "description": "Python foundations, data handling and analysis workflows.",
-          "modules": []
+          "description": "Complete 13-session Python for Data Analysis curriculum: Python foundations → control flow → functions/files → NumPy/Pandas → Matplotlib/Seaborn/Folium, with detailed code learning and 520 production questions.",
+          "modules": [
+            {
+              "id": "python-session-01",
+              "title": "Session 1 — Python Fundamentals, Data Types & Data Containers",
+              "description": "بايثون لغة عالية المستوى ومفسّرة، وبتعتمد على Syntax بسيط. الـ indentation جزء أساسي من بنية البرنامج لأنه بيحدد الـ code blocks.",
+              "examId": "data-analysis-python-session01-practice-v1",
+              "sourceFile": "Python Session 123.pptx",
+              "study": {
+                "title": "Session 1 · Python Fundamentals, Data Types & Data Containers",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "python-language-syntax",
+                    "title": "Python Language, Syntax & Execution",
+                    "summaryAr": "بايثون لغة عالية المستوى ومفسّرة، وبتعتمد على Syntax بسيط. الـ indentation جزء أساسي من بنية البرنامج لأنه بيحدد الـ code blocks.",
+                    "keyTerms": [
+                      "High-level",
+                      "Interpreted",
+                      "Dynamically Typed",
+                      "Indentation",
+                      "print()",
+                      "Comments"
+                    ],
+                    "conceptsAr": [
+                      "Python مفسّرة وبتتنفذ وفق قواعد Syntax واضحة.",
+                      "التعليق أحادي السطر يبدأ بـ # والـ interpreter بيتجاهله.",
+                      "النصوص تُكتب بين single أو double أو triple quotes."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Hello World",
+                        "code": "# This is a comment\nprint(\"Hello world\")",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "المثال بيجمع comment مع أول print statement في الكورس.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "Comment لا يتم تنفيذه."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "print() تعرض محتوى الـ String."
+                          }
+                        ],
+                        "executionTrace": [
+                          "اقرأ التعليق بدون تنفيذ.",
+                          "نفّذ print()."
+                        ],
+                        "expectedOutput": "Hello world",
+                        "whyItWorks": "لأن النص String صالح داخل print().",
+                        "commonMistakes": [
+                          "نسيان quotes حول النص.",
+                          "اعتبار indentation مجرد شكل في Python."
+                        ],
+                        "examTips": [
+                          "في output tracing تجاهل الـ comments تمامًا."
+                        ],
+                        "sourceTrace": "Python Session 123.pptx — Slides 8–10"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 123.pptx — Slides 5–10"
+                  },
+                  {
+                    "id": "variables-types",
+                    "title": "Variables & Primitive Data Types",
+                    "summaryAr": "المتغير بيتكوّن عند أول assignment، وPython dynamically typed؛ النوع يُستنتج من القيمة بدل إعلان type مسبق.",
+                    "keyTerms": [
+                      "Variable",
+                      "Assignment",
+                      "int",
+                      "float",
+                      "bool",
+                      "str",
+                      "type()",
+                      "Case-sensitive"
+                    ],
+                    "conceptsAr": [
+                      "الـ primitive types الأساسية في المصدر: int, float, bool, str.",
+                      "Python case-sensitive: score و Score مختلفان.",
+                      "Boolean literals هما True و False بحرف أول Capital."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Dynamic typing",
+                        "code": "score = 95\nrate = 3.5\nactive = True\nname = \"Ahmed\"\nprint(type(score))\nprint(type(rate))",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "كل variable أخذ نوعه من القيمة المسندة له.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "95 → int."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "3.5 → float."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "True → bool."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "النص → str."
+                          }
+                        ],
+                        "executionTrace": [
+                          "إنشاء القيم.",
+                          "فحص type للمتغيرات الرقمية."
+                        ],
+                        "expectedOutput": "<class 'int'>\n<class 'float'>",
+                        "whyItWorks": "Python تستنتج النوع runtime.",
+                        "commonMistakes": [
+                          "كتابة true بدل True.",
+                          "افتراض أن Python تحتاج إعلان type قبل الاسم."
+                        ],
+                        "examTips": [
+                          "لو شفت input() افتكر إن نوعها String قبل التحويل."
+                        ],
+                        "sourceTrace": "Python Session 123.pptx — Slides 12–17"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 123.pptx — Slides 11–17"
+                  },
+                  {
+                    "id": "strings",
+                    "title": "Strings, Indexing & Slicing",
+                    "summaryAr": "String sequence من characters. الـ indexing يبدأ من 0، والـ negative indexing يبدأ من نهاية النص. slicing تستخدم start:end والـ end غير مشمول.",
+                    "keyTerms": [
+                      "String",
+                      "Indexing",
+                      "Negative Index",
+                      "Slicing",
+                      "Step",
+                      "Reverse Slicing",
+                      "Immutable",
+                      "upper()",
+                      "lower()",
+                      "find()",
+                      "strip()"
+                    ],
+                    "conceptsAr": [
+                      "Strings immutable.",
+                      "صيغة slicing الأساسية string[start:end].",
+                      "step يسمح بتخطي characters، وstep سالب يسمح بالعكس."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Indexing and slicing",
+                        "code": "text = \"Python\"\nprint(text[0])\nprint(text[-1])\nprint(text[1:4])\nprint(text[::-1])",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "نفس String تُقرأ بأربع طرق مختلفة.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "index 0 → P."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "index -1 → n."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "1:4 → yth لأن 4 غير مشمول."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "step -1 يعكس النص."
+                          }
+                        ],
+                        "executionTrace": [
+                          "P",
+                          "n",
+                          "yth",
+                          "nohtyP"
+                        ],
+                        "expectedOutput": "P\nn\nyth\nnohtyP",
+                        "whyItWorks": "الـ end index غير مشمول والـ negative step يتحرك للخلف.",
+                        "commonMistakes": [
+                          "اعتبار end index جزءًا من slice.",
+                          "استخدام index خارج حدود النص."
+                        ],
+                        "examTips": [
+                          "اكتب indexes فوق الكلمة بسرعة في أسئلة slicing."
+                        ],
+                        "sourceTrace": "Python Session 123.pptx — Slides 19–24"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 123.pptx — Slides 18–26"
+                  },
+                  {
+                    "id": "input-print-operators",
+                    "title": "Input, Printing, Escape Characters & Operators",
+                    "summaryAr": "input() بتقرأ إدخال المستخدم كـ String دائمًا. التحويل لعدد يحتاج built-in مثل int(). والـ operators تشمل arithmetic/comparison/assignment/logical/bitwise.",
+                    "keyTerms": [
+                      "input()",
+                      "int()",
+                      "print()",
+                      "Escape Characters",
+                      "Arithmetic",
+                      "Comparison",
+                      "Logical",
+                      "and",
+                      "or",
+                      "not"
+                    ],
+                    "conceptsAr": [
+                      "input(prompt) تعرض prompt وتنتظر المستخدم.",
+                      "\\n للسطر الجديد و\\t للـ tab.",
+                      "المقارنات والمنطق تنتج Boolean مناسبة للـ conditions."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Convert input before arithmetic",
+                        "code": "age_text = input(\"Enter age: \")\nage = int(age_text)\nprint(age + 1)",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "لو المستخدم كتب 20، input() ترجع \"20\" كنص ثم int() تحولها لعدد.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "النتيجة String."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "تحويل إلى int."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "جمع عددي."
+                          }
+                        ],
+                        "executionTrace": [
+                          "User enters 20",
+                          "'20' → 20",
+                          "20 + 1"
+                        ],
+                        "expectedOutput": "21",
+                        "whyItWorks": "التحويل حصل قبل arithmetic.",
+                        "commonMistakes": [
+                          "محاولة \"20\" + 1.",
+                          "الاعتقاد أن input() تعيد int تلقائيًا."
+                        ],
+                        "examTips": [
+                          "ابدأ أي input tracing بتحديد نوع القيمة."
+                        ],
+                        "sourceTrace": "Python Session 123.pptx — Slides 27–29"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 123.pptx — Slides 27–39"
+                  },
+                  {
+                    "id": "lists-comprehensions",
+                    "title": "Lists & List Comprehensions",
+                    "summaryAr": "List collection مرتبة وmutable، تسمح بالتكرار واختلاف الأنواع. تدعم indexing/slicing والإضافة والحذف، والـ list comprehension تبني List جديدة بصيغة مختصرة.",
+                    "keyTerms": [
+                      "List",
+                      "Mutable",
+                      "Ordered",
+                      "append()",
+                      "insert()",
+                      "remove()",
+                      "pop()",
+                      "List Comprehension"
+                    ],
+                    "conceptsAr": [
+                      "append() تضيف في النهاية وinsert() عند index محدد.",
+                      "remove() تحذف بالقيمة بينما pop() ترتبط بالـ index.",
+                      "list comprehension تطبق expression أثناء iteration."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "List mutation",
+                        "code": "numbers = [10, 20, 30]\nnumbers.append(40)\nnumbers[1] = 25\nprint(numbers)",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "المثال يثبت إن List mutable.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "إضافة 40 للنهاية."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "تغيير index 1 إلى 25."
+                          }
+                        ],
+                        "executionTrace": [
+                          "[10,20,30]",
+                          "[10,20,30,40]",
+                          "[10,25,30,40]"
+                        ],
+                        "expectedOutput": "[10, 25, 30, 40]",
+                        "whyItWorks": "List تدعم mutation.",
+                        "commonMistakes": [
+                          "الخلط بين remove(value) و pop(index).",
+                          "نسيان أن index يبدأ من 0."
+                        ],
+                        "examTips": [
+                          "حدّث شكل الـ List بعد كل mutation."
+                        ],
+                        "sourceTrace": "Python Session 123.pptx — Slides 41–43"
+                      },
+                      {
+                        "title": "List comprehension",
+                        "code": "squares = [x * x for x in range(1, 6)]\nprint(squares)",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "expression تتطبق على كل item من 1 إلى 5.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "range(1,6) تنتج 1..5، وكل قيمة تُربّع."
+                          }
+                        ],
+                        "executionTrace": [
+                          "1→1",
+                          "2→4",
+                          "3→9",
+                          "4→16",
+                          "5→25"
+                        ],
+                        "expectedOutput": "[1, 4, 9, 16, 25]",
+                        "whyItWorks": "الصيغة تختصر loop تبني List جديدة.",
+                        "commonMistakes": [
+                          "اعتبار 6 ضمن range.",
+                          "كتابة for قبل expression في الصيغة."
+                        ],
+                        "examTips": [
+                          "حوّلها ذهنيًا إلى for loop لو احتجت تتبعها."
+                        ],
+                        "sourceTrace": "Python Session 123.pptx — Slide 44"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 123.pptx — Slides 41–44"
+                  },
+                  {
+                    "id": "tuples-sets",
+                    "title": "Tuples & Sets",
+                    "summaryAr": "Tuple مرتبة لكنها immutable. Set غير مرتبة وتركز على uniqueness وmembership وتزيل التكرار تلقائيًا.",
+                    "keyTerms": [
+                      "Tuple",
+                      "Immutable",
+                      "Set",
+                      "Unique Items",
+                      "Unordered",
+                      "Union",
+                      "Intersection",
+                      "Difference"
+                    ],
+                    "conceptsAr": [
+                      "Tuple مناسبة لsequence ثابتة وغالبًا أكثر memory-efficient من List.",
+                      "Set لا تدعم indexing/slicing.",
+                      "Set operations تشمل union/intersection/difference."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Set uniqueness",
+                        "code": "values = {1, 2, 2, 3, 3, 3}\nprint(len(values))",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "التكرارات لا تضيف عناصر جديدة للـ Set.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "العناصر الفعلية 1 و2 و3."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "len = 3."
+                          }
+                        ],
+                        "executionTrace": [
+                          "duplicate values collapse"
+                        ],
+                        "expectedOutput": "3",
+                        "whyItWorks": "Uniqueness خاصية أساسية للـ Set.",
+                        "commonMistakes": [
+                          "محاولة values[0].",
+                          "الاعتماد على ترتيب ثابت."
+                        ],
+                        "examTips": [
+                          "لو الهدف إزالة duplicates، Set فكرة مهمة."
+                        ],
+                        "sourceTrace": "Python Session 123.pptx — Slides 48–50"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 123.pptx — Slides 45–50"
+                  },
+                  {
+                    "id": "dictionaries",
+                    "title": "Dictionaries & Nested Dictionaries",
+                    "summaryAr": "Dictionary تخزن key-value pairs. الـ keys unique وimmutable، والقيم مرنة ويمكن أن تكون Dictionaries أخرى لبناء nested/hierarchical structures.",
+                    "keyTerms": [
+                      "Dictionary",
+                      "Key",
+                      "Value",
+                      "get()",
+                      "items()",
+                      "keys()",
+                      "values()",
+                      "pop()",
+                      "Nested Dictionary"
+                    ],
+                    "conceptsAr": [
+                      "الوصول للقيمة يتم بالـ key.",
+                      "إسناد قيمة لنفس key يحدثها.",
+                      "Nested dictionaries مناسبة لسجلات وJSON-like structures."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Dictionary update",
+                        "code": "student = {\"name\": \"Ali\", \"score\": 80}\nstudent[\"score\"] = 90\nstudent[\"city\"] = \"Cairo\"\nprint(student[\"score\"])",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "تحديث key موجود وإضافة key جديد يتمان بالإسناد.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "score تصبح 90."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "إضافة city."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "قراءة score بالـ key."
+                          }
+                        ],
+                        "executionTrace": [
+                          "score 80→90",
+                          "city added",
+                          "read score"
+                        ],
+                        "expectedOutput": "90",
+                        "whyItWorks": "Dictionary access key-based.",
+                        "commonMistakes": [
+                          "استخدام numeric index كأنها List.",
+                          "تكرار key والاعتقاد أن القيمتين ستبقيان."
+                        ],
+                        "examTips": [
+                          "في nested dictionaries تتبع مستوى key واحد كل مرة."
+                        ],
+                        "sourceTrace": "Python Session 123.pptx — Slides 51–56"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 123.pptx — Slides 51–57"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-02",
+              "title": "Session 2 — Control Flow & Conditional Logic",
+              "description": "Control Flow بتحدد أي block يتنفذ حسب condition. المصدر يركز على if وelif وelse لاتخاذ قرارات ديناميكية.",
+              "examId": "data-analysis-python-session02-practice-v1",
+              "sourceFile": "Python Session 4.pptx",
+              "study": {
+                "title": "Session 2 · Control Flow & Conditional Logic",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "control-flow",
+                    "title": "Control Flow Fundamentals",
+                    "summaryAr": "Control Flow بتحدد أي block يتنفذ حسب condition. المصدر يركز على if وelif وelse لاتخاذ قرارات ديناميكية.",
+                    "keyTerms": [
+                      "Control Flow",
+                      "Condition",
+                      "Boolean Expression",
+                      "if",
+                      "elif",
+                      "else",
+                      "Indentation"
+                    ],
+                    "conceptsAr": [
+                      "condition تتقيّم إلى True/False.",
+                      "Indentation تحدد statements التابعة للـ branch.",
+                      "في if/elif/else يتنفذ أول branch True."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 4.pptx — Slides 5, 14"
+                  },
+                  {
+                    "id": "if-statement",
+                    "title": "if Statement",
+                    "summaryAr": "if تنفذ block فقط لو الشرط True. أمثلة المصدر: positive number، string length، وNone check.",
+                    "keyTerms": [
+                      "if",
+                      "Comparison",
+                      "len()",
+                      "None"
+                    ],
+                    "conceptsAr": [
+                      "لو الشرط False ومفيش else، يتم تخطي block."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Positive number",
+                        "code": "number = 5\nif number > 0:\n    print(\"The number is positive\")",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "5 > 0 True لذلك block يتنفذ.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "number=5."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "5>0 → True."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "طباعة الرسالة."
+                          }
+                        ],
+                        "executionTrace": [
+                          "True → enter block"
+                        ],
+                        "expectedOutput": "The number is positive",
+                        "whyItWorks": "if تنفذ block عندما condition=True.",
+                        "commonMistakes": [
+                          "نسيان colon.",
+                          "عدم عمل indentation للـ body."
+                        ],
+                        "examTips": [
+                          "اكتب True/False للشرط أولًا."
+                        ],
+                        "sourceTrace": "Python Session 4.pptx — Slide 6"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 4.pptx — Slides 6–8"
+                  },
+                  {
+                    "id": "if-else",
+                    "title": "if-else: Two-Way Decisions",
+                    "summaryAr": "if-else توفر مسارين متبادلين. المصدر يطبقها على even/odd، age verification، empty list، temperature.",
+                    "keyTerms": [
+                      "if-else",
+                      "Modulo %",
+                      "Truthiness",
+                      "Empty List"
+                    ],
+                    "conceptsAr": [
+                      "number % 2 == 0 لاختبار even.",
+                      "Empty list تعتبر False في Boolean context."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Even or odd",
+                        "code": "number = 4\nif number % 2 == 0:\n    print(\"Even number\")\nelse:\n    print(\"Odd number\")",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "4 % 2 = 0، إذن if branch.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "4%2=0 ثم 0==0 True."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "يطبع Even."
+                          }
+                        ],
+                        "executionTrace": [
+                          "condition True",
+                          "else skipped"
+                        ],
+                        "expectedOutput": "Even number",
+                        "whyItWorks": "modulus يقيس باقي القسمة.",
+                        "commonMistakes": [
+                          "استخدام / بدل %.",
+                          "تنفيذ branchين ذهنيًا."
+                        ],
+                        "examTips": [
+                          "if-else تنفذ مسارًا واحدًا."
+                        ],
+                        "sourceTrace": "Python Session 4.pptx — Slide 10"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 4.pptx — Slides 9–13"
+                  },
+                  {
+                    "id": "if-elif-else",
+                    "title": "if-elif-else: Multi-Branch Decisions",
+                    "summaryAr": "تستخدم لعدة حالات متبادلة؛ الشروط تُفحص بالترتيب ويتوقف التنفيذ عند أول True.",
+                    "keyTerms": [
+                      "elif",
+                      "First True Branch",
+                      "Grading",
+                      "Ranges"
+                    ],
+                    "conceptsAr": [
+                      "ترتيب الشروط مهم.",
+                      "else fallback لو كل الشروط السابقة False."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Grading system",
+                        "code": "score = 72\nif score >= 90:\n    print(\"Grade A\")\nelif score >= 80:\n    print(\"Grade B\")\nelif score >= 70:\n    print(\"Grade C\")\nelse:\n    print(\"Below C\")",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "72 تصل لثالث condition فقط.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "72>=90 False."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "72>=80 False."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "72>=70 True."
+                          }
+                        ],
+                        "executionTrace": [
+                          "False",
+                          "False",
+                          "True → stop"
+                        ],
+                        "expectedOutput": "Grade C",
+                        "whyItWorks": "السلسلة تتوقف عند أول True.",
+                        "commonMistakes": [
+                          "وضع >=70 قبل >=90.",
+                          "اعتبار elif مثل if مستقلة."
+                        ],
+                        "examTips": [
+                          "لـ >= thresholds افحص الأعلى أولًا."
+                        ],
+                        "sourceTrace": "Python Session 4.pptx — Slide 15"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 4.pptx — Slides 14–18"
+                  },
+                  {
+                    "id": "nested-if",
+                    "title": "Nested if Statements",
+                    "summaryAr": "Nested if تعني condition داخل branch أخرى، وتستخدم لما القرار الثاني يعتمد على تحقق القرار الأول.",
+                    "keyTerms": [
+                      "Nested if",
+                      "Outer Condition",
+                      "Inner Condition",
+                      "Permission",
+                      "Balance Check"
+                    ],
+                    "conceptsAr": [
+                      "inner if لا تُفحص لو outer if False."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Bank balance nested check",
+                        "code": "balance = 1000\nwithdraw_amount = 300\nif balance >= withdraw_amount:\n    if withdraw_amount > 0:\n        print(\"Transaction successful\")",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "العملية تمر بشرطين متتابعين.",
+                        "lineByLine": [
+                          {
+                            "line": 3,
+                            "ar": "1000>=300 True."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "300>0 True."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "الرسالة تتنفذ."
+                          }
+                        ],
+                        "executionTrace": [
+                          "outer True",
+                          "inner True",
+                          "print"
+                        ],
+                        "expectedOutput": "Transaction successful",
+                        "whyItWorks": "inner decision لا يصل لها التنفيذ إلا بعد نجاح outer.",
+                        "commonMistakes": [
+                          "Indentation خاطئ.",
+                          "تجاهل outer condition."
+                        ],
+                        "examTips": [
+                          "ارسم nested logic كشجرة قرار."
+                        ],
+                        "sourceTrace": "Python Session 4.pptx — Slide 23"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 4.pptx — Slides 19–23"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-03",
+              "title": "Session 3 — Loops, Iteration & Nested Control Flow",
+              "description": "for loop للتكرار على sequence مثل List/Tuple/String/range وتنفيذ block لكل item.",
+              "examId": "data-analysis-python-session03-practice-v1",
+              "sourceFile": "Python Session 5.pptx",
+              "study": {
+                "title": "Session 3 · Loops, Iteration & Nested Control Flow",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "for-loop",
+                    "title": "for Loops: Iterating over Sequences",
+                    "summaryAr": "for loop للتكرار على sequence مثل List/Tuple/String/range وتنفيذ block لكل item.",
+                    "keyTerms": [
+                      "for",
+                      "Iterable",
+                      "range()",
+                      "Iteration"
+                    ],
+                    "conceptsAr": [
+                      "range(5) تنتج 0..4.",
+                      "String iteration تعطي character واحد كل مرة."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Iterate over range",
+                        "code": "for number in range(5):\n    print(number)",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "range stop غير مشمول.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "number تأخذ 0 ثم1 ثم2 ثم3 ثم4."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "طباعة كل قيمة."
+                          }
+                        ],
+                        "executionTrace": [
+                          "0",
+                          "1",
+                          "2",
+                          "3",
+                          "4"
+                        ],
+                        "expectedOutput": "0\n1\n2\n3\n4",
+                        "whyItWorks": "range(5) تتوقف قبل 5.",
+                        "commonMistakes": [
+                          "توقع 5.",
+                          "نسيان indentation."
+                        ],
+                        "examTips": [
+                          "stop في range غير مشمول."
+                        ],
+                        "sourceTrace": "Python Session 5.pptx — Slide 8"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 5.pptx — Slides 5–9"
+                  },
+                  {
+                    "id": "loop-else",
+                    "title": "Loop else",
+                    "summaryAr": "for وwhile يمكن أن يكون لهما else تنفذ عند natural completion بدون break.",
+                    "keyTerms": [
+                      "for-else",
+                      "while-else",
+                      "Natural Completion",
+                      "break"
+                    ],
+                    "conceptsAr": [
+                      "break يمنع loop else من natural completion."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 5.pptx — Slides 10, 18, 27"
+                  },
+                  {
+                    "id": "while-loop",
+                    "title": "while Loops",
+                    "summaryAr": "while تكرر block طالما condition True، ومناسبة عندما عدد iterations غير معروف مسبقًا.",
+                    "keyTerms": [
+                      "while",
+                      "Condition-Controlled Loop",
+                      "Counter",
+                      "Infinite Loop"
+                    ],
+                    "conceptsAr": [
+                      "لازم condition تتغير أو يوجد break لتجنب infinite loop."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Basic while loop",
+                        "code": "count = 0\nwhile count < 5:\n    print(count)\n    count += 1",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "counter يزيد بعد كل طباعة حتى يفشل الشرط.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "اختبار count<5."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "طباعة current count."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "زيادة count."
+                          }
+                        ],
+                        "executionTrace": [
+                          "0<5",
+                          "1<5",
+                          "2<5",
+                          "3<5",
+                          "4<5",
+                          "5<5 False"
+                        ],
+                        "expectedOutput": "0\n1\n2\n3\n4",
+                        "whyItWorks": "زيادة counter تقود للتوقف.",
+                        "commonMistakes": [
+                          "نسيان increment → infinite loop.",
+                          "توقع طباعة 5."
+                        ],
+                        "examTips": [
+                          "راقب variable الذي يغير condition."
+                        ],
+                        "sourceTrace": "Python Session 5.pptx — Slide 14"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 5.pptx — Slides 13–18"
+                  },
+                  {
+                    "id": "break-continue",
+                    "title": "break & continue",
+                    "summaryAr": "break تنهي loop فورًا، بينما continue تتخطى بقية current iteration وتكمل التالية.",
+                    "keyTerms": [
+                      "break",
+                      "continue",
+                      "Skip Iteration",
+                      "Exit Loop"
+                    ],
+                    "conceptsAr": [
+                      "الفرق بينهما أساسي في code tracing."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "continue skips one iteration",
+                        "code": "count = 0\nwhile count < 5:\n    count += 1\n    if count == 3:\n        continue\n    print(count)",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "عند 3 يتم تخطي print فقط.",
+                        "lineByLine": [
+                          {
+                            "line": 3,
+                            "ar": "زيادة count."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "عند 3 الشرط True."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "continue ترجع لبداية while."
+                          }
+                        ],
+                        "executionTrace": [
+                          "1 print",
+                          "2 print",
+                          "3 skipped",
+                          "4 print",
+                          "5 print"
+                        ],
+                        "expectedOutput": "1\n2\n4\n5",
+                        "whyItWorks": "continue لا تنهي loop.",
+                        "commonMistakes": [
+                          "الخلط بينها وبين break.",
+                          "وضع increment بعد continue."
+                        ],
+                        "examTips": [
+                          "حدد مكان continue بالنسبة للـ counter."
+                        ],
+                        "sourceTrace": "Python Session 5.pptx — Slide 16"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 5.pptx — Slides 15–17, 27"
+                  },
+                  {
+                    "id": "nested-loops",
+                    "title": "Nested Loops",
+                    "summaryAr": "Nested loop هي loop داخل loop؛ inner loop تكتمل لكل outer iteration، والعدد الكلي تقريبًا n×m.",
+                    "keyTerms": [
+                      "Nested Loop",
+                      "Outer Loop",
+                      "Inner Loop",
+                      "O(n×m)",
+                      "O(n²)",
+                      "Matrix",
+                      "Grid"
+                    ],
+                    "conceptsAr": [
+                      "مفيدة في matrices/grids/pairwise comparisons/patterns.",
+                      "لو كلاهما يعتمد على n يمكن وصفها O(n²)."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Nested iteration count",
+                        "code": "for i in range(3):\n    for j in range(2):\n        print(i, j)",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "3 outer × 2 inner = 6 outputs.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "i=0,1,2."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "لكل i، j=0,1."
+                          }
+                        ],
+                        "executionTrace": [
+                          "0→0,1",
+                          "1→0,1",
+                          "2→0,1"
+                        ],
+                        "expectedOutput": "0 0\n0 1\n1 0\n1 1\n2 0\n2 1",
+                        "whyItWorks": "inner loop تعاد بالكامل لكل outer iteration.",
+                        "commonMistakes": [
+                          "جمع 3+2 بدل ضربهما."
+                        ],
+                        "examTips": [
+                          "احسب outer_count × inner_count."
+                        ],
+                        "sourceTrace": "Python Session 5.pptx — Slides 19–20"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 5.pptx — Slides 19–24"
+                  },
+                  {
+                    "id": "loop-optimization",
+                    "title": "When to Avoid or Optimize Nested Loops",
+                    "summaryAr": "المصدر يحذر من nested loops على datasets كبيرة ويقترح List Comprehensions، built-ins، Vectorization، أو algorithms أفضل.",
+                    "keyTerms": [
+                      "Vectorization",
+                      "List Comprehension",
+                      "Built-in Functions",
+                      "O(n log n)",
+                      "Hash Table"
+                    ],
+                    "conceptsAr": [
+                      "1000×1000 = 1,000,000 iterations.",
+                      "NumPy vectorization مثال لتجنب explicit loops.",
+                      "Sorting O(n log n) وhash tables أمثلة تحسين مذكورة."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 5.pptx — Slides 24–26"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-04",
+              "title": "Session 4 — Practical Looping Patterns & Problem Solving",
+              "description": "التطبيقات تستخدم for loop لمسح collections والحفاظ على state مثل running maximum أو العناصر المشتركة.",
+              "examId": "data-analysis-python-session04-practice-v1",
+              "sourceFile": "Python Session 6.pptx",
+              "study": {
+                "title": "Session 4 · Practical Looping Patterns & Problem Solving",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "max-common",
+                    "title": "Scanning Collections: Maximum & Common Elements",
+                    "summaryAr": "التطبيقات تستخدم for loop لمسح collections والحفاظ على state مثل running maximum أو العناصر المشتركة.",
+                    "keyTerms": [
+                      "Running Maximum",
+                      "Membership",
+                      "append()",
+                      "List Scan"
+                    ],
+                    "conceptsAr": [
+                      "Maximum يبدأ بأول عنصر ثم يتحدث عند قيمة أكبر.",
+                      "Common Elements تفحص membership في List ثانية."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Find maximum",
+                        "code": "numbers = [3, 5, 2, 8, 1, 9, 4]\nmax_value = numbers[0]\nfor number in numbers:\n    if number > max_value:\n        max_value = number\nprint(max_value)",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "max_value تمثل أكبر قيمة وصلنا لها.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "ابدأ بأول عنصر."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "افحص كل رقم."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "حدث فقط لو أكبر."
+                          }
+                        ],
+                        "executionTrace": [
+                          "3",
+                          "5→max",
+                          "2",
+                          "8→max",
+                          "1",
+                          "9→max",
+                          "4"
+                        ],
+                        "expectedOutput": "9",
+                        "whyItWorks": "running state تتغير عند تحسن القيمة.",
+                        "commonMistakes": [
+                          "بدء max=0 لو القيم قد تكون سالبة."
+                        ],
+                        "examTips": [
+                          "تتبع max بعد كل عنصر."
+                        ],
+                        "sourceTrace": "Python Session 6.pptx — Slide 5"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 6.pptx — Slides 5, 10"
+                  },
+                  {
+                    "id": "text-looping",
+                    "title": "Text Processing with Loops",
+                    "summaryAr": "المصدر يطبق loops على Strings في counting vowels وpalindrome checking.",
+                    "keyTerms": [
+                      "Character Loop",
+                      "lower()",
+                      "Membership",
+                      "Palindrome",
+                      "break"
+                    ],
+                    "conceptsAr": [
+                      "lower() تجعل فحص vowels case-insensitive.",
+                      "Palindrome تقارن البداية والنهاية نحو المنتصف."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Count vowels",
+                        "code": "text = \"Hello, how are you?\"\nvowel_count = 0\nfor char in text:\n    if char.lower() in \"aeiou\":\n        vowel_count += 1\nprint(vowel_count)",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "كل character يمر على membership test.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "counter=0."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "هل الحرف vowel؟"
+                          },
+                          {
+                            "line": 5,
+                            "ar": "زد فقط عند النجاح."
+                          }
+                        ],
+                        "executionTrace": [
+                          "e,o,o,a,e,o,u"
+                        ],
+                        "expectedOutput": "7",
+                        "whyItWorks": "counter تجمع الحالات المطابقة.",
+                        "commonMistakes": [
+                          "زيادة counter خارج if.",
+                          "نسيان lower()."
+                        ],
+                        "examTips": [
+                          "راقب مكان increment."
+                        ],
+                        "sourceTrace": "Python Session 6.pptx — Slide 6"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 6.pptx — Slides 6, 15"
+                  },
+                  {
+                    "id": "number-algorithms",
+                    "title": "Number Algorithms: Prime, Factorial & Sum of Digits",
+                    "summaryAr": "Session 4 تستخدم loops لبناء prime detection، factorial، واستخراج digits بالمودولس.",
+                    "keyTerms": [
+                      "Prime",
+                      "Divisibility",
+                      "Factorial",
+                      "Modulo %",
+                      "Integer Division //",
+                      "for-else"
+                    ],
+                    "conceptsAr": [
+                      "Prime يستخدم inner loop وbreak/else.",
+                      "Factorial تضرب 1..num.",
+                      "Sum of digits تستخرج آخر digit بالـ modulus."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Factorial",
+                        "code": "num = 5\nfactorial = 1\nfor i in range(1, num + 1):\n    factorial *= i\nprint(factorial)",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "running product من 1 إلى 5.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "ابدأ 1."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "range تشمل 1..5."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "اضرب الناتج السابق في i."
+                          }
+                        ],
+                        "executionTrace": [
+                          "1",
+                          "2",
+                          "6",
+                          "24",
+                          "120"
+                        ],
+                        "expectedOutput": "120",
+                        "whyItWorks": "هوية الضرب 1 وتراكم الضرب.",
+                        "commonMistakes": [
+                          "بدء factorial=0.",
+                          "range(1,num) تستبعد num."
+                        ],
+                        "examTips": [
+                          "ركز على stop exclusive."
+                        ],
+                        "sourceTrace": "Python Session 6.pptx — Slide 11"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 6.pptx — Slides 7, 11, 13"
+                  },
+                  {
+                    "id": "fibonacci",
+                    "title": "Fibonacci with while",
+                    "summaryAr": "المصدر يبني Fibonacci بمتغيرين a وb وList تتزايد حتى الوصول للطول المطلوب.",
+                    "keyTerms": [
+                      "Fibonacci",
+                      "Tuple Assignment",
+                      "append()",
+                      "while"
+                    ],
+                    "conceptsAr": [
+                      "a,b = b,a+b تحدث القيمتين باستخدام القيم القديمة."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Generate Fibonacci",
+                        "code": "n = 10\na, b = 0, 1\nfibonacci_sequence = []\nwhile len(fibonacci_sequence) < n:\n    fibonacci_sequence.append(a)\n    a, b = b, a + b\nprint(fibonacci_sequence)",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "أضف a ثم تحرك للزوج التالي.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "seed values."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "استمر حتى طول 10."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "أضف current a."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "حدث الزوج."
+                          }
+                        ],
+                        "executionTrace": [
+                          "0",
+                          "1",
+                          "1",
+                          "2",
+                          "3",
+                          "5",
+                          "8",
+                          "13",
+                          "21",
+                          "34"
+                        ],
+                        "expectedOutput": "[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]",
+                        "whyItWorks": "كل term جديدة تعتمد على الزوج السابق.",
+                        "commonMistakes": [
+                          "تحديث a منفردة قبل حساب b."
+                        ],
+                        "examTips": [
+                          "احسب RHS أولًا في tuple assignment."
+                        ],
+                        "sourceTrace": "Python Session 6.pptx — Slide 8"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 6.pptx — Slide 8"
+                  },
+                  {
+                    "id": "interactive-loops",
+                    "title": "Interactive while Loops: ATM, Validation & Password Attempts",
+                    "summaryAr": "while مناسبة للتفاعل عندما عدد المحاولات غير معروف، مع break عند نجاح أو انتهاء الحالة.",
+                    "keyTerms": [
+                      "ATM",
+                      "Input Validation",
+                      "Password Attempts",
+                      "break",
+                      "Counter",
+                      "State"
+                    ],
+                    "conceptsAr": [
+                      "ATM تحدث balance.",
+                      "Validation تكرر input حتى شرط valid.",
+                      "Password example يسمح حتى 3 attempts."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 6.pptx — Slides 9, 12, 17"
+                  },
+                  {
+                    "id": "patterns-mapping",
+                    "title": "Patterns, Tables & Building a Dictionary",
+                    "summaryAr": "المصدر يستخدم loops في pattern printing، multiplication table، وبناء Dictionary من قائمتين متوازيتين.",
+                    "keyTerms": [
+                      "Nested Loop",
+                      "Pattern",
+                      "Multiplication Table",
+                      "Dictionary",
+                      "Parallel Lists",
+                      "Index"
+                    ],
+                    "conceptsAr": [
+                      "outer loop للصفوف وinner loop للعناصر داخل الصف.",
+                      "keys[i] ترتبط مع values[i] في بناء Dictionary."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 6.pptx — Slides 14, 16, 18"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-05",
+              "title": "Session 5 — Functions, Lambda & Advanced Function Concepts",
+              "description": "Function هي block reusable له اسم، ويمكن استدعاؤه أكثر من مرة لتنظيم الكود وتقليل التكرار.",
+              "examId": "data-analysis-python-session05-practice-v1",
+              "sourceFile": "Python Session 7.pptx",
+              "study": {
+                "title": "Session 5 · Functions, Lambda & Advanced Function Concepts",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "functions-core",
+                    "title": "Defining & Calling Functions",
+                    "summaryAr": "Function هي block reusable له اسم، ويمكن استدعاؤه أكثر من مرة لتنظيم الكود وتقليل التكرار.",
+                    "keyTerms": [
+                      "def",
+                      "Function Call",
+                      "Reusable Code",
+                      "Indentation"
+                    ],
+                    "conceptsAr": [
+                      "التعريف يبدأ بـ def ثم اسم الدالة و().",
+                      "الـ body لازم تكون indented.",
+                      "التنفيذ لا يحدث عند التعريف وحده؛ يحدث عند call."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Basic function",
+                        "code": "def greet():\n    print(\"Hello, world!\")\n\ngreet()",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "الدالة تتعرّف أولًا، وبعد call يتم تنفيذ body.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "تعريف greet بدون parameters."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "body تطبع الرسالة."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "استدعاء الدالة."
+                          }
+                        ],
+                        "executionTrace": [
+                          "define greet",
+                          "call greet",
+                          "print"
+                        ],
+                        "expectedOutput": "Hello, world!",
+                        "whyItWorks": "الـ call ينقل التنفيذ إلى body ثم يعود بعد انتهائها.",
+                        "commonMistakes": [
+                          "نسيان indentation.",
+                          "الاعتقاد أن التعريف وحده ينفذ body."
+                        ],
+                        "examTips": [
+                          "فرّق بين function definition وfunction call."
+                        ],
+                        "sourceTrace": "Python Session 7.pptx — Slide 6"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 7.pptx — Slides 5–6"
+                  },
+                  {
+                    "id": "parameters-return",
+                    "title": "Parameters, Default Values & Return",
+                    "summaryAr": "Parameters تدخل قيم للدالة، وreturn يرجع نتيجة للـ caller. Default parameters توفر fallback عندما لا يتم تمرير argument.",
+                    "keyTerms": [
+                      "Parameter",
+                      "Argument",
+                      "return",
+                      "Default Parameter"
+                    ],
+                    "conceptsAr": [
+                      "add(a,b) مثال على parameters وreturn.",
+                      "greet(name=\"Guest\") مثال على default.",
+                      "return تختلف عن print؛ الأولى ترجع قيمة قابلة للاستخدام."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Parameters and return",
+                        "code": "def add(a, b):\n    return a + b\n\nresult = add(5, 3)\nprint(result)",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "5 و3 تدخل كـ arguments، وتُربط بـ a وb، ثم return تعيد 8.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "تعريف parameters a,b."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "إرجاع مجموعهما."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "استدعاء وحفظ returned value."
+                          }
+                        ],
+                        "executionTrace": [
+                          "a=5,b=3",
+                          "a+b=8",
+                          "return 8",
+                          "result=8"
+                        ],
+                        "expectedOutput": "8",
+                        "whyItWorks": "return تسمح للـ caller باستخدام الناتج.",
+                        "commonMistakes": [
+                          "الخلط بين print وreturn.",
+                          "نسيان تمرير required arguments."
+                        ],
+                        "examTips": [
+                          "لو السؤال يسأل قيمة function expression، ركز على return."
+                        ],
+                        "sourceTrace": "Python Session 7.pptx — Slide 7"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 7.pptx — Slides 7–9"
+                  },
+                  {
+                    "id": "multiple-docstrings",
+                    "title": "Multiple Returns & Docstrings",
+                    "summaryAr": "Python تسمح بإرجاع أكثر من قيمة ثم unpacking، والـ docstring توثق وظيفة الدالة ويمكن قراءتها من __doc__.",
+                    "keyTerms": [
+                      "Multiple Return",
+                      "Unpacking",
+                      "Docstring",
+                      "__doc__"
+                    ],
+                    "conceptsAr": [
+                      "divide(a,b) يرجع quotient وremainder.",
+                      "q,r تستقبل القيمتين بالترتيب.",
+                      "Docstring ليست output عادي؛ هي documentation metadata للدالة."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 7.pptx — Slides 9–10"
+                  },
+                  {
+                    "id": "lambda-map-filter",
+                    "title": "Lambda, map() & filter()",
+                    "summaryAr": "Lambda function صغيرة anonymous. map() تطبق transformation على كل item، وfilter() تحتفظ بالعناصر التي تحقق condition.",
+                    "keyTerms": [
+                      "lambda",
+                      "map()",
+                      "filter()",
+                      "Anonymous Function"
+                    ],
+                    "conceptsAr": [
+                      "Lambda مناسبة للعمليات القصيرة.",
+                      "map للتحويل، filter للاختيار."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "map with lambda",
+                        "code": "numbers = [1, 2, 3, 4, 5]\nsquares = list(map(lambda x: x * x, numbers))\nprint(squares)",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "lambda تُطبق على كل عنصر من numbers بواسطة map.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "مصدر البيانات."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "map تمرر كل x إلى lambda ثم list تجمع النتائج."
+                          }
+                        ],
+                        "executionTrace": [
+                          "1→1",
+                          "2→4",
+                          "3→9",
+                          "4→16",
+                          "5→25"
+                        ],
+                        "expectedOutput": "[1, 4, 9, 16, 25]",
+                        "whyItWorks": "map transformation one-to-one على iterable.",
+                        "commonMistakes": [
+                          "استخدام filter بدل map مع هدف transformation."
+                        ],
+                        "examTips": [
+                          "اسأل: هل بنغير كل item أم نختار بعضهم؟"
+                        ],
+                        "sourceTrace": "Python Session 7.pptx — Slide 15"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 7.pptx — Slides 12–16"
+                  },
+                  {
+                    "id": "recursion-hof",
+                    "title": "Recursion & Higher-Order Functions",
+                    "summaryAr": "Recursion هي function تستدعي نفسها لحل subproblem أصغر، وتحتاج base case. Higher-order function تستقبل function أو ترجع function.",
+                    "keyTerms": [
+                      "Recursion",
+                      "Base Case",
+                      "Higher-Order Function",
+                      "Function as Argument",
+                      "Returning Function"
+                    ],
+                    "conceptsAr": [
+                      "Recursive factorial في المصدر يصل إلى 120 لـ 5!.",
+                      "Higher-order examples تشمل apply_operation وouter_function."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Recursive factorial",
+                        "code": "def factorial(n):\n    if n == 1:\n        return 1\n    return n * factorial(n - 1)\n\nprint(factorial(5))",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "كل call تقلل n حتى base case ثم النتائج ترجع للخلف بالضرب.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "base case عند 1."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "recursive call بقيمة أصغر."
+                          }
+                        ],
+                        "executionTrace": [
+                          "5*f(4)",
+                          "5*4*f(3)",
+                          "...",
+                          "5*4*3*2*1"
+                        ],
+                        "expectedOutput": "120",
+                        "whyItWorks": "base case توقف recursion، والـ call stack ترجع النتائج.",
+                        "commonMistakes": [
+                          "عدم وجود base case."
+                        ],
+                        "examTips": [
+                          "في recursion trace اكتب سلسلة calls ثم ارجع بالعكس."
+                        ],
+                        "sourceTrace": "Python Session 7.pptx — Slide 18"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 7.pptx — Slides 17–22"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-06",
+              "title": "Session 6 — Functional Problem Solving & Mini Applications",
+              "description": "Session 6 تحول مفاهيم functions إلى problem solving: aggregation، scanning، وBoolean checks.",
+              "examId": "data-analysis-python-session06-practice-v1",
+              "sourceFile": "Python Session 8.pptx",
+              "study": {
+                "title": "Session 6 · Functional Problem Solving & Mini Applications",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "function-practice-core",
+                    "title": "Core Function Practice: Average, Longest Word & Prime",
+                    "summaryAr": "Session 6 تحول مفاهيم functions إلى problem solving: aggregation، scanning، وBoolean checks.",
+                    "keyTerms": [
+                      "average",
+                      "longest word",
+                      "is_prime()",
+                      "return"
+                    ],
+                    "conceptsAr": [
+                      "Average تجمع ثم تقسم على العدد.",
+                      "Longest word تحتفظ بأطول candidate.",
+                      "Prime function ترجع Boolean."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Average function",
+                        "code": "def average(numbers):\n    return sum(numbers) / len(numbers)\n\nprint(average([10, 20, 30, 40, 50]))",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "الدالة تجمع القيم وتقسم على عددها.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "numbers parameter List."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "sum / len."
+                          }
+                        ],
+                        "executionTrace": [
+                          "sum=150",
+                          "len=5",
+                          "150/5"
+                        ],
+                        "expectedOutput": "30.0",
+                        "whyItWorks": "المتوسط = مجموع القيم ÷ عددها.",
+                        "commonMistakes": [
+                          "القسمة على عدد ثابت لا يطابق طول List."
+                        ],
+                        "examTips": [
+                          "راقب type الناتج؛ القسمة / تعطي float."
+                        ],
+                        "sourceTrace": "Python Session 8.pptx — Slide 5"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 8.pptx — Slides 5–7"
+                  },
+                  {
+                    "id": "converters-list-functions",
+                    "title": "Converters & List-Comprehension Functions",
+                    "summaryAr": "المصدر يطبق functions على تحويل درجات الحرارة وعلى بناء Lists جديدة مثل squares وuppercase.",
+                    "keyTerms": [
+                      "Celsius",
+                      "Fahrenheit",
+                      "List Comprehension",
+                      "upper()"
+                    ],
+                    "conceptsAr": [
+                      "كل direction لها formula مختلفة.",
+                      "List comprehension داخل function ترجع transformed list."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Squares in a function",
+                        "code": "def square_list(numbers):\n    return [n * n for n in numbers]\n\nprint(square_list([1,2,3,4,5]))",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "الدالة تعيد List جديدة من squares.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "كل n تتحول إلى n*n."
+                          }
+                        ],
+                        "executionTrace": [
+                          "1→1",
+                          "2→4",
+                          "3→9",
+                          "4→16",
+                          "5→25"
+                        ],
+                        "expectedOutput": "[1, 4, 9, 16, 25]",
+                        "whyItWorks": "return يعيد الناتج للـ caller.",
+                        "commonMistakes": [
+                          "تعديل List الأصلية بدون حاجة."
+                        ],
+                        "examTips": [
+                          "تعامل معها كـ function + list comprehension في نفس الوقت."
+                        ],
+                        "sourceTrace": "Python Session 8.pptx — Slide 9"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 8.pptx — Slides 8–10"
+                  },
+                  {
+                    "id": "business-utility-functions",
+                    "title": "Business Utility Functions",
+                    "summaryAr": "Tax calculation وmin/max وemail basic validation أمثلة على وظائف صغيرة لها input واضح وoutput واضح.",
+                    "keyTerms": [
+                      "Tax Rate",
+                      "min()",
+                      "max()",
+                      "Email Check"
+                    ],
+                    "conceptsAr": [
+                      "Tax تطبق rate على total.",
+                      "min/max built-ins تختصر scanning.",
+                      "Email check في المصدر basic فقط وليس معيار validation كامل."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 8.pptx — Slides 11–13"
+                  },
+                  {
+                    "id": "frequency-composition-sorting",
+                    "title": "Frequency, Function Composition & Lambda Sorting",
+                    "summaryAr": "المصدر يستخدم Dictionary لعد characters، function داخل function، وlambda كـ sort key.",
+                    "keyTerms": [
+                      "Frequency Dictionary",
+                      "Function Composition",
+                      "sort()",
+                      "lambda key"
+                    ],
+                    "conceptsAr": [
+                      "Character→count mapping مناسب للـ Dictionary.",
+                      "Function composition تعيد استخدام logic موجود.",
+                      "lambda x:x[1] ترتب tuple حسب العنصر الثاني."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Sort tuples by second value",
+                        "code": "pairs = [(\"A\", 3), (\"B\", 1), (\"C\", 2)]\npairs.sort(key=lambda x: x[1])\nprint(pairs)",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "الـ key function ترجع العنصر الثاني لكل tuple ليكون معيار الترتيب.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "lambda x:x[1] = sort key."
+                          }
+                        ],
+                        "executionTrace": [
+                          "B→1",
+                          "C→2",
+                          "A→3"
+                        ],
+                        "expectedOutput": "[('B', 1), ('C', 2), ('A', 3)]",
+                        "whyItWorks": "sort تستخدم القيمة الراجعة من key للمقارنة.",
+                        "commonMistakes": [
+                          "استخدام x[0] عندما المطلوب second element."
+                        ],
+                        "examTips": [
+                          "في lambda sorting حدد بالضبط أي field هو key."
+                        ],
+                        "sourceTrace": "Python Session 8.pptx — Slide 19"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 8.pptx — Slides 14–20"
+                  },
+                  {
+                    "id": "mini-applications",
+                    "title": "Mini Applications",
+                    "summaryAr": "آخر الجزء يجمع functions في تطبيقات: Calculator, Number Guessing, Password Generator, Text Analysis, Age Calculator, Currency Converter, Contact Book, Dice Roller.",
+                    "keyTerms": [
+                      "Calculator",
+                      "Guessing Game",
+                      "Password Generator",
+                      "Text Analysis",
+                      "Contact Book",
+                      "Dice Roller"
+                    ],
+                    "conceptsAr": [
+                      "الهدف هنا composition: تقسيم التطبيق لوظائف صغيرة بدل block واحد كبير."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 8.pptx — Slides 21–30"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-07",
+              "title": "Session 7 — File Handling, OS Module & File System Operations",
+              "description": "File Handling تسمح بحفظ البيانات واسترجاع ملفات خارجية ومعالجة ملفات كبيرة. open() تحتاج path وmode، وclose() تحرر resources.",
+              "examId": "data-analysis-python-session07-practice-v1",
+              "sourceFile": "Python Session 9.pptx",
+              "study": {
+                "title": "Session 7 · File Handling, OS Module & File System Operations",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "file-basics",
+                    "title": "Why File Handling + open/close/read",
+                    "summaryAr": "File Handling تسمح بحفظ البيانات واسترجاع ملفات خارجية ومعالجة ملفات كبيرة. open() تحتاج path وmode، وclose() تحرر resources.",
+                    "keyTerms": [
+                      "open()",
+                      "r",
+                      "File Object",
+                      "close()",
+                      "read()",
+                      "FileNotFoundError"
+                    ],
+                    "conceptsAr": [
+                      "Default mode هو r.",
+                      "read() تقرأ المحتوى، وread(n) جزءًا محدودًا.",
+                      "f.closed توضح حالة الملف."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 9.pptx — Slides 1–5, 8"
+                  },
+                  {
+                    "id": "with-line-reading",
+                    "title": "with Statement & Line-by-Line Reading",
+                    "summaryAr": "with open(...) يدير الإغلاق تلقائيًا. Line-by-line iteration أفضل عندما لا نريد تحميل الملف كله في الذاكرة.",
+                    "keyTerms": [
+                      "with open",
+                      "Context Manager",
+                      "for line in file",
+                      "strip()"
+                    ],
+                    "conceptsAr": [
+                      "المصدر يحتوي typo بصري withopen؛ النسخة الصحيحة في المنصة with open.",
+                      "strip() تزيل whitespace/newline حول السطر."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Safe file context",
+                        "code": "with open(\"geek.txt\", \"r\") as file:\n    content = file.read()\n    print(content)",
+                        "language": "python",
+                        "sourceKind": "platform-presentation-correction",
+                        "explanationAr": "بعد الخروج من with block يتم إغلاق الملف تلقائيًا.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "فتح file context."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "قراءة أثناء أن الملف مفتوح."
+                          }
+                        ],
+                        "executionTrace": [
+                          "enter context",
+                          "read/print",
+                          "leave context → auto close"
+                        ],
+                        "expectedOutput": "Depends on file content",
+                        "whyItWorks": "context manager يقلل resource leaks.",
+                        "commonMistakes": [
+                          "نسخ typo withopen من السلايد."
+                        ],
+                        "examTips": [
+                          "الكود الصحيح هو with open وليس withopen."
+                        ],
+                        "sourceTrace": "Python Session 9.pptx — Slide 6"
+                      }
+                    ],
+                    "sourceTrace": "Python Session 9.pptx — Slides 6–7"
+                  },
+                  {
+                    "id": "write-append",
+                    "title": "Write, Append & Creation Modes",
+                    "summaryAr": "w تمسح المحتوى القديم ثم تكتب، a تضيف في النهاية، x تنشئ ملفًا جديدًا وتفشل لو موجود، b flag للملفات binary.",
+                    "keyTerms": [
+                      "w",
+                      "a",
+                      "x",
+                      "b",
+                      "truncate",
+                      "append"
+                    ],
+                    "conceptsAr": [
+                      "اختيار mode قرار مهم لأنه قد يحذف محتوى موجود."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 9.pptx — Slides 9–10"
+                  },
+                  {
+                    "id": "cwd-directories",
+                    "title": "Current Working Directory & Directory Creation",
+                    "summaryAr": "CWD هي folder التي يعمل منها Python للـ relative paths. os.getcwd() تقرأها وos.chdir() تغيرها. mkdir single directory وmakedirs recursive.",
+                    "keyTerms": [
+                      "os.getcwd()",
+                      "os.chdir()",
+                      "os.mkdir()",
+                      "os.makedirs()",
+                      "os.path.join()"
+                    ],
+                    "conceptsAr": [
+                      "المصدر يفرق بين CWD ومكان script نفسه.",
+                      "makedirs تنشئ intermediate directories إذا كانت مفقودة."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 9.pptx — Slides 12–17"
+                  },
+                  {
+                    "id": "list-delete",
+                    "title": "Listing & Deleting Files/Directories",
+                    "summaryAr": "os.listdir() تسرد محتويات directory. os.remove() للملفات، وos.rmdir() للـ empty directories.",
+                    "keyTerms": [
+                      "os.listdir()",
+                      "os.remove()",
+                      "os.rmdir()",
+                      "OSError"
+                    ],
+                    "conceptsAr": [
+                      "os.remove لا تحذف directory.",
+                      "os.rmdir يفشل لو directory غير فارغ."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 9.pptx — Slides 18–21"
+                  },
+                  {
+                    "id": "metadata-common-os",
+                    "title": "Permissions, Metadata & Common OS Functions",
+                    "summaryAr": "المصدر يغطي chmod/chown/stat، os.name/os.error، os.popen/os.close، exists/getsize، rename.",
+                    "keyTerms": [
+                      "os.chmod()",
+                      "os.chown()",
+                      "os.stat()",
+                      "st_size",
+                      "os.path.exists()",
+                      "os.path.getsize()",
+                      "os.rename()",
+                      "os.close()"
+                    ],
+                    "conceptsAr": [
+                      "os.close expects low-level integer descriptor، وليس file object من open().",
+                      "rename يغير الاسم؛ old path لن يبقى صالحًا بعد نجاح العملية.",
+                      "chown Unix/Linux only حسب المصدر."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Python Session 9.pptx — Slides 22–29"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-08",
+              "title": "Session 8 — NumPy Fundamentals, Arrays & Vectorized Data Operations",
+              "description": "NumPy هي أساس numerical computing في Python، وبتوفر N-dimensional arrays أكثر كفاءة للعمليات الرقمية من الاعتماد على Python Lists فقط.",
+              "examId": "data-analysis-python-session08-practice-v1",
+              "sourceFile": "Numpy_1.pptx",
+              "study": {
+                "title": "Session 8 · NumPy Fundamentals, Arrays & Vectorized Data Operations",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "numpy-fundamentals",
+                    "title": "NumPy Foundations & ndarray",
+                    "summaryAr": "NumPy هي أساس numerical computing في Python، وبتوفر N-dimensional arrays أكثر كفاءة للعمليات الرقمية من الاعتماد على Python Lists فقط.",
+                    "keyTerms": [
+                      "NumPy",
+                      "ndarray",
+                      "N-dimensional Array",
+                      "Vectorized Operations",
+                      "Broadcasting"
+                    ],
+                    "conceptsAr": [
+                      "NumPy foundation لكتير من مكتبات Data Science مثل Pandas وScikit-learn.",
+                      "الـ ndarray تقدر تمثل 1D و2D وأكثر."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Numpy_1.pptx — Slides 5–6"
+                  },
+                  {
+                    "id": "numpy-creation",
+                    "title": "Creating Arrays & Understanding Shape",
+                    "summaryAr": "المصدر يغطي np.array() وzeros/ones/arange/linspace/random، مع shape وdtype لفهم بنية البيانات.",
+                    "keyTerms": [
+                      "np.array()",
+                      "np.zeros()",
+                      "np.ones()",
+                      "np.arange()",
+                      "np.linspace()",
+                      "shape",
+                      "dtype"
+                    ],
+                    "conceptsAr": [
+                      "shape tuple فيها حجم كل dimension.",
+                      "arange stop غير مشمول.",
+                      "linspace ممتازة لما عدد النقاط المطلوب معروف."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "arange vs linspace",
+                        "code": "import numpy as np\nprint(np.arange(0, 10, 2))\nprint(np.linspace(0, 1, 5))",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "الأولى تعتمد على step، والثانية تعتمد على عدد points.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "arange من 0 حتى قبل 10 بخطوة 2."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "linspace تبني 5 قيم موزعة بالتساوي بين 0 و1."
+                          }
+                        ],
+                        "executionTrace": [
+                          "arange→0,2,4,6,8",
+                          "linspace→5 evenly spaced values"
+                        ],
+                        "expectedOutput": "[0 2 4 6 8]\n[0.   0.25 0.5  0.75 1.  ]",
+                        "whyItWorks": "الـ API مختلفة حسب هل المطلوب step أم count.",
+                        "commonMistakes": [
+                          "توقع 10 داخل arange.",
+                          "الخلط بين step وnum."
+                        ],
+                        "examTips": [
+                          "اسأل: عاوز خطوة ثابتة ولا عدد نقاط ثابت؟"
+                        ],
+                        "sourceTrace": "Numpy_1.pptx — Slides 13–15"
+                      }
+                    ],
+                    "sourceTrace": "Numpy_1.pptx — Slides 8–19"
+                  },
+                  {
+                    "id": "numpy-access",
+                    "title": "Indexing & Slicing 1D/2D",
+                    "summaryAr": "NumPy تدعم indexing/slicing مشابهة لـPython sequences، ومع 2D arrays بنحدد row وcolumn.",
+                    "keyTerms": [
+                      "1D Indexing",
+                      "2D Indexing",
+                      "Slicing",
+                      "Subarray"
+                    ],
+                    "conceptsAr": [
+                      "arr[0,2] يعني first row + third column.",
+                      "2D slicing تستخدم ranges للrows والcolumns."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Numpy_1.pptx — Slides 20–23"
+                  },
+                  {
+                    "id": "numpy-operations",
+                    "title": "Element-wise Operations, Broadcasting & dot()",
+                    "summaryAr": "Element-wise arithmetic تطبق على كل عناصر متوافقة، وbroadcasting توسع scalar/smaller shape تلقائيًا لما القواعد تسمح. np.dot() للـdot/matrix multiplication.",
+                    "keyTerms": [
+                      "Element-wise",
+                      "Broadcasting",
+                      "Shape Compatibility",
+                      "np.dot()"
+                    ],
+                    "conceptsAr": [
+                      "arr + 10 تضيف 10 لكل عنصر.",
+                      "Shape mismatch غير القابل للـbroadcasting يسبب error.",
+                      "np.dot() مختلف عن element-wise multiplication."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Broadcast scalar",
+                        "code": "import numpy as np\narr = np.array([1, 2, 3])\nprint(arr + 10)",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "الـ scalar 10 يتم broadcast على كل element.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "1D array."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "إضافة element-wise بعد broadcasting."
+                          }
+                        ],
+                        "executionTrace": [
+                          "1+10",
+                          "2+10",
+                          "3+10"
+                        ],
+                        "expectedOutput": "[11 12 13]",
+                        "whyItWorks": "Scalar compatible مع أي shape في المثال.",
+                        "commonMistakes": [
+                          "افتراض أن كل shape pair متوافق."
+                        ],
+                        "examTips": [
+                          "لو العملية فشلت، افحص shapes أولًا."
+                        ],
+                        "sourceTrace": "Numpy_1.pptx — Slide 25"
+                      }
+                    ],
+                    "sourceTrace": "Numpy_1.pptx — Slides 24–26, 31–32"
+                  },
+                  {
+                    "id": "numpy-statistics",
+                    "title": "Statistics & Analytical Operations",
+                    "summaryAr": "mean/sum/max/min بتوفر summaries سريعة للarrays، وبتدخل مباشرة في preprocessing والتحليل.",
+                    "keyTerms": [
+                      "np.mean()",
+                      "np.sum()",
+                      "np.max()",
+                      "np.min()"
+                    ],
+                    "conceptsAr": [
+                      "المصدر يطبقها على student scores وtemperature/sales datasets."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Numpy_1.pptx — Slides 27–30, 34–36"
+                  },
+                  {
+                    "id": "numpy-practical",
+                    "title": "Practical NumPy Workflows",
+                    "summaryAr": "الجزء التطبيقي يجمع array creation، shape/dtype، slicing، broadcasting، growth calculation، dot product، random generation، normalization، reshape.",
+                    "keyTerms": [
+                      "Growth Rate",
+                      "Normalization",
+                      "reshape",
+                      "Prediction",
+                      "Sensor Data"
+                    ],
+                    "conceptsAr": [
+                      "المصدر يربط NumPy بتحليل درجات الطلاب، sensor temperatures، sales growth، prediction، وتجهيز random data."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Numpy_1.pptx — Slides 33–38"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-09",
+              "title": "Session 9 — Pandas Fundamentals, DataFrames & Core Data Manipulation",
+              "description": "Pandas مكتبة تحليل ومعالجة بيانات مبنية فوق NumPy، وأهم بنيتين فيها Series 1D وDataFrame 2D.",
+              "examId": "data-analysis-python-session09-practice-v1",
+              "sourceFile": "Pandas_1.pptx",
+              "study": {
+                "title": "Session 9 · Pandas Fundamentals, DataFrames & Core Data Manipulation",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "pandas-fundamentals",
+                    "title": "Pandas, Series & DataFrame",
+                    "summaryAr": "Pandas مكتبة تحليل ومعالجة بيانات مبنية فوق NumPy، وأهم بنيتين فيها Series 1D وDataFrame 2D.",
+                    "keyTerms": [
+                      "Pandas",
+                      "Series",
+                      "DataFrame",
+                      "Labels",
+                      "Data Alignment"
+                    ],
+                    "conceptsAr": [
+                      "Series شبيهة بعمود spreadsheet.",
+                      "DataFrame شبيهة بجدول database.",
+                      "Pandas تعمل alignment بالlabels."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Pandas_1.pptx — Slides 5–9"
+                  },
+                  {
+                    "id": "pandas-inspection",
+                    "title": "Inspecting Data: head(), info(), describe()",
+                    "summaryAr": "قبل التحليل نحتاج نفهم شكل البيانات: head للpreview، info للstructure/dtypes/non-null، describe للإحصائيات الرقمية.",
+                    "keyTerms": [
+                      "head()",
+                      "info()",
+                      "describe()",
+                      "dtype",
+                      "non-null"
+                    ],
+                    "conceptsAr": [
+                      "كل method لها سؤال مختلف؛ head مش بديل info، وinfo مش بديل describe."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Pandas_1.pptx — Slides 10–12"
+                  },
+                  {
+                    "id": "pandas-selection",
+                    "title": "Selecting, Filtering & loc[]",
+                    "summaryAr": "اختيار column واحد يرجع Series، Boolean filtering ترجع الصفوف المطابقة، وloc[] label-based indexing للrows/columns.",
+                    "keyTerms": [
+                      "Column Selection",
+                      "Boolean Filter",
+                      "loc[]",
+                      "Label-based Indexing"
+                    ],
+                    "conceptsAr": [
+                      "Filtering condition تتكتب على column ثم تستخدم لاختيار rows."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Boolean filtering",
+                        "code": "import pandas as pd\ndf = pd.DataFrame({\"Name\":[\"A\",\"B\",\"C\"],\"Age\":[25,35,40]})\nprint(df[df[\"Age\"] > 30])",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "df[\"Age\"] > 30 تنتج Boolean mask، وبعدها df[mask] ترجع الصفوف True فقط.",
+                        "lineByLine": [
+                          {
+                            "line": 2,
+                            "ar": "إنشاء DataFrame."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "بناء condition واستخدامها مباشرة في filtering."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Age mask→False,True,True",
+                          "return rows B,C"
+                        ],
+                        "expectedOutput": "  Name  Age\n1    B   35\n2    C   40",
+                        "whyItWorks": "Pandas Boolean indexing تستخدم mask بنفس طول الصفوف.",
+                        "commonMistakes": [
+                          "الخلط بين mask نفسها وبين filtered DataFrame."
+                        ],
+                        "examTips": [
+                          "فرّق بين df[\"Age\"]>30 و df[df[\"Age\"]>30]."
+                        ],
+                        "sourceTrace": "Pandas_1.pptx — Slide 14"
+                      }
+                    ],
+                    "sourceTrace": "Pandas_1.pptx — Slides 13–15"
+                  },
+                  {
+                    "id": "pandas-manipulation",
+                    "title": "Adding, Updating & Dropping Data",
+                    "summaryAr": "Pandas تسمح بإضافة calculated/new columns، vectorized column updates، وحذف columns بـdrop(axis=1).",
+                    "keyTerms": [
+                      "New Column",
+                      "Vectorized Update",
+                      "drop()",
+                      "axis=1"
+                    ],
+                    "conceptsAr": [
+                      "Vectorized operations تطبق على column كاملة بدون explicit loop."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Pandas_1.pptx — Slides 16–18"
+                  },
+                  {
+                    "id": "pandas-cleaning",
+                    "title": "Handling Missing Data",
+                    "summaryAr": "isnull() تكشف missing values، fillna() تستبدلها، dropna() تحذف rows بها missing values.",
+                    "keyTerms": [
+                      "isnull()",
+                      "fillna()",
+                      "dropna()",
+                      "Missing Data"
+                    ],
+                    "conceptsAr": [
+                      "قرار fill أو drop يعتمد على هدف cleaning؛ المصدر يعرض الأدوات وليس قاعدة واحدة لكل dataset."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Pandas_1.pptx — Slides 19–21"
+                  },
+                  {
+                    "id": "pandas-aggregation",
+                    "title": "Grouping, Aggregation & apply()",
+                    "summaryAr": "groupby() تنظم rows في groups ثم aggregation مثل mean، وapply() تطبق custom function.",
+                    "keyTerms": [
+                      "groupby()",
+                      "mean()",
+                      "apply()",
+                      "Aggregation"
+                    ],
+                    "conceptsAr": [
+                      "مثال المصدر يحسب mean salary per department.",
+                      "apply تضيف custom transformation."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Average salary by department",
+                        "code": "import pandas as pd\ndf = pd.DataFrame({\"Department\":[\"IT\",\"IT\",\"HR\"],\"Salary\":[100,120,90]})\nprint(df.groupby(\"Department\")[\"Salary\"].mean())",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "groupby تقسم rows حسب Department، ثم Salary تحدد measure، وmean تحسب داخل كل group.",
+                        "lineByLine": [
+                          {
+                            "line": 3,
+                            "ar": "groupby Department."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "select Salary ثم mean."
+                          }
+                        ],
+                        "executionTrace": [
+                          "HR→90",
+                          "IT→(100+120)/2=110"
+                        ],
+                        "expectedOutput": "Department\nHR     90.0\nIT    110.0\nName: Salary, dtype: float64",
+                        "whyItWorks": "Aggregation تحدث داخل كل group.",
+                        "commonMistakes": [
+                          "حساب global mean بدل grouped mean."
+                        ],
+                        "examTips": [
+                          "اقرأ chain من اليسار: group → column → aggregation."
+                        ],
+                        "sourceTrace": "Pandas_1.pptx — Slide 22"
+                      }
+                    ],
+                    "sourceTrace": "Pandas_1.pptx — Slides 22–23"
+                  },
+                  {
+                    "id": "pandas-case-study",
+                    "title": "Student & Employee Case Studies",
+                    "summaryAr": "آخر الملف يجمع المفاهيم في Student Performance Analysis وEmployee Performance Dashboard بدل دراسة methods منفصلة.",
+                    "keyTerms": [
+                      "Student Performance",
+                      "Employee Dashboard",
+                      "Integrated Workflow"
+                    ],
+                    "conceptsAr": [
+                      "الهدف ربط inspection/selection/cleaning/aggregation داخل analysis workflow."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Pandas_1.pptx — Slides 25–40"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-10",
+              "title": "Session 10 — Applied Pandas Workflows, Aggregation & Real-World Data Analysis",
+              "description": "Session 10 تركز على استخدام Pandas داخل workflow كامل: load → inspect → filter → aggregate → calculate → sort → dates → export.",
+              "examId": "data-analysis-python-session10-practice-v1",
+              "sourceFile": "Pandas_2_3.pptx",
+              "study": {
+                "title": "Session 10 · Applied Pandas Workflows, Aggregation & Real-World Data Analysis",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "applied-pandas-workflow",
+                    "title": "Applied DataFrame Workflow",
+                    "summaryAr": "Session 10 تركز على استخدام Pandas داخل workflow كامل: load → inspect → filter → aggregate → calculate → sort → dates → export.",
+                    "keyTerms": [
+                      "read_csv()",
+                      "head()",
+                      "info()",
+                      "describe()",
+                      "Workflow"
+                    ],
+                    "conceptsAr": [
+                      "الفرق عن Session 9 إننا هنا نطبق المفاهيم في سياق عملي متسلسل بدل إعادة تعريفها."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Pandas_2_3.pptx — Slides 4, 6–9"
+                  },
+                  {
+                    "id": "filter-group-calc",
+                    "title": "Filtering, Grouping & Calculated Columns",
+                    "summaryAr": "المصدر يفلتر IT employees، يحسب average salary by Department، ويضيف 5% raise column.",
+                    "keyTerms": [
+                      "Boolean Filter",
+                      "groupby().mean()",
+                      "Calculated Column",
+                      "1.05"
+                    ],
+                    "conceptsAr": [
+                      "5% raise = Salary * 1.05، مش Salary * 0.05 كناتج نهائي."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "5% salary raise",
+                        "code": "import pandas as pd\ndf = pd.DataFrame({\"Salary\":[1000,2000]})\ndf[\"Raised_Salary\"] = df[\"Salary\"] * 1.05\nprint(df)",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "Column جديدة تتولد vectorized من Salary الحالية.",
+                        "lineByLine": [
+                          {
+                            "line": 3,
+                            "ar": "كل salary ×1.05 = الأصل +5%."
+                          }
+                        ],
+                        "executionTrace": [
+                          "1000→1050",
+                          "2000→2100"
+                        ],
+                        "expectedOutput": "   Salary  Raised_Salary\n0    1000         1050.0\n1    2000         2100.0",
+                        "whyItWorks": "Pandas تطبق العملية على Series كاملة.",
+                        "commonMistakes": [
+                          "استخدام 0.05 فقط كناتج salary جديد."
+                        ],
+                        "examTips": [
+                          "في calculated columns اسأل هل multiplier يمثل delta أم final factor."
+                        ],
+                        "sourceTrace": "Pandas_2_3.pptx — Slide 12"
+                      }
+                    ],
+                    "sourceTrace": "Pandas_2_3.pptx — Slides 10–12"
+                  },
+                  {
+                    "id": "sort-count-dates",
+                    "title": "Sorting, Counting & Date Filtering",
+                    "summaryAr": "sort_values descending للعمر، value_counts للتكرارات، pd.to_datetime لتحويل التاريخ قبل filtering.",
+                    "keyTerms": [
+                      "sort_values()",
+                      "ascending=False",
+                      "value_counts()",
+                      "pd.to_datetime()"
+                    ],
+                    "conceptsAr": [
+                      "أقدم/أكبر first يحتاج descending.",
+                      "Date comparison تكون أوضح بعد datetime conversion."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Pandas_2_3.pptx — Slides 13–15"
+                  },
+                  {
+                    "id": "export",
+                    "title": "Exporting Results",
+                    "summaryAr": "to_csv() تحفظ DataFrame لملف CSV، وindex=False تمنع كتابة row index.",
+                    "keyTerms": [
+                      "to_csv()",
+                      "index=False",
+                      "CSV Export"
+                    ],
+                    "conceptsAr": [
+                      "Export هي آخر خطوة في workflow بعد إنتاج dataset المطلوبة."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Pandas_2_3.pptx — Slide 16"
+                  },
+                  {
+                    "id": "hospital-case",
+                    "title": "Hospital Patient Management System",
+                    "summaryAr": "Case study يربط خطوات Pandas في سياق إدارة وتحليل بيانات مرضى بدل أوامر منفصلة.",
+                    "keyTerms": [
+                      "Hospital Analytics",
+                      "Filtering",
+                      "Aggregation",
+                      "Calculated Fields",
+                      "Dates"
+                    ],
+                    "conceptsAr": [
+                      "المهم هنا reasoning: كل method تخدم سؤال في workflow."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Pandas_2_3.pptx — Slides 18–26"
+                  },
+                  {
+                    "id": "restaurant-case",
+                    "title": "Restaurant Sales & Customer Analytics",
+                    "summaryAr": "Case study ثانية على sales/customer analytics لاختبار نقل نفس Pandas patterns إلى domain مختلف.",
+                    "keyTerms": [
+                      "Restaurant Sales",
+                      "Customer Analytics",
+                      "Business Workflow"
+                    ],
+                    "conceptsAr": [
+                      "الهدف إعادة استخدام نفس أدوات manipulation/aggregation في business context جديد."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Pandas_2_3.pptx — Slides 28–36"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-11",
+              "title": "Session 11 — Data Visualization Foundations & Matplotlib Essentials",
+              "description": "الـData Visualization هدفها تحويل البيانات لشكل بصري يساعدك تكتشف patterns وtrends وrelationships وoutliers، وتوصل insight بصورة أسهل. اختيار الرسم لازم يبدأ من السؤال ونوع المتغيرات.",
+              "examId": "data-analysis-python-session11-practice-v1",
+              "sourceFile": "Data Visualization with Python_session_2.pptx",
+              "study": {
+                "title": "Session 11 · Data Visualization Foundations & Matplotlib Essentials",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "viz-foundations",
+                    "title": "Data Visualization Foundations & Choosing a Plot",
+                    "summaryAr": "الـData Visualization هدفها تحويل البيانات لشكل بصري يساعدك تكتشف patterns وtrends وrelationships وoutliers، وتوصل insight بصورة أسهل. اختيار الرسم لازم يبدأ من السؤال ونوع المتغيرات.",
+                    "keyTerms": [
+                      "Data Visualization",
+                      "Univariate",
+                      "Bivariate",
+                      "Multivariate",
+                      "Histogram",
+                      "Box Plot",
+                      "Scatter Plot",
+                      "Line Plot",
+                      "Heatmap",
+                      "Pair Plot"
+                    ],
+                    "conceptsAr": [
+                      "Univariate = متغير واحد؛ المصدر يذكر Histogram وBox Plot وBar Chart كأمثلة.",
+                      "Bivariate = متغيرين؛ Scatter Plot للعلاقة بين رقمين وLine Plot للاتجاه عبر الزمن.",
+                      "Multivariate = أكثر من متغيرين؛ المصدر يذكر Heatmap وPair Plot.",
+                      "Specialized plots المذكورة تشمل Pie, Violin, Count, Bubble, Time Series."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 5–8",
+                    "analysisFlow": [
+                      "Business Question → إيه اللي عاوز تعرفه؟",
+                      "Variables → كام متغير ونوعهم إيه؟",
+                      "Chart Choice → اختار الرسم اللي يجاوب السؤال.",
+                      "Interpretation → اقرأ pattern/relationship/outlier بدل ما تكتفي بالشكل."
+                    ]
+                  },
+                  {
+                    "id": "viz-libraries-matplotlib",
+                    "title": "Visualization Libraries & Matplotlib Essentials",
+                    "summaryAr": "المصدر يفرق بين Matplotlib كـfoundation للـstatic 2D plots، وSeaborn للـstatistical graphics، وPlotly للـinteractive/web-ready، وAltair للـdeclarative exploration. Matplotlib نفسها highly customizable وpyplot بتوفر interface مباشرة للرسم.",
+                    "keyTerms": [
+                      "Matplotlib",
+                      "pyplot",
+                      "Seaborn",
+                      "Plotly",
+                      "Altair",
+                      "plt.plot()",
+                      "plt.title()",
+                      "plt.xlabel()",
+                      "plt.ylabel()"
+                    ],
+                    "conceptsAr": [
+                      "Matplotlib مش بس رسم خط؛ المصدر يذكر Line, Scatter, Bar, Histogram, Subplots وCustomization.",
+                      "العنوان وlabels مش إضافات تجميلية فقط؛ هي اللي بتخلي المحاور قابلة للتفسير."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Basic Matplotlib line plot",
+                        "code": "import matplotlib.pyplot as plt\n\nx = [1, 2, 3, 4, 5]\ny = [2, 3, 5, 7, 11]\n\nplt.plot(x, y)\nplt.title(\"Simple Line Plot\")\nplt.xlabel(\"X-axis\")\nplt.ylabel(\"Y-axis\")\nplt.show()",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "ده نفس pattern الأساسي المعروض في المصدر: استيراد pyplot، تجهيز x/y، رسم line plot، ثم إضافة title وaxis labels وإظهار الشكل.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "استيراد pyplot بالـalias الشائع plt."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "تعريف قيم المحور الأفقي."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "تعريف القيم المقابلة على المحور الرأسي."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "plt.plot تربط نقاط x/y في Line Plot."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "إضافة عنوان يشرح الرسم."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "تسمية X-axis."
+                          },
+                          {
+                            "line": 7,
+                            "ar": "تسمية Y-axis."
+                          },
+                          {
+                            "line": 8,
+                            "ar": "عرض الـfigure."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Prepare x/y data",
+                          "Create the line",
+                          "Attach title/labels",
+                          "Render the visual"
+                        ],
+                        "expectedOutput": "Visual output: a line plot of the five x/y points with title and labeled axes.",
+                        "whyItWorks": "Matplotlib تتعامل مع x وy كأزواج مرتبة من النقاط، والـlabels بتوضح معنى المحاور.",
+                        "commonMistakes": [
+                          "اختلاف طول x وy.",
+                          "نسيان labels ثم محاولة تفسير الرسم بدون context.",
+                          "استخدام Line Plot لسؤال لا يعتمد على ترتيب/استمرارية."
+                        ],
+                        "examTips": [
+                          "في سؤال code reading، حدد أولًا chart function: plt.plot = Line Plot."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_2.pptx — Slide 13"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 9–13",
+                    "analysisFlow": [
+                      "Question: هل في trend؟",
+                      "Why this chart: line مناسب للترتيب/الزمن.",
+                      "Code → plt.plot",
+                      "Read axes/title قبل الاستنتاج."
+                    ]
+                  },
+                  {
+                    "id": "canada-dataset",
+                    "title": "Canada Immigration Dataset: Understand the Data First",
+                    "summaryAr": "الـCanada Immigration dataset في المصدر فيها 195 rows و39 columns بدون null values في النسخة المستخدمة. الأعمدة الأساسية Country, Continent, Region, DevName، سنوات 1980–2013، وTotal. قبل الرسم، الـworkflow بيفحص structure وmissing values وduplicates وdescriptive summaries.",
+                    "keyTerms": [
+                      "Country",
+                      "Continent",
+                      "Region",
+                      "1980–2013",
+                      "Total",
+                      "df.info()",
+                      "df.isnull().sum()",
+                      "df.duplicated().sum()",
+                      "describe()"
+                    ],
+                    "conceptsAr": [
+                      "df.info() توضح columns وnon-null counts وdtypes.",
+                      "df.isnull().sum() تستخدم لفحص missing values.",
+                      "df.duplicated().sum() لفحص duplicate rows.",
+                      "describe() للـnumerical summary؛ describe(include=['object']) للـcategorical summary مثل count/unique/top/freq."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Inspection workflow before visualization",
+                        "code": "df.info()\nprint(df.isnull().sum())\nprint(df.duplicated().sum())\nprint(df.describe())\nprint(df.describe(include=[\"object\"]))",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "المثال يجمع خطوات inspection اللي المصدر يعرضها قبل التحليل البصري. الهدف إنك تعرف جودة وبنية البيانات قبل ما تثق في أي chart.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "info تعرض structure وdtypes وnon-null counts."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "isnull ثم sum يحسب missing values في كل column."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "duplicated ثم sum يحسب الصفوف المكررة."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "describe للمتغيرات الرقمية."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "describe(include=['object']) للمتغيرات النصية/الفئوية."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Inspect schema",
+                          "Check missing",
+                          "Check duplicates",
+                          "Summarize numeric",
+                          "Summarize categorical"
+                        ],
+                        "expectedOutput": "Tabular/text summaries; exact values depend on the loaded DataFrame. In the source dataset, 195 rows and 39 columns are reported with no null values.",
+                        "whyItWorks": "كل خطوة بتجاوب سؤال مختلف عن data quality أو distribution قبل مرحلة visualization.",
+                        "commonMistakes": [
+                          "القفز للرسم قبل فحص البيانات.",
+                          "الخلط بين describe() الرقمي وdescribe(include=['object']).",
+                          "اعتبار عدم وجود nulls معناه عدم وجود أي مشكلة بيانات أخرى."
+                        ],
+                        "examTips": [
+                          "لو السؤال بيسأل عن Missing Values → isnull().sum(); duplicates → duplicated().sum()."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 18–21"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 15–22",
+                    "analysisFlow": [
+                      "Load → Inspect shape/types → Missing → Duplicates → Describe → Analyze/Visualize"
+                    ]
+                  },
+                  {
+                    "id": "canada-peak-comparison",
+                    "title": "Peak-Year & Category Comparison: Canada Case Study",
+                    "summaryAr": "بعد فهم البيانات، المصدر ينتقل لأسئلة تحليلية فعلية. الـbar chart المستخدم يوضح إن 2010 هي السنة ذات أعلى عدد إجمالي من المهاجرين في التحليل، وبعدها يتم drill-down لأعلى continents وأعلى countries في نفس السنة.",
+                    "keyTerms": [
+                      "2010 Peak",
+                      "groupby()",
+                      "sum()",
+                      "sort_values()",
+                      "head()",
+                      "Bar Chart",
+                      "Pie Chart"
+                    ],
+                    "conceptsAr": [
+                      "المصدر يحدد 2010 كـpeak year في التحليل.",
+                      "بعد تحديد السنة، بيتم تجميع قيم 2010 حسب Continent أو ترتيب Countries لاختيار الأعلى.",
+                      "الهدف مش مجرد رسم chart؛ الهدف الانتقال من سؤال عام إلى سؤال أعمق."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Top continents in the peak year",
+                        "code": "top_continents_2010 = (\n    df.groupby(\"Continent\")[\"2010\"]\n      .sum()\n      .sort_values(ascending=False)\n      .head(5)\n)\n\nprint(top_continents_2010)",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "ده نفس analytical chain الظاهر في المصدر: Group → Sum → Sort Descending → Top 5. الكود هنا معروض كنص قابل للقراءة بدل screenshot.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "groupby يقسم الصفوف حسب Continent."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "اختيار عمود 2010 فقط."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "sum يجمع عدد المهاجرين داخل كل continent."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "sort_values descending يضع الأعلى أولًا."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "head(5) يحتفظ بأعلى خمسة."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Rows grouped by continent",
+                          "2010 values aggregated",
+                          "Groups ranked high→low",
+                          "Top 5 retained"
+                        ],
+                        "expectedOutput": "A Series/table of the five continents with the highest 2010 immigration totals. Exact values come from the loaded Canada dataset.",
+                        "whyItWorks": "كل function في chain بتحول السؤال التحليلي لخطوة محددة: تجميع، حساب، ترتيب، اختيار.",
+                        "commonMistakes": [
+                          "استخدام ascending=True ثم توقع أعلى القيم أولًا.",
+                          "عمل head(5) قبل aggregation.",
+                          "الخلط بين Continent وRegion."
+                        ],
+                        "examTips": [
+                          "اقرأ method chain من الشمال لليمين كـpipeline تحليلي."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_2.pptx — Slide 24"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 23–25",
+                    "analysisFlow": [
+                      "Question → peak year",
+                      "Group category",
+                      "Aggregate",
+                      "Sort descending",
+                      "Top N",
+                      "Visualize",
+                      "Interpret"
+                    ]
+                  },
+                  {
+                    "id": "canada-trends-regions",
+                    "title": "Time Trends & Regional Drill-Down",
+                    "summaryAr": "المصدر يقارن أعلى الدول عبر 1980–2013 ويذكر إن UK كانت متقدمة في السنوات الأولى، ثم China وIndia ارتفعوا لاحقًا وتجاوزوها. وبعد تحليل المناطق، Southern Asia تظهر كأعلى region ويتم تتبع تطورها عبر السنوات.",
+                    "keyTerms": [
+                      "Time Trend",
+                      "Top Countries",
+                      "Southern Asia",
+                      "Line Plot",
+                      "Scatter Plot",
+                      "years",
+                      "transpose"
+                    ],
+                    "conceptsAr": [
+                      "Line Plot مناسبة لما السؤال: كيف تغيرت القيمة عبر الزمن؟",
+                      "المصدر يستخدم top countries ثم years لعرض أكثر من trend على نفس الرسم.",
+                      "Southern Asia drill-down بيوضح ازاي تنتقل من ranking المناطق إلى تحليل trend لمنطقة واحدة."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Southern Asia yearly trend",
+                        "code": "southern_asia = df[df[\"Region\"] == \"Southern Asia\"]\nyears = df.columns[4:-1]\nsouthern_asia_total = southern_asia[years].sum()\n\nplt.figure(figsize=(12, 6))\nplt.scatter(years, southern_asia_total)\nplt.xlabel(\"Year\")\nplt.ylabel(\"Total Immigrants\")\nplt.title(\"Immigration to Canada from Southern Asia (1980-2013)\")\nplt.show()",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "الكود يعزل Region المطلوبة، يحدد أعمدة السنوات، يجمع كل دول Southern Asia لكل سنة، ثم يرسم القيم عبر الزمن.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "Boolean filtering يختار Southern Asia فقط."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "years تمثل أعمدة السنوات في layout المصدر."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "sum يجمع دول المنطقة لكل سنة."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "إنشاء figure."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "scatter يضع سنة مقابل total immigrants."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "تسمية المحاور والعنوان."
+                          },
+                          {
+                            "line": 7,
+                            "ar": "عرض الرسم."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Filter region",
+                          "Select year columns",
+                          "Aggregate each year",
+                          "Plot year vs total"
+                        ],
+                        "expectedOutput": "Visual output: a time-indexed scatter plot showing Southern Asia immigration totals from 1980 to 2013.",
+                        "whyItWorks": "الـaggregation يحول عدة country rows داخل المنطقة إلى series زمنية واحدة يمكن تفسير trend بتاعها.",
+                        "commonMistakes": [
+                          "عدم تجميع الدول ثم رسم DataFrame متعدد الصفوف بدون قصد.",
+                          "اختيار columns غلط لو ترتيب dataset تغير.",
+                          "تفسير لون/حجم النقاط كمتغير إضافي لو لم يتم ترميزه فعليًا."
+                        ],
+                        "examTips": [
+                          "قبل رسم region trend: Filter → Select years → Aggregate."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 31–32"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 26–32",
+                    "analysisFlow": [
+                      "Identify top region → Filter → Aggregate years → Plot trend → Explain change"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-12",
+              "title": "Session 12 — Applied Matplotlib, Distribution & Exploratory Data Analysis",
+              "description": "Session 12 تركز على اختيار وتنفيذ الرسوم الأساسية مباشرة بـMatplotlib. Line للـtrend، Scatter للعلاقة بين رقمين، وBar للمقارنة بين categories.",
+              "examId": "data-analysis-python-session12-practice-v1",
+              "sourceFile": "Data Visualization with Python_session_1.pptx",
+              "study": {
+                "title": "Session 12 · Applied Matplotlib, Distribution & Exploratory Data Analysis",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "matplotlib-plot-family",
+                    "title": "Matplotlib Plot Family: Line, Scatter & Bar",
+                    "summaryAr": "Session 12 تركز على اختيار وتنفيذ الرسوم الأساسية مباشرة بـMatplotlib. Line للـtrend، Scatter للعلاقة بين رقمين، وBar للمقارنة بين categories.",
+                    "keyTerms": [
+                      "plt.plot()",
+                      "plt.scatter()",
+                      "plt.bar()",
+                      "marker",
+                      "s",
+                      "alpha",
+                      "legend"
+                    ],
+                    "conceptsAr": [
+                      "Line example يقارن sales عبر السنوات ويمكن رسم أكتر من series مع legend.",
+                      "Scatter example يربط Age وSalary، والمصدر يوضح s لحجم النقطة وalpha للشفافية.",
+                      "Bar chart تستخدم category labels وقيم مقابلة."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Compare two trends with line plots",
+                        "code": "years = [2018, 2019, 2020, 2021, 2022]\nsales_a = [200, 250, 300, 280, 350]\nsales_b = [180, 220, 260, 300, 330]\n\nplt.plot(years, sales_a, label=\"Product A\")\nplt.plot(years, sales_b, label=\"Product B\")\nplt.legend()\nplt.title(\"Sales Comparison\")\nplt.show()",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "كل plt.plot تضيف series لنفس axes، وlegend بتربط كل line باسمها.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "تعريف السنوات."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "قيم Product A."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "قيم Product B."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "رسم series الأولى."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "رسم series الثانية."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "إظهار legend."
+                          },
+                          {
+                            "line": 7,
+                            "ar": "عنوان الرسم."
+                          },
+                          {
+                            "line": 8,
+                            "ar": "Render."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Five x positions",
+                          "Two y series",
+                          "Legend maps line→product",
+                          "Compare changes across years"
+                        ],
+                        "expectedOutput": "Visual output: two sales trend lines for Product A and Product B.",
+                        "whyItWorks": "استخدام نفس years يسمح بمقارنة series عند نفس النقاط الزمنية.",
+                        "commonMistakes": [
+                          "نسيان label ثم توقع legend مفيدة.",
+                          "اختلاف أطوال years وsales.",
+                          "تفسير تقاطع lines بدون قراءة السنة والقيم."
+                        ],
+                        "examTips": [
+                          "Multi-line question: عد عدد plt.plot calls واقرأ label لكل واحدة."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_1.pptx — Slide 11"
+                      },
+                      {
+                        "title": "Styled scatter plot",
+                        "code": "age = [22, 25, 30, 35, 40, 45]\nsalary = [30000, 35000, 50000, 60000, 70000, 80000]\n\nplt.scatter(age, salary, s=100, alpha=0.6)\nplt.xlabel(\"Age\")\nplt.ylabel(\"Salary\")\nplt.title(\"Age vs Salary\")\nplt.show()",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "Scatter بتحافظ على pairing بين age وsalary. s تغير marker size وalpha تغير transparency، من غير ما يغيروا المعنى الأساسي للعلاقة.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "تعريف x values."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "تعريف y values."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "رسم points مع size وtransparency."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "تسمية X."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "تسمية Y."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "عنوان."
+                          },
+                          {
+                            "line": 7,
+                            "ar": "Render."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Pair age[i] with salary[i]",
+                          "Plot one marker per pair",
+                          "Apply size/transparency styling"
+                        ],
+                        "expectedOutput": "Visual output: six points showing the Age–Salary relationship.",
+                        "whyItWorks": "كل observation يمثل pair واحد، والـscatter مناسبة لفحص relationship بين numerical variables.",
+                        "commonMistakes": [
+                          "اعتبار s قيمة بيانات ثالثة رغم إنها ثابتة هنا.",
+                          "فصل ترتيب age عن salary.",
+                          "زيادة opacity/size لدرجة تخفي overlap."
+                        ],
+                        "examTips": [
+                          "plt.scatter = relationship; s = size; alpha = transparency."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_1.pptx — Slides 13–14"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_1.pptx — Slides 5–17",
+                    "analysisFlow": [
+                      "Question type → trend / relationship / category comparison → choose plot → label → read pattern"
+                    ]
+                  },
+                  {
+                    "id": "histogram-distribution",
+                    "title": "Histograms & Reading Distribution",
+                    "summaryAr": "Histogram بتقسم numerical range إلى bins وتحسب frequency داخل كل interval. عدد الـbins بيأثر على مستوى التفاصيل اللي تشوفه، لكنه ما يغيرش البيانات نفسها.",
+                    "keyTerms": [
+                      "plt.hist()",
+                      "bins",
+                      "Frequency",
+                      "Distribution",
+                      "Interval"
+                    ],
+                    "conceptsAr": [
+                      "Histogram مش Bar Chart للفئات؛ x-axis هنا ranges رقمية.",
+                      "المصدر يعرض Random Data Distribution وScore Distribution."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Score distribution with five bins",
+                        "code": "scores = [55, 60, 65, 70, 75, 80, 85, 90, 95, 100]\n\nplt.hist(scores, bins=5)\nplt.title(\"Score Distribution (5 bins)\")\nplt.xlabel(\"Score Range\")\nplt.ylabel(\"Frequency\")\nplt.show()",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "bins=5 معناها تقسيم مدى الدرجات إلى خمس intervals، وارتفاع كل bar يساوي عدد الدرجات اللي وقعت في interval.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "تعريف numerical observations."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "hist يبني 5 bins."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "عنوان."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "X تمثل ranges."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "Y تمثل frequency."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "Render."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Determine numeric range",
+                          "Split into 5 bins",
+                          "Count observations in each bin",
+                          "Draw frequencies"
+                        ],
+                        "expectedOutput": "Visual output: a histogram with five score intervals.",
+                        "whyItWorks": "Histogram تلخص distribution بدل عرض كل observation منفصلة.",
+                        "commonMistakes": [
+                          "تفسير كل bar كـcategory اسمها score محدد.",
+                          "افتراض إن bins=5 يعني خمس observations.",
+                          "مقارنة histograms بعدد bins مختلف بدون ملاحظة الاختلاف."
+                        ],
+                        "examTips": [
+                          "لو السؤال عن `bins` → هي intervals، مش عدد البيانات."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_1.pptx — Slide 20"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_1.pptx — Slides 18–20",
+                    "analysisFlow": [
+                      "Numerical variable → choose bins → read frequency → inspect center/spread/tails"
+                    ]
+                  },
+                  {
+                    "id": "boxplot-outliers",
+                    "title": "Box Plot Anatomy & Potential Outliers",
+                    "summaryAr": "Box Plot بتلخص distribution باستخدام Median وQ1 وQ3 وIQR. الـbox هي middle 50%، والخط داخلها median، والwhiskers تمثل typical range، والنقاط خارجها potential outliers.",
+                    "keyTerms": [
+                      "Median",
+                      "Q1",
+                      "Q3",
+                      "IQR",
+                      "Whiskers",
+                      "Potential Outlier",
+                      "plt.boxplot()"
+                    ],
+                    "conceptsAr": [
+                      "المصدر يوضح إن Outliers مش دايمًا errors؛ ممكن تكون rare but valid cases.",
+                      "Box Plot مفيدة للمقارنة بين distributions واكتشاف spread/skewness/outliers بسرعة."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Box plot with an extreme value",
+                        "code": "data = [10, 12, 14, 15, 18, 20, 100]\n\nplt.boxplot(data)\nplt.title(\"Box Plot Example\")\nplt.show()",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "القيمة 100 بعيدة عن باقي observations، فالمصدر يعرضها كنقطة منفصلة خارج whiskers في المثال.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "تعريف البيانات وفيها قيمة extreme."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "إنشاء box plot."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "عنوان."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "Render."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Compute quartiles/median",
+                          "Build box Q1→Q3",
+                          "Draw whiskers",
+                          "Flag distant point as potential outlier"
+                        ],
+                        "expectedOutput": "Visual output: a box plot where 100 appears as a potential outlier outside the main box/whisker range.",
+                        "whyItWorks": "Box plot بتلخص المركز والانتشار وتبرز observations البعيدة بصريًا.",
+                        "commonMistakes": [
+                          "حذف 100 تلقائيًا لمجرد ظهورها كoutlier.",
+                          "اعتبار whisker = min/max دائمًا بدون فهم قاعدة الرسم.",
+                          "الخلط بين median وmean."
+                        ],
+                        "examTips": [
+                          "Outlier = investigate first, not auto-delete."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_1.pptx — Slide 21"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_1.pptx — Slides 21–22",
+                    "analysisFlow": [
+                      "Read median → Q1/Q3 → IQR/spread → whiskers → inspect external points"
+                    ]
+                  },
+                  {
+                    "id": "subplots-customization",
+                    "title": "Subplots & Plot Communication",
+                    "summaryAr": "Subplots تسمح بأكتر من chart داخل Figure واحدة. المصدر يستخدم plt.subplot(1,2,1) وplt.subplot(1,2,2)، ويؤكد على titles, labels, legends, styles والألوان كجزء من التواصل البصري.",
+                    "keyTerms": [
+                      "plt.subplot()",
+                      "Figure",
+                      "Rows",
+                      "Columns",
+                      "Position",
+                      "Title",
+                      "Labels",
+                      "Legend"
+                    ],
+                    "conceptsAr": [
+                      "plt.subplot(1,2,1) = first panel in one row/two columns.",
+                      "plt.subplot(1,2,2) = second panel.",
+                      "المصدر يجمع Histogram وBox Plot في Figure واحدة كمثال."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Histogram and Box Plot in one figure",
+                        "code": "data = [10, 12, 14, 15, 18, 20, 100]\n\nplt.figure(figsize=(8, 4))\n\nplt.subplot(1, 2, 1)\nplt.hist(data)\nplt.title(\"Histogram\")\n\nplt.subplot(1, 2, 2)\nplt.boxplot(data)\nplt.title(\"Box Plot\")\n\nplt.show()",
+                        "language": "python",
+                        "sourceKind": "platform-rendered-from-source-example",
+                        "explanationAr": "نفس data تتشاف بطريقتين: Histogram توضح frequency distribution، وBox Plot تلخص quartiles وتبرز القيمة البعيدة.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "تعريف البيانات."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "إنشاء figure."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "اختيار panel 1."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "Histogram."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "عنوان panel 1."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "اختيار panel 2."
+                          },
+                          {
+                            "line": 7,
+                            "ar": "Box Plot."
+                          },
+                          {
+                            "line": 8,
+                            "ar": "عنوان panel 2."
+                          },
+                          {
+                            "line": 9,
+                            "ar": "Render."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Create 1×2 canvas",
+                          "Fill left panel",
+                          "Fill right panel",
+                          "Compare complementary views"
+                        ],
+                        "expectedOutput": "Visual output: Histogram on the left and Box Plot on the right.",
+                        "whyItWorks": "Subplots بتخلي مقارنة perspectives مختلفة على نفس dataset أسهل.",
+                        "commonMistakes": [
+                          "استخدام نفس subplot position مرتين فيكتب chart فوق chart.",
+                          "نسيان تغيير position قبل الرسم الثاني.",
+                          "حشر plots كتير لدرجة تقل readability."
+                        ],
+                        "examTips": [
+                          "subplot(a,b,c): a rows, b columns, c position."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_1.pptx — Slide 24"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_1.pptx — Slides 23–25",
+                    "analysisFlow": [
+                      "Plan layout → select panel → draw → title each panel → compare"
+                    ]
+                  },
+                  {
+                    "id": "visual-outlier-detection",
+                    "title": "Visual Methods for Detecting Outliers",
+                    "summaryAr": "المصدر يذكر Box Plot وScatter Plot وHistogram وDensity Plot كطرق بصرية لاكتشاف observations غير المعتادة. الاختيار يعتمد على شكل البيانات والسؤال.",
+                    "keyTerms": [
+                      "Outlier",
+                      "Box Plot",
+                      "Scatter Plot",
+                      "Histogram",
+                      "Density Plot",
+                      "Main Cluster",
+                      "Tail"
+                    ],
+                    "conceptsAr": [
+                      "Box: outlier كنقطة خارج whiskers.",
+                      "Scatter: نقطة بعيدة عن main cluster.",
+                      "Histogram: قيم بعيدة تظهر في bins منفصلة/بعيدة.",
+                      "Density: irregular bumps خارج الـmain peak."
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Data Visualization with Python_session_1.pptx — Slides 26–27",
+                    "analysisFlow": [
+                      "Detect visually → verify data/context → assess impact → decide management action"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "id": "python-session-13",
+              "title": "Session 13 — Advanced Visualization, Seaborn & Geospatial Analytics",
+              "description": "Waffle Chart شبكة cells لعرض proportions. المصدر يشرح نموذج 100-square بحيث كل square تمثل تقريبًا 1%/unit، ويستخدمها كبديل واضح للـPie Chart لما categories قليلة.",
+              "examId": "data-analysis-python-session13-practice-v1",
+              "sourceFile": "Data Visualization with Python_session_3.pptx",
+              "study": {
+                "title": "Session 13 · Advanced Visualization, Seaborn & Geospatial Analytics",
+                "description": "شرح تفصيلي بالعربي مع Python code blocks قابلة للقراءة، Line-by-Line، Execution Trace، Expected Output، Common Mistakes وExam Tips.",
+                "displayMode": "python-code-learning-v1",
+                "sections": [
+                  {
+                    "id": "waffle-parts-whole",
+                    "title": "Waffle Charts: Parts-to-Whole",
+                    "summaryAr": "Waffle Chart شبكة cells لعرض proportions. المصدر يشرح نموذج 100-square بحيث كل square تمثل تقريبًا 1%/unit، ويستخدمها كبديل واضح للـPie Chart لما categories قليلة.",
+                    "keyTerms": [
+                      "Waffle Chart",
+                      "pywaffle",
+                      "Parts-to-Whole",
+                      "Proportion",
+                      "Retention",
+                      "Churn"
+                    ],
+                    "conceptsAr": [
+                      "Use cases المذكورة: population distribution, budget allocation, survey results.",
+                      "Customer Retention vs Churn مثال Business مباشر؛ الجزء الخاص بالـchurn بيظهر حجمه بصريًا."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Retention vs Churn waffle",
+                        "code": "from pywaffle import Waffle\nimport matplotlib.pyplot as plt\n\nvalues = {\"Retained\": 82, \"Churned\": 18}\n\nplt.figure(\n    FigureClass=Waffle,\n    rows=10,\n    values=values,\n    legend={\"loc\": \"upper left\", \"bbox_to_anchor\": (1, 1)}\n)\nplt.show()",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "ده platform-rendered example مبني على الـpywaffle concept في المصدر. القيم illustrative لتوضيح تركيب chart وليست أرقامًا من السلايد.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "استيراد Waffle."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "استيراد pyplot."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "تعريف proportions تعليمية."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "إنشاء Waffle figure 10 rows."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "تمرير category values."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "إظهار legend."
+                          },
+                          {
+                            "line": 7,
+                            "ar": "Render."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Total composition represented as cells",
+                          "Cells allocated by category proportion",
+                          "Legend identifies Retained/Churned"
+                        ],
+                        "expectedOutput": "Visual output: a waffle grid split between Retained and Churned categories.",
+                        "whyItWorks": "Waffle تحوّل proportions إلى عدد نسبي من cells، فتسهل رؤية parts-to-whole.",
+                        "commonMistakes": [
+                          "استخدام المثال كأنه يثبت أرقام churn الرسمية؛ القيم هنا توضيحية فقط.",
+                          "استخدام Waffle لسلسلة زمنية طويلة.",
+                          "إغفال legend."
+                        ],
+                        "examTips": [
+                          "Waffle = composition, not trend."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 5–7"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 5–7",
+                    "analysisFlow": [
+                      "Question: composition? → Few categories → Waffle → read share of whole → business implication"
+                    ]
+                  },
+                  {
+                    "id": "wordcloud-text",
+                    "title": "Word Clouds & Text Preprocessing",
+                    "summaryAr": "Word Cloud بتخلي حجم الكلمة مرتبط بتكرارها في النص. المصدر يؤكد إن preprocessing مهم قبل التوليد، مثل إزالة stop words وعمليات stemming/lemmatization، لأن garbage text هينتج visual مضلل.",
+                    "keyTerms": [
+                      "WordCloud",
+                      "Word Frequency",
+                      "Stop Words",
+                      "Stemming",
+                      "Lemmatization",
+                      "Text Feedback"
+                    ],
+                    "conceptsAr": [
+                      "الاستخدامات: customer reviews، social media، transcripts، open-ended survey responses.",
+                      "المصدر يعرض مقارنة Positive vs Negative Reviews لاستخراج themes."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Generate a simple word cloud",
+                        "code": "from wordcloud import WordCloud\nimport matplotlib.pyplot as plt\n\ntext = \"service fast service helpful delivery fast quality\"\n\ncloud = WordCloud(width=800, height=400, background_color=\"white\")\ncloud.generate(text)\n\nplt.imshow(cloud, interpolation=\"bilinear\")\nplt.axis(\"off\")\nplt.show()",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "المثال يوضح mechanism فقط: generate يحسب/يمثل frequency داخل النص، ثم imshow تعرض الصورة. النص illustrative ومش من customer dataset المصدر.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "استيراد WordCloud."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "استيراد plotting."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "نص توضيحي."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "إنشاء object بأبعاد وخلفية."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "generate من النص."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "عرض الـcloud."
+                          },
+                          {
+                            "line": 7,
+                            "ar": "إخفاء axes."
+                          },
+                          {
+                            "line": 8,
+                            "ar": "Render."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Token frequencies computed",
+                          "More frequent words receive greater visual prominence",
+                          "Cloud rendered as image"
+                        ],
+                        "expectedOutput": "Visual output: words such as `service` and `fast` appear more prominent because they repeat.",
+                        "whyItWorks": "Word Cloud تعتمد على frequency، لذلك preprocessing وتكوين corpus يؤثران مباشرة على الشكل.",
+                        "commonMistakes": [
+                          "تفسير حجم الكلمة كsentiment من غير فصل positive/negative.",
+                          "عدم إزالة كلمات عامة جدًا عند الحاجة.",
+                          "اعتبار WordCloud تحليلًا كميًا كاملًا بدل exploratory view."
+                        ],
+                        "examTips": [
+                          "Frequency drives size; sentiment requires grouping/context."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 8–10"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 8–10",
+                    "analysisFlow": [
+                      "Collect text → Clean/preprocess → Separate groups if needed → Generate → Read prominent themes"
+                    ]
+                  },
+                  {
+                    "id": "seaborn-regression",
+                    "title": "Seaborn Regression: Trend, Correlation & Uncertainty",
+                    "summaryAr": "Seaborn مبنية على Matplotlib وبتوفر high-level statistical graphics. Regression plots مثل regplot/lmplot تعرض relationship بين متغيرين وتضيف fitted regression line، وغالبًا confidence interval يوضح uncertainty.",
+                    "keyTerms": [
+                      "Seaborn",
+                      "sns.regplot()",
+                      "sns.lmplot()",
+                      "Regression Line",
+                      "Correlation",
+                      "Confidence Interval"
+                    ],
+                    "conceptsAr": [
+                      "وضوح واتجاه trend line يساعد في قراءة strength/direction بصريًا.",
+                      "Confidence interval shaded area تمثل uncertainty حول التقدير.",
+                      "Visual relationship لا يساوي إثبات causation."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Regression plot",
+                        "code": "import seaborn as sns\nimport matplotlib.pyplot as plt\n\nad_spend = [10, 20, 30, 40, 50, 60]\nsales = [18, 31, 43, 52, 58, 61]\n\nsns.regplot(x=ad_spend, y=sales)\nplt.xlabel(\"Advertising Spend\")\nplt.ylabel(\"Sales\")\nplt.show()",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "ده clarification example مبني على Advertising Spend vs Sales في المصدر. القيم illustrative لتوضيح trend، ومش نقل لأرقام من السلايد.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "استيراد Seaborn."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "استيراد Matplotlib."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "قيم spend توضيحية."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "قيم sales توضيحية."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "regplot يرسم points + fitted line."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "labels."
+                          },
+                          {
+                            "line": 7,
+                            "ar": "Render."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Pair spend/sales observations",
+                          "Fit/display regression trend",
+                          "Read direction and spread around trend"
+                        ],
+                        "expectedOutput": "Visual output: an increasing relationship with a fitted regression line.",
+                        "whyItWorks": "regplot تجمع scatter observations مع estimated linear trend في Visual واحدة.",
+                        "commonMistakes": [
+                          "القول إن correlation تثبت causation.",
+                          "إخفاء axes meaning.",
+                          "اعتبار fitted line prediction perfect."
+                        ],
+                        "examTips": [
+                          "Regression visual: اقرأ direction + strength + uncertainty، مش الخط وحده."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 11–13"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 11–12",
+                    "analysisFlow": [
+                      "Choose numeric x/y → Plot observations → Inspect trend line → Inspect uncertainty → State cautious insight"
+                    ]
+                  },
+                  {
+                    "id": "advertising-diminishing",
+                    "title": "Advertising Spend & Diminishing Returns",
+                    "summaryAr": "Business example في المصدر بيسأل هل زيادة الإعلان تستمر في رفع المبيعات بنفس المعدل. الملاحظة إن Sales ترتفع مع spend لكن growth rate يبطؤ بعد مستوى معين، وده يوحي بـdiminishing returns ويفتح سؤال optimization بدل الزيادة العمياء.",
+                    "keyTerms": [
+                      "Advertising Spend",
+                      "Sales",
+                      "Diminishing Returns",
+                      "ROI",
+                      "Optimization"
+                    ],
+                    "conceptsAr": [
+                      "Insight المصدر: sales increase as spend increases.",
+                      "لكن النمو يبطؤ بعد مستوى معين.",
+                      "السؤال الإداري: نزيد budget ولا نoptimized spend لتحقيق ROI أفضل؟"
+                    ],
+                    "codeExamples": [],
+                    "sourceTrace": "Data Visualization with Python_session_3.pptx — Slide 13",
+                    "analysisFlow": [
+                      "Observe positive relationship → Notice flattening → Identify diminishing returns → Consider ROI optimization"
+                    ]
+                  },
+                  {
+                    "id": "folium-maps",
+                    "title": "Folium Maps, Coordinates & Markers",
+                    "summaryAr": "Folium مكتبة Python لعمل interactive Leaflet maps. الخريطة الأساسية تبدأ latitude/longitude وzoom، والـMarkers تمثل مواقع محددة مثل branches أو cities مع معلومات مرتبطة.",
+                    "keyTerms": [
+                      "Folium",
+                      "folium.Map()",
+                      "Latitude",
+                      "Longitude",
+                      "zoom_start",
+                      "Marker",
+                      "CircleMarker",
+                      "Popup"
+                    ],
+                    "conceptsAr": [
+                      "المصدر يذكر zoom/pan/click كـinteractive features.",
+                      "Folium تقدر تربط DataFrame/GeoPandas بmap features.",
+                      "Branch Performance example يدمج geographic location مع sales performance."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Basic Folium map with a marker",
+                        "code": "import folium\n\nm = folium.Map(location=[30.0444, 31.2357], zoom_start=10)\n\nfolium.Marker(\n    location=[30.0444, 31.2357],\n    popup=\"Example Branch\"\n).add_to(m)\n\nm",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "الكود مثال توضيحي لطريقة initialization والmarker اللي المصدر يناقشها. إحداثيات القاهرة واسم الفرع هنا Platform Clarification وليست بيانات branch من السلايد.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "استيراد Folium."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "إنشاء Map بمركز lat/lon وzoom."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "إنشاء Marker في coordinate."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "إضافة popup توضيحي."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "add_to تربط marker بالخريطة."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "عرض object في notebook."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Initialize interactive map",
+                          "Place point at coordinate",
+                          "Attach popup",
+                          "Render in notebook/web context"
+                        ],
+                        "expectedOutput": "Interactive map centered on the example coordinates with one clickable marker.",
+                        "whyItWorks": "Folium تعتمد على geographic coordinates لتحديد center والmarkers على الخريطة.",
+                        "commonMistakes": [
+                          "عكس latitude وlongitude.",
+                          "استخدام coordinates لا تخص السجل المرتبط بها.",
+                          "تفسير marker color/size كمقياس performance لو لم يتم ترميزه."
+                        ],
+                        "examTips": [
+                          "Map question: راقب location=[lat, lon] وzoom_start وadd_to(map)."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 14–17"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 14–18",
+                    "analysisFlow": [
+                      "Geographic data → Choose map center → Add markers → Encode/attach information → Explore spatial pattern"
+                    ]
+                  },
+                  {
+                    "id": "choropleth-workflow",
+                    "title": "Choropleth Maps & End-to-End Geospatial Workflow",
+                    "summaryAr": "Choropleth تستخدم color gradients لتمثيل metric عبر geographic regions. في Market Opportunity example، اللون الأغمق = فرصة أعلى. المصدر يختم Workflow: Data Collection → Pandas Wrangling → Seaborn Exploration → Folium Spatial Visualization.",
+                    "keyTerms": [
+                      "Choropleth",
+                      "GeoJSON",
+                      "Color Gradient",
+                      "Market Opportunity Index",
+                      "Pandas",
+                      "Seaborn",
+                      "Folium",
+                      "Spatial Visualization"
+                    ],
+                    "conceptsAr": [
+                      "Population وحدها لا تضمن market opportunity عالية؛ المصدر يذكر التوازن بين economic strength وdigital readiness.",
+                      "Strategic implication: prioritize high-index markets، optimize mid-index، reassess low-index risk.",
+                      "لازم regional keys في البيانات تطابق geographic boundaries المستخدمة."
+                    ],
+                    "codeExamples": [
+                      {
+                        "title": "Choropleth structure",
+                        "code": "import folium\n\nm = folium.Map(location=[20, 0], zoom_start=2)\n\nfolium.Choropleth(\n    geo_data=\"countries.geojson\",\n    data=opportunity_df,\n    columns=[\"Country\", \"OpportunityIndex\"],\n    key_on=\"feature.properties.name\",\n    fill_opacity=0.7,\n    line_opacity=0.2,\n    legend_name=\"Market Opportunity Index\"\n).add_to(m)\n\nm",
+                        "language": "python",
+                        "sourceKind": "platform-clarification-based-on-course-concept",
+                        "explanationAr": "ده structural clarification مبني على Choropleth concept في المصدر. أسماء الملفات/columns illustrative لتوضيح العلاقة بين metric وgeographic key.",
+                        "lineByLine": [
+                          {
+                            "line": 1,
+                            "ar": "إنشاء base map."
+                          },
+                          {
+                            "line": 2,
+                            "ar": "إضافة Choropleth layer."
+                          },
+                          {
+                            "line": 3,
+                            "ar": "geo_data توفر الحدود الجغرافية."
+                          },
+                          {
+                            "line": 4,
+                            "ar": "data هي table metrics."
+                          },
+                          {
+                            "line": 5,
+                            "ar": "columns تحدد region key وvalue."
+                          },
+                          {
+                            "line": 6,
+                            "ar": "key_on يحدد matching field في GeoJSON."
+                          },
+                          {
+                            "line": 7,
+                            "ar": "opacity/legend controls."
+                          },
+                          {
+                            "line": 8,
+                            "ar": "إضافة layer للخريطة."
+                          }
+                        ],
+                        "executionTrace": [
+                          "Match Country key to geographic feature",
+                          "Map OpportunityIndex to color scale",
+                          "Render regional gradient"
+                        ],
+                        "expectedOutput": "Interactive choropleth where regions receive colors according to the supplied OpportunityIndex values.",
+                        "whyItWorks": "Choropleth تحتاج join منطقي بين region identifier في data وfeature identifier في geographic boundaries.",
+                        "commonMistakes": [
+                          "عدم تطابق أسماء countries بين data وGeoJSON.",
+                          "قراءة اللون بدون legend.",
+                          "اعتبار اللون الداكن سببًا للفرصة بدل تمثيل metric محسوبة."
+                        ],
+                        "examTips": [
+                          "Choropleth troubleshooting يبدأ من key_on + region key matching."
+                        ],
+                        "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 19–23"
+                      }
+                    ],
+                    "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 19–24",
+                    "analysisFlow": [
+                      "Collect geo-aware data → Clean/wrangle → Explore statistics → Match geographic keys → Map metric → Interpret strategically"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "trackExamId": "data-analysis-python-track-v1",
+          "trackExamTitle": "Full Python Track Exam — 50 Questions",
+          "productionStats": {
+            "sessions": 13,
+            "studySections": 75,
+            "codeExamples": 47,
+            "questionBanks": 13,
+            "questions": 520,
+            "status": "FINAL READY"
+          }
         },
         {
           "id": "power-bi",

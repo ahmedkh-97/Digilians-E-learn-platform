@@ -1,0 +1,890 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-python-final-share-v1-sample",
+    "title": "Python — Validated 20Q Data Analysis Final Share",
+    "description": "Validated 20-question Python share for the 100-question Data Analysis Final blueprint.",
+    "course": "Data Analysis",
+    "module": "Python for Data Analysis",
+    "category": "Final Share Validation",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-python-s01-q002",
+      "question": "A variable is assigned `x = 3.14`. Which type is inferred?",
+      "options": [
+        {
+          "id": "A",
+          "text": "int"
+        },
+        {
+          "id": "B",
+          "text": "float"
+        },
+        {
+          "id": "C",
+          "text": "bool"
+        },
+        {
+          "id": "D",
+          "text": "dict"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "3.14 قيمة عشرية؛ نوعها float.",
+        "en": ""
+      },
+      "topic": "Python Language & Variables",
+      "topicId": "variables-types",
+      "subtopicId": "dynamic-typing",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dynamic-typing-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 5, 12–17 — Characteristics and data types"
+      }
+    },
+    {
+      "id": "da-python-s02-q002",
+      "question": "What type of result should a simple condition such as `x > 0` produce?",
+      "options": [
+        {
+          "id": "A",
+          "text": "List"
+        },
+        {
+          "id": "B",
+          "text": "Boolean"
+        },
+        {
+          "id": "C",
+          "text": "Dictionary"
+        },
+        {
+          "id": "D",
+          "text": "Tuple"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Control flow تختار blocks للتنفيذ بناءً على conditions.",
+        "en": ""
+      },
+      "topic": "Control Flow",
+      "topicId": "control-flow",
+      "subtopicId": "purpose",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "control-purpose-v2",
+      "source": {
+        "file": "Python Session 4.pptx",
+        "reference": "Slide 5 — Control Flow"
+      }
+    },
+    {
+      "id": "da-python-s03-q004",
+      "question": "A learner expects `range(5)` to include 5. What rule fixes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The start value is excluded"
+        },
+        {
+          "id": "B",
+          "text": "range only works on strings"
+        },
+        {
+          "id": "C",
+          "text": "range always starts at 1"
+        },
+        {
+          "id": "D",
+          "text": "The stop value in range is excluded."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. for loop تتكرر على sequence مثل list/string/range وتنفذ block لكل item.",
+        "en": ""
+      },
+      "topic": "for Loops",
+      "topicId": "for-loop",
+      "subtopicId": "sequence-iteration",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "for-sequence-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 5–9 — for loop and examples"
+      }
+    },
+    {
+      "id": "da-python-s03-q008",
+      "question": "A student expects loop-else to run after break. What is the correction?",
+      "options": [
+        {
+          "id": "A",
+          "text": "else always runs twice"
+        },
+        {
+          "id": "B",
+          "text": "break only skips one print"
+        },
+        {
+          "id": "C",
+          "text": "for cannot have else"
+        },
+        {
+          "id": "D",
+          "text": "break prevents the natural-completion else."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Loop else تنفذ عند natural completion بدون break.",
+        "en": ""
+      },
+      "topic": "Loop else",
+      "topicId": "loop-else",
+      "subtopicId": "for-else",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "for-else-v4",
+      "source": {
+        "file": "Python Session 5.pptx",
+        "reference": "Slides 10, 27 — for else and summary"
+      }
+    },
+    {
+      "id": "da-python-s04-q002",
+      "question": "For `[3,5,2,8,1,9,4]`, what maximum is found?",
+      "options": [
+        {
+          "id": "A",
+          "text": "8"
+        },
+        {
+          "id": "B",
+          "text": "9"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "max_value تبدأ بأول عنصر وتتحدث فقط عند العثور على قيمة أكبر.",
+        "en": ""
+      },
+      "topic": "Maximum & Collection Scans",
+      "topicId": "max-common",
+      "subtopicId": "maximum",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "maximum-v2",
+      "source": {
+        "file": "Python Session 6.pptx",
+        "reference": "Slide 5 — Finding Maximum Value"
+      }
+    },
+    {
+      "id": "da-python-s05-q001",
+      "question": "Which statement best describes `Function Definition` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A function is a reusable block of code defined to perform a specific task."
+        },
+        {
+          "id": "B",
+          "text": "Parameters let a function receive values, and `return` sends a result back to the caller."
+        },
+        {
+          "id": "C",
+          "text": "A default parameter provides a value used when the caller omits that argument."
+        },
+        {
+          "id": "D",
+          "text": "A function can return multiple values that the caller can unpack into separate variables."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A function is a reusable block of code defined to perform a specific task.",
+        "en": ""
+      },
+      "topic": "Function Definition",
+      "topicId": "functions-core",
+      "subtopicId": "function-definition",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-function-definition-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 5–6 — Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q025",
+      "question": "Which statement best describes `map()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`map()` applies a function to each element of an iterable."
+        },
+        {
+          "id": "B",
+          "text": "`filter()` keeps iterable items for which the supplied function/condition is True."
+        },
+        {
+          "id": "C",
+          "text": "A recursive function calls itself on smaller subproblems and needs a stopping/base case."
+        },
+        {
+          "id": "D",
+          "text": "A higher-order function can take another function as an argument or return a function."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`map()` applies a function to each element of an iterable.",
+        "en": ""
+      },
+      "topic": "map()",
+      "topicId": "functions-advanced",
+      "subtopicId": "map",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-map-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 15 — Lambda with map()"
+      }
+    },
+    {
+      "id": "da-python-s06-q030",
+      "question": "Which taught function/pattern is most appropriate when you want to perform the taught basic email-format check?",
+      "options": [
+        {
+          "id": "A",
+          "text": "frequency dictionary"
+        },
+        {
+          "id": "B",
+          "text": "\"@\" in email and \".\" after @"
+        },
+        {
+          "id": "C",
+          "text": "key=lambda x: ..."
+        },
+        {
+          "id": "D",
+          "text": "sum(numbers) / len(numbers)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`\"@\" in email and \".\" after @` is the course-aligned choice for this task: perform the taught basic email-format check.",
+        "en": ""
+      },
+      "topic": "Email Validation",
+      "topicId": "functional-problem-solving",
+      "subtopicId": "email-validation",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s06-email-validation-v2",
+      "source": {
+        "file": "Python Session 8.pptx",
+        "reference": "Slide 13 — Basic Email Validation"
+      }
+    },
+    {
+      "id": "da-python-s07-q001",
+      "question": "Which statement best describes `open() & Modes` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`open(path, mode)` opens a file; default mode is read (`r`) if omitted."
+        },
+        {
+          "id": "B",
+          "text": "`file.close()` closes a file object and releases resources; `f.closed` reports whether it is closed."
+        },
+        {
+          "id": "C",
+          "text": "`read()` reads file content; `read(n)` can read only a limited number of characters."
+        },
+        {
+          "id": "D",
+          "text": "A `with` statement automatically handles closing the file and reduces resource-leak risk."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`open(path, mode)` opens a file; default mode is read (`r`) if omitted.",
+        "en": ""
+      },
+      "topic": "open() & Modes",
+      "topicId": "file-handling",
+      "subtopicId": "open-modes",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-open-modes-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 2–3, 9 — open and modes"
+      }
+    },
+    {
+      "id": "da-python-s08-q001",
+      "question": "Which statement best describes `NumPy ndarray` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NumPy provides efficient N-dimensional arrays for numerical computing and forms the base for many data-science libraries."
+        },
+        {
+          "id": "B",
+          "text": "`shape` is a tuple describing the size of each array dimension."
+        },
+        {
+          "id": "C",
+          "text": "`np.zeros()` and `np.ones()` initialize arrays filled with 0 or 1 using a requested shape."
+        },
+        {
+          "id": "D",
+          "text": "`np.arange()` creates values over a range with an optional step, stopping before the stop value."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "NumPy provides efficient N-dimensional arrays for numerical computing and forms the base for many data-science libraries.",
+        "en": ""
+      },
+      "topic": "NumPy ndarray",
+      "topicId": "numpy-fundamentals",
+      "subtopicId": "ndarray",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-ndarray-v1",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 5–6 — NumPy Introduction"
+      }
+    },
+    {
+      "id": "da-python-s08-q011",
+      "question": "What does `np.zeros((2,3))` create?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A list with two zeros"
+        },
+        {
+          "id": "B",
+          "text": "A 3×2 identity matrix"
+        },
+        {
+          "id": "C",
+          "text": "A 2×3 array filled with zeros"
+        },
+        {
+          "id": "D",
+          "text": "A random array"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `np.zeros()/np.ones()` behavior: `np.zeros()` and `np.ones()` initialize arrays filled with 0 or 1 using a requested shape.",
+        "en": ""
+      },
+      "topic": "np.zeros()/np.ones()",
+      "topicId": "numpy-creation",
+      "subtopicId": "zeros-ones",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s08-zeros-ones-v3",
+      "source": {
+        "file": "Numpy_1.pptx",
+        "reference": "Slides 11–12 — Zeros and Ones"
+      }
+    },
+    {
+      "id": "da-python-s09-q015",
+      "question": "Which detail is explicitly provided by `info()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only mean salary"
+        },
+        {
+          "id": "B",
+          "text": "Only sorted rows"
+        },
+        {
+          "id": "C",
+          "text": "Data types and non-null counts"
+        },
+        {
+          "id": "D",
+          "text": "Only file size"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `info()` behavior: `info()` summarizes DataFrame structure including non-null counts and column data types.",
+        "en": ""
+      },
+      "topic": "info()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "info",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-info-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 11 — info()"
+      }
+    },
+    {
+      "id": "da-python-s09-q030",
+      "question": "Which taught function/pattern is most appropriate when you want to add, update or remove DataFrame columns?",
+      "options": [
+        {
+          "id": "A",
+          "text": "isnull()/fillna()/dropna()"
+        },
+        {
+          "id": "B",
+          "text": "df[\"new\"]=... / df.drop(..., axis=1)"
+        },
+        {
+          "id": "C",
+          "text": "groupby() / apply()"
+        },
+        {
+          "id": "D",
+          "text": "pd.Series(...)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`df[\"new\"]=... / df.drop(..., axis=1)` is the course-aligned choice for this task: add, update or remove DataFrame columns.",
+        "en": ""
+      },
+      "topic": "Modify DataFrame",
+      "topicId": "pandas-manipulation",
+      "subtopicId": "modify",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-modify-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 16–18 — Add, Update, Drop"
+      }
+    },
+    {
+      "id": "da-python-s10-q001",
+      "question": "Which statement best describes `CSV Loading` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The applied workflow loads CSV data into a DataFrame and begins with head/info/describe inspection."
+        },
+        {
+          "id": "B",
+          "text": "A Boolean condition on the Department column filters the DataFrame to matching employees."
+        },
+        {
+          "id": "C",
+          "text": "Grouping by Department then taking mean Salary produces average salary for each department."
+        },
+        {
+          "id": "D",
+          "text": "A new salary column can be calculated vectorially by multiplying Salary by 1.05."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The applied workflow loads CSV data into a DataFrame and begins with head/info/describe inspection.",
+        "en": ""
+      },
+      "topic": "CSV Loading",
+      "topicId": "pandas-workflows",
+      "subtopicId": "read-csv",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-read-csv-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 6–9 — Load and Inspect CSV"
+      }
+    },
+    {
+      "id": "da-python-s10-q025",
+      "question": "Which statement best describes `Datetime Conversion & Filtering` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`pd.to_datetime()` converts the date column before filtering rows after a date threshold."
+        },
+        {
+          "id": "B",
+          "text": "`to_csv()` writes a DataFrame to a CSV; `index=False` excludes the row index."
+        },
+        {
+          "id": "C",
+          "text": "The Hospital case study applies inspection, filtering, aggregation, calculated fields, sorting/date logic and export in one workflow."
+        },
+        {
+          "id": "D",
+          "text": "The Restaurant case study applies Pandas manipulation to sales/customer analysis as an integrated applied workflow."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`pd.to_datetime()` converts the date column before filtering rows after a date threshold.",
+        "en": ""
+      },
+      "topic": "Datetime Conversion & Filtering",
+      "topicId": "pandas-workflows",
+      "subtopicId": "datetime-filter",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-datetime-filter-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 15 — Joined After 2020"
+      }
+    },
+    {
+      "id": "da-python-s11-q010",
+      "question": "Which taught tool or pattern is most appropriate when you want to create a highly customizable foundational static 2D plot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Matplotlib"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Matplotlib`.",
+        "en": ""
+      },
+      "topic": "Python Visualization Libraries",
+      "topicId": "plot-libraries",
+      "subtopicId": "library-choice",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-libraries-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slide 9 — Plot Libraries"
+      }
+    },
+    {
+      "id": "da-python-s11-q030",
+      "question": "Which taught tool or pattern is most appropriate when you want to investigate the year with the highest immigration total?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove(...)"
+        },
+        {
+          "id": "B",
+          "text": "Aggregate by year, identify the maximum, then explore 2010"
+        },
+        {
+          "id": "C",
+          "text": "dict.pop(...)"
+        },
+        {
+          "id": "D",
+          "text": "input(...) without any related analysis step"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Aggregate by year, identify the maximum, then explore 2010`.",
+        "en": ""
+      },
+      "topic": "Peak-Year Immigration Analysis",
+      "topicId": "peak-year-analysis",
+      "subtopicId": "2010",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s11-peak2010-2",
+      "source": {
+        "file": "Data Visualization with Python_session_2.pptx",
+        "reference": "Slides 23–25 — Peak year / top continents / top countries"
+      }
+    },
+    {
+      "id": "da-python-s12-q011",
+      "question": "What do the `s` and `alpha` arguments affect in the styled scatter example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "Point size and transparency."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: Point size and transparency..",
+        "en": ""
+      },
+      "topic": "Scatter Plots",
+      "topicId": "scatter-plot",
+      "subtopicId": "relationship",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s12-scatter-3",
+      "source": {
+        "file": "Data Visualization with Python_session_1.pptx",
+        "reference": "Slides 12–14 — Scatter Plot"
+      }
+    },
+    {
+      "id": "da-python-s13-q001",
+      "question": "Which statement best describes `Waffle Charts` according to the taught material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Waffle Chart is a grid visualization used to show parts-to-whole relationships; the source describes a 100-square percentage-style grid."
+        },
+        {
+          "id": "B",
+          "text": "It is presented as a file-system permission command."
+        },
+        {
+          "id": "C",
+          "text": "It is a Python container whose main purpose is key-value storage."
+        },
+        {
+          "id": "D",
+          "text": "It is taught as a replacement for every data-analysis step."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A Waffle Chart is a grid visualization used to show parts-to-whole relationships; the source describes a 100-square percentage-style grid. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
+        "en": ""
+      },
+      "topic": "Waffle Charts",
+      "topicId": "waffle-chart",
+      "subtopicId": "parts-to-whole",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-waffle-1",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 5–8 — Waffle Charts"
+      }
+    },
+    {
+      "id": "da-python-s13-q015",
+      "question": "Why create separate positive and negative word clouds in the demonstrated workflow?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The opposite interpretation of the plotted/processed result."
+        },
+        {
+          "id": "B",
+          "text": "No result can be produced from the taught operation."
+        },
+        {
+          "id": "C",
+          "text": "To compare dominant terms in the two feedback groups."
+        },
+        {
+          "id": "D",
+          "text": "It automatically changes the source dataset in an unrelated way."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب المثال/المفهوم في المصدر: To compare dominant terms in the two feedback groups..",
+        "en": ""
+      },
+      "topic": "Positive & Negative Feedback Word Clouds",
+      "topicId": "text-sentiment-clouds",
+      "subtopicId": "feedback",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s13-feedback-cloud-3",
+      "source": {
+        "file": "Data Visualization with Python_session_3.pptx",
+        "reference": "Slides 13–14 — Customer Feedback word clouds"
+      }
+    }
+  ]
+}

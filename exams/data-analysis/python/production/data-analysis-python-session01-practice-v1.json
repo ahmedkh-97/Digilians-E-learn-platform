@@ -1,0 +1,1751 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-python-session01-practice-v1",
+    "title": "Session 1 — Python Practice",
+    "description": "40-question source-scoped practice for Python Fundamentals, Data Types & Data Containers.",
+    "course": "Data Analysis",
+    "module": "Python for Data Analysis — Session 1",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-python-s01-q001",
+      "question": "Which characteristic means Python does not require explicit type declarations before assignment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dynamically typed"
+        },
+        {
+          "id": "B",
+          "text": "Compiled only"
+        },
+        {
+          "id": "C",
+          "text": "Case-insensitive"
+        },
+        {
+          "id": "D",
+          "text": "Set-based"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Python dynamically typed؛ المتغير يأخذ نوعه من القيمة وقت الإسناد.",
+        "en": ""
+      },
+      "topic": "Python Language & Variables",
+      "topicId": "variables-types",
+      "subtopicId": "dynamic-typing",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dynamic-typing-v1",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 5, 12–17 — Characteristics and data types"
+      }
+    },
+    {
+      "id": "da-python-s01-q002",
+      "question": "A variable is assigned `x = 3.14`. Which type is inferred?",
+      "options": [
+        {
+          "id": "A",
+          "text": "int"
+        },
+        {
+          "id": "B",
+          "text": "float"
+        },
+        {
+          "id": "C",
+          "text": "bool"
+        },
+        {
+          "id": "D",
+          "text": "dict"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "3.14 قيمة عشرية؛ نوعها float.",
+        "en": ""
+      },
+      "topic": "Python Language & Variables",
+      "topicId": "variables-types",
+      "subtopicId": "dynamic-typing",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dynamic-typing-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 5, 12–17 — Characteristics and data types"
+      }
+    },
+    {
+      "id": "da-python-s01-q003",
+      "question": "What is the type of `active = True`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "str"
+        },
+        {
+          "id": "B",
+          "text": "int"
+        },
+        {
+          "id": "C",
+          "text": "bool"
+        },
+        {
+          "id": "D",
+          "text": "list"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "True قيمة Boolean صحيحة في Python.",
+        "en": ""
+      },
+      "topic": "Python Language & Variables",
+      "topicId": "variables-types",
+      "subtopicId": "dynamic-typing",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dynamic-typing-v3",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 5, 12–17 — Characteristics and data types"
+      }
+    },
+    {
+      "id": "da-python-s01-q004",
+      "question": "A learner writes `true` and expects a Boolean. What is the correction?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `TRUE()`"
+        },
+        {
+          "id": "B",
+          "text": "Use `\"True\"` to get bool"
+        },
+        {
+          "id": "C",
+          "text": "Use `1.0`"
+        },
+        {
+          "id": "D",
+          "text": "Use `True` with a capital T."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Boolean literals هما True وFalse بحرف أول Capital.",
+        "en": ""
+      },
+      "topic": "Python Language & Variables",
+      "topicId": "variables-types",
+      "subtopicId": "dynamic-typing",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dynamic-typing-v4",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 5, 12–17 — Characteristics and data types"
+      }
+    },
+    {
+      "id": "da-python-s01-q005",
+      "question": "What index identifies the first character of a Python string?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
+          "text": "-1"
+        },
+        {
+          "id": "D",
+          "text": "None"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "String indexing يبدأ من 0، والـ end في slicing غير مشمول.",
+        "en": ""
+      },
+      "topic": "Strings",
+      "topicId": "strings",
+      "subtopicId": "indexing-slicing",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "strings-index-slice-v1",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 18–24 — Strings, indexing and slicing"
+      }
+    },
+    {
+      "id": "da-python-s01-q006",
+      "question": "For `text=\"Python\"`, what is `text[-1]`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "P"
+        },
+        {
+          "id": "B",
+          "text": "n"
+        },
+        {
+          "id": "C",
+          "text": "o"
+        },
+        {
+          "id": "D",
+          "text": "-1"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "String indexing يبدأ من 0، والـ end في slicing غير مشمول.",
+        "en": ""
+      },
+      "topic": "Strings",
+      "topicId": "strings",
+      "subtopicId": "indexing-slicing",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "strings-index-slice-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 18–24 — Strings, indexing and slicing"
+      }
+    },
+    {
+      "id": "da-python-s01-q007",
+      "question": "For `text=\"Python\"`, what is `text[1:4]`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ytho"
+        },
+        {
+          "id": "B",
+          "text": "Pyt"
+        },
+        {
+          "id": "C",
+          "text": "yth"
+        },
+        {
+          "id": "D",
+          "text": "tho"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "String indexing يبدأ من 0، والـ end في slicing غير مشمول.",
+        "en": ""
+      },
+      "topic": "Strings",
+      "topicId": "strings",
+      "subtopicId": "indexing-slicing",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "strings-index-slice-v3",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 18–24 — Strings, indexing and slicing"
+      }
+    },
+    {
+      "id": "da-python-s01-q008",
+      "question": "A student expects `text[1:4]` to include index 4. What rule fixes the mistake?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The start index is excluded"
+        },
+        {
+          "id": "B",
+          "text": "All slices include both ends"
+        },
+        {
+          "id": "C",
+          "text": "Strings cannot be sliced"
+        },
+        {
+          "id": "D",
+          "text": "The end index in a slice is excluded."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. String indexing يبدأ من 0، والـ end في slicing غير مشمول.",
+        "en": ""
+      },
+      "topic": "Strings",
+      "topicId": "strings",
+      "subtopicId": "indexing-slicing",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "strings-index-slice-v4",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 18–24 — Strings, indexing and slicing"
+      }
+    },
+    {
+      "id": "da-python-s01-q009",
+      "question": "What type does `input()` return before explicit conversion?",
+      "options": [
+        {
+          "id": "A",
+          "text": "str"
+        },
+        {
+          "id": "B",
+          "text": "int"
+        },
+        {
+          "id": "C",
+          "text": "float"
+        },
+        {
+          "id": "D",
+          "text": "bool"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "input() ترجع String، والتحويل الصريح مثل int() مطلوب قبل arithmetic numeric.",
+        "en": ""
+      },
+      "topic": "Input & Printing",
+      "topicId": "input-print-operators",
+      "subtopicId": "input-type",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "input-casting-v1",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 27–31 — User input and printing"
+      }
+    },
+    {
+      "id": "da-python-s01-q010",
+      "question": "If the user types `20`, what does `age = input()` store?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The integer 20"
+        },
+        {
+          "id": "B",
+          "text": "The string `\"20\"`"
+        },
+        {
+          "id": "C",
+          "text": "The float 20.0"
+        },
+        {
+          "id": "D",
+          "text": "The Boolean True"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "input() ترجع String، والتحويل الصريح مثل int() مطلوب قبل arithmetic numeric.",
+        "en": ""
+      },
+      "topic": "Input & Printing",
+      "topicId": "input-print-operators",
+      "subtopicId": "input-type",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "input-casting-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 27–31 — User input and printing"
+      }
+    },
+    {
+      "id": "da-python-s01-q011",
+      "question": "Which expression correctly converts a numeric input string to an integer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "value.int()"
+        },
+        {
+          "id": "B",
+          "text": "str(value)"
+        },
+        {
+          "id": "C",
+          "text": "int(value)"
+        },
+        {
+          "id": "D",
+          "text": "bool(value)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "input() ترجع String، والتحويل الصريح مثل int() مطلوب قبل arithmetic numeric.",
+        "en": ""
+      },
+      "topic": "Input & Printing",
+      "topicId": "input-print-operators",
+      "subtopicId": "input-type",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "input-casting-v3",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 27–31 — User input and printing"
+      }
+    },
+    {
+      "id": "da-python-s01-q012",
+      "question": "A program tries to calculate `input_value + 1` and fails after the user typed 20. What should be done?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use a set"
+        },
+        {
+          "id": "B",
+          "text": "Add more indentation only"
+        },
+        {
+          "id": "C",
+          "text": "Call upper()"
+        },
+        {
+          "id": "D",
+          "text": "Convert the input string to an integer before adding."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. input() ترجع String، والتحويل الصريح مثل int() مطلوب قبل arithmetic numeric.",
+        "en": ""
+      },
+      "topic": "Input & Printing",
+      "topicId": "input-print-operators",
+      "subtopicId": "input-type",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "input-casting-v4",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 27–31 — User input and printing"
+      }
+    },
+    {
+      "id": "da-python-s01-q013",
+      "question": "Which category contains `and`, `or`, and `not`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Logical operators"
+        },
+        {
+          "id": "B",
+          "text": "Arithmetic operators"
+        },
+        {
+          "id": "C",
+          "text": "String methods"
+        },
+        {
+          "id": "D",
+          "text": "Set operations"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "and/or/not من logical operators ونتائج المقارنة تُستخدم كـ Boolean conditions.",
+        "en": ""
+      },
+      "topic": "Operators & Boolean Logic",
+      "topicId": "input-print-operators",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "operators-logic-v1",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 32–39 — Operators and logic tables"
+      }
+    },
+    {
+      "id": "da-python-s01-q014",
+      "question": "What type of result is normally produced by a comparison such as `5 > 2`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "list"
+        },
+        {
+          "id": "B",
+          "text": "bool"
+        },
+        {
+          "id": "C",
+          "text": "dict"
+        },
+        {
+          "id": "D",
+          "text": "tuple"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "and/or/not من logical operators ونتائج المقارنة تُستخدم كـ Boolean conditions.",
+        "en": ""
+      },
+      "topic": "Operators & Boolean Logic",
+      "topicId": "input-print-operators",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "operators-logic-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 32–39 — Operators and logic tables"
+      }
+    },
+    {
+      "id": "da-python-s01-q015",
+      "question": "Which expression is suitable as a Boolean condition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "score + 70 only"
+        },
+        {
+          "id": "B",
+          "text": "[score] only"
+        },
+        {
+          "id": "C",
+          "text": "score >= 70"
+        },
+        {
+          "id": "D",
+          "text": "{\"score\":70} only"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "and/or/not من logical operators ونتائج المقارنة تُستخدم كـ Boolean conditions.",
+        "en": ""
+      },
+      "topic": "Operators & Boolean Logic",
+      "topicId": "input-print-operators",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "operators-logic-v3",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 32–39 — Operators and logic tables"
+      }
+    },
+    {
+      "id": "da-python-s01-q016",
+      "question": "A learner uses `=` when intending to compare equality in a condition. What concept should they distinguish?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tuple versus set"
+        },
+        {
+          "id": "B",
+          "text": "String versus list"
+        },
+        {
+          "id": "C",
+          "text": "Input versus print"
+        },
+        {
+          "id": "D",
+          "text": "Assignment versus comparison."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. and/or/not من logical operators ونتائج المقارنة تُستخدم كـ Boolean conditions.",
+        "en": ""
+      },
+      "topic": "Operators & Boolean Logic",
+      "topicId": "input-print-operators",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "operators-logic-v4",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 32–39 — Operators and logic tables"
+      }
+    },
+    {
+      "id": "da-python-s01-q017",
+      "question": "Which taught container is ordered and mutable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "list"
+        },
+        {
+          "id": "B",
+          "text": "tuple"
+        },
+        {
+          "id": "C",
+          "text": "set"
+        },
+        {
+          "id": "D",
+          "text": "bool"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "List ordered وmutable وتدعم indexing؛ append/insert للإضافة وremove/pop للحذف.",
+        "en": ""
+      },
+      "topic": "Lists",
+      "topicId": "lists-comprehensions",
+      "subtopicId": "list-operations",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "list-mutable-v1",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 41–43 — Lists and operations"
+      }
+    },
+    {
+      "id": "da-python-s01-q018",
+      "question": "For `items=[10,20,30]`, what does `items[1]` return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "10"
+        },
+        {
+          "id": "B",
+          "text": "20"
+        },
+        {
+          "id": "C",
+          "text": "30"
+        },
+        {
+          "id": "D",
+          "text": "1"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "List ordered وmutable وتدعم indexing؛ append/insert للإضافة وremove/pop للحذف.",
+        "en": ""
+      },
+      "topic": "Lists",
+      "topicId": "lists-comprehensions",
+      "subtopicId": "list-operations",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "list-mutable-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 41–43 — Lists and operations"
+      }
+    },
+    {
+      "id": "da-python-s01-q019",
+      "question": "Which method adds an item to the end of a list?",
+      "options": [
+        {
+          "id": "A",
+          "text": "remove()"
+        },
+        {
+          "id": "B",
+          "text": "pop()"
+        },
+        {
+          "id": "C",
+          "text": "append()"
+        },
+        {
+          "id": "D",
+          "text": "upper()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "List ordered وmutable وتدعم indexing؛ append/insert للإضافة وremove/pop للحذف.",
+        "en": ""
+      },
+      "topic": "Lists",
+      "topicId": "lists-comprehensions",
+      "subtopicId": "list-operations",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "list-mutable-v3",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 41–43 — Lists and operations"
+      }
+    },
+    {
+      "id": "da-python-s01-q020",
+      "question": "A learner wants to delete the value `20` but uses `pop(20)`. What distinction matters?",
+      "options": [
+        {
+          "id": "A",
+          "text": "append() deletes values"
+        },
+        {
+          "id": "B",
+          "text": "Sets use pop only for positions"
+        },
+        {
+          "id": "C",
+          "text": "Strings use remove()"
+        },
+        {
+          "id": "D",
+          "text": "remove() deletes by value, while pop() is index-based."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. List ordered وmutable وتدعم indexing؛ append/insert للإضافة وremove/pop للحذف.",
+        "en": ""
+      },
+      "topic": "Lists",
+      "topicId": "lists-comprehensions",
+      "subtopicId": "list-operations",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "list-mutable-v4",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 41–43 — Lists and operations"
+      }
+    },
+    {
+      "id": "da-python-s01-q021",
+      "question": "What is the purpose of a list comprehension in the source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Create a list in a concise expression while iterating."
+        },
+        {
+          "id": "B",
+          "text": "Make tuples mutable"
+        },
+        {
+          "id": "C",
+          "text": "Sort dictionaries automatically"
+        },
+        {
+          "id": "D",
+          "text": "Disable loops"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "List comprehension تبني List جديدة من expression + iteration بصيغة مختصرة.",
+        "en": ""
+      },
+      "topic": "Lists",
+      "topicId": "lists-comprehensions",
+      "subtopicId": "list-comprehension",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "listcomp-v1",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slide 44 — List comprehensions"
+      }
+    },
+    {
+      "id": "da-python-s01-q022",
+      "question": "What does `[x*x for x in range(1,4)]` produce?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[1,2,3]"
+        },
+        {
+          "id": "B",
+          "text": "[1, 4, 9]"
+        },
+        {
+          "id": "C",
+          "text": "[1,4,9,16]"
+        },
+        {
+          "id": "D",
+          "text": "[0,1,4]"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "List comprehension تبني List جديدة من expression + iteration بصيغة مختصرة.",
+        "en": ""
+      },
+      "topic": "Lists",
+      "topicId": "lists-comprehensions",
+      "subtopicId": "list-comprehension",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "listcomp-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slide 44 — List comprehensions"
+      }
+    },
+    {
+      "id": "da-python-s01-q023",
+      "question": "In `[expression for item in iterable]`, what part defines the value placed in the new list?",
+      "options": [
+        {
+          "id": "A",
+          "text": "iterable only"
+        },
+        {
+          "id": "B",
+          "text": "The brackets alone"
+        },
+        {
+          "id": "C",
+          "text": "expression"
+        },
+        {
+          "id": "D",
+          "text": "A dictionary key"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "List comprehension تبني List جديدة من expression + iteration بصيغة مختصرة.",
+        "en": ""
+      },
+      "topic": "Lists",
+      "topicId": "lists-comprehensions",
+      "subtopicId": "list-comprehension",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "listcomp-v3",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slide 44 — List comprehensions"
+      }
+    },
+    {
+      "id": "da-python-s01-q024",
+      "question": "A student writes `[for x in values x*2]`. What course syntax should guide the correction?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `{for ...}`"
+        },
+        {
+          "id": "B",
+          "text": "Remove the expression"
+        },
+        {
+          "id": "C",
+          "text": "Convert values to tuple first"
+        },
+        {
+          "id": "D",
+          "text": "Place the expression before `for`: `[x*2 for x in values]`."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. List comprehension تبني List جديدة من expression + iteration بصيغة مختصرة.",
+        "en": ""
+      },
+      "topic": "Lists",
+      "topicId": "lists-comprehensions",
+      "subtopicId": "list-comprehension",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "listcomp-v4",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slide 44 — List comprehensions"
+      }
+    },
+    {
+      "id": "da-python-s01-q025",
+      "question": "Which property distinguishes a tuple from a list in the taught comparison?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A tuple is immutable."
+        },
+        {
+          "id": "B",
+          "text": "A tuple is unordered"
+        },
+        {
+          "id": "C",
+          "text": "A tuple removes duplicates"
+        },
+        {
+          "id": "D",
+          "text": "A tuple uses keys"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Tuple ordered وimmutable ومناسبة للـ fixed sequence.",
+        "en": ""
+      },
+      "topic": "Tuples & Sets",
+      "topicId": "tuples-sets",
+      "subtopicId": "tuple",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "tuple-v1",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 45–47 — Tuples and List vs Tuple"
+      }
+    },
+    {
+      "id": "da-python-s01-q026",
+      "question": "Which container is better for an ordered sequence that should not change?",
+      "options": [
+        {
+          "id": "A",
+          "text": "list"
+        },
+        {
+          "id": "B",
+          "text": "tuple"
+        },
+        {
+          "id": "C",
+          "text": "set"
+        },
+        {
+          "id": "D",
+          "text": "dictionary"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Tuple ordered وimmutable ومناسبة للـ fixed sequence.",
+        "en": ""
+      },
+      "topic": "Tuples & Sets",
+      "topicId": "tuples-sets",
+      "subtopicId": "tuple",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "tuple-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 45–47 — Tuples and List vs Tuple"
+      }
+    },
+    {
+      "id": "da-python-s01-q027",
+      "question": "According to the source, which is generally more memory-efficient for a fixed sequence?",
+      "options": [
+        {
+          "id": "A",
+          "text": "list"
+        },
+        {
+          "id": "B",
+          "text": "dictionary"
+        },
+        {
+          "id": "C",
+          "text": "tuple"
+        },
+        {
+          "id": "D",
+          "text": "set always"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Tuple ordered وimmutable ومناسبة للـ fixed sequence.",
+        "en": ""
+      },
+      "topic": "Tuples & Sets",
+      "topicId": "tuples-sets",
+      "subtopicId": "tuple",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "tuple-v3",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 45–47 — Tuples and List vs Tuple"
+      }
+    },
+    {
+      "id": "da-python-s01-q028",
+      "question": "A learner tries to assign `my_tuple[0] = 5`. What is the taught issue?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tuples are unordered"
+        },
+        {
+          "id": "B",
+          "text": "Tuples contain only strings"
+        },
+        {
+          "id": "C",
+          "text": "Tuples need append() first"
+        },
+        {
+          "id": "D",
+          "text": "Tuples are immutable, so item assignment is not supported."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Tuple ordered وimmutable ومناسبة للـ fixed sequence.",
+        "en": ""
+      },
+      "topic": "Tuples & Sets",
+      "topicId": "tuples-sets",
+      "subtopicId": "tuple",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "tuple-v4",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 45–47 — Tuples and List vs Tuple"
+      }
+    },
+    {
+      "id": "da-python-s01-q029",
+      "question": "Which property is fundamental to a set?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Unique elements"
+        },
+        {
+          "id": "B",
+          "text": "Duplicate preservation"
+        },
+        {
+          "id": "C",
+          "text": "Numeric indexing"
+        },
+        {
+          "id": "D",
+          "text": "Key-value storage"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Set غير مرتبة، عناصرها unique، ولا تدعم indexing/slicing.",
+        "en": ""
+      },
+      "topic": "Tuples & Sets",
+      "topicId": "tuples-sets",
+      "subtopicId": "set",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "set-v1",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 48–50 — Sets"
+      }
+    },
+    {
+      "id": "da-python-s01-q030",
+      "question": "What is the length of `{1,2,2,3,3}`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "2"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Set غير مرتبة، عناصرها unique، ولا تدعم indexing/slicing.",
+        "en": ""
+      },
+      "topic": "Tuples & Sets",
+      "topicId": "tuples-sets",
+      "subtopicId": "set",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "set-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 48–50 — Sets"
+      }
+    },
+    {
+      "id": "da-python-s01-q031",
+      "question": "Which set operation returns elements common to two sets?",
+      "options": [
+        {
+          "id": "A",
+          "text": "union"
+        },
+        {
+          "id": "B",
+          "text": "difference"
+        },
+        {
+          "id": "C",
+          "text": "intersection"
+        },
+        {
+          "id": "D",
+          "text": "append"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Set غير مرتبة، عناصرها unique، ولا تدعم indexing/slicing.",
+        "en": ""
+      },
+      "topic": "Tuples & Sets",
+      "topicId": "tuples-sets",
+      "subtopicId": "set",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "set-v3",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 48–50 — Sets"
+      }
+    },
+    {
+      "id": "da-python-s01-q032",
+      "question": "A learner tries `my_set[0]`. What should be corrected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use index -1 instead"
+        },
+        {
+          "id": "B",
+          "text": "Call append() first"
+        },
+        {
+          "id": "C",
+          "text": "Convert the set to bool"
+        },
+        {
+          "id": "D",
+          "text": "Sets do not support indexing or slicing."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Set غير مرتبة، عناصرها unique، ولا تدعم indexing/slicing.",
+        "en": ""
+      },
+      "topic": "Tuples & Sets",
+      "topicId": "tuples-sets",
+      "subtopicId": "set",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "set-v4",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 48–50 — Sets"
+      }
+    },
+    {
+      "id": "da-python-s01-q033",
+      "question": "How are dictionary values primarily accessed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Using keys"
+        },
+        {
+          "id": "B",
+          "text": "Only numeric indexes"
+        },
+        {
+          "id": "C",
+          "text": "Set slicing"
+        },
+        {
+          "id": "D",
+          "text": "Tuple positions only"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Dictionary تعتمد على unique immutable keys للوصول إلى values، وتدعم update/add/remove.",
+        "en": ""
+      },
+      "topic": "Dictionaries",
+      "topicId": "dictionaries",
+      "subtopicId": "dictionary-basics",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dictionary-v1",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 51–54 — Dictionaries and methods"
+      }
+    },
+    {
+      "id": "da-python-s01-q034",
+      "question": "If `d={\"score\":80}` then `d[\"score\"]=90`, what is the score?",
+      "options": [
+        {
+          "id": "A",
+          "text": "80"
+        },
+        {
+          "id": "B",
+          "text": "90"
+        },
+        {
+          "id": "C",
+          "text": "170"
+        },
+        {
+          "id": "D",
+          "text": "None"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Dictionary تعتمد على unique immutable keys للوصول إلى values، وتدعم update/add/remove.",
+        "en": ""
+      },
+      "topic": "Dictionaries",
+      "topicId": "dictionaries",
+      "subtopicId": "dictionary-basics",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dictionary-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 51–54 — Dictionaries and methods"
+      }
+    },
+    {
+      "id": "da-python-s01-q035",
+      "question": "Which method is taught for retrieving a value by a passed key?",
+      "options": [
+        {
+          "id": "A",
+          "text": "append(key)"
+        },
+        {
+          "id": "B",
+          "text": "upper(key)"
+        },
+        {
+          "id": "C",
+          "text": "get(key)"
+        },
+        {
+          "id": "D",
+          "text": "add(key)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Dictionary تعتمد على unique immutable keys للوصول إلى values، وتدعم update/add/remove.",
+        "en": ""
+      },
+      "topic": "Dictionaries",
+      "topicId": "dictionaries",
+      "subtopicId": "dictionary-basics",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dictionary-v3",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 51–54 — Dictionaries and methods"
+      }
+    },
+    {
+      "id": "da-python-s01-q036",
+      "question": "A dictionary literal repeats the same key twice. What source note applies?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Both values are preserved"
+        },
+        {
+          "id": "B",
+          "text": "The key becomes a list"
+        },
+        {
+          "id": "C",
+          "text": "Python converts it to a set"
+        },
+        {
+          "id": "D",
+          "text": "The last value for that key is assigned."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Dictionary تعتمد على unique immutable keys للوصول إلى values، وتدعم update/add/remove.",
+        "en": ""
+      },
+      "topic": "Dictionaries",
+      "topicId": "dictionaries",
+      "subtopicId": "dictionary-basics",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dictionary-v4",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 51–54 — Dictionaries and methods"
+      }
+    },
+    {
+      "id": "da-python-s01-q037",
+      "question": "What is a strong use case for nested dictionaries in the source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hierarchical records such as JSON-like data"
+        },
+        {
+          "id": "B",
+          "text": "Making strings mutable"
+        },
+        {
+          "id": "C",
+          "text": "Replacing every loop"
+        },
+        {
+          "id": "D",
+          "text": "Numeric slicing of sets"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Nested dictionaries تمثل hierarchical records، واختيار container يعتمد على mutability/order/uniqueness/key-value needs.",
+        "en": ""
+      },
+      "topic": "Dictionaries & Container Choice",
+      "topicId": "dictionaries",
+      "subtopicId": "nested-choice",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-dict-choice-v1",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 55–57 — Nested dictionaries and container comparison"
+      }
+    },
+    {
+      "id": "da-python-s01-q038",
+      "question": "Which container best maps employee IDs to employee details?",
+      "options": [
+        {
+          "id": "A",
+          "text": "set"
+        },
+        {
+          "id": "B",
+          "text": "dictionary"
+        },
+        {
+          "id": "C",
+          "text": "string"
+        },
+        {
+          "id": "D",
+          "text": "bool"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Nested dictionaries تمثل hierarchical records، واختيار container يعتمد على mutability/order/uniqueness/key-value needs.",
+        "en": ""
+      },
+      "topic": "Dictionaries & Container Choice",
+      "topicId": "dictionaries",
+      "subtopicId": "nested-choice",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-dict-choice-v2",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 55–57 — Nested dictionaries and container comparison"
+      }
+    },
+    {
+      "id": "da-python-s01-q039",
+      "question": "Which container best fits unique membership values with no positional indexing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "list"
+        },
+        {
+          "id": "B",
+          "text": "tuple"
+        },
+        {
+          "id": "C",
+          "text": "set"
+        },
+        {
+          "id": "D",
+          "text": "string"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Nested dictionaries تمثل hierarchical records، واختيار container يعتمد على mutability/order/uniqueness/key-value needs.",
+        "en": ""
+      },
+      "topic": "Dictionaries & Container Choice",
+      "topicId": "dictionaries",
+      "subtopicId": "nested-choice",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-dict-choice-v3",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 55–57 — Nested dictionaries and container comparison"
+      }
+    },
+    {
+      "id": "da-python-s01-q040",
+      "question": "A design needs duplicates, order, and mutation. Which taught container is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "set"
+        },
+        {
+          "id": "B",
+          "text": "tuple"
+        },
+        {
+          "id": "C",
+          "text": "bool"
+        },
+        {
+          "id": "D",
+          "text": "list"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Nested dictionaries تمثل hierarchical records، واختيار container يعتمد على mutability/order/uniqueness/key-value needs.",
+        "en": ""
+      },
+      "topic": "Dictionaries & Container Choice",
+      "topicId": "dictionaries",
+      "subtopicId": "nested-choice",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-dict-choice-v4",
+      "source": {
+        "file": "Python Session 123.pptx",
+        "reference": "Slides 55–57 — Nested dictionaries and container comparison"
+      }
+    }
+  ]
+}

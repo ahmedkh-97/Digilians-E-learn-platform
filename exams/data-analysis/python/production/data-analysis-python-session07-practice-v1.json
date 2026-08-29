@@ -1,0 +1,1751 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-python-session07-practice-v1",
+    "title": "Session 7 — Python Practice",
+    "description": "40-question source-scoped practice for File Handling, OS Module & File System Operations.",
+    "course": "Data Analysis",
+    "module": "Python for Data Analysis — Session 7",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-python-s07-q001",
+      "question": "Which statement best describes `open() & Modes` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`open(path, mode)` opens a file; default mode is read (`r`) if omitted."
+        },
+        {
+          "id": "B",
+          "text": "`file.close()` closes a file object and releases resources; `f.closed` reports whether it is closed."
+        },
+        {
+          "id": "C",
+          "text": "`read()` reads file content; `read(n)` can read only a limited number of characters."
+        },
+        {
+          "id": "D",
+          "text": "A `with` statement automatically handles closing the file and reduces resource-leak risk."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`open(path, mode)` opens a file; default mode is read (`r`) if omitted.",
+        "en": ""
+      },
+      "topic": "open() & Modes",
+      "topicId": "file-handling",
+      "subtopicId": "open-modes",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-open-modes-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 2–3, 9 — open and modes"
+      }
+    },
+    {
+      "id": "da-python-s07-q002",
+      "question": "Which taught function/pattern is most appropriate when you want to open a file in a chosen mode?",
+      "options": [
+        {
+          "id": "A",
+          "text": "file.close()"
+        },
+        {
+          "id": "B",
+          "text": "open(\"file.txt\", \"r\")"
+        },
+        {
+          "id": "C",
+          "text": "file.read() / file.read(n)"
+        },
+        {
+          "id": "D",
+          "text": "with open(...) as file:"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`open(\"file.txt\", \"r\")` is the course-aligned choice for this task: open a file in a chosen mode.",
+        "en": ""
+      },
+      "topic": "open() & Modes",
+      "topicId": "file-handling",
+      "subtopicId": "open-modes",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-open-modes-v2",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 2–3, 9 — open and modes"
+      }
+    },
+    {
+      "id": "da-python-s07-q003",
+      "question": "What is the default mode if `open()` is called without an explicit mode?",
+      "options": [
+        {
+          "id": "A",
+          "text": "w"
+        },
+        {
+          "id": "B",
+          "text": "a"
+        },
+        {
+          "id": "C",
+          "text": "r"
+        },
+        {
+          "id": "D",
+          "text": "x"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `open() & Modes` behavior: `open(path, mode)` opens a file; default mode is read (`r`) if omitted.",
+        "en": ""
+      },
+      "topic": "open() & Modes",
+      "topicId": "file-handling",
+      "subtopicId": "open-modes",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-open-modes-v3",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 2–3, 9 — open and modes"
+      }
+    },
+    {
+      "id": "da-python-s07-q004",
+      "question": "A learner uses write mode when they only intend to read an existing file. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `file.close()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `open() & Modes` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `read()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Choose read mode (`r`) for reading rather than a destructive write mode."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Choose read mode (`r`) for reading rather than a destructive write mode.",
+        "en": ""
+      },
+      "topic": "open() & Modes",
+      "topicId": "file-handling",
+      "subtopicId": "open-modes",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-open-modes-v4",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 2–3, 9 — open and modes"
+      }
+    },
+    {
+      "id": "da-python-s07-q005",
+      "question": "Which statement best describes `close()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`file.close()` closes a file object and releases resources; `f.closed` reports whether it is closed."
+        },
+        {
+          "id": "B",
+          "text": "`read()` reads file content; `read(n)` can read only a limited number of characters."
+        },
+        {
+          "id": "C",
+          "text": "A `with` statement automatically handles closing the file and reduces resource-leak risk."
+        },
+        {
+          "id": "D",
+          "text": "`w` truncates existing content before writing; `a` appends at the end without removing existing content."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`file.close()` closes a file object and releases resources; `f.closed` reports whether it is closed.",
+        "en": ""
+      },
+      "topic": "close()",
+      "topicId": "file-handling",
+      "subtopicId": "close",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-close-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 4 — Closing a File"
+      }
+    },
+    {
+      "id": "da-python-s07-q006",
+      "question": "Which taught function/pattern is most appropriate when you want to close a high-level file object?",
+      "options": [
+        {
+          "id": "A",
+          "text": "file.read() / file.read(n)"
+        },
+        {
+          "id": "B",
+          "text": "file.close()"
+        },
+        {
+          "id": "C",
+          "text": "with open(...) as file:"
+        },
+        {
+          "id": "D",
+          "text": "\"w\" vs \"a\""
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `file.close()` is the course-aligned choice for this task: close a high-level file object.",
+        "en": ""
+      },
+      "topic": "close()",
+      "topicId": "file-handling",
+      "subtopicId": "close",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-close-v2",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 4 — Closing a File"
+      }
+    },
+    {
+      "id": "da-python-s07-q007",
+      "question": "After calling `f.close()`, what should `f.closed` report?",
+      "options": [
+        {
+          "id": "A",
+          "text": "False"
+        },
+        {
+          "id": "B",
+          "text": "0"
+        },
+        {
+          "id": "C",
+          "text": "True"
+        },
+        {
+          "id": "D",
+          "text": "The filename"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `close()` behavior: `file.close()` closes a file object and releases resources; `f.closed` reports whether it is closed.",
+        "en": ""
+      },
+      "topic": "close()",
+      "topicId": "file-handling",
+      "subtopicId": "close",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-close-v3",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 4 — Closing a File"
+      }
+    },
+    {
+      "id": "da-python-s07-q008",
+      "question": "A learner uses `os.close(file_object)` on a file object created with `open()`. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `file.read() / file.read(n)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `close()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `with Statement` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `file.close()` for a normal file object; `os.close()` expects a low-level integer descriptor."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `file.close()` for a normal file object; `os.close()` expects a low-level integer descriptor.",
+        "en": ""
+      },
+      "topic": "close()",
+      "topicId": "file-handling",
+      "subtopicId": "close",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-close-v4",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 4 — Closing a File"
+      }
+    },
+    {
+      "id": "da-python-s07-q009",
+      "question": "Which statement best describes `read()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`read()` reads file content; `read(n)` can read only a limited number of characters."
+        },
+        {
+          "id": "B",
+          "text": "A `with` statement automatically handles closing the file and reduces resource-leak risk."
+        },
+        {
+          "id": "C",
+          "text": "`w` truncates existing content before writing; `a` appends at the end without removing existing content."
+        },
+        {
+          "id": "D",
+          "text": "The current working directory is where relative file operations are resolved; `os.getcwd()` reads it and `os.chdir()` changes it."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`read()` reads file content; `read(n)` can read only a limited number of characters.",
+        "en": ""
+      },
+      "topic": "read()",
+      "topicId": "file-handling",
+      "subtopicId": "read",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-read-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 5, 8 — Reading Files"
+      }
+    },
+    {
+      "id": "da-python-s07-q010",
+      "question": "Which taught function/pattern is most appropriate when you want to read all or a limited part of a file?",
+      "options": [
+        {
+          "id": "A",
+          "text": "with open(...) as file:"
+        },
+        {
+          "id": "B",
+          "text": "file.read() / file.read(n)"
+        },
+        {
+          "id": "C",
+          "text": "\"w\" vs \"a\""
+        },
+        {
+          "id": "D",
+          "text": "os.getcwd() / os.chdir(path)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`file.read() / file.read(n)` is the course-aligned choice for this task: read all or a limited part of a file.",
+        "en": ""
+      },
+      "topic": "read()",
+      "topicId": "file-handling",
+      "subtopicId": "read",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-read-v2",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 5, 8 — Reading Files"
+      }
+    },
+    {
+      "id": "da-python-s07-q011",
+      "question": "What does `file.read(10)` request?",
+      "options": [
+        {
+          "id": "A",
+          "text": "10 lines necessarily"
+        },
+        {
+          "id": "B",
+          "text": "A 10-byte file creation"
+        },
+        {
+          "id": "C",
+          "text": "The first/next 10 characters from the current position"
+        },
+        {
+          "id": "D",
+          "text": "10 directory names"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `read()` behavior: `read()` reads file content; `read(n)` can read only a limited number of characters.",
+        "en": ""
+      },
+      "topic": "read()",
+      "topicId": "file-handling",
+      "subtopicId": "read",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-read-v3",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 5, 8 — Reading Files"
+      }
+    },
+    {
+      "id": "da-python-s07-q012",
+      "question": "A learner loads an entire huge file when only a small preview is needed. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `with open(...) as file:` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `read()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Write vs Append` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use a limited read or line-by-line iteration when appropriate."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use a limited read or line-by-line iteration when appropriate.",
+        "en": ""
+      },
+      "topic": "read()",
+      "topicId": "file-handling",
+      "subtopicId": "read",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-read-v4",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 5, 8 — Reading Files"
+      }
+    },
+    {
+      "id": "da-python-s07-q013",
+      "question": "Which statement best describes `with Statement` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A `with` statement automatically handles closing the file and reduces resource-leak risk."
+        },
+        {
+          "id": "B",
+          "text": "`w` truncates existing content before writing; `a` appends at the end without removing existing content."
+        },
+        {
+          "id": "C",
+          "text": "The current working directory is where relative file operations are resolved; `os.getcwd()` reads it and `os.chdir()` changes it."
+        },
+        {
+          "id": "D",
+          "text": "`os.mkdir()` creates one directory; `os.makedirs()` can create missing intermediate directories recursively."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A `with` statement automatically handles closing the file and reduces resource-leak risk.",
+        "en": ""
+      },
+      "topic": "with Statement",
+      "topicId": "file-handling",
+      "subtopicId": "with",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-with-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 6 — with Statement"
+      }
+    },
+    {
+      "id": "da-python-s07-q014",
+      "question": "Which taught function/pattern is most appropriate when you want to open a file with automatic cleanup?",
+      "options": [
+        {
+          "id": "A",
+          "text": "\"w\" vs \"a\""
+        },
+        {
+          "id": "B",
+          "text": "with open(...) as file:"
+        },
+        {
+          "id": "C",
+          "text": "os.getcwd() / os.chdir(path)"
+        },
+        {
+          "id": "D",
+          "text": "os.mkdir() / os.makedirs()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`with open(...) as file:` is the course-aligned choice for this task: open a file with automatic cleanup.",
+        "en": ""
+      },
+      "topic": "with Statement",
+      "topicId": "file-handling",
+      "subtopicId": "with",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-with-v2",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 6 — with Statement"
+      }
+    },
+    {
+      "id": "da-python-s07-q015",
+      "question": "What happens to the file after leaving a correctly used `with open(...)` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It remains permanently open"
+        },
+        {
+          "id": "B",
+          "text": "It is automatically deleted"
+        },
+        {
+          "id": "C",
+          "text": "It is automatically closed."
+        },
+        {
+          "id": "D",
+          "text": "It becomes a directory"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `with Statement` behavior: A `with` statement automatically handles closing the file and reduces resource-leak risk.",
+        "en": ""
+      },
+      "topic": "with Statement",
+      "topicId": "file-handling",
+      "subtopicId": "with",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-with-v3",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 6 — with Statement"
+      }
+    },
+    {
+      "id": "da-python-s07-q016",
+      "question": "A learner copies the source typo `withopen` as if it were valid Python syntax. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `\"w\" vs \"a\"` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `with Statement` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `CWD` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use the valid syntax `with open(...) as file:`; the slide spacing is a presentation typo."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Use the valid syntax `with open(...) as file:`; the slide spacing is a presentation typo.",
+        "en": ""
+      },
+      "topic": "with Statement",
+      "topicId": "file-handling",
+      "subtopicId": "with",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-with-v4",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 6 — with Statement"
+      }
+    },
+    {
+      "id": "da-python-s07-q017",
+      "question": "Which statement best describes `Write vs Append` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`w` truncates existing content before writing; `a` appends at the end without removing existing content."
+        },
+        {
+          "id": "B",
+          "text": "The current working directory is where relative file operations are resolved; `os.getcwd()` reads it and `os.chdir()` changes it."
+        },
+        {
+          "id": "C",
+          "text": "`os.mkdir()` creates one directory; `os.makedirs()` can create missing intermediate directories recursively."
+        },
+        {
+          "id": "D",
+          "text": "`os.listdir(path)` returns names of files/directories at the specified path; without a path it uses the current working directory."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`w` truncates existing content before writing; `a` appends at the end without removing existing content.",
+        "en": ""
+      },
+      "topic": "Write vs Append",
+      "topicId": "file-handling",
+      "subtopicId": "write-append",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-write-append-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 9–10 — Write and Append"
+      }
+    },
+    {
+      "id": "da-python-s07-q018",
+      "question": "Which taught function/pattern is most appropriate when you want to choose overwrite or append behavior?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.getcwd() / os.chdir(path)"
+        },
+        {
+          "id": "B",
+          "text": "\"w\" vs \"a\""
+        },
+        {
+          "id": "C",
+          "text": "os.mkdir() / os.makedirs()"
+        },
+        {
+          "id": "D",
+          "text": "os.listdir(path)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `\"w\" vs \"a\"` is the course-aligned choice for this task: choose overwrite or append behavior.",
+        "en": ""
+      },
+      "topic": "Write vs Append",
+      "topicId": "file-handling",
+      "subtopicId": "write-append",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-write-append-v2",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 9–10 — Write and Append"
+      }
+    },
+    {
+      "id": "da-python-s07-q019",
+      "question": "Which mode preserves existing content and writes at the end?",
+      "options": [
+        {
+          "id": "A",
+          "text": "w"
+        },
+        {
+          "id": "B",
+          "text": "r"
+        },
+        {
+          "id": "C",
+          "text": "a"
+        },
+        {
+          "id": "D",
+          "text": "x always"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Write vs Append` behavior: `w` truncates existing content before writing; `a` appends at the end without removing existing content.",
+        "en": ""
+      },
+      "topic": "Write vs Append",
+      "topicId": "file-handling",
+      "subtopicId": "write-append",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-write-append-v3",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 9–10 — Write and Append"
+      }
+    },
+    {
+      "id": "da-python-s07-q020",
+      "question": "A learner opens an important log in `w` mode when they intend to preserve old entries. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `os.getcwd() / os.chdir(path)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Write vs Append` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `mkdir vs makedirs` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use append mode (`a`) when existing content must be kept."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use append mode (`a`) when existing content must be kept.",
+        "en": ""
+      },
+      "topic": "Write vs Append",
+      "topicId": "file-handling",
+      "subtopicId": "write-append",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-write-append-v4",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 9–10 — Write and Append"
+      }
+    },
+    {
+      "id": "da-python-s07-q021",
+      "question": "Which statement best describes `CWD` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The current working directory is where relative file operations are resolved; `os.getcwd()` reads it and `os.chdir()` changes it."
+        },
+        {
+          "id": "B",
+          "text": "`os.mkdir()` creates one directory; `os.makedirs()` can create missing intermediate directories recursively."
+        },
+        {
+          "id": "C",
+          "text": "`os.listdir(path)` returns names of files/directories at the specified path; without a path it uses the current working directory."
+        },
+        {
+          "id": "D",
+          "text": "`os.remove()` deletes a file; `os.rmdir()` removes an empty directory."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The current working directory is where relative file operations are resolved; `os.getcwd()` reads it and `os.chdir()` changes it.",
+        "en": ""
+      },
+      "topic": "CWD",
+      "topicId": "os-module",
+      "subtopicId": "cwd",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-cwd-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 12–14 — Current Working Directory"
+      }
+    },
+    {
+      "id": "da-python-s07-q022",
+      "question": "Which taught function/pattern is most appropriate when you want to inspect or change the current working directory?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.mkdir() / os.makedirs()"
+        },
+        {
+          "id": "B",
+          "text": "os.getcwd() / os.chdir(path)"
+        },
+        {
+          "id": "C",
+          "text": "os.listdir(path)"
+        },
+        {
+          "id": "D",
+          "text": "os.remove() / os.rmdir()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`os.getcwd() / os.chdir(path)` is the course-aligned choice for this task: inspect or change the current working directory.",
+        "en": ""
+      },
+      "topic": "CWD",
+      "topicId": "os-module",
+      "subtopicId": "cwd",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-cwd-v2",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 12–14 — Current Working Directory"
+      }
+    },
+    {
+      "id": "da-python-s07-q023",
+      "question": "Which function returns the current working directory?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.listdir()"
+        },
+        {
+          "id": "B",
+          "text": "os.remove()"
+        },
+        {
+          "id": "C",
+          "text": "os.getcwd()"
+        },
+        {
+          "id": "D",
+          "text": "os.stat()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `CWD` behavior: The current working directory is where relative file operations are resolved; `os.getcwd()` reads it and `os.chdir()` changes it.",
+        "en": ""
+      },
+      "topic": "CWD",
+      "topicId": "os-module",
+      "subtopicId": "cwd",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-cwd-v3",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 12–14 — Current Working Directory"
+      }
+    },
+    {
+      "id": "da-python-s07-q024",
+      "question": "A learner assumes the CWD must always equal the directory where the script file itself is stored. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `os.mkdir() / os.makedirs()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `CWD` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `listdir` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Treat the CWD as the active operating directory; the source notes it is not necessarily the script-file location."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Treat the CWD as the active operating directory; the source notes it is not necessarily the script-file location.",
+        "en": ""
+      },
+      "topic": "CWD",
+      "topicId": "os-module",
+      "subtopicId": "cwd",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-cwd-v4",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 12–14 — Current Working Directory"
+      }
+    },
+    {
+      "id": "da-python-s07-q025",
+      "question": "Which statement best describes `mkdir vs makedirs` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`os.mkdir()` creates one directory; `os.makedirs()` can create missing intermediate directories recursively."
+        },
+        {
+          "id": "B",
+          "text": "`os.listdir(path)` returns names of files/directories at the specified path; without a path it uses the current working directory."
+        },
+        {
+          "id": "C",
+          "text": "`os.remove()` deletes a file; `os.rmdir()` removes an empty directory."
+        },
+        {
+          "id": "D",
+          "text": "The source covers permissions/metadata (`chmod`, `chown`, `stat`) plus `exists`, `getsize`, and `rename`."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`os.mkdir()` creates one directory; `os.makedirs()` can create missing intermediate directories recursively.",
+        "en": ""
+      },
+      "topic": "mkdir vs makedirs",
+      "topicId": "os-module",
+      "subtopicId": "mkdir-makedirs",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-mkdir-makedirs-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 15–17 — Creating Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q026",
+      "question": "Which taught function/pattern is most appropriate when you want to create a single directory or a recursive directory path?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.listdir(path)"
+        },
+        {
+          "id": "B",
+          "text": "os.mkdir() / os.makedirs()"
+        },
+        {
+          "id": "C",
+          "text": "os.remove() / os.rmdir()"
+        },
+        {
+          "id": "D",
+          "text": "os.stat() / os.path.exists() / os.path.getsize() / os.rename()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`os.mkdir() / os.makedirs()` is the course-aligned choice for this task: create a single directory or a recursive directory path.",
+        "en": ""
+      },
+      "topic": "mkdir vs makedirs",
+      "topicId": "os-module",
+      "subtopicId": "mkdir-makedirs",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-mkdir-makedirs-v2",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 15–17 — Creating Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q027",
+      "question": "Which function is taught for recursively creating intermediate directories?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.mkdir() only"
+        },
+        {
+          "id": "B",
+          "text": "os.remove()"
+        },
+        {
+          "id": "C",
+          "text": "os.makedirs()"
+        },
+        {
+          "id": "D",
+          "text": "os.getcwd()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `mkdir vs makedirs` behavior: `os.mkdir()` creates one directory; `os.makedirs()` can create missing intermediate directories recursively.",
+        "en": ""
+      },
+      "topic": "mkdir vs makedirs",
+      "topicId": "os-module",
+      "subtopicId": "mkdir-makedirs",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-mkdir-makedirs-v3",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 15–17 — Creating Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q028",
+      "question": "A learner uses `os.mkdir()` for a deep path whose intermediate directories do not exist. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `os.listdir(path)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `mkdir vs makedirs` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `remove vs rmdir` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `os.makedirs()` when intermediate directories need to be created."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Use `os.makedirs()` when intermediate directories need to be created.",
+        "en": ""
+      },
+      "topic": "mkdir vs makedirs",
+      "topicId": "os-module",
+      "subtopicId": "mkdir-makedirs",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-mkdir-makedirs-v4",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 15–17 — Creating Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q029",
+      "question": "Which statement best describes `listdir` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`os.listdir(path)` returns names of files/directories at the specified path; without a path it uses the current working directory."
+        },
+        {
+          "id": "B",
+          "text": "`os.remove()` deletes a file; `os.rmdir()` removes an empty directory."
+        },
+        {
+          "id": "C",
+          "text": "The source covers permissions/metadata (`chmod`, `chown`, `stat`) plus `exists`, `getsize`, and `rename`."
+        },
+        {
+          "id": "D",
+          "text": "`open(path, mode)` opens a file; default mode is read (`r`) if omitted."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`os.listdir(path)` returns names of files/directories at the specified path; without a path it uses the current working directory.",
+        "en": ""
+      },
+      "topic": "listdir",
+      "topicId": "os-module",
+      "subtopicId": "listdir",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-listdir-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 18 — Listing Files and Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q030",
+      "question": "Which taught function/pattern is most appropriate when you want to list files and directories?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove() / os.rmdir()"
+        },
+        {
+          "id": "B",
+          "text": "os.listdir(path)"
+        },
+        {
+          "id": "C",
+          "text": "os.stat() / os.path.exists() / os.path.getsize() / os.rename()"
+        },
+        {
+          "id": "D",
+          "text": "open(\"file.txt\", \"r\")"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`os.listdir(path)` is the course-aligned choice for this task: list files and directories.",
+        "en": ""
+      },
+      "topic": "listdir",
+      "topicId": "os-module",
+      "subtopicId": "listdir",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-listdir-v2",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 18 — Listing Files and Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q031",
+      "question": "What does `os.listdir()` use when no directory argument is supplied?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The script source file only"
+        },
+        {
+          "id": "B",
+          "text": "The root directory always"
+        },
+        {
+          "id": "C",
+          "text": "The current working directory"
+        },
+        {
+          "id": "D",
+          "text": "A random folder"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `listdir` behavior: `os.listdir(path)` returns names of files/directories at the specified path; without a path it uses the current working directory.",
+        "en": ""
+      },
+      "topic": "listdir",
+      "topicId": "os-module",
+      "subtopicId": "listdir",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-listdir-v3",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 18 — Listing Files and Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q032",
+      "question": "A learner expects `os.listdir()` to recursively walk every nested directory automatically. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `os.remove() / os.rmdir()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `listdir` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `File Metadata & Paths` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use it for the specified directory listing as taught; do not assume recursive traversal."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use it for the specified directory listing as taught; do not assume recursive traversal.",
+        "en": ""
+      },
+      "topic": "listdir",
+      "topicId": "os-module",
+      "subtopicId": "listdir",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-listdir-v4",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slide 18 — Listing Files and Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q033",
+      "question": "Which statement best describes `remove vs rmdir` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`os.remove()` deletes a file; `os.rmdir()` removes an empty directory."
+        },
+        {
+          "id": "B",
+          "text": "The source covers permissions/metadata (`chmod`, `chown`, `stat`) plus `exists`, `getsize`, and `rename`."
+        },
+        {
+          "id": "C",
+          "text": "`open(path, mode)` opens a file; default mode is read (`r`) if omitted."
+        },
+        {
+          "id": "D",
+          "text": "`file.close()` closes a file object and releases resources; `f.closed` reports whether it is closed."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`os.remove()` deletes a file; `os.rmdir()` removes an empty directory.",
+        "en": ""
+      },
+      "topic": "remove vs rmdir",
+      "topicId": "os-module",
+      "subtopicId": "remove-rmdir",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-remove-rmdir-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 19–21 — Deleting Files/Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q034",
+      "question": "Which taught function/pattern is most appropriate when you want to delete a file or an empty directory appropriately?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.stat() / os.path.exists() / os.path.getsize() / os.rename()"
+        },
+        {
+          "id": "B",
+          "text": "os.remove() / os.rmdir()"
+        },
+        {
+          "id": "C",
+          "text": "open(\"file.txt\", \"r\")"
+        },
+        {
+          "id": "D",
+          "text": "file.close()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`os.remove() / os.rmdir()` is the course-aligned choice for this task: delete a file or an empty directory appropriately.",
+        "en": ""
+      },
+      "topic": "remove vs rmdir",
+      "topicId": "os-module",
+      "subtopicId": "remove-rmdir",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-remove-rmdir-v2",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 19–21 — Deleting Files/Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q035",
+      "question": "Which function removes an empty directory?",
+      "options": [
+        {
+          "id": "A",
+          "text": "os.remove()"
+        },
+        {
+          "id": "B",
+          "text": "os.getcwd()"
+        },
+        {
+          "id": "C",
+          "text": "os.rmdir()"
+        },
+        {
+          "id": "D",
+          "text": "os.stat()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `remove vs rmdir` behavior: `os.remove()` deletes a file; `os.rmdir()` removes an empty directory.",
+        "en": ""
+      },
+      "topic": "remove vs rmdir",
+      "topicId": "os-module",
+      "subtopicId": "remove-rmdir",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-remove-rmdir-v3",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 19–21 — Deleting Files/Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q036",
+      "question": "A learner calls `os.remove()` on a directory path. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `os.stat() / os.path.exists() / os.path.getsize() / os.rename()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `remove vs rmdir` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `open() & Modes` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `os.remove()` for files and `os.rmdir()` for empty directories."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `os.remove()` for files and `os.rmdir()` for empty directories.",
+        "en": ""
+      },
+      "topic": "remove vs rmdir",
+      "topicId": "os-module",
+      "subtopicId": "remove-rmdir",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-remove-rmdir-v4",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 19–21 — Deleting Files/Directories"
+      }
+    },
+    {
+      "id": "da-python-s07-q037",
+      "question": "Which statement best describes `File Metadata & Paths` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The source covers permissions/metadata (`chmod`, `chown`, `stat`) plus `exists`, `getsize`, and `rename`."
+        },
+        {
+          "id": "B",
+          "text": "`open(path, mode)` opens a file; default mode is read (`r`) if omitted."
+        },
+        {
+          "id": "C",
+          "text": "`file.close()` closes a file object and releases resources; `f.closed` reports whether it is closed."
+        },
+        {
+          "id": "D",
+          "text": "`read()` reads file content; `read(n)` can read only a limited number of characters."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The source covers permissions/metadata (`chmod`, `chown`, `stat`) plus `exists`, `getsize`, and `rename`.",
+        "en": ""
+      },
+      "topic": "File Metadata & Paths",
+      "topicId": "os-module",
+      "subtopicId": "metadata-paths",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-metadata-paths-v1",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 22–29 — Metadata and Common Functions"
+      }
+    },
+    {
+      "id": "da-python-s07-q038",
+      "question": "Which taught function/pattern is most appropriate when you want to inspect metadata/existence/size or rename a file?",
+      "options": [
+        {
+          "id": "A",
+          "text": "open(\"file.txt\", \"r\")"
+        },
+        {
+          "id": "B",
+          "text": "os.stat() / os.path.exists() / os.path.getsize() / os.rename()"
+        },
+        {
+          "id": "C",
+          "text": "file.close()"
+        },
+        {
+          "id": "D",
+          "text": "file.read() / file.read(n)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`os.stat() / os.path.exists() / os.path.getsize() / os.rename()` is the course-aligned choice for this task: inspect metadata/existence/size or rename a file.",
+        "en": ""
+      },
+      "topic": "File Metadata & Paths",
+      "topicId": "os-module",
+      "subtopicId": "metadata-paths",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-metadata-paths-v2",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 22–29 — Metadata and Common Functions"
+      }
+    },
+    {
+      "id": "da-python-s07-q039",
+      "question": "Which `os.stat()` attribute represents file size in bytes?",
+      "options": [
+        {
+          "id": "A",
+          "text": "st_mtime"
+        },
+        {
+          "id": "B",
+          "text": "st_mode"
+        },
+        {
+          "id": "C",
+          "text": "st_size"
+        },
+        {
+          "id": "D",
+          "text": "name"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `File Metadata & Paths` behavior: The source covers permissions/metadata (`chmod`, `chown`, `stat`) plus `exists`, `getsize`, and `rename`.",
+        "en": ""
+      },
+      "topic": "File Metadata & Paths",
+      "topicId": "os-module",
+      "subtopicId": "metadata-paths",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-metadata-paths-v3",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 22–29 — Metadata and Common Functions"
+      }
+    },
+    {
+      "id": "da-python-s07-q040",
+      "question": "A learner calls `os.rename()` a second time using the old source name after the first rename succeeded. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `open(\"file.txt\", \"r\")` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `File Metadata & Paths` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `close()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use the new path/name after a successful rename; the old source path no longer exists."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Use the new path/name after a successful rename; the old source path no longer exists.",
+        "en": ""
+      },
+      "topic": "File Metadata & Paths",
+      "topicId": "os-module",
+      "subtopicId": "metadata-paths",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s07-metadata-paths-v4",
+      "source": {
+        "file": "Python Session 9.pptx",
+        "reference": "Slides 22–29 — Metadata and Common Functions"
+      }
+    }
+  ]
+}

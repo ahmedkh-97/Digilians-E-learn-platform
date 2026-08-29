@@ -1,0 +1,1751 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-python-session05-practice-v1",
+    "title": "Session 5 — Python Practice",
+    "description": "40-question source-scoped practice for Functions, Lambda & Advanced Function Concepts.",
+    "course": "Data Analysis",
+    "module": "Python for Data Analysis — Session 5",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-python-s05-q001",
+      "question": "Which statement best describes `Function Definition` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A function is a reusable block of code defined to perform a specific task."
+        },
+        {
+          "id": "B",
+          "text": "Parameters let a function receive values, and `return` sends a result back to the caller."
+        },
+        {
+          "id": "C",
+          "text": "A default parameter provides a value used when the caller omits that argument."
+        },
+        {
+          "id": "D",
+          "text": "A function can return multiple values that the caller can unpack into separate variables."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A function is a reusable block of code defined to perform a specific task.",
+        "en": ""
+      },
+      "topic": "Function Definition",
+      "topicId": "functions-core",
+      "subtopicId": "function-definition",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-function-definition-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 5–6 — Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q002",
+      "question": "Which taught function/pattern is most appropriate when you want to define a reusable block of logic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "return"
+        },
+        {
+          "id": "B",
+          "text": "def function_name(...):"
+        },
+        {
+          "id": "C",
+          "text": "name=\"Guest\""
+        },
+        {
+          "id": "D",
+          "text": "q, r = divide(a, b)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`def function_name(...):` is the course-aligned choice for this task: define a reusable block of logic.",
+        "en": ""
+      },
+      "topic": "Function Definition",
+      "topicId": "functions-core",
+      "subtopicId": "function-definition",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-function-definition-v2",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 5–6 — Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q003",
+      "question": "What is printed after `def greet(): print(\"Hello, world!\")` followed by `greet()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "greet"
+        },
+        {
+          "id": "B",
+          "text": "None only"
+        },
+        {
+          "id": "C",
+          "text": "Hello, world!"
+        },
+        {
+          "id": "D",
+          "text": "The function definition text"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Function Definition` behavior: A function is a reusable block of code defined to perform a specific task.",
+        "en": ""
+      },
+      "topic": "Function Definition",
+      "topicId": "functions-core",
+      "subtopicId": "function-definition",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-function-definition-v3",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 5–6 — Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q004",
+      "question": "A learner writes statements intended for the function without indenting them under `def`. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `return` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Function Definition` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Default Parameters` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Indent the function body under the `def` line."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Indent the function body under the `def` line.",
+        "en": ""
+      },
+      "topic": "Function Definition",
+      "topicId": "functions-core",
+      "subtopicId": "function-definition",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-function-definition-v4",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 5–6 — Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q005",
+      "question": "Which statement best describes `Parameters & Return` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Parameters let a function receive values, and `return` sends a result back to the caller."
+        },
+        {
+          "id": "B",
+          "text": "A default parameter provides a value used when the caller omits that argument."
+        },
+        {
+          "id": "C",
+          "text": "A function can return multiple values that the caller can unpack into separate variables."
+        },
+        {
+          "id": "D",
+          "text": "A docstring documents what a function does and can be read through the function `__doc__` attribute."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Parameters let a function receive values, and `return` sends a result back to the caller.",
+        "en": ""
+      },
+      "topic": "Parameters & Return",
+      "topicId": "functions-core",
+      "subtopicId": "parameters-return",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-parameters-return-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 7 — Function with Parameters"
+      }
+    },
+    {
+      "id": "da-python-s05-q006",
+      "question": "Which taught function/pattern is most appropriate when you want to send a computed value back from a function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "name=\"Guest\""
+        },
+        {
+          "id": "B",
+          "text": "return"
+        },
+        {
+          "id": "C",
+          "text": "q, r = divide(a, b)"
+        },
+        {
+          "id": "D",
+          "text": "function.__doc__"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `return` is the course-aligned choice for this task: send a computed value back from a function.",
+        "en": ""
+      },
+      "topic": "Parameters & Return",
+      "topicId": "functions-core",
+      "subtopicId": "parameters-return",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-parameters-return-v2",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 7 — Function with Parameters"
+      }
+    },
+    {
+      "id": "da-python-s05-q007",
+      "question": "What is the result of calling a taught `add(5, 3)` function that returns `a + b`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "53"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "8"
+        },
+        {
+          "id": "D",
+          "text": "None"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Parameters & Return` behavior: Parameters let a function receive values, and `return` sends a result back to the caller.",
+        "en": ""
+      },
+      "topic": "Parameters & Return",
+      "topicId": "functions-core",
+      "subtopicId": "parameters-return",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-parameters-return-v3",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 7 — Function with Parameters"
+      }
+    },
+    {
+      "id": "da-python-s05-q008",
+      "question": "A learner prints a value inside a function and assumes that is identical to returning it to the caller. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `name=\"Guest\"` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Parameters & Return` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Multiple Return Values` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `return` when the caller needs the value as a result."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `return` when the caller needs the value as a result.",
+        "en": ""
+      },
+      "topic": "Parameters & Return",
+      "topicId": "functions-core",
+      "subtopicId": "parameters-return",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-parameters-return-v4",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 7 — Function with Parameters"
+      }
+    },
+    {
+      "id": "da-python-s05-q009",
+      "question": "Which statement best describes `Default Parameters` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A default parameter provides a value used when the caller omits that argument."
+        },
+        {
+          "id": "B",
+          "text": "A function can return multiple values that the caller can unpack into separate variables."
+        },
+        {
+          "id": "C",
+          "text": "A docstring documents what a function does and can be read through the function `__doc__` attribute."
+        },
+        {
+          "id": "D",
+          "text": "A lambda is a small anonymous function suited to short simple operations."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A default parameter provides a value used when the caller omits that argument.",
+        "en": ""
+      },
+      "topic": "Default Parameters",
+      "topicId": "functions-core",
+      "subtopicId": "default-parameters",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-default-parameters-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 8 — Default Parameter Values"
+      }
+    },
+    {
+      "id": "da-python-s05-q010",
+      "question": "Which taught function/pattern is most appropriate when you want to provide a fallback argument value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "q, r = divide(a, b)"
+        },
+        {
+          "id": "B",
+          "text": "name=\"Guest\""
+        },
+        {
+          "id": "C",
+          "text": "function.__doc__"
+        },
+        {
+          "id": "D",
+          "text": "lambda x: ..."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`name=\"Guest\"` is the course-aligned choice for this task: provide a fallback argument value.",
+        "en": ""
+      },
+      "topic": "Default Parameters",
+      "topicId": "functions-core",
+      "subtopicId": "default-parameters",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-default-parameters-v2",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 8 — Default Parameter Values"
+      }
+    },
+    {
+      "id": "da-python-s05-q011",
+      "question": "If `greet(name=\"Guest\")` is called with no argument, which name is used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "None"
+        },
+        {
+          "id": "B",
+          "text": "name"
+        },
+        {
+          "id": "C",
+          "text": "Guest"
+        },
+        {
+          "id": "D",
+          "text": "An error always"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `Default Parameters` behavior: A default parameter provides a value used when the caller omits that argument.",
+        "en": ""
+      },
+      "topic": "Default Parameters",
+      "topicId": "functions-core",
+      "subtopicId": "default-parameters",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-default-parameters-v3",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 8 — Default Parameter Values"
+      }
+    },
+    {
+      "id": "da-python-s05-q012",
+      "question": "A learner puts a non-default parameter after a default parameter in a way that breaks the intended signature. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `q, r = divide(a, b)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Default Parameters` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Docstrings` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Keep the function signature consistent with Python parameter rules and the taught default-value pattern."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Keep the function signature consistent with Python parameter rules and the taught default-value pattern.",
+        "en": ""
+      },
+      "topic": "Default Parameters",
+      "topicId": "functions-core",
+      "subtopicId": "default-parameters",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-default-parameters-v4",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 8 — Default Parameter Values"
+      }
+    },
+    {
+      "id": "da-python-s05-q013",
+      "question": "Which statement best describes `Multiple Return Values` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A function can return multiple values that the caller can unpack into separate variables."
+        },
+        {
+          "id": "B",
+          "text": "A docstring documents what a function does and can be read through the function `__doc__` attribute."
+        },
+        {
+          "id": "C",
+          "text": "A lambda is a small anonymous function suited to short simple operations."
+        },
+        {
+          "id": "D",
+          "text": "`map()` applies a function to each element of an iterable."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A function can return multiple values that the caller can unpack into separate variables.",
+        "en": ""
+      },
+      "topic": "Multiple Return Values",
+      "topicId": "functions-core",
+      "subtopicId": "multiple-return",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-multiple-return-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 9 — Multiple Return Values"
+      }
+    },
+    {
+      "id": "da-python-s05-q014",
+      "question": "Which taught function/pattern is most appropriate when you want to unpack multiple returned values?",
+      "options": [
+        {
+          "id": "A",
+          "text": "function.__doc__"
+        },
+        {
+          "id": "B",
+          "text": "q, r = divide(a, b)"
+        },
+        {
+          "id": "C",
+          "text": "lambda x: ..."
+        },
+        {
+          "id": "D",
+          "text": "map(function, iterable)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`q, r = divide(a, b)` is the course-aligned choice for this task: unpack multiple returned values.",
+        "en": ""
+      },
+      "topic": "Multiple Return Values",
+      "topicId": "functions-core",
+      "subtopicId": "multiple-return",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-multiple-return-v2",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 9 — Multiple Return Values"
+      }
+    },
+    {
+      "id": "da-python-s05-q015",
+      "question": "The taught divide example returns quotient and remainder. What receives them?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One set only"
+        },
+        {
+          "id": "B",
+          "text": "A comment"
+        },
+        {
+          "id": "C",
+          "text": "Two variables such as q and r"
+        },
+        {
+          "id": "D",
+          "text": "A file object"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Multiple Return Values` behavior: A function can return multiple values that the caller can unpack into separate variables.",
+        "en": ""
+      },
+      "topic": "Multiple Return Values",
+      "topicId": "functions-core",
+      "subtopicId": "multiple-return",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-multiple-return-v3",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 9 — Multiple Return Values"
+      }
+    },
+    {
+      "id": "da-python-s05-q016",
+      "question": "A learner expects two returned values but provides only one target variable while intending separate results. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `function.__doc__` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Multiple Return Values` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Lambda` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Unpack the returned values into the corresponding variables."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Unpack the returned values into the corresponding variables.",
+        "en": ""
+      },
+      "topic": "Multiple Return Values",
+      "topicId": "functions-core",
+      "subtopicId": "multiple-return",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-multiple-return-v4",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 9 — Multiple Return Values"
+      }
+    },
+    {
+      "id": "da-python-s05-q017",
+      "question": "Which statement best describes `Docstrings` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A docstring documents what a function does and can be read through the function `__doc__` attribute."
+        },
+        {
+          "id": "B",
+          "text": "A lambda is a small anonymous function suited to short simple operations."
+        },
+        {
+          "id": "C",
+          "text": "`map()` applies a function to each element of an iterable."
+        },
+        {
+          "id": "D",
+          "text": "`filter()` keeps iterable items for which the supplied function/condition is True."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A docstring documents what a function does and can be read through the function `__doc__` attribute.",
+        "en": ""
+      },
+      "topic": "Docstrings",
+      "topicId": "functions-core",
+      "subtopicId": "docstrings",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-docstrings-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 10 — Docstrings"
+      }
+    },
+    {
+      "id": "da-python-s05-q018",
+      "question": "Which taught function/pattern is most appropriate when you want to read a function docstring?",
+      "options": [
+        {
+          "id": "A",
+          "text": "lambda x: ..."
+        },
+        {
+          "id": "B",
+          "text": "function.__doc__"
+        },
+        {
+          "id": "C",
+          "text": "map(function, iterable)"
+        },
+        {
+          "id": "D",
+          "text": "filter(function, iterable)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `function.__doc__` is the course-aligned choice for this task: read a function docstring.",
+        "en": ""
+      },
+      "topic": "Docstrings",
+      "topicId": "functions-core",
+      "subtopicId": "docstrings",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-docstrings-v2",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 10 — Docstrings"
+      }
+    },
+    {
+      "id": "da-python-s05-q019",
+      "question": "Which attribute is shown for printing a function docstring?",
+      "options": [
+        {
+          "id": "A",
+          "text": "__name__ only"
+        },
+        {
+          "id": "B",
+          "text": "append"
+        },
+        {
+          "id": "C",
+          "text": "__doc__"
+        },
+        {
+          "id": "D",
+          "text": "dtype"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Docstrings` behavior: A docstring documents what a function does and can be read through the function `__doc__` attribute.",
+        "en": ""
+      },
+      "topic": "Docstrings",
+      "topicId": "functions-core",
+      "subtopicId": "docstrings",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-docstrings-v3",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 10 — Docstrings"
+      }
+    },
+    {
+      "id": "da-python-s05-q020",
+      "question": "A learner uses a normal output statement as if it were the function documentation metadata. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `lambda x: ...` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Docstrings` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `map()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Place descriptive text as a docstring in the function and read it with `__doc__` when needed."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Place descriptive text as a docstring in the function and read it with `__doc__` when needed.",
+        "en": ""
+      },
+      "topic": "Docstrings",
+      "topicId": "functions-core",
+      "subtopicId": "docstrings",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-docstrings-v4",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 10 — Docstrings"
+      }
+    },
+    {
+      "id": "da-python-s05-q021",
+      "question": "Which statement best describes `Lambda` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A lambda is a small anonymous function suited to short simple operations."
+        },
+        {
+          "id": "B",
+          "text": "`map()` applies a function to each element of an iterable."
+        },
+        {
+          "id": "C",
+          "text": "`filter()` keeps iterable items for which the supplied function/condition is True."
+        },
+        {
+          "id": "D",
+          "text": "A recursive function calls itself on smaller subproblems and needs a stopping/base case."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A lambda is a small anonymous function suited to short simple operations.",
+        "en": ""
+      },
+      "topic": "Lambda",
+      "topicId": "functions-advanced",
+      "subtopicId": "lambda",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-lambda-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 12–14 — Lambda Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q022",
+      "question": "Which taught function/pattern is most appropriate when you want to define a short anonymous function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "map(function, iterable)"
+        },
+        {
+          "id": "B",
+          "text": "lambda x: ..."
+        },
+        {
+          "id": "C",
+          "text": "filter(function, iterable)"
+        },
+        {
+          "id": "D",
+          "text": "function calls itself"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`lambda x: ...` is the course-aligned choice for this task: define a short anonymous function.",
+        "en": ""
+      },
+      "topic": "Lambda",
+      "topicId": "functions-advanced",
+      "subtopicId": "lambda",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-lambda-v2",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 12–14 — Lambda Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q023",
+      "question": "A taught lambda squares 5. What result is shown?",
+      "options": [
+        {
+          "id": "A",
+          "text": "10"
+        },
+        {
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "25"
+        },
+        {
+          "id": "D",
+          "text": "125"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `Lambda` behavior: A lambda is a small anonymous function suited to short simple operations.",
+        "en": ""
+      },
+      "topic": "Lambda",
+      "topicId": "functions-advanced",
+      "subtopicId": "lambda",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-lambda-v3",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 12–14 — Lambda Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q024",
+      "question": "A learner uses a large multi-step workflow inside a lambda and makes the code unreadable. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `map(function, iterable)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Lambda` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `filter()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Keep lambda usage for short simple operations; use a normal function for larger logic."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Keep lambda usage for short simple operations; use a normal function for larger logic.",
+        "en": ""
+      },
+      "topic": "Lambda",
+      "topicId": "functions-advanced",
+      "subtopicId": "lambda",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-lambda-v4",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 12–14 — Lambda Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q025",
+      "question": "Which statement best describes `map()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`map()` applies a function to each element of an iterable."
+        },
+        {
+          "id": "B",
+          "text": "`filter()` keeps iterable items for which the supplied function/condition is True."
+        },
+        {
+          "id": "C",
+          "text": "A recursive function calls itself on smaller subproblems and needs a stopping/base case."
+        },
+        {
+          "id": "D",
+          "text": "A higher-order function can take another function as an argument or return a function."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`map()` applies a function to each element of an iterable.",
+        "en": ""
+      },
+      "topic": "map()",
+      "topicId": "functions-advanced",
+      "subtopicId": "map",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-map-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 15 — Lambda with map()"
+      }
+    },
+    {
+      "id": "da-python-s05-q026",
+      "question": "Which taught function/pattern is most appropriate when you want to apply one transformation to every item?",
+      "options": [
+        {
+          "id": "A",
+          "text": "filter(function, iterable)"
+        },
+        {
+          "id": "B",
+          "text": "map(function, iterable)"
+        },
+        {
+          "id": "C",
+          "text": "function calls itself"
+        },
+        {
+          "id": "D",
+          "text": "function-as-argument / function-return"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`map(function, iterable)` is the course-aligned choice for this task: apply one transformation to every item.",
+        "en": ""
+      },
+      "topic": "map()",
+      "topicId": "functions-advanced",
+      "subtopicId": "map",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-map-v2",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 15 — Lambda with map()"
+      }
+    },
+    {
+      "id": "da-python-s05-q027",
+      "question": "The taught square lambda mapped over `[1,2,3,4,5]` produces which list after conversion?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[1,2,3,4,5]"
+        },
+        {
+          "id": "B",
+          "text": "[2,4,6,8,10]"
+        },
+        {
+          "id": "C",
+          "text": "[1, 4, 9, 16, 25]"
+        },
+        {
+          "id": "D",
+          "text": "[1,8,27,64,125]"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `map()` behavior: `map()` applies a function to each element of an iterable.",
+        "en": ""
+      },
+      "topic": "map()",
+      "topicId": "functions-advanced",
+      "subtopicId": "map",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-map-v3",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 15 — Lambda with map()"
+      }
+    },
+    {
+      "id": "da-python-s05-q028",
+      "question": "A learner expects `map()` by itself to display a ready list in every context. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `filter(function, iterable)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `map()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Recursion` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Apply the function with `map()` and convert/consume the result as needed, as in the taught example."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Apply the function with `map()` and convert/consume the result as needed, as in the taught example.",
+        "en": ""
+      },
+      "topic": "map()",
+      "topicId": "functions-advanced",
+      "subtopicId": "map",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-map-v4",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 15 — Lambda with map()"
+      }
+    },
+    {
+      "id": "da-python-s05-q029",
+      "question": "Which statement best describes `filter()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`filter()` keeps iterable items for which the supplied function/condition is True."
+        },
+        {
+          "id": "B",
+          "text": "A recursive function calls itself on smaller subproblems and needs a stopping/base case."
+        },
+        {
+          "id": "C",
+          "text": "A higher-order function can take another function as an argument or return a function."
+        },
+        {
+          "id": "D",
+          "text": "A function is a reusable block of code defined to perform a specific task."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`filter()` keeps iterable items for which the supplied function/condition is True.",
+        "en": ""
+      },
+      "topic": "filter()",
+      "topicId": "functions-advanced",
+      "subtopicId": "filter",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-filter-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 16 — Lambda with filter()"
+      }
+    },
+    {
+      "id": "da-python-s05-q030",
+      "question": "Which taught function/pattern is most appropriate when you want to keep only items that satisfy a condition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "function calls itself"
+        },
+        {
+          "id": "B",
+          "text": "filter(function, iterable)"
+        },
+        {
+          "id": "C",
+          "text": "function-as-argument / function-return"
+        },
+        {
+          "id": "D",
+          "text": "def function_name(...):"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`filter(function, iterable)` is the course-aligned choice for this task: keep only items that satisfy a condition.",
+        "en": ""
+      },
+      "topic": "filter()",
+      "topicId": "functions-advanced",
+      "subtopicId": "filter",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-filter-v2",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 16 — Lambda with filter()"
+      }
+    },
+    {
+      "id": "da-python-s05-q031",
+      "question": "The taught even-number filter on `[1,2,3,4,5,6]` keeps which values?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[1,3,5]"
+        },
+        {
+          "id": "B",
+          "text": "[1,2,3]"
+        },
+        {
+          "id": "C",
+          "text": "[2, 4, 6]"
+        },
+        {
+          "id": "D",
+          "text": "[4,5,6]"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `filter()` behavior: `filter()` keeps iterable items for which the supplied function/condition is True.",
+        "en": ""
+      },
+      "topic": "filter()",
+      "topicId": "functions-advanced",
+      "subtopicId": "filter",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-filter-v3",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 16 — Lambda with filter()"
+      }
+    },
+    {
+      "id": "da-python-s05-q032",
+      "question": "A learner uses `filter()` when the goal is to transform every item rather than select items. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `function calls itself` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `filter()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Higher-Order Functions` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `filter()` for selection; use a transformation pattern such as `map()` when every item should be transformed."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `filter()` for selection; use a transformation pattern such as `map()` when every item should be transformed.",
+        "en": ""
+      },
+      "topic": "filter()",
+      "topicId": "functions-advanced",
+      "subtopicId": "filter",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-filter-v4",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slide 16 — Lambda with filter()"
+      }
+    },
+    {
+      "id": "da-python-s05-q033",
+      "question": "Which statement best describes `Recursion` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A recursive function calls itself on smaller subproblems and needs a stopping/base case."
+        },
+        {
+          "id": "B",
+          "text": "A higher-order function can take another function as an argument or return a function."
+        },
+        {
+          "id": "C",
+          "text": "A function is a reusable block of code defined to perform a specific task."
+        },
+        {
+          "id": "D",
+          "text": "Parameters let a function receive values, and `return` sends a result back to the caller."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A recursive function calls itself on smaller subproblems and needs a stopping/base case.",
+        "en": ""
+      },
+      "topic": "Recursion",
+      "topicId": "functions-advanced",
+      "subtopicId": "recursion",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-recursion-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 17–19 — Recursive Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q034",
+      "question": "Which taught function/pattern is most appropriate when you want to solve a problem recursively with a base case?",
+      "options": [
+        {
+          "id": "A",
+          "text": "function-as-argument / function-return"
+        },
+        {
+          "id": "B",
+          "text": "function calls itself"
+        },
+        {
+          "id": "C",
+          "text": "def function_name(...):"
+        },
+        {
+          "id": "D",
+          "text": "return"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`function calls itself` is the course-aligned choice for this task: solve a problem recursively with a base case.",
+        "en": ""
+      },
+      "topic": "Recursion",
+      "topicId": "functions-advanced",
+      "subtopicId": "recursion",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-recursion-v2",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 17–19 — Recursive Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q035",
+      "question": "What result is taught for recursive factorial of 5?",
+      "options": [
+        {
+          "id": "A",
+          "text": "25"
+        },
+        {
+          "id": "B",
+          "text": "60"
+        },
+        {
+          "id": "C",
+          "text": "120"
+        },
+        {
+          "id": "D",
+          "text": "125"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `Recursion` behavior: A recursive function calls itself on smaller subproblems and needs a stopping/base case.",
+        "en": ""
+      },
+      "topic": "Recursion",
+      "topicId": "functions-advanced",
+      "subtopicId": "recursion",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-recursion-v3",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 17–19 — Recursive Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q036",
+      "question": "A learner writes recursion without a reachable base case. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `function-as-argument / function-return` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Recursion` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Function Definition` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Add a stopping/base case so recursive calls terminate."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Add a stopping/base case so recursive calls terminate.",
+        "en": ""
+      },
+      "topic": "Recursion",
+      "topicId": "functions-advanced",
+      "subtopicId": "recursion",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-recursion-v4",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 17–19 — Recursive Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q037",
+      "question": "Which statement best describes `Higher-Order Functions` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A higher-order function can take another function as an argument or return a function."
+        },
+        {
+          "id": "B",
+          "text": "A function is a reusable block of code defined to perform a specific task."
+        },
+        {
+          "id": "C",
+          "text": "Parameters let a function receive values, and `return` sends a result back to the caller."
+        },
+        {
+          "id": "D",
+          "text": "A default parameter provides a value used when the caller omits that argument."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A higher-order function can take another function as an argument or return a function.",
+        "en": ""
+      },
+      "topic": "Higher-Order Functions",
+      "topicId": "functions-advanced",
+      "subtopicId": "higher-order",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-higher-order-v1",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 20–22 — Higher-Order Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q038",
+      "question": "Which taught function/pattern is most appropriate when you want to pass or return functions as values?",
+      "options": [
+        {
+          "id": "A",
+          "text": "def function_name(...):"
+        },
+        {
+          "id": "B",
+          "text": "function-as-argument / function-return"
+        },
+        {
+          "id": "C",
+          "text": "return"
+        },
+        {
+          "id": "D",
+          "text": "name=\"Guest\""
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`function-as-argument / function-return` is the course-aligned choice for this task: pass or return functions as values.",
+        "en": ""
+      },
+      "topic": "Higher-Order Functions",
+      "topicId": "functions-advanced",
+      "subtopicId": "higher-order",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-higher-order-v2",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 20–22 — Higher-Order Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q039",
+      "question": "In the taught `apply_operation(a,b,operation)` pattern, what is `operation`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A list index"
+        },
+        {
+          "id": "B",
+          "text": "A file mode"
+        },
+        {
+          "id": "C",
+          "text": "A function passed as an argument"
+        },
+        {
+          "id": "D",
+          "text": "A NumPy shape"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Higher-Order Functions` behavior: A higher-order function can take another function as an argument or return a function.",
+        "en": ""
+      },
+      "topic": "Higher-Order Functions",
+      "topicId": "functions-advanced",
+      "subtopicId": "higher-order",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-higher-order-v3",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 20–22 — Higher-Order Functions"
+      }
+    },
+    {
+      "id": "da-python-s05-q040",
+      "question": "A learner calls the operation before passing it when the design expects the function object itself. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `def function_name(...):` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Higher-Order Functions` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Parameters & Return` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Pass the function object when the higher-order function is supposed to call it later."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Pass the function object when the higher-order function is supposed to call it later.",
+        "en": ""
+      },
+      "topic": "Higher-Order Functions",
+      "topicId": "functions-advanced",
+      "subtopicId": "higher-order",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s05-higher-order-v4",
+      "source": {
+        "file": "Python Session 7.pptx",
+        "reference": "Slides 20–22 — Higher-Order Functions"
+      }
+    }
+  ]
+}

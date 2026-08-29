@@ -5,7 +5,7 @@
       "id": "data-analysis-final-v1",
       "kind": "final",
       "title": "Data Analysis — Final Exam Simulation",
-      "description": "100-question final simulation: Excel 20, Power BI 20, SQL 20, Python 20, Tableau 10, Looker Studio 10. SQL uses its validated complete-curriculum selection profile.",
+      "description": "100-question final simulation: Excel 20, Power BI 20, SQL 20, Python 20, Tableau 10, Looker Studio 10. SQL and Python use validated complete-curriculum selection profiles.",
       "courseId": "data-analysis",
       "course": "Data Analysis",
       "category": "Final Exam",
@@ -103,7 +103,65 @@
         {
           "trackId": "python",
           "label": "Python",
-          "count": 20
+          "count": 20,
+          "selectionProfile": {
+            "id": "python-final-share-validated-profile-v1",
+            "strategy": "validated-signature-rotation",
+            "validatedSample": "python-final-sample-20.json",
+            "signatureQuotas": {
+              "variables-types|||Medium|||course|||tracing": 1,
+              "control-flow|||Medium|||course|||tracing": 1,
+              "for-loop|||Hard|||external-similar|||troubleshooting": 1,
+              "loop-else|||Hard|||external-similar|||troubleshooting": 1,
+              "max-common|||Medium|||course|||tracing": 1,
+              "functions-core|||Easy|||course|||direct": 1,
+              "functions-advanced|||Medium|||course|||direct": 1,
+              "functional-problem-solving|||Hard|||course|||scenario": 1,
+              "file-handling|||Easy|||course|||direct": 1,
+              "numpy-fundamentals|||Easy|||course|||direct": 1,
+              "numpy-creation|||Medium|||external-similar|||tracing": 1,
+              "pandas-inspection|||Medium|||course|||tracing": 1,
+              "pandas-manipulation|||Hard|||course|||scenario": 1,
+              "pandas-workflows|||Easy|||course|||direct": 1,
+              "pandas-workflows|||Medium|||course|||direct": 1,
+              "plot-libraries|||Medium|||course|||scenario": 1,
+              "peak-year-analysis|||Hard|||course|||scenario": 1,
+              "scatter-plot|||Medium|||external-similar|||tracing": 1,
+              "waffle-chart|||Easy|||course|||direct": 1,
+              "text-sentiment-clouds|||Medium|||course|||tracing": 1
+            },
+            "avoidDuplicateConceptKeys": true,
+            "difficultyTarget": {
+              "Medium": 10,
+              "Hard": 5,
+              "Easy": 5
+            },
+            "sourceTypeTarget": {
+              "course": 16,
+              "external-similar": 4
+            },
+            "questionFamilyTarget": {
+              "tracing": 7,
+              "troubleshooting": 2,
+              "direct": 7,
+              "scenario": 4
+            },
+            "sessionQuotas": {
+              "1": 1,
+              "2": 1,
+              "3": 2,
+              "4": 1,
+              "5": 2,
+              "6": 1,
+              "7": 1,
+              "8": 2,
+              "9": 2,
+              "10": 2,
+              "11": 2,
+              "12": 1,
+              "13": 2
+            }
+          }
         },
         {
           "trackId": "tableau",
@@ -121,7 +179,7 @@
         "avoidAdjacentTopicRepeats": true,
         "bestEffortBalancedAnswerPositions": true
       },
-      "version": "1.1",
+      "version": "1.2",
       "active": true
     },
     {
@@ -259,6 +317,133 @@
       "version": "3.0",
       "active": true,
       "note": "Validated signature rotation preserves the approved 50Q production profile while allowing alternate forms."
+    },
+    {
+      "id": "data-analysis-python-track-v1",
+      "kind": "track",
+      "title": "Python for Data Analysis — Full Track Exam",
+      "description": "Dynamic 50-question Python exam generated from the complete 520-question course-production pool across all 13 sessions.",
+      "courseId": "data-analysis",
+      "course": "Data Analysis",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "category": "Track Exam",
+      "difficulty": "Mixed",
+      "questionCount": 50,
+      "timerMinutes": 60,
+      "passingScore": 60,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "difficultyTarget": {
+        "Easy": 0.25,
+        "Medium": 0.5,
+        "Hard": 0.25
+      },
+      "sourceTarget": {
+        "course": 0.8,
+        "external-similar": 0.2
+      },
+      "tracks": [
+        {
+          "trackId": "python",
+          "label": "Python for Data Analysis",
+          "count": 50,
+          "selectionProfile": {
+            "id": "python-track-validated-profile-v1",
+            "strategy": "validated-signature-rotation",
+            "validatedSample": "python-track-exam-001.json",
+            "signatureQuotas": {
+              "variables-types|||Hard|||external-similar|||troubleshooting": 1,
+              "strings|||Hard|||external-similar|||troubleshooting": 1,
+              "input-print-operators|||Medium|||course|||tracing": 1,
+              "control-flow|||Medium|||course|||tracing": 1,
+              "if-statement|||Medium|||course|||tracing": 2,
+              "for-loop|||Hard|||external-similar|||troubleshooting": 1,
+              "loop-else|||Hard|||external-similar|||troubleshooting": 1,
+              "while-loop|||Hard|||external-similar|||troubleshooting": 1,
+              "max-common|||Medium|||course|||tracing": 1,
+              "text-looping|||Medium|||course|||tracing": 1,
+              "number-algorithms|||Medium|||course|||tracing": 1,
+              "functions-core|||Easy|||course|||direct": 1,
+              "functions-core|||Medium|||external-similar|||tracing": 1,
+              "functions-core|||Medium|||course|||tracing": 1,
+              "functional-problem-solving|||Easy|||course|||direct": 1,
+              "functional-problem-solving|||Medium|||external-similar|||tracing": 1,
+              "functional-problem-solving|||Hard|||course|||scenario": 1,
+              "file-handling|||Easy|||course|||direct": 2,
+              "file-handling|||Medium|||external-similar|||tracing": 1,
+              "numpy-fundamentals|||Easy|||course|||direct": 2,
+              "numpy-creation|||Medium|||course|||tracing": 1,
+              "numpy-access|||Medium|||course|||direct": 1,
+              "numpy-operations|||Hard|||course|||scenario": 1,
+              "pandas-fundamentals|||Easy|||course|||direct": 1,
+              "pandas-inspection|||Medium|||course|||scenario": 1,
+              "pandas-inspection|||Medium|||course|||tracing": 1,
+              "pandas-selection|||Medium|||course|||direct": 1,
+              "pandas-manipulation|||Hard|||course|||scenario": 1,
+              "pandas-workflows|||Easy|||course|||direct": 2,
+              "pandas-workflows|||Medium|||external-similar|||tracing": 1,
+              "pandas-workflows|||Medium|||course|||direct": 1,
+              "pandas-workflows|||Hard|||course|||scenario": 1,
+              "viz-foundations|||Easy|||course|||direct": 1,
+              "plot-libraries|||Medium|||course|||scenario": 1,
+              "matplotlib-basics|||Medium|||course|||tracing": 1,
+              "descriptive-analysis|||Medium|||course|||direct": 1,
+              "peak-year-analysis|||Hard|||course|||scenario": 1,
+              "matplotlib-intro|||Easy|||course|||direct": 1,
+              "scatter-plot|||Medium|||external-similar|||tracing": 1,
+              "bar-chart|||Medium|||course|||tracing": 1,
+              "subplots|||Medium|||course|||direct": 1,
+              "plot-customization|||Hard|||course|||scenario": 1,
+              "waffle-chart|||Easy|||course|||direct": 1,
+              "pywaffle|||Easy|||course|||direct": 1,
+              "wordcloud|||Medium|||course|||scenario": 1,
+              "folium|||Hard|||course|||scenario": 1
+            },
+            "avoidDuplicateConceptKeys": true,
+            "difficultyTarget": {
+              "Hard": 12,
+              "Medium": 25,
+              "Easy": 13
+            },
+            "sourceTypeTarget": {
+              "external-similar": 10,
+              "course": 40
+            },
+            "questionFamilyTarget": {
+              "troubleshooting": 5,
+              "tracing": 17,
+              "direct": 18,
+              "scenario": 10
+            },
+            "sessionQuotas": {
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3,
+              "5": 3,
+              "6": 3,
+              "7": 3,
+              "8": 5,
+              "9": 5,
+              "10": 5,
+              "11": 5,
+              "12": 5,
+              "13": 4
+            }
+          }
+        }
+      ],
+      "selection": {
+        "shuffleQuestions": true,
+        "avoidAdjacentTopicRepeats": true,
+        "bestEffortBalancedAnswerPositions": true
+      },
+      "version": "1.0",
+      "active": true,
+      "note": "Validated signature rotation preserves the approved Python 50Q production profile while allowing alternate forms."
     }
   ]
 }

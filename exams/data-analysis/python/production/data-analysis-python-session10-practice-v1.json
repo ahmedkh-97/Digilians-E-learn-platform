@@ -1,0 +1,1751 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-python-session10-practice-v1",
+    "title": "Session 10 — Python Practice",
+    "description": "40-question source-scoped practice for Applied Pandas Workflows, Aggregation & Real-World Data Analysis.",
+    "course": "Data Analysis",
+    "module": "Python for Data Analysis — Session 10",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-python-s10-q001",
+      "question": "Which statement best describes `CSV Loading` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The applied workflow loads CSV data into a DataFrame and begins with head/info/describe inspection."
+        },
+        {
+          "id": "B",
+          "text": "A Boolean condition on the Department column filters the DataFrame to matching employees."
+        },
+        {
+          "id": "C",
+          "text": "Grouping by Department then taking mean Salary produces average salary for each department."
+        },
+        {
+          "id": "D",
+          "text": "A new salary column can be calculated vectorially by multiplying Salary by 1.05."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The applied workflow loads CSV data into a DataFrame and begins with head/info/describe inspection.",
+        "en": ""
+      },
+      "topic": "CSV Loading",
+      "topicId": "pandas-workflows",
+      "subtopicId": "read-csv",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-read-csv-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 6–9 — Load and Inspect CSV"
+      }
+    },
+    {
+      "id": "da-python-s10-q002",
+      "question": "Which taught function/pattern is most appropriate when you want to load tabular CSV data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df[df[\"Department\"] == \"IT\"]"
+        },
+        {
+          "id": "B",
+          "text": "pd.read_csv(...)"
+        },
+        {
+          "id": "C",
+          "text": "df.groupby(\"Department\")[\"Salary\"].mean()"
+        },
+        {
+          "id": "D",
+          "text": "df[\"NewSalary\"] = df[\"Salary\"] * 1.05"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`pd.read_csv(...)` is the course-aligned choice for this task: load tabular CSV data.",
+        "en": ""
+      },
+      "topic": "CSV Loading",
+      "topicId": "pandas-workflows",
+      "subtopicId": "read-csv",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-read-csv-v2",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 6–9 — Load and Inspect CSV"
+      }
+    },
+    {
+      "id": "da-python-s10-q003",
+      "question": "Which function is used to load the CSV into a DataFrame?",
+      "options": [
+        {
+          "id": "A",
+          "text": "pd.to_datetime()"
+        },
+        {
+          "id": "B",
+          "text": "df.to_csv()"
+        },
+        {
+          "id": "C",
+          "text": "pd.read_csv()"
+        },
+        {
+          "id": "D",
+          "text": "np.dot()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `CSV Loading` behavior: The applied workflow loads CSV data into a DataFrame and begins with head/info/describe inspection.",
+        "en": ""
+      },
+      "topic": "CSV Loading",
+      "topicId": "pandas-workflows",
+      "subtopicId": "read-csv",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-read-csv-v3",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 6–9 — Load and Inspect CSV"
+      }
+    },
+    {
+      "id": "da-python-s10-q004",
+      "question": "A learner calls `to_csv()` when the goal is to read an existing CSV. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df[df[\"Department\"] == \"IT\"]` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `CSV Loading` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `groupby Mean` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `pd.read_csv()` for loading and `to_csv()` for exporting."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `pd.read_csv()` for loading and `to_csv()` for exporting.",
+        "en": ""
+      },
+      "topic": "CSV Loading",
+      "topicId": "pandas-workflows",
+      "subtopicId": "read-csv",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-read-csv-v4",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 6–9 — Load and Inspect CSV"
+      }
+    },
+    {
+      "id": "da-python-s10-q005",
+      "question": "Which statement best describes `Department Filtering` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Boolean condition on the Department column filters the DataFrame to matching employees."
+        },
+        {
+          "id": "B",
+          "text": "Grouping by Department then taking mean Salary produces average salary for each department."
+        },
+        {
+          "id": "C",
+          "text": "A new salary column can be calculated vectorially by multiplying Salary by 1.05."
+        },
+        {
+          "id": "D",
+          "text": "`sort_values()` orders rows by a chosen column, including descending age in the example."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A Boolean condition on the Department column filters the DataFrame to matching employees.",
+        "en": ""
+      },
+      "topic": "Department Filtering",
+      "topicId": "pandas-workflows",
+      "subtopicId": "department-filter",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-department-filter-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 10 — Filter Employees"
+      }
+    },
+    {
+      "id": "da-python-s10-q006",
+      "question": "Which taught function/pattern is most appropriate when you want to filter employees by department?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.groupby(\"Department\")[\"Salary\"].mean()"
+        },
+        {
+          "id": "B",
+          "text": "df[df[\"Department\"] == \"IT\"]"
+        },
+        {
+          "id": "C",
+          "text": "df[\"NewSalary\"] = df[\"Salary\"] * 1.05"
+        },
+        {
+          "id": "D",
+          "text": "df.sort_values(by=\"Age\", ascending=False)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `df[df[\"Department\"] == \"IT\"]` is the course-aligned choice for this task: filter employees by department.",
+        "en": ""
+      },
+      "topic": "Department Filtering",
+      "topicId": "pandas-workflows",
+      "subtopicId": "department-filter",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-department-filter-v2",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 10 — Filter Employees"
+      }
+    },
+    {
+      "id": "da-python-s10-q007",
+      "question": "What value is used in the taught department-filter example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "HR only"
+        },
+        {
+          "id": "B",
+          "text": "2010"
+        },
+        {
+          "id": "C",
+          "text": "IT"
+        },
+        {
+          "id": "D",
+          "text": "Cairo"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Department Filtering` behavior: A Boolean condition on the Department column filters the DataFrame to matching employees.",
+        "en": ""
+      },
+      "topic": "Department Filtering",
+      "topicId": "pandas-workflows",
+      "subtopicId": "department-filter",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-department-filter-v3",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 10 — Filter Employees"
+      }
+    },
+    {
+      "id": "da-python-s10-q008",
+      "question": "A learner compares the whole DataFrame to a department string instead of the Department column. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df.groupby(\"Department\")[\"Salary\"].mean()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Department Filtering` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Calculated Column` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Build the Boolean condition on the specific `Department` column."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Build the Boolean condition on the specific `Department` column.",
+        "en": ""
+      },
+      "topic": "Department Filtering",
+      "topicId": "pandas-workflows",
+      "subtopicId": "department-filter",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-department-filter-v4",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 10 — Filter Employees"
+      }
+    },
+    {
+      "id": "da-python-s10-q009",
+      "question": "Which statement best describes `groupby Mean` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Grouping by Department then taking mean Salary produces average salary for each department."
+        },
+        {
+          "id": "B",
+          "text": "A new salary column can be calculated vectorially by multiplying Salary by 1.05."
+        },
+        {
+          "id": "C",
+          "text": "`sort_values()` orders rows by a chosen column, including descending age in the example."
+        },
+        {
+          "id": "D",
+          "text": "`value_counts()` counts occurrences of each unique value in a column."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Grouping by Department then taking mean Salary produces average salary for each department.",
+        "en": ""
+      },
+      "topic": "groupby Mean",
+      "topicId": "pandas-workflows",
+      "subtopicId": "salary-groupby",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-salary-groupby-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 11 — Average Salary by Department"
+      }
+    },
+    {
+      "id": "da-python-s10-q010",
+      "question": "Which taught function/pattern is most appropriate when you want to calculate average salary per department?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df[\"NewSalary\"] = df[\"Salary\"] * 1.05"
+        },
+        {
+          "id": "B",
+          "text": "df.groupby(\"Department\")[\"Salary\"].mean()"
+        },
+        {
+          "id": "C",
+          "text": "df.sort_values(by=\"Age\", ascending=False)"
+        },
+        {
+          "id": "D",
+          "text": "df[\"Department\"].value_counts()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`df.groupby(\"Department\")[\"Salary\"].mean()` is the course-aligned choice for this task: calculate average salary per department.",
+        "en": ""
+      },
+      "topic": "groupby Mean",
+      "topicId": "pandas-workflows",
+      "subtopicId": "salary-groupby",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-salary-groupby-v2",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 11 — Average Salary by Department"
+      }
+    },
+    {
+      "id": "da-python-s10-q011",
+      "question": "What aggregation is used after grouping in the taught example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "sum() only"
+        },
+        {
+          "id": "B",
+          "text": "head()"
+        },
+        {
+          "id": "C",
+          "text": "mean()"
+        },
+        {
+          "id": "D",
+          "text": "to_csv()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `groupby Mean` behavior: Grouping by Department then taking mean Salary produces average salary for each department.",
+        "en": ""
+      },
+      "topic": "groupby Mean",
+      "topicId": "pandas-workflows",
+      "subtopicId": "salary-groupby",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-salary-groupby-v3",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 11 — Average Salary by Department"
+      }
+    },
+    {
+      "id": "da-python-s10-q012",
+      "question": "A learner groups by Department but calculates a global mean outside the grouped object. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df[\"NewSalary\"] = df[\"Salary\"] * 1.05` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `groupby Mean` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `sort_values()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Apply `mean()` to the grouped Salary values."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Apply `mean()` to the grouped Salary values.",
+        "en": ""
+      },
+      "topic": "groupby Mean",
+      "topicId": "pandas-workflows",
+      "subtopicId": "salary-groupby",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-salary-groupby-v4",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 11 — Average Salary by Department"
+      }
+    },
+    {
+      "id": "da-python-s10-q013",
+      "question": "Which statement best describes `Calculated Column` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A new salary column can be calculated vectorially by multiplying Salary by 1.05."
+        },
+        {
+          "id": "B",
+          "text": "`sort_values()` orders rows by a chosen column, including descending age in the example."
+        },
+        {
+          "id": "C",
+          "text": "`value_counts()` counts occurrences of each unique value in a column."
+        },
+        {
+          "id": "D",
+          "text": "`pd.to_datetime()` converts the date column before filtering rows after a date threshold."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A new salary column can be calculated vectorially by multiplying Salary by 1.05.",
+        "en": ""
+      },
+      "topic": "Calculated Column",
+      "topicId": "pandas-workflows",
+      "subtopicId": "raise-column",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-raise-column-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 12 — 5% Raise"
+      }
+    },
+    {
+      "id": "da-python-s10-q014",
+      "question": "Which taught function/pattern is most appropriate when you want to create a 5% raised salary column?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.sort_values(by=\"Age\", ascending=False)"
+        },
+        {
+          "id": "B",
+          "text": "df[\"NewSalary\"] = df[\"Salary\"] * 1.05"
+        },
+        {
+          "id": "C",
+          "text": "df[\"Department\"].value_counts()"
+        },
+        {
+          "id": "D",
+          "text": "pd.to_datetime(...)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`df[\"NewSalary\"] = df[\"Salary\"] * 1.05` is the course-aligned choice for this task: create a 5% raised salary column.",
+        "en": ""
+      },
+      "topic": "Calculated Column",
+      "topicId": "pandas-workflows",
+      "subtopicId": "raise-column",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-raise-column-v2",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 12 — 5% Raise"
+      }
+    },
+    {
+      "id": "da-python-s10-q015",
+      "question": "What multiplier represents the taught 5% raise?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0.05"
+        },
+        {
+          "id": "B",
+          "text": "5.0"
+        },
+        {
+          "id": "C",
+          "text": "1.05"
+        },
+        {
+          "id": "D",
+          "text": "1.50"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Calculated Column` behavior: A new salary column can be calculated vectorially by multiplying Salary by 1.05.",
+        "en": ""
+      },
+      "topic": "Calculated Column",
+      "topicId": "pandas-workflows",
+      "subtopicId": "raise-column",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-raise-column-v3",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 12 — 5% Raise"
+      }
+    },
+    {
+      "id": "da-python-s10-q016",
+      "question": "A learner multiplies salary by 0.05 and stores that as the final raised salary. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df.sort_values(by=\"Age\", ascending=False)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Calculated Column` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `value_counts()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use 1.05 for original salary plus 5% in the taught pattern."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Use 1.05 for original salary plus 5% in the taught pattern.",
+        "en": ""
+      },
+      "topic": "Calculated Column",
+      "topicId": "pandas-workflows",
+      "subtopicId": "raise-column",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-raise-column-v4",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 12 — 5% Raise"
+      }
+    },
+    {
+      "id": "da-python-s10-q017",
+      "question": "Which statement best describes `sort_values()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`sort_values()` orders rows by a chosen column, including descending age in the example."
+        },
+        {
+          "id": "B",
+          "text": "`value_counts()` counts occurrences of each unique value in a column."
+        },
+        {
+          "id": "C",
+          "text": "`pd.to_datetime()` converts the date column before filtering rows after a date threshold."
+        },
+        {
+          "id": "D",
+          "text": "`to_csv()` writes a DataFrame to a CSV; `index=False` excludes the row index."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`sort_values()` orders rows by a chosen column, including descending age in the example.",
+        "en": ""
+      },
+      "topic": "sort_values()",
+      "topicId": "pandas-workflows",
+      "subtopicId": "sorting",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-sorting-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 13 — Sort by Age"
+      }
+    },
+    {
+      "id": "da-python-s10-q018",
+      "question": "Which taught function/pattern is most appropriate when you want to sort employees from oldest to youngest?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df[\"Department\"].value_counts()"
+        },
+        {
+          "id": "B",
+          "text": "df.sort_values(by=\"Age\", ascending=False)"
+        },
+        {
+          "id": "C",
+          "text": "pd.to_datetime(...)"
+        },
+        {
+          "id": "D",
+          "text": "df.to_csv(..., index=False)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `df.sort_values(by=\"Age\", ascending=False)` is the course-aligned choice for this task: sort employees from oldest to youngest.",
+        "en": ""
+      },
+      "topic": "sort_values()",
+      "topicId": "pandas-workflows",
+      "subtopicId": "sorting",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-sorting-v2",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 13 — Sort by Age"
+      }
+    },
+    {
+      "id": "da-python-s10-q019",
+      "question": "Which argument value produces descending order?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ascending=True"
+        },
+        {
+          "id": "B",
+          "text": "axis=1 always"
+        },
+        {
+          "id": "C",
+          "text": "ascending=False"
+        },
+        {
+          "id": "D",
+          "text": "index=False"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `sort_values()` behavior: `sort_values()` orders rows by a chosen column, including descending age in the example.",
+        "en": ""
+      },
+      "topic": "sort_values()",
+      "topicId": "pandas-workflows",
+      "subtopicId": "sorting",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-sorting-v3",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 13 — Sort by Age"
+      }
+    },
+    {
+      "id": "da-python-s10-q020",
+      "question": "A learner sets ascending=True while describing the result as oldest-first. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df[\"Department\"].value_counts()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `sort_values()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Datetime Conversion & Filtering` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `ascending=False` for descending age."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `ascending=False` for descending age.",
+        "en": ""
+      },
+      "topic": "sort_values()",
+      "topicId": "pandas-workflows",
+      "subtopicId": "sorting",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-sorting-v4",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 13 — Sort by Age"
+      }
+    },
+    {
+      "id": "da-python-s10-q021",
+      "question": "Which statement best describes `value_counts()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`value_counts()` counts occurrences of each unique value in a column."
+        },
+        {
+          "id": "B",
+          "text": "`pd.to_datetime()` converts the date column before filtering rows after a date threshold."
+        },
+        {
+          "id": "C",
+          "text": "`to_csv()` writes a DataFrame to a CSV; `index=False` excludes the row index."
+        },
+        {
+          "id": "D",
+          "text": "The Hospital case study applies inspection, filtering, aggregation, calculated fields, sorting/date logic and export in one workflow."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`value_counts()` counts occurrences of each unique value in a column.",
+        "en": ""
+      },
+      "topic": "value_counts()",
+      "topicId": "pandas-workflows",
+      "subtopicId": "value-counts",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-value-counts-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 14 — Employee Count by Department"
+      }
+    },
+    {
+      "id": "da-python-s10-q022",
+      "question": "Which taught function/pattern is most appropriate when you want to count employees in each department?",
+      "options": [
+        {
+          "id": "A",
+          "text": "pd.to_datetime(...)"
+        },
+        {
+          "id": "B",
+          "text": "df[\"Department\"].value_counts()"
+        },
+        {
+          "id": "C",
+          "text": "df.to_csv(..., index=False)"
+        },
+        {
+          "id": "D",
+          "text": "multi-step Pandas workflow"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`df[\"Department\"].value_counts()` is the course-aligned choice for this task: count employees in each department.",
+        "en": ""
+      },
+      "topic": "value_counts()",
+      "topicId": "pandas-workflows",
+      "subtopicId": "value-counts",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-value-counts-v2",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 14 — Employee Count by Department"
+      }
+    },
+    {
+      "id": "da-python-s10-q023",
+      "question": "What does `value_counts()` return conceptually here?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Average salary"
+        },
+        {
+          "id": "B",
+          "text": "File size"
+        },
+        {
+          "id": "C",
+          "text": "Counts per department value"
+        },
+        {
+          "id": "D",
+          "text": "Date ranges"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `value_counts()` behavior: `value_counts()` counts occurrences of each unique value in a column.",
+        "en": ""
+      },
+      "topic": "value_counts()",
+      "topicId": "pandas-workflows",
+      "subtopicId": "value-counts",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-value-counts-v3",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 14 — Employee Count by Department"
+      }
+    },
+    {
+      "id": "da-python-s10-q024",
+      "question": "A learner uses mean() when the requirement is simply category frequency. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `pd.to_datetime(...)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `value_counts()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `CSV Export` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `value_counts()` for occurrence counts."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `value_counts()` for occurrence counts.",
+        "en": ""
+      },
+      "topic": "value_counts()",
+      "topicId": "pandas-workflows",
+      "subtopicId": "value-counts",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-value-counts-v4",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 14 — Employee Count by Department"
+      }
+    },
+    {
+      "id": "da-python-s10-q025",
+      "question": "Which statement best describes `Datetime Conversion & Filtering` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`pd.to_datetime()` converts the date column before filtering rows after a date threshold."
+        },
+        {
+          "id": "B",
+          "text": "`to_csv()` writes a DataFrame to a CSV; `index=False` excludes the row index."
+        },
+        {
+          "id": "C",
+          "text": "The Hospital case study applies inspection, filtering, aggregation, calculated fields, sorting/date logic and export in one workflow."
+        },
+        {
+          "id": "D",
+          "text": "The Restaurant case study applies Pandas manipulation to sales/customer analysis as an integrated applied workflow."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`pd.to_datetime()` converts the date column before filtering rows after a date threshold.",
+        "en": ""
+      },
+      "topic": "Datetime Conversion & Filtering",
+      "topicId": "pandas-workflows",
+      "subtopicId": "datetime-filter",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-datetime-filter-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 15 — Joined After 2020"
+      }
+    },
+    {
+      "id": "da-python-s10-q026",
+      "question": "Which taught function/pattern is most appropriate when you want to convert a text/date column for date comparisons?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.to_csv(..., index=False)"
+        },
+        {
+          "id": "B",
+          "text": "pd.to_datetime(...)"
+        },
+        {
+          "id": "C",
+          "text": "multi-step Pandas workflow"
+        },
+        {
+          "id": "D",
+          "text": "multi-step sales/customer workflow"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`pd.to_datetime(...)` is the course-aligned choice for this task: convert a text/date column for date comparisons.",
+        "en": ""
+      },
+      "topic": "Datetime Conversion & Filtering",
+      "topicId": "pandas-workflows",
+      "subtopicId": "datetime-filter",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-datetime-filter-v2",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 15 — Joined After 2020"
+      }
+    },
+    {
+      "id": "da-python-s10-q027",
+      "question": "Which function is taught for converting the Joining_Date column?",
+      "options": [
+        {
+          "id": "A",
+          "text": "pd.read_csv()"
+        },
+        {
+          "id": "B",
+          "text": "np.linspace()"
+        },
+        {
+          "id": "C",
+          "text": "pd.to_datetime()"
+        },
+        {
+          "id": "D",
+          "text": "os.stat()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Datetime Conversion & Filtering` behavior: `pd.to_datetime()` converts the date column before filtering rows after a date threshold.",
+        "en": ""
+      },
+      "topic": "Datetime Conversion & Filtering",
+      "topicId": "pandas-workflows",
+      "subtopicId": "datetime-filter",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-datetime-filter-v3",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 15 — Joined After 2020"
+      }
+    },
+    {
+      "id": "da-python-s10-q028",
+      "question": "A learner compares inconsistent raw date strings without first converting to datetime in the taught workflow. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df.to_csv(..., index=False)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Datetime Conversion & Filtering` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Hospital Analytics Workflow` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Convert the column with `pd.to_datetime()` before date filtering."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Convert the column with `pd.to_datetime()` before date filtering.",
+        "en": ""
+      },
+      "topic": "Datetime Conversion & Filtering",
+      "topicId": "pandas-workflows",
+      "subtopicId": "datetime-filter",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-datetime-filter-v4",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 15 — Joined After 2020"
+      }
+    },
+    {
+      "id": "da-python-s10-q029",
+      "question": "Which statement best describes `CSV Export` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`to_csv()` writes a DataFrame to a CSV; `index=False` excludes the row index."
+        },
+        {
+          "id": "B",
+          "text": "The Hospital case study applies inspection, filtering, aggregation, calculated fields, sorting/date logic and export in one workflow."
+        },
+        {
+          "id": "C",
+          "text": "The Restaurant case study applies Pandas manipulation to sales/customer analysis as an integrated applied workflow."
+        },
+        {
+          "id": "D",
+          "text": "The applied workflow loads CSV data into a DataFrame and begins with head/info/describe inspection."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`to_csv()` writes a DataFrame to a CSV; `index=False` excludes the row index.",
+        "en": ""
+      },
+      "topic": "CSV Export",
+      "topicId": "pandas-workflows",
+      "subtopicId": "to-csv",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-to-csv-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 16 — Save Filtered Data"
+      }
+    },
+    {
+      "id": "da-python-s10-q030",
+      "question": "Which taught function/pattern is most appropriate when you want to export a DataFrame without the index column?",
+      "options": [
+        {
+          "id": "A",
+          "text": "multi-step Pandas workflow"
+        },
+        {
+          "id": "B",
+          "text": "df.to_csv(..., index=False)"
+        },
+        {
+          "id": "C",
+          "text": "multi-step sales/customer workflow"
+        },
+        {
+          "id": "D",
+          "text": "pd.read_csv(...)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`df.to_csv(..., index=False)` is the course-aligned choice for this task: export a DataFrame without the index column.",
+        "en": ""
+      },
+      "topic": "CSV Export",
+      "topicId": "pandas-workflows",
+      "subtopicId": "to-csv",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-to-csv-v2",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 16 — Save Filtered Data"
+      }
+    },
+    {
+      "id": "da-python-s10-q031",
+      "question": "What does `index=False` do in the taught export?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Drops all data rows"
+        },
+        {
+          "id": "B",
+          "text": "Sorts descending"
+        },
+        {
+          "id": "C",
+          "text": "Excludes the DataFrame index from the CSV"
+        },
+        {
+          "id": "D",
+          "text": "Fills nulls"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `CSV Export` behavior: `to_csv()` writes a DataFrame to a CSV; `index=False` excludes the row index.",
+        "en": ""
+      },
+      "topic": "CSV Export",
+      "topicId": "pandas-workflows",
+      "subtopicId": "to-csv",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-to-csv-v3",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 16 — Save Filtered Data"
+      }
+    },
+    {
+      "id": "da-python-s10-q032",
+      "question": "A learner uses `index=True` while expecting the output file not to contain an index column. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `multi-step Pandas workflow` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `CSV Export` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Restaurant Analytics Workflow` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Set `index=False` as taught when the row index should be excluded."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Set `index=False` as taught when the row index should be excluded.",
+        "en": ""
+      },
+      "topic": "CSV Export",
+      "topicId": "pandas-workflows",
+      "subtopicId": "to-csv",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-to-csv-v4",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slide 16 — Save Filtered Data"
+      }
+    },
+    {
+      "id": "da-python-s10-q033",
+      "question": "Which statement best describes `Hospital Analytics Workflow` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Hospital case study applies inspection, filtering, aggregation, calculated fields, sorting/date logic and export in one workflow."
+        },
+        {
+          "id": "B",
+          "text": "The Restaurant case study applies Pandas manipulation to sales/customer analysis as an integrated applied workflow."
+        },
+        {
+          "id": "C",
+          "text": "The applied workflow loads CSV data into a DataFrame and begins with head/info/describe inspection."
+        },
+        {
+          "id": "D",
+          "text": "A Boolean condition on the Department column filters the DataFrame to matching employees."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The Hospital case study applies inspection, filtering, aggregation, calculated fields, sorting/date logic and export in one workflow.",
+        "en": ""
+      },
+      "topic": "Hospital Analytics Workflow",
+      "topicId": "pandas-case-studies",
+      "subtopicId": "hospital",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-hospital-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 18–26 — Hospital Patient Management"
+      }
+    },
+    {
+      "id": "da-python-s10-q034",
+      "question": "Which taught function/pattern is most appropriate when you want to analyze hospital patient data through multiple Pandas steps?",
+      "options": [
+        {
+          "id": "A",
+          "text": "multi-step sales/customer workflow"
+        },
+        {
+          "id": "B",
+          "text": "multi-step Pandas workflow"
+        },
+        {
+          "id": "C",
+          "text": "pd.read_csv(...)"
+        },
+        {
+          "id": "D",
+          "text": "df[df[\"Department\"] == \"IT\"]"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`multi-step Pandas workflow` is the course-aligned choice for this task: analyze hospital patient data through multiple Pandas steps.",
+        "en": ""
+      },
+      "topic": "Hospital Analytics Workflow",
+      "topicId": "pandas-case-studies",
+      "subtopicId": "hospital",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-hospital-v2",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 18–26 — Hospital Patient Management"
+      }
+    },
+    {
+      "id": "da-python-s10-q035",
+      "question": "What type of learning purpose does the Hospital section serve?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A NumPy-only matrix lesson"
+        },
+        {
+          "id": "B",
+          "text": "A filesystem permissions lesson"
+        },
+        {
+          "id": "C",
+          "text": "An integrated real-world Pandas workflow"
+        },
+        {
+          "id": "D",
+          "text": "A pure recursion lesson"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `Hospital Analytics Workflow` behavior: The Hospital case study applies inspection, filtering, aggregation, calculated fields, sorting/date logic and export in one workflow.",
+        "en": ""
+      },
+      "topic": "Hospital Analytics Workflow",
+      "topicId": "pandas-case-studies",
+      "subtopicId": "hospital",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-hospital-v3",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 18–26 — Hospital Patient Management"
+      }
+    },
+    {
+      "id": "da-python-s10-q036",
+      "question": "A learner repeats individual method definitions without connecting them into the case workflow. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `multi-step sales/customer workflow` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Hospital Analytics Workflow` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `CSV Loading` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use the methods as a sequence of analysis steps tied to the hospital problem."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use the methods as a sequence of analysis steps tied to the hospital problem.",
+        "en": ""
+      },
+      "topic": "Hospital Analytics Workflow",
+      "topicId": "pandas-case-studies",
+      "subtopicId": "hospital",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-hospital-v4",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 18–26 — Hospital Patient Management"
+      }
+    },
+    {
+      "id": "da-python-s10-q037",
+      "question": "Which statement best describes `Restaurant Analytics Workflow` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Restaurant case study applies Pandas manipulation to sales/customer analysis as an integrated applied workflow."
+        },
+        {
+          "id": "B",
+          "text": "The applied workflow loads CSV data into a DataFrame and begins with head/info/describe inspection."
+        },
+        {
+          "id": "C",
+          "text": "A Boolean condition on the Department column filters the DataFrame to matching employees."
+        },
+        {
+          "id": "D",
+          "text": "Grouping by Department then taking mean Salary produces average salary for each department."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "The Restaurant case study applies Pandas manipulation to sales/customer analysis as an integrated applied workflow.",
+        "en": ""
+      },
+      "topic": "Restaurant Analytics Workflow",
+      "topicId": "pandas-case-studies",
+      "subtopicId": "restaurant",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-restaurant-v1",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 28–36 — Restaurant Sales & Customer Analytics"
+      }
+    },
+    {
+      "id": "da-python-s10-q038",
+      "question": "Which taught function/pattern is most appropriate when you want to analyze restaurant sales and customer data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "pd.read_csv(...)"
+        },
+        {
+          "id": "B",
+          "text": "multi-step sales/customer workflow"
+        },
+        {
+          "id": "C",
+          "text": "df[df[\"Department\"] == \"IT\"]"
+        },
+        {
+          "id": "D",
+          "text": "df.groupby(\"Department\")[\"Salary\"].mean()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`multi-step sales/customer workflow` is the course-aligned choice for this task: analyze restaurant sales and customer data.",
+        "en": ""
+      },
+      "topic": "Restaurant Analytics Workflow",
+      "topicId": "pandas-case-studies",
+      "subtopicId": "restaurant",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-restaurant-v2",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 28–36 — Restaurant Sales & Customer Analytics"
+      }
+    },
+    {
+      "id": "da-python-s10-q039",
+      "question": "What domain is used in the second major applied case study?",
+      "options": [
+        {
+          "id": "A",
+          "text": "File permissions"
+        },
+        {
+          "id": "B",
+          "text": "Geospatial choropleths only"
+        },
+        {
+          "id": "C",
+          "text": "Restaurant sales and customer analytics"
+        },
+        {
+          "id": "D",
+          "text": "Recursive Fibonacci"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Restaurant Analytics Workflow` behavior: The Restaurant case study applies Pandas manipulation to sales/customer analysis as an integrated applied workflow.",
+        "en": ""
+      },
+      "topic": "Restaurant Analytics Workflow",
+      "topicId": "pandas-case-studies",
+      "subtopicId": "restaurant",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-restaurant-v3",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 28–36 — Restaurant Sales & Customer Analytics"
+      }
+    },
+    {
+      "id": "da-python-s10-q040",
+      "question": "A learner treats the case as a single isolated method rather than a chain of data-manipulation decisions. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `pd.read_csv(...)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Restaurant Analytics Workflow` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Department Filtering` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Connect the Pandas steps into the end-to-end restaurant analytics workflow."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Connect the Pandas steps into the end-to-end restaurant analytics workflow.",
+        "en": ""
+      },
+      "topic": "Restaurant Analytics Workflow",
+      "topicId": "pandas-case-studies",
+      "subtopicId": "restaurant",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s10-restaurant-v4",
+      "source": {
+        "file": "Pandas_2_3.pptx",
+        "reference": "Slides 28–36 — Restaurant Sales & Customer Analytics"
+      }
+    }
+  ]
+}

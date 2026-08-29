@@ -1,0 +1,1751 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-python-session09-practice-v1",
+    "title": "Session 9 — Python Practice",
+    "description": "40-question source-scoped practice for Pandas Fundamentals, DataFrames & Core Data Manipulation.",
+    "course": "Data Analysis",
+    "module": "Python for Data Analysis — Session 9",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-python-s09-q001",
+      "question": "Which statement best describes `Series` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Pandas Series is a one-dimensional labeled array that can hold data values."
+        },
+        {
+          "id": "B",
+          "text": "A DataFrame is a two-dimensional labeled table with columns that may have different types."
+        },
+        {
+          "id": "C",
+          "text": "`head()` returns the first five rows by default for a quick preview."
+        },
+        {
+          "id": "D",
+          "text": "`info()` summarizes DataFrame structure including non-null counts and column data types."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A Pandas Series is a one-dimensional labeled array that can hold data values.",
+        "en": ""
+      },
+      "topic": "Series",
+      "topicId": "pandas-fundamentals",
+      "subtopicId": "series",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-series-v1",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 5–8 — Pandas and Series"
+      }
+    },
+    {
+      "id": "da-python-s09-q002",
+      "question": "Which taught function/pattern is most appropriate when you want to create a one-dimensional labeled data structure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "pd.DataFrame(...)"
+        },
+        {
+          "id": "B",
+          "text": "pd.Series(...)"
+        },
+        {
+          "id": "C",
+          "text": "df.head()"
+        },
+        {
+          "id": "D",
+          "text": "df.info()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`pd.Series(...)` is the course-aligned choice for this task: create a one-dimensional labeled data structure.",
+        "en": ""
+      },
+      "topic": "Series",
+      "topicId": "pandas-fundamentals",
+      "subtopicId": "series",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-series-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 5–8 — Pandas and Series"
+      }
+    },
+    {
+      "id": "da-python-s09-q003",
+      "question": "A Series is most similar to what spreadsheet concept?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A complete workbook only"
+        },
+        {
+          "id": "B",
+          "text": "A filesystem directory"
+        },
+        {
+          "id": "C",
+          "text": "A single column"
+        },
+        {
+          "id": "D",
+          "text": "A Python loop"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Series` behavior: A Pandas Series is a one-dimensional labeled array that can hold data values.",
+        "en": ""
+      },
+      "topic": "Series",
+      "topicId": "pandas-fundamentals",
+      "subtopicId": "series",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-series-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 5–8 — Pandas and Series"
+      }
+    },
+    {
+      "id": "da-python-s09-q004",
+      "question": "A learner uses a two-dimensional DataFrame when the requirement is specifically a one-dimensional labeled structure. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `pd.DataFrame(...)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Series` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `head()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use a Series for one-dimensional labeled data."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use a Series for one-dimensional labeled data.",
+        "en": ""
+      },
+      "topic": "Series",
+      "topicId": "pandas-fundamentals",
+      "subtopicId": "series",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-series-v4",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 5–8 — Pandas and Series"
+      }
+    },
+    {
+      "id": "da-python-s09-q005",
+      "question": "Which statement best describes `DataFrame` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A DataFrame is a two-dimensional labeled table with columns that may have different types."
+        },
+        {
+          "id": "B",
+          "text": "`head()` returns the first five rows by default for a quick preview."
+        },
+        {
+          "id": "C",
+          "text": "`info()` summarizes DataFrame structure including non-null counts and column data types."
+        },
+        {
+          "id": "D",
+          "text": "`describe()` generates descriptive statistics for numerical columns such as mean, standard deviation, min and max."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "A DataFrame is a two-dimensional labeled table with columns that may have different types.",
+        "en": ""
+      },
+      "topic": "DataFrame",
+      "topicId": "pandas-fundamentals",
+      "subtopicId": "dataframe",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-dataframe-v1",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 5–9 — Pandas and DataFrame"
+      }
+    },
+    {
+      "id": "da-python-s09-q006",
+      "question": "Which taught function/pattern is most appropriate when you want to create a two-dimensional table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.head()"
+        },
+        {
+          "id": "B",
+          "text": "pd.DataFrame(...)"
+        },
+        {
+          "id": "C",
+          "text": "df.info()"
+        },
+        {
+          "id": "D",
+          "text": "df.describe()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `pd.DataFrame(...)` is the course-aligned choice for this task: create a two-dimensional table.",
+        "en": ""
+      },
+      "topic": "DataFrame",
+      "topicId": "pandas-fundamentals",
+      "subtopicId": "dataframe",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-dataframe-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 5–9 — Pandas and DataFrame"
+      }
+    },
+    {
+      "id": "da-python-s09-q007",
+      "question": "What does the source compare a DataFrame to?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A set with no columns"
+        },
+        {
+          "id": "B",
+          "text": "A text file object"
+        },
+        {
+          "id": "C",
+          "text": "A table in a database or a data frame in R"
+        },
+        {
+          "id": "D",
+          "text": "A scalar only"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `DataFrame` behavior: A DataFrame is a two-dimensional labeled table with columns that may have different types.",
+        "en": ""
+      },
+      "topic": "DataFrame",
+      "topicId": "pandas-fundamentals",
+      "subtopicId": "dataframe",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-dataframe-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 5–9 — Pandas and DataFrame"
+      }
+    },
+    {
+      "id": "da-python-s09-q008",
+      "question": "A learner expects a DataFrame to behave as an unordered set with no columns. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df.head()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `DataFrame` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `info()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Treat it as a labeled two-dimensional table."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Treat it as a labeled two-dimensional table.",
+        "en": ""
+      },
+      "topic": "DataFrame",
+      "topicId": "pandas-fundamentals",
+      "subtopicId": "dataframe",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-dataframe-v4",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 5–9 — Pandas and DataFrame"
+      }
+    },
+    {
+      "id": "da-python-s09-q009",
+      "question": "Which statement best describes `head()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`head()` returns the first five rows by default for a quick preview."
+        },
+        {
+          "id": "B",
+          "text": "`info()` summarizes DataFrame structure including non-null counts and column data types."
+        },
+        {
+          "id": "C",
+          "text": "`describe()` generates descriptive statistics for numerical columns such as mean, standard deviation, min and max."
+        },
+        {
+          "id": "D",
+          "text": "Selecting a column returns a Series; Boolean conditions can filter rows."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`head()` returns the first five rows by default for a quick preview.",
+        "en": ""
+      },
+      "topic": "head()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "head",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-head-v1",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 10 — head()"
+      }
+    },
+    {
+      "id": "da-python-s09-q010",
+      "question": "Which taught function/pattern is most appropriate when you want to preview the first rows of a DataFrame?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.info()"
+        },
+        {
+          "id": "B",
+          "text": "df.head()"
+        },
+        {
+          "id": "C",
+          "text": "df.describe()"
+        },
+        {
+          "id": "D",
+          "text": "df[\"column\"] / df[condition]"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`df.head()` is the course-aligned choice for this task: preview the first rows of a DataFrame.",
+        "en": ""
+      },
+      "topic": "head()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "head",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-head-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 10 — head()"
+      }
+    },
+    {
+      "id": "da-python-s09-q011",
+      "question": "How many rows does `head()` return by default in the taught description?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "All rows"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `head()` behavior: `head()` returns the first five rows by default for a quick preview.",
+        "en": ""
+      },
+      "topic": "head()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "head",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-head-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 10 — head()"
+      }
+    },
+    {
+      "id": "da-python-s09-q012",
+      "question": "A learner loads a full summary when only a quick first-row preview is needed. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df.info()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `head()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `describe()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `head()` for the quick top-of-data preview taught."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `head()` for the quick top-of-data preview taught.",
+        "en": ""
+      },
+      "topic": "head()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "head",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-head-v4",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 10 — head()"
+      }
+    },
+    {
+      "id": "da-python-s09-q013",
+      "question": "Which statement best describes `info()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`info()` summarizes DataFrame structure including non-null counts and column data types."
+        },
+        {
+          "id": "B",
+          "text": "`describe()` generates descriptive statistics for numerical columns such as mean, standard deviation, min and max."
+        },
+        {
+          "id": "C",
+          "text": "Selecting a column returns a Series; Boolean conditions can filter rows."
+        },
+        {
+          "id": "D",
+          "text": "`loc[]` is label-based indexing for selecting specific rows and columns."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`info()` summarizes DataFrame structure including non-null counts and column data types.",
+        "en": ""
+      },
+      "topic": "info()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "info",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-info-v1",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 11 — info()"
+      }
+    },
+    {
+      "id": "da-python-s09-q014",
+      "question": "Which taught function/pattern is most appropriate when you want to inspect non-null counts and dtypes?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.describe()"
+        },
+        {
+          "id": "B",
+          "text": "df.info()"
+        },
+        {
+          "id": "C",
+          "text": "df[\"column\"] / df[condition]"
+        },
+        {
+          "id": "D",
+          "text": "df.loc[...]"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`df.info()` is the course-aligned choice for this task: inspect non-null counts and dtypes.",
+        "en": ""
+      },
+      "topic": "info()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "info",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-info-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 11 — info()"
+      }
+    },
+    {
+      "id": "da-python-s09-q015",
+      "question": "Which detail is explicitly provided by `info()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only mean salary"
+        },
+        {
+          "id": "B",
+          "text": "Only sorted rows"
+        },
+        {
+          "id": "C",
+          "text": "Data types and non-null counts"
+        },
+        {
+          "id": "D",
+          "text": "Only file size"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `info()` behavior: `info()` summarizes DataFrame structure including non-null counts and column data types.",
+        "en": ""
+      },
+      "topic": "info()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "info",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-info-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 11 — info()"
+      }
+    },
+    {
+      "id": "da-python-s09-q016",
+      "question": "A learner uses `describe()` expecting the same structural dtype/non-null summary. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df.describe()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `info()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Column Selection & Filtering` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `info()` for structural DataFrame information."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Use `info()` for structural DataFrame information.",
+        "en": ""
+      },
+      "topic": "info()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "info",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-info-v4",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 11 — info()"
+      }
+    },
+    {
+      "id": "da-python-s09-q017",
+      "question": "Which statement best describes `describe()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`describe()` generates descriptive statistics for numerical columns such as mean, standard deviation, min and max."
+        },
+        {
+          "id": "B",
+          "text": "Selecting a column returns a Series; Boolean conditions can filter rows."
+        },
+        {
+          "id": "C",
+          "text": "`loc[]` is label-based indexing for selecting specific rows and columns."
+        },
+        {
+          "id": "D",
+          "text": "Pandas supports adding columns, vectorized column updates, and dropping columns with `drop(..., axis=1)`."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`describe()` generates descriptive statistics for numerical columns such as mean, standard deviation, min and max.",
+        "en": ""
+      },
+      "topic": "describe()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "describe",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-describe-v1",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 12 — describe()"
+      }
+    },
+    {
+      "id": "da-python-s09-q018",
+      "question": "Which taught function/pattern is most appropriate when you want to summarize numerical columns statistically?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df[\"column\"] / df[condition]"
+        },
+        {
+          "id": "B",
+          "text": "df.describe()"
+        },
+        {
+          "id": "C",
+          "text": "df.loc[...]"
+        },
+        {
+          "id": "D",
+          "text": "df[\"new\"]=... / df.drop(..., axis=1)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. `df.describe()` is the course-aligned choice for this task: summarize numerical columns statistically.",
+        "en": ""
+      },
+      "topic": "describe()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "describe",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-describe-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 12 — describe()"
+      }
+    },
+    {
+      "id": "da-python-s09-q019",
+      "question": "Which statistic is part of the taught describe output?",
+      "options": [
+        {
+          "id": "A",
+          "text": "File mode"
+        },
+        {
+          "id": "B",
+          "text": "Directory owner"
+        },
+        {
+          "id": "C",
+          "text": "Mean"
+        },
+        {
+          "id": "D",
+          "text": "Map marker"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `describe()` behavior: `describe()` generates descriptive statistics for numerical columns such as mean, standard deviation, min and max.",
+        "en": ""
+      },
+      "topic": "describe()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "describe",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-describe-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 12 — describe()"
+      }
+    },
+    {
+      "id": "da-python-s09-q020",
+      "question": "A learner uses `head()` expecting mean/std/min/max. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df[\"column\"] / df[condition]` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `describe()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `loc[]` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `describe()` for descriptive numerical statistics."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `describe()` for descriptive numerical statistics.",
+        "en": ""
+      },
+      "topic": "describe()",
+      "topicId": "pandas-inspection",
+      "subtopicId": "describe",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-describe-v4",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 12 — describe()"
+      }
+    },
+    {
+      "id": "da-python-s09-q021",
+      "question": "Which statement best describes `Column Selection & Filtering` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Selecting a column returns a Series; Boolean conditions can filter rows."
+        },
+        {
+          "id": "B",
+          "text": "`loc[]` is label-based indexing for selecting specific rows and columns."
+        },
+        {
+          "id": "C",
+          "text": "Pandas supports adding columns, vectorized column updates, and dropping columns with `drop(..., axis=1)`."
+        },
+        {
+          "id": "D",
+          "text": "`isnull()` detects missing values, `fillna()` fills them, and `dropna()` removes rows with missing values."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Selecting a column returns a Series; Boolean conditions can filter rows.",
+        "en": ""
+      },
+      "topic": "Column Selection & Filtering",
+      "topicId": "pandas-selection",
+      "subtopicId": "filtering",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-filtering-v1",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 13–14 — Selection and Filtering"
+      }
+    },
+    {
+      "id": "da-python-s09-q022",
+      "question": "Which taught function/pattern is most appropriate when you want to select a column or filter matching rows?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df.loc[...]"
+        },
+        {
+          "id": "B",
+          "text": "df[\"column\"] / df[condition]"
+        },
+        {
+          "id": "C",
+          "text": "df[\"new\"]=... / df.drop(..., axis=1)"
+        },
+        {
+          "id": "D",
+          "text": "isnull()/fillna()/dropna()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`df[\"column\"] / df[condition]` is the course-aligned choice for this task: select a column or filter matching rows.",
+        "en": ""
+      },
+      "topic": "Column Selection & Filtering",
+      "topicId": "pandas-selection",
+      "subtopicId": "filtering",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-filtering-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 13–14 — Selection and Filtering"
+      }
+    },
+    {
+      "id": "da-python-s09-q023",
+      "question": "What does selecting one DataFrame column normally return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A directory"
+        },
+        {
+          "id": "B",
+          "text": "A tuple of files"
+        },
+        {
+          "id": "C",
+          "text": "A Series"
+        },
+        {
+          "id": "D",
+          "text": "A scalar always"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `Column Selection & Filtering` behavior: Selecting a column returns a Series; Boolean conditions can filter rows.",
+        "en": ""
+      },
+      "topic": "Column Selection & Filtering",
+      "topicId": "pandas-selection",
+      "subtopicId": "filtering",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-filtering-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 13–14 — Selection and Filtering"
+      }
+    },
+    {
+      "id": "da-python-s09-q024",
+      "question": "A learner creates a Boolean condition but forgets to use it to filter the DataFrame. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df.loc[...]` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Column Selection & Filtering` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Modify DataFrame` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Apply the condition inside DataFrame selection to return matching rows."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Apply the condition inside DataFrame selection to return matching rows.",
+        "en": ""
+      },
+      "topic": "Column Selection & Filtering",
+      "topicId": "pandas-selection",
+      "subtopicId": "filtering",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-filtering-v4",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 13–14 — Selection and Filtering"
+      }
+    },
+    {
+      "id": "da-python-s09-q025",
+      "question": "Which statement best describes `loc[]` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`loc[]` is label-based indexing for selecting specific rows and columns."
+        },
+        {
+          "id": "B",
+          "text": "Pandas supports adding columns, vectorized column updates, and dropping columns with `drop(..., axis=1)`."
+        },
+        {
+          "id": "C",
+          "text": "`isnull()` detects missing values, `fillna()` fills them, and `dropna()` removes rows with missing values."
+        },
+        {
+          "id": "D",
+          "text": "`groupby()` groups rows for aggregation; `apply()` applies a custom function to values/structures."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`loc[]` is label-based indexing for selecting specific rows and columns.",
+        "en": ""
+      },
+      "topic": "loc[]",
+      "topicId": "pandas-selection",
+      "subtopicId": "loc",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-loc-v1",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 15 — loc[]"
+      }
+    },
+    {
+      "id": "da-python-s09-q026",
+      "question": "Which taught function/pattern is most appropriate when you want to select rows/columns by labels?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df[\"new\"]=... / df.drop(..., axis=1)"
+        },
+        {
+          "id": "B",
+          "text": "df.loc[...]"
+        },
+        {
+          "id": "C",
+          "text": "isnull()/fillna()/dropna()"
+        },
+        {
+          "id": "D",
+          "text": "groupby() / apply()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`df.loc[...]` is the course-aligned choice for this task: select rows/columns by labels.",
+        "en": ""
+      },
+      "topic": "loc[]",
+      "topicId": "pandas-selection",
+      "subtopicId": "loc",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-loc-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 15 — loc[]"
+      }
+    },
+    {
+      "id": "da-python-s09-q027",
+      "question": "What type of indexing is `loc[]` described as?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Random indexing"
+        },
+        {
+          "id": "B",
+          "text": "File-based indexing"
+        },
+        {
+          "id": "C",
+          "text": "Label-based indexing"
+        },
+        {
+          "id": "D",
+          "text": "Only positional slicing"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `loc[]` behavior: `loc[]` is label-based indexing for selecting specific rows and columns.",
+        "en": ""
+      },
+      "topic": "loc[]",
+      "topicId": "pandas-selection",
+      "subtopicId": "loc",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-loc-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 15 — loc[]"
+      }
+    },
+    {
+      "id": "da-python-s09-q028",
+      "question": "A learner uses `loc` while thinking labels are always integer positions. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `df[\"new\"]=... / df.drop(..., axis=1)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `loc[]` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Missing Data` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `loc` according to labels, as taught."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Use `loc` according to labels, as taught.",
+        "en": ""
+      },
+      "topic": "loc[]",
+      "topicId": "pandas-selection",
+      "subtopicId": "loc",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-loc-v4",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slide 15 — loc[]"
+      }
+    },
+    {
+      "id": "da-python-s09-q029",
+      "question": "Which statement best describes `Modify DataFrame` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pandas supports adding columns, vectorized column updates, and dropping columns with `drop(..., axis=1)`."
+        },
+        {
+          "id": "B",
+          "text": "`isnull()` detects missing values, `fillna()` fills them, and `dropna()` removes rows with missing values."
+        },
+        {
+          "id": "C",
+          "text": "`groupby()` groups rows for aggregation; `apply()` applies a custom function to values/structures."
+        },
+        {
+          "id": "D",
+          "text": "A Pandas Series is a one-dimensional labeled array that can hold data values."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Pandas supports adding columns, vectorized column updates, and dropping columns with `drop(..., axis=1)`.",
+        "en": ""
+      },
+      "topic": "Modify DataFrame",
+      "topicId": "pandas-manipulation",
+      "subtopicId": "modify",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-modify-v1",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 16–18 — Add, Update, Drop"
+      }
+    },
+    {
+      "id": "da-python-s09-q030",
+      "question": "Which taught function/pattern is most appropriate when you want to add, update or remove DataFrame columns?",
+      "options": [
+        {
+          "id": "A",
+          "text": "isnull()/fillna()/dropna()"
+        },
+        {
+          "id": "B",
+          "text": "df[\"new\"]=... / df.drop(..., axis=1)"
+        },
+        {
+          "id": "C",
+          "text": "groupby() / apply()"
+        },
+        {
+          "id": "D",
+          "text": "pd.Series(...)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`df[\"new\"]=... / df.drop(..., axis=1)` is the course-aligned choice for this task: add, update or remove DataFrame columns.",
+        "en": ""
+      },
+      "topic": "Modify DataFrame",
+      "topicId": "pandas-manipulation",
+      "subtopicId": "modify",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-modify-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 16–18 — Add, Update, Drop"
+      }
+    },
+    {
+      "id": "da-python-s09-q031",
+      "question": "What does `axis=1` indicate in the taught drop example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Drop a row only"
+        },
+        {
+          "id": "B",
+          "text": "Sort ascending"
+        },
+        {
+          "id": "C",
+          "text": "Drop a column"
+        },
+        {
+          "id": "D",
+          "text": "Fill missing values"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `Modify DataFrame` behavior: Pandas supports adding columns, vectorized column updates, and dropping columns with `drop(..., axis=1)`.",
+        "en": ""
+      },
+      "topic": "Modify DataFrame",
+      "topicId": "pandas-manipulation",
+      "subtopicId": "modify",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-modify-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 16–18 — Add, Update, Drop"
+      }
+    },
+    {
+      "id": "da-python-s09-q032",
+      "question": "A learner uses a row operation when intending to drop a column. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `isnull()/fillna()/dropna()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Modify DataFrame` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `groupby() & apply()` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use the column-oriented drop pattern with `axis=1` as taught."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use the column-oriented drop pattern with `axis=1` as taught.",
+        "en": ""
+      },
+      "topic": "Modify DataFrame",
+      "topicId": "pandas-manipulation",
+      "subtopicId": "modify",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-modify-v4",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 16–18 — Add, Update, Drop"
+      }
+    },
+    {
+      "id": "da-python-s09-q033",
+      "question": "Which statement best describes `Missing Data` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`isnull()` detects missing values, `fillna()` fills them, and `dropna()` removes rows with missing values."
+        },
+        {
+          "id": "B",
+          "text": "`groupby()` groups rows for aggregation; `apply()` applies a custom function to values/structures."
+        },
+        {
+          "id": "C",
+          "text": "A Pandas Series is a one-dimensional labeled array that can hold data values."
+        },
+        {
+          "id": "D",
+          "text": "A DataFrame is a two-dimensional labeled table with columns that may have different types."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`isnull()` detects missing values, `fillna()` fills them, and `dropna()` removes rows with missing values.",
+        "en": ""
+      },
+      "topic": "Missing Data",
+      "topicId": "pandas-cleaning",
+      "subtopicId": "missing",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-missing-v1",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 19–21 — Missing Data"
+      }
+    },
+    {
+      "id": "da-python-s09-q034",
+      "question": "Which taught function/pattern is most appropriate when you want to detect, fill or remove missing values?",
+      "options": [
+        {
+          "id": "A",
+          "text": "groupby() / apply()"
+        },
+        {
+          "id": "B",
+          "text": "isnull()/fillna()/dropna()"
+        },
+        {
+          "id": "C",
+          "text": "pd.Series(...)"
+        },
+        {
+          "id": "D",
+          "text": "pd.DataFrame(...)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`isnull()/fillna()/dropna()` is the course-aligned choice for this task: detect, fill or remove missing values.",
+        "en": ""
+      },
+      "topic": "Missing Data",
+      "topicId": "pandas-cleaning",
+      "subtopicId": "missing",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-missing-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 19–21 — Missing Data"
+      }
+    },
+    {
+      "id": "da-python-s09-q035",
+      "question": "Which method replaces missing values with a specified value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "dropna()"
+        },
+        {
+          "id": "B",
+          "text": "head()"
+        },
+        {
+          "id": "C",
+          "text": "fillna()"
+        },
+        {
+          "id": "D",
+          "text": "sort_values()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. The trace follows the taught `Missing Data` behavior: `isnull()` detects missing values, `fillna()` fills them, and `dropna()` removes rows with missing values.",
+        "en": ""
+      },
+      "topic": "Missing Data",
+      "topicId": "pandas-cleaning",
+      "subtopicId": "missing",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-missing-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 19–21 — Missing Data"
+      }
+    },
+    {
+      "id": "da-python-s09-q036",
+      "question": "A learner uses `dropna()` when the requirement is to preserve rows and replace missing values. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `groupby() / apply()` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `Missing Data` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `Series` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Use `fillna()` when filling is the intended cleaning action."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Use `fillna()` when filling is the intended cleaning action.",
+        "en": ""
+      },
+      "topic": "Missing Data",
+      "topicId": "pandas-cleaning",
+      "subtopicId": "missing",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-missing-v4",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 19–21 — Missing Data"
+      }
+    },
+    {
+      "id": "da-python-s09-q037",
+      "question": "Which statement best describes `groupby() & apply()` according to the taught session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`groupby()` groups rows for aggregation; `apply()` applies a custom function to values/structures."
+        },
+        {
+          "id": "B",
+          "text": "A Pandas Series is a one-dimensional labeled array that can hold data values."
+        },
+        {
+          "id": "C",
+          "text": "A DataFrame is a two-dimensional labeled table with columns that may have different types."
+        },
+        {
+          "id": "D",
+          "text": "`head()` returns the first five rows by default for a quick preview."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "`groupby()` groups rows for aggregation; `apply()` applies a custom function to values/structures.",
+        "en": ""
+      },
+      "topic": "groupby() & apply()",
+      "topicId": "pandas-aggregation",
+      "subtopicId": "groupby-apply",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-groupby-apply-v1",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 22–23 — Grouping and Apply"
+      }
+    },
+    {
+      "id": "da-python-s09-q038",
+      "question": "Which taught function/pattern is most appropriate when you want to aggregate groups or apply custom logic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "pd.Series(...)"
+        },
+        {
+          "id": "B",
+          "text": "groupby() / apply()"
+        },
+        {
+          "id": "C",
+          "text": "pd.DataFrame(...)"
+        },
+        {
+          "id": "D",
+          "text": "df.head()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`groupby() / apply()` is the course-aligned choice for this task: aggregate groups or apply custom logic.",
+        "en": ""
+      },
+      "topic": "groupby() & apply()",
+      "topicId": "pandas-aggregation",
+      "subtopicId": "groupby-apply",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-groupby-apply-v2",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 22–23 — Grouping and Apply"
+      }
+    },
+    {
+      "id": "da-python-s09-q039",
+      "question": "What does the taught groupby example calculate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "File size by path"
+        },
+        {
+          "id": "B",
+          "text": "Plot colors only"
+        },
+        {
+          "id": "C",
+          "text": "Mean salary by department"
+        },
+        {
+          "id": "D",
+          "text": "String slicing"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "The trace follows the taught `groupby() & apply()` behavior: `groupby()` groups rows for aggregation; `apply()` applies a custom function to values/structures.",
+        "en": ""
+      },
+      "topic": "groupby() & apply()",
+      "topicId": "pandas-aggregation",
+      "subtopicId": "groupby-apply",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-groupby-apply-v3",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 22–23 — Grouping and Apply"
+      }
+    },
+    {
+      "id": "da-python-s09-q040",
+      "question": "A learner uses `groupby()` but never applies the intended aggregation. What correction best matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `pd.Series(...)` instead regardless of the goal."
+        },
+        {
+          "id": "B",
+          "text": "Ignore the issue because `groupby() & apply()` has no rules."
+        },
+        {
+          "id": "C",
+          "text": "Convert the task to `DataFrame` without changing the logic."
+        },
+        {
+          "id": "D",
+          "text": "Follow grouping with the needed aggregation such as `mean()` in the taught pattern."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Platform clarification based on the taught concept. Follow grouping with the needed aggregation such as `mean()` in the taught pattern.",
+        "en": ""
+      },
+      "topic": "groupby() & apply()",
+      "topicId": "pandas-aggregation",
+      "subtopicId": "groupby-apply",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "python",
+      "track": "Python for Data Analysis",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "s09-groupby-apply-v4",
+      "source": {
+        "file": "Pandas_1.pptx",
+        "reference": "Slides 22–23 — Grouping and Apply"
+      }
+    }
+  ]
+}
