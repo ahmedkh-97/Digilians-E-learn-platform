@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.16.1
+# Digilians E-Learn Platform V0.16.2
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1338,3 +1338,37 @@ V0.16.1 changes the release validation policy:
 - Study V2 content remains 13 sessions / 75 sections / 77 walkthroughs / 75 Quick Checks
 - Python assessment content remains unchanged
 - SQL / Python / Official QBank baselines remain unchanged
+
+
+## V0.16.2 — Pre-Deploy Safety & Staging Toolkit
+
+Added a deployment safety workflow so new builds are not uploaded directly to LIVE.
+
+### One-click local testing
+- `RUN-PREFLIGHT.bat` — automated checks only.
+- `TEST-LOCAL.bat` — runs Preflight, starts the built-in Node local HTTP server on port 8000, then opens the platform in the browser. No Python dependency is required.
+
+### Automated Preflight
+`tools/pre-deploy-check.mjs` validates:
+- version/cache consistency;
+- all JSON files;
+- true ES-module JavaScript syntax;
+- direct DOM references;
+- SQL and Python production-bank counts;
+- Official QBank baselines;
+- Session Practice JSON;
+- dynamic SQL/Python exam generation;
+- Python Study V2 integrity;
+- staging/test banner presence.
+
+### Release safety
+- `PRE-DEPLOY-CHECKLIST.md`
+- `RELEASE-WORKFLOW.md`
+- `VERSION.txt`
+
+### Test environment banner
+Localhost and repositories/paths containing `test` or `staging` automatically display:
+
+`DIGILIANS TEST MODE — not the live production site`
+
+The banner is initialized directly from `index.html`, so it does not depend on the main application module loading successfully.

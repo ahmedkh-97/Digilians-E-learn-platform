@@ -10,9 +10,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.16.1" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.16.2" />
 </head>
 <body>
+  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.16.2">
+    <strong>DIGILIANS TEST MODE</strong>
+    <span>This is a local / staging build — not the live production site.</span>
+    <b>V0.16.2</b>
+  </div>
+  <script>
+    (function () {
+      var host = String(location.hostname || "").toLowerCase();
+      var path = String(location.pathname || "").toLowerCase();
+      var local = host === "localhost" || host === "127.0.0.1" || host === "";
+      var staging = path.indexOf("test") !== -1 || path.indexOf("staging") !== -1 ||
+                    host.indexOf("test") !== -1 || host.indexOf("staging") !== -1;
+      if (local || staging) {
+        var el = document.getElementById("environmentBanner");
+        if (el) el.classList.remove("hidden");
+        document.documentElement.classList.add("test-environment");
+      }
+    })();
+  </script>
+
   <div class="ambient ambient-one"></div>
   <div class="ambient ambient-two"></div>
 
@@ -965,6 +985,6 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/app.js?v=0.16.1"></script>
+  <script type="module" src="assets/js/app.js?v=0.16.2"></script>
 </body>
 </html>
