@@ -1,0 +1,1211 @@
+{
+  "schemaVersion": "1.0",
+  "bankId": "official-professional-web-scraping-bank-001",
+  "title": "Professional Web Scraping Official QBank - Section 1",
+  "levelId": "professional-data-analysis",
+  "trackId": "web-scraping",
+  "track": "Web Scraping",
+  "sourceType": "official-qbank",
+  "authority": "Official Ministry QBank",
+  "sourceFile": "Professional_MCQ_Exercises.pdf",
+  "sourceRevision": "professional-web-scraping-r1",
+  "questionCount": 23,
+  "questions": [
+    {
+      "id": "official-professional-web-scraping-q0001",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 1,
+      "originalQuestionNumber": 1,
+      "question": "What is the main purpose of requests.get(url, headers=headers, timeout=30)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Parse the returned HTML and search for matching tags on the page."
+        },
+        {
+          "id": "B",
+          "text": "Convert every relative link on the page into a complete URL."
+        },
+        {
+          "id": "C",
+          "text": "Send an HTTP GET request to the page using the given headers and timeout."
+        },
+        {
+          "id": "D",
+          "text": "Save the page content automatically into a Pandas DataFrame."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c6236dd66c57a528",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 148,
+        "originalQuestionNumber": 1
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0002",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 2,
+      "originalQuestionNumber": 2,
+      "question": "What value will be stored in url?\ndate = \"2026-08-03\"\nbase_url = \"https://www.filgoal.com\"\nurl = f\"{base_url}/matches/?date={date}\"\nprint(url)",
+      "options": [
+        {
+          "id": "A",
+          "text": "https://www.filgoal.com/2026-08-03/matches/"
+        },
+        {
+          "id": "B",
+          "text": "https://www.filgoal.com/matches/?date=2026-08-03"
+        },
+        {
+          "id": "C",
+          "text": "https://www.filgoal.com/matches/2026-08-03"
+        },
+        {
+          "id": "D",
+          "text": "https://www.filgoal.com/?matches=date=2026-08-03"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "http-requests",
+      "topic": "HTTP & Requests",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "8d5a44aeaf2b8ac1",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 148,
+        "originalQuestionNumber": 2
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0003",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 3,
+      "originalQuestionNumber": 3,
+      "question": "A page request returns status_code = 200. What does this usually indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The request was completed successfully."
+        },
+        {
+          "id": "B",
+          "text": "The requested page was redirected permanently."
+        },
+        {
+          "id": "C",
+          "text": "The HTML was parsed successfully by BeautifulSoup."
+        },
+        {
+          "id": "D",
+          "text": "The page contains exactly 200 HTML elements."
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a2f27444ce957bb3",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 148,
+        "originalQuestionNumber": 3
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0004",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 4,
+      "originalQuestionNumber": 4,
+      "question": "Which line correctly creates the BeautifulSoup object using the approach taught in the\nnotebook?",
+      "options": [
+        {
+          "id": "A",
+          "text": "soup = requests.get(response.content, \"html.parser\")"
+        },
+        {
+          "id": "B",
+          "text": "soup = BeautifulSoup(url, response.status_code)"
+        },
+        {
+          "id": "C",
+          "text": "soup = response.find_all(\"html\", parser=True)"
+        },
+        {
+          "id": "D",
+          "text": "soup = BeautifulSoup(response.content, \"html.parser\")"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a4e68e74682292e4",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 148,
+        "originalQuestionNumber": 4
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0005",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 5,
+      "originalQuestionNumber": 5,
+      "question": "What is the purpose of \"html.parser\" in BeautifulSoup?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It tells BeautifulSoup which parser to use for interpreting the HTML."
+        },
+        {
+          "id": "B",
+          "text": "It tells requests which browser headers should be sent to the website."
+        },
+        {
+          "id": "C",
+          "text": "It filters the page so that only HTML links remain in the response."
+        },
+        {
+          "id": "D",
+          "text": "It converts every HTML tag directly into a Python dictionary."
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "0af6d0261e61cde9",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 148,
+        "originalQuestionNumber": 5
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0006",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 6,
+      "originalQuestionNumber": 6,
+      "question": "What does soup.prettify() mainly help you do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remove all tags and return only the visible text from the page."
+        },
+        {
+          "id": "B",
+          "text": "Download images and convert their paths into complete URLs."
+        },
+        {
+          "id": "C",
+          "text": "Display the HTML in a cleaner indented structure that is easier to inspect."
+        },
+        {
+          "id": "D",
+          "text": "Count how many links, images, and tables exist in the page."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "8084a02bbb875055",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 148,
+        "originalQuestionNumber": 6
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0007",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 7,
+      "originalQuestionNumber": 7,
+      "question": "Given this code, what is stored in tags?\ntags = soup.find_all(\"a\")",
+      "options": [
+        {
+          "id": "A",
+          "text": "The text of the first <a> element found in the page."
+        },
+        {
+          "id": "B",
+          "text": "The href attribute from the first matching <a> element."
+        },
+        {
+          "id": "C",
+          "text": "A collection containing every HTML tag except <a> elements."
+        },
+        {
+          "id": "D",
+          "text": "A collection of all matching <a> elements found in the page."
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "df63b8b184a8059e",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 149,
+        "originalQuestionNumber": 7
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0008",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 8,
+      "originalQuestionNumber": 8,
+      "question": "What does this code try to return?\nfirst_team_link = soup.find(\n\"a\",\nhref=lambda href: href and \"/teams/\" in href\n)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Every anchor element whose visible text contains the word teams."
+        },
+        {
+          "id": "B",
+          "text": "The first anchor element whose href contains /teams/."
+        },
+        {
+          "id": "C",
+          "text": "The first page heading located inside a team section."
+        },
+        {
+          "id": "D",
+          "text": "Every relative URL that contains /teams/ as plain text."
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "bb1203ce79438a3c",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 149,
+        "originalQuestionNumber": 8
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0009",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 9,
+      "originalQuestionNumber": 9,
+      "question": "Assume first_team_link is an <a> element. What does first_team_link.name return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "a"
+        },
+        {
+          "id": "B",
+          "text": "href"
+        },
+        {
+          "id": "C",
+          "text": "team"
+        },
+        {
+          "id": "D",
+          "text": "link"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "links-urls-assets",
+      "topic": "Links, URLs & Assets",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "90c04310caf61d08",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 149,
+        "originalQuestionNumber": 9
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0010",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 10,
+      "originalQuestionNumber": 10,
+      "question": "What does first_team_link.attrs return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The visible text that appears inside the anchor element."
+        },
+        {
+          "id": "B",
+          "text": "The complete HTML page that contains the selected anchor element."
+        },
+        {
+          "id": "C",
+          "text": "A dictionary-like collection containing the tag's HTML attributes."
+        },
+        {
+          "id": "D",
+          "text": "A list containing only the href values from every anchor element."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "25d85d55b9df8324",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 149,
+        "originalQuestionNumber": 10
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0011",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 11,
+      "originalQuestionNumber": 11,
+      "question": "What does first_team_link.get(\"href\") return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The visible team name stored between the opening and closing tags."
+        },
+        {
+          "id": "B",
+          "text": "The full page source containing the selected team link."
+        },
+        {
+          "id": "C",
+          "text": "Every href value from all team links in the page."
+        },
+        {
+          "id": "D",
+          "text": "The value stored in the href attribute, or None if it is missing."
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f881e22405e01f47",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 149,
+        "originalQuestionNumber": 11
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0012",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 12,
+      "originalQuestionNumber": 12,
+      "question": "What is the effect of adding [:5] here?\nsoup.find_all(\"a\", href=lambda h: h and \"/teams/\" in h)[:5]",
+      "options": [
+        {
+          "id": "A",
+          "text": "It keeps at most the first five matching team-link elements."
+        },
+        {
+          "id": "B",
+          "text": "It searches only the first five HTML lines of the page."
+        },
+        {
+          "id": "C",
+          "text": "It keeps team links whose href contains exactly five characters."
+        },
+        {
+          "id": "D",
+          "text": "It repeats the first matching team link five separate times."
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f888c87affe1463a",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 149,
+        "originalQuestionNumber": 12
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0013",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 13,
+      "originalQuestionNumber": 13,
+      "question": "What is the main effect of get_text(\" \", strip=True)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Extract the href attribute and remove spaces from the URL."
+        },
+        {
+          "id": "B",
+          "text": "Extract the element text, trim outer whitespace, and separate text parts with spaces."
+        },
+        {
+          "id": "C",
+          "text": "Return the full HTML tag while replacing attributes with spaces."
+        },
+        {
+          "id": "D",
+          "text": "Search the page for text values that contain one blank space."
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4c1eed39a02b49f5",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 149,
+        "originalQuestionNumber": 13
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0014",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 14,
+      "originalQuestionNumber": 14,
+      "question": "Why is this check useful before accessing the team link?\n\nif first_team_link is not None:\nteam_name = first_team_link.get_text(\" \", strip=True)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because get_text() works only after a status code has been converted to None."
+        },
+        {
+          "id": "B",
+          "text": "Because team links must be removed from the HTML before their text is read."
+        },
+        {
+          "id": "C",
+          "text": "Because every anchor element becomes None after its href is accessed."
+        },
+        {
+          "id": "D",
+          "text": "Because find() may return None when no matching element exists."
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "2d64dc783b1a0676",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 149,
+        "originalQuestionNumber": 14
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0015",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 15,
+      "originalQuestionNumber": 15,
+      "question": "Suppose relative_url is \"/teams/123\" and url is a FilGoal matches page. What is urljoin(url,\nrelative_url) used for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Join the team name and the relative path into one text value."
+        },
+        {
+          "id": "B",
+          "text": "Append the current date to the end of the team path."
+        },
+        {
+          "id": "C",
+          "text": "Build a complete absolute URL from the relative team path."
+        },
+        {
+          "id": "D",
+          "text": "Combine multiple team links into one Python list."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "links-urls-assets",
+      "topic": "Links, URLs & Assets",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "221c7b5004bd9b63",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 150,
+        "originalQuestionNumber": 15
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0016",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 16,
+      "originalQuestionNumber": 16,
+      "question": "What does this list comprehension create?\nteams_linkat = [urljoin(url, i.get(\"href\")) for i in links_s]",
+      "options": [
+        {
+          "id": "A",
+          "text": "A list of full URLs for the team-link elements stored in links_s."
+        },
+        {
+          "id": "B",
+          "text": "A list containing the visible names of teams found in links_s."
+        },
+        {
+          "id": "C",
+          "text": "A list containing only the tags that have no href attribute."
+        },
+        {
+          "id": "D",
+          "text": "A list containing the HTTP status code for every team page."
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3b72bfcd1764ff65",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 150,
+        "originalQuestionNumber": 16
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0017",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 17,
+      "originalQuestionNumber": 17,
+      "question": "Which statement correctly compares find() and find_all()?",
+      "options": [
+        {
+          "id": "A",
+          "text": "find() searches attributes, while find_all() searches only visible text."
+        },
+        {
+          "id": "B",
+          "text": "find() works with links, while find_all() works only with images."
+        },
+        {
+          "id": "C",
+          "text": "find() returns the first match, while find_all() returns all matching elements."
+        },
+        {
+          "id": "D",
+          "text": "find() returns full URLs, while find_all() returns relative URLs."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a649024b7e99277d",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 150,
+        "originalQuestionNumber": 17
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0018",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 18,
+      "originalQuestionNumber": 18,
+      "question": "What does href=True mean in this code?\nlinks = soup.find_all(\"a\", href=True)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Return anchor elements whose href text is literally True."
+        },
+        {
+          "id": "B",
+          "text": "Return anchor elements that have an href attribute."
+        },
+        {
+          "id": "C",
+          "text": "Return only absolute links beginning with https://."
+        },
+        {
+          "id": "D",
+          "text": "Return anchor elements that have visible text inside them."
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "aec407b65c1a8b32",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 150,
+        "originalQuestionNumber": 18
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0019",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 19,
+      "originalQuestionNumber": 19,
+      "question": "What does all_links[:5] represent if all_links = soup.find_all(\"a\")?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The first five href strings converted automatically into full URLs."
+        },
+        {
+          "id": "B",
+          "text": "The first five words found inside the first anchor element."
+        },
+        {
+          "id": "C",
+          "text": "The first five unique links after duplicate removal."
+        },
+        {
+          "id": "D",
+          "text": "The first five anchor Tag objects from the full list of anchor matches."
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "818ab8404325bcdf",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 150,
+        "originalQuestionNumber": 19
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0020",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 20,
+      "originalQuestionNumber": 20,
+      "question": "Which condition finds links whose href contains /matches/?",
+      "options": [
+        {
+          "id": "A",
+          "text": "href=lambda href: href == \"matches\""
+        },
+        {
+          "id": "B",
+          "text": "href=lambda href: \"/teams/\" in href"
+        },
+        {
+          "id": "C",
+          "text": "href=lambda href: href and \"/matches/\" in href"
+        },
+        {
+          "id": "D",
+          "text": "href=True and \"/matches/\""
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "links-urls-assets",
+      "topic": "Links, URLs & Assets",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "cfbd135a1f03c19a",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 150,
+        "originalQuestionNumber": 20
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0021",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 21,
+      "originalQuestionNumber": 21,
+      "question": "What does soup.find_all(\"img\") return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only image URLs stored inside src attributes."
+        },
+        {
+          "id": "B",
+          "text": "All image Tag objects found in the parsed page."
+        },
+        {
+          "id": "C",
+          "text": "Only images that contain a non-empty alt attribute."
+        },
+        {
+          "id": "D",
+          "text": "All image files downloaded from the website."
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "beautifulsoup-html-parsing",
+      "topic": "BeautifulSoup & HTML Parsing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "658ed8dd42438a36",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 150,
+        "originalQuestionNumber": 21
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0022",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 22,
+      "originalQuestionNumber": 22,
+      "question": "Why is this expression useful when reading image URLs?\nimage_src = image.get(\"src\") or image.get(\"data-src\")",
+      "options": [
+        {
+          "id": "A",
+          "text": "It joins src and data-src into one longer URL."
+        },
+        {
+          "id": "B",
+          "text": "It keeps both attributes only when they contain the same value."
+        },
+        {
+          "id": "C",
+          "text": "It removes images that have either src or data-src."
+        },
+        {
+          "id": "D",
+          "text": "It uses src when available and otherwise tries data-src."
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "links-urls-assets",
+      "topic": "Links, URLs & Assets",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f9571db7c966efca",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 151,
+        "originalQuestionNumber": 22
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    },
+    {
+      "id": "official-professional-web-scraping-q0023",
+      "trackId": "web-scraping",
+      "track": "Web Scraping",
+      "officialSet": 1,
+      "originalOrder": 23,
+      "originalQuestionNumber": 23,
+      "question": "Given the HTML below, what will the code print for image_alt?\n<img data-src=\"/img/team.png\">\n\nimage_alt = image.get(\"alt\", \"No Alt Text\")\nprint(image_alt)",
+      "options": [
+        {
+          "id": "A",
+          "text": "No Alt Text"
+        },
+        {
+          "id": "B",
+          "text": "/img/team.png"
+        },
+        {
+          "id": "C",
+          "text": "alt"
+        },
+        {
+          "id": "D",
+          "text": "None"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "links-urls-assets",
+      "topic": "Links, URLs & Assets",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5fdaf63bc4c0be4c",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 151,
+        "originalQuestionNumber": 23
+      },
+      "reuseAudit": {
+        "matchType": "professional-only",
+        "confidence": "high",
+        "juniorQuestionIds": [],
+        "explanationReuse": "new-required",
+        "reviewStatus": "pending-deep-explanation-review"
+      }
+    }
+  ]
+}
