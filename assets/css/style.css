@@ -2625,3 +2625,114 @@ button:disabled{
     text-align:left;
   }
 }
+
+
+/* V0.15.3 — Track Cards Layout Fix */
+.track-grid{
+  align-items:stretch;
+  grid-auto-rows:1fr;
+}
+.track-card{
+  min-height:220px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  overflow:hidden;
+}
+.track-card-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:18px;
+}
+.track-card .track-icon{
+  margin-bottom:0;
+  flex:0 0 auto;
+}
+.track-status-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:25px;
+  padding:6px 9px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--surface-soft);
+  color:var(--muted);
+  font-size:7px;
+  font-weight:950;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+.track-status-chip.ready{
+  border-color:color-mix(in srgb,var(--success) 30%,var(--line));
+  background:var(--success-soft);
+  color:var(--success);
+}
+.track-status-chip.building{
+  background:var(--surface-soft);
+  color:var(--muted);
+}
+.track-card-body{
+  min-width:0;
+  flex:1 1 auto;
+}
+.track-card h4{
+  margin:0 0 7px;
+  line-height:1.22;
+}
+.track-card p{
+  margin:0;
+  max-width:100%;
+  line-height:1.55;
+  overflow-wrap:anywhere;
+}
+.track-footer{
+  position:static;
+  left:auto;
+  right:auto;
+  bottom:auto;
+  flex:0 0 auto;
+  margin-top:20px;
+  padding-top:13px;
+  border-top:1px solid var(--line);
+  min-height:43px;
+  gap:12px;
+}
+.track-footer-meta{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  flex-wrap:wrap;
+  line-height:1.35;
+}
+.track-footer-meta strong{
+  color:var(--muted);
+  font-size:8px;
+  font-weight:900;
+}
+.track-footer-meta span{
+  color:color-mix(in srgb,var(--muted) 55%,transparent);
+}
+.track-ready .track-footer-meta strong{
+  color:var(--text);
+}
+.track-arrow{
+  flex:0 0 30px;
+  width:30px;
+  height:30px;
+}
+.track-card:hover .track-arrow{
+  background:color-mix(in srgb,var(--track-accent,var(--primary)) 12%,var(--surface-soft));
+  color:var(--track-accent,var(--primary));
+  transform:translateX(2px);
+}
+@media(max-width:900px){
+  .track-card{min-height:205px}
+}
+@media(max-width:560px){
+  .track-card{min-height:auto}
+}

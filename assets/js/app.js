@@ -955,6 +955,41 @@ function renderCurriculumStatus(course){
   panel.classList.remove("hidden");
 }
 
+function trackCardSummary(track){
+  const summaries={
+    excel:"Spreadsheets, formulas, analysis workflows and dashboards.",
+    sql:"SQL querying, relational databases, joins, subqueries and analytical workflows.",
+    python:"Python foundations, NumPy, Pandas and data visualization.",
+    "power-bi":"Data modeling, reports, dashboards and business intelligence.",
+    statistics:"Descriptive statistics and analytical foundations.",
+    tableau:"Visual analytics, dashboards, actions and filters.",
+    looker:"Reporting, calculated fields, blending and dashboard design."
+  };
+  return summaries[track.id] || track.description || "";
+}
+function trackCardMeta(track){
+  const stats=track.productionStats || {};
+  if(stats.status==="FINAL READY"){
+    const sessions=stats.sessions ?? track.modules?.length ?? 0;
+    const questions=stats.questions ?? 0;
+    return {
+      ready:true,
+      primary:`${sessions} Session${sessions===1?"":"s"}`,
+      secondary:questions?`${questions} Questions`:"Production Ready",
+      status:"Final Ready"
+    };
+  }
+  if(track.modules?.length){
+    return {
+      ready:false,
+      primary:`${track.modules.length} Module${track.modules.length===1?"":"s"}`,
+      secondary:"In progress",
+      status:"Building"
+    };
+  }
+  return {ready:false,primary:"Coming soon",secondary:"",status:"Coming Soon"};
+}
+
 function renderTrackPanel(course){
   const panel=$("trackPanel");
   const modulePanel=$("modulePanel");
@@ -968,15 +1003,26 @@ function renderTrackPanel(course){
   grid.innerHTML="";
 
   course.tracks.forEach(track=>{
+    const meta=trackCardMeta(track);
     const card=document.createElement("button");
-    card.className="track-card";
+    card.className=`track-card ${meta.ready?"track-ready":"track-building"}`;
     card.style.setProperty("--track-accent",track.accent || "var(--primary)");
     card.innerHTML=`
-      <div class="track-icon">${track.icon || track.title[0]}</div>
-      <h4>${track.title}</h4>
-      <p>${track.description || ""}</p>
+      <div class="track-card-head">
+        <div class="track-icon">${escapeHtml(track.icon || track.title[0])}</div>
+        <span class="track-status-chip ${meta.ready?"ready":"building"}">${escapeHtml(meta.status)}</span>
+      </div>
+
+      <div class="track-card-body">
+        <h4>${escapeHtml(track.title)}</h4>
+        <p>${escapeHtml(trackCardSummary(track))}</p>
+      </div>
+
       <div class="track-footer">
-        <span>${track.modules?.length ? `${track.modules.length} module${track.modules.length===1?"":"s"}` : "Coming soon"}</span>
+        <div class="track-footer-meta">
+          <strong>${escapeHtml(meta.primary)}</strong>
+          ${meta.secondary?`<span>•</span><strong>${escapeHtml(meta.secondary)}</strong>`:""}
+        </div>
         <span class="track-arrow">→</span>
       </div>
     `;
