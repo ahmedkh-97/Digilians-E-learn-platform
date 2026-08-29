@@ -1091,27 +1091,106 @@ $("openStudyBtn").addEventListener("click",()=>openStudy());
 $("openPracticeBtn").addEventListener("click",()=>openModuleExam("instant"));
 $("openModuleExamBtn").addEventListener("click",()=>openModuleExam(null));
 
+function formatStudyMixedText(value){
+  const escaped=escapeHtml(value ?? "");
+  return escaped.replace(
+    /([A-Za-z][A-Za-z0-9_.'()+\-/*=<>]*(?:[ \t]+[A-Za-z][A-Za-z0-9_.'()+\-/*=<>]*){0,5})/g,
+    '<bdi dir="ltr" class="study-inline-term">$1</bdi>'
+  );
+}
+function renderSqlStudySection(s,i,id){
+  const article=document.createElement("section");
+  article.className="study-section sql-study-section";
+  article.id=id;
+
+  const summary=s.studySummary
+    ?`<div class="study-summary-card" dir="rtl">
+        <span class="study-ar-label">الفكرة الأساسية</span>
+        <p dir="auto">${formatStudyMixedText(s.studySummary)}</p>
+      </div>`
+    :"";
+
+  const explanation=(s.explanationParagraphs||[]).length
+    ?`<div class="study-explanation" dir="rtl">
+        <span class="study-ar-label">الشرح</span>
+        ${(s.explanationParagraphs||[]).map(p=>`<p dir="auto">${formatStudyMixedText(p)}</p>`).join("")}
+      </div>`
+    :"";
+
+  const keyTerms=(s.keyTerms||[]).length
+    ?`<div class="study-keyterms" dir="ltr">
+        <span class="study-block-label">KEY TERMS</span>
+        <div class="study-term-list">
+          ${(s.keyTerms||[]).map(term=>`<span class="study-term-chip"><bdi dir="ltr">${escapeHtml(term)}</bdi></span>`).join("")}
+        </div>
+      </div>`
+    :"";
+
+  const takeaways=(s.takeaways||[]).length
+    ?`<div class="study-takeaways" dir="rtl">
+        <span class="study-ar-label">نقط مهمة للمذاكرة</span>
+        <ul>
+          ${(s.takeaways||[]).map(item=>`
+            <li dir="auto">
+              <span class="study-takeaway-dot">✓</span>
+              <span>${formatStudyMixedText(item)}</span>
+            </li>`).join("")}
+        </ul>
+      </div>`
+    :"";
+
+  const trace=s.sourceTrace
+    ?`<div class="study-source-trace" dir="ltr">
+        <span class="study-block-label">SOURCE TRACE</span>
+        <p>${formatStudyMixedText(s.sourceTrace)}</p>
+      </div>`
+    :"";
+
+  article.innerHTML=`
+    <header class="study-section-head" dir="ltr">
+      <span class="eyebrow">SECTION ${String(i+1).padStart(2,"0")}</span>
+      <h3>${escapeHtml(s.title)}</h3>
+    </header>
+    ${summary}
+    ${explanation}
+    ${keyTerms}
+    ${takeaways}
+    ${trace}`;
+  return article;
+}
 function openStudy(){
   const c=state.selectedCourse,m=state.selectedModule;
   if(!c||!m?.study)return;
+  const isSqlStudy=state.selectedTrack?.id==="sql" || String(m.id||"").startsWith("sql-session-");
+
   $("studyBreadcrumb").textContent=`${c.title} / ${m.title} / Study`;
   $("studyTitle").textContent=m.study.title;
   $("studyDescription").textContent=m.study.description || "";
+
+  const studyView=$("studyView");
+  studyView?.classList.toggle("sql-readable-study",isSqlStudy);
+
   const toc=$("studyTocList"),sections=$("studySections");
   toc.innerHTML="";sections.innerHTML="";
   m.study.sections.forEach((s,i)=>{
     const id=`study-section-${s.id || i}`;
     const tocBtn=document.createElement("button");
     tocBtn.textContent=s.title;
+    tocBtn.dir="ltr";
     tocBtn.addEventListener("click",()=>document.getElementById(id)?.scrollIntoView({behavior:"smooth"}));
     toc.appendChild(tocBtn);
 
+    if(isSqlStudy){
+      sections.appendChild(renderSqlStudySection(s,i,id));
+      return;
+    }
+
     const article=document.createElement("section");
     article.className="study-section";article.id=id;
-    const paragraphs=(s.paragraphs||[]).map(p=>`<p>${p}</p>`).join("");
-    const bullets=s.bullets?.length?`<ul>${s.bullets.map(b=>`<li>${b}</li>`).join("")}</ul>`:"";
-    const callout=s.callout?`<div class="study-callout"><strong>${s.callout.label}:</strong> ${s.callout.text}</div>`:"";
-    article.innerHTML=`<span class="eyebrow">SECTION ${String(i+1).padStart(2,"0")}</span><h3>${s.title}</h3>${paragraphs}${bullets}${callout}`;
+    const paragraphs=(s.paragraphs||[]).map(p=>`<p>${escapeHtml(p)}</p>`).join("");
+    const bullets=s.bullets?.length?`<ul>${s.bullets.map(b=>`<li>${escapeHtml(b)}</li>`).join("")}</ul>`:"";
+    const callout=s.callout?`<div class="study-callout"><strong>${escapeHtml(s.callout.label)}:</strong> ${escapeHtml(s.callout.text)}</div>`:"";
+    article.innerHTML=`<span class="eyebrow">SECTION ${String(i+1).padStart(2,"0")}</span><h3>${escapeHtml(s.title)}</h3>${paragraphs}${bullets}${callout}`;
     sections.appendChild(article);
   });
   routeTo("studyView");

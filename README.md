@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.14.0
+# Digilians E-Learn Platform V0.14.1
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1116,3 +1116,17 @@ Integrated the finalized SQL production package into the Data Analysis learning 
 - Legacy 50-question Session 1 seed bank was removed from the active registry.
 - Session2 remains scoped to DDL, DML and DQL only.
 - Official Ministry QBank and Ranking V2 remain independent from the course-production SQL bank.
+
+
+## V0.14.1 — SQL Learn Readability & Study UX Fix
+
+Reworked the student-facing SQL study presentation across all 8 integrated SQL sessions.
+
+- 34 SQL study sections use a dedicated readable mixed-language renderer.
+- Arabic explanation blocks are RTL and right-aligned.
+- English SQL terminology is direction-isolated to prevent bidi reordering.
+- Production/admin phrases such as `SQL production map`, `core topic`, and `Assessment scope` are no longer shown as lesson prose.
+- Key Terms are displayed separately as LTR chips.
+- Important points are displayed as individual RTL study cards instead of long mixed-direction bullet paragraphs.
+- Source Trace is preserved in a dedicated LTR block.
+- Existing source-grounded study content, validated explanations, questions, answers and traceability were not changed.

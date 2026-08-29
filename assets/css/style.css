@@ -1518,3 +1518,215 @@ input::placeholder{color:color-mix(in srgb,var(--muted) 70%,transparent)}
 /* V0.14.0 — SQL full-track launch */
 .module-row.track-exam-row{border-color:color-mix(in srgb,var(--primary) 35%,var(--line));background:linear-gradient(135deg,var(--primary-soft),var(--surface-solid));}
 .module-row.track-exam-row .course-icon{background:var(--primary);color:#fff}
+
+
+/* V0.14.1 — SQL Learn Readability & Study UX */
+.sql-readable-study .study-layout{
+  grid-template-columns:230px minmax(0,900px);
+  gap:30px;
+}
+.sql-readable-study .study-hero{
+  margin-bottom:18px;
+}
+.sql-readable-study .study-hero p{
+  max-width:760px;
+}
+.sql-readable-study .study-toc{
+  max-height:calc(100vh - 42px);
+  overflow:auto;
+}
+.sql-readable-study .study-toc button{
+  direction:ltr;
+  text-align:left;
+  line-height:1.35;
+  padding:10px 9px;
+}
+
+.sql-study-section{
+  padding:32px 34px;
+  margin-bottom:18px;
+  border-radius:25px;
+  overflow:hidden;
+}
+.study-section-head{
+  padding-bottom:18px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:22px;
+}
+.sql-study-section .study-section-head h3{
+  margin:6px 0 0;
+  font-size:28px;
+  line-height:1.2;
+  letter-spacing:-.04em;
+  color:var(--text);
+  text-align:left;
+}
+.sql-study-section .study-section-head .eyebrow{
+  display:block;
+  text-align:left;
+}
+
+.study-summary-card,
+.study-explanation,
+.study-takeaways{
+  direction:rtl;
+  text-align:right;
+}
+.study-summary-card{
+  padding:20px 22px;
+  border:1px solid color-mix(in srgb,var(--primary) 18%,var(--line));
+  border-radius:18px;
+  background:color-mix(in srgb,var(--primary-soft) 62%,var(--surface));
+  margin-bottom:18px;
+}
+.study-ar-label,
+.study-block-label{
+  display:block;
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.08em;
+  margin-bottom:8px;
+}
+.study-ar-label{
+  color:var(--primary);
+}
+.study-summary-card p,
+.study-explanation p,
+.study-takeaways li{
+  unicode-bidi:plaintext;
+}
+.study-summary-card p{
+  margin:0;
+  color:var(--text);
+  font-size:16px;
+  line-height:2;
+  font-weight:610;
+}
+.study-explanation{
+  margin:18px 0;
+}
+.study-explanation p{
+  margin:0 0 12px;
+  color:var(--text);
+  font-size:15px;
+  line-height:2;
+}
+.study-inline-term{
+  direction:ltr;
+  unicode-bidi:isolate;
+  display:inline;
+  color:var(--text);
+  font-weight:700;
+}
+
+.study-keyterms{
+  padding:16px 18px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--surface-soft);
+  margin:18px 0;
+  text-align:left;
+}
+.study-block-label{
+  color:var(--muted);
+}
+.study-term-list{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+.study-term-chip{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:6px 10px;
+  border-radius:9px;
+  border:1px solid color-mix(in srgb,var(--primary) 17%,var(--line));
+  background:var(--surface-solid);
+  color:var(--text);
+  font-size:10px;
+  font-weight:780;
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+
+.study-takeaways{
+  margin:20px 0 0;
+}
+.study-takeaways ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:9px;
+}
+.study-takeaways li{
+  display:grid;
+  grid-template-columns:26px minmax(0,1fr);
+  align-items:start;
+  gap:10px;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--surface-solid);
+  color:var(--text);
+  font-size:14px;
+  line-height:1.85;
+}
+.study-takeaway-dot{
+  width:25px;
+  height:25px;
+  border-radius:8px;
+  display:grid;
+  place-items:center;
+  background:var(--success-soft);
+  color:var(--success);
+  font-size:10px;
+  font-weight:950;
+  direction:ltr;
+}
+
+.study-source-trace{
+  margin-top:22px;
+  padding:15px 18px;
+  border:1px solid color-mix(in srgb,var(--primary) 22%,var(--line));
+  border-radius:15px;
+  background:var(--primary-soft);
+  direction:ltr;
+  text-align:left;
+}
+.study-source-trace .study-block-label{
+  color:var(--primary);
+  margin-bottom:5px;
+}
+.study-source-trace p{
+  margin:0;
+  color:var(--text);
+  font-size:10px;
+  line-height:1.65;
+  direction:ltr;
+  unicode-bidi:plaintext;
+}
+
+@media(max-width:790px){
+  .sql-readable-study .study-layout{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .sql-readable-study .study-toc{
+    position:static;
+    max-height:none;
+  }
+  .sql-study-section{
+    padding:23px 20px;
+  }
+  .sql-study-section .study-section-head h3{
+    font-size:24px;
+  }
+  .study-summary-card p{
+    font-size:15px;
+  }
+  .study-takeaways li{
+    font-size:13px;
+  }
+}
