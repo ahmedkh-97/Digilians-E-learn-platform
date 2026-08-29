@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.16.2
+# Digilians E-Learn Platform V0.17.3
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1372,3 +1372,261 @@ Localhost and repositories/paths containing `test` or `staging` automatically di
 `DIGILIANS TEST MODE — not the live production site`
 
 The banner is initialized directly from `index.html`, so it does not depend on the main application module loading successfully.
+
+
+## V0.16.3 — Local-Only Pre-Deploy Workflow
+
+Deployment flow simplified to:
+
+`Automated QA → Local Browser Test → GitHub LIVE`
+
+No GitHub staging/test repository is required.
+
+### Safety controls
+- `RUN-PREFLIGHT.bat`
+- `TEST-LOCAL.bat`
+- `PRE-DEPLOY-CHECKLIST.md`
+- `RELEASE-WORKFLOW.md`
+- `VERSION.txt`
+
+The environment banner now appears only on localhost/local file context.
+
+After Local Test passes, the exact same build is uploaded directly to GitHub LIVE, followed by a short production smoke test.
+
+Rollback policy remains mandatory: keep the previous stable ZIP before every deployment.
+
+
+## V0.17.0 — Visual Learning & Study UX Fixes
+
+### Systemic RTL/LTR + HTML entity fix
+- Added a dedicated `study-format.js` presentation module.
+- Fixes double-escaped entity behavior that could render `&` as `;amp&`.
+- Pure English/code expressions are isolated as one LTR unit.
+- Expressions such as `Function = Input → Process → Output` preserve their visual order inside Arabic Study content.
+- The actual formatter is now directly regression-tested by the Pre-Deploy checker.
+
+### Visual learning for Python Sessions 11–13
+- 16 Visualization Study sections now include generated inline SVG visual examples.
+- No external images are required.
+- Supported visual families include:
+  - Line
+  - Bar
+  - Scatter
+  - Histogram
+  - Box Plot
+  - Subplots
+  - Waffle
+  - Word Cloud
+  - Regression
+  - Map Markers
+  - Choropleth
+- Chart cards use `Predict → Show Chart`.
+- `Show Anatomy` exposes chart components/interpretation labels.
+
+### Chart Decision Lab
+A new interactive decision helper starts from the analytical question:
+- Trend over time → Line
+- Compare categories → Bar
+- Relationship between two numeric variables → Scatter
+- Numerical distribution → Histogram
+- Spread / potential outliers → Box Plot
+- Metric by region → Choropleth
+
+### Pandas / NumPy visual transformations
+`Before → Operation → After` now renders pipe-based DataFrame snapshots as actual mini tables when possible instead of plain text blocks.
+
+### Adaptive Study depth
+The 75 Python Study sections no longer force the exact same explanation density:
+- Compact
+- Standard
+- Deep
+
+Repeated generic `Why` and `Step-by-Step` copy was replaced with concept-family-specific guidance.
+
+### Cleaner Code Lab
+Default reading order is now:
+`Code → Explanation → Execution Trace → Expected Output`
+
+Secondary material is collapsed:
+- Deep Dive: Line-by-Line & Why It Works
+- Review: Common Mistakes & Exam Tips
+
+### QA upgrades
+- Pure Python Study renderer extracted to `python-study-render.js`.
+- Runtime renderer executed on 75/75 Python Study sections during Pre-Deploy.
+- 16/16 chart lessons render inline SVG.
+- Bidi/entity formatter regression is part of Pre-Deploy.
+
+
+## V0.17.1 — Study Polish & Reliability
+
+### Mixed Arabic + English polish
+- Handles Arabic article prefixes attached to English technical terms.
+- Example: `الـ Expected Output` remains visually ordered inside RTL text.
+- Regression coverage now includes `الـExpected Output` and `الـfor loop`.
+
+### Quick Check improvements
+- Quick Check state is saved locally per student → module → section.
+- Refreshing or returning to the topic restores the selected answer and explanation.
+- Added `Reset Quick Check`.
+- Feedback now explicitly shows:
+  - `YOUR ANSWER`
+  - `CORRECT ANSWER`
+- The `for ch in "Python"` checkpoint includes a concrete execution trace:
+  `P → y → t → h → o → n`.
+
+### Study readability
+- Arabic helper labels were enlarged.
+- Quick Check and Source Trace micro-copy was made easier to read.
+
+### Startup / crash recovery
+- Added an application-independent Recovery Screen.
+- If the main JavaScript module fails before startup, the learner gets recovery controls instead of a blank page.
+- Recovery actions:
+  - Reload Platform
+  - Clear App Cache & Reload
+- Local Study progress, completed results and ranking history are not cleared by these actions.
+
+### Pre-Deploy additions
+- Quick Check save/restore/reset regression.
+- Startup recovery guard validation.
+- New Arabic-prefix + English-term formatter cases.
+
+
+## V0.17.2 — Universal Code Readability System
+
+This release adds one shared technical-content renderer across learner-facing question surfaces.
+
+### Covered languages
+- Python
+- SQL
+- DAX
+- Excel formulas
+- Power Query M
+- Generic code fallback
+
+### Question presentation
+Technical questions are now split visually into:
+`Context → Code / Formula / Query → Actual Question`
+
+The source question text is not edited in the JSON.
+
+For multi-line code:
+- dedicated code block
+- language badge
+- monospace font
+- syntax highlighting
+- line numbers
+- preserved indentation
+- LTR isolation
+- mobile-safe horizontal scrolling
+
+For code/formula answer options:
+- monospace presentation
+- syntax highlighting
+- full multi-line query blocks when needed
+
+### Universal surfaces
+The renderer is used in:
+- Official QBank Study
+- Practice / Instant Feedback
+- Exam Mode
+- Exam Review
+- Python Study Quick Checks
+
+### Technical feedback
+Instant Feedback and Review now display:
+- learner answer
+- correct answer
+- code-aware formatting
+- inline technical expressions inside explanations
+
+### SQL
+Multi-line SQL answer options render as real query blocks rather than wrapped paragraph text.
+
+### DAX
+Measure/formula options render as DAX with function/reference highlighting.
+
+### Excel
+Formula options such as `=COUNTIFS(...)` render as formulas instead of normal prose.
+
+### Power Query M
+M expressions are isolated from prose and rendered as code.
+
+### Safety / source integrity
+No educational JSON or Official QBank text was rewritten for V0.17.2.
+The new behavior is a presentation layer only.
+
+### QA
+The shipped Pre-Deploy checker now executes the universal renderer across all discovered question objects and includes explicit regressions for:
+- Official Python Q0016
+- Official SQL Q0001
+- Official DAX Q0179
+- Official Excel Q0024
+- Official Power Query M Q0064
+
+
+## V0.17.3 — Code Parser Hardening & Technical QA
+
+This release hardens the V0.17.2 Universal Code Readability layer against real Official QBank cases found during local review.
+
+### Fixed parser fragmentation
+Python technical questions now use a state-based line parser rather than independent line-only decisions.
+
+Programs such as:
+
+`assignment → for → if → assignment → break`
+
+remain one code block.
+
+Supported block ingredients now include:
+- normal assignment
+- augmented assignment
+- tuple/destructuring assignment
+- `for / while / if / elif / else`
+- `try / except / finally`
+- `break / continue / pass`
+- `return / raise / assert`
+- function/class definitions
+- method calls
+- Pandas / NumPy expressions
+- list/dict literal continuation
+- lambda expressions
+
+### Screenshot regressions fixed
+Explicit QA now covers:
+- `official-python-q0012` — employee list + lambda options
+- `official-python-q0030` — Pandas `fillna(median())` code options
+- `official-python-q0058` — `first_odd` loop
+- `official-professional-python-q0055` — full `if / else` total loop
+
+### Code-only options
+If the question is normal prose but multiple answers are code, the UI now adds the appropriate orientation:
+- Python → `CHOOSE THE CORRECT CODE`
+- SQL / Power Query M → `CHOOSE THE CORRECT QUERY`
+- DAX / Excel → `CHOOSE THE CORRECT FORMULA`
+
+### Display-only Unicode Bidi cleanup
+Invisible directional controls are removed only while rendering.
+
+The stored Official QBank string remains unchanged.
+
+Visible source punctuation is preserved. For example, an English official question containing an Arabic `؟` remains visually `؟` until the original source itself is reviewed.
+
+### Non-destructive topic classification
+Python questions stored as `Other`/`General` get a better display classification without editing JSON.
+
+Current audited display classifications:
+- list slicing/indexing → `Lists & Indexing`
+- list filtering/comprehension → `Lists & Comprehensions`
+- comparisons → `Operators & Expressions`
+- loop/break tracing → `Control Flow & Loops`
+
+The UI exposes the stored topic in the badge tooltip when a display classification is inferred.
+
+### Parser corpus QA
+Current Python parser audit:
+- 755 Python questions inspected
+- 0 fragmented multi-block Python programs
+
+Universal technical renderer QA remains active across the full current JSON payload set.

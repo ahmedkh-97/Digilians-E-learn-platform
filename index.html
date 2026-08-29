@@ -10,26 +10,92 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.16.2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.17.3" />
 </head>
 <body>
-  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.16.2">
+  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.17.3">
     <strong>DIGILIANS TEST MODE</strong>
-    <span>This is a local / staging build — not the live production site.</span>
-    <b>V0.16.2</b>
+    <span>This is a LOCAL TEST build — not the live GitHub site.</span>
+    <b>V0.17.3</b>
   </div>
   <script>
     (function () {
       var host = String(location.hostname || "").toLowerCase();
-      var path = String(location.pathname || "").toLowerCase();
       var local = host === "localhost" || host === "127.0.0.1" || host === "";
-      var staging = path.indexOf("test") !== -1 || path.indexOf("staging") !== -1 ||
-                    host.indexOf("test") !== -1 || host.indexOf("staging") !== -1;
-      if (local || staging) {
+      if (local) {
         var el = document.getElementById("environmentBanner");
         if (el) el.classList.remove("hidden");
         document.documentElement.classList.add("test-environment");
       }
+    })();
+  </script>
+
+  <!-- STARTUP / CRASH RECOVERY — independent from app.js -->
+  <div id="fatalRecovery" class="fatal-recovery hidden" role="alertdialog" aria-modal="true" aria-labelledby="fatalRecoveryTitle">
+    <article class="fatal-recovery-card">
+      <span class="fatal-recovery-badge">RECOVERY MODE · V0.17.3</span>
+      <div class="fatal-recovery-icon">!</div>
+      <h2 id="fatalRecoveryTitle">The platform could not start correctly.</h2>
+      <p id="fatalRecoveryMessage">A startup error prevented the application from loading.</p>
+      <div class="fatal-recovery-note">
+        Your saved Study progress, completed results and Ranking history are not deleted by these recovery actions.
+      </div>
+      <div class="fatal-recovery-actions">
+        <button type="button" class="primary-btn" id="fatalReloadBtn">Reload Platform</button>
+        <button type="button" class="secondary-btn" id="fatalClearCacheBtn">Clear App Cache & Reload</button>
+      </div>
+      <small>If this keeps happening, return to the previous stable build before uploading a new version.</small>
+    </article>
+  </div>
+  <script>
+    (function () {
+      window.__DIGILIANS_APP_READY__ = false;
+      var overlay = document.getElementById("fatalRecovery");
+      var message = document.getElementById("fatalRecoveryMessage");
+
+      window.__DIGILIANS_SHOW_FATAL__ = function (text) {
+        if (message && text) message.textContent = text;
+        if (overlay) overlay.classList.remove("hidden");
+      };
+      window.__DIGILIANS_CLEAR_FATAL__ = function () {
+        if (overlay) overlay.classList.add("hidden");
+      };
+
+      window.addEventListener("error", function (event) {
+        if (window.__DIGILIANS_APP_READY__) return;
+        var target = event.target;
+        var scriptFailure = target && target.tagName === "SCRIPT";
+        if (event.error || scriptFailure) {
+          window.__DIGILIANS_SHOW_FATAL__(
+            scriptFailure ? "A required JavaScript module failed to load." : "A JavaScript startup error stopped the platform."
+          );
+        }
+      }, true);
+
+      window.addEventListener("unhandledrejection", function () {
+        if (!window.__DIGILIANS_APP_READY__) {
+          window.__DIGILIANS_SHOW_FATAL__("A startup task failed before the platform was ready.");
+        }
+      });
+
+      window.setTimeout(function () {
+        if (!window.__DIGILIANS_APP_READY__) {
+          window.__DIGILIANS_SHOW_FATAL__("The platform took too long to initialize. Reload the page or clear the app cache.");
+        }
+      }, 8000);
+
+      document.getElementById("fatalReloadBtn")?.addEventListener("click", function () {
+        location.reload();
+      });
+      document.getElementById("fatalClearCacheBtn")?.addEventListener("click", async function () {
+        try {
+          if ("caches" in window) {
+            var names = await caches.keys();
+            await Promise.all(names.map(function (name) { return caches.delete(name); }));
+          }
+        } catch (_) {}
+        location.reload();
+      });
     })();
   </script>
 
@@ -509,7 +575,7 @@
           <article class="official-question-card">
             <div class="official-question-top"><div><span class="official-source-badge">OFFICIAL</span><span id="officialQuestionTopic" class="pill subtle">Topic</span></div><button class="bookmark-btn" id="officialBookmarkBtn" title="Bookmark">☆</button></div>
             <div class="official-source-line" id="officialSourceLine"></div>
-            <h3 id="officialQuestionText"></h3>
+            <div id="officialQuestionText" class="official-question-text-content" role="heading" aria-level="3"></div>
             <div id="officialOptions" class="official-options"></div>
             <div id="officialAnswerBox" class="official-answer-box hidden"></div>
             <div class="official-question-actions"><button class="secondary-btn" id="officialPrevBtn">← Previous</button><button class="ghost-btn" id="officialShowAnswerBtn">Show Official Answer</button><button class="primary-btn" id="officialNextBtn">Next →</button></div>
@@ -633,7 +699,7 @@
               </div>
               <button class="mark-review-btn" id="markReviewBtn" type="button" aria-pressed="false">☆ Mark for Review</button>
             </div>
-            <h2 id="questionText"></h2>
+            <div id="questionText" class="question-text-content" role="heading" aria-level="2"></div>
             <div id="optionsList" class="options-list"></div>
             <div id="instantFeedback" class="feedback-box hidden"></div>
 
@@ -985,6 +1051,6 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/app.js?v=0.16.2"></script>
+  <script type="module" src="assets/js/app.js?v=0.17.3"></script>
 </body>
 </html>
