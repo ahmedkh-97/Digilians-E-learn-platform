@@ -59,8 +59,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`requests.get(...)` ترسل HTTP GET request إلىالرابط المحدد، مع استخدام الـheaders والـtimeout الممررين. وظيفتها جلب Response من الصفحة، وليس تحليل HTML.",
+        "options": {
+          "A": "غلط؛ تحليل HTML والبحث عن Tags دور BeautifulSoup.",
+          "B": "غلط؛ تحويل الروابط النسبية إلىكاملة يتم بأدوات مثل `urljoin`.",
+          "C": "صح؛ السطر يرسل GET request باستخدام headers وtimeout.",
+          "D": "غلط؛ requests لا تحفظ المحتوى تلقائيًا داخل DataFrame."
+        }
       }
     },
     {
@@ -111,8 +123,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـf-string تضع `base_url` ثم المسار `/matches/?date=` ثم قيمة `date`، فيصبح الرابط الكامل `https://www.filgoal.com/matches/?date=2026-08-03`.",
+        "options": {
+          "A": "غلط؛ التاريخ لا يوضع قبل `/matches/` في الصيغة المعطاة.",
+          "B": "صح؛ هذا هو ناتج تركيب الـf-string حرفيًا.",
+          "C": "غلط؛ التاريخ في Query String وليس path segment.",
+          "D": "غلط؛ ترتيب أجزاء الرابط لا يطابق الكود."
+        }
       }
     },
     {
@@ -163,8 +187,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "HTTP status code 200 يعني عادةً أن الطلب نجح وأن الخادم أعاد Response بنجاح.",
+        "options": {
+          "A": "صح؛ 200 = OK في HTTP.",
+          "B": "غلط؛ Permanent Redirect يكون عادةً 301.",
+          "C": "غلط؛ نجاح BeautifulSoup في parsing شيء مختلف عن status code.",
+          "D": "غلط؛ الرقم 200 لا يعبّر عن عدد عناصر HTML."
+        }
       }
     },
     {
@@ -215,8 +251,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إنشاء BeautifulSoup object يتم بتمرير محتوى الـResponse إلى`BeautifulSoup` مع اسم الـparser، هنا `html.parser`.",
+        "options": {
+          "A": "غلط؛ requests.get لا تُستخدم كـHTML parser.",
+          "B": "غلط؛ BeautifulSoup تحتاج HTML content وليس URL + status code بهذه الصورة.",
+          "C": "غلط؛ `find_all` Method على soup بعد إنشائها.",
+          "D": "صح؛ `BeautifulSoup(response.content, 'html.parser')` هي الصيغة المطلوبة."
+        }
       }
     },
     {
@@ -267,8 +315,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`html.parser` يحدد Engine الذي ستستخدمه BeautifulSoup لفهم وبناء شجرة HTML.",
+        "options": {
+          "A": "صح؛ يحدد Parser المستخدم.",
+          "B": "غلط؛ Browser headers تخص HTTP request.",
+          "C": "غلط؛ لا يفلتر الروابط فقط.",
+          "D": "غلط؛ لا يحول كل Tag مباشرةً إلىDictionary."
+        }
       }
     },
     {
@@ -319,8 +379,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`prettify()` تعيد تمثيل HTML منسقًا بمسافات وIndentation ليسهل قراءته وفحص Structure الصفحة.",
+        "options": {
+          "A": "غلط؛ لا تزيل كل Tags.",
+          "B": "غلط؛ لا تنزل Images ولا تبني URLs.",
+          "C": "صح؛ هدفها تحسين قابلية قراءة HTML.",
+          "D": "غلط؛ لا تعطي Count تلقائيًا للعناصر."
+        }
       }
     },
     {
@@ -371,8 +443,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`find_all('a')` تبحث عن كل Tags من النوع `<a>` وتعيد Collection بها.",
+        "options": {
+          "A": "غلط؛ ليست Text أول Anchor فقط.",
+          "B": "غلط؛ لا تعيد href واحدًا فقط.",
+          "C": "غلط؛ لا تستبعد `<a>`؛ بالعكس تبحث عنها.",
+          "D": "صح؛ تعيد كل عناصر `<a>` المطابقة."
+        }
       }
     },
     {
@@ -423,8 +507,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`find()` تعيد أول عنصر يطابق الشروط. الـlambda تشترط وجود href وأن يحتوي النص `/teams/`.",
+        "options": {
+          "A": "غلط؛ البحث في href وليس visible text.",
+          "B": "صح؛ أول `<a>` يحتوي href الخاص به `/teams/`.",
+          "C": "غلط؛ لا يبحث عن Heading.",
+          "D": "غلط؛ `find` يعيد Match واحدًا لا كل الروابط."
+        }
       }
     },
     {
@@ -475,8 +571,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "خاصية `.name` في BeautifulSoup Tag تعيد اسم الـHTML tag نفسه. إذا العنصر `<a>` فالقيمة هي `a`.",
+        "options": {
+          "A": "صح؛ اسم الـTag هو a.",
+          "B": "غلط؛ href Attribute وليس Tag name.",
+          "C": "غلط؛ team ليست اسم العنصر.",
+          "D": "غلط؛ link ليست القيمة التي ترجعها `.name` هنا."
+        }
       }
     },
     {
@@ -527,8 +635,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`.attrs` تعيد Attributes الخاصة بالTag في تركيب يشبه Dictionary، مثل href وclass وغيرها.",
+        "options": {
+          "A": "غلط؛ visible text يؤخذ بـget_text أوtext.",
+          "B": "غلط؛ لا تعيد الصفحة كاملة.",
+          "C": "صح؛ attrs هي مجموعة attributes الشبيهة بالDictionary.",
+          "D": "غلط؛ ليست href values لكل Anchors."
+        }
       }
     },
     {
@@ -579,8 +699,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`tag.get('href')` تعيد قيمة href إذا كانت موجودة، وتعيد None افتراضيًا إذا لم توجد.",
+        "options": {
+          "A": "غلط؛ Team name يؤخذ من Text داخل Tag.",
+          "B": "غلط؛ لا تعيد Page source.",
+          "C": "غلط؛ هذا Tag واحد وليس كل الروابط.",
+          "D": "صح؛ تعيد href أوNone."
+        }
       }
     },
     {
@@ -631,8 +763,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد `find_all` تكون لديك قائمة Matches؛ slicing بـ`[:5]` يحتفظ بأول خمسة منها كحد أقصى.",
+        "options": {
+          "A": "صح؛ يأخذ أول خمسة Matches.",
+          "B": "غلط؛ لا يتعلق بأسطر HTML.",
+          "C": "غلط؛ لا يفحص طول href.",
+          "D": "غلط؛ لا يكرر أول عنصر."
+        }
       }
     },
     {
@@ -683,8 +827,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`get_text(' ', strip=True)` تجمع أجزاء النص داخل العنصر، تستخدم Space separator بينها، وتزيل whitespace الزائد من الأطراف.",
+        "options": {
+          "A": "غلط؛ لا تستخرج href.",
+          "B": "صح؛ تستخرج النص وتستخدم مسافات وتعمل strip.",
+          "C": "غلط؛ لا تعيد الـHTML Tag كاملًا.",
+          "D": "غلط؛ لا تبحث عن نص يحتوي مسافة."
+        }
       }
     },
     {
@@ -735,8 +891,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`find()` قد لا تجد Match فتُرجع None. لذلك يجب التأكد قبل استدعاء Methods مثل `get_text()` على النتيجة.",
+        "options": {
+          "A": "غلط؛ لا علاقة بـstatus code.",
+          "B": "غلط؛ لا يلزم إزالة Link من HTML.",
+          "C": "غلط؛ الوصول لـhref لا يحول Tag إلىNone.",
+          "D": "صح؛ الفحص يحمي من محاولة استخدام None كTag."
+        }
       }
     },
     {
@@ -787,8 +955,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`urljoin` تجمع Base URL مع Relative URL بطريقة صحيحة لبناء Absolute URL.",
+        "options": {
+          "A": "غلط؛ لا تدمج اسم الفريق مع المسار كنص عادي.",
+          "B": "غلط؛ لا تضيف التاريخ تلقائيًا.",
+          "C": "صح؛ تحول `/teams/123` إلىURL كامل باستخدام base URL.",
+          "D": "غلط؛ لا تجمع عدة Links في List."
+        }
       }
     },
     {
@@ -839,8 +1019,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـlist comprehension تمر على كل Tag في `links_s`، تأخذ href ثم تستخدم `urljoin` لبناء Full URL وتضع النتائج في List.",
+        "options": {
+          "A": "صح؛ النتيجة List من URLs كاملة.",
+          "B": "غلط؛ لا تستخدم `get_text()` للحصول على الأسماء.",
+          "C": "غلط؛ العناصر هنا يفترض أن لها href.",
+          "D": "غلط؛ لا تتعامل مع status codes."
+        }
       }
     },
     {
@@ -891,8 +1083,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في BeautifulSoup، `find()` تعيد أول Match فقط، بينما `find_all()` تعيد كل الـMatches في ResultSet.",
+        "options": {
+          "A": "غلط؛ الاثنان يمكنهما البحث بالAttributes وغيرها.",
+          "B": "غلط؛ كلاهما يعمل مع أنواع Tags مختلفة.",
+          "C": "صح؛ الفرق الأساسي First match مقابل All matches.",
+          "D": "غلط؛ لا يحددان تلقائيًا Absolute/Relative URL."
+        }
       }
     },
     {
@@ -943,8 +1147,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`href=True` كشرط Attribute يعني أن العنصر يجب أن يحتوي Attribute اسمه href، بغض النظر عن نص قيمته.",
+        "options": {
+          "A": "غلط؛ لا يشترط أن تكون القيمة النصية `True`.",
+          "B": "صح؛ يعيد `<a>` التي لديها href.",
+          "C": "غلط؛ يمكن أن تكون Relative URLs أيضًا.",
+          "D": "غلط؛ visible text ليس الشرط."
+        }
       }
     },
     {
@@ -995,8 +1211,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إذا كان `all_links` نتيجة `find_all('a')`، فإن `all_links[:5]` هي أول خمسة Tag objects من القائمة.",
+        "options": {
+          "A": "غلط؛ لم يتم استدعاء get('href') أوurljoin.",
+          "B": "غلط؛ ليست أول خمس كلمات.",
+          "C": "غلط؛ لم يتم إزالة Duplicates.",
+          "D": "صح؛ أول خمسة Anchor Tag objects."
+        }
       }
     },
     {
@@ -1047,8 +1275,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـlambda الصحيحة يجب أن تتأكد أن href ليست None ثم تختبر وجود substring `/matches/` داخلها.",
+        "options": {
+          "A": "غلط؛ تطلب مساواة كاملة مع كلمة matches.",
+          "B": "غلط؛ تبحث عن `/teams/` لا `/matches/`.",
+          "C": "صح؛ تتحقق من وجود href ثم substring المطلوب.",
+          "D": "غلط؛ هذه ليست Callable صحيحة كشرط href."
+        }
       }
     },
     {
@@ -1099,8 +1339,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`find_all('img')` تعيد كل HTML `<img>` Tags الموجودة في الـDOM parsed، وليس ملفات الصور نفسها.",
+        "options": {
+          "A": "غلط؛ لا تعيد src values فقط.",
+          "B": "صح؛ تعيد Image Tag objects.",
+          "C": "غلط؛ لا تشترط alt.",
+          "D": "غلط؛ لا تقوم بتنزيل الملفات."
+        }
       }
     },
     {
@@ -1151,8 +1403,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "التعبير يستخدم Python `or`: لو `src` لها قيمة تُستخدم، وإلا يجرب `data-src`، وهو شائع مع lazy-loaded images.",
+        "options": {
+          "A": "غلط؛ لا يدمج القيمتين.",
+          "B": "غلط؛ لا يشترط تساويهما.",
+          "C": "غلط؛ لا يحذف الصورة.",
+          "D": "صح؛ يفضل src ثم fallback إلىdata-src."
+        }
       }
     },
     {
@@ -1203,8 +1467,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـTag لا يحتوي Attribute اسمه alt، و`get('alt', 'No Alt Text')` تعيد القيمة الافتراضية المحددة.",
+        "options": {
+          "A": "صح؛ الناتج `No Alt Text`.",
+          "B": "غلط؛ هذه قيمة data-src وليست alt.",
+          "C": "غلط؛ لا تعيد اسم الـAttribute.",
+          "D": "غلط؛ لأن Default value محددة بدل None."
+        }
       }
     }
   ]

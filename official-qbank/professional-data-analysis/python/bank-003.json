@@ -59,8 +59,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ملف Python script القياسي يستخدم الامتداد `.py`.",
+        "options": {
+          "A": "صح؛ `.py` هو الامتداد المعتاد.",
+          "B": "غلط؛ `.pyt` ليس الامتداد القياسي لسكريبت Python.",
+          "C": "غلط؛ `.pt` غير صحيح هنا.",
+          "D": "غلط؛ `.pn` غير صحيح."
+        }
       }
     },
     {
@@ -111,8 +123,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الدالة الأساسية لعرض نص أوValue في الـconsole هي `print()`.",
+        "options": {
+          "A": "غلط؛ show() ليست built-in القياسية.",
+          "B": "غلط؛ echo() ليست built-in Python.",
+          "C": "غلط؛ display() شائعة في بيئات Notebook لكنها ليست الإجابة الأساسية هنا.",
+          "D": "صح؛ print() تعرض output."
+        }
       }
     },
     {
@@ -163,8 +187,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "التعليق أحادي السطر في Python يبدأ بعلامة `#`.",
+        "options": {
+          "A": "غلط؛ `//` ليست comment marker في Python.",
+          "B": "غلط؛ `/*` تخص لغات أخرى.",
+          "C": "غلط؛ `--` ليست syntax Python.",
+          "D": "صح؛ `#` تبدأ تعليقًا."
+        }
       }
     },
     {
@@ -215,8 +251,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "العدد 5 literal من نوع integer، لذلك `type(5)` يعيد `<class 'int'>`.",
+        "options": {
+          "A": "صح؛ 5 نوعها int.",
+          "B": "غلط؛ لا يوجد built-in type باسم number بهذه الصورة.",
+          "C": "غلط؛ 5 ليست string.",
+          "D": "غلط؛ 5 ليست float لأنها بلا نقطة عشرية."
+        }
       }
     },
     {
@@ -269,8 +317,20 @@
         "juniorQuestionIds": [
           "official-python-q0080"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "العدد `3.14` يُنشأ كنوع `float` في Python.",
+        "options": {
+          "A": "صح؛ float.",
+          "B": "غلط؛ decimal يحتاج Decimal type صريح.",
+          "C": "غلط؛ double ليست type مستقلة باسمها في Python built-ins.",
+          "D": "غلط؛ int للأعداد الصحيحة."
+        }
       }
     },
     {
@@ -321,8 +381,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "اسم المتغير يجب ألا يبدأ برقم، ولا يحتوي hyphen، ولا يكون keyword محجوزة. `my_name` يحقق القواعد.",
+        "options": {
+          "A": "غلط؛ `class` keyword محجوزة.",
+          "B": "صح؛ `my_name` اسم صالح.",
+          "C": "غلط؛ لا يجوز البدء برقم.",
+          "D": "غلط؛ hyphen يُفسر كعامل طرح."
+        }
       }
     },
     {
@@ -375,8 +447,20 @@
         "juniorQuestionIds": [
           "official-python-q0002"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "القيم المكتوبة داخل `[]` تمثل List literal.",
+        "options": {
+          "A": "غلط؛ Tuple عادةً ().",
+          "B": "غلط؛ Dictionary {}.",
+          "C": "صح؛ List [].",
+          "D": "غلط؛ Set {} لقيم بلا key:value."
+        }
       }
     },
     {
@@ -429,8 +513,20 @@
         "juniorQuestionIds": [
           "official-python-q0076"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Tuple تُكتب غالبًا داخل `()` وهي immutable.",
+        "options": {
+          "A": "غلط؛ Set ليست المقصودة.",
+          "B": "صح؛ Tuple.",
+          "C": "غلط؛ Dictionary key-value.",
+          "D": "غلط؛ List mutable."
+        }
       }
     },
     {
@@ -483,8 +579,20 @@
         "juniorQuestionIds": [
           "official-python-q0003"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dictionary تخزن key-value pairs.",
+        "options": {
+          "A": "غلط؛ Tuple sequence.",
+          "B": "غلط؛ Set values unique.",
+          "C": "صح؛ Dictionary.",
+          "D": "غلط؛ List sequence."
+        }
       }
     },
     {
@@ -535,8 +643,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـSet تخزن عناصر فريدة وتمنع التكرارات، ولا تضمن ترتيبًا منطقيًا ثابتًا للعناصر.",
+        "options": {
+          "A": "صح؛ Set هي المقصودة.",
+          "B": "غلط؛ List تسمح بالتكرارات وتحافظ على ترتيب.",
+          "C": "غلط؛ String sequence محرفية.",
+          "D": "غلط؛ Tuple تسمح بالتكرارات."
+        }
       }
     },
     {
@@ -587,8 +707,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Python تعتمد zero-based indexing، لذلك أول عنصر رقمه0.",
+        "options": {
+          "A": "غلط؛ -1 يشير لآخر عنصر.",
+          "B": "غلط؛ لا يعتمد على القائمة.",
+          "C": "غلط؛ 1 هو العنصر الثاني.",
+          "D": "صح؛ أول index هو0."
+        }
       }
     },
     {
@@ -641,8 +773,20 @@
         "juniorQuestionIds": [
           "official-python-q0052"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الIndex السالب يبدأ من النهاية؛ `-1` يشير لآخر عنصر.",
+        "options": {
+          "A": "غلط؛ لا ترجع None طبيعيًا.",
+          "B": "غلط؛ negative indexing مدعوم.",
+          "C": "صح؛ آخر عنصر.",
+          "D": "غلط؛ أول عنصر index0."
+        }
       }
     },
     {
@@ -695,8 +839,20 @@
         "juniorQuestionIds": [
           "official-python-q0078"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`append()` تضيف عنصرًا واحدًا في نهاية List.",
+        "options": {
+          "A": "غلط؛ add() للSet وليس List.",
+          "B": "غلط؛ extend() تضيف عناصر iterable متعددة.",
+          "C": "غلط؛ insert() تحتاج Position.",
+          "D": "صح؛ append()."
+        }
       }
     },
     {
@@ -747,8 +903,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`pop()` بدون index تزيل آخر عنصر من List وتعيده.",
+        "options": {
+          "A": "غلط؛ remove() تحذف أول قيمة مطابقة ولا تعيدها.",
+          "B": "غلط؛ delete() ليست List method.",
+          "C": "صح؛ pop() تزيل وتعيد آخر عنصر افتراضيًا.",
+          "D": "غلط؛ cut() ليست Method."
+        }
       }
     },
     {
@@ -801,8 +969,20 @@
         "juniorQuestionIds": [
           "official-python-q0081"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "String `Data` تحتوي أربعة أحرف، لذلك `len('Data')` = 4.",
+        "options": {
+          "A": "صح؛ 4.",
+          "B": "غلط؛ ليست5.",
+          "C": "غلط؛ ليست3.",
+          "D": "غلط؛ len تعمل مع strings."
+        }
       }
     },
     {
@@ -853,8 +1033,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`//` هي floor division؛ `7//2` تساوي3 لأن الجزء الكسري يُهمل باتجاه الأرضية.",
+        "options": {
+          "A": "صح؛ الناتج3.",
+          "B": "غلط؛ ليس rounding إلى4.",
+          "C": "غلط؛ 3.5 ناتج `/` العادية.",
+          "D": "غلط؛ 1 هو باقي القسمة."
+        }
       }
     },
     {
@@ -905,8 +1097,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`%` تعيد باقي القسمة؛ 7 ÷2 =3 والباقي1.",
+        "options": {
+          "A": "صح؛ الناتج1.",
+          "B": "غلط؛ العدد ليس زوجيًا.",
+          "C": "غلط؛ 3 هو quotient في floor division.",
+          "D": "غلط؛ 3.5 ناتج division العادية."
+        }
       }
     },
     {
@@ -957,8 +1161,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "العامل `**` للأسس؛ `2**3 = 2×2×2 = 8`.",
+        "options": {
+          "A": "غلط؛ 9 = 3².",
+          "B": "غلط؛ 5 ليس ناتج exponentiation.",
+          "C": "صح؛ 8.",
+          "D": "غلط؛ 6 ناتج ضرب2×3."
+        }
       }
     },
     {
@@ -1009,8 +1225,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ضرب String في Integer يكرر النص، لذلك `'ab'*3` ينتج `ababab`.",
+        "options": {
+          "A": "غلط؛ لا يدمج الرقم كنص.",
+          "B": "صح؛ النص يتكرر ثلاث مرات.",
+          "C": "غلط؛ لا يجمع كل a ثم b.",
+          "D": "غلط؛ العملية مسموحة."
+        }
       }
     },
     {
@@ -1063,8 +1291,20 @@
         "juniorQuestionIds": [
           "official-python-q0079"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عامل المقارنة للمساواة هو `==`، بينما `=` للإسناد.",
+        "options": {
+          "A": "غلط؛ != تعني غير مساوي.",
+          "B": "صح؛ == للمقارنة.",
+          "C": "غلط؛ = assignment.",
+          "D": "غلط؛ === ليست operator قياسية في Python."
+        }
       }
     },
     {
@@ -1117,8 +1357,20 @@
         "juniorQuestionIds": [
           "official-python-q0082"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "تعريف Function يبدأ بـ`def`.",
+        "options": {
+          "A": "غلط؛ function ليست keyword.",
+          "B": "صح؛ def.",
+          "C": "غلط؛ func ليست keyword.",
+          "D": "غلط؛ define ليست keyword."
+        }
       }
     },
     {
@@ -1171,8 +1423,20 @@
         "juniorQuestionIds": [
           "official-python-q0077"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`return` ترسل قيمة من Function إلىمكان استدعائها.",
+        "options": {
+          "A": "غلط؛ output ليست keyword.",
+          "B": "غلط؛ give ليست keyword.",
+          "C": "صح؛ return.",
+          "D": "غلط؛ yield تُستخدم للGenerators وليست البديل العام."
+        }
       }
     },
     {
@@ -1223,8 +1487,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`input()` تعيد قيمة من نوع `str` دائمًا؛ لتحويلها إلىرقم يجب استخدام int() أوfloat() صراحةً.",
+        "options": {
+          "A": "غلط؛ لا تعيد float تلقائيًا.",
+          "B": "غلط؛ لا تعيد int تلقائيًا.",
+          "C": "صح؛ تعيد str.",
+          "D": "غلط؛ لا تعيد bool تلقائيًا."
+        }
       }
     },
     {
@@ -1277,8 +1553,20 @@
         "juniorQuestionIds": [
           "official-python-q0013"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "تحويل النص `'10'` إلىinteger يتم بـ`int('10')`.",
+        "options": {
+          "A": "صح؛ int() تحول النص الرقمي إلىint.",
+          "B": "غلط؛ float() ينتج 10.0.",
+          "C": "غلط؛ str(10) تحول رقمًا إلىنص.",
+          "D": "غلط؛ toInt ليست built-in."
+        }
       }
     },
     {
@@ -1331,8 +1619,20 @@
         "juniorQuestionIds": [
           "official-python-q0006"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الفرع الشرطي الأساسي في Python يبدأ بـ`if`.",
+        "options": {
+          "A": "غلط؛ when ليست keyword.",
+          "B": "غلط؛ switch ليست statement قياسية تقليدية في Python.",
+          "C": "غلط؛ case جزء من match/case وليس البديل العام.",
+          "D": "صح؛ if."
+        }
       }
     },
     {
@@ -1385,8 +1685,20 @@
         "juniorQuestionIds": [
           "official-python-q0006"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`else` تُنفذ عندما لا يتحقق أي شرط سابق في سلسلة if/elif.",
+        "options": {
+          "A": "غلط؛ elseif ليست syntax Python.",
+          "B": "غلط؛ otherwise ليست keyword.",
+          "C": "غلط؛ default ليست keyword لهذا السياق.",
+          "D": "صح؛ else."
+        }
       }
     },
     {
@@ -1437,8 +1749,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "حلقة `while` تستمر في التكرار طالما condition=True.",
+        "options": {
+          "A": "صح؛ while مرتبطة بالCondition.",
+          "B": "غلط؛ for تكرر على iterable.",
+          "C": "غلط؛ do ليست loop keyword مستقلة في Python.",
+          "D": "غلط؛ repeat ليست keyword."
+        }
       }
     },
     {
@@ -1491,8 +1815,20 @@
         "juniorQuestionIds": [
           "official-python-q0074"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`range(5)` تبدأ من0 افتراضيًا وتتوقف قبل5، فتنتج 0,1,2,3,4.",
+        "options": {
+          "A": "غلط؛ 5 غير مشمولة.",
+          "B": "صح؛ 0 إلى4.",
+          "C": "غلط؛ البداية ليست1.",
+          "D": "غلط؛ البداية والنهاية غير صحيحتين."
+        }
       }
     },
     {
@@ -1545,8 +1881,20 @@
         "juniorQuestionIds": [
           "official-python-q0058"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`break` تخرج من loop فورًا.",
+        "options": {
+          "A": "صح؛ break تنهي loop الحالية.",
+          "B": "غلط؛ exit ليست keyword للتحكم في loop.",
+          "C": "غلط؛ return تنهي Function كاملة إن كانت داخل Function.",
+          "D": "غلط؛ stop ليست keyword."
+        }
       }
     },
     {
@@ -1597,8 +1945,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`continue` تتخطى بقية أوامر الدورة الحالية وتنتقل للدورة التالية.",
+        "options": {
+          "A": "غلط؛ skip ليست keyword.",
+          "B": "صح؛ continue.",
+          "C": "غلط؛ next ليست statement للتحكم في loop.",
+          "D": "غلط؛ pass لا ينتقل للدورة التالية؛ فقط لا ينفذ شيئًا."
+        }
       }
     },
     {
@@ -1649,8 +2009,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Python تستخدم الـindentation لتحديد Code Blocks بدل الأقواس المعقوفة.",
+        "options": {
+          "A": "غلط؛ curly braces ليست block syntax.",
+          "B": "صح؛ indentation تحدد الكتل.",
+          "C": "غلط؛ parentheses للتجميع/calls.",
+          "D": "غلط؛ semicolons ليست لتحديد blocks."
+        }
       }
     },
     {
@@ -1701,8 +2073,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "String في Python immutable؛ لا يمكن تغيير حرف داخلها مباشرةً بعد الإنشاء.",
+        "options": {
+          "A": "غلط؛ Dictionary mutable.",
+          "B": "غلط؛ List mutable.",
+          "C": "غلط؛ Set mutable.",
+          "D": "صح؛ String immutable."
+        }
       }
     },
     {
@@ -1753,8 +2137,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الفهرس0 يشير لأول حرف في `'Data'` وهو `D`.",
+        "options": {
+          "A": "غلط؛ الفهرسة صحيحة ولا تسبب Error.",
+          "B": "غلط؛ a عند index1.",
+          "C": "غلط؛ expression يعيد حرفًا واحدًا.",
+          "D": "صح؛ D."
+        }
       }
     },
     {
@@ -1805,8 +2201,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`split()` تقسّم String إلىList من أجزاء حسب separator، أوwhitespace افتراضيًا.",
+        "options": {
+          "A": "غلط؛ cut() ليست String method قياسية.",
+          "B": "صح؛ split().",
+          "C": "غلط؛ divide() ليست Method.",
+          "D": "غلط؛ join() تقوم بالعكس تقريبًا: تجمع strings."
+        }
       }
     },
     {
@@ -1859,8 +2267,20 @@
         "juniorQuestionIds": [
           "official-python-q0035"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`strip()` تزيل whitespace من بداية ونهاية String.",
+        "options": {
+          "A": "غلط؛ trim() ليست String method قياسية في Python.",
+          "B": "غلط؛ cut() ليست المناسبة.",
+          "C": "غلط؛ clean() ليست Method built-in.",
+          "D": "صح؛ strip()."
+        }
       }
     },
     {
@@ -1911,8 +2331,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الكلمة الأساسية لاستيراد Module أوLibrary في Python هي `import`.",
+        "options": {
+          "A": "صح؛ import.",
+          "B": "غلط؛ include ليست Python keyword.",
+          "C": "غلط؛ using ليست Python syntax.",
+          "D": "غلط؛ require ليست Python keyword."
+        }
       }
     },
     {
@@ -1963,8 +2395,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الاختصار المتعارف عليه لـPandas هو `pd` كما في `import pandas as pd`.",
+        "options": {
+          "A": "غلط؛ pa ليس alias الشائع.",
+          "B": "غلط؛ ps ليس الشائع.",
+          "C": "غلط؛ pn ليس الشائع.",
+          "D": "صح؛ pd."
+        }
       }
     },
     {
@@ -2015,8 +2459,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الاختصار القياسي الشائع لـNumPy هو `np` كما في `import numpy as np`.",
+        "options": {
+          "A": "غلط؛ ny ليس الشائع.",
+          "B": "غلط؛ nm ليس الشائع.",
+          "C": "صح؛ np.",
+          "D": "غلط؛ num ليس alias المعتاد."
+        }
       }
     },
     {
@@ -2067,8 +2523,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Series هي بنية Pandas أحادية البعد ذات Index، بينما DataFrame ثنائية الأبعاد.",
+        "options": {
+          "A": "صح؛ Series one-dimensional.",
+          "B": "غلط؛ Panel كانت بنية قديمة متعددة الأبعاد.",
+          "C": "غلط؛ Array ليست Pandas structure المقصودة.",
+          "D": "غلط؛ DataFrame ثنائية الأبعاد."
+        }
       }
     },
     {
@@ -2121,8 +2589,20 @@
         "juniorQuestionIds": [
           "official-python-q0021"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DataFrame هي بنية Pandas ثنائية الأبعاد تشبه Table.",
+        "options": {
+          "A": "غلط؛ List ليست Pandas table structure.",
+          "B": "غلط؛ Series أحادية البعد.",
+          "C": "غلط؛ Index للتسميات.",
+          "D": "صح؛ DataFrame."
+        }
       }
     },
     {
@@ -2175,8 +2655,20 @@
         "juniorQuestionIds": [
           "official-python-q0022"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الدالة الصحيحة لقراءة CSV هي `pd.read_csv()`.",
+        "options": {
+          "A": "غلط؛ read_file ليست Function Pandas القياسية.",
+          "B": "صح؛ read_csv.",
+          "C": "غلط؛ load_csv غير قياسية.",
+          "D": "غلط؛ open_csv غير قياسية."
+        }
       }
     },
     {
@@ -2227,8 +2719,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`head()` تعرض أول خمس Rows افتراضيًا.",
+        "options": {
+          "A": "غلط؛ first() ليست Method العامة لهذا الغرض.",
+          "B": "صح؛ head().",
+          "C": "غلط؛ top() ليست DataFrame method.",
+          "D": "غلط؛ peek() ليست Method."
+        }
       }
     },
     {
@@ -2279,8 +2783,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "خاصية `shape` تعيد `(rows, columns)`.",
+        "options": {
+          "A": "غلط؛ size = إجمالي العناصر.",
+          "B": "صح؛ shape.",
+          "C": "غلط؛ len(df) يعيد عدد الصفوف فقط.",
+          "D": "غلط؛ count() تعد non-null values عادةً."
+        }
       }
     },
     {
@@ -2334,8 +2850,20 @@
           "official-python-q0024",
           "official-python-q0061"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`describe()` تعرض Summary statistics للأعمدة الرقمية افتراضيًا.",
+        "options": {
+          "A": "غلط؛ summary() ليست Method القياسية.",
+          "B": "غلط؛ info() لStructure.",
+          "C": "غلط؛ stats() ليست Method DataFrame القياسية.",
+          "D": "صح؛ describe()."
+        }
       }
     },
     {
@@ -2388,8 +2916,20 @@
         "juniorQuestionIds": [
           "official-python-q0023"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`info()` تعرض Column names وdata types وعدد non-null entries واستخدام الذاكرة تقريبًا.",
+        "options": {
+          "A": "صح؛ info().",
+          "B": "غلط؛ describe() للإحصاءات.",
+          "C": "غلط؛ head() تعرض أول Rows.",
+          "D": "غلط؛ dtypes تعرض الأنواع فقط دون non-null counts."
+        }
       }
     },
     {
@@ -2442,8 +2982,20 @@
         "juniorQuestionIds": [
           "official-python-q0031"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`df.isnull()` تنتج Boolean mask للقيم المفقودة، ومع `.sum()` نحصل على count للMissing values لكل عمود.",
+        "options": {
+          "A": "غلط؛ na() ليست Method القياسية.",
+          "B": "غلط؛ empty صفة للتحقق من خلو DataFrame.",
+          "C": "غلط؛ blank() ليست Method.",
+          "D": "صح؛ isnull()."
+        }
       }
     },
     {
@@ -2494,8 +3046,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`dropna()` تحذف Rows أوColumns تحتوي Missing Values حسب الإعدادات.",
+        "options": {
+          "A": "غلط؛ fillna() تستبدل Missing values.",
+          "B": "غلط؛ remove() ليست DataFrame method لهذا الغرض.",
+          "C": "غلط؛ drop() تحذف labels محددة وليس Missing rows تلقائيًا.",
+          "D": "صح؛ dropna()."
+        }
       }
     },
     {
@@ -2548,8 +3112,20 @@
         "juniorQuestionIds": [
           "official-python-q0030"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`fillna()` تستبدل NaN/Null بقيمة تحددها.",
+        "options": {
+          "A": "صح؛ fillna().",
+          "B": "غلط؛ replace_na ليست Method قياسية.",
+          "C": "غلط؛ dropna() تحذف rows/columns التي تحتوي Missing values.",
+          "D": "غلط؛ setna() ليست Method قياسية."
+        }
       }
     },
     {
@@ -2600,8 +3176,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Matplotlib هي المكتبة الأساسية الشائعة للرسم في Python، وغالبًا نستخدم `matplotlib.pyplot`.",
+        "options": {
+          "A": "غلط؛ Django Web framework.",
+          "B": "غلط؛ Flask Web framework.",
+          "C": "صح؛ matplotlib.",
+          "D": "غلط؛ requests للHTTP."
+        }
       }
     },
     {
@@ -2652,8 +3240,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد إنشاء Figure/Plot باستخدام pyplot، `plt.show()` تعرض الشكل للمستخدم.",
+        "options": {
+          "A": "غلط؛ plt.open() ليست الدالة القياسية.",
+          "B": "غلط؛ draw() تعيد رسم figure لكنها ليست الأمر المعتاد لإظهارها.",
+          "C": "صح؛ plt.show().",
+          "D": "غلط؛ render() ليست pyplot function القياسية."
+        }
       }
     }
   ]

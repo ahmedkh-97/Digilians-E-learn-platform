@@ -61,8 +61,20 @@
         "juniorQuestionIds": [
           "official-python-q0006"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الشرط `x > 5` صحيح لأن x=10، لذلك يتم تنفيذ `print('Yes')`.",
+        "options": {
+          "A": "صح؛ 10 أكبر من5 وبالتالي يطبع Yes.",
+          "B": "غلط؛ No لا توجد أصلًا في branch يتم تنفيذه.",
+          "C": "غلط؛ الكود لا يطبع قيمة x.",
+          "D": "غلط؛ الكود صحيح نحويًا ومنطقيًا."
+        }
       }
     },
     {
@@ -115,8 +127,20 @@
         "juniorQuestionIds": [
           "official-python-q0006"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد `if` نستخدم `elif` لاختبار شرط إضافي قبل الوصول إلى `else`.",
+        "options": {
+          "A": "غلط؛ `else` لا يحتوي شرطًا جديدًا.",
+          "B": "صح؛ `elif` تعني else-if.",
+          "C": "غلط؛ `then` ليست keyword في Python.",
+          "D": "غلط؛ `case` ليست البديل المباشر هنا."
+        }
       }
     },
     {
@@ -169,8 +193,20 @@
         "juniorQuestionIds": [
           "official-python-q0006"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "7 عدد فردي لأن `7 % 2 = 1`، إذن شرط الزوجية False وينفذ فرع `else`.",
+        "options": {
+          "A": "غلط؛ Even تحتاج باقي قسمة صفر.",
+          "B": "صح؛ يطبع Odd.",
+          "C": "غلط؛ الكود لا يطبع الرقم نفسه.",
+          "D": "غلط؛ الصياغة المقصودة من السؤال منطقها صحيح."
+        }
       }
     },
     {
@@ -221,8 +257,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عامل عدم المساواة في Python هو `!=`، ويعيد True عندما تكون القيمتان مختلفتين.",
+        "options": {
+          "A": "غلط؛ `=` للإسناد وليس المقارنة.",
+          "B": "غلط؛ `None` قيمة خاصة وليست Operator.",
+          "C": "صح؛ `!=` تعني not equal.",
+          "D": "غلط؛ `<>` ليست صيغة المقارنة الحديثة في Python."
+        }
       }
     },
     {
@@ -275,8 +323,20 @@
         "juniorQuestionIds": [
           "official-python-q0006"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "جملة `if` تنفذ قرارًا شرطيًا: تشغّل Block عندما يكون الشرط True وقد تختار بدائل أخرى.",
+        "options": {
+          "A": "غلط؛ التكرار وظيفة loops.",
+          "B": "صح؛ if لاتخاذ قرار حسب condition.",
+          "C": "غلط؛ لا تنشئ List.",
+          "D": "غلط؛ تعريف Function يتم بـdef."
+        }
       }
     },
     {
@@ -329,8 +389,20 @@
         "juniorQuestionIds": [
           "official-python-q0007"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "حلقة `for` هي الأكثر شيوعًا للمرور على عناصر iterable مثل List عنصرًا عنصرًا.",
+        "options": {
+          "A": "غلط؛ if شرط وليس loop.",
+          "B": "صح؛ for للIteration.",
+          "C": "غلط؛ def لتعريف Function.",
+          "D": "غلط؛ try لمعالجة Exceptions."
+        }
       }
     },
     {
@@ -383,8 +455,20 @@
         "juniorQuestionIds": [
           "official-python-q0074"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`range(3)` تنتج 0,1,2 لأن الحد النهائي 3 غير مشمول.",
+        "options": {
+          "A": "غلط؛ تبدأ من0 افتراضيًا.",
+          "B": "صح؛ 0 1 2.",
+          "C": "غلط؛ 3 غير مشمولة.",
+          "D": "غلط؛ الترتيب ليس تنازليًا."
+        }
       }
     },
     {
@@ -438,8 +522,20 @@
           "official-python-q0074",
           "official-python-q0075"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الدالة `range()` تنشئ sequence رقمية مناسبة للاستخدام داخل loops.",
+        "options": {
+          "A": "غلط؛ numbers() ليست built-in لهذا الغرض.",
+          "B": "غلط؛ seq() ليست built-in القياسية.",
+          "C": "صح؛ range() هي الصحيحة.",
+          "D": "غلط؛ loop() ليست Function قياسية."
+        }
       }
     },
     {
@@ -492,8 +588,20 @@
         "juniorQuestionIds": [
           "official-python-q0058"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`break` توقف الحلقة الحالية فورًا وتخرج منها.",
+        "options": {
+          "A": "غلط؛ skip ليست keyword قياسية.",
+          "B": "غلط؛ continue تتخطى Iteration الحالية فقط.",
+          "C": "صح؛ break تنهي loop.",
+          "D": "غلط؛ exitloop ليست keyword."
+        }
       }
     },
     {
@@ -544,8 +652,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`continue` تتخطى بقية أوامر الـiteration الحالية وتنتقل مباشرةً إلىiteration التالية داخل loop.",
+        "options": {
+          "A": "غلط؛ `pass` لا تتخطى الـiteration، بل لا تفعل شيئًا.",
+          "B": "صح؛ `continue` تنتقل للدورة التالية.",
+          "C": "غلط؛ `break` تنهي loop بالكامل.",
+          "D": "غلط؛ `skip` ليست keyword في Python."
+        }
       }
     },
     {
@@ -598,8 +718,20 @@
         "juniorQuestionIds": [
           "official-python-q0075"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`range(1,4)` تبدأ من1 وتتوقف قبل4، لذلك الناتج 1,2,3.",
+        "options": {
+          "A": "غلط؛ البداية ليست0.",
+          "B": "صح؛ 1 2 3.",
+          "C": "غلط؛ 4 غير مشمولة.",
+          "D": "غلط؛ ليست تنازلية."
+        }
       }
     },
     {
@@ -650,8 +782,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "حلقة `while` تستمر طالما شرطها يُقيَّم إلىTrue، وتتوقف عندما يصبح False أوعند استخدام break.",
+        "options": {
+          "A": "غلط؛ خلو List ليس شرطًا عامًا للwhile.",
+          "B": "صح؛ تستمر طالما condition=True.",
+          "C": "غلط؛ عند False تتوقف.",
+          "D": "غلط؛ وجود Function لا يتحكم في while."
+        }
       }
     },
     {
@@ -702,8 +846,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عندما لا نعرف مسبقًا عدد مرات التكرار، `while` مناسبة لأنها تعتمد على استمرار Condition بدل عدد ثابت.",
+        "options": {
+          "A": "غلط؛ for مناسبة غالبًا عندما نكرر على iterable أوrange معروف.",
+          "B": "صح؛ while مناسبة لعدد Iterations غير المعروف.",
+          "C": "غلط؛ if شرط وليس Loop.",
+          "D": "غلط؛ def لتعريف Function."
+        }
       }
     },
     {
@@ -754,8 +910,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`pass` Statement فارغة وظيفتها أن تكون Placeholder صالحًا نحويًا دون تنفيذ أي Action.",
+        "options": {
+          "A": "غلط؛ لا توقف البرنامج.",
+          "B": "غلط؛ لا تتخطى Loop بالكامل.",
+          "C": "صح؛ لا تفعل شيئًا وتُستخدم Placeholder.",
+          "D": "غلط؛ لا تعيد التكرار."
+        }
       }
     },
     {
@@ -808,8 +976,20 @@
         "juniorQuestionIds": [
           "official-python-q0002"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "القائمة في Python تُكتب باستخدام الأقواس المربعة `[]`.",
+        "options": {
+          "A": "غلط؛ () تستخدم غالبًا للTuple أوFunction calls.",
+          "B": "غلط؛ {} للDictionary/Set.",
+          "C": "صح؛ [] للقائمة.",
+          "D": "غلط؛ <> ليست List syntax."
+        }
       }
     },
     {
@@ -860,8 +1040,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Python تستخدم zero-based indexing، لذلك أول عنصر في List رقمه 0.",
+        "options": {
+          "A": "صح؛ أول index هو0.",
+          "B": "غلط؛ 1 هو العنصر الثاني.",
+          "C": "غلط؛ -1 يشير لآخر عنصر.",
+          "D": "غلط؛ قاعدة indexing ثابتة وتبدأ من0."
+        }
       }
     },
     {
@@ -914,8 +1106,20 @@
         "juniorQuestionIds": [
           "official-python-q0081"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`len()` تعيد عدد العناصر، والقائمة بها أربعة عناصر.",
+        "options": {
+          "A": "غلط؛ العدد ليس3.",
+          "B": "صح؛ النتيجة4.",
+          "C": "غلط؛ 40 قيمة عنصر وليست الطول.",
+          "D": "غلط؛ 10 أول عنصر وليس عدد العناصر."
+        }
       }
     },
     {
@@ -968,8 +1172,20 @@
         "juniorQuestionIds": [
           "official-python-q0078"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`append()` تضيف عنصرًا واحدًا إلىنهاية List.",
+        "options": {
+          "A": "غلط؛ add() ليست List method.",
+          "B": "غلط؛ insert() تضيف في position محدد.",
+          "C": "صح؛ append() تضيف في النهاية.",
+          "D": "غلط؛ push() ليست List method قياسية."
+        }
       }
     },
     {
@@ -1020,8 +1236,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`list.pop()` بدون Argument تزيل آخر عنصر من القائمة وتعيد قيمته.",
+        "options": {
+          "A": "غلط؛ delete() ليست List method قياسية.",
+          "B": "صح؛ pop() يزيل ويعيد آخر عنصر افتراضيًا.",
+          "C": "غلط؛ remove(value) تزيل أول قيمة مطابقة ولا تعيدها.",
+          "D": "غلط؛ clear() تفرغ القائمة كلها."
+        }
       }
     },
     {
@@ -1072,8 +1300,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "استخدام `+` بين قائمتين يعمل Concatenation ويحافظ على ترتيب عناصر القائمة الأولى ثم الثانية.",
+        "options": {
+          "A": "صح؛ الناتج `[1,2,3,4,5]`.",
+          "B": "غلط؛ لا يعكس الترتيب.",
+          "C": "غلط؛ لا يتجاهل القائمة الثانية.",
+          "D": "غلط؛ جمع Lists بهذه الطريقة مسموح."
+        }
       }
     },
     {
@@ -1124,8 +1364,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`remove(value)` تبحث عن أول عنصر يساوي القيمة المطلوبة وتحذفه.",
+        "options": {
+          "A": "غلط؛ pop تعتمد على index وتعيد العنصر.",
+          "B": "صح؛ remove() تحذف أول قيمة مطابقة.",
+          "C": "غلط؛ discard() Method للSet.",
+          "D": "غلط؛ delete() ليست List method."
+        }
       }
     },
     {
@@ -1179,8 +1431,20 @@
           "official-python-q0004",
           "official-python-q0052"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في slicing، البداية مشمولة والنهاية غير مشمولة، لذا `[1:4]` ترجع indexes 1,2,3.",
+        "options": {
+          "A": "صح؛ هذا هو الناتج.",
+          "B": "غلط؛ index4 غير مشمولة.",
+          "C": "غلط؛ لا تعيد عنصرًا واحدًا.",
+          "D": "غلط؛ لا تقتصر على index1."
+        }
       }
     },
     {
@@ -1233,8 +1497,20 @@
         "juniorQuestionIds": [
           "official-python-q0076"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـTuple تُكتب عادةً باستخدام `()`، خصوصًا عند عرض مجموعة قيم.",
+        "options": {
+          "A": "غلط؛ [] للقائمة.",
+          "B": "غلط؛ {} للDictionary/Set.",
+          "C": "صح؛ () للTuple.",
+          "D": "غلط؛ <> ليست syntax."
+        }
       }
     },
     {
@@ -1287,8 +1563,20 @@
         "juniorQuestionIds": [
           "official-python-q0076"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Tuple هي immutable، أي لا يمكن تعديل عناصرها مباشرة بعد إنشائها.",
+        "options": {
+          "A": "غلط؛ Mutable ليست صفة Tuple.",
+          "B": "صح؛ Tuple immutable.",
+          "C": "غلط؛ يمكن أن تحتوي أرقامًا.",
+          "D": "غلط؛ يمكن أن تحتوي أنواعًا مختلفة."
+        }
       }
     },
     {
@@ -1339,8 +1627,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإنشاء Tuple من عنصر واحد، الفاصلة هي التي تجعلها Tuple: `(5,)`. الأقواس وحدها حول 5 لا تكفي.",
+        "options": {
+          "A": "غلط؛ `(5)` مجرد integer داخل أقواس.",
+          "B": "غلط؛ `[5]` List.",
+          "C": "صح؛ `(5,)` Tuple من عنصر واحد.",
+          "D": "غلط؛ `{5}` Set."
+        }
       }
     },
     {
@@ -1393,8 +1693,20 @@
         "juniorQuestionIds": [
           "official-python-q0081"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـTuple فيها ثلاثة عناصر، لذلك `len()` تعيد3.",
+        "options": {
+          "A": "غلط؛ ليست2.",
+          "B": "صح؛ 3.",
+          "C": "غلط؛ 30 قيمة عنصر.",
+          "D": "غلط؛ ليست فارغة."
+        }
       }
     },
     {
@@ -1445,8 +1757,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Tuple تدعم `count(value)` لحساب عدد مرات ظهور قيمة معينة.",
+        "options": {
+          "A": "صح؛ count() تعيد عدد مرات التكرار.",
+          "B": "غلط؛ find() ليست Tuple method.",
+          "C": "غلط؛ occurs() غير موجودة.",
+          "D": "غلط؛ search() ليست Tuple method."
+        }
       }
     },
     {
@@ -1499,8 +1823,20 @@
         "juniorQuestionIds": [
           "official-python-q0003"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dictionary تخزن البيانات كـkey-value pairs.",
+        "options": {
+          "A": "غلط؛ List sequence.",
+          "B": "غلط؛ Tuple sequence immutable.",
+          "C": "صح؛ Dictionary = key/value.",
+          "D": "غلط؛ Set مجموعة قيم فريدة بلا key-value pairing."
+        }
       }
     },
     {
@@ -1553,8 +1889,20 @@
         "juniorQuestionIds": [
           "official-python-q0003"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dictionary تُنشأ باستخدام الأقواس المعقوفة `{}` مع key:value pairs.",
+        "options": {
+          "A": "غلط؛ [] للList.",
+          "B": "غلط؛ () للTuple.",
+          "C": "صح؛ {} للDictionary.",
+          "D": "غلط؛ <> غير مستخدمة."
+        }
       }
     },
     {
@@ -1607,8 +1955,20 @@
         "juniorQuestionIds": [
           "official-python-q0073"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الوصول المباشر لقيمة Dictionary حسب key يتم بـ`d['name']`.",
+        "options": {
+          "A": "غلط؛ dot notation ليست الطريقة العامة للdict.",
+          "B": "صح؛ bracket lookup بالKey.",
+          "C": "غلط؛ هذه Function-call syntax.",
+          "D": "غلط؛ arrow syntax ليست Python."
+        }
       }
     },
     {
@@ -1659,8 +2019,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`dict.keys()` تعيد View تحتوي مفاتيح الـDictionary.",
+        "options": {
+          "A": "غلط؛ values() تعيد القيم.",
+          "B": "غلط؛ items() تعيد أزواج key-value.",
+          "C": "صح؛ keys() للمفاتيح.",
+          "D": "غلط؛ all() ليست Method لإرجاع المفاتيح."
+        }
       }
     },
     {
@@ -1711,8 +2083,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`dict.items()` تعيد أزواج `(key, value)` الموجودة في الـDictionary.",
+        "options": {
+          "A": "غلط؛ pairs() ليست Dict method قياسية.",
+          "B": "صح؛ items() تعيد key-value pairs.",
+          "C": "غلط؛ values() تعيد القيم فقط.",
+          "D": "غلط؛ keys() تعيد المفاتيح فقط."
+        }
       }
     },
     {
@@ -1765,8 +2149,20 @@
         "juniorQuestionIds": [
           "official-python-q0059"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إسناد قيمة إلىKey غير موجودة داخل Dictionary يضيف key-value pair جديدة.",
+        "options": {
+          "A": "غلط؛ لا يحدث Error في الحالة الطبيعية.",
+          "B": "صح؛ يتم إنشاء key جديدة.",
+          "C": "غلط؛ لا تُحذف Dictionary.",
+          "D": "غلط؛ الإسناد لا يُتجاهل."
+        }
       }
     },
     {
@@ -1819,8 +2215,20 @@
         "juniorQuestionIds": [
           "official-python-q0082"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الكلمة المفتاحية لتعريف Function في Python هي `def`.",
+        "options": {
+          "A": "غلط؛ function ليست keyword.",
+          "B": "غلط؛ define ليست keyword.",
+          "C": "صح؛ def.",
+          "D": "غلط؛ func ليست keyword."
+        }
       }
     },
     {
@@ -1874,8 +2282,20 @@
           "official-python-q0011",
           "official-python-q0077"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`return` تنهي تنفيذ Function في تلك النقطة وترسل قيمة إلىالـcaller إذا تم تحديد قيمة.",
+        "options": {
+          "A": "غلط؛ لا تكرر Function.",
+          "B": "صح؛ ترجع قيمة للCaller.",
+          "C": "غلط؛ لا تطبع كل المتغيرات.",
+          "D": "غلط؛ لا تنشئ Loop."
+        }
       }
     },
     {
@@ -1929,8 +2349,20 @@
           "official-python-q0009",
           "official-python-q0082"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الصيغة الصحيحة هي `def add(a,b):` حيث def keyword والبارامترات داخل أقواس.",
+        "options": {
+          "A": "غلط؛ function ليست keyword.",
+          "B": "صح؛ syntax صحيحة.",
+          "C": "غلط؛ define ليست keyword.",
+          "D": "غلط؛ func ليست keyword."
+        }
       }
     },
     {
@@ -1984,8 +2416,20 @@
           "official-python-q0009",
           "official-python-q0010"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Parameter هو اسم متغير داخل تعريف Function يستقبل قيمة عند الاستدعاء؛ في سياق السؤال الاختيار A هو المقصود.",
+        "options": {
+          "A": "صح؛ يمثل قيمة تمرر إلىFunction عند الاستدعاء.",
+          "B": "غلط؛ ليس Loop condition.",
+          "C": "غلط؛ ليس Dictionary key بالضرورة.",
+          "D": "غلط؛ ليس Python keyword ثابتة."
+        }
       }
     },
     {
@@ -2038,8 +2482,20 @@
         "juniorQuestionIds": [
           "official-python-q0010"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Default parameter يوفر قيمة تلقائية عندما لا يمرر caller argument لذلك parameter.",
+        "options": {
+          "A": "غلط؛ لا يجعل Function recursive.",
+          "B": "صح؛ يستخدم عند غياب argument.",
+          "C": "غلط؛ لا يمنع التشغيل.",
+          "D": "غلط؛ لا يحول Function إلىLoop."
+        }
       }
     },
     {
@@ -2092,8 +2548,20 @@
         "juniorQuestionIds": [
           "official-python-q0021"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Pandas هي المكتبة الأشهر للتعامل مع tabular data والتحليل باستخدام Series وDataFrame.",
+        "options": {
+          "A": "غلط؛ NumPy مهمة لكن السؤال عن المكتبة الشائعة لتحليل البيانات الجدولية.",
+          "B": "صح؛ Pandas.",
+          "C": "غلط؛ Tkinter للGUI.",
+          "D": "غلط؛ Flask للWeb development."
+        }
       }
     },
     {
@@ -2144,8 +2612,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـalias الشائع لمكتبة Pandas هو `pd`، والصيغة الصحيحة هي `import pandas as pd`.",
+        "options": {
+          "A": "صح؛ هذه الصيغة القياسية المتعارف عليها.",
+          "B": "غلط؛ تحاول استيراد module اسمه pd.",
+          "C": "غلط؛ include ليست Python import syntax.",
+          "D": "غلط؛ using ليست Python import syntax."
+        }
       }
     },
     {
@@ -2198,8 +2678,20 @@
         "juniorQuestionIds": [
           "official-python-q0021"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DataFrame هي بنية Pandas ثنائية الأبعاد بصفوف وأعمدة وتسميات.",
+        "options": {
+          "A": "غلط؛ Series أحادية البعد.",
+          "B": "صح؛ DataFrame ثنائية الأبعاد.",
+          "C": "غلط؛ Index للتسميات/المحور.",
+          "D": "غلط؛ Array مفهوم أعم وغالبًا NumPy."
+        }
       }
     },
     {
@@ -2252,8 +2744,20 @@
         "juniorQuestionIds": [
           "official-python-q0022"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "قراءة CSV في Pandas تتم باستخدام `pd.read_csv()`.",
+        "options": {
+          "A": "غلط؛ open_csv ليست API القياسية.",
+          "B": "غلط؛ load_csv ليست Function القياسية.",
+          "C": "صح؛ read_csv.",
+          "D": "غلط؛ pd.csv ليست Function."
+        }
       }
     },
     {
@@ -2304,8 +2808,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`df.head()` تعرض أول 5 Rows افتراضيًا، ويمكن تمرير رقم مثل `head(10)` لتغيير العدد.",
+        "options": {
+          "A": "غلط؛ first() ليست Method القياسية لهذا الغرض.",
+          "B": "صح؛ head() تعرض أول خمسة افتراضيًا.",
+          "C": "غلط؛ top(5) ليست DataFrame method.",
+          "D": "غلط؛ start() ليست Method."
+        }
       }
     },
     {
@@ -2356,8 +2872,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "خاصية `df.shape` تعيد Tuple بالشكل `(number_of_rows, number_of_columns)`.",
+        "options": {
+          "A": "غلط؛ size تعيد إجمالي عدد العناصر rows×columns.",
+          "B": "صح؛ shape تعيد rows وcolumns.",
+          "C": "غلط؛ length ليست DataFrame attribute قياسية.",
+          "D": "غلط؛ dimension ليست attribute قياسية."
+        }
       }
     },
     {
@@ -2408,8 +2936,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`dropna()` تُستخدم لحذف Rows أوColumns التي تحتوي Missing Values حسب الإعدادات.",
+        "options": {
+          "A": "صح؛ dropna() هي Method القياسية.",
+          "B": "غلط؛ removeNA() غير موجودة.",
+          "C": "غلط؛ delete_null() غير موجودة.",
+          "D": "غلط؛ clearna() غير موجودة."
+        }
       }
     },
     {
@@ -2462,8 +3002,20 @@
         "juniorQuestionIds": [
           "official-python-q0030"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`fillna()` تستبدل القيم المفقودة بقيمة تختارها أوطريقة تعبئة محددة.",
+        "options": {
+          "A": "صح؛ fillna() لمعالجة NaN.",
+          "B": "غلط؛ replaceNA ليست Method قياسية.",
+          "C": "غلط؛ missing() ليست Method المقصودة.",
+          "D": "غلط؛ fixna() ليست Method قياسية."
+        }
       }
     },
     {
@@ -2516,8 +3068,20 @@
         "juniorQuestionIds": [
           "official-python-q0025"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "اختيار Column باسم Sales يتم غالبًا بـ`df['Sales']`.",
+        "options": {
+          "A": "غلط؛ هذه Function-call syntax.",
+          "B": "صح؛ bracket column selection.",
+          "C": "غلط؛ arrow syntax ليست Pandas.",
+          "D": "غلط؛ column() ليست الطريقة القياسية هنا."
+        }
       }
     },
     {
@@ -2571,8 +3135,20 @@
           "official-python-q0024",
           "official-python-q0061"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`describe()` تعطي ملخصًا إحصائيًا مثل count, mean, std, min والquartiles للأعمدة الرقمية افتراضيًا.",
+        "options": {
+          "A": "غلط؛ summary() ليست Method القياسية.",
+          "B": "صح؛ describe().",
+          "C": "غلط؛ statistics() ليست Method DataFrame القياسية.",
+          "D": "غلط؛ info() تعرض Structure وnon-null counts وليس quartiles."
+        }
       }
     },
     {
@@ -2626,8 +3202,20 @@
           "official-python-q0027",
           "official-python-q0028"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`groupby()` تجمع Rows حسب Column أوأكثر تمهيدًا لتطبيق Aggregation.",
+        "options": {
+          "A": "صح؛ groupby().",
+          "B": "غلط؛ group() ليست DataFrame method القياسية لذلك.",
+          "C": "غلط؛ clusterby() ليست Method Pandas.",
+          "D": "غلط؛ aggregateby() ليست Method القياسية."
+        }
       }
     },
     {
@@ -2680,8 +3268,20 @@
         "juniorQuestionIds": [
           "official-python-q0029"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`sort_values()` ترتب DataFrame حسب قيم Column أوColumns محددة.",
+        "options": {
+          "A": "صح؛ sort_values().",
+          "B": "غلط؛ order() ليست Method القياسية الحديثة.",
+          "C": "غلط؛ arrange() ليست Pandas method.",
+          "D": "غلط؛ sort_column() ليست Method قياسية."
+        }
       }
     }
   ]

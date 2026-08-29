@@ -59,8 +59,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "BeautifulSoup مكتبة Parsing: تحول HTML/XML إلىشجرة يمكن البحث والتنقل داخلها واستخراج النصوص والAttributes.",
+        "options": {
+          "A": "غلط؛ إرسال HTTP requests وظيفة requests غالبًا.",
+          "B": "صح؛ Parsing HTML/XML هو دورها.",
+          "C": "غلط؛ ليست مكتبة ML.",
+          "D": "غلط؛ ليست Web server framework."
+        }
       }
     },
     {
@@ -111,8 +123,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "مكتبة `requests` تُستخدم عادةً لجلب صفحة HTTP، ثم تُمرر الـHTML إلىBeautifulSoup لتحليلها.",
+        "options": {
+          "A": "غلط؛ NumPy للحسابات العددية.",
+          "B": "صح؛ requests لجلب محتوى Web pages.",
+          "C": "غلط؛ Matplotlib للرسم.",
+          "D": "غلط؛ Selenium ممكنة لكن ليست المكتبة الخفيفة الشائعة المطلوبة هنا."
+        }
       }
     },
     {
@@ -163,8 +187,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إذا كان HTML موجودًا في متغير `html`، نمرره مباشرةً إلى`BeautifulSoup` مع parser.",
+        "options": {
+          "A": "صح؛ `BeautifulSoup(html, 'html.parser')` صحيحة.",
+          "B": "غلط؛ لا توجد Method عامة `BeautifulSoup.parse` بهذه الصيغة.",
+          "C": "غلط؛ لا توجد `BeautifulSoup.open` هنا.",
+          "D": "غلط؛ html String ليست object لها Method BeautifulSoup."
+        }
       }
     },
     {
@@ -215,8 +251,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`find()` تبحث في الشجرة وتعيد أول Tag يطابق معايير البحث.",
+        "options": {
+          "A": "غلط؛ find_all تعيد جميع Matches.",
+          "B": "صح؛ find لأول Match.",
+          "C": "غلط؛ select_all ليست Method القياسية.",
+          "D": "غلط؛ search ليست BeautifulSoup method المطلوبة."
+        }
       }
     },
     {
@@ -267,8 +315,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`find_all()` تعيد ResultSet شبيهًا بالقائمة يحتوي كل Tags المطابقة.",
+        "options": {
+          "A": "غلط؛ find يعيد أول Match.",
+          "B": "صح؛ find_all لجميع Matches.",
+          "C": "غلط؛ get تُستخدم غالبًا للAttributes.",
+          "D": "غلط؛ locate ليست Method قياسية."
+        }
       }
     },
     {
@@ -319,8 +379,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "خاصية `.text` على Tag تعيد النص الموجود بداخله.",
+        "options": {
+          "A": "غلط؛ value ليست الخاصية القياسية للنص هنا.",
+          "B": "صح؛ `soup.h1.text` تستخرج النص.",
+          "C": "غلط؛ content ليست الخاصية المطلوبة.",
+          "D": "غلط؛ `.string` ليست Function بهذه الأقواس في هذا السياق."
+        }
       }
     },
     {
@@ -371,8 +443,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "للبحث عن class في BeautifulSoup نستخدم الوسيط `class_` لأن `class` كلمة محجوزة في Python.",
+        "options": {
+          "A": "صح؛ `find_all('a', class_='link')` صحيحة.",
+          "B": "غلط؛ `class` لا تُستخدم مباشرة كKeyword argument.",
+          "C": "غلط؛ CSS selector الصحيح سيكون مثل `a.link` وليس هذه الصيغة.",
+          "D": "غلط؛ get_all ليست Method القياسية."
+        }
       }
     },
     {
@@ -423,8 +507,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "يمكن الوصول المباشر لـAttribute في Tag باستخدام bracket syntax مثل `tag['href']`.",
+        "options": {
+          "A": "صح؛ تعيد قيمة href عند وجودها.",
+          "B": "غلط؛ dot access ليست الطريقة القياسية للHTML attribute.",
+          "C": "غلط؛ attribute() ليست Method قياسية.",
+          "D": "غلط؛ get_href() غير موجودة."
+        }
       }
     },
     {
@@ -475,8 +571,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`select()` تدعم CSS selectors مثل `.class`, `#id`, وcombinations أخرى.",
+        "options": {
+          "A": "غلط؛ find تعتمد على Search API التقليدية لا CSS selector syntax العام.",
+          "B": "صح؛ select() للCSS selectors.",
+          "C": "غلط؛ search() ليست Method المطلوبة.",
+          "D": "غلط؛ query() ليست Method BeautifulSoup القياسية."
+        }
       }
     },
     {
@@ -527,8 +635,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`html.parser` Parser مدمج داخل Python Standard Library ويمكن استخدامه دون تثبيت Parser خارجي.",
+        "options": {
+          "A": "غلط؛ lxml Package خارجية.",
+          "B": "غلط؛ html5lib Package خارجية.",
+          "C": "صح؛ html.parser built-in.",
+          "D": "غلط؛ xml.parser ليست الإجابة المطلوبة هنا."
+        }
       }
     },
     {
@@ -579,8 +699,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`lxml` معروف عادةً بالسرعة والتعامل الجيد مع HTML غير المثالي، لكنه يحتاج Package خارجية.",
+        "options": {
+          "A": "غلط؛ الميزة الأساسية ليست أنه أبطأ.",
+          "B": "صح؛ غالبًا أسرع وأكثر مرونة مع malformed HTML.",
+          "C": "غلط؛ يدعم HTML أيضًا.",
+          "D": "غلط؛ عادةً يحتاج تثبيت lxml."
+        }
       }
     },
     {
@@ -631,8 +763,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`prettify()` تُرجع HTML منسقة بIndentation لتسهيل القراءة.",
+        "options": {
+          "A": "غلط؛ لا تزيل Tags.",
+          "B": "صح؛ تنسيق للReadability.",
+          "C": "غلط؛ لا تحول إلىJSON.",
+          "D": "غلط؛ لا تحذف Duplicates."
+        }
       }
     },
     {
@@ -683,8 +827,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "كل Tag في BeautifulSoup يمكنه الرجوع للعنصر الأب باستخدام `.parent`.",
+        "options": {
+          "A": "غلط؛ `.next` تتعلق بالتنقل التالي.",
+          "B": "صح؛ `.parent` تعيد Parent node.",
+          "C": "غلط؛ `.above` ليست الخاصية القياسية.",
+          "D": "غلط؛ `.root` ليست Parent navigation property."
+        }
       }
     },
     {
@@ -735,8 +891,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`.next_sibling` تعيد الـsibling التالي لنفس المستوى في شجرة HTML.",
+        "options": {
+          "A": "صح؛ هذه الخاصية القياسية.",
+          "B": "غلط؛ sibling_next ليست API الصحيحة.",
+          "C": "غلط؛ after ليست الخاصية المطلوبة.",
+          "D": "غلط؛ next_tag ليست الخاصية القياسية لهذا الغرض."
+        }
       }
     },
     {
@@ -787,8 +955,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "البحث يحدد اسم الـTag `div` مع شرط أن `id='main'`، فيعيد كل divs المطابقة.",
+        "options": {
+          "A": "غلط؛ id شرط أساسي هنا.",
+          "B": "صح؛ يبحث عن div ذات id=main.",
+          "C": "غلط؛ find_all لا يقتصر على أول عنصر.",
+          "D": "غلط؛ اسم الـTag محدد بـdiv."
+        }
       }
     },
     {
@@ -839,8 +1019,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`get_text()` تجمع النصوص الموجودة في الشجرة وتتجاهل Markup tags في الناتج النصي.",
+        "options": {
+          "A": "صح؛ soup.get_text() تستخرج النص.",
+          "B": "غلط؛ text_only ليست Method قياسية.",
+          "C": "غلط؛ strip_tags ليست Method BeautifulSoup القياسية.",
+          "D": "غلط؛ plain() ليست Method."
+        }
       }
     },
     {
@@ -891,8 +1083,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`find_all()` تعيد `ResultSet` من BeautifulSoup، وهو Object يتصرف بشكل قريب من List.",
+        "options": {
+          "A": "غلط؛ ليست Dictionary.",
+          "B": "صح؛ ResultSet شبيه بالقائمة.",
+          "C": "غلط؛ ليست String واحدة.",
+          "D": "غلط؛ ليست NumPy array."
+        }
       }
     },
     {
@@ -943,8 +1147,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "BeautifulSoup تحلل HTML الموجود بالفعل لكنها لا تشغّل JavaScript كBrowser Engine. المحتوى الديناميكي قد يحتاج Selenium أوأداة Browser automation.",
+        "options": {
+          "A": "غلط؛ تستطيع Parse static HTML.",
+          "B": "صح؛ لا تنفذ JavaScript بنفسها.",
+          "C": "غلط؛ تستطيع استخراج Attributes.",
+          "D": "غلط؛ تستطيع التنقل في HTML tree."
+        }
       }
     },
     {
@@ -995,8 +1211,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "يمكن دمج `class_='item'` مع `attrs={'data-id':'5'}` لتطبيق أكثر من Attribute filter على نفس Tag.",
+        "options": {
+          "A": "صح؛ هذه صيغة صحيحة لعدة Attributes.",
+          "B": "غلط؛ هذه ليست Signature صحيحة للشرطين.",
+          "C": "غلط؛ class_and_id ليست Argument قياسيًا.",
+          "D": "غلط؛ هذه محاولة Indexing وليست Search."
+        }
       }
     },
     {
@@ -1047,8 +1275,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إذا لم تجد `find()` أي Match فإنها تعيد `None`، ولذلك من المهم التحقق قبل الوصول إلىProperties أوMethods.",
+        "options": {
+          "A": "غلط؛ لا ترمي Exception لمجرد عدم وجود Match.",
+          "B": "صح؛ ترجع None.",
+          "C": "غلط؛ ليست Empty String.",
+          "D": "غلط؛ Empty list/ResultSet أقرب لسلوك find_all عند عدم وجود Matches."
+        }
       }
     },
     {
@@ -1099,8 +1339,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Selenium أداة Browser Automation تتحكم في Browser حقيقي/Driver وتتعامل مع صفحات تحتاج JavaScript وتفاعل.",
+        "options": {
+          "A": "غلط؛ ليست Parser للHTML الثابت فقط.",
+          "B": "صح؛ Browser automation وdynamic content.",
+          "C": "غلط؛ ليست مكتبة Email.",
+          "D": "غلط؛ لا تختص بضغط البيانات."
+        }
       }
     },
     {
@@ -1151,8 +1403,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Selenium تحتاج Driver متوافقًا مع الـBrowser حتى تتحكم فيه، مثل ChromeDriver في السيناريو التقليدي.",
+        "options": {
+          "A": "صح؛ WebDriver المتوافق هو المطلوب.",
+          "B": "غلط؛ requests لا تتحكم في Chrome.",
+          "C": "غلط؛ BeautifulSoup parser لا يدير Browser.",
+          "D": "غلط؛ Extension وحدها ليست المطلوبة."
+        }
       }
     },
     {
@@ -1203,8 +1467,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "WebDriver يمثل جلسة الـBrowser ويعطيك Methods للتنقل والعثور على العناصر والتفاعل معها.",
+        "options": {
+          "A": "غلط؛ WebElement يمثل عنصرًا داخل الصفحة.",
+          "B": "صح؛ WebDriver يتحكم في Browser session.",
+          "C": "غلط؛ By يحدد Strategy للعثور على عناصر.",
+          "D": "غلط؛ Keys تمثل Keyboard keys."
+        }
       }
     },
     {
@@ -1255,8 +1531,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـAPI الحديثة تستخدم `driver.find_element(By.ID, 'element_id')` للعثور على عنصر واحد بالـID.",
+        "options": {
+          "A": "صح؛ هذه الصيغة الصحيحة.",
+          "B": "غلط؛ get_element_id ليست Method.",
+          "C": "غلط؛ select ليست API Selenium هنا.",
+          "D": "غلط؛ find_by_id صيغة قديمة/غير صحيحة في الشكل المعطى."
+        }
       }
     },
     {
@@ -1307,8 +1595,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "للعثور على عدة Elements نستخدم الجمع `find_elements` مع `By.CSS_SELECTOR`.",
+        "options": {
+          "A": "غلط؛ find_element تعيد عنصرًا واحدًا.",
+          "B": "صح؛ find_elements تعيد مجموعة العناصر المطابقة.",
+          "C": "غلط؛ get_elements_by_css ليست API المطلوبة.",
+          "D": "غلط؛ select_all ليست WebDriver method."
+        }
       }
     },
     {
@@ -1359,8 +1659,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "WebElement في Selenium توفر Method اسمها `.click()` لمحاكاة Click على العنصر.",
+        "options": {
+          "A": "غلط؛ press() ليست Method القياسية للنقر.",
+          "B": "صح؛ click().",
+          "C": "غلط؛ tap() ليست Method العامة المقصودة.",
+          "D": "غلط؛ select() ليست Method للنقر."
+        }
       }
     },
     {
@@ -1411,8 +1723,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إدخال نص في Input يتم عادةً بـ`element.send_keys('text')`.",
+        "options": {
+          "A": "غلط؛ type_text ليست WebElement method قياسية.",
+          "B": "صح؛ send_keys تكتب النص/المفاتيح.",
+          "C": "غلط؛ input() ليست Method Selenium للعنصر.",
+          "D": "غلط؛ write() ليست Method القياسية."
+        }
       }
     },
     {
@@ -1463,8 +1787,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Explicit Wait تجعل Selenium تنتظر تحقق Condition محددة مثل ظهور عنصر أوكونه قابلًا للنقر، بدل الاعتماد على Sleep ثابت.",
+        "options": {
+          "A": "غلط؛ لا تضمن تسريع السكربت دائمًا.",
+          "B": "صح؛ تنتظر حتى يتحقق شرط محدد.",
+          "C": "غلط؛ فتح الـBrowser لا يتطلب Explicit Wait.",
+          "D": "غلط؛ لا تتجاوز CAPTCHAs تلقائيًا."
+        }
       }
     },
     {
@@ -1515,8 +1851,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "مع `WebDriverWait` تُستخدم عادةً `expected_conditions` باختصار EC لتحديد ما الذي ننتظر حدوثه، مثل visibility أوclickability.",
+        "options": {
+          "A": "صح؛ EC هي المجموعة الشائعة لشروط الانتظار.",
+          "B": "غلط؛ By تُستخدم لتحديد Locator strategy.",
+          "C": "غلط؛ Keys لتمثيل مفاتيح لوحة المفاتيح.",
+          "D": "غلط؛ Options لإعدادات الـBrowser."
+        }
       }
     },
     {
@@ -1567,8 +1915,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`driver.get(url)` تطلب من الـWebDriver الانتقال داخل الـBrowser إلىالرابط المحدد.",
+        "options": {
+          "A": "غلط؛ لا تعيد مجرد نص بدون Browser.",
+          "B": "صح؛ تنقل الـBrowser إلىURL.",
+          "C": "غلط؛ هذه ليست requests.get.",
+          "D": "غلط؛ لا تعيد Page title فقط."
+        }
       }
     },
     {
@@ -1619,8 +1979,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Headless mode تشغّل الـBrowser Engine بدون نافذة مرئية، مع بقاء Selenium قادرًا على التصفح والتفاعل.",
+        "options": {
+          "A": "صح؛ يتم تفعيل headless من Browser options.",
+          "B": "غلط؛ Selenium تدعم headless.",
+          "C": "غلط؛ تعطيل WebDriver يمنع التحكم.",
+          "D": "غلط؛ BeautifulSoup ليست طريقة لتشغيل Selenium مخفيًا."
+        }
       }
     },
     {
@@ -1671,8 +2043,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Selenium، خاصية `.text` على WebElement تعيد النص المرئي للعنصر.",
+        "options": {
+          "A": "غلط؛ get_text() ليست WebElement API المعتادة.",
+          "B": "صح؛ element.text للنص المرئي.",
+          "C": "غلط؛ innerText() ليست Method Selenium هنا.",
+          "D": "غلط؛ value لا تمثل النص المرئي عمومًا."
+        }
       }
     },
     {
@@ -1723,8 +2107,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`get_attribute(name)` تقرأ قيمة Attribute من HTML element مثل href أوsrc أوclass.",
+        "options": {
+          "A": "صح؛ هذه Method القياسية.",
+          "B": "غلط؛ attribute() ليست Method Selenium القياسية.",
+          "C": "غلط؛ get() ليست Method WebElement لهذا الغرض.",
+          "D": "غلط؛ bracket indexing ليست API Selenium هنا."
+        }
       }
     },
     {
@@ -1775,8 +2171,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`driver.quit()` تنهي جلسة WebDriver وتغلق كل نوافذ الـBrowser المرتبطة بها.",
+        "options": {
+          "A": "غلط؛ لا تعمل Pause.",
+          "B": "صح؛ تغلق الـBrowser وتنهي Session.",
+          "C": "غلط؛ Refresh يتم بـdriver.refresh().",
+          "D": "غلط؛ لا تقتصر علىCookies."
+        }
       }
     },
     {
@@ -1827,8 +2235,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`By.XPATH` تحدد أن Locator المكتوب هو XPath expression.",
+        "options": {
+          "A": "صح؛ هذه Strategy الخاصة بـXPath.",
+          "B": "غلط؛ TAG_NAME للبحث باسم Tag.",
+          "C": "غلط؛ LINK_TEXT للنص الكامل للروابط.",
+          "D": "غلط؛ NAME للـname attribute."
+        }
       }
     },
     {
@@ -1879,8 +2299,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "يمكن استخدام Selenium أولًا لتشغيل JavaScript وإنتاج DOM النهائي، ثم تمرير `driver.page_source` إلىBeautifulSoup لتحليل HTML بسهولة.",
+        "options": {
+          "A": "صح؛ هذا تكامل شائع بين الأداتين.",
+          "B": "غلط؛ BeautifulSoup لا تفتح Browser.",
+          "C": "غلط؛ يمكن استخدامهما معًا.",
+          "D": "غلط؛ Selenium لا يلغي وجود HTML."
+        }
       }
     },
     {
@@ -1931,8 +2363,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`driver.execute_script()` تنفذ JavaScript داخل سياق الصفحة، وتُستخدم مثلًا للScrolling أوتفاعل لا توفره Method مباشرة.",
+        "options": {
+          "A": "صح؛ هي Method Selenium لتنفيذ JavaScript.",
+          "B": "غلط؛ run_js() ليست Method القياسية.",
+          "C": "غلط؛ script() غير موجودة.",
+          "D": "غلط؛ javascript() ليست API القياسية."
+        }
       }
     },
     {
@@ -1983,8 +2427,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Implicit Wait تحدد مدة افتراضية يحاول فيها WebDriver العثور علىElement قبل رفع Exception إذا لم يظهر.",
+        "options": {
+          "A": "صح؛ تطبق على عمليات locating بصورة عامة.",
+          "B": "غلط؛ ليست خاصة بعناوين الصفحات.",
+          "C": "غلط؛ ليست لأول تنفيذ فقط.",
+          "D": "غلط؛ هي تضيف Waiting behavior لا تعطلها."
+        }
       }
     },
     {
@@ -2035,8 +2491,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "مكتبة `feedparser` مصممة لقراءة وتحليل Syndication feeds مثل RSS وAtom.",
+        "options": {
+          "A": "صح؛ Parsing RSS/Atom هو دورها الأساسي.",
+          "B": "غلط؛ لا تشغّل JavaScript.",
+          "C": "غلط؛ ليست مكتبة Email.",
+          "D": "غلط؛ لا تختص بإنشاء HTML tables."
+        }
       }
     },
     {
@@ -2087,8 +2555,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الواجهة الشائعة هي `feedparser.parse(...)` ويمكن تمرير Feed URL إليها.",
+        "options": {
+          "A": "صح؛ هذه الصيغة الصحيحة.",
+          "B": "غلط؛ read() ليست API الأساسية.",
+          "C": "غلط؛ open() ليست Method المطلوبة.",
+          "D": "غلط؛ get() ليست Method feedparser القياسية."
+        }
       }
     },
     {
@@ -2139,8 +2619,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد `parse()`، العناصر المنشورة في Feed توجد عادةً في `feed.entries`.",
+        "options": {
+          "A": "غلط؛ items ليست الخاصية القياسية.",
+          "B": "صح؛ entries تحتوي Entries.",
+          "C": "غلط؛ articles ليست الخاصية المعتادة.",
+          "D": "غلط؛ list ليست الخاصية المطلوبة."
+        }
       }
     },
     {
@@ -2191,8 +2683,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Metadata الخاصة بالFeed نفسها توجد داخل `feed.feed`، لذلك عنوان الـFeed هو `feed.feed.title`.",
+        "options": {
+          "A": "صح؛ هذا هو المسار المعتاد.",
+          "B": "غلط؛ ترتيب الخصائص غير صحيح.",
+          "C": "غلط؛ entries تخص العناصر المنشورة.",
+          "D": "غلط؛ get_title() ليست API المعتادة."
+        }
       }
     },
     {
@@ -2243,8 +2747,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "أول Entry هو `feed.entries[0]`، وعنوانه في `.title`.",
+        "options": {
+          "A": "صح؛ أول عنصر ثم title.",
+          "B": "غلط؛ title ليست List Entries.",
+          "C": "غلط؛ الصياغة غير صحيحة.",
+          "D": "غلط؛ entries نفسها List-like ولا يوجد title عليها بهذه الصورة."
+        }
       }
     },
     {
@@ -2295,8 +2811,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "خاصية `published` تُستخدم عادةً لوقت/تاريخ نشر Feed entry عندما يوفره المصدر.",
+        "options": {
+          "A": "غلط؛ date ليست الخاصية الشائعة المعتمدة هنا.",
+          "B": "صح؛ entry.published.",
+          "C": "غلط؛ pubdate ليست الـattribute القياسية في feedparser.",
+          "D": "غلط؛ time ليست المقصودة."
+        }
       }
     },
     {
@@ -2347,8 +2875,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "رابط الـEntry يوجد عادةً في `entry.link`.",
+        "options": {
+          "A": "غلط؛ url ليست الخاصية المعتادة هنا.",
+          "B": "غلط؛ href ليست Entry attribute القياسية.",
+          "C": "صح؛ entry.link.",
+          "D": "غلط؛ address ليست الخاصية المطلوبة."
+        }
       }
     },
     {
@@ -2399,8 +2939,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`feedparser.parse()` مرنة ويمكنها قراءة URL أوLocal file path أورaw feed content.",
+        "options": {
+          "A": "غلط؛ ليست محصورة في URLs.",
+          "B": "صح؛ تدعم هذه الأنواع من المدخلات.",
+          "C": "غلط؛ ليست محصورة في XML string.",
+          "D": "غلط؛ لا تشترط file object binary فقط."
+        }
       }
     },
     {
@@ -2451,8 +3003,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Feedparser تستخدم `bozo` كFlag يشير إلىأن Parser واجه مشكلة في الـFeed.",
+        "options": {
+          "A": "صح؛ فحص `feed.bozo` هو الأسلوب المعتاد.",
+          "B": "غلط؛ لا تعتمد دائمًا على Exception مباشر.",
+          "C": "غلط؛ feed.error ليست الخاصية القياسية هنا.",
+          "D": "غلط؛ لديها آلية للإشارة للأخطاء."
+        }
       }
     },
     {
@@ -2503,8 +3067,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ملخص أوDescription للـEntry يوجد عادةً في `entry.summary` إذا كان الـFeed يوفره.",
+        "options": {
+          "A": "صح؛ summary هي الخاصية الشائعة.",
+          "B": "غلط؛ description_text ليست القياسية.",
+          "C": "غلط؛ body ليست الخاصية المعتادة.",
+          "D": "غلط؛ content_text ليست API القياسية."
+        }
       }
     },
     {
@@ -2555,8 +3131,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Feedparser تدعم RSS وAtom وتوحد الوصول نسبيًا لحقولهما.",
+        "options": {
+          "A": "غلط؛ ليست RSS فقط.",
+          "B": "صح؛ تدعم الاثنين.",
+          "C": "غلط؛ ليست Atom فقط.",
+          "D": "غلط؛ السؤال عن RSS/Atom وليس JSON-only."
+        }
       }
     },
     {
@@ -2607,8 +3195,20 @@
         "matchType": "professional-only",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "RSS/Atom مناسبة لمتابعة المحتوى المتجدد؛ feedparser تسهل جلب العناوين والروابط والتواريخ دوريًا.",
+        "options": {
+          "A": "غلط؛ لا ترندر SPA JavaScript.",
+          "B": "صح؛ Monitoring news/blog feeds استخدام نموذجي.",
+          "C": "غلط؛ Click interaction دور Selenium.",
+          "D": "غلط؛ ملء Forms دور Browser automation."
+        }
       }
     }
   ]

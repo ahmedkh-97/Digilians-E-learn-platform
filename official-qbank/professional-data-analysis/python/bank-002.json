@@ -59,8 +59,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`int('18')=18`، ثم `18 // 4 = 4` بالقسمة الصحيحة، و`len('AI')=2`، إذن `4+2=6`.",
+        "options": {
+          "A": "غلط؛ 4 هي نتيجة القسمة فقط قبل إضافة طول النص.",
+          "B": "غلط؛ الناتج ليس5.",
+          "C": "غلط؛ لا توجد عملية تنتج8 هنا.",
+          "D": "صح؛ الناتج النهائي6."
+        }
       }
     },
     {
@@ -111,8 +123,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في `text[-2::-2]` البداية عند index -2 أي الحرف O، ثم نتحرك للخلف بخطوة -2: O ثم T ثم P، فينتج `OTP`.",
+        "options": {
+          "A": "غلط؛ ترتيب الأحرف لا يطابق slice.",
+          "B": "صح؛ الناتج `OTP`.",
+          "C": "غلط؛ ترتيب Y وT غير صحيح.",
+          "D": "غلط؛ H لا تكون أول قيمة في هذا slice."
+        }
       }
     },
     {
@@ -163,8 +187,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`values[:]` تنشئ Shallow Copy مستقلة للقائمة الخارجية. إضافة 4 إلىvalues لا تؤثر علىcopy_values، وتعديل أول عنصر فيcopy_values لا يغيّرvalues.",
+        "options": {
+          "A": "غلط؛ القائمتان ليستا نفس object الخارجي.",
+          "B": "غلط؛ values احتفظت بالعنصر4 بعد append.",
+          "C": "صح؛ `values=[1,2,3,4]` و`copy_values=[9,2,3]`.",
+          "D": "غلط؛ copy_values[0] تم تغييره إلى9."
+        }
       }
     },
     {
@@ -217,8 +253,20 @@
         "juniorQuestionIds": [
           "official-python-q0076"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "List mutable ويمكن تعديل عناصرها، بينما Tuple immutable ولا تدعم item assignment بعد الإنشاء.",
+        "options": {
+          "A": "صح؛ هذا الفرق الأساسي.",
+          "B": "غلط؛ المعكوس غير صحيح.",
+          "C": "غلط؛ List ليست immutable.",
+          "D": "غلط؛ Tuple ليست mutable."
+        }
       }
     },
     {
@@ -269,8 +317,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الأعداد 1..5: الفردي يطرح1 والثنائي يضيف نفسه. يبدأ total=0: بعد1=-1، بعد2=1، بعد3=0، بعد4=4، بعد5=3.",
+        "options": {
+          "A": "غلط؛ الحساب النهائي ليس1.",
+          "B": "صح؛ الناتج3.",
+          "C": "غلط؛ لا يصل الناتج النهائي5.",
+          "D": "غلط؛ 6 ليست القيمة النهائية."
+        }
       }
     },
     {
@@ -321,8 +381,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "نضيف 1→1، 2→3، 3→6، نتخطى4، ثم5→11، ثم6→17؛ عندها `total > 12` فيحدث break. الناتج17.",
+        "options": {
+          "A": "غلط؛ لا يتوقف عند13.",
+          "B": "غلط؛ total لا يصبح15 في هذا المسار.",
+          "C": "صح؛ الناتج17.",
+          "D": "غلط؛ loop تتوقف قبل إضافة7."
+        }
       }
     },
     {
@@ -373,8 +445,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "x=1: تضاعف إلى2 ثم +1=3. بعدها تتضاعف إلى6 ثم +1=7. بعدها14 ثم +1=15. الآن شرط while يفشل لأن15≥12.",
+        "options": {
+          "A": "غلط؛ لا يتوقف عند12.",
+          "B": "غلط؛ لا ينتج13.",
+          "C": "صح؛ الناتج15.",
+          "D": "غلط؛ لا يصل16."
+        }
       }
     },
     {
@@ -425,8 +509,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "نعد كل Iteration قبل أن يصبح `i+j>4`. عند i=0 نحسب4 مرات، i=1 نحسب3، i=2 نحسب مرة قبل break؛ المجموع8.",
+        "options": {
+          "A": "صح؛ count=8.",
+          "B": "غلط؛ أقل من العدد الفعلي.",
+          "C": "غلط؛ يوجد Iteration إضافية.",
+          "D": "غلط؛ break تمنع الوصول إلى9."
+        }
       }
     },
     {
@@ -477,8 +573,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـcomprehension تختار الأعداد الفردية 1,3,5 ثم تضرب كلًا في2، فتنتج `[2,6,10]`.",
+        "options": {
+          "A": "غلط؛ هذه مضاعفة كل الأعداد بدون filter.",
+          "B": "غلط؛ تمثل مضاعفة الأعداد الزوجية.",
+          "C": "صح؛ `[2,6,10]`.",
+          "D": "غلط؛ لم يتم تطبيق الضرب."
+        }
       }
     },
     {
@@ -529,8 +637,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لكل n: إذا كان زوجيًا يبقى كما هو، وإذا كان فرديًا يصبح سالبًا؛ النتيجة `[-1,2,-3,4]`.",
+        "options": {
+          "A": "غلط؛ قلبت إشارات الأعداد الزوجية بدل الفردية.",
+          "B": "صح؛ النتيجة المطابقة للشرط.",
+          "C": "غلط؛ الأعداد الزوجية لا تصبح سالبة.",
+          "D": "غلط؛ الـcomprehension لا يحذف الفردي."
+        }
       }
     },
     {
@@ -581,8 +701,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`power(3)` تستخدم default exponent=2 فتساوي9، و`power(2,3)` تساوي8.",
+        "options": {
+          "A": "غلط؛ power ليست multiplication عاديًا.",
+          "B": "غلط؛ 2**3 ليست6.",
+          "C": "صح؛ الناتج `9 8`.",
+          "D": "غلط؛ ترتيب القيم معكوس."
+        }
       }
     },
     {
@@ -633,8 +765,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "المتغير `x=3` داخل Function محلي ولا يغيّر x الخارجي=10. `update(5)` تعيد5+3=8، وبعدها x الخارجي ما زال10.",
+        "options": {
+          "A": "صح؛ الناتج `8 10`.",
+          "B": "غلط؛ x الخارجي لا يصبح3.",
+          "C": "غلط؛ Function تستخدم x المحلية وليس10.",
+          "D": "غلط؛ كلا الجزأين غير صحيحين."
+        }
       }
     },
     {
@@ -685,8 +829,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "filter تحتفظ بالأعداد الزوجية `[2,4]`، ثم map تضيف1 لكل عنصر فتصبح `[3,5]`.",
+        "options": {
+          "A": "غلط؛ هذه نتيجة filter قبل map.",
+          "B": "غلط؛ لم يتم تطبيق map على كل الأعداد.",
+          "C": "غلط؛ لا تظهر4 في الناتج.",
+          "D": "صح؛ `[3,5]`."
+        }
       }
     },
     {
@@ -737,8 +893,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "يتم عد التكرارات باستخدام `get(item,0)+1`: الحرف a يظهر3 مرات وb يظهر مرتين.",
+        "options": {
+          "A": "صح؛ الناتج `3 2`.",
+          "B": "غلط؛ الأعداد معكوسة.",
+          "C": "غلط؛ b ليس مرة واحدة.",
+          "D": "غلط؛ a ليس مرتين."
+        }
       }
     },
     {
@@ -789,8 +957,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "التعديلات تتم على نفس List بالتتابع: i0:1→2، i1:2+2→4، i2:3→6، i3:4+6→10، فتكون `[2,4,6,10]`.",
+        "options": {
+          "A": "صح؛ هذه النتيجة الدقيقة.",
+          "B": "غلط؛ تجاهلت تأثير القيم المعدلة السابقة.",
+          "C": "غلط؛ آخر عنصر يصبح10 لا8.",
+          "D": "غلط؛ أول عنصر يتضاعف إلى2."
+        }
       }
     },
     {
@@ -841,8 +1021,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "التقاطع `a & b` هو `{3}` وطوله1، والاتحاد `a | b` هو `{1,2,3,4}` وطوله4.",
+        "options": {
+          "A": "غلط؛ طول الاتحاد4 وليس3.",
+          "B": "غلط؛ التقاطع ليس عنصرين.",
+          "C": "غلط؛ القيمتان غير صحيحتين.",
+          "D": "صح؛ الناتج `1 4`."
+        }
       }
     },
     {
@@ -893,8 +1085,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`a.append(5)` تعدل نفس List التي تشير إليها x، لذلك x وp تصبحان `[1,5]`. أما `b=b+[6]` فتنشئ List جديدة محليًا، لذلك y تبقى `[2]` وq تصبح `[2,6]`.",
+        "options": {
+          "A": "غلط؛ y لا تتغير.",
+          "B": "غلط؛ x تتغير بسبب append.",
+          "C": "صح؛ النتيجة `[1,5] [2] [1,5] [2,6]`.",
+          "D": "غلط؛ x لم تبق `[1]`."
+        }
       }
     },
     {
@@ -945,8 +1149,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـdefault list `items=[]` تُنشأ مرة واحدة وتُعاد استخدامها: add(2)=2، ثم add(3)=5. الاستدعاء add(1,[]) يستخدم List جديدة فيرجع1. بعدها default القديمة ما زالت `[2,3]` فتضاف4 ويصبح9.",
+        "options": {
+          "A": "غلط؛ يتجاهل persistence للdefault mutable.",
+          "B": "غلط؛ آخر قيمة ليست4.",
+          "C": "غلط؛ الاستدعاء الصريح بقائمة جديدة لا يضيف إلىdefault.",
+          "D": "صح؛ `2 5 1 9`."
+        }
       }
     },
     {
@@ -997,8 +1213,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "كل مستوى recursion يضيف2 حتى يصل n إلى0: `count_down(3)=2+2+2+0=6`.",
+        "options": {
+          "A": "غلط؛ عدد المستويات3 لكن كل مستوى يضيف2.",
+          "B": "غلط؛ ينقص إضافة واحدة.",
+          "C": "غلط؛ يحتاج أربع إضافات للوصول8.",
+          "D": "صح؛ الناتج6."
+        }
       }
     },
     {
@@ -1049,8 +1277,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "يتم تقييم الـinner call أولًا: `step(1)` يطبع1 ويعيد3. ثم `step(3)` يطبع3 ويعيد5، ثم `print(result)` يطبع5.",
+        "options": {
+          "A": "صح؛ يظهر `1 3 5`.",
+          "B": "غلط؛ الاستدعاء الثاني يستقبل3 وليس1.",
+          "C": "غلط؛ ترتيب التنفيذ inner ثم outer.",
+          "D": "غلط؛ result النهائي5 وليس3."
+        }
       }
     },
     {
@@ -1101,8 +1341,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بتتبع الحلقات وشروط continue/break، مجموع `i-j` النهائي يساوي0. شروط `i+j==5` تتخطى بعض الحالات، و`i*j>6` توقف الحلقة الداخلية.",
+        "options": {
+          "A": "صح؛ score النهائي0.",
+          "B": "غلط؛ التتبع الكامل لا يعطي-2.",
+          "C": "غلط؛ لا يعطي2.",
+          "D": "غلط؛ لا يعطي4."
+        }
       }
     },
     {
@@ -1153,8 +1405,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الكود يجمع الأرقام المتجاورة كنص واحد: `1` ثم `22` ثم `3`. المجموع `1+22+3=26`.",
+        "options": {
+          "A": "غلط؛ 8 ينتج من جمع digits منفردة 1+2+2+3.",
+          "B": "غلط؛ يهمل الرقمين الآخرين.",
+          "C": "غلط؛ لا يتم Concatenate لكل الأرقام معًا.",
+          "D": "صح؛ الناتج26."
+        }
       }
     },
     {
@@ -1205,8 +1469,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "المصفوفة One-dimensional بها4 عناصر، لذلك `shape=(4,)` و`size=4`.",
+        "options": {
+          "A": "صح؛ `(4,) 4`.",
+          "B": "غلط؛ ليست 2D shape (1,4).",
+          "C": "غلط؛ ليست column vector.",
+          "D": "غلط؛ size هو4 وليس1."
+        }
       }
     },
     {
@@ -1257,8 +1533,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Slice `[1:5:2]` يأخذ index1 ثم3 من المصفوفة: 10 و20.",
+        "options": {
+          "A": "صح؛ `[10,20]`.",
+          "B": "غلط؛ هذه indexes 0,2,4.",
+          "C": "غلط؛ step=2 لا يأخذ15.",
+          "D": "غلط؛ البداية index1 وليست2."
+        }
       }
     },
     {
@@ -1309,8 +1597,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد reshape تصبح الصفوف `[1..4]`, `[5..8]`, `[9..12]`. العمود index1 هو `[2,6,10]` ومجموعه18.",
+        "options": {
+          "A": "غلط؛ ليس15.",
+          "B": "صح؛ 2+6+10=18.",
+          "C": "غلط؛ 21 عمود مختلف.",
+          "D": "غلط؛ 24 ليست نتيجة هذا العمود."
+        }
       }
     },
     {
@@ -1361,8 +1661,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Transpose تجعل الصف الثالث `arr.T[2]` هو `[3,6]`، ومجموعه9.",
+        "options": {
+          "A": "غلط؛ 7 ليست المجموع.",
+          "B": "غلط؛ 11 غير ناتجة.",
+          "C": "غلط؛ 12 غير ناتجة.",
+          "D": "صح؛ 3+6=9."
+        }
       }
     },
     {
@@ -1413,8 +1725,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "متوسط `[2,5,8,11]` هو6.5، والقيم الأكبر منه8 و11، ومجموعهما19.",
+        "options": {
+          "A": "غلط؛ 13 = 2+11 أو5+8 وليس الشرط.",
+          "B": "صح؛ 8+11=19.",
+          "C": "غلط؛ ليس16.",
+          "D": "غلط؛ 21 مجموع كل القيم تقريبًا عدا5؟ وليس المطلوب."
+        }
       }
     },
     {
@@ -1465,8 +1789,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`np.unique` تعيد القيم الفريدة `[1,2,3,4]` وعددها4.",
+        "options": {
+          "A": "غلط؛ توجد4 قيم فريدة.",
+          "B": "صح؛ len=4.",
+          "C": "غلط؛ ليست5.",
+          "D": "غلط؛ 7 هو عدد العناصر الأصلي."
+        }
       }
     },
     {
@@ -1517,8 +1853,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "المصفوفة الأساسية كلها2. Broadcasting يضيف `[1,3,5]` لكل صف، فيصبح كل صف `[3,5,7]` ومجموع الصف الثاني15.",
+        "options": {
+          "A": "غلط؛ أقل من المجموع الصحيح.",
+          "B": "غلط؛ ليس12.",
+          "C": "صح؛ 3+5+7=15.",
+          "D": "غلط؛ ليس18."
+        }
       }
     },
     {
@@ -1569,8 +1917,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`sum(axis=0)` تجمع عبر الصفوف لكل Column: 1+4=5، 2+5=7، 3+6=9.",
+        "options": {
+          "A": "غلط؛ `[6,15]` هي sums لكل Row.",
+          "B": "غلط؛ هذه أول Row.",
+          "C": "صح؛ `[5,7,9]`.",
+          "D": "غلط؛ هذه ثاني Row."
+        }
       }
     },
     {
@@ -1621,8 +1981,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`flatten()` تعطي `[2,4,6,8]`. Slice `[1:3]` يأخذ4 و6، ومجموعهما10.",
+        "options": {
+          "A": "غلط؛ 8 ليست مجموع4 و6.",
+          "B": "صح؛ 10.",
+          "C": "غلط؛ 12 ليست النتيجة.",
+          "D": "غلط؛ 14 = 6+8 وليس الـslice."
+        }
       }
     },
     {
@@ -1673,8 +2045,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "التقريب لخانة عشرية يعطي `[1.2,2.8,3.5]`، والمجموع7.5.",
+        "options": {
+          "A": "غلط؛ المجموع ليس7.3.",
+          "B": "غلط؛ ليس7.4.",
+          "C": "صح؛ 7.5.",
+          "D": "غلط؛ ليس7.6."
+        }
       }
     },
     {
@@ -1725,8 +2109,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`np.where` تضرب العناصر الزوجية في10 وتترك الفردية كما هي: 1→1،2→20،3→3،4→40.",
+        "options": {
+          "A": "صح؛ `[1,20,3,40]`.",
+          "B": "غلط؛ يضرب الفردي أيضًا.",
+          "C": "غلط؛ يتجاهل التحويل.",
+          "D": "غلط؛ لا يحذف العناصر الفردية."
+        }
       }
     },
     {
@@ -1777,8 +2173,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد reshape: `[[1,2,3],[4,5,6]]`. Transpose ثم عكس الصفوف يعطي `[[3,6],[2,5],[1,4]]`، وبعد flatten: `[3,6,2,5,1,4]`. Slice `[1:5:2]` يأخذ6 و5 ومجموعهما11.",
+        "options": {
+          "A": "غلط؛ ليس8.",
+          "B": "غلط؛ ليس10.",
+          "C": "غلط؛ ليس13.",
+          "D": "صح؛ الناتج11."
+        }
       }
     },
     {
@@ -1829,8 +2237,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "متوسط عناصر المصفوفة هو `(2+4+6+8+10+12)/6 = 7`. الشرط يختار القيم الأكبر من7 والأقل من12، أي 8 و10 فقط.",
+        "options": {
+          "A": "غلط؛ 6 ليست أكبر من المتوسط7.",
+          "B": "غلط؛ 12 لا تحقق الشرط `< 12`.",
+          "C": "صح؛ القيم المطابقة هي `[8, 10]`.",
+          "D": "غلط؛ 12 مستبعدة و8 يجب أن تكون موجودة."
+        }
       }
     },
     {
@@ -1881,8 +2301,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد الـbroadcasting تصبح المصفوفة `[[11,22,33],[14,25,36]]`. القيم الأكبر من24 هي 33 و25 و36، وأصغرها25.",
+        "options": {
+          "A": "غلط؛ 24 ليست ضمن القيم الناتجة أصلًا.",
+          "B": "صح؛ أقل قيمة أكبر من24 هي25.",
+          "C": "غلط؛ 26 غير موجودة.",
+          "D": "غلط؛ 34 غير موجودة."
+        }
       }
     },
     {
@@ -1933,8 +2365,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DataFrame فيها 3 صفوف وعمودان A وB، لذلك `shape` ترجع `(3, 2)`.",
+        "options": {
+          "A": "غلط؛ الأبعاد معكوسة.",
+          "B": "غلط؛ هذه Shape أحادية البعد.",
+          "C": "غلط؛ 6 هو إجمالي العناصر وليس shape.",
+          "D": "صح؛ 3 Rows و2 Columns."
+        }
       }
     },
     {
@@ -1985,8 +2429,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الشرط `Score >= 80` يختار Sara=90 وOmar=80، ثم `.loc[..., 'Name']` ترجع أسماؤهما.",
+        "options": {
+          "A": "غلط؛ Ali درجته70 فلا يمر الشرط.",
+          "B": "صح؛ الناتج `['Sara','Omar']`.",
+          "C": "غلط؛ Sara أيضًا تمر الشرط.",
+          "D": "غلط؛ Ali لا تمر."
+        }
       }
     },
     {
@@ -2037,8 +2493,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`iloc[1:4:2,0]` تختار الصفين index1 وindex3 من العمود الأول A: القيم 20 و40، ومجموعهما60.",
+        "options": {
+          "A": "غلط؛ 40 قيمة عنصر واحد فقط.",
+          "B": "صح؛ 20+40=60.",
+          "C": "غلط؛ 50 لا ينتج من الـslice.",
+          "D": "غلط؛ 70 غير ناتجة."
+        }
       }
     },
     {
@@ -2089,8 +2557,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`df.drop('B', axis=1)` بدون `inplace=True` وبدون إسناد النتيجة لا يغيّر df الأصلي، لذلك الأعمدة تظل A وB وC.",
+        "options": {
+          "A": "غلط؛ هذا سيكون الناتج لو تم حفظ نتيجة drop.",
+          "B": "غلط؛ A لا تُحذف.",
+          "C": "صح؛ الأعمدة الأصلية تظل كما هي.",
+          "D": "غلط؛ C لا تختفي."
+        }
       }
     },
     {
@@ -2141,8 +2621,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`df.copy()` تنشئ DataFrame مستقلة. تعديل copy_df لا يغيّر df. أقصى Score في df هو90، وفي النسخة بعد تغيير 90 إلى10 يصبح70.",
+        "options": {
+          "A": "غلط؛ Max الأصلية ليست70.",
+          "B": "غلط؛ Max النسخة لم تعد90.",
+          "C": "غلط؛ الأصلية ما زالت90.",
+          "D": "صح؛ الناتج `90 70`."
+        }
       }
     },
     {
@@ -2193,8 +2685,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد الترتيب تنازليًا حسب Score يصبح الترتيب Sara=90 ثم Omar=80 ثم Ali=75. الصف الثاني `.iloc[1]` هو Omar واسمه C.",
+        "options": {
+          "A": "صح؛ Name في الصف الثاني بعد الترتيب هو C.",
+          "B": "غلط؛ A هي أقل Score.",
+          "C": "غلط؛ B هي أعلى Score وتأتي أولًا.",
+          "D": "غلط؛ المطلوب Name وليس Score."
+        }
       }
     },
     {
@@ -2245,8 +2749,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`value_counts()` تعد التكرارات: Cairo ظهرت3 مرات وGiza مرتين.",
+        "options": {
+          "A": "غلط؛ الأعداد معكوسة.",
+          "B": "صح؛ `3 2`.",
+          "C": "غلط؛ Giza ليست مرة واحدة.",
+          "D": "غلط؛ Cairo ليست مرتين."
+        }
       }
     },
     {
@@ -2297,8 +2813,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "العمود A يحتوي NaN واحدة، والعمود B يحتوي NaN اثنتين، لذا `isnull().sum()` تعطي `[1,2]`.",
+        "options": {
+          "A": "صح؛ A=1 وB=2.",
+          "B": "غلط؛ الترتيب معكوس.",
+          "C": "غلط؛ B بها Missing إضافية.",
+          "D": "غلط؛ A ليست بها2 Missing."
+        }
       }
     },
     {
@@ -2349,8 +2877,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "متوسط القيم غير المفقودة في Score هو `(10+30+50)/3 = 30`. `fillna(mean)` تستبدل NaN بـ30.",
+        "options": {
+          "A": "غلط؛ 20 ليست المتوسط.",
+          "B": "غلط؛ 45 ليست المتوسط.",
+          "C": "غلط؛ لم يتم استخدام0.",
+          "D": "صح؛ الناتج `[10.0,30.0,30.0,50.0]`."
+        }
       }
     },
     {
@@ -2401,8 +2941,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الصف `(1,'x')` مكرر مرة واحدة؛ `duplicated().sum()` =1. وبعد `drop_duplicates()` تبقى ثلاثة صفوف فريدة.",
+        "options": {
+          "A": "صح؛ النتيجة `1 3`.",
+          "B": "غلط؛ بعد حذف التكرار لا تبقى4 صفوف.",
+          "C": "غلط؛ يوجد Duplicate واحد فقط.",
+          "D": "غلط؛ عدد الـduplicates ليس2."
+        }
       }
     },
     {
@@ -2453,8 +3005,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`map(mapping)` يجد A→10 وB→20، لكن X غير موجودة في mapping فتتحول إلىNaN. يوجد X مرة واحدة فقط.",
+        "options": {
+          "A": "غلط؛ توجد قيمة مفقودة واحدة.",
+          "B": "غلط؛ ليست اثنتين.",
+          "C": "غلط؛ ليست كل القيم مفقودة.",
+          "D": "صح؛ `isnull().sum()` =1."
+        }
       }
     },
     {
@@ -2505,8 +3069,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "السعر في index1 هو200. تطبيق `lambda x: x*0.9` يعطي 180.0.",
+        "options": {
+          "A": "غلط؛ 170 لا تمثل خصم10% من200.",
+          "B": "غلط؛ 190 ليست النتيجة.",
+          "C": "صح؛ 200×0.9=180.0.",
+          "D": "غلط؛ هذه القيمة قبل الخصم."
+        }
       }
     },
     {
@@ -2557,8 +3133,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد `pd.to_datetime`، `.dt.day` تستخرج رقم اليوم من التاريخ: 3 و5.",
+        "options": {
+          "A": "غلط؛ 8 هو الشهر.",
+          "B": "صح؛ `[3,5]`.",
+          "C": "غلط؛ هذه السنة.",
+          "D": "غلط؛ التاريخ الثاني يومه5."
+        }
       }
     },
     {
@@ -2609,8 +3197,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد فلترة Score>=80 نحصل على IT80, IT80, HR90, Sales85. `drop_duplicates()` يزيل تكرار IT، ثم الترتيب يجعل HR90 أولًا وSales85 ثانيًا وIT80 ثالثًا. إذن الصف الثاني Sales وعدد الصفوف3.",
+        "options": {
+          "A": "غلط؛ IT تأتي ثالثًا بعد الترتيب.",
+          "B": "صح؛ `Sales 3`.",
+          "C": "غلط؛ HR تأتي أولًا.",
+          "D": "غلط؛ التكرار أزيل فأصبح العدد3."
+        }
       }
     }
   ]

@@ -59,8 +59,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "قاعدة البيانات العلائقية تنظّم البيانات في Tables من Rows وColumns، وتربط هذه الجداول بعلاقات ومفاتيح.",
+        "options": {
+          "A": "غلط؛ هذا أقرب لملفات مستقلة بلا Relational model.",
+          "B": "غلط؛ هذا يصف Hierarchical model.",
+          "C": "صح؛ هذا هو وصف Relational Database.",
+          "D": "غلط؛ هذا أقرب لDocument-oriented databases."
+        }
       }
     },
     {
@@ -113,8 +125,20 @@
         "juniorQuestionIds": [
           "official-sql-q0023"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "PRIMARY KEY تضمن هوية فريدة لكل Row؛ قيمها يجب أن تكون Unique وغير NULL.",
+        "options": {
+          "A": "صح؛ هذا هو الدور الأساسي للمفتاح الأساسي.",
+          "B": "غلط؛ لا توصل كل Tables تلقائيًا؛ العلاقات تحتاج Foreign Keys.",
+          "C": "غلط؛ التكرار يتعارض مع uniqueness.",
+          "D": "غلط؛ لا تحول النص إلى أرقام تلقائيًا."
+        }
       }
     },
     {
@@ -165,8 +189,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ER Diagram تُستخدم في مرحلة تصميم البيانات لتمثيل Entities وAttributes والعلاقات بينها بصريًا قبل أوأثناء تحويل التصميم إلىSchema علائقية.",
+        "options": {
+          "A": "صح؛ هذا هو الهدف الأساسي من ERD.",
+          "B": "غلط؛ ERD لا تنفذ UPDATEs.",
+          "C": "غلط؛ Permission management ليس غرضها.",
+          "D": "غلط؛ لا تُستخدم لحساب Aggregates."
+        }
       }
     },
     {
@@ -217,8 +253,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Weak Entity لا تملك استقلالًا كاملًا في تعريف هويتها، وتعتمد على Strong/Owner Entity في الوجود أوالتعريف.",
+        "options": {
+          "A": "غلط؛ هذا يصف Strong Entity مستقلة.",
+          "B": "غلط؛ وجود Multivalued attributes لا يجعل الكيان Weak.",
+          "C": "صح؛ تعتمد على Parent/Strong entity.",
+          "D": "غلط؛ Weak Entity مفهوم ER modeling وليس Fact Table فقط."
+        }
       }
     },
     {
@@ -271,8 +319,20 @@
         "juniorQuestionIds": [
           "official-sql-q0024"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في علاقة 1:N، مفتاح جهة الـ1 ينتقل كForeign Key إلى جدول جهة الـN حتى يستطيع كل صف من الجانب المتعدد الإشارة إلى Parent واحد.",
+        "options": {
+          "A": "غلط؛ وضع مفتاح N في جهة 1 لا يمثل العلاقة بصورة صحيحة عادةً.",
+          "B": "صح؛ PK من جهة 1 تصبح FK في جهة N.",
+          "C": "غلط؛ Junction Table تستخدم أساسًا لعلاقة M:N.",
+          "D": "غلط؛ العلاقة تحتاج Foreign Key لتمثيل الربط في النموذج العلاقي."
+        }
       }
     },
     {
@@ -323,8 +383,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "العلاقة M:N لا يمكن تمثيلها عادةً بوضع Foreign Key واحد في أحد الطرفين فقط؛ نستخدم Junction/Bridge Table تحتوي مفاتيح الكيانين.",
+        "options": {
+          "A": "غلط؛ دمج الكيانين يسبب تكرارًا ومشكلات تصميم.",
+          "B": "غلط؛ مفتاح طرف واحد لا يمثل كل combinations.",
+          "C": "غلط؛ نفس المشكلة بالعكس.",
+          "D": "صح؛ Junction Table هي الطريقة القياسية."
+        }
       }
     },
     {
@@ -375,8 +447,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الضرب له أولوية أعلى من الجمع: `4*2 = 8` ثم `8+8 = 16`.",
+        "options": {
+          "A": "صح؛ الناتج 16.",
+          "B": "غلط؛ 24 ينتج لو تم جمع 8+4 أولًا ثم الضرب، وهذا يخالف precedence.",
+          "C": "غلط؛ لا ينتج 20 من هذا التعبير.",
+          "D": "غلط؛ 12 ليست النتيجة بعد تطبيق ترتيب العمليات."
+        }
       }
     },
     {
@@ -427,8 +511,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Star Schema تستخدم Dimensions أكثر تسطيحًا ومتصلة مباشرة بالFact غالبًا، بينما Snowflake Schema تطبع Normalization أكثر على Dimensions إلىجداول فرعية.",
+        "options": {
+          "A": "غلط؛ الاتجاه معكوس.",
+          "B": "غلط؛ كلاهما يعتمد على Fact/Dimensions.",
+          "C": "غلط؛ Snowflake عادةً فيها Joins أكثر وتعقيد بنيوي أكبر.",
+          "D": "صح؛ Star flatter وSnowflake more normalized."
+        }
       }
     },
     {
@@ -479,8 +575,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "القيمة 1250.75 تحتاج نوعًا رقميًا عشريًا دقيقًا؛ `DECIMAL(10,2)` يخزن رقمًا ثابت الدقة بخانتين عشريتين.",
+        "options": {
+          "A": "غلط؛ INT يخزن أعدادًا صحيحة فقط.",
+          "B": "غلط؛ VARCHAR نص وليس النوع المناسب لحسابات رقمية دقيقة.",
+          "C": "صح؛ DECIMAL(10,2) مناسب.",
+          "D": "غلط؛ DATE للتواريخ."
+        }
       }
     },
     {
@@ -533,8 +641,20 @@
         "juniorQuestionIds": [
           "official-sql-q0026"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`CHECK` Constraint تفرض شرطًا منطقيًا على القيم، مثل `CHECK (Price > 0)`.",
+        "options": {
+          "A": "غلط؛ PRIMARY KEY تضمن uniqueness/identity.",
+          "B": "صح؛ CHECK هي المناسبة لفرض Price > 0.",
+          "C": "غلط؛ UNIQUE تمنع تكرار القيم لكنها لا تضمن أنها موجبة.",
+          "D": "غلط؛ NOT NULL تمنع القيمة المفقودة فقط."
+        }
       }
     },
     {
@@ -585,8 +705,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`ALTER TABLE` هي DDL statement المستخدمة لتغيير Structure جدول موجود مثل إضافة Column أوConstraint.",
+        "options": {
+          "A": "غلط؛ INSERT INTO تضيف Rows.",
+          "B": "غلط؛ UPDATE تعدل البيانات.",
+          "C": "غلط؛ SELECT تسترجع البيانات.",
+          "D": "صح؛ ALTER TABLE تعدل Schema structure."
+        }
       }
     },
     {
@@ -639,8 +771,20 @@
         "juniorQuestionIds": [
           "official-sql-q0033"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`TRUNCATE TABLE` تزيل كل Rows بسرعة مع الإبقاء على Structure الجدول، بخلاف `DROP TABLE` التي تزيل الجدول نفسه.",
+        "options": {
+          "A": "غلط؛ DELETE يمكن أن تحذف الصفوف لكنها ليست DDL المقصودة في السؤال ولا توصف عادةً بنفس سلوك TRUNCATE.",
+          "B": "غلط؛ DROP تزيل الجدول وهيكله.",
+          "C": "غلط؛ ALTER تعدل Structure.",
+          "D": "صح؛ TRUNCATE تفرغ الجدول وتحافظ على Structure."
+        }
       }
     },
     {
@@ -693,8 +837,20 @@
         "juniorQuestionIds": [
           "official-sql-q0075"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إضافة Row جديدة تستخدم `INSERT INTO` ثم أسماء الأعمدة والقيم حسب الصيغة.",
+        "options": {
+          "A": "صح؛ INSERT INTO تضيف سجلًا جديدًا.",
+          "B": "غلط؛ UPDATE تعدل الموجود.",
+          "C": "غلط؛ DELETE FROM تحذف.",
+          "D": "غلط؛ SELECT تسترجع."
+        }
       }
     },
     {
@@ -745,8 +901,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في DCL، `GRANT` تمنح Privileges للمستخدم أوRole، بينما `REVOKE` تسحبها.",
+        "options": {
+          "A": "غلط؛ REVOKE تسحب Permission.",
+          "B": "صح؛ GRANT تمنح Privileges.",
+          "C": "غلط؛ COMMIT تثبت Transaction.",
+          "D": "غلط؛ SAVEPOINT نقطة داخل Transaction."
+        }
       }
     },
     {
@@ -797,8 +965,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الشرط `Score >= 60` يمر Mona=80 وAli=65 فقط، بينما Ahmed=55 لا يمر. إذن COUNT(*) = 2.",
+        "options": {
+          "A": "غلط؛ هناك صفان يحققان الشرط.",
+          "B": "صح؛ النتيجة 2.",
+          "C": "غلط؛ Ahmed لا يحقق >=60.",
+          "D": "غلط؛ توجد Rows مطابقة."
+        }
       }
     },
     {
@@ -852,8 +1032,20 @@
           "official-sql-q0001",
           "official-sql-q0049"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الاستعلام يجمع Amount حسب City ثم يحتفظ فقط بالمجموعات التي مجموعها ≥550. Cairo=550 وGiza=600، بينما Alex=400.",
+        "options": {
+          "A": "غلط؛ Giza أيضًا تحقق الشرط.",
+          "B": "غلط؛ Cairo أيضًا تحقق الشرط بالضبط عند 550.",
+          "C": "غلط؛ Alex مجموعها 400 فلا تمر HAVING.",
+          "D": "صح؛ Cairo وGiza هما المجموعتان اللتان تحققان الشرط."
+        }
       }
     },
     {
@@ -907,8 +1099,20 @@
           "official-sql-q0054",
           "official-sql-q0081"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "المطلوب Age أكبر من 30 حرفيًا، لذلك الشرط الصحيح هو `WHERE age > 30` وليس `>=30`.",
+        "options": {
+          "A": "غلط؛ `>=30` تشمل عمر 30 أيضًا.",
+          "B": "غلط؛ `=30` يعيد عمر 30 فقط.",
+          "C": "صح؛ `>30` يطابق المطلوب بدقة.",
+          "D": "غلط؛ BETWEEN 0 AND 30 يعيد الأعمار حتى 30، وهو عكس المطلوب."
+        }
       }
     },
     {
@@ -964,8 +1168,20 @@
           "official-sql-q0084",
           "official-sql-q0085"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Older first تعني Age تنازليًا `DESC`، وعند التعادل نريد Name أبجديًا `ASC`.",
+        "options": {
+          "A": "صح؛ Age DESC ثم Name ASC تحقق الشرطين.",
+          "B": "غلط؛ Age ASC يضع الأصغر أولًا.",
+          "C": "غلط؛ Name DESC يعكس الترتيب الأبجدي المطلوب.",
+          "D": "غلط؛ Age ASC لا يحقق older first."
+        }
       }
     },
     {
@@ -1020,8 +1236,20 @@
           "official-sql-q0060",
           "official-sql-q0076"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`DISTINCT` تزيل النتائج المكررة بالنسبة للأعمدة الموجودة في SELECT، فتُرجع combinations فريدة.",
+        "options": {
+          "A": "غلط؛ Sorting يتم بـORDER BY.",
+          "B": "غلط؛ Grouping يتم بـGROUP BY.",
+          "C": "صح؛ DISTINCT تزيل التكرارات من Result Set.",
+          "D": "غلط؛ لا تعمل كفلتر NULL تلقائي."
+        }
       }
     },
     {
@@ -1074,8 +1302,20 @@
         "juniorQuestionIds": [
           "official-sql-q0052"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عند اختيار `city` مع `COUNT(*)` يجب التجميع حسب city حتى نحصل على Count مستقل لكل مدينة.",
+        "options": {
+          "A": "غلط؛ بدون GROUP BY لا يمكن إرجاع city غير المجمعة مع COUNT بشكل صحيح في SQL القياسي.",
+          "B": "صح؛ GROUP BY city تنتج صفًا لكل مدينة وعدد عملائها.",
+          "C": "غلط؛ التجميع حسب customer_id يعطي مجموعات على مستوى العميل لا المدينة.",
+          "D": "غلط؛ DISTINCT هنا لا يحسب عدد العملاء لكل مدينة."
+        }
       }
     },
     {
@@ -1129,8 +1369,20 @@
           "official-sql-q0037",
           "official-sql-q0038"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`COUNT(*)` تعد كل 10 Rows، بينما `COUNT(Phone)` تتجاهل NULL في Phone، فيبقى 8 قيم غير NULL.",
+        "options": {
+          "A": "غلط؛ COUNT(*) ليست 8؛ هي 10.",
+          "B": "صح؛ النتيجة 10 و8.",
+          "C": "غلط؛ الترتيب معكوس.",
+          "D": "غلط؛ COUNT(Phone) لا تعد الصفين اللذين Phone فيهما NULL."
+        }
       }
     },
     {
@@ -1184,8 +1436,20 @@
           "official-sql-q0007",
           "official-sql-q0066"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "القيمة المفقودة في SQL تُختبر باستخدام `IS NULL` وليس بعامل المساواة العادي، لأن NULL تمثل قيمة غير معروفة.",
+        "options": {
+          "A": "صح؛ `WHERE Phone IS NULL` هي الصيغة الصحيحة للبحث عن القيم المفقودة.",
+          "B": "غلط؛ `= NULL` لا تُستخدم لاختبار NULL.",
+          "C": "غلط؛ `IN NULL` ليست صيغة صحيحة لهذا الغرض.",
+          "D": "غلط؛ `LIKE` لمطابقة النصوص وليس لاختبار NULL."
+        }
       }
     },
     {
@@ -1238,8 +1502,20 @@
         "juniorQuestionIds": [
           "official-sql-q0057"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`BETWEEN 20 AND 35` شاملة للحدين، أي 20 و35 داخل النطاق.",
+        "options": {
+          "A": "صح؛ BETWEEN تشمل الحد الأدنى والأعلى.",
+          "B": "غلط؛ ليست Exclusive.",
+          "C": "غلط؛ 35 أيضًا مشمولة.",
+          "D": "غلط؛ 20 أيضًا مشمولة."
+        }
       }
     },
     {
@@ -1292,8 +1568,20 @@
         "juniorQuestionIds": [
           "official-sql-q0062"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Pattern `A%` تعني أن الاسم يبدأ بحرف A ثم يمكن أن يتبعه أي عدد من الأحرف.",
+        "options": {
+          "A": "غلط؛ `%A` يعني ينتهي بـA.",
+          "B": "غلط؛ `%A%` يعني يحتوي A في أي مكان.",
+          "C": "صح؛ `A%` = starts with A.",
+          "D": "غلط؛ `_A%` يتطلب حرفًا قبل A."
+        }
       }
     },
     {
@@ -1347,8 +1635,20 @@
           "official-sql-q0039",
           "official-sql-q0054"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`WHERE` تصفي Rows قبل التجميع، بينما `HAVING` تصفي المجموعات أوالنتائج المجمعة بعد GROUP BY.",
+        "options": {
+          "A": "غلط؛ WHERE لا تصفي Groups وHAVING لا تستخدم للSort.",
+          "B": "غلط؛ WHERE لا ترتب والـHAVING لا تزيل التكرارات.",
+          "C": "صح؛ هذا هو الفرق الأساسي.",
+          "D": "غلط؛ WHERE لا تنشئ Groups وHAVING لا تعمل قبل Grouping."
+        }
       }
     },
     {
@@ -1401,8 +1701,20 @@
         "juniorQuestionIds": [
           "official-sql-q0041"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإيجاد القيم المكررة نعمل `GROUP BY Email` ثم نحتفظ فقط بالمجموعات التي `COUNT(*) > 1`.",
+        "options": {
+          "A": "غلط؛ `=1` تعني غير مكرر.",
+          "B": "غلط؛ `>=1` تشمل كل القيم الموجودة.",
+          "C": "غلط؛ `<1` لن تعيد مجموعات فعلية.",
+          "D": "صح؛ `>1` يحدد القيم التي ظهرت أكثر من مرة."
+        }
       }
     },
     {
@@ -1455,8 +1767,20 @@
         "juniorQuestionIds": [
           "official-sql-q0008"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`COALESCE(Phone,'NO PHONE')` ترجع Phone إذا لم تكن NULL، وإلا ترجع النص البديل.",
+        "options": {
+          "A": "غلط؛ NULLIF تقارن قيمتين وقد تعيد NULL.",
+          "B": "صح؛ COALESCE ترجع أول قيمة غير NULL.",
+          "C": "غلط؛ CONCAT للدمج النصي.",
+          "D": "غلط؛ SUBSTRING لا تعالج NULL بهذا الشكل."
+        }
       }
     },
     {
@@ -1509,8 +1833,20 @@
         "juniorQuestionIds": [
           "official-sql-q0011"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Age=42 لا يحقق `<25` ولا `BETWEEN 25 AND 40`، لذلك ينتقل إلى ELSE ويرجع `Senior`.",
+        "options": {
+          "A": "غلط؛ Young للأقل من25.",
+          "B": "غلط؛ Adult من25 إلى40 شاملًا.",
+          "C": "غلط؛ CASE فيها ELSE فلا ترجع NULL.",
+          "D": "صح؛ 42 تقع في ELSE = Senior."
+        }
       }
     },
     {
@@ -1561,8 +1897,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "حسب صياغة الـSession في المصدر، إضافة 7 أيام تتم بـ`DATE_ADD(OrderDate, INTERVAL 7 DAY)`.",
+        "options": {
+          "A": "صح؛ تضيف 7 DAY إلىOrderDate.",
+          "B": "غلط؛ تضيف 7 أشهر.",
+          "C": "غلط؛ DATEDIFF تحسب فرقًا زمنيًا ولا تضيف أيامًا.",
+          "D": "غلط؛ ترتيب Arguments غير صحيح."
+        }
       }
     },
     {
@@ -1613,8 +1961,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في SQL Server، `IF...ELSE` تتحكم في تنفيذ Statement Blocks بناءً على Boolean condition. أما CASE فهي Expression تُرجع قيمة.",
+        "options": {
+          "A": "غلط؛ CASE تعبير وليس Statement control block كامل.",
+          "B": "غلط؛ PIVOT لتحويل rows إلىcolumns.",
+          "C": "غلط؛ WITH لCTE.",
+          "D": "صح؛ IF...ELSE هي control-flow construct المطلوبة."
+        }
       }
     },
     {
@@ -1668,8 +2028,20 @@
           "official-sql-q0035",
           "official-sql-q0036"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "تشغيل UPDATE بدون WHERE يجعل التعديل ينطبق على كل الصفوف في الجدول.",
+        "options": {
+          "A": "صح؛ كل Rows قد تتغير.",
+          "B": "غلط؛ لا يقتصر على أول Row.",
+          "C": "غلط؛ UPDATE لا تتحول إلىSELECT.",
+          "D": "غلط؛ WHERE ليست إلزامية نحويًا لكنها مهمة لتحديد الصفوف."
+        }
       }
     },
     {
@@ -1723,8 +2095,20 @@
           "official-sql-q0002",
           "official-sql-q0056"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`INNER JOIN` ترجع فقط الصفوف التي تحقق شرط الربط في الجدولين.",
+        "options": {
+          "A": "غلط؛ هذا أقرب لـLEFT JOIN.",
+          "B": "غلط؛ هذا أقرب لـFULL OUTER JOIN.",
+          "C": "صح؛ Matches فقط.",
+          "D": "غلط؛ هذا CROSS JOIN."
+        }
       }
     },
     {
@@ -1778,8 +2162,20 @@
           "official-sql-q0003",
           "official-sql-q0055"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`LEFT JOIN` تحفظ كل Rows من الجدول الأيسر وتضيف المطابق من اليمين.",
+        "options": {
+          "A": "غلط؛ Matches only = INNER JOIN.",
+          "B": "غلط؛ هذا RIGHT JOIN.",
+          "C": "غلط؛ LEFT JOIN لا تقتصر على غير المطابق فقط.",
+          "D": "صح؛ All left + matching right."
+        }
       }
     },
     {
@@ -1832,8 +2228,20 @@
         "juniorQuestionIds": [
           "official-sql-q0018"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SELF JOIN تعني ربط الجدول بنفسه، وهي مناسبة لعلاقات هرمية داخل نفس الجدول مثل Employee→Manager.",
+        "options": {
+          "A": "صح؛ الموظف والمشرف موجودان في نفس Table.",
+          "B": "غلط؛ هذا استخدام UNION.",
+          "C": "غلط؛ هذا Join بين جدولين مختلفين.",
+          "D": "غلط؛ هذا Grouping وليس Self Join."
+        }
       }
     },
     {
@@ -1886,8 +2294,20 @@
         "juniorQuestionIds": [
           "official-sql-q0042"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "LEFT JOIN تحفظ Salma رغم عدم وجود Order. COUNT(o.OrderID) لا تعد NULL، فتصبح النتائج Ahmed=2, Mona=1, Salma=0.",
+        "options": {
+          "A": "غلط؛ يحذف Salma من النتيجة.",
+          "B": "صح؛ هذه النتيجة الكاملة.",
+          "C": "غلط؛ Ahmed لديه طلبان وليس واحدًا.",
+          "D": "غلط؛ Salma ليس لديها Order لذلك Count=0."
+        }
       }
     },
     {
@@ -1938,8 +2358,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Subquery غير Correlated، يتم عادةً تقييم الـInner Query أولًا ثم يستخدم الـOuter Query نتيجتها.",
+        "options": {
+          "A": "صح؛ هذا هو التدفق المنطقي المعتاد.",
+          "B": "غلط؛ الـOuter تحتاج نتيجة الـInner أولًا.",
+          "C": "غلط؛ GROUP BY ليست قاعدة عامة هنا.",
+          "D": "غلط؛ لا يلزم التنفيذ في نفس اللحظة."
+        }
       }
     },
     {
@@ -1992,8 +2424,20 @@
         "juniorQuestionIds": [
           "official-sql-q0015"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "متوسط الرواتب = (4000+6000+8000)/3 = 6000. الشرط `Salary > 6000` يمر فقط Salma=8000.",
+        "options": {
+          "A": "غلط؛ Ahmed أقل من المتوسط.",
+          "B": "صح؛ Salma الوحيدة أعلى من6000.",
+          "C": "غلط؛ Mona تساوي المتوسط وليست أكبر.",
+          "D": "غلط؛ Mona لا تحقق >."
+        }
       }
     },
     {
@@ -2044,8 +2488,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عامل `> ALL` يعني أن القيمة يجب أن تكون أكبر من كل قيمة يعيدها الـSubquery؛ أي أكبر من الحد الأعلى بينها.",
+        "options": {
+          "A": "غلط؛ أكبر من قيمة واحدة فقط أقرب لمنطق > ANY.",
+          "B": "غلط؛ الشرط أكبر من، وليس يساوي الأكبر.",
+          "C": "غلط؛ المتوسط غير مستخدم.",
+          "D": "صح؛ يجب أن تكون أكبر من كل الأسعار المعادة."
+        }
       }
     },
     {
@@ -2096,8 +2552,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`EXISTS` لا تهتم بالقيم نفسها؛ تختبر فقط هل الـSubquery أعادت Row واحدة على الأقل.",
+        "options": {
+          "A": "غلط؛ لا تُرجع Count.",
+          "B": "غلط؛ لا تُرجع Scalar value من subquery.",
+          "C": "صح؛ تختبر وجود Rows.",
+          "D": "غلط؛ لا ترتب النتائج."
+        }
       }
     },
     {
@@ -2150,8 +2618,20 @@
         "juniorQuestionIds": [
           "official-sql-q0017"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`UNION` يدمج النتائج ويزيل التكرارات، بينما `UNION ALL` يحتفظ بها.",
+        "options": {
+          "A": "غلط؛ معكوس الحقيقة.",
+          "B": "صح؛ هذا الفرق الأساسي.",
+          "C": "غلط؛ لا يتعلق بفرز الأعمدة أوGrouping.",
+          "D": "غلط؛ UNION ليست Join بالمفاتيح."
+        }
       }
     },
     {
@@ -2202,8 +2682,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Window Functions تحسب عبر مجموعة Rows مرتبطة بالصف الحالي لكنها تبقي Row-level detail، بخلاف GROUP BY الذي يختصر الصفوف إلىGroups.",
+        "options": {
+          "A": "غلط؛ Window Functions تعمل مع أنواع متعددة وليست Text فقط.",
+          "B": "غلط؛ هي لا تزيل Row detail.",
+          "C": "غلط؛ لا تحتاج Permanent temp table.",
+          "D": "صح؛ تحسب مع الاحتفاظ بكل Row."
+        }
       }
     },
     {
@@ -2254,8 +2746,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "مع `RANK()`، القيم المتساوية تأخذ نفس Rank، والرتبة التالية تقفز حسب عدد الصفوف المتعادلة: 9000,9000,8000 → 1,1,3.",
+        "options": {
+          "A": "غلط؛ هذا يتجاهل التعادل.",
+          "B": "غلط؛ 1,1,2 هو DENSE_RANK.",
+          "C": "صح؛ RANK يترك Gap بعد التعادل.",
+          "D": "غلط؛ أول قيمة يجب أن تبدأ Rank=1."
+        }
       }
     },
     {
@@ -2306,8 +2810,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`DENSE_RANK()` تعطي القيم المتساوية نفس Rank بدون ترك Gap: 9000,9000,8000 → 1,1,2.",
+        "options": {
+          "A": "غلط؛ لا يعطي قيمًا مختلفة للمتعادلة.",
+          "B": "غلط؛ أول قيمتين متساويتان فيجب أن تأخذا نفس Rank.",
+          "C": "صح؛ لا يوجد Gap.",
+          "D": "غلط؛ 1,1,3 هو RANK وليس DENSE_RANK."
+        }
       }
     },
     {
@@ -2358,8 +2874,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`ROW_NUMBER()` تعطي كل Row رقمًا متسلسلًا فريدًا وفق ORDER BY، حتى لو كانت القيم نفسها متساوية.",
+        "options": {
+          "A": "صح؛ كل Row تحصل على رقم Unique.",
+          "B": "غلط؛ هذا يصف RANK تقريبًا.",
+          "C": "غلط؛ هذا يصف DENSE_RANK.",
+          "D": "غلط؛ القيمة السابقة تُرجعها LAG."
+        }
       }
     },
     {
@@ -2410,8 +2938,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`LAG()` ترجع قيمة من Row سابقة داخل Window حسب ترتيبها، بينما `LEAD()` تنظر إلىRow لاحقة.",
+        "options": {
+          "A": "غلط؛ LEAD تنظر للأمام.",
+          "B": "غلط؛ RANK تعطي ترتيبًا.",
+          "C": "غلط؛ AVG() OVER() تحسب متوسطًا نافذيًا.",
+          "D": "صح؛ LAG ترجع قيمة من الصف السابق."
+        }
       }
     },
     {
@@ -2465,8 +3005,20 @@
           "official-sql-q0021",
           "official-sql-q0022"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CTE التي تُعرّف بـ`WITH HighEarners AS (...)` هي Result Set مسماة مؤقتًا ومتاحة للاستعلام الرئيسي فقط ضمن نفس Statement.",
+        "options": {
+          "A": "صح؛ هذا تعريف CTE.",
+          "B": "غلط؛ ليست Table دائمة.",
+          "C": "غلط؛ ليست Stored Procedure.",
+          "D": "غلط؛ ليست View دائمة."
+        }
       }
     },
     {
@@ -2517,8 +3069,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`PIVOT` تحول قيمًا مميزة موجودة في Rows إلىColumns، وغالبًا تحتاج Aggregation لتعبئة خلايا الجدول الناتج.",
+        "options": {
+          "A": "غلط؛ لا تنشئ Tables منفصلة لكل Column.",
+          "B": "صح؛ تحول row values إلىcolumns باستخدام aggregation.",
+          "C": "غلط؛ معالجة NULL ليست التحول الرئيسي.",
+          "D": "غلط؛ لا تقوم بStar Schema joins."
+        }
       }
     },
     {
@@ -2569,8 +3133,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في SQL Server، إذا حدث Runtime Error قابل للمعالجة داخل `BEGIN TRY` ينتقل التنفيذ إلى`BEGIN CATCH` المرتبط به.",
+        "options": {
+          "A": "غلط؛ لا يتم Commit تلقائيًا بسبب الخطأ.",
+          "B": "غلط؛ التنفيذ لا يكمل ببساطة نفس TRY بعد الخطأ.",
+          "C": "صح؛ ينتقل إلىCATCH.",
+          "D": "غلط؛ لا يتحول إلىIF...ELSE."
+        }
       }
     },
     {
@@ -2623,8 +3199,20 @@
         "juniorQuestionIds": [
           "official-sql-q0030"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـView هي Virtual Table معرفّة بواسطة Query مخزنة.",
+        "options": {
+          "A": "غلط؛ ليست نسخة مادية عادية من Base Table.",
+          "B": "صح؛ هذا التعريف الأدق.",
+          "C": "غلط؛ هذا يصف Savepoint/transaction concept.",
+          "D": "غلط؛ ليست Permission rule."
+        }
       }
     },
     {
@@ -2677,8 +3265,20 @@
         "juniorQuestionIds": [
           "official-sql-q0031"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Stored Procedure هي مجموعة SQL statements مسماة ومخزنة يمكن تنفيذها وإعادة استخدامها.",
+        "options": {
+          "A": "غلط؛ هذا يصف View.",
+          "B": "صح؛ هذا تعريف Stored Procedure.",
+          "C": "غلط؛ هذا يصف Constraint.",
+          "D": "غلط؛ هذا أقرب لـCTE."
+        }
       }
     }
   ]

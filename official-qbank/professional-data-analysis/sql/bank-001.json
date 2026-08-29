@@ -61,8 +61,20 @@
         "juniorQuestionIds": [
           "official-sql-q0080"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في SQL، الصيغة القياسية لاسترجاع كل الأعمدة من جدول هي `SELECT * FROM table_name`. النجمة `*` تعني كل الأعمدة، و`FROM Employees` تحدد الجدول.",
+        "options": {
+          "A": "صح؛ `SELECT * FROM Employees;` هي الصيغة الصحيحة لاسترجاع جميع أعمدة جدول Employees.",
+          "B": "غلط؛ `GET` ليست جملة SQL قياسية لاسترجاع البيانات.",
+          "C": "غلط؛ `SHOW Employees` ليست بديلًا عن SELECT لقراءة كل صفوف وأعمدة الجدول.",
+          "D": "غلط؛ `FETCH` تُستخدم في سياقات أخرى مثل cursors، وليست الصيغة الأساسية لاسترجاع الجدول."
+        }
       }
     },
     {
@@ -115,8 +127,20 @@
         "juniorQuestionIds": [
           "official-sql-q0081"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`WHERE` تُستخدم لتصفية الصفوف قبل التجميع، بحيث تمر فقط الصفوف التي تحقق الشرط.",
+        "options": {
+          "A": "غلط؛ `ORDER BY` ترتب النتيجة ولا تختار الصفوف.",
+          "B": "صح؛ `WHERE` هي clause الخاصة بتصفية rows.",
+          "C": "غلط؛ `GROUP BY` تجمع الصفوف حسب قيم مشتركة.",
+          "D": "غلط؛ `HAVING` تُستخدم غالبًا لتصفية المجموعات بعد التجميع."
+        }
       }
     },
     {
@@ -169,8 +193,20 @@
         "juniorQuestionIds": [
           "official-sql-q0075"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إضافة سجل جديد إلى جدول تتم باستخدام `INSERT` أو `INSERT INTO`.",
+        "options": {
+          "A": "غلط؛ `UPDATE` تعدّل صفوفًا موجودة.",
+          "B": "غلط؛ `DELETE` تحذف صفوفًا موجودة.",
+          "C": "صح؛ `INSERT` تضيف Row جديدة.",
+          "D": "غلط؛ `SELECT` تقرأ البيانات فقط."
+        }
       }
     },
     {
@@ -223,8 +259,20 @@
         "juniorQuestionIds": [
           "official-sql-q0074"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "تعديل قيم موجودة داخل صفوف جدول يتم بجملة `UPDATE`، وعادةً مع `SET` و`WHERE`.",
+        "options": {
+          "A": "غلط؛ `INSERT` تضيف بيانات جديدة.",
+          "B": "صح؛ `UPDATE` تعدل البيانات الحالية.",
+          "C": "غلط؛ `DELETE` تزيل صفوفًا.",
+          "D": "غلط؛ `CREATE` تنشئ Objects جديدة مثل Table."
+        }
       }
     },
     {
@@ -277,8 +325,20 @@
         "juniorQuestionIds": [
           "official-sql-q0073"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إذا كان المطلوب إزالة Rows من جدول مع بقاء الجدول نفسه، فالجملة هي `DELETE`.",
+        "options": {
+          "A": "غلط؛ `DROP` تزيل Object نفسه مثل Table.",
+          "B": "غلط؛ `TRUNCATE` تفرغ الجدول كله بسرعة وليست حذف Rows انتقائيًا.",
+          "C": "غلط؛ `ALTER` تعدّل Structure.",
+          "D": "صح؛ `DELETE` هي DML المخصصة لحذف الصفوف."
+        }
       }
     },
     {
@@ -332,8 +392,20 @@
           "official-sql-q0069",
           "official-sql-q0084"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`ORDER BY` هي clause المستخدمة للترتيب، وإذا لم تكتب `DESC` فالاتجاه الافتراضي يكون `ASC` في SQL.",
+        "options": {
+          "A": "صح؛ `ORDER BY` ترتب النتائج وASC هو الافتراضي.",
+          "B": "غلط؛ `GROUP BY` للتجميع وليس ترتيب العرض.",
+          "C": "غلط؛ `SORT` ليست clause SQL القياسية هنا.",
+          "D": "غلط؛ `RANK` Window Function للترتيب المنطقي داخل النتائج وليس clause فرز."
+        }
       }
     },
     {
@@ -386,8 +458,20 @@
         "juniorQuestionIds": [
           "official-sql-q0077"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`COUNT()` تستخدم لعد القيم/الصفوف حسب الصيغة، و`COUNT(*)` تحديدًا تعد كل الصفوف.",
+        "options": {
+          "A": "غلط؛ `SUM()` تجمع قيمًا رقمية.",
+          "B": "صح؛ `COUNT()` هي دالة العد.",
+          "C": "غلط؛ `AVG()` تحسب المتوسط.",
+          "D": "غلط؛ `MAX()` ترجع أكبر قيمة."
+        }
       }
     },
     {
@@ -440,8 +524,20 @@
         "juniorQuestionIds": [
           "official-sql-q0078"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`MAX()` ترجع أكبر قيمة موجودة في مجموعة أوعمود.",
+        "options": {
+          "A": "غلط؛ `MIN()` ترجع أصغر قيمة.",
+          "B": "غلط؛ `COUNT()` تعد العناصر.",
+          "C": "صح؛ `MAX()` ترجع أعلى قيمة.",
+          "D": "غلط؛ `AVG()` تحسب المتوسط."
+        }
       }
     },
     {
@@ -494,8 +590,20 @@
         "juniorQuestionIds": [
           "official-sql-q0067"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`GROUP BY` تجمع الصفوف التي تشترك في نفس قيمة أو مجموعة قيم حتى يمكن تطبيق Aggregates لكل مجموعة.",
+        "options": {
+          "A": "غلط؛ `ORDER BY` للترتيب.",
+          "B": "غلط؛ `WHERE` لتصفية rows.",
+          "C": "صح؛ `GROUP BY` هي clause التجميع.",
+          "D": "غلط؛ `DISTINCT` تزيل التكرارات من النتيجة ولا تنشئ مجموعات Aggregation."
+        }
       }
     },
     {
@@ -548,8 +656,20 @@
         "juniorQuestionIds": [
           "official-sql-q0013"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`IN` تختبر هل القيمة موجودة ضمن قائمة محددة، مثل `Region IN ('East','West')`.",
+        "options": {
+          "A": "غلط؛ `LIKE` لمطابقة Patterns نصية.",
+          "B": "غلط؛ `BETWEEN` لاختبار مدى بين حدين.",
+          "C": "صح؛ `IN` لمقارنة القيمة بقائمة Values.",
+          "D": "غلط؛ `EXISTS` تختبر هل Subquery أعاد أي صف."
+        }
       }
     },
     {
@@ -603,8 +723,20 @@
           "official-sql-q0014",
           "official-sql-q0062"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "داخل `LIKE`، الرمز `%` يعني صفر أو أكثر من الأحرف، لذلك هو wildcard متعدد الأحرف.",
+        "options": {
+          "A": "غلط؛ `_` يمثل حرفًا واحدًا فقط.",
+          "B": "صح؛ `%` يمثل أي عدد من الأحرف بما فيها صفر.",
+          "C": "غلط؛ `*` ليست wildcard القياسية مع LIKE في SQL.",
+          "D": "غلط؛ `?` ليست wildcard القياسية مع LIKE."
+        }
       }
     },
     {
@@ -658,8 +790,20 @@
           "official-sql-q0002",
           "official-sql-q0056"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`INNER JOIN` تعيد فقط الصفوف التي تحقق شرط التطابق بين الجدولين.",
+        "options": {
+          "A": "غلط؛ `LEFT JOIN` تحتفظ بكل صفوف اليسار حتى بدون Match.",
+          "B": "غلط؛ `RIGHT JOIN` تحتفظ بكل صفوف اليمين.",
+          "C": "صح؛ `INNER JOIN` = matching rows only.",
+          "D": "غلط؛ `CROSS JOIN` تنتج Cartesian product."
+        }
       }
     },
     {
@@ -713,8 +857,20 @@
           "official-sql-q0003",
           "official-sql-q0055"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`LEFT JOIN` تحتفظ بكل Rows من الجدول الأيسر وتضيف المطابق من الجدول الأيمن؛ غير المطابق يظهر بقيم NULL من جهة اليمين.",
+        "options": {
+          "A": "غلط؛ لا تعيد الجدول الأيمن فقط.",
+          "B": "صح؛ All left + matching right.",
+          "C": "غلط؛ Matches only هو سلوك INNER JOIN.",
+          "D": "غلط؛ Cartesian product هو CROSS JOIN."
+        }
       }
     },
     {
@@ -765,8 +921,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`RIGHT JOIN` تحتفظ بكل الصفوف من الجدول الموجود على اليمين، وتضيف الصفوف المطابقة من الجدول الأيسر. إذا لم يوجد Match في اليسار تظهر قيمه كـNULL.",
+        "options": {
+          "A": "صح؛ هذا هو تعريف RIGHT JOIN: كل اليمين + المطابق من اليسار.",
+          "B": "غلط؛ الاحتفاظ بكل صفوف اليسار هو LEFT JOIN.",
+          "C": "غلط؛ Matches only هو INNER JOIN.",
+          "D": "غلط؛ عدم وجود Match لا يعني عدم إرجاع Rows لأن RIGHT JOIN تحفظ جهة اليمين."
+        }
       }
     },
     {
@@ -819,8 +987,20 @@
         "juniorQuestionIds": [
           "official-sql-q0030"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـView هي جدول افتراضي يُعرَّف بواسطة Query مخزنة؛ عادةً لا تكون نسخة Physical مستقلة من البيانات الأساسية.",
+        "options": {
+          "A": "غلط؛ هذا يصف Base Table مادية.",
+          "B": "صح؛ View هي Virtual Table مبنية على Query.",
+          "C": "غلط؛ Index بنية لتحسين الوصول للبيانات.",
+          "D": "غلط؛ Trigger منطق ينفذ تلقائيًا عند Events."
+        }
       }
     },
     {
@@ -873,8 +1053,20 @@
         "juniorQuestionIds": [
           "official-sql-q0031"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "تشغيل Stored Procedure يتم عادةً بـ`EXEC/EXECUTE` في SQL Server أو`CALL` في أنظمة أخرى.",
+        "options": {
+          "A": "صح؛ `CALL/EXEC` هي أوامر التنفيذ الشائعة حسب الـDBMS.",
+          "B": "غلط؛ `CREATE` تنشئ الإجراء ولا تشغله.",
+          "C": "غلط؛ `ALTER` تعدل تعريف الإجراء.",
+          "D": "غلط؛ `USE` تغيّر قاعدة البيانات النشطة."
+        }
       }
     },
     {
@@ -925,8 +1117,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـTrigger هو كود مرتبط بحدث في قاعدة البيانات ويعمل تلقائيًا عند حدوث Event محدد مثل INSERT أوUPDATE أوDELETE حسب تعريفه.",
+        "options": {
+          "A": "غلط؛ الـTrigger ليس هدفه أن يُستدعى يدويًا كـStored Procedure.",
+          "B": "صح؛ ينفذ تلقائيًا عند الحدث المحدد.",
+          "C": "غلط؛ لا يرتبط بجدول أسبوعي افتراضيًا.",
+          "D": "غلط؛ لا يشترط أن ينفذه Admin يدويًا."
+        }
       }
     },
     {
@@ -979,8 +1183,20 @@
         "juniorQuestionIds": [
           "official-sql-q0029"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الهدف الأساسي من الـIndex هو تسريع عمليات البحث والوصول للصفوف، خصوصًا الاستعلامات التي تستفيد من الأعمدة المفهرسة.",
+        "options": {
+          "A": "غلط؛ Index تستهلك Storage إضافي ولا هدفها الأساسي توفيره.",
+          "B": "صح؛ تحسن Query/Search performance.",
+          "C": "غلط؛ ليست آلية Security.",
+          "D": "غلط؛ لا تُستخدم أساسًا للBackups."
+        }
       }
     },
     {
@@ -1033,8 +1249,20 @@
         "juniorQuestionIds": [
           "official-sql-q0067"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`GROUP BY` هي clause المرتبطة عادةً باستخدام Aggregate Functions عندما تريد نتيجة منفصلة لكل Group.",
+        "options": {
+          "A": "صح؛ تستخدم مع SUM/COUNT/AVG وغيرها لتجميع النتائج حسب Dimension.",
+          "B": "غلط؛ `VALUES` لا تنشئ Grouping.",
+          "C": "غلط؛ `INTO` له أغراض أخرى كإنشاء/توجيه النتائج.",
+          "D": "غلط؛ `DISTINCT` يزيل التكرارات ولا يقوم بدور GROUP BY العام مع Aggregates."
+        }
       }
     },
     {
@@ -1088,8 +1316,20 @@
           "official-sql-q0063",
           "official-sql-q0068"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الدالة `AVG()` تحسب المتوسط الحسابي للقيم الرقمية غير NULL.",
+        "options": {
+          "A": "غلط؛ `SUM()` تجمع القيم.",
+          "B": "غلط؛ `COUNT()` تعد القيم/الصفوف.",
+          "C": "صح؛ `AVG()` ترجع Average.",
+          "D": "غلط؛ `MIN()` ترجع أقل قيمة."
+        }
       }
     },
     {
@@ -1142,8 +1382,20 @@
         "juniorQuestionIds": [
           "official-sql-q0039"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`HAVING` تصفي Groups بعد أن يتم تكوينها وحساب Aggregates، لذلك تستخدم لشروط مثل `SUM(Sales)>1000`.",
+        "options": {
+          "A": "غلط؛ `WHERE` تصفي Rows قبل التجميع.",
+          "B": "صح؛ `HAVING` لتصفية المجموعات بعد Aggregation.",
+          "C": "غلط؛ `ORDER BY` للترتيب.",
+          "D": "غلط؛ `TOP` لتحديد عدد Rows في SQL Server."
+        }
       }
     },
     {
@@ -1198,8 +1450,20 @@
           "official-sql-q0060",
           "official-sql-q0076"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`SELECT DISTINCT` تزيل الصفوف أوالقيم المكررة من Result Set بالنسبة للأعمدة المختارة.",
+        "options": {
+          "A": "غلط؛ `ALL` لا يزيل التكرار.",
+          "B": "غلط؛ `SELECT UNIQUE` ليست الصيغة القياسية المطلوبة هنا.",
+          "C": "صح؛ `SELECT DISTINCT` هي الصيغة الصحيحة.",
+          "D": "غلط؛ `SELECT ONLY` ليست syntax قياسية."
+        }
       }
     },
     {
@@ -1253,8 +1517,20 @@
           "official-sql-q0014",
           "official-sql-q0062"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`LIKE` تستخدم مع Patterns نصية مثل `A%` أو`%son` للبحث وفق نمط.",
+        "options": {
+          "A": "غلط؛ `IN` لقائمة قيم.",
+          "B": "غلط؛ `BETWEEN` لمدى.",
+          "C": "صح؛ `LIKE` لمطابقة Pattern.",
+          "D": "غلط؛ `EXISTS` تفحص وجود Rows من Subquery."
+        }
       }
     },
     {
@@ -1307,8 +1583,20 @@
         "juniorQuestionIds": [
           "official-sql-q0062"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Pattern `A%` يعني أن النص يبدأ بحرف A ثم يمكن أن يتبعه أي عدد من الأحرف.",
+        "options": {
+          "A": "غلط؛ ending with A يكتب غالبًا `%A`.",
+          "B": "صح؛ `A%` = يبدأ بـA.",
+          "C": "غلط؛ لا يشترط أن يكون النص كله A فقط.",
+          "D": "غلط؛ Exact A تكون مساواة أوLIKE 'A' بدون `%`."
+        }
       }
     },
     {
@@ -1362,8 +1650,20 @@
           "official-sql-q0003",
           "official-sql-q0055"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "عندما نريد كل Customers حتى الذين ليس لديهم Orders، نضع Customers في اليسار ونستخدم `LEFT JOIN`.",
+        "options": {
+          "A": "غلط؛ INNER JOIN ستستبعد العملاء بدون Orders.",
+          "B": "صح؛ LEFT JOIN تحفظ كل صفوف Customers.",
+          "C": "غلط؛ RIGHT JOIN يعتمد على أن Customers تكون جهة اليمين، وهو ليس السيناريو المقصود.",
+          "D": "غلط؛ CROSS JOIN تنتج كل التركيبات الممكنة."
+        }
       }
     },
     {
@@ -1416,8 +1716,20 @@
         "juniorQuestionIds": [
           "official-sql-q0079"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لحساب إجمالي الرواتب نستخدم `SUM(Salary)` لأنها تجمع جميع القيم الرقمية.",
+        "options": {
+          "A": "غلط؛ AVG تحسب متوسط الراتب.",
+          "B": "غلط؛ MAX ترجع أعلى راتب.",
+          "C": "صح؛ SUM ترجع إجمالي الرواتب.",
+          "D": "غلط؛ COUNT تعد السجلات أوالقيم."
+        }
       }
     },
     {
@@ -1472,8 +1784,20 @@
           "official-sql-q0052",
           "official-sql-q0067"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`GROUP BY` تُستخدم عادةً مع Aggregate Functions مثل SUM وCOUNT وAVG لإنتاج ملخص لكل Group.",
+        "options": {
+          "A": "صح؛ هذا هو الاستخدام الأساسي.",
+          "B": "غلط؛ DELETE عملية حذف وليست سبب التجميع.",
+          "C": "غلط؛ UPDATE عملية تعديل.",
+          "D": "غلط؛ INDEX Object للأداء وليس Aggregation."
+        }
       }
     },
     {
@@ -1528,8 +1852,20 @@
           "official-sql-q0061",
           "official-sql-q0085"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`DESC` تعني Descending، وبالتالي `ORDER BY Salary DESC` يعرض أعلى Salary أولًا.",
+        "options": {
+          "A": "غلط؛ Lowest first يحتاج ASC.",
+          "B": "غلط؛ ORDER BY لا ترتب عشوائيًا.",
+          "C": "صح؛ Descending = أعلى إلىأقل.",
+          "D": "غلط؛ Salary رقمية هنا وليس ترتيبًا أبجديًا."
+        }
       }
     },
     {
@@ -1583,8 +1919,20 @@
           "official-sql-q0013",
           "official-sql-q0071"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`IN (a,b,c)` تعادل منطقيًا سلسلة OR مثل `x=a OR x=b OR x=c`.",
+        "options": {
+          "A": "صح؛ IN تختصر عدة شروط مساواة موصولة بـOR.",
+          "B": "غلط؛ AND يتطلب تحقق كل الشروط معًا.",
+          "C": "غلط؛ LIKE للنمط النصي.",
+          "D": "غلط؛ JOIN لربط Tables."
+        }
       }
     },
     {
@@ -1637,8 +1985,20 @@
         "juniorQuestionIds": [
           "official-sql-q0030"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـView تحفظ تعريف Query قابلة لإعادة الاستخدام وتُعامل كجدول افتراضي.",
+        "options": {
+          "A": "غلط؛ Index بنية وصول.",
+          "B": "صح؛ View هي reusable stored query/virtual table.",
+          "C": "غلط؛ Trigger ينفذ عند Events.",
+          "D": "غلط؛ Cursor للتعامل التكراري مع Result Set."
+        }
       }
     },
     {
@@ -1689,8 +2049,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "UDF أوUser-Defined Function هي Function يعرّفها المستخدم لإرجاع نتيجة يمكن استخدامها داخل الاستعلامات، وقد تختلف أشكالها حسب الـDBMS.",
+        "options": {
+          "A": "صح؛ الـUDF يمكنها إرجاع Value/نتيجة.",
+          "B": "غلط؛ وظيفة الـFunction أساسًا أن تعيد نتيجة.",
+          "C": "غلط؛ ليست محصورة في إرجاع Tables فقط؛ توجد Scalar UDFs أيضًا.",
+          "D": "غلط؛ لا تُعرّف لإرجاع Errors فقط."
+        }
       }
     },
     {
@@ -1743,8 +2115,20 @@
         "juniorQuestionIds": [
           "official-sql-q0031"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Stored Procedures يمكن تصميمها بمعاملات Input/Output لتمرير قيم عند التنفيذ.",
+        "options": {
+          "A": "صح؛ قبول Parameters من أهم خصائصها.",
+          "B": "غلط؛ ليست مخصصة لتخزين الصور فقط.",
+          "C": "غلط؛ لا تستبدل Tables كفكرة.",
+          "D": "غلط؛ ليست مقتصرة على إنشاء Users."
+        }
       }
     },
     {
@@ -1795,8 +2179,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـTrigger مصمم ليعمل تلقائيًا عند Event مرتبط به، مثل INSERT أوUPDATE أوDELETE.",
+        "options": {
+          "A": "صح؛ التنفيذ التلقائي هو السلوك المقصود.",
+          "B": "غلط؛ لا يعمل كل دقيقة تلقائيًا لمجرد كونه Trigger.",
+          "C": "غلط؛ ليس Manual execution هو الأساس.",
+          "D": "غلط؛ Backup ليس الحدث الافتراضي المقصود."
+        }
       }
     },
     {
@@ -1849,8 +2245,20 @@
         "juniorQuestionIds": [
           "official-sql-q0031"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في SQL Server يتم تنفيذ Stored Procedure باستخدام `EXEC` أو`EXECUTE`.",
+        "options": {
+          "A": "غلط؛ `RUN` ليست الصيغة القياسية في SQL Server.",
+          "B": "صح؛ `EXEC` تنفذ الإجراء.",
+          "C": "غلط؛ `OPEN` تُستخدم في سياقات أخرى.",
+          "D": "غلط؛ `GO` Batch separator في أدوات SQL Server وليست أمر تنفيذ Procedure."
+        }
       }
     },
     {
@@ -1901,8 +2309,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`ALTER VIEW` تُستخدم لتعديل تعريف View موجودة بدون حذفها وإعادة إنشائها من الصفر.",
+        "options": {
+          "A": "صح؛ ALTER VIEW تعدل تعريف الـView.",
+          "B": "غلط؛ حذف View يتم عادةً بـDROP VIEW.",
+          "C": "غلط؛ ليست مخصصة فقط لعمل Index.",
+          "D": "غلط؛ Rename Database عملية مختلفة."
+        }
       }
     },
     {
@@ -1955,8 +2375,20 @@
         "juniorQuestionIds": [
           "official-sql-q0039"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في المنطق العام للاستعلام، يتم تكوين Groups أولًا ثم تطبق `HAVING` لتصفية هذه المجموعات.",
+        "options": {
+          "A": "صح؛ HAVING تأتي منطقيًا بعد GROUP BY.",
+          "B": "غلط؛ WHERE تُقيّم قبل GROUP BY وليس HAVING قبلها.",
+          "C": "غلط؛ FROM من أوائل مراحل المعالجة.",
+          "D": "غلط؛ ORDER BY تأتي قرب نهاية المعالجة بعد HAVING."
+        }
       }
     },
     {
@@ -2009,8 +2441,20 @@
         "juniorQuestionIds": [
           "official-sql-q0029"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـIndex هي البنية الأساسية المستخدمة لتحسين سرعة البحث والوصول للبيانات في استعلامات مناسبة.",
+        "options": {
+          "A": "غلط؛ Trigger للEvents.",
+          "B": "صح؛ Index تحسن Search performance.",
+          "C": "غلط؛ View لتنظيم/إعادة استخدام Query.",
+          "D": "غلط؛ Constraint لفرض قواعد Integrity."
+        }
       }
     },
     {
@@ -2061,8 +2505,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إنشاء User-Defined Function يتم باستخدام `CREATE FUNCTION`. وإذا كانت Scalar UDF فهي تعيد قيمة Scalar واحدة لكل استدعاء.",
+        "options": {
+          "A": "صح؛ `CREATE FUNCTION` هي الجملة الصحيحة.",
+          "B": "غلط؛ `CREATE PROCEDURE` تنشئ Stored Procedure.",
+          "C": "غلط؛ `CREATE VIEW` تنشئ View.",
+          "D": "غلط؛ `CREATE INDEX` تنشئ Index."
+        }
       }
     },
     {
@@ -2113,8 +2569,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في SQL Server، داخل Trigger يمكن الرجوع إلى الصفوف الجديدة من خلال الجدول المنطقي `inserted`. في UPDATE يحتوي `inserted` على القيم الجديدة.",
+        "options": {
+          "A": "صح؛ `inserted` يحتوي الصفوف الجديدة/بعد التعديل.",
+          "B": "غلط؛ `deleted` يحتوي الصفوف القديمة أوالمحذوفة.",
+          "C": "غلط؛ `newrows` ليست الـpseudo-table القياسية في SQL Server.",
+          "D": "غلط؛ `values` ليست الجدول المنطقي المقصود."
+        }
       }
     },
     {
@@ -2167,8 +2635,20 @@
         "juniorQuestionIds": [
           "official-sql-q0039"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد التجميع، شرط تصفية النتائج المجمعة يوضع في `HAVING` وليس `WHERE`.",
+        "options": {
+          "A": "غلط؛ WHERE للRows قبل Aggregation.",
+          "B": "صح؛ HAVING للAggregated groups.",
+          "C": "غلط؛ ORDER BY يرتب فقط.",
+          "D": "غلط؛ TOP يحد عدد الصفوف."
+        }
       }
     },
     {
@@ -2219,8 +2699,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "حذف View كـDatabase Object يتم باستخدام `DROP VIEW`.",
+        "options": {
+          "A": "صح؛ هذه الصيغة القياسية لحذف View.",
+          "B": "غلط؛ DELETE تستخدم لحذف Rows من Tables.",
+          "C": "غلط؛ REMOVE VIEW ليست syntax قياسية.",
+          "D": "غلط؛ ALTER VIEW تعدل تعريفها ولا تحذفها."
+        }
       }
     },
     {
@@ -2271,8 +2763,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "إذا كان Trigger مُعرّفًا ليعمل بعد تعديل Rows، فحدثه هو `AFTER UPDATE`.",
+        "options": {
+          "A": "صح؛ هذا هو Event الصحيح للسؤال.",
+          "B": "غلط؛ `ON CHANGE` ليست صيغة Trigger Event القياسية هنا.",
+          "C": "غلط؛ `WHEN UPDATE` ليست الصيغة المطلوبة.",
+          "D": "غلط؛ `UPDATE EVENT` ليست syntax SQL Server."
+        }
       }
     },
     {
@@ -2325,8 +2829,20 @@
         "juniorQuestionIds": [
           "official-sql-q0038"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`COUNT(*)` تعد جميع Rows الناتجة حتى لو كانت بعض الأعمدة داخل الصف تحتوي NULL، لأنها تعد الصف نفسه.",
+        "options": {
+          "A": "صح؛ كل Rows تُحسب.",
+          "B": "غلط؛ هذا أقرب لـCOUNT(column) الذي يتجاهل NULL في ذلك العمود.",
+          "C": "غلط؛ DISTINCT يحتاج أن يُذكر صراحةً.",
+          "D": "غلط؛ COUNT(*) لا تعد الأعمدة."
+        }
       }
     },
     {
@@ -2379,8 +2895,20 @@
         "juniorQuestionIds": [
           "official-sql-q0058"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "للبحث عن أسماء تنتهي بـ`son` نضع `%` قبل النص: `LIKE '%son'`، لأن أي مقدمة مسموحة لكن النهاية ثابتة.",
+        "options": {
+          "A": "غلط؛ `son%` يعني يبدأ بـson.",
+          "B": "صح؛ `%son` يعني ينتهي بـson.",
+          "C": "غلط؛ `%son%` يعني يحتوي son في أي مكان.",
+          "D": "غلط؛ `_son` يعني حرف واحد ثم son فقط."
+        }
       }
     },
     {
@@ -2433,8 +2961,20 @@
         "juniorQuestionIds": [
           "official-sql-q0039"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`HAVING COUNT(*) > 5` تُطبق بعد GROUP BY، وبالتالي تحتفظ فقط بالمجموعات التي عدد صفوفها أكبر من 5.",
+        "options": {
+          "A": "صح؛ الشرط يفلتر Groups.",
+          "B": "غلط؛ Row filtering قبل التجميع يتم بـWHERE.",
+          "C": "غلط؛ لا يفلتر Tables كObjects.",
+          "D": "غلط؛ لا علاقة له بالIndexes."
+        }
       }
     },
     {
@@ -2487,8 +3027,20 @@
         "juniorQuestionIds": [
           "official-sql-q0031"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Stored Procedure تخزن منطق SQL باسم يمكن تنفيذه وإعادة استخدامه، وغالبًا تُحضَّر خطط تنفيذها وفق الـDBMS.",
+        "options": {
+          "A": "صح؛ هي Object مخصصة لمنطق SQL قابل لإعادة التنفيذ.",
+          "B": "غلط؛ View تمثل Query افتراضية وليست Procedure.",
+          "C": "غلط؛ Index ليس منطقًا تنفيذيًا.",
+          "D": "غلط؛ Trigger أيضًا منطق SQL لكنه مرتبط Event تلقائي، وليس الاختيار المقصود هنا."
+        }
       }
     },
     {
@@ -2541,8 +3093,20 @@
         "juniorQuestionIds": [
           "official-sql-q0031"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "`EXEC dbo.uspGetData` يستدعي Stored Procedure اسمها `uspGetData` داخل schema `dbo`.",
+        "options": {
+          "A": "صح؛ EXEC تنفذ Stored Procedure.",
+          "B": "غلط؛ إنشاء View يحتاج CREATE VIEW.",
+          "C": "غلط؛ إنشاء Index يحتاج CREATE INDEX.",
+          "D": "غلط؛ حذف Table يحتاج DROP TABLE."
+        }
       }
     },
     {
@@ -2593,8 +3157,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Object الذي يُنفذ تلقائيًا بعد INSERT هو Trigger مُعرّف على حدث INSERT.",
+        "options": {
+          "A": "صح؛ Trigger هو Event-driven object.",
+          "B": "غلط؛ View لا تنفذ تلقائيًا بعد INSERT.",
+          "C": "غلط؛ Function تُستدعى داخل تعبير أوQuery.",
+          "D": "غلط؛ Cursor آلية للتعامل مع Result Set."
+        }
       }
     },
     {
@@ -2645,8 +3221,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـIndexes تسرّع القراءة غالبًا، لكن كل INSERT/UPDATE قد يحتاج تحديث هذه الـIndexes، لذلك كثرتها ترفع تكلفة عمليات الكتابة.",
+        "options": {
+          "A": "صح؛ كثرة Indexes تؤثر على write performance خصوصًا INSERT/UPDATE.",
+          "B": "غلط؛ SELECT عادةً هي المستفيدة الأساسية من Indexes.",
+          "C": "غلط؛ الأثر الرئيسي هنا Performance وليس Security.",
+          "D": "غلط؛ Backups ليست النقطة الأساسية في السؤال."
+        }
       }
     },
     {
@@ -2697,8 +3285,20 @@
         "matchType": "unique",
         "confidence": "high",
         "juniorQuestionIds": [],
-        "explanationReuse": "new-required",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "new-created-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الـJOIN التي تضمن بقاء كل Rows من الجدول الموجود على اليمين هي `RIGHT JOIN`.",
+        "options": {
+          "A": "صح؛ RIGHT JOIN تحفظ كل جهة اليمين.",
+          "B": "غلط؛ LEFT JOIN تحفظ جهة اليسار.",
+          "C": "غلط؛ INNER JOIN تحفظ المطابق فقط.",
+          "D": "غلط؛ CROSS JOIN تنتج كل التركيبات."
+        }
       }
     },
     {
@@ -2751,8 +3351,20 @@
         "juniorQuestionIds": [
           "official-sql-q0030"
         ],
-        "explanationReuse": "adapt-and-review",
-        "reviewStatus": "pending-deep-explanation-review"
+        "explanationReuse": "adapted-and-reviewed",
+        "reviewStatus": "reviewed-batch"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "View مفيدة لإعادة استخدام Query معقدة كجدول افتراضي بدون تخزين نسخة مستقلة من البيانات في الحالة العادية.",
+        "options": {
+          "A": "صح؛ View هي الاختيار الأنسب لهذا الوصف.",
+          "B": "غلط؛ Trigger ينفذ تلقائيًا بسبب Event.",
+          "C": "غلط؛ Index يحسن الوصول لكنه لا يمثل Query قابلة للاستعلام كView.",
+          "D": "غلط؛ Cursor لمعالجة صفوف Result Set."
+        }
       }
     }
   ]
