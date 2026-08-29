@@ -1,30 +1,62 @@
 {
   "schemaVersion": "1.0",
-  "courseId": "data-analysis",
-  "course": "Data Analysis",
   "trackId": "sql",
   "track": "SQL & Databases",
   "curriculumVersion": "1.0",
-  "status": "final",
-  "generatedFrom": [
-    "Session1 (1).pptx",
-    "Session2.pptx",
-    "Session3.pptx",
-    "Session4.pptx",
-    "Session5.pptx",
-    "Session6.pptx",
-    "Session8.pptx",
-    "Session9.pptx"
-  ],
-  "topics": [
+  "curriculumStatus": "complete",
+  "sourceBatches": [
     {
-      "id": "database-fundamentals",
-      "title": "Database Fundamentals",
-      "importance": "important",
-      "status": "covered",
-      "aliases": [
-        "Database Fundamentals"
+      "id": "sql-batch-001",
+      "files": [
+        "Session1 (1).pptx"
       ],
+      "status": "processed"
+    },
+    {
+      "id": "sql-batch-002",
+      "files": [
+        "Session2.pptx"
+      ],
+      "status": "processed",
+      "scope": "DDL, DML, DQL only"
+    },
+    {
+      "id": "sql-batch-003",
+      "files": [
+        "Session3.pptx",
+        "Session4.pptx",
+        "Session5.pptx"
+      ],
+      "status": "processed"
+    },
+    {
+      "id": "sql-batch-004",
+      "files": [
+        "Session6.pptx"
+      ],
+      "status": "processed"
+    },
+    {
+      "id": "sql-batch-005",
+      "files": [
+        "Session8.pptx"
+      ],
+      "status": "processed"
+    },
+    {
+      "id": "sql-batch-006",
+      "files": [
+        "Session9.pptx"
+      ],
+      "status": "processed",
+      "isFinalCurriculumBatch": true
+    }
+  ],
+  "majorTopics": [
+    {
+      "topicId": "database-fundamentals",
+      "topic": "Database Fundamentals",
+      "importance": "important",
       "sourceFiles": [
         "Session1 (1).pptx"
       ],
@@ -36,45 +68,41 @@
       ],
       "subtopics": [
         {
-          "id": "database-definition",
-          "title": "Database definition and purpose",
+          "subtopicId": "database-definition",
+          "name": "Database definition and purpose",
           "importance": "important"
         },
         {
-          "id": "dbms-purpose",
-          "title": "DBMS purpose and characteristics",
+          "subtopicId": "dbms-purpose",
+          "name": "DBMS purpose and characteristics",
           "importance": "important"
         },
         {
-          "id": "database-advantages",
-          "title": "Advantages of databases",
+          "subtopicId": "database-advantages",
+          "name": "Advantages of databases",
           "importance": "supporting"
         },
         {
-          "id": "database-disadvantages",
-          "title": "Disadvantages of databases",
+          "subtopicId": "database-disadvantages",
+          "name": "Disadvantages of databases",
           "importance": "supporting"
         },
         {
-          "id": "dbms-examples",
-          "title": "Examples of DBMS products",
+          "subtopicId": "dbms-examples",
+          "name": "Examples of DBMS products",
           "importance": "supporting"
         },
         {
-          "id": "ddl-vs-dml-overview",
-          "title": "DDL vs DML overview",
+          "subtopicId": "ddl-vs-dml-overview",
+          "name": "DDL vs DML overview",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "data-models",
-      "title": "Data Models",
+      "topicId": "data-models",
+      "topic": "Data Models",
       "importance": "important",
-      "status": "covered",
-      "aliases": [
-        "Data Models"
-      ],
       "sourceFiles": [
         "Session1 (1).pptx"
       ],
@@ -88,50 +116,46 @@
       ],
       "subtopics": [
         {
-          "id": "data-model-definition",
-          "title": "Data model definition and components",
+          "subtopicId": "data-model-definition",
+          "name": "Data model definition and components",
           "importance": "important"
         },
         {
-          "id": "hierarchical-model",
-          "title": "Hierarchical model",
+          "subtopicId": "hierarchical-model",
+          "name": "Hierarchical model",
           "importance": "supporting"
         },
         {
-          "id": "network-model",
-          "title": "Network model",
+          "subtopicId": "network-model",
+          "name": "Network model",
           "importance": "supporting"
         },
         {
-          "id": "object-oriented-model",
-          "title": "Object-oriented model",
+          "subtopicId": "object-oriented-model",
+          "name": "Object-oriented model",
           "importance": "supporting"
         },
         {
-          "id": "document-model",
-          "title": "Document model",
+          "subtopicId": "document-model",
+          "name": "Document model",
           "importance": "supporting"
         },
         {
-          "id": "relational-model",
-          "title": "Relational model",
+          "subtopicId": "relational-model",
+          "name": "Relational model",
           "importance": "core"
         },
         {
-          "id": "er-model",
-          "title": "Entity-Relationship model",
+          "subtopicId": "er-model",
+          "name": "Entity-Relationship model",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "er-modeling",
-      "title": "Entity-Relationship Modeling",
+      "topicId": "er-modeling",
+      "topic": "Entity-Relationship Modeling",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "Entity-Relationship Modeling"
-      ],
       "sourceFiles": [
         "Session1 (1).pptx"
       ],
@@ -148,55 +172,51 @@
       ],
       "subtopics": [
         {
-          "id": "er-purpose",
-          "title": "ER modeling purpose and benefits",
+          "subtopicId": "er-purpose",
+          "name": "ER modeling purpose and benefits",
           "importance": "core"
         },
         {
-          "id": "er-notation",
-          "title": "ER notation: entities, attributes, relationships",
+          "subtopicId": "er-notation",
+          "name": "ER notation: entities, attributes, relationships",
           "importance": "core"
         },
         {
-          "id": "strong-vs-weak-entities",
-          "title": "Strong and weak entities",
+          "subtopicId": "strong-vs-weak-entities",
+          "name": "Strong and weak entities",
           "importance": "core"
         },
         {
-          "id": "attribute-types",
-          "title": "Simple, composite, derived, multivalued attributes",
+          "subtopicId": "attribute-types",
+          "name": "Simple, composite, derived, multivalued attributes",
           "importance": "core"
         },
         {
-          "id": "relationship-degree",
-          "title": "Unary, binary, ternary relationship degree",
+          "subtopicId": "relationship-degree",
+          "name": "Unary, binary, ternary relationship degree",
           "importance": "core"
         },
         {
-          "id": "cardinality",
-          "title": "1:1, 1:N, M:N cardinality ratios",
+          "subtopicId": "cardinality",
+          "name": "1:1, 1:N, M:N cardinality ratios",
           "importance": "core"
         },
         {
-          "id": "participation",
-          "title": "Total and partial participation",
+          "subtopicId": "participation",
+          "name": "Total and partial participation",
           "importance": "core"
         },
         {
-          "id": "primary-foreign-keys",
-          "title": "Primary keys and foreign keys",
+          "subtopicId": "primary-foreign-keys",
+          "name": "Primary keys and foreign keys",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "er-relational-mapping",
-      "title": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "topic": "ER to Relational Mapping",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "ER to Relational Mapping"
-      ],
       "sourceFiles": [
         "Session1 (1).pptx"
       ],
@@ -216,65 +236,61 @@
       ],
       "subtopics": [
         {
-          "id": "basic-mapping",
-          "title": "Entities to tables; attributes to columns",
+          "subtopicId": "basic-mapping",
+          "name": "Entities to tables; attributes to columns",
           "importance": "core"
         },
         {
-          "id": "strong-entity-mapping",
-          "title": "Mapping strong entities, composite and multivalued attributes",
+          "subtopicId": "strong-entity-mapping",
+          "name": "Mapping strong entities, composite and multivalued attributes",
           "importance": "core"
         },
         {
-          "id": "weak-entity-mapping",
-          "title": "Mapping weak entities and composite keys",
+          "subtopicId": "weak-entity-mapping",
+          "name": "Mapping weak entities and composite keys",
           "importance": "core"
         },
         {
-          "id": "binary-many-to-many",
-          "title": "Mapping binary M:N relationships",
+          "subtopicId": "binary-many-to-many",
+          "name": "Mapping binary M:N relationships",
           "importance": "core"
         },
         {
-          "id": "binary-one-to-many",
-          "title": "Mapping binary 1:N relationships",
+          "subtopicId": "binary-one-to-many",
+          "name": "Mapping binary 1:N relationships",
           "importance": "core"
         },
         {
-          "id": "binary-one-to-one",
-          "title": "Mapping binary 1:1 relationships with participation cases",
+          "subtopicId": "binary-one-to-one",
+          "name": "Mapping binary 1:1 relationships with participation cases",
           "importance": "core"
         },
         {
-          "id": "unary-one-to-one",
-          "title": "Mapping unary 1:1 relationships",
+          "subtopicId": "unary-one-to-one",
+          "name": "Mapping unary 1:1 relationships",
           "importance": "important"
         },
         {
-          "id": "unary-one-to-many",
-          "title": "Mapping unary 1:N relationships",
+          "subtopicId": "unary-one-to-many",
+          "name": "Mapping unary 1:N relationships",
           "importance": "important"
         },
         {
-          "id": "unary-many-to-many",
-          "title": "Mapping unary M:N relationships",
+          "subtopicId": "unary-many-to-many",
+          "name": "Mapping unary M:N relationships",
           "importance": "important"
         },
         {
-          "id": "complex-relationship-mapping",
-          "title": "Mapping complex / multi-entity relationships and relationship attributes",
+          "subtopicId": "complex-relationship-mapping",
+          "name": "Mapping complex / multi-entity relationships and relationship attributes",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "data-modeling-process",
-      "title": "Data Modeling Process",
+      "topicId": "data-modeling-process",
+      "topic": "Data Modeling Process",
       "importance": "important",
-      "status": "covered",
-      "aliases": [
-        "Data Modeling Process"
-      ],
       "sourceFiles": [
         "Session1 (1).pptx"
       ],
@@ -284,20 +300,16 @@
       ],
       "subtopics": [
         {
-          "id": "conceptual-logical-physical",
-          "title": "Conceptual, logical, and physical data models",
+          "subtopicId": "conceptual-logical-physical",
+          "name": "Conceptual, logical, and physical data models",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "schema-vs-instance",
-      "title": "Schema vs Data / Database Instance",
+      "topicId": "schema-vs-instance",
+      "topic": "Schema vs Data / Database Instance",
       "importance": "important",
-      "status": "covered",
-      "aliases": [
-        "Schema vs Data / Database Instance"
-      ],
       "sourceFiles": [
         "Session1 (1).pptx"
       ],
@@ -306,25 +318,21 @@
       ],
       "subtopics": [
         {
-          "id": "schema-instance",
-          "title": "Schema blueprint vs database instance snapshot",
+          "subtopicId": "schema-instance",
+          "name": "Schema blueprint vs database instance snapshot",
           "importance": "important"
         },
         {
-          "id": "schema-contents",
-          "title": "Schema constraints, tables, fields, data types, relationships",
+          "subtopicId": "schema-contents",
+          "name": "Schema constraints, tables, fields, data types, relationships",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "normalization",
-      "title": "Normalization",
+      "topicId": "normalization",
+      "topic": "Normalization",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "Normalization"
-      ],
       "sourceFiles": [
         "Session1 (1).pptx",
         "Session4.pptx"
@@ -345,60 +353,56 @@
       ],
       "subtopics": [
         {
-          "id": "normalization-overview",
-          "title": "Purpose of normalization",
+          "subtopicId": "normalization-overview",
+          "name": "Purpose of normalization",
           "importance": "core"
         },
         {
-          "id": "functional-dependency",
-          "title": "Functional dependency",
+          "subtopicId": "functional-dependency",
+          "name": "Functional dependency",
           "importance": "core"
         },
         {
-          "id": "full-functional-dependency",
-          "title": "Full functional dependency",
+          "subtopicId": "full-functional-dependency",
+          "name": "Full functional dependency",
           "importance": "core"
         },
         {
-          "id": "partial-functional-dependency",
-          "title": "Partial functional dependency",
+          "subtopicId": "partial-functional-dependency",
+          "name": "Partial functional dependency",
           "importance": "core"
         },
         {
-          "id": "transitive-functional-dependency",
-          "title": "Transitive functional dependency",
+          "subtopicId": "transitive-functional-dependency",
+          "name": "Transitive functional dependency",
           "importance": "core"
         },
         {
-          "id": "first-normal-form",
-          "title": "First Normal Form (1NF)",
+          "subtopicId": "first-normal-form",
+          "name": "First Normal Form (1NF)",
           "importance": "core"
         },
         {
-          "id": "second-normal-form",
-          "title": "Second Normal Form (2NF)",
+          "subtopicId": "second-normal-form",
+          "name": "Second Normal Form (2NF)",
           "importance": "core"
         },
         {
-          "id": "third-normal-form",
-          "title": "Third Normal Form (3NF)",
+          "subtopicId": "third-normal-form",
+          "name": "Third Normal Form (3NF)",
           "importance": "core"
         },
         {
-          "id": "normalization-sequence",
-          "title": "Normalization sequence and decomposition",
+          "subtopicId": "normalization-sequence",
+          "name": "Normalization sequence and decomposition",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "warehouse-schema-design",
-      "title": "Data Warehousing Schemas",
+      "topicId": "warehouse-schema-design",
+      "topic": "Data Warehousing Schemas",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "Data Warehousing Schemas"
-      ],
       "sourceFiles": [
         "Session1 (1).pptx"
       ],
@@ -411,30 +415,26 @@
       ],
       "subtopics": [
         {
-          "id": "star-schema",
-          "title": "Star Schema",
+          "subtopicId": "star-schema",
+          "name": "Star Schema",
           "importance": "core"
         },
         {
-          "id": "snowflake-schema",
-          "title": "Snowflake Schema",
+          "subtopicId": "snowflake-schema",
+          "name": "Snowflake Schema",
           "importance": "core"
         },
         {
-          "id": "star-vs-snowflake",
-          "title": "Star vs Snowflake comparison",
+          "subtopicId": "star-vs-snowflake",
+          "name": "Star vs Snowflake comparison",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "database-constraints",
-      "title": "Database Constraints",
+      "topicId": "database-constraints",
+      "topic": "Database Constraints",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "Database Constraints"
-      ],
       "sourceFiles": [
         "Session1 (1).pptx",
         "Session3.pptx",
@@ -456,50 +456,46 @@
       ],
       "subtopics": [
         {
-          "id": "constraint-types",
-          "title": "PRIMARY KEY, FOREIGN KEY, UNIQUE constraints",
+          "subtopicId": "constraint-types",
+          "name": "PRIMARY KEY, FOREIGN KEY, UNIQUE constraints",
           "importance": "important"
         },
         {
-          "id": "check-constraint",
-          "title": "CHECK constraint for positive prices",
+          "subtopicId": "check-constraint",
+          "name": "CHECK constraint for positive prices",
           "importance": "important"
         },
         {
-          "id": "unique-constraint",
-          "title": "Unique Constraint",
+          "subtopicId": "unique-constraint",
+          "name": "Unique Constraint",
           "importance": "core"
         },
         {
-          "id": "primary-key",
-          "title": "Primary Key",
+          "subtopicId": "primary-key",
+          "name": "Primary Key",
           "importance": "core"
         },
         {
-          "id": "not-null-constraint",
-          "title": "Not Null Constraint",
+          "subtopicId": "not-null-constraint",
+          "name": "Not Null Constraint",
           "importance": "core"
         },
         {
-          "id": "foreign-key",
-          "title": "Foreign Key",
+          "subtopicId": "foreign-key",
+          "name": "Foreign Key",
           "importance": "core"
         },
         {
-          "id": "composite-unique",
-          "title": "Composite Unique",
+          "subtopicId": "composite-unique",
+          "name": "Composite Unique",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "schema-design-practice",
-      "title": "Schema Design Labs & Assignments",
+      "topicId": "schema-design-practice",
+      "topic": "Schema Design Labs & Assignments",
       "importance": "important",
-      "status": "covered",
-      "aliases": [
-        "Schema Design Labs & Assignments"
-      ],
       "sourceFiles": [
         "Session1 (1).pptx",
         "Session4.pptx"
@@ -520,80 +516,76 @@
       ],
       "subtopics": [
         {
-          "id": "ecommerce-erd-lab",
-          "title": "E-commerce ERD and relational mapping",
+          "subtopicId": "ecommerce-erd-lab",
+          "name": "E-commerce ERD and relational mapping",
           "importance": "important"
         },
         {
-          "id": "star-schema-lab",
-          "title": "E-commerce Star Schema implementation",
+          "subtopicId": "star-schema-lab",
+          "name": "E-commerce Star Schema implementation",
           "importance": "important"
         },
         {
-          "id": "snowflake-schema-lab",
-          "title": "Product Catalog Snowflake implementation",
+          "subtopicId": "snowflake-schema-lab",
+          "name": "Product Catalog Snowflake implementation",
           "importance": "important"
         },
         {
-          "id": "retail-schema-assignment",
-          "title": "Retail Star/Snowflake comparison assignment",
+          "subtopicId": "retail-schema-assignment",
+          "name": "Retail Star/Snowflake comparison assignment",
           "importance": "important"
         },
         {
-          "id": "library-erd-lab",
-          "title": "Library ERD mapping lab",
+          "subtopicId": "library-erd-lab",
+          "name": "Library ERD mapping lab",
           "importance": "important"
         },
         {
-          "id": "student-course-assignment",
-          "title": "Student-course ERD with constraints",
+          "subtopicId": "student-course-assignment",
+          "name": "Student-course ERD with constraints",
           "importance": "important"
         },
         {
-          "id": "university-project-scope",
-          "title": "University Project Scope",
+          "subtopicId": "university-project-scope",
+          "name": "University Project Scope",
           "importance": "important"
         },
         {
-          "id": "university-relationships",
-          "title": "University Relationships",
+          "subtopicId": "university-relationships",
+          "name": "University Relationships",
           "importance": "core"
         },
         {
-          "id": "sql-naming",
-          "title": "Sql Naming",
+          "subtopicId": "sql-naming",
+          "name": "Sql Naming",
           "importance": "supporting"
         },
         {
-          "id": "teaches-relationship",
-          "title": "Teaches Relationship",
+          "subtopicId": "teaches-relationship",
+          "name": "Teaches Relationship",
           "importance": "core"
         },
         {
-          "id": "project-required-queries",
-          "title": "Project Required Queries",
+          "subtopicId": "project-required-queries",
+          "name": "Project Required Queries",
           "importance": "core"
         },
         {
-          "id": "project-checklist",
-          "title": "Project Checklist",
+          "subtopicId": "project-checklist",
+          "name": "Project Checklist",
           "importance": "supporting"
         },
         {
-          "id": "university-integrated-design",
-          "title": "University Integrated Design",
+          "subtopicId": "university-integrated-design",
+          "name": "University Integrated Design",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "sql-command-languages",
-      "title": "SQL Command Languages (DDL, DML, DQL)",
+      "topicId": "sql-command-languages",
+      "topic": "SQL Command Languages (DDL, DML, DQL)",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "SQL Command Languages (DDL, DML, DQL)"
-      ],
       "sourceFiles": [
         "Session2.pptx",
         "Session3.pptx"
@@ -614,80 +606,76 @@
       ],
       "subtopics": [
         {
-          "id": "sql-overview",
-          "title": "SQL overview",
+          "subtopicId": "sql-overview",
+          "name": "SQL overview",
           "importance": "important"
         },
         {
-          "id": "ddl-overview",
-          "title": "DDL overview",
+          "subtopicId": "ddl-overview",
+          "name": "DDL overview",
           "importance": "core"
         },
         {
-          "id": "dml-overview",
-          "title": "DML overview",
+          "subtopicId": "dml-overview",
+          "name": "DML overview",
           "importance": "core"
         },
         {
-          "id": "dql-select",
-          "title": "DQL — SELECT",
+          "subtopicId": "dql-select",
+          "name": "DQL — SELECT",
           "importance": "important"
         },
         {
-          "id": "ddl-create",
-          "title": "DDL — CREATE",
+          "subtopicId": "ddl-create",
+          "name": "DDL — CREATE",
           "importance": "core"
         },
         {
-          "id": "ddl-drop",
-          "title": "DDL — DROP",
+          "subtopicId": "ddl-drop",
+          "name": "DDL — DROP",
           "importance": "core"
         },
         {
-          "id": "ddl-alter",
-          "title": "DDL — ALTER",
+          "subtopicId": "ddl-alter",
+          "name": "DDL — ALTER",
           "importance": "core"
         },
         {
-          "id": "ddl-truncate",
-          "title": "DDL — TRUNCATE",
+          "subtopicId": "ddl-truncate",
+          "name": "DDL — TRUNCATE",
           "importance": "core"
         },
         {
-          "id": "dml-insert",
-          "title": "DML — INSERT",
+          "subtopicId": "dml-insert",
+          "name": "DML — INSERT",
           "importance": "core"
         },
         {
-          "id": "dml-delete",
-          "title": "DML — DELETE",
+          "subtopicId": "dml-delete",
+          "name": "DML — DELETE",
           "importance": "core"
         },
         {
-          "id": "dml-update",
-          "title": "DML — UPDATE",
+          "subtopicId": "dml-update",
+          "name": "DML — UPDATE",
           "importance": "important"
         },
         {
-          "id": "ddl-vs-dml",
-          "title": "DDL vs DML",
+          "subtopicId": "ddl-vs-dml",
+          "name": "DDL vs DML",
           "importance": "core"
         },
         {
-          "id": "ddl-indexes",
-          "title": "DDL — Indexes",
+          "subtopicId": "ddl-indexes",
+          "name": "DDL — Indexes",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "sql-query-fundamentals",
-      "title": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "topic": "SQL Query Fundamentals",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "SQL Query Fundamentals"
-      ],
       "sourceFiles": [
         "Session3.pptx",
         "Session8.pptx"
@@ -708,100 +696,96 @@
       ],
       "subtopics": [
         {
-          "id": "sql-syntax-basics",
-          "title": "SQL syntax basics",
+          "subtopicId": "sql-syntax-basics",
+          "name": "SQL syntax basics",
           "importance": "important"
         },
         {
-          "id": "statement-termination",
-          "title": "Statement termination / semicolons",
+          "subtopicId": "statement-termination",
+          "name": "Statement termination / semicolons",
           "importance": "supporting"
         },
         {
-          "id": "select-from-basics",
-          "title": "SELECT / FROM basics",
+          "subtopicId": "select-from-basics",
+          "name": "SELECT / FROM basics",
           "importance": "core"
         },
         {
-          "id": "select-distinct",
-          "title": "SELECT DISTINCT",
+          "subtopicId": "select-distinct",
+          "name": "SELECT DISTINCT",
           "importance": "core"
         },
         {
-          "id": "order-by",
-          "title": "ORDER BY",
+          "subtopicId": "order-by",
+          "name": "ORDER BY",
           "importance": "core"
         },
         {
-          "id": "crud-update",
-          "title": "CRUD — UPDATE",
+          "subtopicId": "crud-update",
+          "name": "CRUD — UPDATE",
           "importance": "core"
         },
         {
-          "id": "crud-safety",
-          "title": "CRUD safety",
+          "subtopicId": "crud-safety",
+          "name": "CRUD safety",
           "importance": "core"
         },
         {
-          "id": "select-specific-columns",
-          "title": "Selecting specific columns",
+          "subtopicId": "select-specific-columns",
+          "name": "Selecting specific columns",
           "importance": "core"
         },
         {
-          "id": "where-filtering",
-          "title": "WHERE filtering",
+          "subtopicId": "where-filtering",
+          "name": "WHERE filtering",
           "importance": "core"
         },
         {
-          "id": "group-by-aggregates",
-          "title": "GROUP BY with aggregates",
+          "subtopicId": "group-by-aggregates",
+          "name": "GROUP BY with aggregates",
           "importance": "core"
         },
         {
-          "id": "crud-delete",
-          "title": "CRUD — DELETE",
+          "subtopicId": "crud-delete",
+          "name": "CRUD — DELETE",
           "importance": "core"
         },
         {
-          "id": "query-quality",
-          "title": "Query quality and production practices",
+          "subtopicId": "query-quality",
+          "name": "Query quality and production practices",
           "importance": "important"
         },
         {
-          "id": "where-order-combination",
-          "title": "WHERE + ORDER BY composition",
+          "subtopicId": "where-order-combination",
+          "name": "WHERE + ORDER BY composition",
           "importance": "core"
         },
         {
-          "id": "query-composition",
-          "title": "Query composition",
+          "subtopicId": "query-composition",
+          "name": "Query composition",
           "importance": "core"
         },
         {
-          "id": "crud-overview",
-          "title": "CRUD overview",
+          "subtopicId": "crud-overview",
+          "name": "CRUD overview",
           "importance": "core"
         },
         {
-          "id": "crud-update-delete-tracing",
-          "title": "UPDATE / DELETE tracing",
+          "subtopicId": "crud-update-delete-tracing",
+          "name": "UPDATE / DELETE tracing",
           "importance": "core"
         },
         {
-          "id": "indexes",
-          "title": "Indexes",
+          "subtopicId": "indexes",
+          "name": "Indexes",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "sql-filtering",
-      "title": "SQL Filtering",
+      "topicId": "sql-filtering",
+      "topic": "SQL Filtering",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "SQL Filtering"
-      ],
       "sourceFiles": [
         "Session5.pptx"
       ],
@@ -821,80 +805,76 @@
       ],
       "subtopics": [
         {
-          "id": "query-execution-order",
-          "title": "Query execution order",
+          "subtopicId": "query-execution-order",
+          "name": "Query execution order",
           "importance": "core"
         },
         {
-          "id": "where-comparison",
-          "title": "WHERE with comparison operators",
+          "subtopicId": "where-comparison",
+          "name": "WHERE with comparison operators",
           "importance": "core"
         },
         {
-          "id": "comparison-operators",
-          "title": "Comparison operators",
+          "subtopicId": "comparison-operators",
+          "name": "Comparison operators",
           "importance": "core"
         },
         {
-          "id": "where-strings",
-          "title": "WHERE with strings",
+          "subtopicId": "where-strings",
+          "name": "WHERE with strings",
           "importance": "core"
         },
         {
-          "id": "logical-operators",
-          "title": "AND / OR logical operators",
+          "subtopicId": "logical-operators",
+          "name": "AND / OR logical operators",
           "importance": "core"
         },
         {
-          "id": "between",
-          "title": "BETWEEN",
+          "subtopicId": "between",
+          "name": "BETWEEN",
           "importance": "core"
         },
         {
-          "id": "like-patterns",
-          "title": "LIKE / NOT LIKE patterns",
+          "subtopicId": "like-patterns",
+          "name": "LIKE / NOT LIKE patterns",
           "importance": "core"
         },
         {
-          "id": "in-operator",
-          "title": "IN operator",
+          "subtopicId": "in-operator",
+          "name": "IN operator",
           "importance": "core"
         },
         {
-          "id": "null-basics",
-          "title": "NULL basics",
+          "subtopicId": "null-basics",
+          "name": "NULL basics",
           "importance": "core"
         },
         {
-          "id": "wildcards",
-          "title": "Wildcard characters",
+          "subtopicId": "wildcards",
+          "name": "Wildcard characters",
           "importance": "important"
         },
         {
-          "id": "null-predicates",
-          "title": "IS NULL / IS NOT NULL",
+          "subtopicId": "null-predicates",
+          "name": "IS NULL / IS NOT NULL",
           "importance": "core"
         },
         {
-          "id": "coalesce",
-          "title": "COALESCE",
+          "subtopicId": "coalesce",
+          "name": "COALESCE",
           "importance": "core"
         },
         {
-          "id": "null-in-left-join",
-          "title": "NULLs in LEFT JOIN",
+          "subtopicId": "null-in-left-join",
+          "name": "NULLs in LEFT JOIN",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "sql-aggregation",
-      "title": "SQL Aggregation",
+      "topicId": "sql-aggregation",
+      "topic": "SQL Aggregation",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "SQL Aggregation"
-      ],
       "sourceFiles": [
         "Session5.pptx"
       ],
@@ -914,55 +894,51 @@
       ],
       "subtopics": [
         {
-          "id": "count-null-behavior",
-          "title": "COUNT and NULL behavior",
+          "subtopicId": "count-null-behavior",
+          "name": "COUNT and NULL behavior",
           "importance": "core"
         },
         {
-          "id": "duplicates-distinct",
-          "title": "Duplicates and DISTINCT",
+          "subtopicId": "duplicates-distinct",
+          "name": "Duplicates and DISTINCT",
           "importance": "core"
         },
         {
-          "id": "find-duplicates",
-          "title": "Finding duplicates with GROUP BY / HAVING",
+          "subtopicId": "find-duplicates",
+          "name": "Finding duplicates with GROUP BY / HAVING",
           "importance": "core"
         },
         {
-          "id": "aggregate-function-types",
-          "title": "Aggregate function types",
+          "subtopicId": "aggregate-function-types",
+          "name": "Aggregate function types",
           "importance": "core"
         },
         {
-          "id": "order-by",
-          "title": "ORDER BY",
+          "subtopicId": "order-by",
+          "name": "ORDER BY",
           "importance": "core"
         },
         {
-          "id": "group-by",
-          "title": "GROUP BY",
+          "subtopicId": "group-by",
+          "name": "GROUP BY",
           "importance": "core"
         },
         {
-          "id": "having",
-          "title": "HAVING",
+          "subtopicId": "having",
+          "name": "HAVING",
           "importance": "core"
         },
         {
-          "id": "having-vs-where",
-          "title": "HAVING vs WHERE",
+          "subtopicId": "having-vs-where",
+          "name": "HAVING vs WHERE",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "sql-advanced-query-expressions",
-      "title": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "topic": "SQL Functions & Advanced Query Expressions",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "SQL Functions & Advanced Query Expressions"
-      ],
       "sourceFiles": [
         "Session5.pptx",
         "Session9.pptx"
@@ -983,95 +959,91 @@
       ],
       "subtopics": [
         {
-          "id": "row-number-duplicates",
-          "title": "ROW_NUMBER for duplicates",
+          "subtopicId": "row-number-duplicates",
+          "name": "ROW_NUMBER for duplicates",
           "importance": "important"
         },
         {
-          "id": "exists",
-          "title": "EXISTS",
+          "subtopicId": "exists",
+          "name": "EXISTS",
           "importance": "core"
         },
         {
-          "id": "any-all",
-          "title": "ANY / ALL",
+          "subtopicId": "any-all",
+          "name": "ANY / ALL",
           "importance": "important"
         },
         {
-          "id": "string-functions",
-          "title": "String functions",
+          "subtopicId": "string-functions",
+          "name": "String functions",
           "importance": "core"
         },
         {
-          "id": "date-functions",
-          "title": "Date / time functions",
+          "subtopicId": "date-functions",
+          "name": "Date / time functions",
           "importance": "core"
         },
         {
-          "id": "case-statements",
-          "title": "CASE expressions",
+          "subtopicId": "case-statements",
+          "name": "CASE expressions",
           "importance": "core"
         },
         {
-          "id": "intermediate-lab",
-          "title": "Intermediate SQL lab",
+          "subtopicId": "intermediate-lab",
+          "name": "Intermediate SQL lab",
           "importance": "important"
         },
         {
-          "id": "ecommerce-assignment",
-          "title": "E-commerce assignment patterns",
+          "subtopicId": "ecommerce-assignment",
+          "name": "E-commerce assignment patterns",
           "importance": "core"
         },
         {
-          "id": "ecommerce-sample-data",
-          "title": "E-commerce sample data queries",
+          "subtopicId": "ecommerce-sample-data",
+          "name": "E-commerce sample data queries",
           "importance": "important"
         },
         {
-          "id": "functions-exists-integration",
-          "title": "Functions + EXISTS integration",
+          "subtopicId": "functions-exists-integration",
+          "name": "Functions + EXISTS integration",
           "importance": "core"
         },
         {
-          "id": "scalar-functions",
-          "title": "Scalar functions",
+          "subtopicId": "scalar-functions",
+          "name": "Scalar functions",
           "importance": "core"
         },
         {
-          "id": "aggregate-functions",
-          "title": "Aggregate functions",
+          "subtopicId": "aggregate-functions",
+          "name": "Aggregate functions",
           "importance": "core"
         },
         {
-          "id": "mathematical-functions",
-          "title": "Mathematical functions",
+          "subtopicId": "mathematical-functions",
+          "name": "Mathematical functions",
           "importance": "important"
         },
         {
-          "id": "date-arithmetic",
-          "title": "Date / time arithmetic",
+          "subtopicId": "date-arithmetic",
+          "name": "Date / time arithmetic",
           "importance": "core"
         },
         {
-          "id": "functions-reporting-integration",
-          "title": "Functions in reporting",
+          "subtopicId": "functions-reporting-integration",
+          "name": "Functions in reporting",
           "importance": "core"
         },
         {
-          "id": "function-categories",
-          "title": "SQL function categories",
+          "subtopicId": "function-categories",
+          "name": "SQL function categories",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "joins",
-      "title": "Relational Joins",
+      "topicId": "joins",
+      "topic": "Relational Joins",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "Relational Joins"
-      ],
       "sourceFiles": [
         "Session6.pptx"
       ],
@@ -1091,55 +1063,51 @@
       ],
       "subtopics": [
         {
-          "id": "equi-join",
-          "title": "Equi Join",
+          "subtopicId": "equi-join",
+          "name": "Equi Join",
           "importance": "core"
         },
         {
-          "id": "non-equi-join",
-          "title": "Non-Equi Join",
+          "subtopicId": "non-equi-join",
+          "name": "Non-Equi Join",
           "importance": "important"
         },
         {
-          "id": "inner-join",
-          "title": "INNER JOIN",
+          "subtopicId": "inner-join",
+          "name": "INNER JOIN",
           "importance": "core"
         },
         {
-          "id": "outer-joins",
-          "title": "LEFT / RIGHT / FULL OUTER JOIN",
+          "subtopicId": "outer-joins",
+          "name": "LEFT / RIGHT / FULL OUTER JOIN",
           "importance": "core"
         },
         {
-          "id": "self-join",
-          "title": "Self Join",
+          "subtopicId": "self-join",
+          "name": "Self Join",
           "importance": "important"
         },
         {
-          "id": "cartesian-product",
-          "title": "Cartesian Product",
+          "subtopicId": "cartesian-product",
+          "name": "Cartesian Product",
           "importance": "important"
         },
         {
-          "id": "ambiguous-columns",
-          "title": "Ambiguous column names",
+          "subtopicId": "ambiguous-columns",
+          "name": "Ambiguous column names",
           "importance": "important"
         },
         {
-          "id": "table-aliases",
-          "title": "Table aliases",
+          "subtopicId": "table-aliases",
+          "name": "Table aliases",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "subqueries",
-      "title": "Subqueries & Nested Queries",
+      "topicId": "subqueries",
+      "topic": "Subqueries & Nested Queries",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "Subqueries & Nested Queries"
-      ],
       "sourceFiles": [
         "Session6.pptx",
         "Session8.pptx"
@@ -1160,75 +1128,71 @@
       ],
       "subtopics": [
         {
-          "id": "nested-query-basics",
-          "title": "Nested query basics",
+          "subtopicId": "nested-query-basics",
+          "name": "Nested query basics",
           "importance": "core"
         },
         {
-          "id": "subquery-where-having",
-          "title": "Subqueries in WHERE / HAVING",
+          "subtopicId": "subquery-where-having",
+          "name": "Subqueries in WHERE / HAVING",
           "importance": "core"
         },
         {
-          "id": "subquery-from-inline-view",
-          "title": "Subquery in FROM (inline view)",
+          "subtopicId": "subquery-from-inline-view",
+          "name": "Subquery in FROM (inline view)",
           "importance": "important"
         },
         {
-          "id": "subquery-where",
-          "title": "Subqueries in WHERE",
+          "subtopicId": "subquery-where",
+          "name": "Subqueries in WHERE",
           "importance": "core"
         },
         {
-          "id": "correlated-subquery",
-          "title": "Correlated subqueries",
+          "subtopicId": "correlated-subquery",
+          "name": "Correlated subqueries",
           "importance": "core"
         },
         {
-          "id": "subquery-select",
-          "title": "Subqueries in SELECT",
+          "subtopicId": "subquery-select",
+          "name": "Subqueries in SELECT",
           "importance": "core"
         },
         {
-          "id": "nested-subquery",
-          "title": "Nested subqueries",
+          "subtopicId": "nested-subquery",
+          "name": "Nested subqueries",
           "importance": "core"
         },
         {
-          "id": "any-all-exists",
-          "title": "ANY / ALL / EXISTS with subqueries",
+          "subtopicId": "any-all-exists",
+          "name": "ANY / ALL / EXISTS with subqueries",
           "importance": "core"
         },
         {
-          "id": "single-row-subqueries",
-          "title": "Single-row subqueries",
+          "subtopicId": "single-row-subqueries",
+          "name": "Single-row subqueries",
           "importance": "core"
         },
         {
-          "id": "multi-row-subqueries",
-          "title": "Multi-row subqueries",
+          "subtopicId": "multi-row-subqueries",
+          "name": "Multi-row subqueries",
           "importance": "core"
         },
         {
-          "id": "not-exists-null-safety",
-          "title": "NOT EXISTS and NULL safety",
+          "subtopicId": "not-exists-null-safety",
+          "name": "NOT EXISTS and NULL safety",
           "importance": "important"
         },
         {
-          "id": "subquery-best-practice",
-          "title": "Subquery best practices",
+          "subtopicId": "subquery-best-practice",
+          "name": "Subquery best practices",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "set-operations",
-      "title": "Set Operations",
+      "topicId": "set-operations",
+      "topic": "Set Operations",
       "importance": "important",
-      "status": "covered",
-      "aliases": [
-        "Set Operations"
-      ],
       "sourceFiles": [
         "Session6.pptx"
       ],
@@ -1244,25 +1208,21 @@
       ],
       "subtopics": [
         {
-          "id": "union",
-          "title": "UNION",
+          "subtopicId": "union",
+          "name": "UNION",
           "importance": "important"
         },
         {
-          "id": "union-all",
-          "title": "UNION ALL",
+          "subtopicId": "union-all",
+          "name": "UNION ALL",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "window-functions",
-      "title": "Window Functions",
+      "topicId": "window-functions",
+      "topic": "Window Functions",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "Window Functions"
-      ],
       "sourceFiles": [
         "Session8.pptx"
       ],
@@ -1282,60 +1242,56 @@
       ],
       "subtopics": [
         {
-          "id": "window-function-purpose",
-          "title": "Window function purpose",
+          "subtopicId": "window-function-purpose",
+          "name": "Window function purpose",
           "importance": "core"
         },
         {
-          "id": "partition-by",
-          "title": "PARTITION BY",
+          "subtopicId": "partition-by",
+          "name": "PARTITION BY",
           "importance": "core"
         },
         {
-          "id": "lag-lead",
-          "title": "LAG / LEAD",
+          "subtopicId": "lag-lead",
+          "name": "LAG / LEAD",
           "importance": "core"
         },
         {
-          "id": "aggregate-window-functions",
-          "title": "Aggregate window functions",
+          "subtopicId": "aggregate-window-functions",
+          "name": "Aggregate window functions",
           "importance": "core"
         },
         {
-          "id": "ranking-functions",
-          "title": "RANK / DENSE_RANK / ROW_NUMBER",
+          "subtopicId": "ranking-functions",
+          "name": "RANK / DENSE_RANK / ROW_NUMBER",
           "importance": "core"
         },
         {
-          "id": "ntile",
-          "title": "NTILE",
+          "subtopicId": "ntile",
+          "name": "NTILE",
           "importance": "important"
         },
         {
-          "id": "lag-lead-edge-values",
-          "title": "LAG / LEAD edge values",
+          "subtopicId": "lag-lead-edge-values",
+          "name": "LAG / LEAD edge values",
           "importance": "core"
         },
         {
-          "id": "window-vs-group-by",
-          "title": "Window functions vs GROUP BY",
+          "subtopicId": "window-vs-group-by",
+          "name": "Window functions vs GROUP BY",
           "importance": "core"
         },
         {
-          "id": "window-syntax",
-          "title": "Window function syntax",
+          "subtopicId": "window-syntax",
+          "name": "Window function syntax",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "common-table-expressions",
-      "title": "Common Table Expressions (CTEs)",
+      "topicId": "common-table-expressions",
+      "topic": "Common Table Expressions (CTEs)",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "Common Table Expressions (CTEs)"
-      ],
       "sourceFiles": [
         "Session8.pptx"
       ],
@@ -1349,45 +1305,41 @@
       ],
       "subtopics": [
         {
-          "id": "cte-purpose",
-          "title": "CTE purpose",
+          "subtopicId": "cte-purpose",
+          "name": "CTE purpose",
           "importance": "core"
         },
         {
-          "id": "cte-with-joins",
-          "title": "CTEs with joins",
+          "subtopicId": "cte-with-joins",
+          "name": "CTEs with joins",
           "importance": "core"
         },
         {
-          "id": "cte-syntax",
-          "title": "CTE syntax",
+          "subtopicId": "cte-syntax",
+          "name": "CTE syntax",
           "importance": "core"
         },
         {
-          "id": "cte-filtering",
-          "title": "CTE filtering",
+          "subtopicId": "cte-filtering",
+          "name": "CTE filtering",
           "importance": "core"
         },
         {
-          "id": "cte-vs-subquery",
-          "title": "CTE vs subquery",
+          "subtopicId": "cte-vs-subquery",
+          "name": "CTE vs subquery",
           "importance": "core"
         },
         {
-          "id": "cte-best-practice",
-          "title": "CTE best practices",
+          "subtopicId": "cte-best-practice",
+          "name": "CTE best practices",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "pivoting",
-      "title": "Pivoting",
+      "topicId": "pivoting",
+      "topic": "Pivoting",
       "importance": "important",
-      "status": "covered",
-      "aliases": [
-        "Pivoting"
-      ],
       "sourceFiles": [
         "Session8.pptx"
       ],
@@ -1403,40 +1355,36 @@
       ],
       "subtopics": [
         {
-          "id": "pivot-purpose",
-          "title": "PIVOT purpose",
+          "subtopicId": "pivot-purpose",
+          "name": "PIVOT purpose",
           "importance": "important"
         },
         {
-          "id": "pivot-components",
-          "title": "PIVOT components",
+          "subtopicId": "pivot-components",
+          "name": "PIVOT components",
           "importance": "important"
         },
         {
-          "id": "static-pivot",
-          "title": "Static PIVOT",
+          "subtopicId": "static-pivot",
+          "name": "Static PIVOT",
           "importance": "important"
         },
         {
-          "id": "dynamic-pivot",
-          "title": "Dynamic PIVOT",
+          "subtopicId": "dynamic-pivot",
+          "name": "Dynamic PIVOT",
           "importance": "supporting"
         },
         {
-          "id": "pivot-best-practice",
-          "title": "PIVOT best practices",
+          "subtopicId": "pivot-best-practice",
+          "name": "PIVOT best practices",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "sql-server-control-flow",
-      "title": "SQL Server Conditional Logic",
+      "topicId": "sql-server-control-flow",
+      "topic": "SQL Server Conditional Logic",
       "importance": "important",
-      "status": "covered",
-      "aliases": [
-        "SQL Server Conditional Logic"
-      ],
       "sourceFiles": [
         "Session8.pptx",
         "Session9.pptx"
@@ -1456,40 +1404,36 @@
       ],
       "subtopics": [
         {
-          "id": "if-else",
-          "title": "IF...ELSE",
+          "subtopicId": "if-else",
+          "name": "IF...ELSE",
           "importance": "important"
         },
         {
-          "id": "case-expression",
-          "title": "CASE expression",
+          "subtopicId": "case-expression",
+          "name": "CASE expression",
           "importance": "important"
         },
         {
-          "id": "iif",
-          "title": "IIF()",
+          "subtopicId": "iif",
+          "name": "IIF()",
           "importance": "important"
         },
         {
-          "id": "case-vs-if-else",
-          "title": "CASE vs IF...ELSE",
+          "subtopicId": "case-vs-if-else",
+          "name": "CASE vs IF...ELSE",
           "importance": "important"
         },
         {
-          "id": "case-vs-iif",
-          "title": "CASE vs IIF()",
+          "subtopicId": "case-vs-iif",
+          "name": "CASE vs IIF()",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "sql-error-handling",
-      "title": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "topic": "SQL Error Handling",
       "importance": "important",
-      "status": "covered",
-      "aliases": [
-        "SQL Error Handling"
-      ],
       "sourceFiles": [
         "Session8.pptx"
       ],
@@ -1504,35 +1448,31 @@
       ],
       "subtopics": [
         {
-          "id": "try-catch",
-          "title": "TRY...CATCH",
+          "subtopicId": "try-catch",
+          "name": "TRY...CATCH",
           "importance": "important"
         },
         {
-          "id": "error-functions",
-          "title": "Error functions",
+          "subtopicId": "error-functions",
+          "name": "Error functions",
           "importance": "important"
         },
         {
-          "id": "transaction-error-handling",
-          "title": "Transaction error handling",
+          "subtopicId": "transaction-error-handling",
+          "name": "Transaction error handling",
           "importance": "important"
         },
         {
-          "id": "custom-errors",
-          "title": "THROW / RAISERROR",
+          "subtopicId": "custom-errors",
+          "name": "THROW / RAISERROR",
           "importance": "important"
         }
       ]
     },
     {
-      "id": "views",
-      "title": "Views",
+      "topicId": "views",
+      "topic": "Views",
       "importance": "core",
-      "status": "covered",
-      "aliases": [
-        "Views"
-      ],
       "sourceFiles": [
         "Session9.pptx"
       ],
@@ -1552,85 +1492,81 @@
       ],
       "subtopics": [
         {
-          "id": "view-definition",
-          "title": "View definition",
+          "subtopicId": "view-definition",
+          "name": "View definition",
           "importance": "core"
         },
         {
-          "id": "view-base-tables",
-          "title": "View base tables",
+          "subtopicId": "view-base-tables",
+          "name": "View base tables",
           "importance": "core"
         },
         {
-          "id": "view-storage",
-          "title": "View storage / logical behavior",
+          "subtopicId": "view-storage",
+          "name": "View storage / logical behavior",
           "importance": "core"
         },
         {
-          "id": "create-view",
-          "title": "CREATE VIEW",
+          "subtopicId": "create-view",
+          "name": "CREATE VIEW",
           "importance": "core"
         },
         {
-          "id": "view-advantages",
-          "title": "Advantages of views",
+          "subtopicId": "view-advantages",
+          "name": "Advantages of views",
           "importance": "core"
         },
         {
-          "id": "query-view",
-          "title": "Querying a view",
+          "subtopicId": "query-view",
+          "name": "Querying a view",
           "importance": "core"
         },
         {
-          "id": "drop-view",
-          "title": "DROP VIEW",
+          "subtopicId": "drop-view",
+          "name": "DROP VIEW",
           "importance": "core"
         },
         {
-          "id": "simple-vs-complex-views",
-          "title": "Simple vs complex views",
+          "subtopicId": "simple-vs-complex-views",
+          "name": "Simple vs complex views",
           "importance": "core"
         },
         {
-          "id": "with-check-option",
-          "title": "WITH CHECK OPTION",
+          "subtopicId": "with-check-option",
+          "name": "WITH CHECK OPTION",
           "importance": "core"
         },
         {
-          "id": "view-dml",
-          "title": "DML through views",
+          "subtopicId": "view-dml",
+          "name": "DML through views",
           "importance": "core"
         },
         {
-          "id": "view-with-join",
-          "title": "Views with joins",
+          "subtopicId": "view-with-join",
+          "name": "Views with joins",
           "importance": "core"
         },
         {
-          "id": "modify-view",
-          "title": "Modifying a view",
+          "subtopicId": "modify-view",
+          "name": "Modifying a view",
           "importance": "core"
         },
         {
-          "id": "case-in-views",
-          "title": "CASE in views",
+          "subtopicId": "case-in-views",
+          "name": "CASE in views",
           "importance": "important"
         },
         {
-          "id": "view-design-integration",
-          "title": "View design integration",
+          "subtopicId": "view-design-integration",
+          "name": "View design integration",
           "importance": "core"
         }
       ]
     },
     {
-      "id": "stored-procedures",
-      "title": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "topic": "Stored Procedures",
       "importance": "important",
-      "status": "covered",
-      "aliases": [
-        "Stored Procedures"
-      ],
       "sourceFiles": [
         "Session9.pptx"
       ],
@@ -1645,28 +1581,28 @@
       ],
       "subtopics": [
         {
-          "id": "stored-procedure-definition",
-          "title": "Stored procedure definition",
+          "subtopicId": "stored-procedure-definition",
+          "name": "Stored procedure definition",
           "importance": "important"
         },
         {
-          "id": "procedure-parameters",
-          "title": "Stored procedure parameters",
+          "subtopicId": "procedure-parameters",
+          "name": "Stored procedure parameters",
           "importance": "core"
         },
         {
-          "id": "procedure-benefits",
-          "title": "Stored procedure benefits",
+          "subtopicId": "procedure-benefits",
+          "name": "Stored procedure benefits",
           "importance": "important"
         },
         {
-          "id": "procedure-execution",
-          "title": "Executing stored procedures",
+          "subtopicId": "procedure-execution",
+          "name": "Executing stored procedures",
           "importance": "core"
         },
         {
-          "id": "procedure-conditional-update",
-          "title": "Conditional DML in stored procedures",
+          "subtopicId": "procedure-conditional-update",
+          "name": "Conditional DML in stored procedures",
           "importance": "important"
         }
       ]

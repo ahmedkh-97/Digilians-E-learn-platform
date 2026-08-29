@@ -5,7 +5,7 @@
       "id": "data-analysis-final-v1",
       "kind": "final",
       "title": "Data Analysis — Final Exam Simulation",
-      "description": "100-question final simulation assembled from the Data Analysis question banks.",
+      "description": "100-question final simulation: Excel 20, Power BI 20, SQL 20, Python 20, Tableau 10, Looker Studio 10. SQL uses its validated complete-curriculum selection profile.",
       "courseId": "data-analysis",
       "course": "Data Analysis",
       "category": "Final Exam",
@@ -39,7 +39,66 @@
         {
           "trackId": "sql",
           "label": "SQL & Databases",
-          "count": 20
+          "count": 20,
+          "selectionProfile": {
+            "id": "sql-final-share-validated-profile-v1",
+            "strategy": "validated-signature-rotation",
+            "validatedSample": "sql-final-sample-20.json",
+            "signatureQuotas": {
+              "er-modeling|||Medium|||course|||scenario": 1,
+              "er-relational-mapping|||Medium|||course|||scenario": 1,
+              "normalization|||Hard|||course|||scenario": 1,
+              "warehouse-schema-design|||Easy|||course|||direct": 1,
+              "sql-command-languages|||Easy|||course|||direct": 1,
+              "sql-query-fundamentals|||Medium|||external-similar|||tracing": 1,
+              "sql-filtering|||Medium|||course|||direct": 1,
+              "sql-aggregation|||Medium|||course|||scenario": 1,
+              "sql-advanced-query-expressions|||Hard|||course|||scenario": 1,
+              "database-constraints|||Medium|||course|||tracing": 1,
+              "joins|||Easy|||course|||direct": 2,
+              "joins|||Medium|||course|||tracing": 1,
+              "subqueries|||Medium|||course|||tracing": 2,
+              "window-functions|||Easy|||course|||direct": 1,
+              "window-functions|||Hard|||external-similar|||scenario": 1,
+              "common-table-expressions|||Hard|||course|||troubleshooting": 1,
+              "views|||Medium|||external-similar|||scenario": 1,
+              "stored-procedures|||Hard|||external-similar|||troubleshooting": 1
+            },
+            "avoidDuplicateConceptKeys": true,
+            "difficultyTarget": {
+              "Medium": 10,
+              "Hard": 5,
+              "Easy": 5
+            },
+            "sourceTypeTarget": {
+              "course": 16,
+              "external-similar": 4
+            },
+            "questionFamilyTarget": {
+              "scenario": 7,
+              "direct": 6,
+              "tracing": 5,
+              "troubleshooting": 2
+            },
+            "topicQuotas": {
+              "er-modeling": 1,
+              "er-relational-mapping": 1,
+              "normalization": 1,
+              "warehouse-schema-design": 1,
+              "sql-command-languages": 1,
+              "sql-query-fundamentals": 1,
+              "sql-filtering": 1,
+              "sql-aggregation": 1,
+              "sql-advanced-query-expressions": 1,
+              "database-constraints": 1,
+              "joins": 3,
+              "subqueries": 2,
+              "window-functions": 2,
+              "common-table-expressions": 1,
+              "views": 1,
+              "stored-procedures": 1
+            }
+          }
         },
         {
           "trackId": "python",
@@ -62,22 +121,22 @@
         "avoidAdjacentTopicRepeats": true,
         "bestEffortBalancedAnswerPositions": true
       },
-      "version": "1.0",
+      "version": "1.1",
       "active": true
     },
     {
-      "id": "data-analysis-sql-session1-track-v2",
+      "id": "data-analysis-sql-track-v3",
       "kind": "track",
-      "title": "SQL & Databases — Session 1 Track Exam V2",
-      "description": "Blueprint for a 45-question topic exam generated from the Session 1 SQL & Databases question bank.",
+      "title": "SQL & Databases — Full Track Exam",
+      "description": "Dynamic 50-question SQL exam generated from the complete 520-question production pool across all 25 mapped topics.",
       "courseId": "data-analysis",
       "course": "Data Analysis",
       "trackId": "sql",
       "track": "SQL & Databases",
       "category": "Track Exam",
       "difficulty": "Mixed",
-      "questionCount": 45,
-      "timerMinutes": 50,
+      "questionCount": 50,
+      "timerMinutes": 60,
       "passingScore": 60,
       "feedbackModes": [
         "instant",
@@ -96,7 +155,100 @@
         {
           "trackId": "sql",
           "label": "SQL & Databases",
-          "count": 45
+          "count": 50,
+          "selectionProfile": {
+            "id": "sql-track-validated-profile-v1",
+            "strategy": "validated-signature-rotation",
+            "validatedSample": "sql-track-exam-001.json",
+            "signatureQuotas": {
+              "database-fundamentals|||Medium|||external-similar|||scenario": 1,
+              "data-models|||Medium|||course|||scenario": 1,
+              "er-modeling|||Easy|||course|||direct": 1,
+              "er-modeling|||Hard|||course|||troubleshooting": 1,
+              "er-relational-mapping|||Hard|||course|||troubleshooting": 1,
+              "er-relational-mapping|||Medium|||course|||scenario": 1,
+              "er-relational-mapping|||Hard|||course|||scenario": 1,
+              "data-modeling-process|||Medium|||course|||scenario": 1,
+              "schema-vs-instance|||Medium|||external-similar|||scenario": 1,
+              "normalization|||Medium|||course|||scenario": 1,
+              "warehouse-schema-design|||Easy|||course|||direct": 1,
+              "database-constraints|||Easy|||course|||direct": 2,
+              "sql-command-languages|||Hard|||external-similar|||scenario": 1,
+              "sql-command-languages|||Hard|||course|||scenario": 1,
+              "sql-query-fundamentals|||Easy|||course|||direct": 1,
+              "sql-command-languages|||Easy|||course|||direct": 1,
+              "sql-query-fundamentals|||Easy|||course|||troubleshooting": 1,
+              "sql-query-fundamentals|||Hard|||course|||tracing": 1,
+              "sql-filtering|||Easy|||course|||direct": 3,
+              "sql-aggregation|||Medium|||course|||scenario": 1,
+              "sql-aggregation|||Medium|||course|||direct": 1,
+              "sql-advanced-query-expressions|||Medium|||course|||scenario": 1,
+              "sql-advanced-query-expressions|||Medium|||course|||direct": 1,
+              "normalization|||Easy|||course|||direct": 1,
+              "schema-design-practice|||Hard|||course|||scenario": 1,
+              "normalization|||Hard|||external-similar|||troubleshooting": 1,
+              "joins|||Medium|||course|||tracing": 2,
+              "joins|||Medium|||external-similar|||scenario": 1,
+              "joins|||Medium|||external-similar|||tracing": 1,
+              "subqueries|||Easy|||course|||direct": 2,
+              "subqueries|||Medium|||external-similar|||scenario": 1,
+              "subqueries|||Medium|||course|||scenario": 1,
+              "set-operations|||Hard|||external-similar|||tracing": 1,
+              "window-functions|||Medium|||course|||tracing": 2,
+              "common-table-expressions|||Medium|||course|||tracing": 2,
+              "window-functions|||Hard|||course|||troubleshooting": 1,
+              "pivoting|||Medium|||course|||tracing": 1,
+              "sql-server-control-flow|||Medium|||external-similar|||tracing": 1,
+              "sql-error-handling|||Hard|||external-similar|||scenario": 1,
+              "views|||Medium|||course|||direct": 1,
+              "views|||Medium|||course|||tracing": 1,
+              "views|||Hard|||course|||scenario": 1,
+              "stored-procedures|||Medium|||course|||scenario": 1
+            },
+            "avoidDuplicateConceptKeys": true,
+            "difficultyTarget": {
+              "Medium": 25,
+              "Easy": 13,
+              "Hard": 12
+            },
+            "sourceTypeTarget": {
+              "external-similar": 10,
+              "course": 40
+            },
+            "questionFamilyTarget": {
+              "scenario": 18,
+              "direct": 15,
+              "troubleshooting": 5,
+              "tracing": 12
+            },
+            "topicQuotas": {
+              "database-fundamentals": 1,
+              "data-models": 1,
+              "er-modeling": 2,
+              "er-relational-mapping": 3,
+              "data-modeling-process": 1,
+              "schema-vs-instance": 1,
+              "normalization": 3,
+              "warehouse-schema-design": 1,
+              "database-constraints": 2,
+              "sql-command-languages": 3,
+              "sql-query-fundamentals": 3,
+              "sql-filtering": 3,
+              "sql-aggregation": 2,
+              "sql-advanced-query-expressions": 2,
+              "schema-design-practice": 1,
+              "joins": 4,
+              "subqueries": 4,
+              "set-operations": 1,
+              "window-functions": 3,
+              "common-table-expressions": 2,
+              "pivoting": 1,
+              "sql-server-control-flow": 1,
+              "sql-error-handling": 1,
+              "views": 3,
+              "stored-procedures": 1
+            }
+          }
         }
       ],
       "selection": {
@@ -104,9 +256,9 @@
         "avoidAdjacentTopicRepeats": true,
         "bestEffortBalancedAnswerPositions": true
       },
-      "version": "2.0",
-      "active": false,
-      "note": "Draft until the SQL bank is expanded to the agreed V2 difficulty/source mix."
+      "version": "3.0",
+      "active": true,
+      "note": "Validated signature rotation preserves the approved 50Q production profile while allowing alternate forms."
     }
   ]
 }

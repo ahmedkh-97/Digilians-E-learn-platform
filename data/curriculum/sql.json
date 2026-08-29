@@ -2,112 +2,422 @@
   "schemaVersion": "1.0",
   "trackId": "sql",
   "track": "SQL & Databases",
-  "curriculumStatus": "in-progress",
+  "curriculumStatus": "complete",
   "curriculumVersion": "1.0",
   "expectedStructure": {
-    "weeks": null,
-    "note": "Expected structure may be updated as the real course material is processed."
+    "sessions": 8,
+    "note": "SQL curriculum confirmed complete through Session9.pptx."
   },
   "processedSources": [
     {
-      "id": "sql-session1-source",
-      "file": "Session1.pptx",
-      "label": "Session 1 — Relational Databases & Data Modeling",
+      "id": "sql-source-01",
+      "file": "Session1 (1).pptx",
+      "label": "Relational Databases & Data Modeling for Data Engineers",
       "status": "processed",
-      "bankIds": [
-        "da-sql-session1-data-modeling-bank"
+      "slides": 86,
+      "questionBankIds": [
+        "da-sql-session01-modeling-bank-001",
+        "da-sql-session01-modeling-bank-002"
+      ]
+    },
+    {
+      "id": "sql-source-02",
+      "file": "Session2.pptx",
+      "label": "SQL Command Languages / Session 2",
+      "status": "processed",
+      "slides": 28,
+      "questionBankIds": [
+        "da-sql-session02-ddl-dml-dql-bank-001"
+      ],
+      "scopeNote": "Only DDL, DML, and DQL were approved for assessment; Data Types, Constraints, DCL, and TCL from this file are excluded."
+    },
+    {
+      "id": "sql-source-03",
+      "file": "Session3.pptx",
+      "label": "SQL Query Fundamentals",
+      "status": "processed",
+      "slides": 29,
+      "questionBankIds": [
+        "da-sql-session03-query-fundamentals-bank-001"
+      ]
+    },
+    {
+      "id": "sql-source-04",
+      "file": "Session4.pptx",
+      "label": "Project 1: University Database Design & Implementation",
+      "status": "processed",
+      "slides": 13,
+      "questionBankIds": [
+        "da-sql-session04-university-project-bank-001"
+      ],
+      "scopeNote": "Version-control/GitHub deliverable instructions are not treated as SQL assessment content."
+    },
+    {
+      "id": "sql-source-05",
+      "file": "Session5.pptx",
+      "label": "Advanced Filtering & Aggregations in SQL",
+      "status": "processed",
+      "slides": 38,
+      "questionBankIds": [
+        "da-sql-session05-filtering-aggregation-bank-001",
+        "da-sql-session05-advanced-expressions-bank-002"
+      ]
+    },
+    {
+      "id": "sql-source-06",
+      "file": "Session6.pptx",
+      "label": "Relational Joins & Query Composition",
+      "status": "processed",
+      "slides": 31,
+      "questionBankIds": [
+        "da-sql-session06-joins-bank-001",
+        "da-sql-session06-subqueries-bank-001"
+      ]
+    },
+    {
+      "id": "sql-source-07",
+      "file": "Session8.pptx",
+      "label": "Analytical SQL: Window Functions, CTEs & Pivoting",
+      "status": "processed",
+      "slides": 28,
+      "questionBankIds": [
+        "da-sql-session08-window-cte-bank-001",
+        "da-sql-session08-pivot-control-bank-002"
+      ]
+    },
+    {
+      "id": "sql-source-08",
+      "file": "Session9.pptx",
+      "label": "Reusable SQL Logic: Views & Functions",
+      "status": "processed",
+      "slides": 31,
+      "questionBankIds": [
+        "da-sql-session09-views-bank-001",
+        "da-sql-session09-functions-procedures-bank-002"
       ]
     }
   ],
   "topics": [
     {
-      "id": "complex-relationships",
-      "title": "Complex Relationships",
+      "id": "database-fundamentals",
+      "title": "Database Fundamentals",
       "status": "covered",
-      "questionCount": 1
-    },
-    {
-      "id": "dbms",
-      "title": "DBMS",
-      "status": "covered",
-      "questionCount": 2
-    },
-    {
-      "id": "data-modeling-process",
-      "title": "Data Modeling Process",
-      "status": "covered",
-      "questionCount": 1
+      "importance": "important",
+      "questionCount": 4,
+      "sourceFiles": [
+        "Session1 (1).pptx"
+      ]
     },
     {
       "id": "data-models",
       "title": "Data Models",
       "status": "covered",
-      "questionCount": 6
-    },
-    {
-      "id": "data-warehousing-schemas",
-      "title": "Data Warehousing Schemas",
-      "status": "covered",
-      "questionCount": 4
-    },
-    {
-      "id": "database-fundamentals",
-      "title": "Database Fundamentals",
-      "status": "covered",
-      "questionCount": 3
-    },
-    {
-      "id": "er-mapping",
-      "title": "ER Mapping",
-      "status": "covered",
-      "questionCount": 7
+      "importance": "important",
+      "questionCount": 6,
+      "sourceFiles": [
+        "Session1 (1).pptx"
+      ]
     },
     {
       "id": "er-modeling",
-      "title": "ER Modeling",
+      "title": "Entity-Relationship Modeling",
       "status": "covered",
-      "questionCount": 3
+      "importance": "core",
+      "questionCount": 14,
+      "sourceFiles": [
+        "Session1 (1).pptx"
+      ]
     },
     {
-      "id": "entities-attributes",
-      "title": "Entities & Attributes",
+      "id": "er-relational-mapping",
+      "title": "ER to Relational Mapping",
       "status": "covered",
-      "questionCount": 4
+      "importance": "core",
+      "questionCount": 16,
+      "sourceFiles": [
+        "Session1 (1).pptx"
+      ]
+    },
+    {
+      "id": "data-modeling-process",
+      "title": "Data Modeling Process",
+      "status": "covered",
+      "importance": "important",
+      "questionCount": 2,
+      "sourceFiles": [
+        "Session1 (1).pptx"
+      ]
+    },
+    {
+      "id": "schema-vs-instance",
+      "title": "Schema vs Data / Database Instance",
+      "status": "covered",
+      "importance": "important",
+      "questionCount": 3,
+      "sourceFiles": [
+        "Session1 (1).pptx"
+      ]
     },
     {
       "id": "normalization",
       "title": "Normalization",
       "status": "covered",
-      "questionCount": 6
+      "importance": "core",
+      "questionCount": 20,
+      "sourceFiles": [
+        "Session1 (1).pptx",
+        "Session4.pptx"
+      ]
     },
     {
-      "id": "relational-model",
-      "title": "Relational Model",
+      "id": "warehouse-schema-design",
+      "title": "Data Warehousing Schemas",
       "status": "covered",
-      "questionCount": 2
+      "importance": "core",
+      "questionCount": 7,
+      "sourceFiles": [
+        "Session1 (1).pptx"
+      ]
     },
     {
-      "id": "relationships",
-      "title": "Relationships",
+      "id": "database-constraints",
+      "title": "Database Constraints",
       "status": "covered",
-      "questionCount": 7
+      "importance": "core",
+      "questionCount": 28,
+      "sourceFiles": [
+        "Session1 (1).pptx",
+        "Session3.pptx",
+        "Session4.pptx"
+      ]
     },
     {
-      "id": "schema-vs-data",
-      "title": "Schema vs Data",
+      "id": "schema-design-practice",
+      "title": "Schema Design Labs & Assignments",
       "status": "covered",
-      "questionCount": 1
+      "importance": "important",
+      "questionCount": 27,
+      "sourceFiles": [
+        "Session1 (1).pptx",
+        "Session4.pptx"
+      ]
     },
     {
-      "id": "unary-relationships",
-      "title": "Unary Relationships",
+      "id": "sql-command-languages",
+      "title": "SQL Command Languages (DDL, DML, DQL)",
       "status": "covered",
-      "questionCount": 3
+      "importance": "core",
+      "questionCount": 44,
+      "sourceFiles": [
+        "Session2.pptx",
+        "Session3.pptx"
+      ]
+    },
+    {
+      "id": "sql-query-fundamentals",
+      "title": "SQL Query Fundamentals",
+      "status": "covered",
+      "importance": "core",
+      "questionCount": 33,
+      "sourceFiles": [
+        "Session3.pptx",
+        "Session8.pptx"
+      ]
+    },
+    {
+      "id": "sql-filtering",
+      "title": "SQL Filtering",
+      "status": "covered",
+      "importance": "core",
+      "questionCount": 24,
+      "sourceFiles": [
+        "Session5.pptx"
+      ]
+    },
+    {
+      "id": "sql-aggregation",
+      "title": "SQL Aggregation",
+      "status": "covered",
+      "importance": "core",
+      "questionCount": 14,
+      "sourceFiles": [
+        "Session5.pptx"
+      ]
+    },
+    {
+      "id": "sql-advanced-query-expressions",
+      "title": "SQL Functions & Advanced Query Expressions",
+      "status": "covered",
+      "importance": "core",
+      "questionCount": 63,
+      "sourceFiles": [
+        "Session5.pptx",
+        "Session9.pptx"
+      ]
+    },
+    {
+      "id": "joins",
+      "title": "Relational Joins",
+      "status": "covered",
+      "importance": "core",
+      "questionCount": 40,
+      "sourceFiles": [
+        "Session6.pptx"
+      ]
+    },
+    {
+      "id": "subqueries",
+      "title": "Subqueries & Nested Queries",
+      "status": "covered",
+      "importance": "core",
+      "questionCount": 38,
+      "sourceFiles": [
+        "Session6.pptx",
+        "Session8.pptx"
+      ]
+    },
+    {
+      "id": "set-operations",
+      "title": "Set Operations",
+      "status": "covered",
+      "importance": "important",
+      "questionCount": 11,
+      "sourceFiles": [
+        "Session6.pptx"
+      ]
+    },
+    {
+      "id": "window-functions",
+      "title": "Window Functions",
+      "status": "covered",
+      "importance": "core",
+      "questionCount": 28,
+      "sourceFiles": [
+        "Session8.pptx"
+      ]
+    },
+    {
+      "id": "common-table-expressions",
+      "title": "Common Table Expressions (CTEs)",
+      "status": "covered",
+      "importance": "core",
+      "questionCount": 10,
+      "sourceFiles": [
+        "Session8.pptx"
+      ]
+    },
+    {
+      "id": "pivoting",
+      "title": "Pivoting",
+      "status": "covered",
+      "importance": "important",
+      "questionCount": 10,
+      "sourceFiles": [
+        "Session8.pptx"
+      ]
+    },
+    {
+      "id": "sql-server-control-flow",
+      "title": "SQL Server Conditional Logic",
+      "status": "covered",
+      "importance": "important",
+      "questionCount": 11,
+      "sourceFiles": [
+        "Session8.pptx",
+        "Session9.pptx"
+      ]
+    },
+    {
+      "id": "sql-error-handling",
+      "title": "SQL Error Handling",
+      "status": "covered",
+      "importance": "important",
+      "questionCount": 9,
+      "sourceFiles": [
+        "Session8.pptx"
+      ]
+    },
+    {
+      "id": "views",
+      "title": "Views",
+      "status": "covered",
+      "importance": "core",
+      "questionCount": 42,
+      "sourceFiles": [
+        "Session9.pptx"
+      ]
+    },
+    {
+      "id": "stored-procedures",
+      "title": "Stored Procedures",
+      "status": "covered",
+      "importance": "important",
+      "questionCount": 16,
+      "sourceFiles": [
+        "Session9.pptx"
+      ]
     }
   ],
   "completion": {
-    "confirmedByUser": false,
-    "confirmedAt": null
+    "confirmedByUser": true,
+    "confirmedAt": "2026-08-28T15:30:00+03:00",
+    "confirmation": "User stated that Session9.pptx is the last SQL file."
   },
-  "lastUpdated": "2026-08-28"
+  "bankSummary": {
+    "totalQuestions": 520,
+    "banks": 13,
+    "difficulty": {
+      "Medium": 261,
+      "Hard": 130,
+      "Easy": 129
+    },
+    "sourceType": {
+      "course": 407,
+      "external-similar": 113
+    },
+    "answerPositions": {
+      "B": 130,
+      "A": 130,
+      "C": 130,
+      "D": 130
+    },
+    "questionTypes": {
+      "scenario-application": 122,
+      "troubleshooting": 53,
+      "direct-knowledge": 156,
+      "best-decision": 61,
+      "code-tracing": 106,
+      "calculation-tracing": 22
+    },
+    "questionFamilies": {
+      "scenario": 183,
+      "troubleshooting": 53,
+      "direct": 156,
+      "tracing": 128
+    },
+    "difficultyPercent": {
+      "Medium": 50.19,
+      "Hard": 25.0,
+      "Easy": 24.81
+    },
+    "sourceTypePercent": {
+      "course": 78.27,
+      "external-similar": 21.73
+    },
+    "questionFamilyPercent": {
+      "scenario": 35.19,
+      "troubleshooting": 10.19,
+      "direct": 30.0,
+      "tracing": 24.62
+    }
+  },
+  "productionStatus": "FINAL READY",
+  "notes": [
+    "Session2.pptx is intentionally scoped to DDL, DML, and DQL only per user instruction.",
+    "The Tower of Hanoi assignment in Session3 is outside SQL curriculum scope and is excluded.",
+    "GitHub/version-control deliverable instructions in Session4 are not treated as SQL assessment content.",
+    "Real SQL content remains traceable per question through source.file and source.reference.",
+    "Session9.pptx was confirmed by the user as the final SQL curriculum file."
+  ],
+  "lastUpdated": "2026-08-29"
 }

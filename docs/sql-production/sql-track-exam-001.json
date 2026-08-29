@@ -1,0 +1,2212 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "da-sql-track-exam-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "title": "SQL & Databases Track Exam — Validated Form 001",
+    "questionCount": 50,
+    "status": "validated-sample",
+    "source": "Question Banks 001–013",
+    "curriculumVersion": "1.0"
+  },
+  "selectionProfile": {
+    "difficulty": {
+      "Easy": 13,
+      "Medium": 25,
+      "Hard": 12
+    },
+    "sourceType": {
+      "course": 40,
+      "external-similar": 10
+    },
+    "questionFamilies": {
+      "direct": 15,
+      "scenario": 18,
+      "tracing": 12,
+      "troubleshooting": 5
+    },
+    "topicQuotas": {
+      "database-fundamentals": 1,
+      "data-models": 1,
+      "er-modeling": 2,
+      "er-relational-mapping": 3,
+      "data-modeling-process": 1,
+      "schema-vs-instance": 1,
+      "normalization": 3,
+      "warehouse-schema-design": 1,
+      "database-constraints": 2,
+      "schema-design-practice": 1,
+      "sql-command-languages": 3,
+      "sql-query-fundamentals": 3,
+      "sql-filtering": 3,
+      "sql-aggregation": 2,
+      "sql-advanced-query-expressions": 2,
+      "joins": 4,
+      "subqueries": 4,
+      "set-operations": 1,
+      "window-functions": 3,
+      "common-table-expressions": 2,
+      "pivoting": 1,
+      "sql-server-control-flow": 1,
+      "sql-error-handling": 1,
+      "views": 3,
+      "stored-procedures": 1
+    },
+    "avoidDuplicateConceptKeys": true
+  },
+  "questions": [
+    {
+      "id": "da-sql-session01-q003",
+      "question": "A company wants to reduce duplicate stored values and decrease update inconsistencies. Which database advantage directly addresses this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Greater dependence on application programs"
+        },
+        {
+          "id": "B",
+          "text": "Reduced data redundancy and improved consistency"
+        },
+        {
+          "id": "C",
+          "text": "Increased compatibility problems"
+        },
+        {
+          "id": "D",
+          "text": "Higher data-entry and retrieval costs"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "تقليل data redundancy بيقلل تكرار نفس البيانات، وده يقلل فرص updating errors ويحسن consistency.",
+        "en": ""
+      },
+      "topic": "Database Fundamentals",
+      "topicId": "database-fundamentals",
+      "subtopicId": "database-advantages",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "database-advantage-redundancy-consistency",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 6 — Advantages of using Databases"
+      }
+    },
+    {
+      "id": "da-sql-session01-q005",
+      "question": "A designer is deciding how data should be structured, related, constrained, and accessed before building the database. Which artifact is the designer defining?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A backup file"
+        },
+        {
+          "id": "B",
+          "text": "A data model"
+        },
+        {
+          "id": "C",
+          "text": "A database instance only"
+        },
+        {
+          "id": "D",
+          "text": "A single query result"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Data Model هو اللي بيحدد structure وrelationships وconstraints وطريقة تنظيم والوصول للبيانات قبل التنفيذ.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "topicId": "data-models",
+      "subtopicId": "data-model-definition",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "data-model-definition",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 10 — Data Model"
+      }
+    },
+    {
+      "id": "da-sql-session01-q015",
+      "question": "Which is a composite attribute according to the course examples?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Age derived from DOB"
+        },
+        {
+          "id": "B",
+          "text": "Phone Numbers"
+        },
+        {
+          "id": "C",
+          "text": "Employee ID"
+        },
+        {
+          "id": "D",
+          "text": "Full Name = First Name + Last Name"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Composite attribute بيتكوّن من أجزاء أصغر، والمثال في المادة Full Name المكوّن من First Name + Last Name.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "attribute-types",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "attribute-type-composite",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 23 — Entities & Attributes"
+      }
+    },
+    {
+      "id": "da-sql-session01-q019",
+      "question": "A designer confuses relationship degree with cardinality. In an ERD, what should be used to decide whether the relationship is 1:1, 1:N, or M:N?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The number of entity types participating in the relationship"
+        },
+        {
+          "id": "B",
+          "text": "The number of database users"
+        },
+        {
+          "id": "C",
+          "text": "The number of attributes inside the entities"
+        },
+        {
+          "id": "D",
+          "text": "The number of instances of one entity that can relate to instances of another"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "1:1 و1:N وM:N هي Cardinality Ratios، وبتوصف عدد الـ instances المرتبطة، مش عدد الـ entity types المشاركة؛ ده اسمه Degree.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "cardinality",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "cardinality-definition",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 24–25 — Relationship Degree and Cardinality Ratio"
+      }
+    },
+    {
+      "id": "da-sql-session01-q025",
+      "question": "After completing an ERD, a developer creates one relational table per entity but stores each entity attribute as a separate row instead of a column. What mapping rule is being violated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All attributes must become databases"
+        },
+        {
+          "id": "B",
+          "text": "Every relationship must become a weak entity"
+        },
+        {
+          "id": "C",
+          "text": "Entities should become tables and attributes should become columns"
+        },
+        {
+          "id": "D",
+          "text": "Every entity must be converted into a document"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ basic mapping rule في المادة واضح: Entity → Table وAttribute → Column. تحويل attributes إلى rows هنا تطبيق خاطئ للـ mapping.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "basic-mapping",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "mapping-entity-table-attribute-column",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 28 — Mapping Entity Diagrams To Tables"
+      }
+    },
+    {
+      "id": "da-sql-session01-q028",
+      "question": "Why is EmpNo included in the Dependent relation when mapping a weak entity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because the weak entity depends on the parent Employee and needs the parent's key"
+        },
+        {
+          "id": "B",
+          "text": "Because every weak entity must have no relationship to its parent"
+        },
+        {
+          "id": "C",
+          "text": "Because EmpNo is a multivalued attribute"
+        },
+        {
+          "id": "D",
+          "text": "Because weak entities cannot contain foreign keys"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Weak Entity بيعتمد على الـ parent، لذلك Primary Key للـ parent (EmpNo) يدخل في relation بتاع الـ weak entity للربط والتعريف.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "weak-entity-mapping",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "weak-entity-parent-key",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 32–33 — Mapping Weak Entities"
+      }
+    },
+    {
+      "id": "da-sql-session01-q035",
+      "question": "In a 1:1 relationship where Course has total participation but some Instructors have no Course, which placement shown in the course is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Place every Course value inside Instructor as a list"
+        },
+        {
+          "id": "B",
+          "text": "Remove Instructor from the design"
+        },
+        {
+          "id": "C",
+          "text": "Create an M:N bridge table"
+        },
+        {
+          "id": "D",
+          "text": "Place Instructor EmpId as InsNo in Course"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "لما Course مشارك كليًا بينما بعض Instructors ممكن مايبقاش عندهم Course، المادة بتحط EmpId الخاص بالـ Instructor كـ InsNo داخل Course.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "binary-one-to-one",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "binary-11-one-side-total",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 40 — 1:1 Total participation on one side"
+      }
+    },
+    {
+      "id": "da-sql-session01-q041",
+      "question": "A project team has finished identifying business requirements and high-level entities, and is about to translate them into a structured logical design before choosing storage details. Which transition best matches the course modeling process?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Physical Data Model → Conceptual Data Model"
+        },
+        {
+          "id": "B",
+          "text": "Conceptual Data Model → Logical Data Model"
+        },
+        {
+          "id": "C",
+          "text": "Database Instance → ER notation"
+        },
+        {
+          "id": "D",
+          "text": "Snowflake Schema → Hierarchical Model"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ process في المادة يبدأ Conceptual ثم Logical ثم Physical؛ بعد high-level business view الخطوة التالية هي Logical design.",
+        "en": ""
+      },
+      "topic": "Data Modeling Process",
+      "topicId": "data-modeling-process",
+      "subtopicId": "conceptual-logical-physical",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "modeling-process-order",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 46–47 — Data Modeling Process"
+      }
+    },
+    {
+      "id": "da-sql-session01-q045",
+      "question": "A database keeps the same table design for months while rows are inserted and updated every day. Which statement is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The database instance never changes once created"
+        },
+        {
+          "id": "B",
+          "text": "The schema may remain stable while database instances change over time"
+        },
+        {
+          "id": "C",
+          "text": "Schema and instance are identical concepts"
+        },
+        {
+          "id": "D",
+          "text": "The schema must change every time one row changes"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ instance هو snapshot للقيم الحالية ولذلك بيتغير، بينما الـ schema غالبًا يفضل ثابت لأنه بيوصف التصميم.",
+        "en": ""
+      },
+      "topic": "Schema and Data",
+      "topicId": "schema-vs-instance",
+      "subtopicId": "schema-instance",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "schema-stable-instance-changing",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 48 — Schema Vs. Data"
+      }
+    },
+    {
+      "id": "da-sql-session01-q048",
+      "question": "An attribute's value can be determined only when the entire composite primary key is known. Which dependency type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multivalued participation"
+        },
+        {
+          "id": "B",
+          "text": "Full functional dependency"
+        },
+        {
+          "id": "C",
+          "text": "Partial functional dependency"
+        },
+        {
+          "id": "D",
+          "text": "Transitive functional dependency"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Full Functional Dependency معناها إن الـ non-key attribute يعتمد على الـ whole Primary Key، مش جزء منه.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "full-functional-dependency",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "full-functional-dependency-whole-key",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 52 — Types of functional dependency"
+      }
+    },
+    {
+      "id": "da-sql-session01-q070",
+      "question": "Which comparison is correct according to the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Snowflake is intended only for simple dashboards"
+        },
+        {
+          "id": "B",
+          "text": "Star always stores less redundant data"
+        },
+        {
+          "id": "C",
+          "text": "Star is generally easier to maintain; Snowflake is more complex"
+        },
+        {
+          "id": "D",
+          "text": "Snowflake is flatter than Star"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "في المقارنة: Maintenance في Star أسهل، بينما Snowflake أكثر تعقيدًا بسبب normalization وتعدد الجداول.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "topicId": "warehouse-schema-design",
+      "subtopicId": "star-vs-snowflake",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "star-snowflake-maintenance",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 62 — Star vs Snowflake comparison"
+      }
+    },
+    {
+      "id": "da-sql-session01-q075",
+      "question": "What rule should the CHECK constraint enforce in the Products table according to the lab?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ProductID must be negative"
+        },
+        {
+          "id": "B",
+          "text": "Price must be greater than zero"
+        },
+        {
+          "id": "C",
+          "text": "Price must always equal zero"
+        },
+        {
+          "id": "D",
+          "text": "Supplier must be stored in the Price column"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتحدد CHECK constraint للتأكد إن prices في Products أكبر من zero.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "check-constraint",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "check-price-positive",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 64 — CHECK constraint requirement"
+      }
+    },
+    {
+      "id": "da-sql-session02-q020",
+      "question": "An existing Customers table must gain a new LoyaltyCode column without replacing the whole table. Which taught command family and action best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DML using INSERT INTO"
+        },
+        {
+          "id": "B",
+          "text": "DQL using SELECT"
+        },
+        {
+          "id": "C",
+          "text": "DDL using ALTER TABLE ... ADD"
+        },
+        {
+          "id": "D",
+          "text": "DML using DELETE FROM"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "إضافة Column إلى جدول موجود هي Structure change، لذلك تندرج تحت DDL وبالتحديد ALTER TABLE ... ADD.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-alter",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-alter-add-column-scenario",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 12 — DDL ALTER"
+      }
+    },
+    {
+      "id": "da-sql-session02-q033",
+      "question": "Which comparison correctly distinguishes ALTER and UPDATE based on the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ALTER is DDL for table structure changes, while UPDATE is DML for changes to stored data."
+        },
+        {
+          "id": "B",
+          "text": "ALTER and UPDATE are both DQL commands."
+        },
+        {
+          "id": "C",
+          "text": "ALTER inserts rows while UPDATE creates tables."
+        },
+        {
+          "id": "D",
+          "text": "ALTER deletes rows while UPDATE drops the table structure."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ALTER يغير table structure، بينما UPDATE ينتمي إلى DML ويستخدم لتغيير البيانات؛ الفرق هو Schema/Structure مقابل Data.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-vs-dml",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-alter-vs-dml-update",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slides 12 and 14 — ALTER vs DML UPDATE"
+      }
+    },
+    {
+      "id": "da-sql-session03-q003",
+      "question": "What does SELECT * FROM customers; request?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only distinct customers."
+        },
+        {
+          "id": "B",
+          "text": "Only rows where age is greater than 30."
+        },
+        {
+          "id": "C",
+          "text": "Only the customer name column."
+        },
+        {
+          "id": "D",
+          "text": "All columns from the customers table."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "النجمة * مع SELECT معناها اختيار كل الأعمدة من الجدول المحدد في FROM.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "select-from-basics",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "select-star-all-columns",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 13 — SELECT, WHERE, ORDER BY basics"
+      }
+    },
+    {
+      "id": "da-sql-session03-q007",
+      "question": "Which DDL statement is listed as creating an index (search key)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE INDEX"
+        },
+        {
+          "id": "B",
+          "text": "CREATE VIEW"
+        },
+        {
+          "id": "C",
+          "text": "INSERT INTO"
+        },
+        {
+          "id": "D",
+          "text": "GROUP BY"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Session 3 بتذكر CREATE INDEX صراحة كـ DDL لإنشاء index أو search key.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-indexes",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-create-index-purpose",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 10 — DDL statements"
+      }
+    },
+    {
+      "id": "da-sql-session03-q010",
+      "question": "What is the risk of omitting WHERE from an UPDATE or DELETE, according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The statement can affect all rows."
+        },
+        {
+          "id": "B",
+          "text": "The query becomes a SELECT statement."
+        },
+        {
+          "id": "C",
+          "text": "Only the first row is affected."
+        },
+        {
+          "id": "D",
+          "text": "The table is automatically dropped."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتنبه إن غياب WHERE في UPDATE أو DELETE ممكن يخلي العملية تطبق على كل الصفوف، ودي نقطة troubleshooting مهمة.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "crud-safety",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "missing-where-affects-all-rows",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 26 — Common Pitfalls & Fixes"
+      }
+    },
+    {
+      "id": "da-sql-session03-q031",
+      "question": "Using the Slide 22 sample data, a query applies WHERE age > 30 and then ORDER BY age DESC. Which first three names are returned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Omar Khalid, Fahad Zayed, Sara Ahmed."
+        },
+        {
+          "id": "B",
+          "text": "Fahad Zayed, Sara Ahmed, Yousef Nabil."
+        },
+        {
+          "id": "C",
+          "text": "Fahad Zayed, Omar Khalid, Hani Mansour."
+        },
+        {
+          "id": "D",
+          "text": "Maya Haddad, Leila Faris, Ali Hassan."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "بعد فلترة age > 30 يبقى 6 عملاء، وترتيبهم تنازليًا يبدأ 45 ثم 41 ثم 36: Fahad ثم Omar ثم Hani.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "where-order-combination",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-filter-then-sort-top3",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 22–23 — sample data / WHERE and ORDER BY"
+      }
+    },
+    {
+      "id": "da-sql-session05-q001",
+      "question": "According to the query execution diagram, which clause is processed first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT"
+        },
+        {
+          "id": "B",
+          "text": "FROM"
+        },
+        {
+          "id": "C",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "D",
+          "text": "LIMIT"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الرسم في Slide 2 بيبدأ بـ FROM، وبعدها WHERE ثم GROUP BY ثم HAVING ثم SELECT ثم ORDER BY ثم LIMIT.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "query-execution-order",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "execution-order-from-first",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 2 — Query execution order"
+      }
+    },
+    {
+      "id": "da-sql-session05-q002",
+      "question": "What is the main role of WHERE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Filter rows before grouping."
+        },
+        {
+          "id": "B",
+          "text": "Sort the final result."
+        },
+        {
+          "id": "C",
+          "text": "Create a table."
+        },
+        {
+          "id": "D",
+          "text": "Rename columns permanently."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "WHERE هي filtering clause للـ base rows وبتتنفذ قبل GROUP BY حسب ترتيب التنفيذ المعروض.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "where-comparison",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "where-filters-base-rows",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 2 and 4 — WHERE filtering"
+      }
+    },
+    {
+      "id": "da-sql-session05-q003",
+      "question": "Which operator means “greater than or equal to”?",
+      "options": [
+        {
+          "id": "A",
+          "text": ">="
+        },
+        {
+          "id": "B",
+          "text": "<>"
+        },
+        {
+          "id": "C",
+          "text": "<="
+        },
+        {
+          "id": "D",
+          "text": "="
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "جدول comparison operators في المادة بيحدد >= بمعنى greater than or equal to.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "comparison-operators",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "comparison-greater-equal",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 5 — Comparison operators"
+      }
+    },
+    {
+      "id": "da-sql-session05-q021",
+      "question": "What is the difference between DISTINCT and deleting duplicates from the table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DISTINCT permanently deletes duplicate rows."
+        },
+        {
+          "id": "B",
+          "text": "DISTINCT creates a UNIQUE constraint."
+        },
+        {
+          "id": "C",
+          "text": "DISTINCT removes duplicates from query output; it does not delete stored rows."
+        },
+        {
+          "id": "D",
+          "text": "There is no difference."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتشرح DISTINCT كإزالة للتكرار من الـ output، بينما حذف duplicates فعليًا له method منفصلة بـ ROW_NUMBER وDELETE.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-aggregation",
+      "subtopicId": "duplicates-distinct",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "distinct-output-vs-delete-rows",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 21 and 23 — DISTINCT vs deleting duplicates"
+      }
+    },
+    {
+      "id": "da-sql-session05-q025",
+      "question": "Which aggregate functions are shown as usable across various data types?",
+      "options": [
+        {
+          "id": "A",
+          "text": "AVG() and SUM() only"
+        },
+        {
+          "id": "B",
+          "text": "COUNT(), MIN(), and MAX()"
+        },
+        {
+          "id": "C",
+          "text": "DATE_ADD() and DATEDIFF()"
+        },
+        {
+          "id": "D",
+          "text": "UPPER() and LOWER()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتذكر COUNT وMIN وMAX تحت Various data types.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "aggregate-function-types",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "count-min-max-various-types",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 25 — Non-numerical data"
+      }
+    },
+    {
+      "id": "da-sql-session05-q061",
+      "question": "The lab asks to categorize customers by age group. Which SQL feature is explicitly intended for that task?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CASE"
+        },
+        {
+          "id": "B",
+          "text": "CREATE INDEX"
+        },
+        {
+          "id": "C",
+          "text": "DROP TABLE"
+        },
+        {
+          "id": "D",
+          "text": "TRUNCATE"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ lab في Slide 34 بيطلب استخدام CASE لتصنيف العملاء حسب العمر.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "intermediate-lab",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-use-case-for-age-groups",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 34 — Intermediate SQL Hands-on"
+      }
+    },
+    {
+      "id": "da-sql-session05-q064",
+      "question": "Which pair is explicitly practiced as date functions in the lab?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NOW and DATE_ADD"
+        },
+        {
+          "id": "B",
+          "text": "UPPER and CONCAT"
+        },
+        {
+          "id": "C",
+          "text": "MIN and MAX"
+        },
+        {
+          "id": "D",
+          "text": "LIKE and IN"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ lab يذكر NOW وDATE_ADD ضمن date functions المطلوبة للتدريب.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "intermediate-lab",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-date-functions-now-dateadd",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 34 — Lab tasks"
+      }
+    },
+    {
+      "id": "da-sql-session04-q003",
+      "question": "What normalization target is stated for the University project?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stop at 1NF."
+        },
+        {
+          "id": "B",
+          "text": "Aim for 3NF."
+        },
+        {
+          "id": "C",
+          "text": "Use no normalization."
+        },
+        {
+          "id": "D",
+          "text": "Always denormalize every table."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 4 بتذكر صراحة Normalization: Aim for 3NF.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "normalization",
+      "subtopicId": "third-normal-form",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "university-project-aim-3nf",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 4 — Normalization: Aim for 3NF"
+      }
+    },
+    {
+      "id": "da-sql-session04-q006",
+      "question": "Which Course attribute is explicitly marked UNIQUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "title"
+        },
+        {
+          "id": "B",
+          "text": "course_code"
+        },
+        {
+          "id": "C",
+          "text": "credits"
+        },
+        {
+          "id": "D",
+          "text": "course_id as a non-key field"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "course_code مذكور كـ UNIQUE natural key في Courses.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "unique-constraint",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "course-code-unique",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5 and 7 — course_code UNIQUE"
+      }
+    },
+    {
+      "id": "da-sql-session04-q035",
+      "question": "To answer “Instructors Teaching > 2 Courses” using Teaches, which taught query pattern best matches the requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use DISTINCT instructor_id only with no counting."
+        },
+        {
+          "id": "B",
+          "text": "Use CHECK credits > 2 on Courses."
+        },
+        {
+          "id": "C",
+          "text": "Delete instructors who teach two courses."
+        },
+        {
+          "id": "D",
+          "text": "Group teaching rows by instructor and filter groups whose course count is greater than 2."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المطلوب threshold على عدد courses لكل instructor، فده منطقيًا GROUP BY instructor مع aggregate count ثم HAVING > 2.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "project-required-queries",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "project-instructor-load-group-having-pattern",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 9 — Instructors Teaching > 2 Courses"
+      }
+    },
+    {
+      "id": "da-sql-session04-q037",
+      "question": "A designer stores instructor email repeatedly inside every Teaches row even though it already belongs to Instructors. Which project goal does that work against?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The snake_case naming convention only."
+        },
+        {
+          "id": "B",
+          "text": "The stated aim for a normalized 3NF design."
+        },
+        {
+          "id": "C",
+          "text": "The requirement to have 20 enrollments."
+        },
+        {
+          "id": "D",
+          "text": "The CHECK on credits."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "تكرار instructor attribute داخل association table بدون حاجة بيزود redundancy وبيتعارض مع هدف 3NF المذكور للمشروع.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "third-normal-form",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "university-avoid-repeating-instructor-data-3nf",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 4–5 — Aim for 3NF / normalized entity separation"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q011",
+      "question": "Consider `SELECT e.name, s.name FROM employees e, employees s WHERE e.supervisorID = s.ID`. Which row for an employee with `supervisorID = NULL` will be returned by this equijoin?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The employee is returned with their own name as supervisor."
+        },
+        {
+          "id": "B",
+          "text": "The employee is returned with every supervisor."
+        },
+        {
+          "id": "C",
+          "text": "No row for that employee, because NULL does not match a supervisor ID in the equality condition."
+        },
+        {
+          "id": "D",
+          "text": "The query automatically converts NULL to 0."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الشرط `e.supervisorID = s.ID` محتاج match؛ الموظف اللي SupervisorID عنده NULL مش هيلقى صف مطابق في الربط ده.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "self-join",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "self-join-null-supervisor-unmatched",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 11–12 — Self Join data and query"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q012",
+      "question": "The RIGHT OUTER JOIN example lists HR even though HR has no assigned employee. Why?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RIGHT JOIN removes unmatched departments."
+        },
+        {
+          "id": "B",
+          "text": "The WHERE clause creates a fake employee."
+        },
+        {
+          "id": "C",
+          "text": "The query is actually a Cartesian product."
+        },
+        {
+          "id": "D",
+          "text": "The departments table is on the preserved right side of the join."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "في المثال `employees e RIGHT OUTER JOIN departments d`، كل صفوف departments لازم تظهر؛ لذلك HR يظهر حتى من غير employee match.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "right-join-preserves-departments",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 14 — RIGHT OUTER JOIN example"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q021",
+      "question": "An e-commerce report must list only customers who have at least one matching order. Which join behavior is required?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN between Customers and Orders on CustomerID."
+        },
+        {
+          "id": "B",
+          "text": "LEFT JOIN with Customers preserved regardless of orders."
+        },
+        {
+          "id": "C",
+          "text": "FULL OUTER JOIN preserving unmatched rows from both tables."
+        },
+        {
+          "id": "D",
+          "text": "Cartesian product between Customers and Orders."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المطلوب customers اللي عندهم order مطابق فقط، وده سلوك INNER JOIN.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "inner-join",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "inner-join-customers-with-orders",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — INNER JOIN"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q026",
+      "question": "Table X has 3 rows and table Y has 4 rows. If a Cartesian product is produced, how many row combinations are possible?",
+      "options": [
+        {
+          "id": "A",
+          "text": "3."
+        },
+        {
+          "id": "B",
+          "text": "12."
+        },
+        {
+          "id": "C",
+          "text": "4."
+        },
+        {
+          "id": "D",
+          "text": "7."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Cartesian Product = كل صف من X مع كل صف من Y، إذن 3 × 4 = 12 combination.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "cartesian-product",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "cartesian-product-row-count-3x4",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — Cartesian Product"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q001",
+      "question": "What is a subquery (nested query) according to Session 6?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A complete SELECT query placed inside another SQL query."
+        },
+        {
+          "id": "B",
+          "text": "A table alias used twice."
+        },
+        {
+          "id": "C",
+          "text": "A command that permanently changes a table schema."
+        },
+        {
+          "id": "D",
+          "text": "A Cartesian product with no join condition."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Subquery أو Nested Query هو SELECT كامل جوه query تاني.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "nested-query-basics",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "subquery-complete-select-inside-query",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 16 — Sub-Queries"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q025",
+      "question": "A store query needs products whose category ID is in the set of category IDs located in Cairo. Which taught structure matches the Giza department example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`WHERE CategoryID IN (SELECT CategoryID ... WHERE Location='Cairo')`."
+        },
+        {
+          "id": "B",
+          "text": "A self join of Products with itself."
+        },
+        {
+          "id": "C",
+          "text": "A FULL OUTER JOIN with no condition."
+        },
+        {
+          "id": "D",
+          "text": "TRUNCATE Categories before SELECT."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ده نفس pattern Slide 17: outer table بيتفلتر بـ `IN` على IDs راجعة من subquery داخل WHERE.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-where",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "where-in-subquery-category-location",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 17 — `Dno IN (SELECT Dnumber...)` pattern"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q029",
+      "question": "The E-commerce assignment asks for customer stats such as total spent, order count, and average order value using subqueries in SELECT. Which design matches the requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use correlated scalar subqueries in the SELECT list, one per derived customer statistic."
+        },
+        {
+          "id": "B",
+          "text": "Use a Cartesian product and no aggregation."
+        },
+        {
+          "id": "C",
+          "text": "Use only DROP TABLE statements."
+        },
+        {
+          "id": "D",
+          "text": "Use a self join on Customers with no Orders reference."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ assignment نفسه بيطلب subqueries in SELECT للـ customer stats، وSlide 24 بيوضح scalar correlated subqueries لنفس النوع من derived columns.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-select",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "assignment-customer-stats-with-select-subqueries",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 24 and 29 — SELECT subqueries and E-commerce assignment"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q032",
+      "question": "Using the same inputs {A,B} and {B,C}, what does UNION ALL return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "{A,B,C}."
+        },
+        {
+          "id": "B",
+          "text": "{B} only."
+        },
+        {
+          "id": "C",
+          "text": "{A,C} only."
+        },
+        {
+          "id": "D",
+          "text": "{A,B,B,C}."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "UNION ALL يحتفظ بكل rows من الناحيتين، وبالتالي B تظهر مرتين.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union-all",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-all-preserves-duplicate-b",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 21 — UNION ALL"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q014",
+      "question": "Salaries ordered DESC are 9000, 9000, 7000. What RANK() values are assigned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 1, 2"
+        },
+        {
+          "id": "B",
+          "text": "1, 1, 3"
+        },
+        {
+          "id": "C",
+          "text": "1, 2, 3"
+        },
+        {
+          "id": "D",
+          "text": "3, 3, 1"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "مع RANK، الـ ties بياخدوا نفس rank، وبعدهم يحصل gap؛ فـ 9000 و9000 = 1، وبعدهم 7000 = 3.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-rank-tie-gap-9000-9000-7000",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — RANK() Behavior"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q022",
+      "question": "After defining `WITH HighEarners AS (SELECT * FROM Staff WHERE Salary > 7000)`, what rows are available from HighEarners?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All Staff rows regardless of salary."
+        },
+        {
+          "id": "B",
+          "text": "Only Staff rows whose Salary is greater than 7000."
+        },
+        {
+          "id": "C",
+          "text": "Only Departments rows."
+        },
+        {
+          "id": "D",
+          "text": "Only rows with Salary exactly 7000."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ CTE نفسه مبني على filter `Salary > 7000`، فالناتج المؤقت فيه الـ Staff rows اللي عدت الشرط فقط.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-filtering",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-high-earners-cte-filter-result",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 14 — CTE Practice Case"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q023",
+      "question": "In the HighEarners example, the main query joins `HighEarners h` to `Departments d` using what relationship?",
+      "options": [
+        {
+          "id": "A",
+          "text": "h.Salary = d.DeptName"
+        },
+        {
+          "id": "B",
+          "text": "h.StaffName = d.DeptID"
+        },
+        {
+          "id": "C",
+          "text": "h.DeptID = d.DeptID"
+        },
+        {
+          "id": "D",
+          "text": "h.DeptID > d.DeptID"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المثال بيربط الـ filtered staff بالـ department table على `DeptID` عشان يرجع StaffName مع DeptName.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-with-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-cte-practice-join-condition",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 14 — CTE Practice Case"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q028",
+      "question": "Employees in department A have salaries 50 and 70; department B has 100. For the 70 row, `AVG(salary) OVER(PARTITION BY department)` returns what?",
+      "options": [
+        {
+          "id": "A",
+          "text": "70"
+        },
+        {
+          "id": "B",
+          "text": "73.33"
+        },
+        {
+          "id": "C",
+          "text": "100"
+        },
+        {
+          "id": "D",
+          "text": "60"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ partition بتاع A فيه 50 و70 فقط، فالمتوسط 60 ويتعرض جنب row الـ 70.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "aggregate-window-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-partition-average-50-70",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 8 — Aggregate Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q037",
+      "question": "A developer writes `AVG(salary) PARTITION BY department_id` without `OVER(...)`. What is the main problem relative to the taught syntax?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The window specification is missing the OVER(...) wrapper."
+        },
+        {
+          "id": "B",
+          "text": "AVG cannot be used as a window function."
+        },
+        {
+          "id": "C",
+          "text": "PARTITION BY must always be replaced by PIVOT."
+        },
+        {
+          "id": "D",
+          "text": "The query must use DROP INDEX first."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "كل أمثلة الـ window functions في Session 8 بتستخدم `... OVER (...)`; PARTITION BY جزء جوه OVER مش بديل له.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "window-syntax",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "troubleshoot-missing-over-wrapper",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 8 — Aggregate Window Function Syntax"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q001",
+      "question": "What characterizes a single-row subquery in Session 8?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It returns one value: one row and one column."
+        },
+        {
+          "id": "B",
+          "text": "It must return every row from a table."
+        },
+        {
+          "id": "C",
+          "text": "It can only be used with PIVOT."
+        },
+        {
+          "id": "D",
+          "text": "It always returns a list for IN."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Single-Row Subquery بيرجع قيمة واحدة فقط، يعني row واحدة وcolumn واحدة.",
+        "en": ""
+      },
+      "topic": "Subqueries",
+      "topicId": "subqueries",
+      "subtopicId": "single-row-subqueries",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session08-single-row-subquery-one-value",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 5 — Single-Row Subqueries"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q016",
+      "question": "Which set of tools does the Dynamic Pivot slide mention for building and executing the dynamic column list?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LAG, LEAD, and NTILE"
+        },
+        {
+          "id": "B",
+          "text": "CREATE, ALTER, and DROP only"
+        },
+        {
+          "id": "C",
+          "text": "COMMIT, ROLLBACK, and SAVEPOINT only"
+        },
+        {
+          "id": "D",
+          "text": "STUFF, FOR XML PATH, and sp_executesql"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "السلايد بيذكر STUFF وFOR XML PATH لبناء column-list string، و`sp_executesql` للتنفيذ.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "dynamic-pivot",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-dynamic-pivot-tools-stuff-xml-sp-executesql",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 18 — Dynamic Pivot"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q018",
+      "question": "If `@stock = 2` and the condition is `IF @stock > 5`, which branch should execute?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The TRUE branch."
+        },
+        {
+          "id": "B",
+          "text": "The ELSE branch, if present."
+        },
+        {
+          "id": "C",
+          "text": "Both blocks at once."
+        },
+        {
+          "id": "D",
+          "text": "The PIVOT branch."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده external-similar: 2 > 5 = FALSE، فلو ELSE موجود هو اللي هيتنفذ.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "if-else",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-trace-if-else-stock-false-branch",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 20–21 — IF...ELSE Logic"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q034",
+      "question": "A transaction performs several DML statements that must act as one safe unit and runtime errors are possible. Which taught design is best?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Commit before running the DML so errors are ignored."
+        },
+        {
+          "id": "B",
+          "text": "BEGIN TRANSACTION, TRY the DML, COMMIT on success, and ROLLBACK in CATCH when needed."
+        },
+        {
+          "id": "C",
+          "text": "Use PIVOT instead of a transaction."
+        },
+        {
+          "id": "D",
+          "text": "Use RANK to decide whether errors matter."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده pattern Slide 25: transaction + TRY/CATCH، COMMIT لو نجح، وROLLBACK داخل CATCH عند الخطأ.",
+        "en": ""
+      },
+      "topic": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "subtopicId": "transaction-error-handling",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-best-transaction-try-catch-commit-rollback-pattern",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 25 — Transaction Management"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q012",
+      "question": "Which optional clause appears in the Session 9 CREATE VIEW syntax?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WITH PIVOT OPTION"
+        },
+        {
+          "id": "B",
+          "text": "WITH PROCEDURE OPTION"
+        },
+        {
+          "id": "C",
+          "text": "WITH INDEX OPTION"
+        },
+        {
+          "id": "D",
+          "text": "WITH CHECK OPTION"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 6 تعرض WITH CHECK OPTION كـ optional clause في نهاية CREATE VIEW syntax.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "with-check-option",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-create-view-optional-check-option",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 6 and 9 — WITH CHECK OPTION"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q028",
+      "question": "What does SELECT * FROM EmployeeDepartmentInfo; do after the view from Slide 4 has been created?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It drops EmployeeDepartmentInfo."
+        },
+        {
+          "id": "B",
+          "text": "It recreates EMPLOYEE and DEPARTMENT."
+        },
+        {
+          "id": "C",
+          "text": "It changes every department name."
+        },
+        {
+          "id": "D",
+          "text": "It retrieves the columns and rows exposed by the EmployeeDepartmentInfo view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "بعد إنشاء الـ View، SELECT * FROM اسم_الـView بيقرأ البيانات اللي الـ View بيعرضها، زي التعامل مع table في SELECT.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "query-view",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-query-created-employee-department-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — EmployeeDepartmentInfo View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q038",
+      "question": "A team uses a view instead of duplicating base tables when it only needs a simplified reusable result. Why does that choice match Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because a view always stores more data than a table."
+        },
+        {
+          "id": "B",
+          "text": "It provides a logical reusable SELECT layer without requiring a separate independent copy of the data."
+        },
+        {
+          "id": "C",
+          "text": "Because views cannot depend on tables."
+        },
+        {
+          "id": "D",
+          "text": "Because views remove the need for SELECT."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ View بيقدم logical layer reusable فوق البيانات الأصلية، وده يحقق تبسيط الاستعلام والعرض من غير تكرار مستقل للبيانات.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-vs-copy-best-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 3–4 — Views / Advantages"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q019",
+      "question": "A caller wants to run GetEmployeesInDepartment for department 101. Which invocation matches the Session 9 example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT PROCEDURE GetEmployeesInDepartment INTO 101;"
+        },
+        {
+          "id": "B",
+          "text": "RUN VIEW GetEmployeesInDepartment 101;"
+        },
+        {
+          "id": "C",
+          "text": "EXEC GetEmployeesInDepartment @DepartmentID = 101;"
+        },
+        {
+          "id": "D",
+          "text": "DROP GetEmployeesInDepartment 101;"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Slide 26 تعرض EXEC كطريقة تشغيل الـ Stored Procedure مع parameter.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-execution",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-exec-procedure-syntax",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — How to Use This Procedure"
+      }
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "reportId": "sql-final-production-report-v1.0",
+  "trackId": "sql",
+  "curriculumVersion": "1.0",
+  "curriculumStatus": "complete",
+  "finalReadiness": "FINAL READY",
+  "finalBatch": {
+    "id": "sql-batch-006",
+    "file": "Session9.pptx",
+    "slides": 31,
+    "title": "Reusable SQL Logic: Views & Functions",
+    "newMajorTopics": [
+      {
+        "topicId": "views",
+        "importance": "core"
+      },
+      {
+        "topicId": "stored-procedures",
+        "importance": "important"
+      }
+    ],
+    "extendedTopics": [
+      {
+        "topicId": "sql-advanced-query-expressions",
+        "extensions": [
+          "scalar functions",
+          "aggregate functions",
+          "mathematical functions",
+          "string functions",
+          "date/time functions",
+          "date arithmetic"
+        ]
+      },
+      {
+        "topicId": "sql-server-control-flow",
+        "extensions": [
+          "CASE in views"
+        ]
+      }
+    ],
+    "newQuestionBanks": [
+      {
+        "id": "da-sql-session09-views-bank-001",
+        "file": "question-banks/bank-012.json",
+        "questions": 40
+      },
+      {
+        "id": "da-sql-session09-functions-procedures-bank-002",
+        "file": "question-banks/bank-013.json",
+        "questions": 40
+      }
+    ]
+  },
+  "cumulativeBank": {
+    "totalQuestions": 520,
+    "banks": 13,
+    "difficulty": {
+      "Medium": 261,
+      "Hard": 130,
+      "Easy": 129
+    },
+    "sourceType": {
+      "course": 407,
+      "external-similar": 113
+    },
+    "answerPositions": {
+      "B": 130,
+      "A": 130,
+      "C": 130,
+      "D": 130
+    },
+    "questionTypes": {
+      "scenario-application": 122,
+      "troubleshooting": 53,
+      "direct-knowledge": 156,
+      "best-decision": 61,
+      "code-tracing": 106,
+      "calculation-tracing": 22
+    },
+    "questionFamilies": {
+      "scenario": 183,
+      "troubleshooting": 53,
+      "direct": 156,
+      "tracing": 128
+    },
+    "difficultyPercent": {
+      "Medium": 50.19,
+      "Hard": 25.0,
+      "Easy": 24.81
+    },
+    "sourceTypePercent": {
+      "course": 78.27,
+      "external-similar": 21.73
+    },
+    "questionFamilyPercent": {
+      "scenario": 35.19,
+      "troubleshooting": 10.19,
+      "direct": 30.0,
+      "tracing": 24.62
+    }
+  },
+  "finalCoverage": {
+    "coverageBlueprint": "final",
+    "trackExamValidated": true,
+    "trackExamSample": "track-exams/sql-track-exam-001.json",
+    "final20Validated": true,
+    "final20Sample": "final-validation/sql-final-sample-20.json"
+  },
+  "readinessCriteria": {
+    "1_user_confirmed_curriculum_completion": "PASS",
+    "2_major_topics_mapped": "PASS",
+    "3_important_subtopics_mapped": "PASS",
+    "4_question_banks_validate": "PASS",
+    "5_enough_questions_exist": "PASS — 520",
+    "6_enough_easy_questions": "PASS — 129",
+    "7_enough_medium_questions": "PASS — 261",
+    "8_enough_hard_questions": "PASS — 130",
+    "9_course_based_coverage": "PASS — 407 / 520 (78.27%)",
+    "10_external_similar_coverage": "PASS — 113 / 520 (21.73%)",
+    "11_final_blueprint_selects_20": "PASS",
+    "12_core_topics_represented": "PASS",
+    "13_no_major_curriculum_area_missing": "PASS"
+  },
+  "notes": [
+    "Session9 final batch adds Views, SQL Functions extensions, and Stored Procedures.",
+    "The final bank remains inside the requested 75–80% course / 20–25% external-similar range.",
+    "The mature question-family distribution is approximately 30% direct, 35% scenario/decision, 25% tracing, 10% troubleshooting."
+  ]
+}

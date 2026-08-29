@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.13.0
+# Digilians E-Learn Platform V0.14.0
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1098,3 +1098,21 @@ Ranking is now hierarchical:
 - Completion ranks first, then Total Grade, then total time.
 - Random Practice 40 / Random Exam 50 / Final simulations remain separately ranked but are excluded from aggregate Total Grades.
 - No Supabase schema migration is required.
+
+
+## V0.14.0 — Complete SQL Curriculum Integration
+
+Integrated the finalized SQL production package into the Data Analysis learning and assessment architecture.
+
+- SQL curriculum status: complete / FINAL READY
+- 8 processed SQL sessions
+- 25 mapped major topics
+- 13 production Question Banks
+- 520 validated SQL questions
+- 8 source-scoped Session Practice exams
+- Dynamic Full SQL Track Exam: 50 questions
+- SQL share in the Data Analysis Final: 20 questions
+- Validated signature rotation preserves the approved topic, difficulty, source-type and question-family profiles while allowing alternate forms.
+- Legacy 50-question Session 1 seed bank was removed from the active registry.
+- Session2 remains scoped to DDL, DML and DQL only.
+- Official Ministry QBank and Ranking V2 remain independent from the course-production SQL bank.

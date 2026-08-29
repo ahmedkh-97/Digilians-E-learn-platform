@@ -1051,6 +1051,25 @@ function renderModulePanel(course,track=null){
     list.appendChild(row);
   });
 
+  if(track?.trackExamId){
+    const examItem=state.registry.find(x=>x.id===track.trackExamId);
+    const row=document.createElement("button");
+    row.className="module-row track-exam-row";
+    row.innerHTML=`
+      <div class="course-icon">★</div>
+      <div class="module-row-copy">
+        <strong>${track.trackExamTitle || examItem?.title || "Full Track Exam"}</strong>
+        <small>${examItem?.description || "Comprehensive exam across the full track."}</small>
+      </div>
+      <span class="module-row-arrow">50Q →</span>
+    `;
+    row.addEventListener("click",()=>{
+      if(examItem)prepareExam(examItem);
+      else showToast("Full track exam is not available yet.");
+    });
+    list.appendChild(row);
+  }
+
   state.selectedModule=modules[0];
   $("modulePanelTitle").textContent=modules[0].title;
   $("modulePanelDescription").textContent=modules[0].description || "";

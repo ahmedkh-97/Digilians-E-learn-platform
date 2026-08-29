@@ -89,13 +89,13 @@ export function getBlueprintReadiness(bankRegistry,blueprint){
   };
 }
 
-async function loadTrackQuestions(trackId,bankRegistry,loadJson){
+async function loadTrackQuestions(trackId,bankRegistry,loadJson,eligibilityField="finalEligible"){
   const banks=relevantBanks(bankRegistry,trackId);
   const all=[];
   for(const bank of banks){
     const payload=await loadJson(bank.file);
     for(const q of payload.questions||[]){
-      if(q.finalEligible!==false) all.push({...q,_bankId:bank.id});
+      if(q[eligibilityField]!==false) all.push({...q,_bankId:bank.id});
     }
   }
   return all;
@@ -107,6 +107,47 @@ function pickFromBucket(pool,count,usedIds){
   const picked=available.slice(0,count);
   picked.forEach(q=>usedIds.add(q.id));
   return picked;
+}
+
+function questionFamily(q){
+  if(q.questionType==="direct-knowledge")return "direct";
+  if(q.questionType==="scenario-application" || q.questionType==="best-decision")return "scenario";
+  if(q.questionType==="code-tracing" || q.questionType==="calculation-tracing")return "tracing";
+  if(q.questionType==="troubleshooting")return "troubleshooting";
+  return q.questionType || "other";
+}
+function signatureKey(q){
+  return [q.topicId,q.difficulty,q.sourceType,questionFamily(q)].join("|||");
+}
+function selectByValidatedSignatures(pool,profile,count){
+  const quotas=profile?.signatureQuotas||{};
+  const entries=Object.entries(quotas);
+  const expected=entries.reduce((sum,[,n])=>sum+Number(n||0),0);
+  if(expected!==count)throw new Error(`Validated selection profile expects ${expected}/${count} questions.`);
+
+  const selected=[];const usedIds=new Set();const usedConcepts=new Set();
+  // Scarcer signatures first so high-flexibility buckets cannot consume unique concepts needed later.
+  const ordered=entries.map(([signature,quota])=>{
+    const available=pool.filter(q=>signatureKey(q)===signature);
+    return {signature,quota:Number(quota),available};
+  }).sort((a,b)=>(a.available.length/a.quota)-(b.available.length/b.quota));
+
+  for(const spec of ordered){
+    let candidates=shuffled(spec.available.filter(q=>!usedIds.has(q.id)));
+    if(profile.avoidDuplicateConceptKeys){
+      const unique=candidates.filter(q=>!q.conceptKey || !usedConcepts.has(q.conceptKey));
+      if(unique.length>=spec.quota)candidates=unique;
+    }
+    if(candidates.length<spec.quota){
+      throw new Error(`Validated SQL profile shortage for ${spec.signature}: ${candidates.length}/${spec.quota}.`);
+    }
+    const picked=candidates.slice(0,spec.quota);
+    for(const q of picked){
+      selected.push(q);usedIds.add(q.id);if(q.conceptKey)usedConcepts.add(q.conceptKey);
+    }
+  }
+  if(selected.length!==count)throw new Error(`Validated profile selected ${selected.length}/${count} questions.`);
+  return shuffled(selected);
 }
 
 function arrangeAvoidingTopicRepeats(questions){
@@ -135,41 +176,36 @@ export async function buildExamFromBlueprint({blueprint,bankRegistry,loadJson,co
 
   let selected=[];
   for(const spec of blueprint.tracks){
-    const pool=await loadTrackQuestions(spec.trackId,bankRegistry,loadJson);
-    const quotas=combinedQuotas(spec.count,blueprint.difficultyTarget,blueprint.sourceTarget);
-    const usedIds=new Set();
-    const trackSelected=[];
+    const eligibilityField=blueprint.kind==="track"?"trackExamEligible":"finalEligible";
+    const pool=await loadTrackQuestions(spec.trackId,bankRegistry,loadJson,eligibilityField);
+    const validatedProfile=spec.selectionProfile || null;
+    let finalTrackSelection;
 
-    for(const [bucket,count] of Object.entries(quotas)){
-      const [sourceType,difficulty]=bucket.split("|||");
-      const bucketPool=pool.filter(q=>
-        q.sourceType===sourceType && q.difficulty===difficulty
-      );
-      const picked=pickFromBucket(bucketPool,count,usedIds);
-      if(!picked){
-        throw new Error(`${spec.label}: insufficient ${sourceType} / ${difficulty} questions for runtime selection.`);
+    if(validatedProfile?.strategy==="validated-signature-rotation" && validatedProfile?.signatureQuotas){
+      finalTrackSelection=selectByValidatedSignatures(pool,validatedProfile,spec.count);
+    }else{
+      const quotas=combinedQuotas(spec.count,blueprint.difficultyTarget,blueprint.sourceTarget);
+      const usedIds=new Set();
+      const trackSelected=[];
+
+      for(const [bucket,count] of Object.entries(quotas)){
+        const [sourceType,difficulty]=bucket.split("|||");
+        const bucketPool=pool.filter(q=>q.sourceType===sourceType && q.difficulty===difficulty);
+        const picked=pickFromBucket(bucketPool,count,usedIds);
+        if(!picked){
+          throw new Error(`${spec.label}: insufficient ${sourceType} / ${difficulty} questions for runtime selection.`);
+        }
+        trackSelected.push(...picked);
       }
-      trackSelected.push(...picked);
-    }
 
-    let finalTrackSelection=trackSelected;
-    const coverage=coverageByTrack?.[spec.trackId];
-    if(coverage && Array.isArray(coverage.topics) && coverage.topics.length){
-      // Coverage is applied after source/difficulty bucket selection.
-      // If the bucket result is too narrow to satisfy coverage, fall back to the full track pool
-      // while preserving runtime validation in the caller.
-      try{
-        finalTrackSelection=selectByCoverage({
-          questions:trackSelected,
-          coverage,
-          questionCount:spec.count
-        });
-      }catch(e){
-        finalTrackSelection=selectByCoverage({
-          questions:pool,
-          coverage,
-          questionCount:spec.count
-        });
+      finalTrackSelection=trackSelected;
+      const coverage=coverageByTrack?.[spec.trackId];
+      if(coverage && Array.isArray(coverage.topics) && coverage.topics.length){
+        try{
+          finalTrackSelection=selectByCoverage({questions:trackSelected,coverage,questionCount:spec.count});
+        }catch(e){
+          finalTrackSelection=selectByCoverage({questions:pool,coverage,questionCount:spec.count});
+        }
       }
     }
 

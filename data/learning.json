@@ -83,20 +83,21 @@
           "title": "SQL & Databases",
           "icon": "Q",
           "accent": "#1caee8",
-          "description": "Relational databases, data modeling, SQL and database concepts.",
+          "description": "Complete SQL curriculum: 8 sessions, 25 mapped topics, 520 validated production questions, session practice and a dynamic 50-question full-track exam.",
           "modules": [
             {
-              "id": "sql-session-1",
-              "title": "Session 1 — Relational Databases & Data Modeling",
-              "description": "Database fundamentals, data models, ER modeling, mapping, normalization, and Star vs Snowflake schemas.",
-              "examId": "data-analysis-sql-session1-data-modeling-practice",
+              "id": "sql-session-01",
+              "title": "Session 1 — Relational Databases & Data Modeling for Data Engineers",
+              "description": "Database Fundamentals, Data Models, Entity-Relationship Modeling, ER to Relational Mapping + 6 more topics",
+              "examId": "data-analysis-sql-session01-practice-v1",
+              "sourceFile": "Session1 (1).pptx",
               "study": {
-                "title": "Session 1 — Relational Databases & Data Modeling",
-                "description": "A compact study map based on Session1.pptx before you move to practice and the full exam.",
+                "title": "Session 1 — Study Map",
+                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session1 (1).pptx.",
                 "sections": [
                   {
-                    "id": "database-foundations",
-                    "title": "Database Foundations",
+                    "id": "database-fundamentals",
+                    "title": "Database Fundamentals",
                     "paragraphs": [
                       "A database is an organized collection of data that is stored and accessed electronically.",
                       "A DBMS supports efficient, reliable, convenient and safe multi-user storage and access to persistent data."
@@ -126,7 +127,7 @@
                   },
                   {
                     "id": "er-modeling",
-                    "title": "ER Modeling & Relationships",
+                    "title": "Entity-Relationship Modeling",
                     "paragraphs": [
                       "ER modeling visually represents entities, attributes and relationships before creating the database.",
                       "Relationship degree can be unary, binary or ternary, while cardinality can be 1:1, 1:N or M:N."
@@ -139,8 +140,8 @@
                     ]
                   },
                   {
-                    "id": "mapping",
-                    "title": "Mapping ER Diagrams to Relations",
+                    "id": "er-relational-mapping",
+                    "title": "ER to Relational Mapping",
                     "paragraphs": [
                       "Entities become tables and attributes become columns.",
                       "Composite attributes are decomposed into atomic values, while multivalued attributes are mapped to a separate relation."
@@ -150,6 +151,37 @@
                       "In 1:N, the primary key from the 1 side becomes a foreign key on the N side.",
                       "Weak entities include the parent entity key."
                     ]
+                  },
+                  {
+                    "id": "data-modeling-process",
+                    "title": "Data Modeling Process",
+                    "paragraphs": [
+                      "المحور ده جزء من Session1 (1).pptx في الـSQL production map، ومتصنف كـ important topic.",
+                      "Assessment scope بيركز على: Conceptual, logical, and physical data models."
+                    ],
+                    "bullets": [
+                      "الـ process في المادة يبدأ Conceptual ثم Logical ثم Physical؛ بعد high-level business view الخطوة التالية هي Logical design."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session1 (1).pptx — Slides 46–47 — Data Modeling Process • Session1 (1).pptx — Slide 46 — Data Modeling Process diagram"
+                    }
+                  },
+                  {
+                    "id": "schema-vs-instance",
+                    "title": "Schema vs Data / Database Instance",
+                    "paragraphs": [
+                      "المحور ده جزء من Session1 (1).pptx في الـSQL production map، ومتصنف كـ important topic.",
+                      "Assessment scope بيركز على: Schema blueprint vs database instance snapshot, Schema constraints, tables, fields, data types, relationships."
+                    ],
+                    "bullets": [
+                      "الـ schema هو التصميم الثابت نسبيًا، أما actual values في لحظة معينة فهي database instance؛ لذلك ممكن instances تختلف مع نفس schema.",
+                      "المادة بتوضح إن schema بيشمل structural constraints زي table names وfields وdata types والعلاقات، مش القيم الحالية نفسها."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session1 (1).pptx — Slide 48 — Schema Vs. Data"
+                    }
                   },
                   {
                     "id": "normalization",
@@ -164,8 +196,8 @@
                     ]
                   },
                   {
-                    "id": "star-snowflake",
-                    "title": "Star vs Snowflake",
+                    "id": "warehouse-schema-design",
+                    "title": "Data Warehousing Schemas",
                     "paragraphs": [
                       "A Star Schema uses a simple structure with one fact table and multiple denormalized dimension tables.",
                       "A Snowflake Schema uses normalized dimensions and may include sub-dimensions."
@@ -174,11 +206,584 @@
                       "Star: simpler, faster joins, more redundancy.",
                       "Snowflake: more complex, less redundancy, better suited to complex analytics and storage efficiency."
                     ]
+                  },
+                  {
+                    "id": "database-constraints",
+                    "title": "Database Constraints",
+                    "paragraphs": [
+                      "المحور ده جزء من Session1 (1).pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: PRIMARY KEY, FOREIGN KEY, UNIQUE constraints, CHECK constraint for positive prices, Unique Constraint, Primary Key, Not Null Constraint, Foreign Key...."
+                    ],
+                    "bullets": [
+                      "الـ lab note بيطلب تطبيق PRIMARY KEY وFOREIGN KEY وUNIQUE، وكمان CHECK constraint على السعر.",
+                      "المادة بتحدد CHECK constraint للتأكد إن prices في Products أكبر من zero."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session1 (1).pptx — Slide 64 — Create and Enforce Data Constraints • Session1 (1).pptx — Slide 64 — CHECK constraint requirement"
+                    }
+                  },
+                  {
+                    "id": "schema-design-practice",
+                    "title": "Schema Design Labs & Assignments",
+                    "paragraphs": [
+                      "المحور ده جزء من Session1 (1).pptx في الـSQL production map، ومتصنف كـ important topic.",
+                      "Assessment scope بيركز على: E-commerce ERD and relational mapping, E-commerce Star Schema implementation, Product Catalog Snowflake implementation, Retail Star/Snowflake comparison assignment, Library ERD mapping lab, Student-course ERD with constraints...."
+                    ],
+                    "bullets": [
+                      "الـ lab بيطلب fact table باسم Sales، مع dimensions مرتبطة زي Customers وProducts وTime.",
+                      "الـ Snowflake lab بيطلب normalize Products table عن طريق فصل Category وSupplier في جداول مختلفة.",
+                      "الـ assignment بيطلب أولًا Star Schema، وبعدها تحويله إلى Snowflake عن طريق normalizing 2 dimensions.",
+                      "الـ library lab بيربط بين ER modeling والتنفيذ العلاقي: بعد رسم ERD لازم يتم mapping لجداول relational مع Primary Keys وForeign Keys.",
+                      "الـ assignment في نهاية الجلسة بيطلب تصميم ERD لنظام student-course registration ثم mapping إلى relational tables مع constraints."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session1 (1).pptx — Slide 64 — Implement a Star Schema for an E-commerce Sales Database • Session1 (1).pptx — Slide 64 — Star Schema lab"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sql-session-02",
+              "title": "Session 2 — SQL Command Languages (DDL, DML, DQL)",
+              "description": "DDL, DML and DQL only for this source file. Data Types, Constraints, DCL and TCL from Session2 are excluded from assessment per the approved scope.",
+              "examId": "data-analysis-sql-session02-practice-v1",
+              "sourceFile": "Session2.pptx",
+              "scopeNote": "Only DDL, DML, and DQL were approved for assessment; Data Types, Constraints, DCL, and TCL from this file are excluded.",
+              "study": {
+                "title": "Session 2 — Study Map",
+                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session2.pptx.",
+                "sections": [
+                  {
+                    "id": "sql-command-languages",
+                    "title": "SQL Command Languages (DDL, DML, DQL)",
+                    "paragraphs": [
+                      "المحور ده جزء من Session2.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: SQL overview, DDL overview, DML overview, DQL — SELECT, DDL — CREATE, DDL — DROP...."
+                    ],
+                    "bullets": [
+                      "المادة بتعرّف SQL كـ Structured Query Language لتنفيذ عمليات على البيانات والجداول، وبتؤكد إنها مش Database System بحد ذاتها.",
+                      "CREATE موجودة تحت DDL لأنها بتعرّف أو تنشئ structure جديد في قاعدة البيانات.",
+                      "INSERT مصنفة في المادة تحت DML لأنها بتضيف data rows داخل جدول موجود.",
+                      "الـ diagram في Slide 8 بيضع SELECT تحت DQL تحديدًا، بينما ALTER تحت DDL وDELETE تحت DML.",
+                      "CREATE هي الأمر المخصص لإنشاء Table جديد؛ DROP للحذف وDELETE للصفوف وSELECT تحت DQL."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session2.pptx — Slide 6 — What is SQL? • Session2.pptx — Slide 5 — How to communicate with the DBMS?"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sql-session-03",
+              "title": "Session 3 — SQL Query Fundamentals",
+              "description": "Database Constraints, SQL Command Languages (DDL, DML, DQL), SQL Query Fundamentals",
+              "examId": "data-analysis-sql-session03-practice-v1",
+              "sourceFile": "Session3.pptx",
+              "study": {
+                "title": "Session 3 — Study Map",
+                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session3.pptx.",
+                "sections": [
+                  {
+                    "id": "database-constraints",
+                    "title": "Database Constraints",
+                    "paragraphs": [
+                      "المحور ده جزء من Session3.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: PRIMARY KEY, FOREIGN KEY, UNIQUE constraints, CHECK constraint for positive prices, Unique Constraint, Primary Key, Not Null Constraint, Foreign Key...."
+                    ],
+                    "bullets": [
+                      "UNIQUE على email هو القيد المخصص لمنع تكرار نفس القيمة في هذا العمود.",
+                      "BETWEEN 0 AND 120 بيحدد المجال المقبول؛ 125 خارجه وبالتالي يخرق CHECK.",
+                      "الكود في Slide 21 بيعرّف customer_id كـ INT IDENTITY(1,1) PRIMARY KEY.",
+                      "name معرف بـ VARCHAR(100) NOT NULL، وبالتالي NULL غير مسموح في العمود."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session3.pptx — Slide 21 — Hands-On: Create the Table • Session3.pptx — Slide 21 — CHECK (age BETWEEN 0 AND 120)"
+                    }
+                  },
+                  {
+                    "id": "sql-command-languages",
+                    "title": "SQL Command Languages (DDL, DML, DQL)",
+                    "paragraphs": [
+                      "المحور ده جزء من Session3.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: SQL overview, DDL overview, DML overview, DQL — SELECT, DDL — CREATE, DDL — DROP...."
+                    ],
+                    "bullets": [
+                      "Session 3 بتذكر CREATE INDEX صراحة كـ DDL لإنشاء index أو search key.",
+                      "DROP TABLE من أوامر DDL وبيحذف الجدول نفسه، مش مجرد صف واحد.",
+                      "CREATE TABLE من DDL لإنشاء structure، بينما INSERT INTO من DML لإضافة بيانات."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session3.pptx"
+                    }
+                  },
+                  {
+                    "id": "sql-query-fundamentals",
+                    "title": "SQL Query Fundamentals",
+                    "paragraphs": [
+                      "المحور ده جزء من Session3.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: SQL syntax basics, Statement termination / semicolons, SELECT / FROM basics, SELECT DISTINCT, ORDER BY, CRUD — UPDATE...."
+                    ],
+                    "bullets": [
+                      "المادة بتوضح إن SQL keywords نفسها case insensitive، فـ SELECT وselect ليهم نفس المعنى كأوامر SQL.",
+                      "الـ semicolon هو الفاصل القياسي بين SQL statements، خصوصًا لما النظام يسمح بتنفيذ أكتر من statement في نفس الطلب.",
+                      "النجمة * مع SELECT معناها اختيار كل الأعمدة من الجدول المحدد في FROM.",
+                      "DISTINCT بتأثر على نتيجة الاستعلام فقط وبتشيل التكرار من الـ output، مش من البيانات المخزنة.",
+                      "DESC اختصار descending وبيخلي الترتيب من الأكبر للأصغر أو من Z لـ A حسب نوع البيانات."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session3.pptx — Slide 6 — SQL Syntax • Session3.pptx — Slide 7 — Semicolon after SQL Statements?"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sql-session-04",
+              "title": "Session 4 — Project 1: University Database Design & Implementation",
+              "description": "Normalization, Database Constraints, Schema Design Labs & Assignments • GitHub/version-control deliverable instructions are excluded from SQL assessment.",
+              "examId": "data-analysis-sql-session04-practice-v1",
+              "sourceFile": "Session4.pptx",
+              "scopeNote": "Version-control/GitHub deliverable instructions are not treated as SQL assessment content.",
+              "study": {
+                "title": "Session 4 — Study Map",
+                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session4.pptx.",
+                "sections": [
+                  {
+                    "id": "normalization",
+                    "title": "Normalization",
+                    "paragraphs": [
+                      "المحور ده جزء من Session4.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: Purpose of normalization, Functional dependency, Full functional dependency, Partial functional dependency, Transitive functional dependency, First Normal Form (1NF)...."
+                    ],
+                    "bullets": [
+                      "Slide 4 بتذكر صراحة Normalization: Aim for 3NF."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session4.pptx"
+                    }
+                  },
+                  {
+                    "id": "database-constraints",
+                    "title": "Database Constraints",
+                    "paragraphs": [
+                      "المحور ده جزء من Session4.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: PRIMARY KEY, FOREIGN KEY, UNIQUE constraints, CHECK constraint for positive prices, Unique Constraint, Primary Key, Not Null Constraint, Foreign Key...."
+                    ],
+                    "bullets": [
+                      "الـ conceptual guide يحدد email كـ UNIQUE في Students.",
+                      "CHECK rule في المشروع: credits من 1 إلى 6.",
+                      "Slide 7 يربط FK بالـ referential integrity، وEnrollments فيها student_id FK وcourse_id FK.",
+                      "الـ composite UNIQUE بيمنع تكرار نفس الثلاثي فقط، لكنه يسمح للطالب بكورسات مختلفة أو terms مختلفة.",
+                      "الكود يعرّف email VARCHAR(100) UNIQUE NOT NULL، فـ NULL غير مسموح."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session4.pptx — Slide 5 — ERD Conceptual Guide • Session4.pptx — Slides 5 and 7 — course_code UNIQUE"
+                    }
+                  },
+                  {
+                    "id": "schema-design-practice",
+                    "title": "Schema Design Labs & Assignments",
+                    "paragraphs": [
+                      "المحور ده جزء من Session4.pptx في الـSQL production map، ومتصنف كـ important topic.",
+                      "Assessment scope بيركز على: E-commerce ERD and relational mapping, E-commerce Star Schema implementation, Product Catalog Snowflake implementation, Retail Star/Snowflake comparison assignment, Library ERD mapping lab, Student-course ERD with constraints...."
+                    ],
+                    "bullets": [
+                      "Slide 4 بيحدد الـ core entities: Students, Courses, Instructors, Enrollments.",
+                      "المادة بتسمي Enrollments junction وبتربط Students 1—M Enrollments وCourses 1—M Enrollments.",
+                      "المشروع بيوصي بـ snake_case ويدي student_id وcourse_code كأمثلة.",
+                      "الـ conceptual guide يعرّف PK(instructor_id, course_id, term) في Teaches.",
+                      "لأن Enrollments هي junction بين Courses وStudents، فالاستعلام المنطقي يمر من Course إلى Enrollments ثم Student."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session4.pptx — Slide 4 — Scope & Entities • Session4.pptx — Slide 4 — Naming convention"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sql-session-05",
+              "title": "Session 5 — Advanced Filtering & Aggregations in SQL",
+              "description": "SQL Filtering, SQL Aggregation, SQL Functions & Advanced Query Expressions",
+              "examId": "data-analysis-sql-session05-practice-v1",
+              "sourceFile": "Session5.pptx",
+              "study": {
+                "title": "Session 5 — Study Map",
+                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session5.pptx.",
+                "sections": [
+                  {
+                    "id": "sql-filtering",
+                    "title": "SQL Filtering",
+                    "paragraphs": [
+                      "المحور ده جزء من Session5.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: Query execution order, WHERE with comparison operators, Comparison operators, WHERE with strings, AND / OR logical operators, BETWEEN...."
+                    ],
+                    "bullets": [
+                      "الرسم في Slide 2 بيبدأ بـ FROM، وبعدها WHERE ثم GROUP BY ثم HAVING ثم SELECT ثم ORDER BY ثم LIMIT.",
+                      "WHERE هي filtering clause للـ base rows وبتتنفذ قبل GROUP BY حسب ترتيب التنفيذ المعروض.",
+                      "جدول comparison operators في المادة بيحدد >= بمعنى greater than or equal to.",
+                      "المادة بتوضح إن string literals في الفلترة بتتحط بين single quotes.",
+                      "Slide 10 بتقول صراحة استخدم AND لو لازم كل الشروط تتحقق."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session5.pptx — Slide 2 — Query execution order • Session5.pptx — Slides 2 and 4 — WHERE filtering"
+                    }
+                  },
+                  {
+                    "id": "sql-aggregation",
+                    "title": "SQL Aggregation",
+                    "paragraphs": [
+                      "المحور ده جزء من Session5.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: COUNT and NULL behavior, Duplicates and DISTINCT, Finding duplicates with GROUP BY / HAVING, Aggregate function types, ORDER BY, GROUP BY...."
+                    ],
+                    "bullets": [
+                      "المادة بتفرق بين COUNT(field_name) اللي بيعد القيم غير المفقودة وبين COUNT(*) اللي بيعد الصفوف.",
+                      "المادة بتشرح DISTINCT كإزالة للتكرار من الـ output، بينما حذف duplicates فعليًا له method منفصلة بـ ROW_NUMBER وDELETE.",
+                      "لإيجاد duplicates، المادة تستخدم GROUP BY على القيمة ثم HAVING COUNT(*) > 1.",
+                      "Slide 25 بيفصل AVG وSUM كوظائف للحقول العددية، بينما COUNT/MIN/MAX مذكورة تحت various data types.",
+                      "DESC مع ORDER BY بيعمل sorting تنازلي في النتيجة، مش filtering ولا update للبيانات."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session5.pptx — Slide 16 — Missing values and COUNT • Session5.pptx — Slide 16 — COUNT(field) vs COUNT(*)"
+                    }
+                  },
+                  {
+                    "id": "sql-advanced-query-expressions",
+                    "title": "SQL Functions & Advanced Query Expressions",
+                    "paragraphs": [
+                      "المحور ده جزء من Session5.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: ROW_NUMBER for duplicates, EXISTS, ANY / ALL, String functions, Date / time functions, CASE expressions...."
+                    ],
+                    "bullets": [
+                      "EXISTS في المادة وظيفته التحقق هل الـ subquery رجّع أي rows ولا لأ.",
+                      "ANY/SOME معناها إن المقارنة تنجح مع أي قيمة مناسبة من نتيجة الـ subquery.",
+                      "UPPER هي الـ string function المستخدمة لتحويل النص لحروف كبيرة.",
+                      "NOW() مذكورة كـ current date/time function.",
+                      "CASE بتنفذ conditional logic: كل WHEN بيتفحص وبيرجع THEN المناسب، وإلا ELSE."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session5.pptx — Slide 23 — Deleting Duplicates (Keeping One Copy) • Session5.pptx — Slide 23 — ROW_NUMBER duplicate deletion"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sql-session-06",
+              "title": "Session 6 — Relational Joins & Query Composition",
+              "description": "Relational Joins, Subqueries & Nested Queries, Set Operations",
+              "examId": "data-analysis-sql-session06-practice-v1",
+              "sourceFile": "Session6.pptx",
+              "study": {
+                "title": "Session 6 — Study Map",
+                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session6.pptx.",
+                "sections": [
+                  {
+                    "id": "joins",
+                    "title": "Relational Joins",
+                    "paragraphs": [
+                      "المحور ده جزء من Session6.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: Equi Join, Non-Equi Join, INNER JOIN, LEFT / RIGHT / FULL OUTER JOIN, Self Join, Cartesian Product...."
+                    ],
+                    "bullets": [
+                      "الـ Equijoin في المحاضرة قائم على equality condition بين الأعمدة المرتبطة، وغالبًا بيكون الربط بين PK وFK.",
+                      "الـ Non-Equijoin بيستخدم شرط ربط غير =، زي BETWEEN في مثال salary grades.",
+                      "INNER JOIN بيرجع الصفوف اللي لها match بين الجدولين، ومش بيحافظ تلقائيًا على الصفوف غير المتطابقة.",
+                      "Outer JOIN هدفه الاحتفاظ بصفوف حتى لو مفيش match في الطرف الآخر، حسب نوع LEFT/RIGHT/FULL.",
+                      "Self Join بيستخدم نفس الجدول مرتين بأسماء/aliases مختلفة علشان نقارن صفوف من الجدول بنفسه، زي employee مع supervisor."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session6.pptx — Slides 3–4 — Equi JOIN / Equijoins and Non-Equijoins • Session6.pptx — Slides 4 and 15 — Non-Equijoin definition and example"
+                    }
+                  },
+                  {
+                    "id": "subqueries",
+                    "title": "Subqueries & Nested Queries",
+                    "paragraphs": [
+                      "المحور ده جزء من Session6.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: Nested query basics, Subqueries in WHERE / HAVING, Subquery in FROM (inline view), Subqueries in WHERE, Correlated subqueries, Subqueries in SELECT...."
+                    ],
+                    "bullets": [
+                      "الـ Subquery أو Nested Query هو SELECT كامل جوه query تاني.",
+                      "السلايد بيذكر إن الـ inner query غالبًا يكون في WHERE أو HAVING، وممكن كمان يظهر في FROM كـ inline view.",
+                      "Session 6 بتسمي الـ subquery الموجود في FROM باسم inline view.",
+                      "الـ inner query بيجيب `Dnumber` من dept حيث location='giza'، وبعدها الـ outer query يفلتر Employee بـ `Dno IN (...)`.",
+                      "Correlated Subquery مربوط بالـ outer query لأنه بيرجع يستخدم column منها، زي `e.DepartmentID` في مثال متوسط راتب القسم."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session6.pptx — Slide 16 — Sub-Queries • Session6.pptx — Slides 16 and 26 — Inline View"
+                    }
+                  },
+                  {
+                    "id": "set-operations",
+                    "title": "Set Operations",
+                    "paragraphs": [
+                      "المحور ده جزء من Session6.pptx في الـSQL production map، ومتصنف كـ important topic.",
+                      "Assessment scope بيركز على: UNION, UNION ALL."
+                    ],
+                    "bullets": [
+                      "UNION بيجمع ناتج SELECT مع ناتج SELECT تاني، والصف المتكرر في الناتجين بيظهر مرة واحدة.",
+                      "الفرق الأساسي هنا إن UNION بيزيل التكرار، لكن UNION ALL يحتفظ بالصفوف المتكررة."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session6.pptx — Slide 21 — Union Operator • Session6.pptx — Slide 21 — Union Operator conditions"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sql-session-08",
+              "title": "Session 8 — Analytical SQL: Window Functions, CTEs & Pivoting",
+              "description": "SQL Query Fundamentals, Subqueries & Nested Queries, Window Functions, Common Table Expressions (CTEs) + 3 more topics",
+              "examId": "data-analysis-sql-session08-practice-v1",
+              "sourceFile": "Session8.pptx",
+              "study": {
+                "title": "Session 8 — Study Map",
+                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session8.pptx.",
+                "sections": [
+                  {
+                    "id": "sql-query-fundamentals",
+                    "title": "SQL Query Fundamentals",
+                    "paragraphs": [
+                      "المحور ده جزء من Session8.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: SQL syntax basics, Statement termination / semicolons, SELECT / FROM basics, SELECT DISTINCT, ORDER BY, CRUD — UPDATE...."
+                    ],
+                    "bullets": [
+                      "Session 8 بتعرّف الـ Index كـ data structure لتحسين سرعة الوصول للـ rows، والمثال بيعمل index على department."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session8.pptx"
+                    }
+                  },
+                  {
+                    "id": "subqueries",
+                    "title": "Subqueries & Nested Queries",
+                    "paragraphs": [
+                      "المحور ده جزء من Session8.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: Nested query basics, Subqueries in WHERE / HAVING, Subquery in FROM (inline view), Subqueries in WHERE, Correlated subqueries, Subqueries in SELECT...."
+                    ],
+                    "bullets": [
+                      "الـ Single-Row Subquery بيرجع قيمة واحدة فقط، يعني row واحدة وcolumn واحدة.",
+                      "الـ Multi-Row Subquery بيرجع list، والمحاضرة بتربطه بـ `IN`, `ANY`, و`ALL`.",
+                      "السلايد بيقول لو الـ subquery ممكن يرجع NULLs، الأفضل استخدام `NOT EXISTS` بدل `NOT IN` للموثوقية.",
+                      "الـ Summary بتقول: use Subqueries for simple filtering in WHERE clause."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session8.pptx"
+                    }
+                  },
+                  {
+                    "id": "window-functions",
+                    "title": "Window Functions",
+                    "paragraphs": [
+                      "المحور ده جزء من Session8.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: Window function purpose, PARTITION BY, LAG / LEAD, Aggregate window functions, RANK / DENSE_RANK / ROW_NUMBER, NTILE...."
+                    ],
+                    "bullets": [
+                      "الـ Window Function بتعمل calculation على مجموعة rows مرتبطة بالـ current row، وبتحافظ على الصفوف بدل ما تختصرهم زي GROUP BY.",
+                      "في مثال AVG كـ window function، `PARTITION BY department_id` بيقسم الصفوف لمجموعات داخل الـ window من غير ما يلغي تفاصيل كل row.",
+                      "`LAG()` بيرجع قيمة من row سابق للـ current row، بينما `LEAD()` بيبص لقدّام.",
+                      "المطلوب نحافظ على كل employee row ونضيف متوسط القسم؛ ده بالضبط استخدام `AVG(...) OVER(PARTITION BY ...)` الموجود في السلايد.",
+                      "`RANK()` بيدي نفس الرتبة للـ ties وبعدها بيسيب gap في أرقام الرتب، وده الفرق الأساسي عن DENSE_RANK."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session8.pptx — Slides 3–4 — Window Function Definition • Session8.pptx — Slide 8 — Aggregate Window Functions"
+                    }
+                  },
+                  {
+                    "id": "common-table-expressions",
+                    "title": "Common Table Expressions (CTEs)",
+                    "paragraphs": [
+                      "المحور ده جزء من Session8.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: CTE purpose, CTEs with joins, CTE syntax, CTE filtering, CTE vs subquery, CTE best practices."
+                    ],
+                    "bullets": [
+                      "المحاضرة بتقدم CTE كـ named temporary result set يحسن readability وممكن يت referenced أكتر من مرة في نفس الـ main query.",
+                      "الجدول في Slide 13 بيذكر إن CTE supports Recursive CTEs بينما subquery لا.",
+                      "الـ CTE بيتعرّف باستخدام `WITH CTE_Name AS (` وبعدها SELECT الداخلي.",
+                      "الـ CTE نفسه مبني على filter `Salary > 7000`، فالناتج المؤقت فيه الـ Staff rows اللي عدت الشرط فقط.",
+                      "المثال بيربط الـ filtered staff بالـ department table على `DeptID` عشان يرجع StaffName مع DeptName."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session8.pptx — Slides 11–13 — CTE Purpose and Comparison • Session8.pptx — Slide 14 — CTE Practice Case"
+                    }
+                  },
+                  {
+                    "id": "pivoting",
+                    "title": "Pivoting",
+                    "paragraphs": [
+                      "المحور ده جزء من Session8.pptx في الـSQL production map، ومتصنف كـ important topic.",
+                      "Assessment scope بيركز على: PIVOT purpose, PIVOT components, Static PIVOT, Dynamic PIVOT, PIVOT best practices."
+                    ],
+                    "bullets": [
+                      "PIVOT هدفه تحويل unique values من column إلى headers/columns، وده مناسب لتقارير cross-tab.",
+                      "من Core Components للـ PIVOT وجود aggregation زي SUM أو AVG، مع column to pivot وقائمة القيم.",
+                      "الـ `FOR Category IN ([Electronics], [Furniture], [Clothing])` هو اللي بيحدد الـ headers الناتجة.",
+                      "Dynamic Pivot بيتستخدم لما أسماء الـ columns المطلوبة مش معروفة مسبقًا.",
+                      "المحاضرة بتوصي باستخدام Pivot لما الـ output نفسه محتاج cross-tab format للتقرير."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session8.pptx — Slide 16 — Introduction to PIVOT • Session8.pptx — Slide 16 — PIVOT Core Components"
+                    }
+                  },
+                  {
+                    "id": "sql-server-control-flow",
+                    "title": "SQL Server Conditional Logic",
+                    "paragraphs": [
+                      "المحور ده جزء من Session8.pptx في الـSQL production map، ومتصنف كـ important topic.",
+                      "Assessment scope بيركز على: IF...ELSE, CASE expression, IIF(), CASE vs IF...ELSE, CASE vs IIF()."
+                    ],
+                    "bullets": [
+                      "`IF...ELSE` هو control-flow construct لتشغيل blocks مختلفة حسب Boolean condition.",
+                      "لإرجاع conditional value داخل SELECT، الـ standard والأوسع دعمًا هو `CASE`.",
+                      "Session 8 بتعرض `IIF(Boolean_expression, value_if_true, value_if_false)` كـ shorthand لـ simple CASE.",
+                      "Session 8 بيفرق بين IF...ELSE للتحكم في flow وبين CASE/IIF لإرجاع conditional values داخل SELECT/UPDATE/WHERE.",
+                      "IIF مناسب للـ binary true/false. لما الحالات متعددة، CASE أوضح ومصمم لـ multiple conditions."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session8.pptx — Slides 20–21 — IF...ELSE • Session8.pptx — Slide 22 — CASE Expression"
+                    }
+                  },
+                  {
+                    "id": "sql-error-handling",
+                    "title": "SQL Error Handling",
+                    "paragraphs": [
+                      "المحور ده جزء من Session8.pptx في الـSQL production map، ومتصنف كـ important topic.",
+                      "Assessment scope بيركز على: TRY...CATCH, Error functions, Transaction error handling, THROW / RAISERROR."
+                    ],
+                    "bullets": [
+                      "Divide-by-zero مثال مباشر على runtime error؛ لما يحصل جوه TRY التنفيذ ينتقل للـ CATCH.",
+                      "Session 8 بتذكر `ERROR_MESSAGE()` ضمن diagnostic functions داخل CATCH.",
+                      "الـ pattern في Slide 25 بيعمل rollback داخل CATCH لو لسه فيه active transaction، للحفاظ على integrity.",
+                      "السلايد بيذكر `THROW` كـ preferred modern method، و`RAISERROR` كـ legacy method."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session8.pptx — Slide 24 — TRY...CATCH • Session8.pptx — Slide 24 — TRY...CATCH Example"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sql-session-09",
+              "title": "Session 9 — Reusable SQL Logic: Views & Functions",
+              "description": "SQL Functions & Advanced Query Expressions, SQL Server Conditional Logic, Views, Stored Procedures",
+              "examId": "data-analysis-sql-session09-practice-v1",
+              "sourceFile": "Session9.pptx",
+              "study": {
+                "title": "Session 9 — Study Map",
+                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session9.pptx.",
+                "sections": [
+                  {
+                    "id": "sql-advanced-query-expressions",
+                    "title": "SQL Functions & Advanced Query Expressions",
+                    "paragraphs": [
+                      "المحور ده جزء من Session9.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: ROW_NUMBER for duplicates, EXISTS, ANY / ALL, String functions, Date / time functions, CASE expressions...."
+                    ],
+                    "bullets": [
+                      "الـ Scalar Function بتاخد قيمة واحدة وتطلع قيمة واحدة، زي UPPER(name).",
+                      "مثال الـ Scalar Functions في Slide 13 هو SELECT UPPER(name) FROM employees;.",
+                      "Slide 14 تستخدم SELECT COUNT(*) FROM orders; لحساب إجمالي عدد الطلبات.",
+                      "AVG بتحسب المتوسط وROUND(..., 2) بتقرب الناتج لرقمين عشريين.",
+                      "Slide 22 تعرض CURRENT_DATE وCURRENT_TIME كـ special registers."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session9.pptx"
+                    }
+                  },
+                  {
+                    "id": "sql-server-control-flow",
+                    "title": "SQL Server Conditional Logic",
+                    "paragraphs": [
+                      "المحور ده جزء من Session9.pptx في الـSQL production map، ومتصنف كـ important topic.",
+                      "Assessment scope بيركز على: IF...ELSE, CASE expression, IIF(), CASE vs IF...ELSE, CASE vs IIF()."
+                    ],
+                    "bullets": [
+                      "CASE expression بتختار قيمة output حسب الشروط، زي VIP/Premium/Standard/Basic في الـ View."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session9.pptx — Slides 17–18 — CASE in Views"
+                    }
+                  },
+                  {
+                    "id": "views",
+                    "title": "Views",
+                    "paragraphs": [
+                      "المحور ده جزء من Session9.pptx في الـSQL production map، ومتصنف كـ core topic.",
+                      "Assessment scope بيركز على: View definition, View base tables, View storage / logical behavior, CREATE VIEW, Advantages of views, Querying a view...."
+                    ],
+                    "bullets": [
+                      "الـ View في المادة عبارة عن logical table مبني على table أو view تاني، وبيمثل نافذة لعرض البيانات بدل ما يكون نسخة مادية مستقلة منها.",
+                      "الـ View لا يملك بيانات مستقلة؛ البيانات المعروضة جاية من الـ base tables، والـ View نفسه محفوظ كتعريف SELECT.",
+                      "الـ View definition بيتخزن كـ SELECT statement في الـ data dictionary حسب شرح Session 9.",
+                      "الأمر المستخدم لإنشاء View جديد هو CREATE VIEW.",
+                      "من مزايا الـ Views المذكورة: restrict data access، تبسيط complex queries، data independence، وتقديم رؤى مختلفة لنفس البيانات."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session9.pptx — Slide 3 — Views • Session9.pptx — Slides 3 and 6 — Views / Creating Views"
+                    }
+                  },
+                  {
+                    "id": "stored-procedures",
+                    "title": "Stored Procedures",
+                    "paragraphs": [
+                      "المحور ده جزء من Session9.pptx في الـSQL production map، ومتصنف كـ important topic.",
+                      "Assessment scope بيركز على: Stored procedure definition, Stored procedure parameters, Stored procedure benefits, Executing stored procedures, Conditional DML in stored procedures."
+                    ],
+                    "bullets": [
+                      "الـ Stored Procedure هي مجموعة SQL statements محفوظة وتتنفذ على database server.",
+                      "المادة بتذكر إن Stored Procedures تقبل parameters وترجع results للـ client.",
+                      "من المزايا المذكورة: reduction in network traffic، performance، reuse of code، وزيادة security.",
+                      "القيمة 101 بتدخل للـ parameter ثم WHERE تستخدمها لفلترة الموظفين على نفس DepartmentID.",
+                      "المثال في Slides 25–26 يوضح إن rating = 1 ينفذ UPDATE salary = salary * 1.10 للموظف المحدد."
+                    ],
+                    "callout": {
+                      "label": "Source trace",
+                      "text": "Session9.pptx — Slide 23 — What is a Stored Procedure? • Session9.pptx — Slide 24 — Benefits of Stored Procedures"
+                    }
                   }
                 ]
               }
             }
-          ]
+          ],
+          "trackExamId": "data-analysis-sql-track-v3",
+          "trackExamTitle": "Full SQL Track Exam — 50 Questions",
+          "productionStats": {
+            "sessions": 8,
+            "topics": 25,
+            "questionBanks": 13,
+            "questions": 520,
+            "status": "FINAL READY"
+          }
         },
         {
           "id": "python",

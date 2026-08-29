@@ -1,172 +1,224 @@
 {
   "schemaVersion": "1.0",
-  "id": "sql-final-coverage-v2",
-  "courseId": "data-analysis",
   "trackId": "sql",
   "track": "SQL & Databases",
-  "examKind": "final-share",
-  "questionCount": 20,
   "curriculumVersion": "1.0",
-  "allocationMethod": "validated-production-topic-targets",
+  "curriculumStatus": "complete",
+  "status": "final",
+  "purpose": "Finalized coverage blueprint for the 20-question SQL share of the 100-question Data Analysis Final.",
+  "totalQuestionsTarget": 20,
   "topics": [
     {
       "topicId": "database-fundamentals",
+      "importance": "important",
       "min": 0,
       "target": 0,
       "max": 1
     },
     {
       "topicId": "data-models",
+      "importance": "important",
       "min": 0,
       "target": 0,
       "max": 1
     },
     {
       "topicId": "er-modeling",
+      "importance": "core",
       "min": 1,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "er-relational-mapping",
+      "importance": "core",
       "min": 1,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "data-modeling-process",
+      "importance": "important",
       "min": 0,
       "target": 0,
       "max": 1
     },
     {
       "topicId": "schema-vs-instance",
+      "importance": "important",
       "min": 0,
       "target": 0,
       "max": 1
     },
     {
       "topicId": "normalization",
+      "importance": "core",
       "min": 1,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "warehouse-schema-design",
+      "importance": "core",
       "min": 1,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "database-constraints",
+      "importance": "core",
       "min": 1,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "schema-design-practice",
+      "importance": "important",
       "min": 0,
       "target": 0,
       "max": 1
     },
     {
       "topicId": "sql-command-languages",
+      "importance": "core",
       "min": 1,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "sql-query-fundamentals",
+      "importance": "core",
       "min": 1,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "sql-filtering",
+      "importance": "core",
       "min": 1,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "sql-aggregation",
+      "importance": "core",
       "min": 1,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "sql-advanced-query-expressions",
+      "importance": "core",
       "min": 0,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "joins",
+      "importance": "core",
       "min": 2,
       "target": 3,
       "max": 4
     },
     {
       "topicId": "subqueries",
+      "importance": "core",
       "min": 1,
       "target": 2,
       "max": 3
     },
     {
       "topicId": "set-operations",
+      "importance": "important",
       "min": 0,
       "target": 0,
       "max": 1
     },
     {
       "topicId": "window-functions",
+      "importance": "core",
       "min": 1,
       "target": 2,
       "max": 3
     },
     {
       "topicId": "common-table-expressions",
+      "importance": "core",
       "min": 0,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "pivoting",
+      "importance": "important",
       "min": 0,
       "target": 0,
       "max": 1
     },
     {
       "topicId": "sql-server-control-flow",
+      "importance": "important",
       "min": 0,
       "target": 0,
       "max": 1
     },
     {
       "topicId": "sql-error-handling",
+      "importance": "important",
       "min": 0,
       "target": 0,
       "max": 1
     },
     {
       "topicId": "views",
+      "importance": "core",
       "min": 0,
       "target": 1,
       "max": 2
     },
     {
       "topicId": "stored-procedures",
+      "importance": "important",
       "min": 0,
       "target": 1,
       "max": 2
     }
   ],
-  "rules": {
-    "requireEveryMajorTopic": true,
-    "avoidAdjacentSameTopic": true,
-    "maxPerSubtopic": 3,
-    "preferCoreImportance": true
+  "selectionConstraints": {
+    "difficultyTarget": {
+      "Easy": 5,
+      "Medium": 10,
+      "Hard": 5
+    },
+    "difficultyRatio": {
+      "Easy": 0.25,
+      "Medium": 0.5,
+      "Hard": 0.25
+    },
+    "sourceTypeTarget": {
+      "course": 16,
+      "external-similar": 4
+    },
+    "sourceTypeRatio": {
+      "course": 0.8,
+      "external-similar": 0.2
+    },
+    "questionFamilyTarget": {
+      "direct-knowledge": 6,
+      "scenario-application-or-best-decision": 7,
+      "code-or-calculation-tracing": 5,
+      "troubleshooting": 2
+    },
+    "coreTopicsRequired": true,
+    "avoidDuplicateConceptKeys": true,
+    "avoidDuplicateQuestionIds": true,
+    "answerPositionsShouldRemainApproximatelyBalanced": true
   },
-  "status": "final",
-  "selectionProfileId": "sql-final-share-validated-profile-v1",
-  "note": "Finalized from sql-production-v1.0: 20-question SQL share of the Data Analysis Final."
+  "validation": {
+    "sampleSelectionPassed": true,
+    "sampleFile": "final-validation/sql-final-sample-20.json",
+    "targetTopicTotal": 20,
+    "note": "A 20-question sample satisfying the finalized topic, difficulty, source-type, and question-family constraints was successfully selected from the bank."
+  },
+  "rotationNote": "Topics with target=0 remain eligible as controlled rotation candidates when the platform varies exam forms, provided the 20-question broad-coverage constraints remain satisfied."
 }

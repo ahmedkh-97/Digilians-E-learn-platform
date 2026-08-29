@@ -1,49 +1,163 @@
 {
   "schemaVersion": "1.0",
-  "id": "sql-session1-track-coverage-v1",
+  "id": "sql-track-coverage-v2",
   "courseId": "data-analysis",
   "trackId": "sql",
   "track": "SQL & Databases",
   "examKind": "track",
-  "questionCount": 45,
+  "questionCount": 50,
   "curriculumVersion": "1.0",
-  "allocationMethod": "weighted-topics",
+  "allocationMethod": "validated-production-topic-quotas",
   "topics": [
     {
-      "topicId": "database-foundations",
-      "min": 4,
-      "target": 5,
-      "max": 7
+      "topicId": "database-fundamentals",
+      "min": 0,
+      "target": 1,
+      "max": 2
     },
     {
       "topicId": "data-models",
-      "min": 4,
-      "target": 5,
-      "max": 7
+      "min": 0,
+      "target": 1,
+      "max": 2
     },
     {
       "topicId": "er-modeling",
-      "min": 8,
-      "target": 10,
-      "max": 12
+      "min": 1,
+      "target": 2,
+      "max": 3
     },
     {
-      "topicId": "keys-and-mapping",
-      "min": 8,
-      "target": 9,
-      "max": 11
+      "topicId": "er-relational-mapping",
+      "min": 2,
+      "target": 3,
+      "max": 4
+    },
+    {
+      "topicId": "data-modeling-process",
+      "min": 0,
+      "target": 1,
+      "max": 2
+    },
+    {
+      "topicId": "schema-vs-instance",
+      "min": 0,
+      "target": 1,
+      "max": 2
     },
     {
       "topicId": "normalization",
-      "min": 8,
-      "target": 9,
-      "max": 11
+      "min": 2,
+      "target": 3,
+      "max": 4
     },
     {
-      "topicId": "dimensional-modeling",
-      "min": 5,
-      "target": 7,
-      "max": 9
+      "topicId": "warehouse-schema-design",
+      "min": 0,
+      "target": 1,
+      "max": 2
+    },
+    {
+      "topicId": "database-constraints",
+      "min": 1,
+      "target": 2,
+      "max": 3
+    },
+    {
+      "topicId": "sql-command-languages",
+      "min": 2,
+      "target": 3,
+      "max": 4
+    },
+    {
+      "topicId": "sql-query-fundamentals",
+      "min": 2,
+      "target": 3,
+      "max": 4
+    },
+    {
+      "topicId": "sql-filtering",
+      "min": 2,
+      "target": 3,
+      "max": 4
+    },
+    {
+      "topicId": "sql-aggregation",
+      "min": 1,
+      "target": 2,
+      "max": 3
+    },
+    {
+      "topicId": "sql-advanced-query-expressions",
+      "min": 1,
+      "target": 2,
+      "max": 3
+    },
+    {
+      "topicId": "schema-design-practice",
+      "min": 0,
+      "target": 1,
+      "max": 2
+    },
+    {
+      "topicId": "joins",
+      "min": 3,
+      "target": 4,
+      "max": 5
+    },
+    {
+      "topicId": "subqueries",
+      "min": 3,
+      "target": 4,
+      "max": 5
+    },
+    {
+      "topicId": "set-operations",
+      "min": 0,
+      "target": 1,
+      "max": 2
+    },
+    {
+      "topicId": "window-functions",
+      "min": 2,
+      "target": 3,
+      "max": 4
+    },
+    {
+      "topicId": "common-table-expressions",
+      "min": 1,
+      "target": 2,
+      "max": 3
+    },
+    {
+      "topicId": "pivoting",
+      "min": 0,
+      "target": 1,
+      "max": 2
+    },
+    {
+      "topicId": "sql-server-control-flow",
+      "min": 0,
+      "target": 1,
+      "max": 2
+    },
+    {
+      "topicId": "sql-error-handling",
+      "min": 0,
+      "target": 1,
+      "max": 2
+    },
+    {
+      "topicId": "views",
+      "min": 2,
+      "target": 3,
+      "max": 4
+    },
+    {
+      "topicId": "stored-procedures",
+      "min": 0,
+      "target": 1,
+      "max": 2
     }
   ],
   "rules": {
@@ -52,5 +166,6 @@
     "maxPerSubtopic": 5,
     "preferCoreImportance": true
   },
-  "status": "pilot"
+  "status": "final",
+  "selectionProfileId": "sql-track-validated-profile-v1"
 }
