@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.16.0
+# Digilians E-Learn Platform V0.16.1
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1305,3 +1305,36 @@ Study V2 changes no assessment content:
 - Python 13 Question Banks / 520 questions are byte-identical to V0.15.3.
 - 13 Python Session Practice exam files are byte-identical to V0.15.3.
 - Exam blueprints, question-bank registry, exam registry and Official QBank data are unchanged.
+
+
+## V0.16.1 — Critical Startup Hotfix
+
+V0.16.0 contained a JavaScript ES-module syntax error in the new Python Study V2 Quick Check event binding.
+
+### Root cause
+The outer `forEach` that attaches Quick Check behavior was closed with an extra parenthesis:
+
+`  }));`
+
+instead of:
+
+`  });`
+
+This occurred in `assets/js/app.js` around the Python Quick Check listener and prevented the browser from importing `app.js`, so the whole platform could appear stopped.
+
+### Why the previous QA missed it
+The release QA used `node --check <file.js>`. In this environment that did not validate `app.js` using the same ES-module parsing mode used by the browser.
+
+V0.16.1 changes the release validation policy:
+- every JavaScript file is checked using true ES-module parsing:
+  `node --input-type=module --check`
+- the complete application module is imported in a startup runtime simulation;
+- all 75 Python Study V2 sections are rendered through the actual Python Study renderer.
+
+### Verified
+- Application module startup simulation: PASS
+- Python Study V2 renderer: 75/75 sections PASS
+- True ES-module syntax: 11/11 JS files PASS
+- Study V2 content remains 13 sessions / 75 sections / 77 walkthroughs / 75 Quick Checks
+- Python assessment content remains unchanged
+- SQL / Python / Official QBank baselines remain unchanged

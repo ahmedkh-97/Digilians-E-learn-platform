@@ -1647,7 +1647,7 @@ function renderPythonStudySection(s,i,id){
       feedback.classList.toggle("wrong",!correct);
       feedback.innerHTML=`<strong>${correct?"صح ✓":"مش صح — الإجابة الصحيحة "+escapeHtml(quick.correctAnswer)}</strong><p>${formatStudyMixedText(quick.explanationAr||"")}</p>`;
     }));
-  }));
+  });
 
   return article;
 }
