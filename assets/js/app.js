@@ -18,6 +18,7 @@ import {evaluateCoverageReadiness,topicPerformance} from "./coverage-engine.js";
 import {loadOfficialTrack,loadOfficialSection,buildOfficialSectionExam,buildOfficialTrackExam,buildOfficialFinal,officialSectionExamId,officialTrackRandomExamId} from "./official-qbank.js";
 import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
 import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
+import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js";
 
 const state={
@@ -1049,6 +1050,11 @@ function renderTrackPanel(course){
   renderCurriculumStatus(course);
   renderCoverageStatus(course);
   renderCourseFinalExamSlot(course);
+  const diagnostics=$("adminDiagnosticsPanel");
+  if(diagnostics){
+    diagnostics.classList.toggle("hidden",course.id!=="data-analysis");
+    diagnostics.open=false;
+  }
   panel.classList.remove("hidden");
   panel.scrollIntoView({behavior:"smooth",block:"start"});
 }
@@ -1072,56 +1078,49 @@ function renderCourseFinalExamSlot(course){
 
   const blueprint=getBlueprint(course.finalExamBlueprintId);
   if(!blueprint)return;
+
   const poolReadiness=getBlueprintReadiness(state.bankRegistry,blueprint);
   const required=(state.curriculumRegistry.tracks||[]).filter(x=>x.requiredForFinal);
   const trackStatuses=required.map(meta=>({...meta,readiness:getTrackReadiness(meta.trackId)}));
   const curriculumFinal=finalStatusFromTracks(trackStatuses);
-  const readiness={
-    ready:poolReadiness.ready && curriculumFinal.ready,
-    readyTracks:trackStatuses.filter(x=>x.readiness?.status==="final-ready").length,
-    totalTracks:trackStatuses.length,
-    tracks:poolReadiness.tracks
-  };
-  const pct=readiness.totalTracks?Math.round((readiness.readyTracks/readiness.totalTracks)*100):0;
+  const readyTracks=trackStatuses.filter(x=>x.readiness?.status==="final-ready").length;
+  const totalTracks=trackStatuses.length;
+  const ready=poolReadiness.ready && curriculumFinal.ready;
+  const pct=totalTracks?Math.round((readyTracks/totalTracks)*100):0;
 
   const wrapper=document.createElement("article");
-  wrapper.className="course-final-card";
+  wrapper.className="course-final-card learner-final-card";
   wrapper.innerHTML=`
     <div class="course-final-head">
       <div>
         <span class="eyebrow">FINAL EXAM</span>
-        <h4>${blueprint.title}</h4>
-        <p>${blueprint.description}</p>
+        <h4>${escapeHtml(blueprint.title)}</h4>
+        <p>${escapeHtml(blueprint.description)}</p>
       </div>
-      <span class="pool-chip ${readiness.ready?"ready":"building"}">${readiness.ready?"READY":"POOL BUILDING"}</span>
+      <span class="pool-chip ${ready?"ready":"building"}">${ready?"FINAL READY":"COMING SOON"}</span>
     </div>
 
     <div class="final-meta-grid">
       <div><span>QUESTIONS</span><strong>${blueprint.questionCount}</strong></div>
       <div><span>TIME</span><strong>${blueprint.timerMinutes} min</strong></div>
-      <div><span>DIFFICULTY</span><strong>25 / 50 / 25</strong></div>
-    </div>
-
-    <div class="final-track-pills">
-      ${blueprint.tracks.map(t=>`<span class="final-track-pill">${t.label} ${t.count}</span>`).join("")}
+      <div><span>TRACKS READY</span><strong>${readyTracks}/${totalTracks}</strong></div>
     </div>
 
     <div class="final-readiness">
       <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
-      <strong>${readiness.readyTracks}/${readiness.totalTracks} pools ready</strong>
+      <strong>${ready?`Ready to start`:`${readyTracks}/${totalTracks} required tracks ready`}</strong>
     </div>
-    <div class="readiness-detail">${readinessShortText(readiness)}</div>
-    <button class="primary-btn wide" ${readiness.ready?"":"data-building='true'"}>
-      ${readiness.ready?"Start Final Exam →":"Check Final Pool →"}
+    <div class="readiness-detail">${ready
+      ?"All required learning tracks are ready for the comprehensive Final Exam."
+      :"The Final Exam will unlock when the required learning tracks are ready. Technical pool diagnostics are available in Platform Diagnostics below."}</div>
+    <button class="primary-btn wide" ${ready?"":"disabled"}>
+      ${ready?"Start Final Exam →":"Final Exam Not Available Yet"}
     </button>
   `;
   wrapper.querySelector("button").addEventListener("click",()=>{
-    if(!readiness.ready){
-      showToast(readinessShortText(readiness));
-      return;
-    }
+    if(!ready)return;
     const item=state.registry.find(x=>x.blueprintId===blueprint.id);
-    if(item) prepareExam(item);
+    if(item)prepareExam(item);
   });
   slot.appendChild(wrapper);
 }
@@ -1134,10 +1133,72 @@ function openTrack(course,track){
   renderModulePanel(course,track);
 }
 
+function renderTrackLearningMap(track){
+  const panel=$("trackLearningMapPanel");
+  if(!panel)return;
+  if(!track){
+    panel.classList.add("hidden");
+    panel.innerHTML="";
+    return;
+  }
+
+  const syllabus=state.syllabusMaps?.[track.id];
+  const topics=syllabus?.topics || [];
+  const stats=track.productionStats || {};
+  const sessions=stats.sessions ?? track.modules?.length ?? 0;
+  const questions=stats.questions ?? 0;
+  const ready=stats.status==="FINAL READY";
+  const topicCount=topics.length || new Set((track.modules||[]).flatMap(m=>(m.study?.sections||[]).map(s=>s.id))).size;
+
+  const sqlGroups=[
+    "Database Fundamentals & Modeling",
+    "ERD & Relational Mapping",
+    "Normalization & Constraints",
+    "SQL Commands & CRUD",
+    "SELECT, Filtering & Sorting",
+    "Aggregation & SQL Functions",
+    "Joins & Subqueries",
+    "Set Operations",
+    "Window Functions & CTEs",
+    "Pivoting & Reporting",
+    "Views & Stored Procedures",
+    "Control Flow & Error Handling"
+  ];
+
+  const learningItems=track.id==="sql"
+    ?sqlGroups
+    :topics.slice(0,12).map(t=>t.title);
+
+  panel.innerHTML=`
+    <div class="track-learning-map-head">
+      <div>
+        <span class="eyebrow">COURSE MAP</span>
+        <h4>${escapeHtml(track.title)}</h4>
+        <p>What you'll learn and where you are going — without exam-production diagnostics.</p>
+      </div>
+      <span class="track-status-chip ${ready?"ready":"building"}">${ready?"FINAL READY":"IN PROGRESS"}</span>
+    </div>
+
+    <div class="track-learning-stats">
+      <div><span>SESSIONS</span><strong>${sessions}</strong></div>
+      <div><span>TOPICS</span><strong>${topicCount}</strong></div>
+      <div><span>PRACTICE QUESTIONS</span><strong>${questions||"—"}</strong></div>
+      <div><span>STATUS</span><strong>${ready?"Ready":"Building"}</strong></div>
+    </div>
+
+    <div class="track-learning-topics">
+      <span class="eyebrow">WHAT YOU'LL LEARN</span>
+      <div>${learningItems.map(x=>`<span>${escapeHtml(x)}</span>`).join("")}</div>
+    </div>
+  `;
+  panel.classList.remove("hidden");
+}
+
 function renderModulePanel(course,track=null){
   const trackPanel=$("trackPanel");
   const panel=$("modulePanel");
   const modules=track ? (track.modules || []) : (course.modules || []);
+  renderTrackLearningMap(track);
 
   if(track){
     $("moduleBreadcrumb").textContent=`Learn / ${course.title} / ${track.title}`;
@@ -1302,66 +1363,85 @@ $("openStudyBtn").addEventListener("click",()=>openStudy());
 $("openPracticeBtn").addEventListener("click",()=>openModuleExam("instant"));
 $("openModuleExamBtn").addEventListener("click",()=>openModuleExam(null));
 
+function sqlQuickOptionText(quick,id){
+  return quick?.options?.find(o=>o.id===id)?.text || "";
+}
+function sqlQuickFeedbackHtml(quick,selected){
+  const correctId=quick?.correctAnswer || "";
+  const correct=selected===correctId;
+  const selectedText=sqlQuickOptionText(quick,selected);
+  const correctText=sqlQuickOptionText(quick,correctId);
+  return `
+    <div class="sql-quick-answer-summary" dir="ltr">
+      <div><span>YOUR ANSWER</span><strong>${escapeHtml(selected)}${selectedText?` — ${escapeHtml(normalizeStudyText(selectedText))}`:""}</strong></div>
+      <div><span>CORRECT ANSWER</span><strong>${escapeHtml(correctId)}${correctText?` — ${escapeHtml(normalizeStudyText(correctText))}`:""}</strong></div>
+    </div>
+    <strong class="sql-quick-verdict">${correct?"صح ✓":"مش صح ✕"}</strong>
+    <p>${formatStudyMixedText(quick?.explanationAr||"")}</p>`;
+}
+function applySqlQuickUI(check,quick,selected){
+  const feedback=check.querySelector(".sql-quick-feedback");
+  const reset=check.querySelector(".sql-quick-reset");
+  const correct=selected===quick.correctAnswer;
+  check.dataset.answered="true";
+  check.querySelectorAll("[data-sql-quick-option]").forEach(option=>{
+    option.disabled=true;
+    option.classList.remove("correct","wrong");
+    if(option.dataset.sqlQuickOption===quick.correctAnswer)option.classList.add("correct");
+    else if(option.dataset.sqlQuickOption===selected && !correct)option.classList.add("wrong");
+  });
+  feedback?.classList.remove("hidden");
+  feedback?.classList.toggle("correct",correct);
+  feedback?.classList.toggle("wrong",!correct);
+  if(feedback)feedback.innerHTML=sqlQuickFeedbackHtml(quick,selected);
+  reset?.classList.remove("hidden");
+}
+function resetSqlQuickUI(check){
+  delete check.dataset.answered;
+  check.querySelectorAll("[data-sql-quick-option]").forEach(option=>{
+    option.disabled=false;
+    option.classList.remove("correct","wrong");
+  });
+  const feedback=check.querySelector(".sql-quick-feedback");
+  feedback?.classList.add("hidden");
+  feedback?.classList.remove("correct","wrong");
+  if(feedback)feedback.innerHTML="";
+  check.querySelector(".sql-quick-reset")?.classList.add("hidden");
+}
 function renderSqlStudySection(s,i,id){
   const article=document.createElement("section");
-  article.className="study-section sql-study-section";
+  article.className="study-section sql-study-section sql-study-v2-section";
   article.id=id;
+  article.innerHTML=renderSqlStudySectionHtml(s,i);
 
-  const summary=s.studySummary
-    ?`<div class="study-summary-card" dir="rtl">
-        <span class="study-ar-label">الفكرة الأساسية</span>
-        <p dir="auto">${formatStudyMixedText(s.studySummary)}</p>
-      </div>`
-    :"";
+  const quick=s.lessonV2?.quickCheck;
+  article.querySelectorAll("[data-sql-quick-check]").forEach(check=>{
+    if(!quick)return;
+    const moduleId=state.selectedModule?.id || "";
+    const sectionId=s.id || id;
+    const saved=getQuickCheckState(state.studentName,moduleId,sectionId);
+    if(saved?.selected)applySqlQuickUI(check,quick,saved.selected);
 
-  const explanation=(s.explanationParagraphs||[]).length
-    ?`<div class="study-explanation" dir="rtl">
-        <span class="study-ar-label">الشرح</span>
-        ${(s.explanationParagraphs||[]).map(p=>`<p dir="auto">${formatStudyMixedText(p)}</p>`).join("")}
-      </div>`
-    :"";
+    check.querySelectorAll("[data-sql-quick-option]").forEach(btn=>btn.addEventListener("click",()=>{
+      if(check.dataset.answered==="true")return;
+      const selected=btn.dataset.sqlQuickOption;
+      applySqlQuickUI(check,quick,selected);
+      saveQuickCheckState(state.studentName,moduleId,sectionId,{
+        selected,
+        correct:selected===quick.correctAnswer,
+        answeredAt:new Date().toISOString()
+      });
+    }));
 
-  const keyTerms=(s.keyTerms||[]).length
-    ?`<div class="study-keyterms" dir="ltr">
-        <span class="study-block-label">KEY TERMS</span>
-        <div class="study-term-list">
-          ${(s.keyTerms||[]).map(term=>`<span class="study-term-chip"><bdi dir="ltr">${escapeHtml(normalizeStudyText(term))}</bdi></span>`).join("")}
-        </div>
-      </div>`
-    :"";
+    check.querySelector(".sql-quick-reset")?.addEventListener("click",()=>{
+      clearQuickCheckState(state.studentName,moduleId,sectionId);
+      resetSqlQuickUI(check);
+    });
+  });
 
-  const takeaways=(s.takeaways||[]).length
-    ?`<div class="study-takeaways" dir="rtl">
-        <span class="study-ar-label">نقط مهمة للمذاكرة</span>
-        <ul>
-          ${(s.takeaways||[]).map(item=>`
-            <li dir="auto">
-              <span class="study-takeaway-dot">✓</span>
-              <span>${formatStudyMixedText(item)}</span>
-            </li>`).join("")}
-        </ul>
-      </div>`
-    :"";
-
-  const trace=s.sourceTrace
-    ?`<div class="study-source-trace" dir="ltr">
-        <span class="study-block-label">SOURCE TRACE</span>
-        <p>${formatStudyMixedText(s.sourceTrace)}</p>
-      </div>`
-    :"";
-
-  article.innerHTML=`
-    <header class="study-section-head" dir="ltr">
-      <span class="eyebrow">SECTION ${String(i+1).padStart(2,"0")}</span>
-      <h3>${escapeHtml(s.title)}</h3>
-    </header>
-    ${summary}
-    ${explanation}
-    ${keyTerms}
-    ${takeaways}
-    ${trace}`;
   return article;
 }
+
 function pythonExampleLabel(sourceKind){
   if(sourceKind==="platform-clarification-based-on-course-concept")return "PLATFORM CLARIFICATION";
   if(sourceKind==="platform-presentation-correction")return "PRESENTATION CORRECTION";
@@ -1899,6 +1979,8 @@ function openStudy(){
 
   const studyView=$("studyView");
   studyView?.classList.toggle("sql-readable-study",isSqlStudy);
+  const sqlStudyMode=String(m.study?.displayMode||"");
+  studyView?.classList.toggle("sql-study-v2",isSqlStudy && sqlStudyMode==="sql-visual-learning-v2");
   studyView?.classList.toggle("python-code-study",isPythonStudy);
   const pythonStudyMode=String(m.study?.displayMode||"");
   studyView?.classList.toggle("python-study-v2",isPythonStudy && pythonStudyMode.startsWith("python-"));

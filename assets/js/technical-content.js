@@ -567,6 +567,10 @@ function renderCodeBlock(code,language){
   </div>`;
 }
 
+export function renderTechnicalCodeBlock(code,language="generic"){
+  return renderCodeBlock(sanitizeDisplayText(code),language);
+}
+
 function renderInlineTechnical(text,language){
   const src=sanitizeDisplayText(text);
   let out="",last=0;

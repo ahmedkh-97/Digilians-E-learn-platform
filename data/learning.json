@@ -130,6 +130,49 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Know the difference between a database and a DBMS, and remember the advantages and disadvantages listed in the session."
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "A database is an organized collection of data that is stored and accessed electronically.",
+                      "whyItMattersAr": "فهم الفرق بين Database وDBMS بيخلي باقي مفاهيم التصميم والأمان والتعامل مع البيانات أوضح.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "concept-flow",
+                        "title": "Database → DBMS → Users",
+                        "steps": [
+                          "Organized Data",
+                          "DBMS",
+                          "Safe Multi-user Access"
+                        ],
+                        "noteAr": "المادة بتفرق بين الـDatabase نفسها وبين الـDBMS اللي بيدير التخزين والوصول للبيانات.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q001",
+                        "question": "An organization needs a structured electronic way to store, manage, retrieve, and manipulate operational information. Which concept from the session best matches this requirement?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "A single temporary query result"
+                          },
+                          {
+                            "id": "B",
+                            "text": "A database"
+                          },
+                          {
+                            "id": "C",
+                            "text": "A database instance snapshot only"
+                          },
+                          {
+                            "id": "D",
+                            "text": "An ER relationship symbol"
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "المتطلبات هنا هي نفس وظيفة الـ database في المادة: organized collection of data لدعم storage, management, retrieval, and manipulation.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 4 — What are Databases?"
+                      },
+                      "sourceTrace": "Know the difference between a database and a DBMS, and remember the advantages and disadvantages listed in the session."
                     }
                   },
                   {
@@ -168,6 +211,50 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "A data model defines the structure, relationships and constraints of data.",
+                      "whyItMattersAr": "اختيار شكل تنظيم البيانات بيأثر على طريقة تمثيل العلاقات والوصول للمعلومات.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "concept-map",
+                        "title": "Choose a Data Model",
+                        "items": [
+                          "Hierarchical",
+                          "Network",
+                          "Relational",
+                          "Object / Other Models"
+                        ],
+                        "noteAr": "الفكرة الأساسية إن الـData Model بيحدد شكل تنظيم البيانات والعلاقات بينها.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q005",
+                        "question": "A designer is deciding how data should be structured, related, constrained, and accessed before building the database. Which artifact is the designer defining?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "A backup file"
+                          },
+                          {
+                            "id": "B",
+                            "text": "A data model"
+                          },
+                          {
+                            "id": "C",
+                            "text": "A database instance only"
+                          },
+                          {
+                            "id": "D",
+                            "text": "A single query result"
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "الـ Data Model هو اللي بيحدد structure وrelationships وconstraints وطريقة تنظيم والوصول للبيانات قبل التنفيذ.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 10 — Data Model"
+                      },
+                      "sourceTrace": "Session1 (1).pptx"
                     }
                   },
                   {
@@ -207,6 +294,61 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "ER modeling visually represents entities, attributes and relationships before creating the database.",
+                      "whyItMattersAr": "الـER Model بيخليك تصمم الكيانات والعلاقات قبل الدخول في تفاصيل الجداول.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "er",
+                        "title": "Entity → Attribute → Relationship",
+                        "entities": [
+                          {
+                            "name": "STUDENT",
+                            "attrs": [
+                              "StudentID",
+                              "Name"
+                            ]
+                          },
+                          {
+                            "name": "COURSE",
+                            "attrs": [
+                              "CourseID",
+                              "Title"
+                            ]
+                          }
+                        ],
+                        "relationship": "ENROLLS",
+                        "noteAr": "الـER Model بيفصل الـEntities والـAttributes والـRelationships قبل تحويل التصميم لجداول.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q011",
+                        "question": "What is the primary role of the Entity-Relationship (ER) model in this material?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "To represent entities and relationships graphically for relational database design"
+                          },
+                          {
+                            "id": "B",
+                            "text": "To calculate query execution time"
+                          },
+                          {
+                            "id": "C",
+                            "text": "To execute transactions directly"
+                          },
+                          {
+                            "id": "D",
+                            "text": "To replace database tables with XML documents"
+                          }
+                        ],
+                        "correctAnswer": "A",
+                        "explanationAr": "الـ ER Model أداة graphical لتصميم relational databases قبل التنفيذ، وبيوضح entities وattributes وrelationships وconstraints.",
+                        "sourceTrace": "Session1 (1).pptx — Slides 18–20 — Entity-Relationship Model / Modeling"
+                      },
+                      "sourceTrace": "Session1 (1).pptx"
                     }
                   },
                   {
@@ -244,6 +386,51 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "Entities become tables and attributes become columns.",
+                      "whyItMattersAr": "المرحلة دي بتحول التصميم المفاهيمي إلى Relations ومفاتيح قابلة للتنفيذ داخل قاعدة البيانات.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "mapping",
+                        "title": "M:N Relationship → Associative Relation",
+                        "left": "Teacher",
+                        "right": "Course",
+                        "relation": "Teacher_Course",
+                        "keys": [
+                          "EmpNo",
+                          "CrId"
+                        ],
+                        "noteAr": "المادة بتستخدم Relation وسيطة لما العلاقة M:N، وتحط فيها مفاتيح الكيانات المشاركة.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q025",
+                        "question": "After completing an ERD, a developer creates one relational table per entity but stores each entity attribute as a separate row instead of a column. What mapping rule is being violated?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "All attributes must become databases"
+                          },
+                          {
+                            "id": "B",
+                            "text": "Every relationship must become a weak entity"
+                          },
+                          {
+                            "id": "C",
+                            "text": "Entities should become tables and attributes should become columns"
+                          },
+                          {
+                            "id": "D",
+                            "text": "Every entity must be converted into a document"
+                          }
+                        ],
+                        "correctAnswer": "C",
+                        "explanationAr": "الـ basic mapping rule في المادة واضح: Entity → Table وAttribute → Column. تحويل attributes إلى rows هنا تطبيق خاطئ للـ mapping.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 28 — Mapping Entity Diagrams To Tables"
+                      },
+                      "sourceTrace": "Session1 (1).pptx"
                     }
                   },
                   {
@@ -270,6 +457,49 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx — Slides 46–47 — Data Modeling Process • Session1 (1).pptx — Slide 46 — Data Modeling Process diagram"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ process في المادة يبدأ Conceptual ثم Logical ثم Physical؛ بعد high-level business view الخطوة التالية هي Logical design.",
+                      "whyItMattersAr": "وجود خطوات واضحة للتصميم يقلل القرارات العشوائية قبل بناء الـSchema.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "concept-flow",
+                        "title": "Modeling Process",
+                        "steps": [
+                          "Understand Requirements",
+                          "Model Entities & Relationships",
+                          "Map to Relational Design"
+                        ],
+                        "noteAr": "الـData Modeling عملية تصميم منظمة تبدأ بفهم المطلوب وتنتهي بشكل منطقي قابل للتنفيذ.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q041",
+                        "question": "A project team has finished identifying business requirements and high-level entities, and is about to translate them into a structured logical design before choosing storage details. Which transition best matches the course modeling process?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "Physical Data Model → Conceptual Data Model"
+                          },
+                          {
+                            "id": "B",
+                            "text": "Conceptual Data Model → Logical Data Model"
+                          },
+                          {
+                            "id": "C",
+                            "text": "Database Instance → ER notation"
+                          },
+                          {
+                            "id": "D",
+                            "text": "Snowflake Schema → Hierarchical Model"
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "الـ process في المادة يبدأ Conceptual ثم Logical ثم Physical؛ بعد high-level business view الخطوة التالية هي Logical design.",
+                        "sourceTrace": "Session1 (1).pptx — Slides 46–47 — Data Modeling Process"
+                      },
+                      "sourceTrace": "Session1 (1).pptx — Slides 46–47 — Data Modeling Process • Session1 (1).pptx — Slide 46 — Data Modeling Process diagram"
                     }
                   },
                   {
@@ -300,6 +530,58 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx — Slide 48 — Schema Vs. Data"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ schema هو التصميم الثابت نسبيًا، أما actual values في لحظة معينة فهي database instance؛ لذلك ممكن instances تختلف مع نفس schema.",
+                      "whyItMattersAr": "التمييز بينهم يمنع الخلط بين تصميم قاعدة البيانات وبين البيانات الحالية المخزنة فيها.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "comparison",
+                        "title": "Schema vs Instance",
+                        "left": {
+                          "title": "Schema",
+                          "items": [
+                            "Structure",
+                            "Tables / Columns / Rules"
+                          ]
+                        },
+                        "right": {
+                          "title": "Instance",
+                          "items": [
+                            "Actual stored rows",
+                            "Changes over time"
+                          ]
+                        },
+                        "noteAr": "الـSchema هو التصميم، والـInstance هي البيانات الموجودة فعليًا في لحظة معينة.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q043",
+                        "question": "Two backups taken on Monday and Friday contain different row values, but both follow the same tables, fields, data types, and relationships. Which interpretation is correct?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "They are different schemas because row values changed"
+                          },
+                          {
+                            "id": "B",
+                            "text": "Neither contains data because schemas never allow values"
+                          },
+                          {
+                            "id": "C",
+                            "text": "They are the same instance because schema is unchanged"
+                          },
+                          {
+                            "id": "D",
+                            "text": "They are different database instances governed by the same schema"
+                          }
+                        ],
+                        "correctAnswer": "D",
+                        "explanationAr": "الـ schema هو التصميم الثابت نسبيًا، أما actual values في لحظة معينة فهي database instance؛ لذلك ممكن instances تختلف مع نفس schema.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 48 — Schema Vs. Data"
+                      },
+                      "sourceTrace": "Session1 (1).pptx — Slide 48 — Schema Vs. Data"
                     }
                   },
                   {
@@ -335,6 +617,98 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "Normalization organizes tables and attributes to reduce redundancy and dependency.",
+                      "whyItMattersAr": "الهدف هو تقليل redundancy والاعتماديات غير المناسبة قبل الوصول لتصميم أكثر تنظيمًا.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "normalization",
+                        "title": "Normalization toward 3NF",
+                        "before": {
+                          "headers": [
+                            "StudentID",
+                            "StudentName",
+                            "Subject",
+                            "Teacher"
+                          ],
+                          "rows": [
+                            [
+                              "1",
+                              "Ali",
+                              "SQL",
+                              "Mona"
+                            ],
+                            [
+                              "1",
+                              "Ali",
+                              "Python",
+                              "Omar"
+                            ]
+                          ]
+                        },
+                        "after": [
+                          {
+                            "title": "Students",
+                            "headers": [
+                              "StudentID",
+                              "StudentName"
+                            ],
+                            "rows": [
+                              [
+                                "1",
+                                "Ali"
+                              ]
+                            ]
+                          },
+                          {
+                            "title": "Subjects",
+                            "headers": [
+                              "Subject",
+                              "Teacher"
+                            ],
+                            "rows": [
+                              [
+                                "SQL",
+                                "Mona"
+                              ],
+                              [
+                                "Python",
+                                "Omar"
+                              ]
+                            ]
+                          }
+                        ],
+                        "noteAr": "المثال البصري توضيحي فقط: الهدف إظهار فكرة تقليل التكرار والاعتماديات، بينما المادة نفسها تشرح 1NF ثم 2NF ثم 3NF.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q046",
+                        "question": "A table repeats the same student details across many subject rows, causing redundancy and update inconsistencies. Which design process from the session directly targets this problem?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "Adding more repeating columns"
+                          },
+                          {
+                            "id": "B",
+                            "text": "Normalization"
+                          },
+                          {
+                            "id": "C",
+                            "text": "Removing all keys"
+                          },
+                          {
+                            "id": "D",
+                            "text": "Changing the model to a document store regardless of requirements"
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "Normalization في المادة هدفها تنظيم tables/attributes لتقليل redundancy وdependency، وده بالضبط يعالج تكرار نفس البيانات ومشاكل التحديث.",
+                        "sourceTrace": "Session1 (1).pptx — Slides 50–51 — Normalization / What is Normalization"
+                      },
+                      "sourceTrace": "Session1 (1).pptx"
                     }
                   },
                   {
@@ -365,6 +739,51 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "A Star Schema uses a simple structure with one fact table and multiple denormalized dimension tables.",
+                      "whyItMattersAr": "فهم Star/Snowflake بيساعد في تمييز تصميم التحليل والتقارير عن التصميم التشغيلي التقليدي.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "star",
+                        "title": "Star Schema",
+                        "fact": "Fact Sales",
+                        "dimensions": [
+                          "Date",
+                          "Product",
+                          "Customer",
+                          "Store"
+                        ],
+                        "noteAr": "المادة بتعرض Star Schema كـFact Table في المنتصف متصلة بعدة Dimension Tables.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q064",
+                        "question": "Which statement best describes a Star Schema in the course?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "A document collection stored as JSON"
+                          },
+                          {
+                            "id": "B",
+                            "text": "A tree of parent-child records"
+                          },
+                          {
+                            "id": "C",
+                            "text": "Only normalized sub-dimensions with no fact table"
+                          },
+                          {
+                            "id": "D",
+                            "text": "One fact table connected to multiple dimension tables with denormalized dimensions"
+                          }
+                        ],
+                        "correctAnswer": "D",
+                        "explanationAr": "Star Schema فيها fact table مركزية متصلة بعدة dimension tables، والـ dimensions فيها denormalized لتبسيط وتسريع الاستعلامات.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 60 — Star Schema"
+                      },
+                      "sourceTrace": "Session1 (1).pptx"
                     }
                   },
                   {
@@ -400,6 +819,60 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx — Slide 64 — Create and Enforce Data Constraints • Session1 (1).pptx — Slide 64 — CHECK constraint requirement"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ lab note بيطلب تطبيق PRIMARY KEY وFOREIGN KEY وUNIQUE، وكمان CHECK constraint على السعر.",
+                      "whyItMattersAr": "الـConstraints بتحول قواعد صحة البيانات إلى Rules يقدر الـDBMS يفرضها.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "constraints",
+                        "title": "Constraints protect data rules",
+                        "rules": [
+                          "PRIMARY KEY",
+                          "FOREIGN KEY",
+                          "UNIQUE",
+                          "NOT NULL",
+                          "CHECK"
+                        ],
+                        "valid": [
+                          "customer_id=1",
+                          "email=a@x.com",
+                          "age=30"
+                        ],
+                        "invalid": [
+                          "duplicate email",
+                          "age=125"
+                        ],
+                        "noteAr": "المادة بتستخدم القيود لحماية صحة البيانات، ومنها UNIQUE وCHECK وPRIMARY/FOREIGN KEY.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q074",
+                        "question": "Which constraints are explicitly required in the lab note?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "No constraints because the schema is analytical"
+                          },
+                          {
+                            "id": "B",
+                            "text": "Only PRIMARY KEY"
+                          },
+                          {
+                            "id": "C",
+                            "text": "Only CHECK and no keys"
+                          },
+                          {
+                            "id": "D",
+                            "text": "PRIMARY KEY, FOREIGN KEY, UNIQUE, and CHECK"
+                          }
+                        ],
+                        "correctAnswer": "D",
+                        "explanationAr": "الـ lab note بيطلب تطبيق PRIMARY KEY وFOREIGN KEY وUNIQUE، وكمان CHECK constraint على السعر.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 64 — Create and Enforce Data Constraints"
+                      },
+                      "sourceTrace": "Session1 (1).pptx — Slide 64 — Create and Enforce Data Constraints • Session1 (1).pptx — Slide 64 — CHECK constraint requirement"
                     }
                   },
                   {
@@ -442,10 +915,53 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx — Slide 64 — Implement a Star Schema for an E-commerce Sales Database • Session1 (1).pptx — Slide 64 — Star Schema lab"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ lab بيطلب fact table باسم Sales، مع dimensions مرتبطة زي Customers وProducts وTime.",
+                      "whyItMattersAr": "الـLabs بتربط ERD وmapping والـkeys والconstraints في workflow تصميم واحد.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "concept-flow",
+                        "title": "Design Lab Flow",
+                        "steps": [
+                          "Draw ER Diagram",
+                          "Map to Tables",
+                          "Apply PK / FK / Constraints"
+                        ],
+                        "noteAr": "الـLab بيربط بين التصميم المفاهيمي وبين الجداول والمفاتيح والقيود.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q071",
+                        "question": "In the e-commerce Star Schema lab, which table is specified as the fact table?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "Sales"
+                          },
+                          {
+                            "id": "B",
+                            "text": "Products"
+                          },
+                          {
+                            "id": "C",
+                            "text": "Customers"
+                          },
+                          {
+                            "id": "D",
+                            "text": "Time"
+                          }
+                        ],
+                        "correctAnswer": "A",
+                        "explanationAr": "الـ lab بيطلب fact table باسم Sales، مع dimensions مرتبطة زي Customers وProducts وTime.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 64 — Implement a Star Schema for an E-commerce Sales Database"
+                      },
+                      "sourceTrace": "Session1 (1).pptx — Slide 64 — Implement a Star Schema for an E-commerce Sales Database • Session1 (1).pptx — Slide 64 — Star Schema lab"
                     }
                   }
                 ],
-                "displayMode": "readable-mixed-rtl-v1"
+                "displayMode": "sql-visual-learning-v2"
               }
             },
             {
@@ -499,10 +1015,74 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session2.pptx — Slide 6 — What is SQL? • Session2.pptx — Slide 5 — How to communicate with the DBMS?"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "المادة بتعرّف SQL كـ Structured Query Language لتنفيذ عمليات على البيانات والجداول، وبتؤكد إنها مش Database System بحد ذاتها.",
+                      "whyItMattersAr": "التصنيف بيخليك تعرف هل الأمر بيغيّر structure ولا data ولا بيستعلم عنها.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "command-families",
+                        "title": "DDL vs DML vs DQL",
+                        "groups": [
+                          {
+                            "name": "DDL",
+                            "items": [
+                              "CREATE",
+                              "ALTER",
+                              "DROP",
+                              "TRUNCATE"
+                            ]
+                          },
+                          {
+                            "name": "DML",
+                            "items": [
+                              "INSERT",
+                              "UPDATE",
+                              "DELETE"
+                            ]
+                          },
+                          {
+                            "name": "DQL",
+                            "items": [
+                              "SELECT"
+                            ]
+                          }
+                        ],
+                        "code": "CREATE TABLE EMPLOYEE (\n  Name VARCHAR2(20),\n  Email VARCHAR2(100),\n  DOB DATE\n);",
+                        "noteAr": "المادة بتصنف CREATE/ALTER/DROP/TRUNCATE تحت DDL، وINSERT/UPDATE/DELETE تحت DML، وSELECT تحت DQL.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session02-q001",
+                        "question": "Which statement best describes SQL according to the session?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "SQL is a database engine that stores files by itself."
+                          },
+                          {
+                            "id": "B",
+                            "text": "SQL is a query language used to perform operations on data and database objects; it is not itself a database system."
+                          },
+                          {
+                            "id": "C",
+                            "text": "SQL is only a graphical ER-modeling tool."
+                          },
+                          {
+                            "id": "D",
+                            "text": "SQL is a hardware component inside the DBMS."
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "المادة بتعرّف SQL كـ Structured Query Language لتنفيذ عمليات على البيانات والجداول، وبتؤكد إنها مش Database System بحد ذاتها.",
+                        "sourceTrace": "Session2.pptx — Slide 6 — What is SQL?"
+                      },
+                      "sourceTrace": "Session2.pptx — Slide 6 — What is SQL? • Session2.pptx — Slide 5 — How to communicate with the DBMS?"
                     }
                   }
                 ],
-                "displayMode": "readable-mixed-rtl-v1"
+                "displayMode": "sql-visual-learning-v2"
               }
             },
             {
@@ -552,6 +1132,60 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session3.pptx — Slide 21 — Hands-On: Create the Table • Session3.pptx — Slide 21 — CHECK (age BETWEEN 0 AND 120)"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "UNIQUE على email هو القيد المخصص لمنع تكرار نفس القيمة في هذا العمود.",
+                      "whyItMattersAr": "الـConstraints بتحول قواعد صحة البيانات إلى Rules يقدر الـDBMS يفرضها.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "constraints",
+                        "title": "Constraints protect data rules",
+                        "rules": [
+                          "PRIMARY KEY",
+                          "FOREIGN KEY",
+                          "UNIQUE",
+                          "NOT NULL",
+                          "CHECK"
+                        ],
+                        "valid": [
+                          "customer_id=1",
+                          "email=a@x.com",
+                          "age=30"
+                        ],
+                        "invalid": [
+                          "duplicate email",
+                          "age=125"
+                        ],
+                        "noteAr": "المادة بتستخدم القيود لحماية صحة البيانات، ومنها UNIQUE وCHECK وPRIMARY/FOREIGN KEY.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q075",
+                        "question": "What rule should the CHECK constraint enforce in the Products table according to the lab?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "ProductID must be negative"
+                          },
+                          {
+                            "id": "B",
+                            "text": "Price must be greater than zero"
+                          },
+                          {
+                            "id": "C",
+                            "text": "Price must always equal zero"
+                          },
+                          {
+                            "id": "D",
+                            "text": "Supplier must be stored in the Price column"
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "المادة بتحدد CHECK constraint للتأكد إن prices في Products أكبر من zero.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 64 — CHECK constraint requirement"
+                      },
+                      "sourceTrace": "Session3.pptx — Slide 21 — Hands-On: Create the Table • Session3.pptx — Slide 21 — CHECK (age BETWEEN 0 AND 120)"
                     }
                   },
                   {
@@ -590,6 +1224,70 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session3.pptx"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "Session 3 بتذكر CREATE INDEX صراحة كـ DDL لإنشاء index أو search key.",
+                      "whyItMattersAr": "التصنيف بيخليك تعرف هل الأمر بيغيّر structure ولا data ولا بيستعلم عنها.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "command-families",
+                        "title": "DDL vs DML vs DQL",
+                        "groups": [
+                          {
+                            "name": "DDL",
+                            "items": [
+                              "CREATE",
+                              "ALTER",
+                              "DROP",
+                              "TRUNCATE"
+                            ]
+                          },
+                          {
+                            "name": "DML",
+                            "items": [
+                              "INSERT",
+                              "UPDATE",
+                              "DELETE"
+                            ]
+                          },
+                          {
+                            "name": "DQL",
+                            "items": [
+                              "SELECT"
+                            ]
+                          }
+                        ],
+                        "code": "CREATE TABLE EMPLOYEE (\n  Name VARCHAR2(20),\n  Email VARCHAR2(100),\n  DOB DATE\n);",
+                        "noteAr": "المادة بتصنف CREATE/ALTER/DROP/TRUNCATE تحت DDL، وINSERT/UPDATE/DELETE تحت DML، وSELECT تحت DQL.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session02-q002",
+                        "question": "In the session diagram showing how applications communicate with a DBMS, what language is placed between applications and the DBMS?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "ERD notation"
+                          },
+                          {
+                            "id": "B",
+                            "text": "A physical data model"
+                          },
+                          {
+                            "id": "C",
+                            "text": "A database instance snapshot"
+                          },
+                          {
+                            "id": "D",
+                            "text": "SQL"
+                          }
+                        ],
+                        "correctAnswer": "D",
+                        "explanationAr": "في الرسم الموجود في Slide 5، SQL هي طبقة التواصل بين التطبيقات والـ DBMS، وده بيوضح دورها كلغة أوامر واستعلامات.",
+                        "sourceTrace": "Session2.pptx — Slide 5 — How to communicate with the DBMS?"
+                      },
+                      "sourceTrace": "Session3.pptx"
                     }
                   },
                   {
@@ -632,10 +1330,84 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session3.pptx — Slide 6 — SQL Syntax • Session3.pptx — Slide 7 — Semicolon after SQL Statements?"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "المادة بتوضح إن SQL keywords نفسها case insensitive، فـ SELECT وselect ليهم نفس المعنى كأوامر SQL.",
+                      "whyItMattersAr": "دي القاعدة الأساسية لقراءة وكتابة SELECT وفهم مصدر البيانات وشكل الـoutput.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "table-transform",
+                        "title": "SELECT chooses the output",
+                        "before": {
+                          "headers": [
+                            "LastName",
+                            "FirstName",
+                            "Age"
+                          ],
+                          "rows": [
+                            [
+                              "Khaled",
+                              "Ahmed",
+                              "28"
+                            ],
+                            [
+                              "Ali",
+                              "Mona",
+                              "25"
+                            ]
+                          ]
+                        },
+                        "code": "SELECT LastName, FirstName\nFROM Students;",
+                        "after": {
+                          "headers": [
+                            "LastName",
+                            "FirstName"
+                          ],
+                          "rows": [
+                            [
+                              "Khaled",
+                              "Ahmed"
+                            ],
+                            [
+                              "Ali",
+                              "Mona"
+                            ]
+                          ]
+                        },
+                        "noteAr": "الجدول والقيم توضيحية، لكن الـSELECT pattern نفسه مبني على مثال المادة الخاص باختيار LastName وFirstName.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session03-q001",
+                        "question": "Which statement about SQL keyword case is supported by Session 3?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "SQL keywords must always be lowercase."
+                          },
+                          {
+                            "id": "B",
+                            "text": "SELECT and select are different commands."
+                          },
+                          {
+                            "id": "C",
+                            "text": "SELECT and select have the same meaning as SQL keywords."
+                          },
+                          {
+                            "id": "D",
+                            "text": "Only WHERE is case insensitive."
+                          }
+                        ],
+                        "correctAnswer": "C",
+                        "explanationAr": "المادة بتوضح إن SQL keywords نفسها case insensitive، فـ SELECT وselect ليهم نفس المعنى كأوامر SQL.",
+                        "sourceTrace": "Session3.pptx — Slide 6 — SQL Syntax"
+                      },
+                      "sourceTrace": "Session3.pptx — Slide 6 — SQL Syntax • Session3.pptx — Slide 7 — Semicolon after SQL Statements?"
                     }
                   }
                 ],
-                "displayMode": "readable-mixed-rtl-v1"
+                "displayMode": "sql-visual-learning-v2"
               }
             },
             {
@@ -680,6 +1452,98 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session4.pptx"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "Slide 4 بتذكر صراحة Normalization: Aim for 3NF.",
+                      "whyItMattersAr": "الهدف هو تقليل redundancy والاعتماديات غير المناسبة قبل الوصول لتصميم أكثر تنظيمًا.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "normalization",
+                        "title": "Normalization toward 3NF",
+                        "before": {
+                          "headers": [
+                            "StudentID",
+                            "StudentName",
+                            "Subject",
+                            "Teacher"
+                          ],
+                          "rows": [
+                            [
+                              "1",
+                              "Ali",
+                              "SQL",
+                              "Mona"
+                            ],
+                            [
+                              "1",
+                              "Ali",
+                              "Python",
+                              "Omar"
+                            ]
+                          ]
+                        },
+                        "after": [
+                          {
+                            "title": "Students",
+                            "headers": [
+                              "StudentID",
+                              "StudentName"
+                            ],
+                            "rows": [
+                              [
+                                "1",
+                                "Ali"
+                              ]
+                            ]
+                          },
+                          {
+                            "title": "Subjects",
+                            "headers": [
+                              "Subject",
+                              "Teacher"
+                            ],
+                            "rows": [
+                              [
+                                "SQL",
+                                "Mona"
+                              ],
+                              [
+                                "Python",
+                                "Omar"
+                              ]
+                            ]
+                          }
+                        ],
+                        "noteAr": "المثال البصري توضيحي فقط: الهدف إظهار فكرة تقليل التكرار والاعتماديات، بينما المادة نفسها تشرح 1NF ثم 2NF ثم 3NF.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q047",
+                        "question": "In a relation, every StudentID always determines exactly one StudentName. Which statement best describes StudentID → StudentName using the course terminology?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "It is an M:N cardinality ratio"
+                          },
+                          {
+                            "id": "B",
+                            "text": "It is a functional dependency"
+                          },
+                          {
+                            "id": "C",
+                            "text": "It is total participation"
+                          },
+                          {
+                            "id": "D",
+                            "text": "It is a multivalued attribute"
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "Functional Dependency معناها قيمة attribute أو مجموعة attributes تحدد قيمة attribute آخر؛ هنا StudentID يحدد StudentName.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 51 — Functional Dependency"
+                      },
+                      "sourceTrace": "Session4.pptx"
                     }
                   },
                   {
@@ -721,6 +1585,60 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session4.pptx — Slide 5 — ERD Conceptual Guide • Session4.pptx — Slides 5 and 7 — course_code UNIQUE"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ conceptual guide يحدد email كـ UNIQUE في Students.",
+                      "whyItMattersAr": "الـConstraints بتحول قواعد صحة البيانات إلى Rules يقدر الـDBMS يفرضها.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "constraints",
+                        "title": "Constraints protect data rules",
+                        "rules": [
+                          "PRIMARY KEY",
+                          "FOREIGN KEY",
+                          "UNIQUE",
+                          "NOT NULL",
+                          "CHECK"
+                        ],
+                        "valid": [
+                          "customer_id=1",
+                          "email=a@x.com",
+                          "age=30"
+                        ],
+                        "invalid": [
+                          "duplicate email",
+                          "age=125"
+                        ],
+                        "noteAr": "المادة بتستخدم القيود لحماية صحة البيانات، ومنها UNIQUE وCHECK وPRIMARY/FOREIGN KEY.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q076",
+                        "question": "A Products table accepts a price of -15 even though the lab requirement says prices must be positive. Which missing control best explains the problem?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "A CHECK constraint enforcing Price > 0"
+                          },
+                          {
+                            "id": "B",
+                            "text": "A database instance snapshot"
+                          },
+                          {
+                            "id": "C",
+                            "text": "A unary relationship"
+                          },
+                          {
+                            "id": "D",
+                            "text": "A composite attribute for ProductName"
+                          }
+                        ],
+                        "correctAnswer": "A",
+                        "explanationAr": "لو السعر السالب اتقبل، فده معناه إن قاعدة التحقق المطلوبة مش متطبقة؛ الـ CHECK لازم يمنع Price <= 0.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 64 — CHECK constraint requirement"
+                      },
+                      "sourceTrace": "Session4.pptx — Slide 5 — ERD Conceptual Guide • Session4.pptx — Slides 5 and 7 — course_code UNIQUE"
                     }
                   },
                   {
@@ -763,10 +1681,53 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session4.pptx — Slide 4 — Scope & Entities • Session4.pptx — Slide 4 — Naming convention"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "Slide 4 بيحدد الـ core entities: Students, Courses, Instructors, Enrollments.",
+                      "whyItMattersAr": "الـLabs بتربط ERD وmapping والـkeys والconstraints في workflow تصميم واحد.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "concept-flow",
+                        "title": "Design Lab Flow",
+                        "steps": [
+                          "Draw ER Diagram",
+                          "Map to Tables",
+                          "Apply PK / FK / Constraints"
+                        ],
+                        "noteAr": "الـLab بيربط بين التصميم المفاهيمي وبين الجداول والمفاتيح والقيود.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session01-q072",
+                        "question": "Which set of dimension tables is explicitly requested in the e-commerce Star Schema lab?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "Customers, Products, and Time"
+                          },
+                          {
+                            "id": "B",
+                            "text": "Employee, SalaryAccount, and Medicine"
+                          },
+                          {
+                            "id": "C",
+                            "text": "Category, Supplier, and Network"
+                          },
+                          {
+                            "id": "D",
+                            "text": "Teacher, Course, and Surgeon"
+                          }
+                        ],
+                        "correctAnswer": "A",
+                        "explanationAr": "الـ lab بيحدد dimension tables: Customers, Products, Time حول Sales fact table.",
+                        "sourceTrace": "Session1 (1).pptx — Slide 64 — Star Schema lab"
+                      },
+                      "sourceTrace": "Session4.pptx — Slide 4 — Scope & Entities • Session4.pptx — Slide 4 — Naming convention"
                     }
                   }
                 ],
-                "displayMode": "readable-mixed-rtl-v1"
+                "displayMode": "sql-visual-learning-v2"
               }
             },
             {
@@ -819,6 +1780,77 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session5.pptx — Slide 2 — Query execution order • Session5.pptx — Slides 2 and 4 — WHERE filtering"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الرسم في Slide 2 بيبدأ بـ FROM، وبعدها WHERE ثم GROUP BY ثم HAVING ثم SELECT ثم ORDER BY ثم LIMIT.",
+                      "whyItMattersAr": "الفلترة الصح بتحدد أي rows تدخل المراحل التالية من الاستعلام.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "table-transform",
+                        "title": "WHERE filters base rows",
+                        "before": {
+                          "headers": [
+                            "film",
+                            "release_year"
+                          ],
+                          "rows": [
+                            [
+                              "A",
+                              "1994"
+                            ],
+                            [
+                              "B",
+                              "1997"
+                            ],
+                            [
+                              "C",
+                              "2000"
+                            ]
+                          ]
+                        },
+                        "code": "SELECT *\nFROM films\nWHERE release_year > 1994\n  AND release_year < 2000;",
+                        "after": {
+                          "headers": [
+                            "film",
+                            "release_year"
+                          ],
+                          "rows": [
+                            [
+                              "B",
+                              "1997"
+                            ]
+                          ]
+                        },
+                        "noteAr": "القيم توضيحية، والشرط نفسه مأخوذ من نمط المادة: WHERE مع comparison operators وAND.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session05-q001",
+                        "question": "According to the query execution diagram, which clause is processed first?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "SELECT"
+                          },
+                          {
+                            "id": "B",
+                            "text": "FROM"
+                          },
+                          {
+                            "id": "C",
+                            "text": "ORDER BY"
+                          },
+                          {
+                            "id": "D",
+                            "text": "LIMIT"
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "الرسم في Slide 2 بيبدأ بـ FROM، وبعدها WHERE ثم GROUP BY ثم HAVING ثم SELECT ثم ORDER BY ثم LIMIT.",
+                        "sourceTrace": "Session5.pptx — Slide 2 — Query execution order"
+                      },
+                      "sourceTrace": "Session5.pptx — Slide 2 — Query execution order • Session5.pptx — Slides 2 and 4 — WHERE filtering"
                     }
                   },
                   {
@@ -861,6 +1893,81 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session5.pptx — Slide 16 — Missing values and COUNT • Session5.pptx — Slide 16 — COUNT(field) vs COUNT(*)"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "المادة بتفرق بين COUNT(field_name) اللي بيعد القيم غير المفقودة وبين COUNT(*) اللي بيعد الصفوف.",
+                      "whyItMattersAr": "الـAggregation بتحول rows كثيرة إلى summaries مفيدة لكل group.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "aggregate",
+                        "title": "Rows → Groups → Aggregate",
+                        "before": {
+                          "headers": [
+                            "country",
+                            "customer"
+                          ],
+                          "rows": [
+                            [
+                              "Egypt",
+                              "A"
+                            ],
+                            [
+                              "Egypt",
+                              "B"
+                            ],
+                            [
+                              "UAE",
+                              "C"
+                            ]
+                          ]
+                        },
+                        "code": "SELECT country, COUNT(*)\nFROM customers\nGROUP BY country;",
+                        "after": {
+                          "headers": [
+                            "country",
+                            "COUNT(*)"
+                          ],
+                          "rows": [
+                            [
+                              "Egypt",
+                              "2"
+                            ],
+                            [
+                              "UAE",
+                              "1"
+                            ]
+                          ]
+                        },
+                        "noteAr": "البيانات توضيحية. المادة بتشرح GROUP BY لتكوين groups ثم استخدام aggregate مثل COUNT.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session05-q010",
+                        "question": "Which statement about COUNT is supported by the session?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "COUNT(column) counts non-missing values, while COUNT(*) counts rows including rows where that column may be NULL."
+                          },
+                          {
+                            "id": "B",
+                            "text": "COUNT(column) always counts more rows than COUNT(*)."
+                          },
+                          {
+                            "id": "C",
+                            "text": "COUNT(*) ignores all rows containing any NULL."
+                          },
+                          {
+                            "id": "D",
+                            "text": "COUNT can only be used on text fields."
+                          }
+                        ],
+                        "correctAnswer": "A",
+                        "explanationAr": "المادة بتفرق بين COUNT(field_name) اللي بيعد القيم غير المفقودة وبين COUNT(*) اللي بيعد الصفوف.",
+                        "sourceTrace": "Session5.pptx — Slide 16 — Missing values and COUNT"
+                      },
+                      "sourceTrace": "Session5.pptx — Slide 16 — Missing values and COUNT • Session5.pptx — Slide 16 — COUNT(field) vs COUNT(*)"
                     }
                   },
                   {
@@ -903,10 +2010,53 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session5.pptx — Slide 23 — Deleting Duplicates (Keeping One Copy) • Session5.pptx — Slide 23 — ROW_NUMBER duplicate deletion"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "EXISTS في المادة وظيفته التحقق هل الـ subquery رجّع أي rows ولا لأ.",
+                      "whyItMattersAr": "Functions وCASE وnested expressions بتخلي الـSELECT يطلع معلومات مشتقة ومهيأة للتحليل.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "query-cards",
+                        "title": "Reusable SQL expressions",
+                        "codes": [
+                          "SELECT UPPER(name)\nFROM employees;",
+                          "SELECT COUNT(*)\nFROM orders;",
+                          "CASE WHEN ... THEN ... ELSE ... END"
+                        ],
+                        "noteAr": "المادة بتجمع String Functions وAggregate Functions وDate/Time Functions وCASE وEXISTS/ANY/ALL ضمن التعبيرات المتقدمة.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session05-q041",
+                        "question": "What does EXISTS check according to the session?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "Whether every value is greater than every other value."
+                          },
+                          {
+                            "id": "B",
+                            "text": "Whether a subquery returns any rows."
+                          },
+                          {
+                            "id": "C",
+                            "text": "Whether a string contains a wildcard."
+                          },
+                          {
+                            "id": "D",
+                            "text": "Whether a table has a primary key."
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "EXISTS في المادة وظيفته التحقق هل الـ subquery رجّع أي rows ولا لأ.",
+                        "sourceTrace": "Session5.pptx — Slide 30 — ANY, ALL, EXISTS"
+                      },
+                      "sourceTrace": "Session5.pptx — Slide 23 — Deleting Duplicates (Keeping One Copy) • Session5.pptx — Slide 23 — ROW_NUMBER duplicate deletion"
                     }
                   }
                 ],
-                "displayMode": "readable-mixed-rtl-v1"
+                "displayMode": "sql-visual-learning-v2"
               }
             },
             {
@@ -959,6 +2109,99 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session6.pptx — Slides 3–4 — Equi JOIN / Equijoins and Non-Equijoins • Session6.pptx — Slides 4 and 15 — Non-Equijoin definition and example"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ Equijoin في المحاضرة قائم على equality condition بين الأعمدة المرتبطة، وغالبًا بيكون الربط بين PK وFK.",
+                      "whyItMattersAr": "الـJoins هي الأساس لقراءة بيانات موزعة على أكثر من table مرتبط.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "join",
+                        "title": "INNER JOIN keeps matches",
+                        "left": {
+                          "title": "DEPARTMENT",
+                          "headers": [
+                            "id",
+                            "name"
+                          ],
+                          "rows": [
+                            [
+                              "10",
+                              "Sales"
+                            ],
+                            [
+                              "20",
+                              "IT"
+                            ]
+                          ]
+                        },
+                        "right": {
+                          "title": "EMPLOYEE",
+                          "headers": [
+                            "name",
+                            "deptid"
+                          ],
+                          "rows": [
+                            [
+                              "Ali",
+                              "10"
+                            ],
+                            [
+                              "Mona",
+                              "20"
+                            ],
+                            [
+                              "Omar",
+                              "30"
+                            ]
+                          ]
+                        },
+                        "condition": "department.id = employee.deptid",
+                        "result": {
+                          "headers": [
+                            "employee",
+                            "department"
+                          ],
+                          "rows": [
+                            [
+                              "Ali",
+                              "Sales"
+                            ],
+                            [
+                              "Mona",
+                              "IT"
+                            ]
+                          ]
+                        },
+                        "noteAr": "القيم توضيحية. المادة بتشرح الـEquijoin كشرط equality بين أعمدة مرتبطة، والـINNER JOIN بيرجع الصفوف المتطابقة.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session06-joins-q001",
+                        "question": "Which statement best describes an equijoin in Session 6?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "The join condition uses equality between related columns."
+                          },
+                          {
+                            "id": "B",
+                            "text": "The join must return every row from both tables."
+                          },
+                          {
+                            "id": "C",
+                            "text": "The join compares only unrelated text columns."
+                          },
+                          {
+                            "id": "D",
+                            "text": "The join always uses BETWEEN instead of equality."
+                          }
+                        ],
+                        "correctAnswer": "A",
+                        "explanationAr": "الـ Equijoin في المحاضرة قائم على equality condition بين الأعمدة المرتبطة، وغالبًا بيكون الربط بين PK وFK.",
+                        "sourceTrace": "Session6.pptx — Slides 3–4 — Equi JOIN / Equijoins and Non-Equijoins"
+                      },
+                      "sourceTrace": "Session6.pptx — Slides 3–4 — Equi JOIN / Equijoins and Non-Equijoins • Session6.pptx — Slides 4 and 15 — Non-Equijoin definition and example"
                     }
                   },
                   {
@@ -1001,6 +2244,46 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session6.pptx — Slide 16 — Sub-Queries • Session6.pptx — Slides 16 and 26 — Inline View"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ Subquery أو Nested Query هو SELECT كامل جوه query تاني.",
+                      "whyItMattersAr": "الـSubquery بتسمح إن نتيجة Query تساعد Query أكبر في filtering أو calculation.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "nested",
+                        "title": "Outer Query ← Inner Query",
+                        "outer": "SELECT ...\nFROM Products\nWHERE CategoryID IN ( ... );",
+                        "inner": "SELECT CategoryID\nFROM Categories\nWHERE Location = 'Cairo';",
+                        "noteAr": "المادة بتعرّف الـSubquery كـSELECT كاملة داخل Query أخرى، وغالبًا بتظهر في WHERE أو HAVING.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session06-subqueries-q001",
+                        "question": "What is a subquery (nested query) according to Session 6?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "A complete SELECT query placed inside another SQL query."
+                          },
+                          {
+                            "id": "B",
+                            "text": "A table alias used twice."
+                          },
+                          {
+                            "id": "C",
+                            "text": "A command that permanently changes a table schema."
+                          },
+                          {
+                            "id": "D",
+                            "text": "A Cartesian product with no join condition."
+                          }
+                        ],
+                        "correctAnswer": "A",
+                        "explanationAr": "الـ Subquery أو Nested Query هو SELECT كامل جوه query تاني.",
+                        "sourceTrace": "Session6.pptx — Slide 16 — Sub-Queries"
+                      },
+                      "sourceTrace": "Session6.pptx — Slide 16 — Sub-Queries • Session6.pptx — Slides 16 and 26 — Inline View"
                     }
                   },
                   {
@@ -1031,10 +2314,63 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session6.pptx — Slide 21 — Union Operator • Session6.pptx — Slide 21 — Union Operator conditions"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "UNION بيجمع ناتج SELECT مع ناتج SELECT تاني، والصف المتكرر في الناتجين بيظهر مرة واحدة.",
+                      "whyItMattersAr": "Set Operations بتجمع outputs متوافقة من أكثر من SELECT في نتيجة واحدة.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "set",
+                        "title": "UNION combines SELECT outputs",
+                        "left": [
+                          "A",
+                          "B",
+                          "C"
+                        ],
+                        "right": [
+                          "B",
+                          "D"
+                        ],
+                        "result": [
+                          "A",
+                          "B",
+                          "C",
+                          "D"
+                        ],
+                        "noteAr": "المادة بتوضح إن UNION يجمع نتائج SELECT ويزيل الصفوف المتكررة، مع ضرورة توافق عدد وأنواع الأعمدة.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session06-subqueries-q006",
+                        "question": "What does `UNION` do according to Session 6?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "Joins columns side by side using a foreign key."
+                          },
+                          {
+                            "id": "B",
+                            "text": "Combines the outputs of two SELECT statements into one result and removes repeated rows."
+                          },
+                          {
+                            "id": "C",
+                            "text": "Keeps only NULL values."
+                          },
+                          {
+                            "id": "D",
+                            "text": "Updates matching rows in both tables."
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "UNION بيجمع ناتج SELECT مع ناتج SELECT تاني، والصف المتكرر في الناتجين بيظهر مرة واحدة.",
+                        "sourceTrace": "Session6.pptx — Slide 21 — Union Operator"
+                      },
+                      "sourceTrace": "Session6.pptx — Slide 21 — Union Operator • Session6.pptx — Slide 21 — Union Operator conditions"
                     }
                   }
                 ],
-                "displayMode": "readable-mixed-rtl-v1"
+                "displayMode": "sql-visual-learning-v2"
               }
             },
             {
@@ -1078,6 +2414,80 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session8.pptx"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "Session 8 بتعرّف الـ Index كـ data structure لتحسين سرعة الوصول للـ rows، والمثال بيعمل index على department.",
+                      "whyItMattersAr": "دي القاعدة الأساسية لقراءة وكتابة SELECT وفهم مصدر البيانات وشكل الـoutput.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "table-transform",
+                        "title": "SELECT chooses the output",
+                        "before": {
+                          "headers": [
+                            "LastName",
+                            "FirstName",
+                            "Age"
+                          ],
+                          "rows": [
+                            [
+                              "Khaled",
+                              "Ahmed",
+                              "28"
+                            ],
+                            [
+                              "Ali",
+                              "Mona",
+                              "25"
+                            ]
+                          ]
+                        },
+                        "code": "SELECT LastName, FirstName\nFROM Students;",
+                        "after": {
+                          "headers": [
+                            "LastName",
+                            "FirstName"
+                          ],
+                          "rows": [
+                            [
+                              "Khaled",
+                              "Ahmed"
+                            ],
+                            [
+                              "Ali",
+                              "Mona"
+                            ]
+                          ]
+                        },
+                        "noteAr": "الجدول والقيم توضيحية، لكن الـSELECT pattern نفسه مبني على مثال المادة الخاص باختيار LastName وFirstName.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session03-q002",
+                        "question": "What is the main purpose of a semicolon in SQL according to the session?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "To convert SELECT into DDL."
+                          },
+                          {
+                            "id": "B",
+                            "text": "To separate SQL statements, especially when multiple statements are sent in one call."
+                          },
+                          {
+                            "id": "C",
+                            "text": "To sort query results."
+                          },
+                          {
+                            "id": "D",
+                            "text": "To create a primary key automatically."
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "الـ semicolon هو الفاصل القياسي بين SQL statements، خصوصًا لما النظام يسمح بتنفيذ أكتر من statement في نفس الطلب.",
+                        "sourceTrace": "Session3.pptx — Slide 7 — Semicolon after SQL Statements?"
+                      },
+                      "sourceTrace": "Session8.pptx"
                     }
                   },
                   {
@@ -1118,6 +2528,46 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session8.pptx"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ Single-Row Subquery بيرجع قيمة واحدة فقط، يعني row واحدة وcolumn واحدة.",
+                      "whyItMattersAr": "الـSubquery بتسمح إن نتيجة Query تساعد Query أكبر في filtering أو calculation.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "nested",
+                        "title": "Outer Query ← Inner Query",
+                        "outer": "SELECT ...\nFROM Products\nWHERE CategoryID IN ( ... );",
+                        "inner": "SELECT CategoryID\nFROM Categories\nWHERE Location = 'Cairo';",
+                        "noteAr": "المادة بتعرّف الـSubquery كـSELECT كاملة داخل Query أخرى، وغالبًا بتظهر في WHERE أو HAVING.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session06-subqueries-q002",
+                        "question": "According to the basic subquery explanation, which query is executed first?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "The outer query only."
+                          },
+                          {
+                            "id": "B",
+                            "text": "The inner query."
+                          },
+                          {
+                            "id": "C",
+                            "text": "ORDER BY always executes first."
+                          },
+                          {
+                            "id": "D",
+                            "text": "UNION ALL always executes first."
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "المحاضرة بتوضح إن الـ inner query بيتنفذ الأول ثم يستخدم الـ outer query نتيجته، في النموذج غير correlated اللي بتشرحه هنا.",
+                        "sourceTrace": "Session6.pptx — Slide 16 — Sub-Queries"
+                      },
+                      "sourceTrace": "Session8.pptx"
                     }
                   },
                   {
@@ -1160,6 +2610,93 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session8.pptx — Slides 3–4 — Window Function Definition • Session8.pptx — Slide 8 — Aggregate Window Functions"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ Window Function بتعمل calculation على مجموعة rows مرتبطة بالـ current row، وبتحافظ على الصفوف بدل ما تختصرهم زي GROUP BY.",
+                      "whyItMattersAr": "Window Functions بتضيف تحليل عبر مجموعة rows مع الاحتفاظ بكل row في النتيجة.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "window",
+                        "title": "Window calculation without collapsing rows",
+                        "before": {
+                          "headers": [
+                            "employee",
+                            "department",
+                            "salary"
+                          ],
+                          "rows": [
+                            [
+                              "Ali",
+                              "IT",
+                              "100"
+                            ],
+                            [
+                              "Mona",
+                              "IT",
+                              "200"
+                            ],
+                            [
+                              "Omar",
+                              "HR",
+                              "150"
+                            ]
+                          ]
+                        },
+                        "code": "AVG(salary) OVER (\n  PARTITION BY department_id\n)",
+                        "after": {
+                          "headers": [
+                            "employee",
+                            "salary",
+                            "dept_avg"
+                          ],
+                          "rows": [
+                            [
+                              "Ali",
+                              "100",
+                              "150"
+                            ],
+                            [
+                              "Mona",
+                              "200",
+                              "150"
+                            ],
+                            [
+                              "Omar",
+                              "150",
+                              "150"
+                            ]
+                          ]
+                        },
+                        "noteAr": "البيانات توضيحية. المادة بتشرح إن Window Function تحسب عبر rows مرتبطة بالـcurrent row بدون collapsing زي GROUP BY.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session08-window-q001",
+                        "question": "What is the core purpose of a SQL window function in Session 8?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "To calculate across rows related to the current row without collapsing them with GROUP BY."
+                          },
+                          {
+                            "id": "B",
+                            "text": "To permanently create a new table."
+                          },
+                          {
+                            "id": "C",
+                            "text": "To remove every duplicate row from storage."
+                          },
+                          {
+                            "id": "D",
+                            "text": "To grant database permissions."
+                          }
+                        ],
+                        "correctAnswer": "A",
+                        "explanationAr": "الـ Window Function بتعمل calculation على مجموعة rows مرتبطة بالـ current row، وبتحافظ على الصفوف بدل ما تختصرهم زي GROUP BY.",
+                        "sourceTrace": "Session8.pptx — Slides 3–4 — Window Function Definition"
+                      },
+                      "sourceTrace": "Session8.pptx — Slides 3–4 — Window Function Definition • Session8.pptx — Slide 8 — Aggregate Window Functions"
                     }
                   },
                   {
@@ -1200,6 +2737,50 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session8.pptx — Slides 11–13 — CTE Purpose and Comparison • Session8.pptx — Slide 14 — CTE Practice Case"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "المحاضرة بتقدم CTE كـ named temporary result set يحسن readability وممكن يت referenced أكتر من مرة في نفس الـ main query.",
+                      "whyItMattersAr": "الـCTE بتنظم الاستعلامات المعقدة وتخلي intermediate logic أوضح داخل نفس الـstatement.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "cte",
+                        "title": "CTE organizes a complex query",
+                        "code": "WITH CTE_Name AS (\n  SELECT ...\n)\nSELECT *\nFROM CTE_Name;",
+                        "steps": [
+                          "Define with WITH",
+                          "Name intermediate result",
+                          "Use it in main query"
+                        ],
+                        "noteAr": "المادة بتوصي بالـCTE لتحسين readability وتنظيم الاستعلامات المعقدة، وتذكر دعم recursion.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session08-advanced-q028",
+                        "question": "A complex reporting query has several joins and readability is becoming poor. Which approach follows the Session 8 summary?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "Use PIVOT even if no cross-tab is needed."
+                          },
+                          {
+                            "id": "B",
+                            "text": "Replace joins with DROP INDEX."
+                          },
+                          {
+                            "id": "C",
+                            "text": "Use IIF to hold entire result sets."
+                          },
+                          {
+                            "id": "D",
+                            "text": "Use a CTE to organize the complex joins and improve code clarity."
+                          }
+                        ],
+                        "correctAnswer": "D",
+                        "explanationAr": "ده external-similar للـ best practice: CTEs مناسبة للـ complex joins وتحسين code clarity.",
+                        "sourceTrace": "Session8.pptx — Slide 26 — Summary & Best Practices"
+                      },
+                      "sourceTrace": "Session8.pptx — Slides 11–13 — CTE Purpose and Comparison • Session8.pptx — Slide 14 — CTE Practice Case"
                     }
                   },
                   {
@@ -1239,6 +2820,87 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session8.pptx — Slide 16 — Introduction to PIVOT • Session8.pptx — Slide 16 — PIVOT Core Components"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "PIVOT هدفه تحويل unique values من column إلى headers/columns، وده مناسب لتقارير cross-tab.",
+                      "whyItMattersAr": "Pivoting بيحوّل القيم إلى أعمدة لما التقرير محتاج cross-tab layout.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "pivot",
+                        "title": "Rows → Cross-tab Columns",
+                        "before": {
+                          "headers": [
+                            "month",
+                            "region",
+                            "sales"
+                          ],
+                          "rows": [
+                            [
+                              "Jan",
+                              "North",
+                              "100"
+                            ],
+                            [
+                              "Jan",
+                              "South",
+                              "80"
+                            ],
+                            [
+                              "Feb",
+                              "North",
+                              "120"
+                            ]
+                          ]
+                        },
+                        "after": {
+                          "headers": [
+                            "month",
+                            "North",
+                            "South"
+                          ],
+                          "rows": [
+                            [
+                              "Jan",
+                              "100",
+                              "80"
+                            ],
+                            [
+                              "Feb",
+                              "120",
+                              "—"
+                            ]
+                          ]
+                        },
+                        "noteAr": "البيانات توضيحية. المادة بتستخدم PIVOT لتحويل values مثل region إلى columns مع aggregate مثل SUM(SalesAmount).",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session08-advanced-q004",
+                        "question": "A dashboard needs product categories to appear as separate report columns. Which taught transformation matches this need?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "LAG"
+                          },
+                          {
+                            "id": "B",
+                            "text": "DROP INDEX"
+                          },
+                          {
+                            "id": "C",
+                            "text": "TRY...CATCH"
+                          },
+                          {
+                            "id": "D",
+                            "text": "PIVOT"
+                          }
+                        ],
+                        "correctAnswer": "D",
+                        "explanationAr": "PIVOT هدفه تحويل unique values من column إلى headers/columns، وده مناسب لتقارير cross-tab.",
+                        "sourceTrace": "Session8.pptx — Slide 16 — Introduction to PIVOT"
+                      },
+                      "sourceTrace": "Session8.pptx — Slide 16 — Introduction to PIVOT • Session8.pptx — Slide 16 — PIVOT Core Components"
                     }
                   },
                   {
@@ -1278,6 +2940,49 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session8.pptx — Slides 20–21 — IF...ELSE • Session8.pptx — Slide 22 — CASE Expression"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "`IF...ELSE` هو control-flow construct لتشغيل blocks مختلفة حسب Boolean condition.",
+                      "whyItMattersAr": "Conditional logic بيخلي SQL يرجع outcome مختلف حسب شروط محددة.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "concept-flow",
+                        "title": "Conditional SQL Logic",
+                        "steps": [
+                          "Condition",
+                          "CASE / IIF",
+                          "Return matching outcome"
+                        ],
+                        "noteAr": "المادة بتعرض CASE للمنطق متعدد الفروع، وبتشير إن CASE أوضح من IIF لما الحالات تزيد.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session08-advanced-q007",
+                        "question": "A SQL Server batch must execute one block when a Boolean condition is TRUE and another when it is FALSE. Which taught construct fits?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "PIVOT"
+                          },
+                          {
+                            "id": "B",
+                            "text": "DENSE_RANK()"
+                          },
+                          {
+                            "id": "C",
+                            "text": "IF...ELSE"
+                          },
+                          {
+                            "id": "D",
+                            "text": "CREATE INDEX"
+                          }
+                        ],
+                        "correctAnswer": "C",
+                        "explanationAr": "`IF...ELSE` هو control-flow construct لتشغيل blocks مختلفة حسب Boolean condition.",
+                        "sourceTrace": "Session8.pptx — Slides 20–21 — IF...ELSE"
+                      },
+                      "sourceTrace": "Session8.pptx — Slides 20–21 — IF...ELSE • Session8.pptx — Slide 22 — CASE Expression"
                     }
                   },
                   {
@@ -1314,10 +3019,55 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session8.pptx — Slide 24 — TRY...CATCH • Session8.pptx — Slide 24 — TRY...CATCH Example"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "Divide-by-zero مثال مباشر على runtime error؛ لما يحصل جوه TRY التنفيذ ينتقل للـ CATCH.",
+                      "whyItMattersAr": "TRY/CATCH وtransactions مهمين عشان الأخطاء ما تسيبش عمليات جزئية غير آمنة.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "error-flow",
+                        "title": "TRY → Success / CATCH",
+                        "steps": [
+                          "BEGIN TRY",
+                          "Run statements",
+                          "COMMIT on success",
+                          "CATCH on error",
+                          "ROLLBACK when needed"
+                        ],
+                        "noteAr": "المادة بتوضح إن runtime error داخل TRY ينقل التنفيذ للـCATCH، ومع transaction يتم COMMIT عند النجاح أو ROLLBACK عند الخطأ.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session08-advanced-q010",
+                        "question": "A stored batch may raise a runtime error and must move to an error-handling block. Which taught construct is designed for that?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "PIVOT with SUM"
+                          },
+                          {
+                            "id": "B",
+                            "text": "BEGIN TRY...END TRY with BEGIN CATCH...END CATCH"
+                          },
+                          {
+                            "id": "C",
+                            "text": "RANK with PARTITION BY"
+                          },
+                          {
+                            "id": "D",
+                            "text": "CREATE INDEX with IF EXISTS"
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "ده external-similar لنفس error-handling concept: TRY يراقب التنفيذ، ولو حصل runtime error ينتقل للـ CATCH.",
+                        "sourceTrace": "Session8.pptx — Slide 24 — TRY...CATCH"
+                      },
+                      "sourceTrace": "Session8.pptx — Slide 24 — TRY...CATCH • Session8.pptx — Slide 24 — TRY...CATCH Example"
                     }
                   }
                 ],
-                "displayMode": "readable-mixed-rtl-v1"
+                "displayMode": "sql-visual-learning-v2"
               }
             },
             {
@@ -1370,6 +3120,49 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session9.pptx"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ Scalar Function بتاخد قيمة واحدة وتطلع قيمة واحدة، زي UPPER(name).",
+                      "whyItMattersAr": "Functions وCASE وnested expressions بتخلي الـSELECT يطلع معلومات مشتقة ومهيأة للتحليل.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "query-cards",
+                        "title": "Reusable SQL expressions",
+                        "codes": [
+                          "SELECT UPPER(name)\nFROM employees;",
+                          "SELECT COUNT(*)\nFROM orders;",
+                          "CASE WHEN ... THEN ... ELSE ... END"
+                        ],
+                        "noteAr": "المادة بتجمع String Functions وAggregate Functions وDate/Time Functions وCASE وEXISTS/ANY/ALL ضمن التعبيرات المتقدمة.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session05-q042",
+                        "question": "What does ANY (or SOME) mean in the session summary?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "The comparison must match all values."
+                          },
+                          {
+                            "id": "B",
+                            "text": "It sorts every value."
+                          },
+                          {
+                            "id": "C",
+                            "text": "The comparison can match any value from the subquery result."
+                          },
+                          {
+                            "id": "D",
+                            "text": "It replaces NULL values."
+                          }
+                        ],
+                        "correctAnswer": "C",
+                        "explanationAr": "ANY/SOME معناها إن المقارنة تنجح مع أي قيمة مناسبة من نتيجة الـ subquery.",
+                        "sourceTrace": "Session5.pptx — Slide 30 — ANY / SOME"
+                      },
+                      "sourceTrace": "Session9.pptx"
                     }
                   },
                   {
@@ -1400,6 +3193,49 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session9.pptx — Slides 17–18 — CASE in Views"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "CASE expression بتختار قيمة output حسب الشروط، زي VIP/Premium/Standard/Basic في الـ View.",
+                      "whyItMattersAr": "Conditional logic بيخلي SQL يرجع outcome مختلف حسب شروط محددة.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "concept-flow",
+                        "title": "Conditional SQL Logic",
+                        "steps": [
+                          "Condition",
+                          "CASE / IIF",
+                          "Return matching outcome"
+                        ],
+                        "noteAr": "المادة بتعرض CASE للمنطق متعدد الفروع، وبتشير إن CASE أوضح من IIF لما الحالات تزيد.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session08-advanced-q008",
+                        "question": "Inside a SELECT, you need to return \"Expensive\" or \"Affordable\" based on price. Which standard expression does Session 8 recommend?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "DROP INDEX"
+                          },
+                          {
+                            "id": "B",
+                            "text": "BEGIN TRANSACTION only"
+                          },
+                          {
+                            "id": "C",
+                            "text": "NTILE()"
+                          },
+                          {
+                            "id": "D",
+                            "text": "CASE"
+                          }
+                        ],
+                        "correctAnswer": "D",
+                        "explanationAr": "لإرجاع conditional value داخل SELECT، الـ standard والأوسع دعمًا هو `CASE`.",
+                        "sourceTrace": "Session8.pptx — Slide 22 — CASE Expression"
+                      },
+                      "sourceTrace": "Session9.pptx — Slides 17–18 — CASE in Views"
                     }
                   },
                   {
@@ -1442,6 +3278,50 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session9.pptx — Slide 3 — Views • Session9.pptx — Slides 3 and 6 — Views / Creating Views"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ View في المادة عبارة عن logical table مبني على table أو view تاني، وبيمثل نافذة لعرض البيانات بدل ما يكون نسخة مادية مستقلة منها.",
+                      "whyItMattersAr": "الـView بتخفي query معقدة وراء object قابل لإعادة الاستخدام.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "view-flow",
+                        "title": "Base tables → View → Reusable query",
+                        "code": "CREATE VIEW ... AS\nSELECT ...;\n\nSELECT *\nFROM vw_work_hrs;",
+                        "steps": [
+                          "Base Tables",
+                          "Stored SELECT logic",
+                          "Reusable View Result"
+                        ],
+                        "noteAr": "المادة بتعرّف الـView كـlogical table مبنية على table أو view أخرى، وتخزن كـSELECT logic في data dictionary.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session09-funcproc-q030",
+                        "question": "Which design is best for exposing a reusable sales-dashboard result that already includes cleaned names, aggregates, CASE categories, and date calculations?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "Duplicate the source tables for every dashboard refresh."
+                          },
+                          {
+                            "id": "B",
+                            "text": "Create a reporting view whose SELECT contains the taught functions and CASE logic."
+                          },
+                          {
+                            "id": "C",
+                            "text": "Use DROP VIEW after each SELECT."
+                          },
+                          {
+                            "id": "D",
+                            "text": "Avoid SQL functions and calculate nothing."
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "ده يجمع الـ Lab والـ Assignment: View reusable للتقرير، وداخله aggregate/string/date functions وCASE حسب المطلوب.",
+                        "sourceTrace": "Session9.pptx — Slides 27–29 — Lab / Assignment"
+                      },
+                      "sourceTrace": "Session9.pptx — Slide 3 — Views • Session9.pptx — Slides 3 and 6 — Views / Creating Views"
                     }
                   },
                   {
@@ -1481,10 +3361,53 @@
                     "sourceDisplay": {
                       "label": "SOURCE TRACE",
                       "text": "Session9.pptx — Slide 23 — What is a Stored Procedure? • Session9.pptx — Slide 24 — Benefits of Stored Procedures"
+                    },
+                    "lessonV2": {
+                      "version": "2.0",
+                      "whatIsItAr": "الـ Stored Procedure هي مجموعة SQL statements محفوظة وتتنفذ على database server.",
+                      "whyItMattersAr": "Stored Procedures بتجمع logic وparameters في database object قابل لإعادة التنفيذ.",
+                      "whyLabel": "PLATFORM CLARIFICATION — based on the course concept",
+                      "visual": {
+                        "kind": "procedure-flow",
+                        "title": "Input → Procedure → Database Action",
+                        "steps": [
+                          "Parameters",
+                          "Stored Procedure Logic",
+                          "UPDATE / Result"
+                        ],
+                        "noteAr": "المادة بتعرض Stored Procedure تستقبل parameters وتنفذ logic، ومنها مثال UPDATE_SAL حسب rating.",
+                        "label": "PLATFORM VISUAL CLARIFICATION — based on the course concept"
+                      },
+                      "quickCheck": {
+                        "questionId": "da-sql-session09-funcproc-q006",
+                        "question": "What is a stored procedure according to Session 9?",
+                        "options": [
+                          {
+                            "id": "A",
+                            "text": "A client-side spreadsheet formula."
+                          },
+                          {
+                            "id": "B",
+                            "text": "A set of SQL statements stored and executed on the database server."
+                          },
+                          {
+                            "id": "C",
+                            "text": "A view that cannot accept parameters."
+                          },
+                          {
+                            "id": "D",
+                            "text": "A database index that stores only keys."
+                          }
+                        ],
+                        "correctAnswer": "B",
+                        "explanationAr": "الـ Stored Procedure هي مجموعة SQL statements محفوظة وتتنفذ على database server.",
+                        "sourceTrace": "Session9.pptx — Slide 23 — What is a Stored Procedure?"
+                      },
+                      "sourceTrace": "Session9.pptx — Slide 23 — What is a Stored Procedure? • Session9.pptx — Slide 24 — Benefits of Stored Procedures"
                     }
                   }
                 ],
-                "displayMode": "readable-mixed-rtl-v1"
+                "displayMode": "sql-visual-learning-v2"
               }
             }
           ],
@@ -1495,7 +3418,12 @@
             "topics": 25,
             "questionBanks": 13,
             "questions": 520,
-            "status": "FINAL READY"
+            "status": "FINAL READY",
+            "studyVersion": "2.0",
+            "studySections": 34,
+            "visualLessons": 34,
+            "quickChecks": 34,
+            "studyDisplayMode": "sql-visual-learning-v2"
           }
         },
         {
