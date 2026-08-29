@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.15.2
+# Digilians E-Learn Platform V0.15.3
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1242,3 +1242,19 @@ SQL 520, Python 520, Junior Official 930, Professional Official 1189 and Ranking
 
 ### Regression
 Resume V0.15.1, Ranking V2, SQL 520, Python 520, Junior Official 930 and Professional Official 1189 remain intact.
+
+
+## V0.15.3 — Track Cards Layout Fix
+
+Reworked the Data Analysis track-selection cards to remove text/footer overlap.
+
+- Track cards now use a real vertical flex layout instead of an absolutely positioned footer.
+- Card body grows naturally with the description.
+- Footer stays in normal document flow and is visually separated by a divider.
+- SQL and Python use concise chooser-level summaries while full curriculum descriptions remain unchanged in the underlying learning data.
+- Production-ready tracks show a `Final Ready` chip.
+- SQL footer: `8 Sessions • 520 Questions`.
+- Python footer: `13 Sessions • 520 Questions`.
+- Incomplete tracks show `Coming Soon`.
+- Cards keep equal grid height on desktop while remaining free to grow when content requires it.
+- Mobile cards use natural height.
