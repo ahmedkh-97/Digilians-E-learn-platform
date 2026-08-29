@@ -359,6 +359,19 @@ function renderOfficialHub(){
 }
 function renderOfficialJuniorHub(){
   const level=officialLevelMeta();if(!level)return;
+  const isJunior=level.levelId==="junior-data-analysis";
+  const levelShort=isJunior?"Junior":"Professional";
+  $("officialLevelBreadcrumb").textContent=`Official QBank / ${level.title}`;
+  $("officialLevelBadge").textContent=levelShort.toUpperCase();
+  $("officialLevelEyebrow").textContent=level.title.toUpperCase();
+  $("officialLevelTitle").textContent=`Official ${levelShort} Question Bank`;
+  $("officialLevelDescription").textContent=isJunior
+    ?"Choose a track, then solve each official section separately. Every ranked section keeps its own result, retakes and leaderboard."
+    :"Professional is isolated from Junior. Source-preserved sections, progress, retakes and rankings are tracked separately.";
+  $("officialLevelQuestionBadge").textContent=`${level.questionCount||0} QUESTIONS`;
+  $("officialTrackCountLabel").textContent=level.title;
+  $("officialTrackChooserTitle").textContent=`Choose a ${levelShort} question bank`;
+  $("officialFinalCard").classList.toggle("hidden",!isJunior);
   $("officialTotalQuestions").textContent=level.questionCount||0;
   $("officialTrackCount").textContent=level.tracks?.length||0;
   const sectionCount=(level.tracks||[]).reduce((sum,t)=>sum+(t.sections?.length||0),0);
@@ -366,7 +379,7 @@ function renderOfficialJuniorHub(){
   const reviewed=officialReviewedTotal(),total=level.questionCount||1;
   $("officialOverallProgress").textContent=`${Math.round(reviewed/total*100)}%`;
 
-  const colors={excel:'#1f9d63','power-bi':'#d9a51f',sql:'#1caee8',python:'#7c5ce7',tableau:'#4d8fd6',looker:'#7656d6'};
+  const colors={excel:'#1f9d63','power-bi':'#d9a51f',sql:'#1caee8',python:'#7c5ce7',tableau:'#4d8fd6',looker:'#7656d6','web-scraping':'#ec7a35','machine-learning':'#d252a0'};
   const grid=$("officialTrackGrid");grid.innerHTML="";
   for(const meta of officialTracks()){
     const st=getOfficialTrackState(meta.trackId,state.officialLevelId,officialTrackRevision(meta.trackId));
@@ -389,7 +402,8 @@ function renderOfficialJuniorHub(){
 }
 function renderOfficialTrackHub(){
   const meta=officialTrackMeta();if(!meta)return;
-  $("officialTrackBreadcrumb").textContent=`Junior Data Analysis / ${meta.track}`;
+  $("officialTrackBreadcrumb").textContent=`${officialLevelMeta()?.title || "Data Analysis"} / ${meta.track}`;
+  $("officialTrackBackBtn").textContent=`← ${state.officialLevelId==="junior-data-analysis"?"Junior":"Professional"} QBank`;
   $("officialTrackTitle").textContent=meta.track;
   $("officialTrackMeta").textContent=`${meta.questionCount} official questions • ${meta.sections?.length||0} sections • original wording preserved`;
   const st=getOfficialTrackState(meta.trackId,state.officialLevelId,officialTrackRevision(meta.trackId));
@@ -444,9 +458,10 @@ async function openOfficialStudyScope(sectionId=null){
   state.officialIndex=savedIndex>=0?savedIndex:0;
 
   const section=officialSectionMeta(sectionId);
+  const levelShort=state.officialLevelId==="junior-data-analysis"?"Junior":"Professional";
   $("officialStudyBreadcrumb").textContent=section
-    ?`Official QBank / Junior / ${meta.track} / ${section.title}`
-    :`Official QBank / Junior / ${meta.track} / Study All`;
+    ?`Official QBank / ${levelShort} / ${meta.track} / ${section.title}`
+    :`Official QBank / ${levelShort} / ${meta.track} / Study All`;
   $("officialStudyTitle").textContent=section?`${meta.track} — ${section.title}`:`${meta.track} Official QBank`;
   $("officialStudyMeta").textContent=section
     ?`${section.questionCount} official questions • ${section.questionRange} • study mode is not ranked`
@@ -1641,7 +1656,7 @@ function renderResult(){
   else if(record.percentage>=pass)headline="Good progress";
   $("resultHeadline").textContent=headline;
   $("resultSubline").textContent=officialCtx?.kind==="section"
-    ?`Junior Data Analysis • ${state.currentExam.exam.module} • Section ${officialCtx.sectionNumber} — your attempt is saved and ranked by your best score.`
+    ?`${officialLevelMeta(officialCtx.levelId)?.title || "Data Analysis"} • ${state.currentExam.exam.module} • Section ${officialCtx.sectionNumber} — your attempt is saved and ranked by your best score.`
     :"Your attempt has been saved on this device.";
   $("resultPercent").textContent="0%";
   $("resultScore").textContent=`${record.correct} / ${state.currentExam.questions.length}`;
@@ -1734,107 +1749,49 @@ $("reviewHomeBtn").addEventListener("click",()=>{
 function populateRankingExamSelect(){
   const select=$("rankingExamSelect");if(!select)return;
   select.innerHTML="";
-
   const dataAnalysisIds=[];
-  const junior=(state.officialRegistry.levels||[]).find(x=>x.levelId==="junior-data-analysis");
 
-  // Official Junior QBank first
-  if(junior){
-    const finalGroup=document.createElement("optgroup");
-    finalGroup.label="Data Analysis — Official Junior Final";
-    const finalOption=document.createElement("option");
-    finalOption.value=state.officialFinalBlueprint?.id || "official-junior-data-analysis-final-v1";
-    finalOption.textContent="Junior Data Analysis • Official Final Simulation";
-    finalGroup.appendChild(finalOption);
-    select.appendChild(finalGroup);
-    dataAnalysisIds.push(finalOption.value);
-
-    const officialGroup=document.createElement("optgroup");
-    officialGroup.label="Data Analysis — Official QBank Sections";
-    for(const track of junior.tracks||[]){
+  for(const level of (state.officialRegistry.levels||[]).filter(x=>x.available!==false)){
+    if(level.levelId==="junior-data-analysis"){
+      const finalGroup=document.createElement("optgroup");
+      finalGroup.label="Data Analysis — Official Junior Final";
+      const finalOption=document.createElement("option");
+      finalOption.value=state.officialFinalBlueprint?.id || "official-junior-data-analysis-final-v1";
+      finalOption.textContent="Junior Data Analysis • Official Final Simulation";
+      finalGroup.appendChild(finalOption);select.appendChild(finalGroup);dataAnalysisIds.push(finalOption.value);
+    }
+    const group=document.createElement("optgroup");
+    group.label=`Official QBank — ${level.title} Sections`;
+    for(const track of level.tracks||[]){
       for(const section of track.sections||[]){
         const option=document.createElement("option");
-        option.value=officialSectionExamId(
-          "junior-data-analysis",
-          track.trackId,
-          section.sectionNumber,
-          track.sourceRevision||"source-r1"
-        );
-        option.textContent=`Junior • ${track.track} • ${section.title}`;
-        officialGroup.appendChild(option);
-        dataAnalysisIds.push(option.value);
+        option.value=officialSectionExamId(level.levelId,track.trackId,section.sectionNumber,track.sourceRevision||"source-r1");
+        option.textContent=`${level.title.replace(" Data Analysis","")} • ${track.track} • ${section.title}`;
+        group.appendChild(option);dataAnalysisIds.push(option.value);
       }
     }
-    if(officialGroup.children.length)select.appendChild(officialGroup);
+    if(group.children.length)select.appendChild(group);
   }
 
-  // Data Analysis platform exams next
-  const dataGroup=document.createElement("optgroup");
-  dataGroup.label="Data Analysis — Platform Exams";
-  state.registry
-    .filter(x=>x.active!==false && String(x.course||"").toLowerCase()==="data analysis")
-    .forEach(item=>{
-      const option=document.createElement("option");
-      option.value=item.id;
-      option.textContent=`${item.course} — ${item.title}`;
-      dataGroup.appendChild(option);
-      dataAnalysisIds.push(option.value);
-    });
+  const dataGroup=document.createElement("optgroup");dataGroup.label="Data Analysis — Platform Exams";
+  state.registry.filter(x=>x.active!==false && String(x.course||"").toLowerCase()==="data analysis").forEach(item=>{
+    const option=document.createElement("option");option.value=item.id;option.textContent=`${item.course} — ${item.title}`;dataGroup.appendChild(option);dataAnalysisIds.push(option.value);
+  });
   if(dataGroup.children.length)select.appendChild(dataGroup);
 
-  // Keep any other legacy/demo exams available, but after Data Analysis.
-  const otherGroup=document.createElement("optgroup");
-  otherGroup.label="Other Platform Exams";
-  state.registry
-    .filter(x=>x.active!==false && String(x.course||"").toLowerCase()!=="data analysis")
-    .forEach(item=>{
-      const option=document.createElement("option");
-      option.value=item.id;
-      option.textContent=`${item.course} — ${item.title}`;
-      otherGroup.appendChild(option);
-    });
+  const otherGroup=document.createElement("optgroup");otherGroup.label="Other Platform Exams";
+  state.registry.filter(x=>x.active!==false && String(x.course||"").toLowerCase()!=="data analysis").forEach(item=>{
+    const option=document.createElement("option");option.value=item.id;option.textContent=`${item.course} — ${item.title}`;otherGroup.appendChild(option);
+  });
   if(otherGroup.children.length)select.appendChild(otherGroup);
 
-  const availableIds=[...select.options].map(o=>o.value);
-  const validDataIds=dataAnalysisIds.filter(id=>availableIds.includes(id));
-
-  let preferred="";
-
-  // 1) Last selected Data Analysis leaderboard.
-  try{
-    const last=localStorage.getItem("digilians_last_ranking_exam_id") || "";
-    if(last && validDataIds.includes(last))preferred=last;
-  }catch{}
-
-  // 2) Most attempted Data Analysis leaderboard on this device/user.
-  if(!preferred && validDataIds.length){
-    const counts={};
-    for(const result of getUserResults()){
-      if(validDataIds.includes(result.examId)){
-        counts[result.examId]=(counts[result.examId]||0)+1;
-      }
-    }
-    const mostUsed=Object.entries(counts)
-      .sort((a,b)=>b[1]-a[1])[0]?.[0] || "";
-    if(mostUsed)preferred=mostUsed;
-  }
-
-  // 3) Junior Official Final as the clean first-time fallback.
-  if(!preferred){
-    const finalId=state.officialFinalBlueprint?.id || "";
-    if(finalId && validDataIds.includes(finalId))preferred=finalId;
-  }
-
-  // 4) First available Data Analysis leaderboard.
-  if(!preferred && validDataIds.length)preferred=validDataIds[0];
-
-  // 5) Absolute fallback only if no Data Analysis option exists.
-  if(!preferred)preferred=availableIds[0] || "";
-
-  select.value=preferred;
-  state.rankingExamId=select.value || preferred;
+  const availableIds=[...select.options].map(o=>o.value),validDataIds=dataAnalysisIds.filter(id=>availableIds.includes(id));let preferred="";
+  try{const last=localStorage.getItem("digilians_last_ranking_exam_id")||"";if(last&&validDataIds.includes(last))preferred=last}catch{}
+  if(!preferred&&validDataIds.length){const counts={};for(const result of getUserResults()){if(validDataIds.includes(result.examId))counts[result.examId]=(counts[result.examId]||0)+1}preferred=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0]?.[0]||""}
+  if(!preferred){const finalId=state.officialFinalBlueprint?.id||"";if(finalId&&validDataIds.includes(finalId))preferred=finalId}
+  if(!preferred&&validDataIds.length)preferred=validDataIds[0];if(!preferred)preferred=availableIds[0]||"";
+  select.value=preferred;state.rankingExamId=select.value||preferred;
 }
-
 async function renderRanking(){
   $("rankingLocalName").textContent=state.studentName || "Guest";
 

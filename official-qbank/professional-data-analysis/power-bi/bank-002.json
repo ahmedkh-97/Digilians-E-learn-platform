@@ -1,0 +1,3415 @@
+{
+  "schemaVersion": "1.0",
+  "bankId": "official-professional-power-bi-bank-002",
+  "title": "Professional Power BI Official QBank - Section 2",
+  "levelId": "professional-data-analysis",
+  "trackId": "power-bi",
+  "track": "Power BI",
+  "sourceType": "official-qbank",
+  "authority": "Official Ministry QBank",
+  "sourceFile": "Professional_MCQ_Exercises.pdf",
+  "sourceRevision": "professional-power-bi-r1",
+  "questionCount": 50,
+  "questions": [
+    {
+      "id": "official-professional-power-bi-q0051",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 51,
+      "originalQuestionNumber": 1,
+      "question": "After connecting Power BI to an Excel file, you need to clean the data before loading\nit into the model. What should you select?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Load"
+        },
+        {
+          "id": "B",
+          "text": "Publish"
+        },
+        {
+          "id": "C",
+          "text": "Transform Data"
+        },
+        {
+          "id": "D",
+          "text": "New Measure"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "8b725eaf7d3d4771",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 58,
+        "originalQuestionNumber": 1
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Transform Data» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد الاتصال بملف Excel، لو محتاج تنظف أو تغيّر شكل البيانات قبل تحميلها للـModel، تختار Transform Data علشان تفتح Power Query Editor وتنفذ خطوات التنظيف والتحويل أولًا.",
+        "options": {
+          "A": "غلط؛ Load يحمل البيانات مباشرةً بدل ما يديك مرحلة تنظيف وتحويل قبل التحميل.",
+          "B": "غلط؛ Publish يستخدم لنشر التقرير إلى Power BI Service، وليس لتنظيف البيانات.",
+          "C": "صح؛ Transform Data يفتح Power Query Editor لتنظيف وتحويل البيانات قبل تحميلها.",
+          "D": "غلط؛ New Measure لإنشاء حساب DAX بعد وجود البيانات في النموذج، وليس لتنظيف الـSource."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0051",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0052",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 52,
+      "originalQuestionNumber": 2,
+      "question": "A ProductCode column contains values such as 0015 and 0087. Which data type is\nmost appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Text"
+        },
+        {
+          "id": "B",
+          "text": "Whole Number"
+        },
+        {
+          "id": "C",
+          "text": "Decimal Number"
+        },
+        {
+          "id": "D",
+          "text": "Date"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Easy",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c2047803da0bc0ec",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 58,
+        "originalQuestionNumber": 2
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Other. الاختيار «Text» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "ProductCode مثل 0015 و0087 هو Identifier وليس Quantity للحساب. لو حوّلته Number، الأصفار في البداية ممكن تختفي، لذلك Text هو النوع الأنسب للحفاظ على الكود كما هو.",
+        "options": {
+          "A": "صح؛ Text يحافظ على الأصفار البادئة والقيمة كمعرّف.",
+          "B": "غلط؛ Whole Number قد يحول 0015 إلى 15 ويغيّر شكل الكود.",
+          "C": "غلط؛ Decimal Number غير مناسب لمعرّف غير مستخدم في عمليات حسابية.",
+          "D": "غلط؛ القيم لا تمثل Dates."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0052",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0053",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 53,
+      "originalQuestionNumber": 3,
+      "question": "Your table has separate Jan, Feb, and Mar columns. You want one Month column\nand one Sales column. Which transformation should you use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pivot Column"
+        },
+        {
+          "id": "B",
+          "text": "Merge Queries"
+        },
+        {
+          "id": "C",
+          "text": "Split Column"
+        },
+        {
+          "id": "D",
+          "text": "Unpivot Columns"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5902f3c6c6261015",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 58,
+        "originalQuestionNumber": 3
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Unpivot Columns» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "وجود Jan وFeb وMar كأعمدة يعني البيانات في Wide Format. Unpivot Columns يحول أسماء الشهور إلى صفوف داخل Month ويضع القيم في Sales، فينتج Long/Tidy Format أسهل للتحليل.",
+        "options": {
+          "A": "غلط؛ Pivot Column يعمل الاتجاه العكسي تقريبًا، بتحويل Values إلى Columns.",
+          "B": "غلط؛ Merge Queries يربط جدولين باستخدام Key.",
+          "C": "غلط؛ Split Column يقسم محتوى عمود واحد، وليس أعمدة شهور متعددة.",
+          "D": "صح؛ Unpivot Columns تحول Jan/Feb/Mar إلى Month وSales."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0053",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0054",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 54,
+      "originalQuestionNumber": 4,
+      "question": "You have one sales table for January and another for February, and both contain the\nsame columns. How should you combine their rows?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Merge Queries"
+        },
+        {
+          "id": "B",
+          "text": "Append Queries"
+        },
+        {
+          "id": "C",
+          "text": "Group By"
+        },
+        {
+          "id": "D",
+          "text": "Pivot Column"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c50ce1e3f87af3a7",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 58,
+        "originalQuestionNumber": 4
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Append Queries» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما جدول يناير وجدول فبراير عندهم نفس الأعمدة وتريد جمع المعاملات فوق بعض، تستخدم Append Queries لأنها تكدّس Rows من أكثر من Query.",
+        "options": {
+          "A": "غلط؛ Merge Queries تعمل Join وتضيف Columns بناءً على Key.",
+          "B": "صح؛ Append Queries تجمع Rows من الجداول ذات البنية المتشابهة.",
+          "C": "غلط؛ Group By تلخص Rows حسب Groups.",
+          "D": "غلط؛ Pivot Column تعيد تشكيل بيانات داخل Table."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0054",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0055",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 55,
+      "originalQuestionNumber": 5,
+      "question": "Sales contains ProductID, while Products contains ProductID and Category. You\nwant to add Category to Sales. Which operation should you use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Merge Queries"
+        },
+        {
+          "id": "B",
+          "text": "Append Queries"
+        },
+        {
+          "id": "C",
+          "text": "Fill Down"
+        },
+        {
+          "id": "D",
+          "text": "Replace Values"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1459adc273f3bf9a",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 58,
+        "originalQuestionNumber": 5
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Merge Queries» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Sales وProducts مرتبطان بـProductID. المطلوب إضافة Category من Products إلى Sales، لذلك نستخدم Merge Queries لعمل Join على ProductID ثم Expand للعمود المطلوب.",
+        "options": {
+          "A": "صح؛ Merge Queries هي عملية الربط المناسبة بين الجدولين باستخدام ProductID.",
+          "B": "غلط؛ Append تضيف Rows ولا تجلب Column من جدول مرتبط.",
+          "C": "غلط؛ Fill Down تكرر قيمة أعلى Cell إلى الفراغات أسفلها.",
+          "D": "غلط؛ Replace Values تستبدل محتوى داخل Column ولا تربط جدولين."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0055",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0056",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 56,
+      "originalQuestionNumber": 6,
+      "question": "What is the main benefit of Power Query?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Design charts inside the report"
+        },
+        {
+          "id": "B",
+          "text": "Write DAX measures"
+        },
+        {
+          "id": "C",
+          "text": "Clean and transform data before loading"
+        },
+        {
+          "id": "D",
+          "text": "Create relationships between tables"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "0181e9242cf7bedb",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 59,
+        "originalQuestionNumber": 6
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Clean and transform data before loading» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Power Query هي طبقة تجهيز البيانات قبل التحليل: Import, Clean, Transform, Reshape وCombine، وبعد كده يتم تحميل الناتج إلى النموذج.",
+        "options": {
+          "A": "غلط؛ تصميم Charts يتم في Report view.",
+          "B": "غلط؛ Measures تُكتب عادةً بـDAX داخل النموذج.",
+          "C": "صح؛ Power Query مخصصة لتنظيف وتحويل البيانات قبل التحميل.",
+          "D": "غلط؛ العلاقات تُدار أساسًا في Model view، حتى لو Power Query قد يساعد في تجهيز Keys."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0056",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0057",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 57,
+      "originalQuestionNumber": 7,
+      "question": "Where can you review the cleaning and transformation steps applied to a query?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Filters pane"
+        },
+        {
+          "id": "B",
+          "text": "Applied Steps"
+        },
+        {
+          "id": "C",
+          "text": "Data view"
+        },
+        {
+          "id": "D",
+          "text": "Visualizations pane"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c36c97e208470d4b",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 59,
+        "originalQuestionNumber": 7
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Applied Steps» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Applied Steps تعرض تسلسل كل Transformation تم تطبيقها على الـQuery، مثل Changed Type وFiltered Rows وRemoved Columns، ويمكن مراجعة أو تعديل ترتيبها.",
+        "options": {
+          "A": "غلط؛ Filters pane تخص Filters في التقرير.",
+          "B": "صح؛ Applied Steps هي سجل خطوات تنظيف وتحويل الـQuery.",
+          "C": "غلط؛ Data view تعرض البيانات المحمّلة للنموذج، لا قائمة خطوات Power Query.",
+          "D": "غلط؛ Visualizations pane خاصة بتصميم الـVisuals."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0057",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0058",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 58,
+      "originalQuestionNumber": 8,
+      "question": "A table has several rows for the same Product and Month. When you pivot Month\nusing Sales as the values column, why may Power Query require an aggregation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Month must first become a date"
+        },
+        {
+          "id": "B",
+          "text": "Product must first become numeric"
+        },
+        {
+          "id": "C",
+          "text": "Pivot automatically deletes duplicates"
+        },
+        {
+          "id": "D",
+          "text": "One output cell may receive several sales values"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4dc9a566f17fbd8b",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 59,
+        "originalQuestionNumber": 8
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «One output cell may receive several sales values» هو التفسير الأقرب للسلوك الصحيح في Power Query & M.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بعد Pivot، كل Combination مثل Product + Month يجب أن ينتج Cell واحدة. لو هناك أكثر من Sales Value لنفس الـCombination، Power Query يحتاج Aggregation مثل Sum أو Max لتجميع القيم في خلية واحدة.",
+        "options": {
+          "A": "غلط؛ المشكلة ليست أن Month لازم يكون Date.",
+          "B": "غلط؛ نوع Product لا يحتاج أن يكون Numeric.",
+          "C": "غلط؛ Pivot لا يحذف Duplicates تلقائيًا لحل تعارض القيم.",
+          "D": "صح؛ أكثر من Sales Value قد تتجه لنفس Output Cell، لذلك يلزم Aggregation."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0058",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0059",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 59,
+      "originalQuestionNumber": 9,
+      "question": "You want to keep only Customer, Sales, and Profit, while excluding every other\ncurrent or future column. Which action is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remove Duplicates"
+        },
+        {
+          "id": "B",
+          "text": "Keep Errors"
+        },
+        {
+          "id": "C",
+          "text": "Remove Other Columns"
+        },
+        {
+          "id": "D",
+          "text": "Remove Top Rows"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "bcc4defbecac0a97",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 59,
+        "originalQuestionNumber": 9
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Power Query & M. الاختيار «Remove Other Columns» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Remove Other Columns يحتفظ فقط بالأعمدة المحددة ويحذف كل الأعمدة الأخرى. وده مناسب عندما تريد Customer وSales وProfit فقط حتى لو ظهرت أعمدة إضافية لاحقًا.",
+        "options": {
+          "A": "غلط؛ Remove Duplicates يحذف Rows مكررة، وليس Columns.",
+          "B": "غلط؛ Keep Errors يحتفظ بالRows التي تحتوي Errors.",
+          "C": "صح؛ Remove Other Columns يحتفظ بالColumns المختارة ويزيل الباقي.",
+          "D": "غلط؛ Remove Top Rows يحذف Rows من أعلى الجدول."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0059",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0060",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 60,
+      "originalQuestionNumber": 10,
+      "question": "A Quantity column contains errors. The requirement is to keep every row and\nreplace each error with zero. Which action should you use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace Errors"
+        },
+        {
+          "id": "B",
+          "text": "Remove Errors"
+        },
+        {
+          "id": "C",
+          "text": "Keep Errors"
+        },
+        {
+          "id": "D",
+          "text": "Remove Duplicates"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "75bc53dbd6cfaa1b",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 59,
+        "originalQuestionNumber": 10
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Replace Errors» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Replace Errors تستبدل Error Values بقيمة تحددها مثل 0، وبالتالي تحتفظ بكل الـRows بدل حذفها.",
+        "options": {
+          "A": "صح؛ Replace Errors تحقق المطلوب: Keep rows واستبدال Error بـ0.",
+          "B": "غلط؛ Remove Errors ستحذف Rows التي تحتوي Errors.",
+          "C": "غلط؛ Keep Errors تحتفظ فقط بالRows ذات الأخطاء ولا تصلح القيم.",
+          "D": "غلط؛ Remove Duplicates غير مرتبط بمعالجة Errors."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0060",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0061",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 61,
+      "originalQuestionNumber": 11,
+      "question": "You changed Sales to Decimal before cleaning the text value N/A, so errors\nappeared. What is the best correction?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Delete the Sales column"
+        },
+        {
+          "id": "B",
+          "text": "Convert every column to Text"
+        },
+        {
+          "id": "C",
+          "text": "Append a new table"
+        },
+        {
+          "id": "D",
+          "text": "Move the N/A cleaning step before the type change"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "138192c388cd00e8",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 60,
+        "originalQuestionNumber": 11
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Other. الاختيار «Move the N/A cleaning step before the type change» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "سبب الخطأ إن تحويل Sales إلى Decimal حصل قبل تنظيف النص N/A. الحل الأفضل هو إعادة ترتيب الخطوات: نظف/استبدل N/A أولًا، ثم غيّر Data Type إلى Decimal.",
+        "options": {
+          "A": "غلط؛ حذف Sales يضيّع البيانات بدل إصلاح خطوات التحويل.",
+          "B": "غلط؛ تحويل كل الأعمدة إلى Text يمنع الاستفادة من الأنواع الصحيحة في الحسابات.",
+          "C": "غلط؛ Append Table جديدة لا تعالج سبب الـType Error.",
+          "D": "صح؛ نقل خطوة تنظيف N/A قبل Changed Type يمنع ظهور Error."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0061",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0062",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 62,
+      "originalQuestionNumber": 12,
+      "question": "What is the main difference between a Star Schema and a Snowflake Schema?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Star has no fact table, while a Snowflake does"
+        },
+        {
+          "id": "B",
+          "text": "Star dimensions are direct, while Snowflake dimensions are normalized into related tables"
+        },
+        {
+          "id": "C",
+          "text": "A Star uses DAX, while a Snowflake uses Power Query"
+        },
+        {
+          "id": "D",
+          "text": "A Star is for charts, while a Snowflake is for relationships"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "244b0aaf6bfa0536",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 60,
+        "originalQuestionNumber": 12
+      },
+      "aiExplanation": {
+        "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Data Modeling & Relationships. الاختيار «Star dimensions are direct, while Snowflake dimensions are normalized into related tables» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Star Schema تتصل Dimensions عادةً مباشرةً بالFact Table. في Snowflake تكون بعض Dimensions Normalized إلى جداول فرعية مرتبطة، فتزيد مستويات العلاقات.",
+        "options": {
+          "A": "غلط؛ كلا التصميمين يمكن أن يحتوي Fact Table.",
+          "B": "صح؛ Star Dimensions مباشرة، بينما Snowflake يقسم Dimensions إلى Related normalized tables.",
+          "C": "غلط؛ الفرق ليس أن Star تستخدم DAX وSnowflake تستخدم Power Query.",
+          "D": "غلط؛ كلاهما Data Modeling Designs وليس واحدًا للCharts والآخر للعلاقات."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0062",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0063",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 63,
+      "originalQuestionNumber": 13,
+      "question": "In the following basic M query, which part determines the final result returned by\nthe query?\nlet\nSource = Excel.CurrentWorkbook(),\nFilteredRows = Table.SelectRows(Source, each [Sales] > 100)\nin\nFilteredRows",
+      "options": [
+        {
+          "id": "A",
+          "text": "let"
+        },
+        {
+          "id": "B",
+          "text": "Source"
+        },
+        {
+          "id": "C",
+          "text": "in FilteredRows"
+        },
+        {
+          "id": "D",
+          "text": "each [Sales] > 100"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "aa913612f6a44b92",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 60,
+        "originalQuestionNumber": 13
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «in FilteredRows» هو التعريف أو السلوك الصحيح المرتبط بموضوع DAX & Measures وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في M، let يعرّف خطوات أو Variables، وin يحدد أي Expression/Step سيتم إرجاعه كنتيجة نهائية للQuery. هنا النتيجة هي FilteredRows.",
+        "options": {
+          "A": "غلط؛ let يبدأ تعريف الخطوات لكنه لا يحدد وحده الـFinal Output.",
+          "B": "غلط؛ Source خطوة وسيطة، لكن الـQuery لا ترجعها لأن in يشير لغيرها.",
+          "C": "صح؛ in FilteredRows يحدد أن FilteredRows هي النتيجة النهائية.",
+          "D": "غلط؛ each [Sales] > 100 هو شرط داخل خطوة التصفية، وليس الـFinal Result."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0063",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0064",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 64,
+      "originalQuestionNumber": 14,
+      "question": "What does each do in this expression?\nTable.SelectRows(Sales, each [Amount] > 500)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Applies the condition to each row"
+        },
+        {
+          "id": "B",
+          "text": "Adds all Amount values"
+        },
+        {
+          "id": "C",
+          "text": "Changes the Amount data type"
+        },
+        {
+          "id": "D",
+          "text": "Sorts the rows in ascending order"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "other",
+      "topic": "Other",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "aa70aabc8bc26829",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 60,
+        "originalQuestionNumber": 14
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «Applies the condition to each row». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "each في M هي طريقة مختصرة لكتابة Function تُطبق على كل Row. هنا يتم اختبار [Amount] > 500 لكل Row لتحديد إذا كان سيتم الاحتفاظ به.",
+        "options": {
+          "A": "صح؛ each تطبق الشرط على كل Row.",
+          "B": "غلط؛ لا تجمع Amount Values.",
+          "C": "غلط؛ لا تغير Data Type.",
+          "D": "غلط؛ لا تقوم بSorting."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0064",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0065",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 65,
+      "originalQuestionNumber": 15,
+      "question": "Where is the M language mainly used inside Power BI?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Designing charts"
+        },
+        {
+          "id": "B",
+          "text": "Creating Power Query steps"
+        },
+        {
+          "id": "C",
+          "text": "Managing relationships"
+        },
+        {
+          "id": "D",
+          "text": "Formatting dashboards"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3e3c3ce91a878fdc",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 61,
+        "originalQuestionNumber": 15
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Creating Power Query steps» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Query & M وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "M هي اللغة التي يعمل بها Power Query خلف واجهة التحويلات، وكل Applied Step يمكن تمثيلها كتعبير M.",
+        "options": {
+          "A": "غلط؛ تصميم Charts يتم في Report Canvas.",
+          "B": "صح؛ M تُستخدم في إنشاء وتنفيذ Power Query transformations.",
+          "C": "غلط؛ Relationships تُدار في Model view.",
+          "D": "غلط؛ Dashboard Formatting ليست الاستخدام الأساسي للـM."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0065",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0066",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 66,
+      "originalQuestionNumber": 16,
+      "question": "Sales contains multiple rows for one OrderID because each row represents a\ndifferent product in the order. What is the table's most accurate grain‫؟‬",
+      "options": [
+        {
+          "id": "A",
+          "text": "One row per customer"
+        },
+        {
+          "id": "B",
+          "text": "One row per product only"
+        },
+        {
+          "id": "C",
+          "text": "One row per order"
+        },
+        {
+          "id": "D",
+          "text": "One row per order line"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f58658a6f57a6447",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 61,
+        "originalQuestionNumber": 16
+      },
+      "aiExplanation": {
+        "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Data Modeling & Relationships. الاختيار «One row per order line» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Grain معناها ماذا يمثل كل Row. بما أن OrderID يتكرر لأن كل Row يمثل Product مختلف داخل Order، إذن كل Row يمثل Order Line وليس Order كامل.",
+        "options": {
+          "A": "غلط؛ العميل قد يكون له عدة Orders وعدة Lines.",
+          "B": "غلط؛ الـRow لا يمثل Product بشكل مستقل؛ هو Product داخل Order محدد.",
+          "C": "غلط؛ لو كان Grain = Order، كان OrderID يظهر مرة واحدة لكل Order.",
+          "D": "صح؛ كل Row يمثل Order Line."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0066",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0067",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 67,
+      "originalQuestionNumber": 17,
+      "question": "In a one-to-many relationship, what must be true about the key on the 1 side?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Its values must be unique"
+        },
+        {
+          "id": "B",
+          "text": "Its values must all be numeric"
+        },
+        {
+          "id": "C",
+          "text": "Its values must be repeated"
+        },
+        {
+          "id": "D",
+          "text": "Its values must be measures"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "947d316fd2d45793",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 61,
+        "originalQuestionNumber": 17
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Its values must be unique» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في One-to-Many، الـ1 side يجب أن يحتوي Key فريد؛ كل قيمة تظهر مرة واحدة فقط، علشان كل Row في الـMany side ترتبط بسجل واحد واضح.",
+        "options": {
+          "A": "صح؛ Key على جهة 1 يجب أن يكون Unique.",
+          "B": "غلط؛ Key يمكن أن يكون Text أو رقم حسب التصميم.",
+          "C": "غلط؛ التكرار يكون عادةً على جهة Many لا جهة 1.",
+          "D": "غلط؛ Keys ليست Measures."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0067",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0068",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 68,
+      "originalQuestionNumber": 18,
+      "question": "Customers contains one row per CustomerID, while Sales contains many\ntransactions for the same customer. Which relationship is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One-to-one"
+        },
+        {
+          "id": "B",
+          "text": "Many-to-many"
+        },
+        {
+          "id": "C",
+          "text": "Customers (1) to Sales (*)"
+        },
+        {
+          "id": "D",
+          "text": "Sales (1) to Customers (*)"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a0971c77ccd8b8ee",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 61,
+        "originalQuestionNumber": 18
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Customers (1) to Sales (*)» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Customers فيها CustomerID فريد، بينما Sales فيها معاملات كثيرة لنفس CustomerID، لذلك العلاقة Customers (1) → Sales (*) هي الصحيحة.",
+        "options": {
+          "A": "غلط؛ Customer واحد قد يملك معاملات كثيرة، فليست One-to-One.",
+          "B": "غلط؛ ليست Many-to-Many طالما CustomerID فريد في Customers.",
+          "C": "صح؛ Customers جهة 1 وSales جهة Many.",
+          "D": "غلط؛ Sales لا يمكن أن تكون جهة 1 لأن CustomerID يتكرر فيها."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0068",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0069",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 69,
+      "originalQuestionNumber": 19,
+      "question": "Which table would normally contain descriptive fields such as ProductName and\nCategory?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fact table"
+        },
+        {
+          "id": "B",
+          "text": "Dimension table"
+        },
+        {
+          "id": "C",
+          "text": "Transaction table"
+        },
+        {
+          "id": "D",
+          "text": "Measure table"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "d24b450aadd622d1",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 61,
+        "originalQuestionNumber": 19
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Dimension table» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dimension Table تحتوي Descriptive Attributes تستخدم للتصنيف والفلترة، مثل ProductName وCategory وBrand. Fact Table تحتوي Events/Transactions وMeasures/Keys.",
+        "options": {
+          "A": "غلط؛ Fact Table تركز عادةً على معاملات ومقاييس ومفاتيح.",
+          "B": "صح؛ Dimension Table هي مكان الحقول الوصفية.",
+          "C": "غلط؛ Transaction Table غالبًا نوع من Fact Table.",
+          "D": "غلط؛ Measure Table تنظيمي للحسابات وليس لتخزين Product attributes."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0069",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0070",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 70,
+      "originalQuestionNumber": 20,
+      "question": "What problem can occur when Both cross-filter direction is used across several\nrelationships?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Duplicate rows are deleted"
+        },
+        {
+          "id": "B",
+          "text": "Refresh is disabled"
+        },
+        {
+          "id": "C",
+          "text": "Measures become columns"
+        },
+        {
+          "id": "D",
+          "text": "Ambiguous filter paths can appear"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Hard",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a2f340a81d0e3ccb",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 62,
+        "originalQuestionNumber": 20
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Ambiguous filter paths can appear» هو التفسير الأقرب للسلوك الصحيح في Data Modeling & Relationships.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Both Cross-filter Direction يسمح بانتشار Filters في الاتجاهين. لو النموذج فيه عدة مسارات، ممكن Filter يوصل لنفس الجدول من أكثر من طريق، فينشأ Ambiguous Filter Path.",
+        "options": {
+          "A": "غلط؛ Cross-filter direction لا تحذف Duplicate Rows.",
+          "B": "غلط؛ لا تعطل Refresh.",
+          "C": "غلط؛ لا تحول Measures إلى Columns.",
+          "D": "صح؛ Both قد تخلق Ambiguous filter paths في Models معقدة."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0070",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0071",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 71,
+      "originalQuestionNumber": 21,
+      "question": "What does Cross-filter Direction control in a relationship‫؟‬",
+      "options": [
+        {
+          "id": "A",
+          "text": "The color of the relationship"
+        },
+        {
+          "id": "B",
+          "text": "The size of the connected tables"
+        },
+        {
+          "id": "C",
+          "text": "The direction in which filters propagate between tables"
+        },
+        {
+          "id": "D",
+          "text": "The visual type used in the report"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a08d0ba2cd7ed8f1",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 62,
+        "originalQuestionNumber": 21
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «The direction in which filters propagate between tables» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Cross-filter Direction تحدد اتجاه انتقال Filter Context عبر Relationship من Table إلى Table أخرى، مثل من Dimension إلى Fact فقط أو في الاتجاهين.",
+        "options": {
+          "A": "غلط؛ لا تتحكم في لون العلاقة.",
+          "B": "غلط؛ لا تغير Size الجداول.",
+          "C": "صح؛ تتحكم في اتجاه Propagation للFilters.",
+          "D": "غلط؛ لا تحدد نوع الـVisual."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0071",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0072",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 72,
+      "originalQuestionNumber": 22,
+      "question": "Which design is closest to a standard Star Schema?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A central fact table connected to dimension tables"
+        },
+        {
+          "id": "B",
+          "text": "Dimension tables connected only to each other"
+        },
+        {
+          "id": "C",
+          "text": "Several fact tables with no dimensions"
+        },
+        {
+          "id": "D",
+          "text": "A separate table for every measure"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "7b9a13a5c6e45ebe",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 62,
+        "originalQuestionNumber": 22
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «A central fact table connected to dimension tables» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Star Schema القياسية تحتوي Fact Table مركزية مرتبطة مباشرةً بعدة Dimension Tables مثل Date وProduct وCustomer.",
+        "options": {
+          "A": "صح؛ ده الشكل الأساسي للStar Schema.",
+          "B": "غلط؛ لو Dimensions مرتبطة ببعض فقط بدون Fact مركزية فده مش Star القياسية.",
+          "C": "غلط؛ Fact Tables بدون Dimensions لا تحقق تصميم Star.",
+          "D": "غلط؛ لا يتم إنشاء Table مستقلة لكل Measure كجزء من تعريف Star Schema."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0072",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0073",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 73,
+      "originalQuestionNumber": 23,
+      "question": "Sales contains OrderDate and ShipDate, and both are related to Calendar. Why is\nonly one relationship usually active at a time?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Calendar cannot relate to a fact table"
+        },
+        {
+          "id": "B",
+          "text": "ShipDate must be a calculated column"
+        },
+        {
+          "id": "C",
+          "text": "A fact table accepts only one relationship"
+        },
+        {
+          "id": "D",
+          "text": "Multiple active paths could make filtering ambiguous"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Hard",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a3d71d0510860fba",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 62,
+        "originalQuestionNumber": 23
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Multiple active paths could make filtering ambiguous» هو التفسير الأقرب للسلوك الصحيح في Data Modeling & Relationships.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Calendar مرتبطة بـOrderDate وShipDate في نفس Fact Table، وجود أكثر من Relationship Active بين نفس المسارين قد يجعل انتقال الـFilter غير واضح. لذلك غالبًا واحدة Active والأخرى Inactive وتُستخدم عند الحاجة.",
+        "options": {
+          "A": "غلط؛ Calendar يمكن أن ترتبط بFact Table طبيعيًا.",
+          "B": "غلط؛ ShipDate لا يجب أن تكون Calculated Column.",
+          "C": "غلط؛ Fact Table يمكن أن تحتوي Relationships متعددة.",
+          "D": "صح؛ Multiple active paths يمكن أن تسبب Ambiguous Filtering."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0073",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0074",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 74,
+      "originalQuestionNumber": 24,
+      "question": "Students can enroll in many courses, and each course can contain many students.\nWhich model design is usually the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A direct one-to-one relationship"
+        },
+        {
+          "id": "B",
+          "text": "A bridge table between Students and Courses"
+        },
+        {
+          "id": "C",
+          "text": "Deleting the Courses table"
+        },
+        {
+          "id": "D",
+          "text": "Combining all values in a measure"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Hard",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "111037b92616aad7",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 62,
+        "originalQuestionNumber": 24
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Data Modeling & Relationships. الاختيار «A bridge table between Students and Courses» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Students↔Courses علاقة Many-to-Many: الطالب يمكنه دخول عدة Courses والCourse فيها عدة Students. Bridge Table مثل Enrollments تحوّل العلاقة إلى Students 1-* Enrollments *-1 Courses.",
+        "options": {
+          "A": "غلط؛ العلاقة ليست One-to-One.",
+          "B": "صح؛ Bridge Table هي التصميم المناسب للMany-to-Many.",
+          "C": "غلط؛ حذف Courses يضيّع كيان أساسي.",
+          "D": "غلط؛ Measure لا تستبدل Relationship Structure."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0074",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0075",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 75,
+      "originalQuestionNumber": 25,
+      "question": "What is the main benefit of creating relationships between tables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Analyze related data from multiple tables"
+        },
+        {
+          "id": "B",
+          "text": "Rename columns automatically"
+        },
+        {
+          "id": "C",
+          "text": "Remove duplicate data during refresh"
+        },
+        {
+          "id": "D",
+          "text": "Design visuals automatically"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1ac8c05459db388c",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 63,
+        "originalQuestionNumber": 25
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Analyze related data from multiple tables» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Relationships تسمح للFilters والحسابات بالعمل عبر Tables مرتبطة، فتقدر تستخدم Attributes من Dimension مع Measures من Fact في نفس التحليل.",
+        "options": {
+          "A": "صح؛ العلاقات تمكّنك من تحليل Related Data عبر جداول متعددة.",
+          "B": "غلط؛ لا تعيد تسمية Columns تلقائيًا.",
+          "C": "غلط؛ لا تزيل Duplicates أثناء Refresh.",
+          "D": "غلط؛ لا تصمم Visuals تلقائيًا."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0075",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0076",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 76,
+      "originalQuestionNumber": 26,
+      "question": "What is the primary use of Model view in Power BI?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Write Power Query steps"
+        },
+        {
+          "id": "B",
+          "text": "Design report colors"
+        },
+        {
+          "id": "C",
+          "text": "View tables and manage relationships"
+        },
+        {
+          "id": "D",
+          "text": "Publish the report online"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f6dc0eea58096118",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 63,
+        "originalQuestionNumber": 26
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «View tables and manage relationships» هو التعريف أو السلوك الصحيح المرتبط بموضوع Data Modeling & Relationships وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Model view مخصصة لرؤية Tables والColumns والعلاقات بينها، وإنشاء/تعديل Relationships وفهم بنية النموذج.",
+        "options": {
+          "A": "غلط؛ Power Query steps تكتب وتدار في Power Query Editor.",
+          "B": "غلط؛ Report colors تُضبط في Report view.",
+          "C": "صح؛ Model view لإدارة Tables وRelationships.",
+          "D": "غلط؛ Publish يتم من Power BI Desktop/Home أو Service flow."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0076",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0077",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 77,
+      "originalQuestionNumber": 27,
+      "question": "Sales contains a CustomerID that does not exist in Customers. What may appear in\nvisuals grouped by customer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Sales rows become duplicates"
+        },
+        {
+          "id": "B",
+          "text": "The unmatched values may appear under a blank member"
+        },
+        {
+          "id": "C",
+          "text": "The Customers table is deleted"
+        },
+        {
+          "id": "D",
+          "text": "The relationship becomes one-to-one"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals",
+      "topic": "Visualizations & Report Design",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "ce1bdb03b0ba37e0",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 63,
+        "originalQuestionNumber": 27
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «The unmatched values may appear under a blank member» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Report Design وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Fact Table تحتوي CustomerID غير موجود في Dimension Customers، السجل لا يملك Match صالح. في Visuals مجمعة بالCustomer، ممكن يظهر تحت Blank/Unknown member.",
+        "options": {
+          "A": "غلط؛ المشكلة لا تجعل Sales rows duplicates تلقائيًا.",
+          "B": "صح؛ Unmatched Fact Rows قد تظهر تحت Blank member.",
+          "C": "غلط؛ Customers Table لا تُحذف.",
+          "D": "غلط؛ العلاقة لا تتحول تلقائيًا إلى One-to-One."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0077",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0078",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 78,
+      "originalQuestionNumber": 28,
+      "question": "You need to show the sales trend across 24 months. Which visual is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Funnel chart"
+        },
+        {
+          "id": "B",
+          "text": "Card"
+        },
+        {
+          "id": "C",
+          "text": "Gauge chart"
+        },
+        {
+          "id": "D",
+          "text": "Line chart"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals",
+      "topic": "Visualizations & Report Design",
+      "difficulty": "Easy",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "68ed357d9533b08b",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 63,
+        "originalQuestionNumber": 28
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & Report Design. الاختيار «Line chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "24 شهر تمثل سلسلة زمنية متصلة، وLine Chart تسمح بمتابعة اتجاه Sales عبر هذه الشهور بوضوح.",
+        "options": {
+          "A": "غلط؛ Funnel مناسب للمراحل المتتابعة في Process.",
+          "B": "غلط؛ Card تعرض قيمة واحدة فقط.",
+          "C": "غلط؛ Gauge تقارن قيمة بهدف.",
+          "D": "صح؛ Line Chart هي الأنسب للTrend عبر 24 شهر."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0078",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0079",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 79,
+      "originalQuestionNumber": 29,
+      "question": "You need to compare Total Sales across 15 categories with long category names.\nWhich visual is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pie chart"
+        },
+        {
+          "id": "B",
+          "text": "Gauge chart"
+        },
+        {
+          "id": "C",
+          "text": "Bar chart"
+        },
+        {
+          "id": "D",
+          "text": "Card"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals",
+      "topic": "Visualizations & Report Design",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "e3846b972a6b5866",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 63,
+        "originalQuestionNumber": 29
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & Report Design. الاختيار «Bar chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "مع 15 Category وأسماء طويلة، Horizontal Bar Chart توفر مساحة أفضل للLabels وتسهل مقارنة طول الأشرطة بين الفئات.",
+        "options": {
+          "A": "غلط؛ Pie Chart مع 15 Slice تصبح مزدحمة وصعبة المقارنة.",
+          "B": "غلط؛ Gauge يعرض KPI مقابل Target وليس Categories كثيرة.",
+          "C": "صح؛ Bar Chart مناسبة للفئات الكثيرة والأسماء الطويلة.",
+          "D": "غلط؛ Card تعرض قيمة واحدة."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0079",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0080",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 80,
+      "originalQuestionNumber": 30,
+      "question": "You want to display one important value such as Total Profit = 2.5M. Which visual\nshould you use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Card"
+        },
+        {
+          "id": "B",
+          "text": "Scatter chart"
+        },
+        {
+          "id": "C",
+          "text": "Funnel chart"
+        },
+        {
+          "id": "D",
+          "text": "Matrix"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals",
+      "topic": "Visualizations & Report Design",
+      "difficulty": "Easy",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "39433e144575a9ba",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 64,
+        "originalQuestionNumber": 30
+      },
+      "aiExplanation": {
+        "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Card» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإبراز KPI واحد مثل Total Profit = 2.5M، Card Visual تعرض الرقم بشكل مباشر وبارز بدون تشتيت.",
+        "options": {
+          "A": "صح؛ Card هي الأنسب لقيمة KPI واحدة.",
+          "B": "غلط؛ Scatter Chart لعلاقة بين متغيرين.",
+          "C": "غلط؛ Funnel لمراحل Process.",
+          "D": "غلط؛ Matrix لعرض تفاصيل متعددة في Rows/Columns."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0080",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0081",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 81,
+      "originalQuestionNumber": 31,
+      "question": "You want to show a recruitment process from Applications through Interviews to\nHired. Which visual is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Line chart"
+        },
+        {
+          "id": "B",
+          "text": "Funnel chart"
+        },
+        {
+          "id": "C",
+          "text": "Scatter chart"
+        },
+        {
+          "id": "D",
+          "text": "Map"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals",
+      "topic": "Visualizations & Report Design",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3b72ccdadb7f00a2",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 64,
+        "originalQuestionNumber": 31
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & Report Design. الاختيار «Funnel chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Recruitment من Applications إلى Interviews إلى Hired يمثل Stages في Process، وFunnel Chart مصممة لإظهار حجم البيانات عبر مراحل متتابعة.",
+        "options": {
+          "A": "غلط؛ Line للTrend عبر محور متصل مثل الزمن.",
+          "B": "صح؛ Funnel مناسبة لمراحل Recruitment Pipeline.",
+          "C": "غلط؛ Scatter للعلاقة بين متغيرين Numeric.",
+          "D": "غلط؛ Map للبيانات الجغرافية."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0081",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0082",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 82,
+      "originalQuestionNumber": 32,
+      "question": "You want to examine the relationship between Advertising Cost and Sales for each\nstore. Which visual is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Matrix"
+        },
+        {
+          "id": "B",
+          "text": "Funnel chart"
+        },
+        {
+          "id": "C",
+          "text": "Card"
+        },
+        {
+          "id": "D",
+          "text": "Scatter chart"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "data-modeling",
+      "topic": "Data Modeling & Relationships",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "62c9330085280461",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 64,
+        "originalQuestionNumber": 32
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Data Modeling & Relationships. الاختيار «Scatter chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Advertising Cost وSales متغيران رقميان، ولكل Store نقطة. Scatter Chart تضع Cost على محور وSales على الآخر لتوضيح العلاقة بينهما.",
+        "options": {
+          "A": "غلط؛ Matrix تعرض جدولًا تحليليًا ولا تظهر Correlation بصريًا بنفس الوضوح.",
+          "B": "غلط؛ Funnel لمراحل Process.",
+          "C": "غلط؛ Card لقيمة واحدة.",
+          "D": "صح؛ Scatter Chart هي الأنسب للعلاقة بين متغيرين Numeric."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0082",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0083",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 83,
+      "originalQuestionNumber": 33,
+      "question": "Which visual is suitable for showing each category's share of the total?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pie or donut chart"
+        },
+        {
+          "id": "B",
+          "text": "Line chart"
+        },
+        {
+          "id": "C",
+          "text": "Scatter chart"
+        },
+        {
+          "id": "D",
+          "text": "Gauge chart"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals",
+      "topic": "Visualizations & Report Design",
+      "difficulty": "Easy",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "75fe0bd378a9c29d",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 64,
+        "originalQuestionNumber": 33
+      },
+      "aiExplanation": {
+        "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Pie or donut chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Pie أو Donut Chart تعرض كل Category كنسبة أو جزء من Total، لذلك هي مناسبة لسؤال Share of Total عندما عدد الفئات مناسب.",
+        "options": {
+          "A": "صح؛ Pie/Donut مصممة لParts of a Whole.",
+          "B": "غلط؛ Line للTrend.",
+          "C": "غلط؛ Scatter للعلاقات بين متغيرين.",
+          "D": "غلط؛ Gauge لقيمة مقابل Target/Range."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0083",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0084",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 84,
+      "originalQuestionNumber": 34,
+      "question": "You want users to select one or more years and immediately filter the visuals on the\npage. What should you add?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Card"
+        },
+        {
+          "id": "B",
+          "text": "Table"
+        },
+        {
+          "id": "C",
+          "text": "Slicer"
+        },
+        {
+          "id": "D",
+          "text": "Gauge"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals",
+      "topic": "Visualizations & Report Design",
+      "difficulty": "Easy",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "352b4667e75b8d87",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 64,
+        "originalQuestionNumber": 34
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Slicer» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Report Design وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Slicer تسمح للمستخدم باختيار Year واحدة أو أكثر، وتقوم بفلترة Visuals المرتبطة فورًا على الصفحة.",
+        "options": {
+          "A": "غلط؛ Card تعرض قيمة ولا تعمل كفلتر.",
+          "B": "غلط؛ Table تعرض بيانات، لكنها ليست Control مخصص للFiltering مثل Slicer.",
+          "C": "صح؛ Slicer هي الأداة التفاعلية لاختيار Years وفلترة التقرير.",
+          "D": "غلط؛ Gauge لعرض KPI مقابل Target."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0084",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0085",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 85,
+      "originalQuestionNumber": 35,
+      "question": "A user selects a Product on a summary page and needs to open another page\nshowing details for that same Product. Which feature should you use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Bookmark only"
+        },
+        {
+          "id": "B",
+          "text": "Append Queries"
+        },
+        {
+          "id": "C",
+          "text": "Page tooltip"
+        },
+        {
+          "id": "D",
+          "text": "Drill-through"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-query",
+      "topic": "Power Query & M",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "6b2ce60058ba1ed4",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 65,
+        "originalQuestionNumber": 35
+      },
+      "aiExplanation": {
+        "ar": "لأن كل Function/Feature في Power Query & M لها وظيفة محددة. «Drill-through» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Drill-through ينقل المستخدم من Summary Page إلى Detail Page مع تمرير Context العنصر المحدد، مثل Product المختار.",
+        "options": {
+          "A": "غلط؛ Bookmark يمكنها Navigation لكن لا تمرر Product Filter Context بهذه الطريقة كوظيفة Drillthrough.",
+          "B": "غلط؛ Append Queries عملية ETL.",
+          "C": "غلط؛ Tooltip تعرض معلومات عند Hover ولا تفتح Detail Page كاملة عادةً.",
+          "D": "صح؛ Drill-through مصمم للانتقال إلى تفاصيل نفس Product."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0085",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0086",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 86,
+      "originalQuestionNumber": 36,
+      "question": "What is the benefit of giving a chart a clear title?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It increases the number of rows"
+        },
+        {
+          "id": "B",
+          "text": "It explains what information the chart displays"
+        },
+        {
+          "id": "C",
+          "text": "It changes the data type"
+        },
+        {
+          "id": "D",
+          "text": "It creates a new relationship"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals",
+      "topic": "Visualizations & Report Design",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c7ef3e931a528aea",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 65,
+        "originalQuestionNumber": 36
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «It explains what information the chart displays» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Report Design وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Clear Chart Title تساعد المستخدم يفهم بسرعة ما الذي يقيسه الرسم، والفترة أو الفئة المعروضة، بدون الحاجة لتخمين معنى الـVisual.",
+        "options": {
+          "A": "غلط؛ Title لا تزيد Rows.",
+          "B": "صح؛ توضح ما الذي يعرضه Chart.",
+          "C": "غلط؛ لا تغير Data Type.",
+          "D": "غلط؛ لا تنشئ Relationship."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0086",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0087",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 87,
+      "originalQuestionNumber": 37,
+      "question": "Branch A has sales of 100,000 and Branch B has 105,000, but the column chart axis\nstarts at 99,000, making the difference look huge. What is the issue?",
+      "options": [
+        {
+          "id": "A",
+          "text": "There are too few branches"
+        },
+        {
+          "id": "B",
+          "text": "The legend is missing"
+        },
+        {
+          "id": "C",
+          "text": "The axis baseline creates a misleading impression"
+        },
+        {
+          "id": "D",
+          "text": "The values should be Text"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals",
+      "topic": "Visualizations & Report Design",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a9bd1feda5b7b77a",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 65,
+        "originalQuestionNumber": 37
+      },
+      "aiExplanation": {
+        "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Visualizations & Report Design. الاختيار «The axis baseline creates a misleading impression» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "بدء Axis عند 99,000 بدل Zero يضخم بصريًا فرق 5,000 بين 100,000 و105,000، فيجعل الفرق يبدو أكبر بكثير من حقيقته. دي مشكلة Misleading Baseline.",
+        "options": {
+          "A": "غلط؛ وجود فرعين فقط ليس سبب التضليل الأساسي.",
+          "B": "غلط؛ Legend غير مطلوبة إذا كانت الفئات واضحة، وليست سبب تضخيم الفرق.",
+          "C": "صح؛ محور يبدأ قريبًا من القيم يبالغ في الفرق البصري.",
+          "D": "غلط؛ القيم يجب أن تبقى Numeric، وتحويلها Text سيضر التحليل."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0087",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0088",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 88,
+      "originalQuestionNumber": 38,
+      "question": "Which calculation is better created as a measure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Total Sales that changes with report filters"
+        },
+        {
+          "id": "B",
+          "text": "A full name created for every row"
+        },
+        {
+          "id": "C",
+          "text": "The order year extracted for every row"
+        },
+        {
+          "id": "D",
+          "text": "A product group based on its name"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "770303939d41de30",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 65,
+        "originalQuestionNumber": 38
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Total Sales that changes with report filters» هو التعريف أو السلوك الصحيح المرتبط بموضوع DAX & Measures وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Measure تُحسب وقت العرض داخل Filter Context، لذلك Total Sales التي يجب أن تتغير مع Region/Year/Slicers هي Measure. Calculated Columns تُحسب Row-by-Row وتُخزن في النموذج.",
+        "options": {
+          "A": "صح؛ Total Sales الديناميكية مع Filters هي مثال مثالي للMeasure.",
+          "B": "غلط؛ Full Name لكل Row يناسب Calculated Column أو Power Query.",
+          "C": "غلط؛ استخراج Order Year لكل Row يناسب Column.",
+          "D": "غلط؛ Product Group المبني على اسم Product لكل Row يناسب Column."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0088",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0089",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 89,
+      "originalQuestionNumber": 39,
+      "question": "Sales[Amount] contains 120, 80, BLANK, and 50 in the current filter context. What\ndoes SUM(Sales[Amount]) return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "200"
+        },
+        {
+          "id": "B",
+          "text": "300"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "250"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a0e80bfb25d3d0b8",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 65,
+        "originalQuestionNumber": 39
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «250» هو التعريف أو السلوك الصحيح المرتبط بموضوع DAX & Measures وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUM في DAX تجمع القيم الرقمية وتتجاهل BLANK. إذن 120 + 80 + 50 = 250.",
+        "options": {
+          "A": "غلط؛ 200 يستبعد قيمة 50.",
+          "B": "غلط؛ 300 ليست مجموع القيم المعطاة.",
+          "C": "غلط؛ 4 هو عدد العناصر الظاهرة وليس مجموعها، وحتى BLANK لا تضيف قيمة للمجموع.",
+          "D": "صح؛ 120+80+50 = 250 وBLANK لا تضيف شيئًا."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0089",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0090",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 90,
+      "originalQuestionNumber": 40,
+      "question": "Sales[CustomerID] contains A,           A,   B,   BLANK,    and   B.   What    does\nDISTINCTCOUNT(Sales[CustomerID]) return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "ec9e632db4d8d1fd",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 66,
+        "originalQuestionNumber": 40
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «3» هو التعريف أو السلوك الصحيح المرتبط بموضوع DAX & Measures وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DISTINCTCOUNT تحسب القيم المميزة في Column، ووفق سلوك DAX تشمل BLANK كقيمة مميزة. القيم المختلفة هنا هي A وB وBLANK، إذن النتيجة 3.",
+        "options": {
+          "A": "غلط؛ 2 ستحسب A وB فقط وتتجاهل BLANK، لكن DISTINCTCOUNT تشمل BLANK.",
+          "B": "صح؛ القيم المميزة هي A وB وBLANK = 3.",
+          "C": "غلط؛ 4 لا تمثل عدد القيم المميزة.",
+          "D": "غلط؛ 5 هو عدد Rows وليس Distinct Values."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0090",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0091",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 91,
+      "originalQuestionNumber": 41,
+      "question": "What does the following calculated column return when Profit equals 0?\nStatus = IF(Sales[Profit] > 0, \"Profit\", \"Loss\")",
+      "options": [
+        {
+          "id": "A",
+          "text": "Loss"
+        },
+        {
+          "id": "B",
+          "text": "Profit"
+        },
+        {
+          "id": "C",
+          "text": "BLANK"
+        },
+        {
+          "id": "D",
+          "text": "TRUE"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "24376c95ba62b00c",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 66,
+        "originalQuestionNumber": 41
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «Loss». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الشرط Profit > 0. عندما Profit=0 فالشرط False، لذلك IF ترجع القيمة الثالثة وهي \"Loss\".",
+        "options": {
+          "A": "صح؛ 0 ليست أكبر من 0، لذلك النتيجة Loss.",
+          "B": "غلط؛ Profit ترجع فقط إذا كانت القيمة >0.",
+          "C": "غلط؛ IF هنا لها value_if_false واضحة وليست BLANK.",
+          "D": "غلط؛ الدالة ترجع Text المحدد، لا Boolean TRUE."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0091",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0092",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 92,
+      "originalQuestionNumber": 42,
+      "question": "Sales contains these rows:\nPrice Quantity\n10    3\n5    2\n8    1\nWhat does this measure return?\nRevenue = SUMX(Sales, Sales[Price] * Sales[Quantity])",
+      "options": [
+        {
+          "id": "A",
+          "text": "40"
+        },
+        {
+          "id": "B",
+          "text": "45"
+        },
+        {
+          "id": "C",
+          "text": "48"
+        },
+        {
+          "id": "D",
+          "text": "56"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Hard",
+      "questionType": "code-tracing",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1c2cad689c846b95",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 66,
+        "originalQuestionNumber": 42
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «48». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "SUMX Iterator تمر على كل Row وتحسب Price*Quantity ثم تجمع النتائج: 10×3=30، 5×2=10، 8×1=8؛ الإجمالي 30+10+8=48.",
+        "options": {
+          "A": "غلط؛ 40 يساوي أول صفين فقط 30+10 ويهمل الصف الثالث.",
+          "B": "غلط؛ 45 لا ينتج من الحساب Row-by-Row الصحيح.",
+          "C": "صح؛ 30+10+8 = 48.",
+          "D": "غلط؛ 56 ليست نتيجة مجموع حاصل الضرب لكل صف."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0092",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0093",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 93,
+      "originalQuestionNumber": 43,
+      "question": "Sales contains East = 100, West = 300, East = 200, and North = 50. What does this\nmeasure return?\nEast Sales = CALCULATE(SUM(Sales[Amount]), Sales[Region] = \"East\")",
+      "options": [
+        {
+          "id": "A",
+          "text": "650"
+        },
+        {
+          "id": "B",
+          "text": "300"
+        },
+        {
+          "id": "C",
+          "text": "200"
+        },
+        {
+          "id": "D",
+          "text": "100"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1cec19bfa42a7caf",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 66,
+        "originalQuestionNumber": 43
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «300». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CALCULATE تضيف Filter Region=\"East\" ثم SUM تجمع East فقط: 100 + 200 = 300.",
+        "options": {
+          "A": "غلط؛ 650 هو Total كل Regions وليس East فقط.",
+          "B": "صح؛ East = 100+200 = 300.",
+          "C": "غلط؛ 200 هي معاملة East واحدة فقط.",
+          "D": "غلط؛ 100 هي معاملة East واحدة فقط."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0093",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0094",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 94,
+      "originalQuestionNumber": 44,
+      "question": "Sales[Amount] contains 50, 100, 150, 80, and 200. What does this expression\nreturn?\nCOUNTROWS(FILTER(Sales, Sales[Amount] >= 100))",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "3"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "2965c6a03b66bbb9",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 67,
+        "originalQuestionNumber": 44
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «3». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "FILTER تحتفظ بالRows التي Amount>=100: القيم 100 و150 و200. COUNTROWS تعد هذه الصفوف، إذن النتيجة 3.",
+        "options": {
+          "A": "غلط؛ يوجد 3 Values تحقق الشرط وليس 2.",
+          "B": "غلط؛ 4 ستشمل قيمة 80 رغم أنها أقل من 100.",
+          "C": "غلط؛ 5 هو عدد كل Rows قبل التصفية.",
+          "D": "صح؛ 100 و150 و200 = 3 Rows."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0094",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0095",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 95,
+      "originalQuestionNumber": 45,
+      "question": "What does DIVIDE(90, 0, BLANK()) return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "90"
+        },
+        {
+          "id": "B",
+          "text": "0"
+        },
+        {
+          "id": "C",
+          "text": "BLANK"
+        },
+        {
+          "id": "D",
+          "text": "Error"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1c05854fb7bc4a73",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 67,
+        "originalQuestionNumber": 45
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «BLANK». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "DIVIDE(numerator, denominator, alternateResult) تعيد alternateResult إذا المقام صفر. هنا المقام 0 والبديل BLANK()، لذلك النتيجة BLANK.",
+        "options": {
+          "A": "غلط؛ 90 لا تُرجع لأن القسمة غير ممكنة على صفر.",
+          "B": "غلط؛ البديل المحدد ليس 0 بل BLANK().",
+          "C": "صح؛ DIVIDE ترجع BLANK() لأن denominator=0.",
+          "D": "غلط؛ ميزة DIVIDE إنها تتعامل مع القسمة على صفر بالAlternate Result بدل Error مباشر."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0095",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0096",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 96,
+      "originalQuestionNumber": 46,
+      "question": "Total Sales equals 1,000 before filtering. After a user selects a Region in a slicer, the\nregion's sales equal 350. What will Total Sales = SUM(Sales[Amount]) display?",
+      "options": [
+        {
+          "id": "A",
+          "text": "350"
+        },
+        {
+          "id": "B",
+          "text": "1,000"
+        },
+        {
+          "id": "C",
+          "text": "1,350"
+        },
+        {
+          "id": "D",
+          "text": "BLANK"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filters-slicers",
+      "topic": "Filters & Slicers",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a068c48f67548aae",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 67,
+        "originalQuestionNumber": 46
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «350» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters & Slicers وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Measure Total Sales = SUM(Sales[Amount]) تُقيّم في الـFilter Context الحالي. بعد اختيار Region في Slicer، السياق أصبح Sales الخاصة بالRegion = 350، فتظهر 350.",
+        "options": {
+          "A": "صح؛ Measure تستجيب للSlicer وتعرض 350.",
+          "B": "غلط؛ 1,000 هي القيمة قبل تطبيق Filter.",
+          "C": "غلط؛ لا يتم جمع القيمة الأصلية مع المفلترة.",
+          "D": "غلط؛ يوجد بيانات مطابقة، لذلك النتيجة ليست BLANK."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0096",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0097",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 97,
+      "originalQuestionNumber": 47,
+      "question": "You created a calculated column named Profit Status. What happens to its stored\nrow values when a user changes a Year slicer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They recalculate for the selected year"
+        },
+        {
+          "id": "B",
+          "text": "The column becomes a measure"
+        },
+        {
+          "id": "C",
+          "text": "They all become BLANK"
+        },
+        {
+          "id": "D",
+          "text": "The stored column values do not change"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "67584fededd53c9b",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 67,
+        "originalQuestionNumber": 47
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «The stored column values do not change» هو التفسير الأقرب للسلوك الصحيح في DAX & Measures.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Calculated Column تُحسب لكل Row أثناء Data Refresh/Processing وتُخزن في النموذج. تغيير Slicer يغير Filter Context للVisuals لكنه لا يعيد حساب Stored Row Values للColumn.",
+        "options": {
+          "A": "غلط؛ ده سلوك أقرب للMeasures، مش Calculated Column المخزنة.",
+          "B": "غلط؛ Column لا تتحول إلى Measure.",
+          "C": "غلط؛ القيم لا تصبح BLANK بسبب Slicer.",
+          "D": "صح؛ Stored column values تظل كما هي عند تغيير Slicer."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0097",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0098",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 98,
+      "originalQuestionNumber": 48,
+      "question": "Sales contains East = 120, West = 200, West = 80, and North = 50. What does this\nmeasure return?\nWest Sales = CALCULATE(SUM(Sales[Amount]), Sales[Region] = \"West\")",
+      "options": [
+        {
+          "id": "A",
+          "text": "200"
+        },
+        {
+          "id": "B",
+          "text": "280"
+        },
+        {
+          "id": "C",
+          "text": "300"
+        },
+        {
+          "id": "D",
+          "text": "450"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "6aa8d26269c0bff6",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 67,
+        "originalQuestionNumber": 48
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «280». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "CALCULATE تطبق Filter Region=\"West\"، ثم SUM تجمع West rows: 200 + 80 = 280.",
+        "options": {
+          "A": "غلط؛ 200 هي واحدة من معاملات West فقط.",
+          "B": "صح؛ 200+80 = 280.",
+          "C": "غلط؛ 300 لا يساوي مجموع West.",
+          "D": "غلط؛ 450 هو Total كل Regions."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0098",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0099",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 99,
+      "originalQuestionNumber": 49,
+      "question": "Sales[Amount] contains 50, 100, 150, and 200. What does this expression return?\nSUMX(FILTER(Sales, Sales[Amount] >= 100), Sales[Amount])",
+      "options": [
+        {
+          "id": "A",
+          "text": "300"
+        },
+        {
+          "id": "B",
+          "text": "400"
+        },
+        {
+          "id": "C",
+          "text": "450"
+        },
+        {
+          "id": "D",
+          "text": "500"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Hard",
+      "questionType": "code-tracing",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "96a8c8bc8b1e0df3",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 68,
+        "originalQuestionNumber": 49
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «450». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "FILTER تحتفظ بالقيم >=100: 100 و150 و200. SUMX تمر على هذه Rows وتجمع Amount نفسها: 100+150+200 = 450.",
+        "options": {
+          "A": "غلط؛ 300 يستبعد جزءًا من القيم المطابقة.",
+          "B": "غلط؛ 400 ليست مجموع 100 و150 و200.",
+          "C": "صح؛ 100+150+200 = 450.",
+          "D": "غلط؛ 500 هو Total كل القيم بما فيها 50 التي لا تحقق الشرط."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0099",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-power-bi-q0100",
+      "trackId": "power-bi",
+      "track": "Power BI",
+      "officialSet": 2,
+      "originalOrder": 100,
+      "originalQuestionNumber": 50,
+      "question": "Sales contains East = 120, West = 200, East = 80, and North = 100. What does the\nmeasure below return?\nEast Percentage = DIVIDE(CALCULATE(SUM(Sales[Amount]), Sales[Region] = \"East\"),\nSUM(Sales[Amount]), 0)",
+      "options": [
+        {
+          "id": "A",
+          "text": "40%"
+        },
+        {
+          "id": "B",
+          "text": "50%"
+        },
+        {
+          "id": "C",
+          "text": "60%"
+        },
+        {
+          "id": "D",
+          "text": "80%"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dax",
+      "topic": "DAX & Measures",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "766cb59f7e766d8f",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 68,
+        "originalQuestionNumber": 50
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «40%». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Numerator يحسب East Sales: 120+80=200. Denominator يحسب Total Sales في السياق الحالي: 120+200+80+100=500. DIVIDE = 200/500 = 0.4 = 40%.",
+        "options": {
+          "A": "صح؛ East تمثل 200 من إجمالي 500، أي 40%.",
+          "B": "غلط؛ 50% كانت ستحتاج East = 250 من 500.",
+          "C": "غلط؛ 60% لا تطابق 200/500.",
+          "D": "غلط؛ 80% أعلى بكثير من نسبة East الفعلية."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-power-bi-q0100",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    }
+  ]
+}

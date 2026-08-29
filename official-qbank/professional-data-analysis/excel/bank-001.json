@@ -1,0 +1,3415 @@
+{
+  "schemaVersion": "1.0",
+  "bankId": "official-professional-excel-bank-001",
+  "title": "Professional Excel Official QBank - Section 1",
+  "levelId": "professional-data-analysis",
+  "trackId": "excel",
+  "track": "Excel",
+  "sourceType": "official-qbank",
+  "authority": "Official Ministry QBank",
+  "sourceFile": "Professional_MCQ_Exercises.pdf",
+  "sourceRevision": "professional-excel-r1",
+  "questionCount": 50,
+  "questions": [
+    {
+      "id": "official-professional-excel-q0001",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 1,
+      "originalQuestionNumber": 1,
+      "question": "What is the primary purpose of the SUMIF function in Excel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To count cells that meet a condition"
+        },
+        {
+          "id": "B",
+          "text": "To sum values that meet a single condition"
+        },
+        {
+          "id": "C",
+          "text": "To look up a value in a table"
+        },
+        {
+          "id": "D",
+          "text": "To sum all values in a column"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "7adab80dbb5aa98a",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 1,
+        "originalQuestionNumber": 1
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Conditional Aggregation. الاختيار «To sum values that meet a single condition» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "SUMIF بتستخدم لما يكون عندك شرط واحد وعايز تجمع القيم المرتبطة بالصفوف اللي حققت الشرط. لو محتاج تعدّ بدل ما تجمع تستخدم COUNTIF، ولو عايز تجمع كل القيم بدون شرط تستخدم SUM.",
+        "options": {
+          "A": "غلط؛ COUNTIF هي اللي بتعدّ الخلايا المطابقة لشرط، مش SUMIF.",
+          "B": "صح؛ SUMIF تجمع القيم التي تحقق شرطًا واحدًا.",
+          "C": "غلط؛ البحث عن قيمة داخل جدول وظيفة Lookup مثل VLOOKUP/XLOOKUP وليس SUMIF.",
+          "D": "غلط؛ جمع كل القيم بدون شرط يتم عادةً باستخدام SUM، بينما SUMIF مرتبطة بشرط."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0001",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0002",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 2,
+      "originalQuestionNumber": 2,
+      "question": "What is the correct syntax for the SUMIF function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SUMIF(range, criteria, [sum_range])"
+        },
+        {
+          "id": "B",
+          "text": "SUMIF(criteria, range, sum_range)"
+        },
+        {
+          "id": "C",
+          "text": "SUMIF(sum_range, range, criteria)"
+        },
+        {
+          "id": "D",
+          "text": "SUMIF(range, sum_range, criteria)"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "713b977e66dba618",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 1,
+        "originalQuestionNumber": 2
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «SUMIF(range, criteria, [sum_range])» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "ترتيب Arguments في SUMIF مهم: أولًا range اللي هنختبر عليه الشرط، ثم criteria، وبعدها sum_range اختياري لو القيم المراد جمعها موجودة في Range مختلف.",
+        "options": {
+          "A": "صح؛ ده هو الترتيب الصحيح: range ثم criteria ثم sum_range اختياري.",
+          "B": "غلط؛ criteria لا تأتي قبل range في Syntax الخاصة بـSUMIF.",
+          "C": "غلط؛ sum_range لا يأتي كأول Argument.",
+          "D": "غلط؛ sum_range وcriteria مبدلين عن ترتيبهم الصحيح."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0002",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0003",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 3,
+      "originalQuestionNumber": 3,
+      "question": "In SUMIF, if [sum_range] is omitted, what does Excel sum?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nothing, it returns an error"
+        },
+        {
+          "id": "B",
+          "text": "The values in the range itself"
+        },
+        {
+          "id": "C",
+          "text": "The first column of the sheet"
+        },
+        {
+          "id": "D",
+          "text": "Zero for every match"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "2b6cb404b7ec1a5e",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 1,
+        "originalQuestionNumber": 3
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «The values in the range itself» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "لو sum_range مش مكتوب، Excel يعتبر نفس الـrange المستخدم لاختبار الشرط هو كمان النطاق اللي هيتم جمع قيمه.",
+        "options": {
+          "A": "غلط؛ حذف sum_range مسموح ولا ينتج Error تلقائيًا.",
+          "B": "صح؛ Excel يجمع القيم الموجودة في range نفسها.",
+          "C": "غلط؛ Excel لا ينتقل تلقائيًا لأول Column في Sheet.",
+          "D": "غلط؛ القيم لا تتحول إلى Zero؛ يتم جمع القيم الموجودة في range."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0003",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0004",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 4,
+      "originalQuestionNumber": 4,
+      "question": "Which formula sums all sales in column B where column A equals 'North'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=SUMIF(A:A,\"North\",B:B)"
+        },
+        {
+          "id": "B",
+          "text": "=SUMIF(B:B,A:A,\"North\")"
+        },
+        {
+          "id": "C",
+          "text": "=SUM(A:A,\"North\",B:B)"
+        },
+        {
+          "id": "D",
+          "text": "=SUMIF(\"North\",A:A,B:B)"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "general-formulas",
+      "topic": "General Formulas & Functions",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "0155815ce67e0733",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 1,
+        "originalQuestionNumber": 4
+      },
+      "aiExplanation": {
+        "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=SUMIF(A:A,\"North\",B:B)» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "المطلوب اختبار Region في Column A على القيمة North ثم جمع Sales من Column B، لذلك A:A هي range و\"North\" هي criteria وB:B هي sum_range.",
+        "options": {
+          "A": "صح؛ ترتيب الـArguments ووظيفة كل Range صحيحة.",
+          "B": "غلط؛ يبدأ الاختبار على Column B ويضع Column A مكان criteria، وده Syntax غير صحيح.",
+          "C": "غلط؛ SUM لا تقبل criteria بالشكل ده.",
+          "D": "غلط؛ criteria مكتوبة قبل range، بينما SUMIF تبدأ بـrange."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0004",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0005",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 5,
+      "originalQuestionNumber": 5,
+      "question": "Can SUMIF use wildcard characters like * in its criteria?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No, wildcards are not supported"
+        },
+        {
+          "id": "B",
+          "text": "Yes, wildcards such as * and ? are supported"
+        },
+        {
+          "id": "C",
+          "text": "Only in the sum_range argument"
+        },
+        {
+          "id": "D",
+          "text": "Only when using SUMIFS instead"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1dbb027df55ce64e",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 1,
+        "originalQuestionNumber": 5
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Yes, wildcards such as * and ? are supported» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "SUMIF تدعم Wildcards داخل criteria النصية. الرمز * يطابق أي عدد من الحروف، والرمز ? يطابق حرفًا واحدًا؛ مثال: \"A*\" يطابق النصوص التي تبدأ بحرف A.",
+        "options": {
+          "A": "غلط؛ SUMIF بالفعل تدعم Wildcards في criteria النصية.",
+          "B": "صح؛ * و ? من الـWildcards المدعومة في criteria.",
+          "C": "غلط؛ الـWildcard تُستخدم في criteria، وليست خاصية مرتبطة بـsum_range.",
+          "D": "غلط؛ الدعم ليس حكرًا على SUMIFS؛ SUMIF نفسها تدعم Wildcards."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0005",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0006",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 6,
+      "originalQuestionNumber": 6,
+      "question": "Which of the following criteria correctly sums values greater than 100 using SUMIF?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=SUMIF(A:A,\">100\")"
+        },
+        {
+          "id": "B",
+          "text": "=SUMIF(A:A,100,\">\")"
+        },
+        {
+          "id": "C",
+          "text": "=SUMIF(\">100\",A:A)"
+        },
+        {
+          "id": "D",
+          "text": "=SUMIF(A:A,>100)"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "70b808252dcf1057",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 2,
+        "originalQuestionNumber": 6
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «=SUMIF(A:A,\">100\")» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "عند استخدام Operator زي > داخل criteria لازم يتكتب كنص بين Double Quotes، لذلك \">100\" هي الصيغة الصحيحة.",
+        "options": {
+          "A": "صح؛ الشرط \">100\" مكتوب كنص داخل criteria بالشكل الصحيح.",
+          "B": "غلط؛ SUMIF لا تستقبل القيمة 100 والـoperator كـArguments منفصلة.",
+          "C": "غلط؛ أول Argument لازم يكون range وليس criteria.",
+          "D": "غلط؛ >100 لازم تكون داخل Quotes كجزء من criteria النصية."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0006",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0007",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 7,
+      "originalQuestionNumber": 7,
+      "question": "How does SUMIFS differ from SUMIF?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SUMIFS can only be used with text criteria"
+        },
+        {
+          "id": "B",
+          "text": "SUMIFS can sum values based on multiple conditions"
+        },
+        {
+          "id": "C",
+          "text": "SUMIFS does not require a sum_range"
+        },
+        {
+          "id": "D",
+          "text": "SUMIFS is used only for counting"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c17f9906b1e858ef",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 2,
+        "originalQuestionNumber": 7
+      },
+      "aiExplanation": {
+        "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Conditional Aggregation. الاختيار «SUMIFS can sum values based on multiple conditions» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "الفرق الأساسي هو عدد الشروط: SUMIF لشرط واحد، بينما SUMIFS تسمح بأكثر من Criteria Pair وتطبقهم معًا.",
+        "options": {
+          "A": "غلط؛ SUMIFS مش مقتصرة على Text criteria.",
+          "B": "صح؛ SUMIFS تسمح بالجمع بناءً على شروط متعددة.",
+          "C": "غلط؛ SUMIFS تبدأ بـsum_range وهو Argument أساسي.",
+          "D": "غلط؛ العد وظيفة COUNTIF/COUNTIFS، مش SUMIFS."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0007",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0008",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 8,
+      "originalQuestionNumber": 8,
+      "question": "What is the correct syntax for SUMIFS?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)"
+        },
+        {
+          "id": "B",
+          "text": "SUMIFS(criteria_range1, criteria1, sum_range)"
+        },
+        {
+          "id": "C",
+          "text": "SUMIFS(range, criteria1, criteria2, sum_range)"
+        },
+        {
+          "id": "D",
+          "text": "SUMIFS(sum_range, criteria1, criteria_range1)"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "d4bc79aba0f4f572",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 2,
+        "originalQuestionNumber": 8
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "في SUMIFS يبدأ الـSyntax بـsum_range، وبعده كل شرط يأتي في زوج: criteria_range ثم criteria. ويمكن إضافة أزواج شروط أخرى.",
+        "options": {
+          "A": "صح؛ ده ترتيب Syntax الصحيح بالكامل.",
+          "B": "غلط؛ وضع sum_range في النهاية لا يطابق Syntax الخاصة بـSUMIFS.",
+          "C": "غلط؛ لا توجد صيغة عامة باسم range ثم criteria1 وcriteria2 بدون Criteria Ranges.",
+          "D": "غلط؛ criteria وcriteria_range موضوعان بترتيب عكسي."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0008",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0009",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 9,
+      "originalQuestionNumber": 9,
+      "question": "In SUMIFS, where does the sum_range argument appear in the formula?",
+      "options": [
+        {
+          "id": "A",
+          "text": "As the last argument"
+        },
+        {
+          "id": "B",
+          "text": "As the first argument"
+        },
+        {
+          "id": "C",
+          "text": "It is optional and can be omitted"
+        },
+        {
+          "id": "D",
+          "text": "In the middle of the argument list"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "08066c90d9a493ac",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 2,
+        "originalQuestionNumber": 9
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «As the first argument» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "SUMIFS تختلف عن SUMIF في ترتيب الـArguments: sum_range يأتي أولًا، ثم تبدأ أزواج criteria_range/criteria.",
+        "options": {
+          "A": "غلط؛ sum_range ليس آخر Argument.",
+          "B": "صح؛ sum_range يأتي كأول Argument.",
+          "C": "غلط؛ sum_range مطلوب في SUMIFS.",
+          "D": "غلط؛ مكانه ثابت في البداية وليس في المنتصف."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0009",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0010",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 10,
+      "originalQuestionNumber": 10,
+      "question": "Which formula sums Sales in column C where Region (A) is 'East' and Month (B) is\n'Jan'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=SUMIFS(C:C,A:A,\"East\",B:B,\"Jan\")"
+        },
+        {
+          "id": "B",
+          "text": "=SUMIFS(A:A,\"East\",B:B,\"Jan\",C:C)"
+        },
+        {
+          "id": "C",
+          "text": "=SUMIF(C:C,A:A,\"East\",B:B,\"Jan\")"
+        },
+        {
+          "id": "D",
+          "text": "=SUMIFS(C:C,\"East\",A:A,\"Jan\",B:B)"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "general-formulas",
+      "topic": "General Formulas & Functions",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "68b1bfed797d4042",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 2,
+        "originalQuestionNumber": 10
+      },
+      "aiExplanation": {
+        "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=SUMIFS(C:C,A:A,\"East\",B:B,\"Jan\")» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "المطلوب جمع Column C، بشرط أن Column A = East وColumn B = Jan. لذلك sum_range هو C:C، وبعده زوج الشرط الأول ثم زوج الشرط الثاني.",
+        "options": {
+          "A": "صح؛ C:C هو نطاق الجمع، وبعده A:A/East ثم B:B/Jan.",
+          "B": "غلط؛ A:A وEast موضوعان بطريقة لا تتبع Syntax، كما أن C:C جاء في النهاية.",
+          "C": "غلط؛ SUMIF لا تدعم شرطين بهذه الصيغة.",
+          "D": "غلط؛ criteria مكتوبة قبل criteria_range، فترتيب الـArguments خاطئ."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0010",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0011",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 11,
+      "originalQuestionNumber": 11,
+      "question": "How many criteria pairs (range/criteria) can SUMIFS handle at minimum?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only one"
+        },
+        {
+          "id": "B",
+          "text": "At least one, and it supports multiple"
+        },
+        {
+          "id": "C",
+          "text": "Exactly two"
+        },
+        {
+          "id": "D",
+          "text": "Unlimited only in Excel 365"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4b4c7b75cb63f89d",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 3,
+        "originalQuestionNumber": 11
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «At least one, and it supports multiple» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "SUMIFS يمكن أن تعمل بزوج Criteria واحد على الأقل، والميزة الأساسية أنها تسمح بإضافة أزواج أخرى عند الحاجة.",
+        "options": {
+          "A": "غلط؛ يمكنها البدء بشرط واحد لكنها ليست محدودة بشرط واحد.",
+          "B": "صح؛ الحد الأدنى زوج واحد ويمكن إضافة شروط متعددة.",
+          "C": "غلط؛ ليست ملزمة بوجود شرطين بالضبط.",
+          "D": "غلط؛ دعم الشروط المتعددة ليس مقتصرًا على Excel 365."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0011",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0012",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 12,
+      "originalQuestionNumber": 12,
+      "question": "What logical relationship does SUMIFS use between multiple criteria?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OR logic - any condition can be true"
+        },
+        {
+          "id": "B",
+          "text": "AND logic - all conditions must be true"
+        },
+        {
+          "id": "C",
+          "text": "NOT logic - conditions must be false"
+        },
+        {
+          "id": "D",
+          "text": "XOR logic"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "7cda6abcafc0f6d5",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 3,
+        "originalQuestionNumber": 12
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «AND logic - all conditions must be true» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "الشروط المتعددة داخل SUMIFS تعمل بمنطق AND: كل الشروط المكتوبة لازم تتحقق في نفس الصف حتى تدخل قيمة ذلك الصف في المجموع.",
+        "options": {
+          "A": "غلط؛ OR يعني يكفي شرط واحد، وده مش السلوك الافتراضي لـSUMIFS.",
+          "B": "صح؛ كل الشروط يجب أن تكون True.",
+          "C": "غلط؛ SUMIFS لا تحول الشروط تلقائيًا إلى NOT.",
+          "D": "غلط؛ XOR ليس منطق الربط الافتراضي بين Criteria Pairs."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0012",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0013",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 13,
+      "originalQuestionNumber": 13,
+      "question": "What does the COUNTIF function do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sums values that meet a condition"
+        },
+        {
+          "id": "B",
+          "text": "Counts the number of cells that meet a single condition"
+        },
+        {
+          "id": "C",
+          "text": "Looks up a value and returns a match"
+        },
+        {
+          "id": "D",
+          "text": "Averages values that meet a condition"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "948e31f2e37c5a0b",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 3,
+        "originalQuestionNumber": 13
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Counts the number of cells that meet a single condition» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "COUNTIF هدفها العد بناءً على شرط واحد: بتعد عدد الخلايا داخل Range اللي تحقق criteria المحددة.",
+        "options": {
+          "A": "غلط؛ الجمع المشروط وظيفة SUMIF.",
+          "B": "صح؛ COUNTIF تعد الخلايا المطابقة لشرط واحد.",
+          "C": "غلط؛ البحث وإرجاع Match وظيفة Lookup.",
+          "D": "غلط؛ المتوسط المشروط يتم باستخدام AVERAGEIF."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0013",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0014",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 14,
+      "originalQuestionNumber": 14,
+      "question": "What is the correct syntax for COUNTIF?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNTIF(range, criteria)"
+        },
+        {
+          "id": "B",
+          "text": "COUNTIF(criteria, range)"
+        },
+        {
+          "id": "C",
+          "text": "COUNTIF(range, sum_range, criteria)"
+        },
+        {
+          "id": "D",
+          "text": "COUNTIF(range)"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "39be1e0df37291b6",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 3,
+        "originalQuestionNumber": 14
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «COUNTIF(range, criteria)» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "COUNTIF تحتاج Argumentين أساسيين فقط: range المراد فحصه وcriteria التي تحدد الخلايا التي يتم عدها.",
+        "options": {
+          "A": "صح؛ COUNTIF(range, criteria) هي الصيغة الصحيحة.",
+          "B": "غلط؛ criteria لا تأتي قبل range.",
+          "C": "غلط؛ COUNTIF لا تحتوي sum_range.",
+          "D": "غلط؛ criteria Argument أساسي ولا يمكن حذفه في الاستخدام المعتاد."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0014",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0015",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 15,
+      "originalQuestionNumber": 15,
+      "question": "Which formula counts how many cells in column A equal 'Yes'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=COUNTIF(A:A,\"Yes\")"
+        },
+        {
+          "id": "B",
+          "text": "=COUNTIFS(A:A,\"Yes\")"
+        },
+        {
+          "id": "C",
+          "text": "=COUNT(A:A,\"Yes\")"
+        },
+        {
+          "id": "D",
+          "text": "=SUMIF(A:A,\"Yes\")"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "general-formulas",
+      "topic": "General Formulas & Functions",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "bc5b592c6bba9654",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 3,
+        "originalQuestionNumber": 15
+      },
+      "aiExplanation": {
+        "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=COUNTIF(A:A,\"Yes\")» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "علشان نعد الخلايا في Column A اللي قيمتها بالضبط Yes، نستخدم COUNTIF على A:A مع criteria = \"Yes\".",
+        "options": {
+          "A": "صح؛ Range وcriteria مكتوبان بالشكل المطلوب.",
+          "B": "مش الاختيار المقصود هنا؛ COUNTIFS قادرة تقنيًا على شرط واحد، لكن السؤال يطلب الصيغة المباشرة المناسبة لشرط واحد وهي COUNTIF.",
+          "C": "غلط؛ COUNT تعد القيم الرقمية ولا تطبق Text criteria بهذه الصيغة.",
+          "D": "غلط؛ SUMIF تجمع قيم ولا تعدّ عدد الخلايا."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0015",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0016",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 16,
+      "originalQuestionNumber": 16,
+      "question": "Which formula counts cells in column B that are greater than or equal to 50?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=COUNTIF(B:B,\">=50\")"
+        },
+        {
+          "id": "B",
+          "text": "=COUNTIF(B:B,50,\">=\")"
+        },
+        {
+          "id": "C",
+          "text": "=COUNTIF(\">=50\",B:B)"
+        },
+        {
+          "id": "D",
+          "text": "=COUNTIF(B:B)>=50"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "general-formulas",
+      "topic": "General Formulas & Functions",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "8045cf4368168f3f",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 3,
+        "originalQuestionNumber": 16
+      },
+      "aiExplanation": {
+        "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=COUNTIF(B:B,\">=50\")» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "Operator >= لازم يدخل كجزء من criteria نصية. لذلك \">=50\" هو الشرط الصحيح لعد كل القيم التي تساوي 50 أو أكبر.",
+        "options": {
+          "A": "صح؛ criteria مكتوبة كنص وبالـoperator الصحيح.",
+          "B": "غلط؛ COUNTIF لا تفصل القيمة والـoperator إلى Arguments منفصلة.",
+          "C": "غلط؛ الـrange لازم يكون أول Argument.",
+          "D": "غلط؛ دي مقارنة خارج الدالة، وليست Syntax صحيحة لـCOUNTIF."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0016",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0017",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 17,
+      "originalQuestionNumber": 17,
+      "question": "Does COUNTIF count empty cells within the specified range as matches for criteria\nlike \"<>\"",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes, always"
+        },
+        {
+          "id": "B",
+          "text": "No, blank cells are not counted unless the criteria specifically targets blanks"
+        },
+        {
+          "id": "C",
+          "text": "Only in older Excel versions"
+        },
+        {
+          "id": "D",
+          "text": "Only if sum_range is provided"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4229f6e82ba0215a",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 4,
+        "originalQuestionNumber": 17
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «No, blank cells are not counted unless the criteria specifically targets blanks» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "criteria \"<>\" تُستخدم لعد الخلايا غير الفارغة؛ لذلك الخلايا الفارغة نفسها لا تُحسب كـMatches لهذا الشرط.",
+        "options": {
+          "A": "غلط؛ Blank Cells لا تُعد تلقائيًا مع شرط non-blank.",
+          "B": "صح؛ الفراغات لا تُحسب إلا لو الـcriteria تستهدف الفراغات نفسها.",
+          "C": "غلط؛ القاعدة ليست مرتبطة بإصدار قديم من Excel.",
+          "D": "غلط؛ COUNTIF لا تحتوي sum_range أصلًا."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0017",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0018",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 18,
+      "originalQuestionNumber": 18,
+      "question": "Which function would you use to count cells containing any text starting with 'A'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=COUNTIF(range,\"A*\")"
+        },
+        {
+          "id": "B",
+          "text": "=COUNTIF(range,\"*A\")"
+        },
+        {
+          "id": "C",
+          "text": "=COUNTIF(range,\"=A\")"
+        },
+        {
+          "id": "D",
+          "text": "=SUMIF(range,\"A*\")"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "fa05852944ce477b",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 4,
+        "originalQuestionNumber": 18
+      },
+      "aiExplanation": {
+        "ar": "لأن كل Function/Feature في Conditional Aggregation لها وظيفة محددة. «=COUNTIF(range,\"A*\")» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "في Wildcards، A* معناها يبدأ بحرف A وبعده صفر أو أكثر من الحروف، وده بالضبط المطلوب.",
+        "options": {
+          "A": "صح؛ A* يطابق أي نص يبدأ بـA.",
+          "B": "غلط؛ *A يطابق نصوص تنتهي بـA.",
+          "C": "غلط؛ =A يطابق النص A نفسه فقط وليس النصوص التي تبدأ به.",
+          "D": "غلط؛ SUMIF تجمع قيم ولا تعدّ الخلايا."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0018",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0019",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 19,
+      "originalQuestionNumber": 19,
+      "question": "What is the main advantage of COUNTIFS over COUNTIF?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It can sum values as well as count them"
+        },
+        {
+          "id": "B",
+          "text": "It can count cells based on multiple conditions across multiple ranges"
+        },
+        {
+          "id": "C",
+          "text": "It works only with numeric data"
+        },
+        {
+          "id": "D",
+          "text": "It automatically creates a pivot table"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "58915f790f9885e2",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 4,
+        "originalQuestionNumber": 19
+      },
+      "aiExplanation": {
+        "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Conditional Aggregation. الاختيار «It can count cells based on multiple conditions across multiple ranges» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "COUNTIFS هي النسخة متعددة الشروط من COUNTIF، وتسمح باستخدام Criteria Ranges متعددة بحيث يتم عد الصفوف التي تحقق كل الشروط.",
+        "options": {
+          "A": "غلط؛ COUNTIFS لا تجمع القيم، بل تعدّ.",
+          "B": "صح؛ تسمح بالعد بناءً على شروط متعددة عبر Ranges متعددة.",
+          "C": "غلط؛ يمكن استخدامها مع نصوص وأرقام وتواريخ حسب الـcriteria.",
+          "D": "غلط؛ لا تنشئ PivotTable تلقائيًا."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0019",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0020",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 20,
+      "originalQuestionNumber": 20,
+      "question": "What is the correct syntax for COUNTIFS?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNTIFS(criteria_range1, criteria1, [criteria_range2, criteria2], ...)"
+        },
+        {
+          "id": "B",
+          "text": "COUNTIFS(range, criteria1, criteria2)"
+        },
+        {
+          "id": "C",
+          "text": "COUNTIFS(sum_range, criteria_range, criteria)"
+        },
+        {
+          "id": "D",
+          "text": "COUNTIFS(criteria1, range1, criteria2, range2)"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "20e7fda5d7dfd3bb",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 4,
+        "originalQuestionNumber": 20
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «COUNTIFS(criteria_range1, criteria1, [criteria_range2, criteria2], ...)» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "كل شرط في COUNTIFS يُكتب كزوج criteria_range ثم criteria، ويمكن تكرار الزوج لأي عدد من الشروط المدعومة.",
+        "options": {
+          "A": "صح؛ ده هو الـSyntax الصحيح.",
+          "B": "غلط؛ لا يمكن كتابة Range واحد ثم مجموعة Criteria بدون تحديد Range لكل شرط.",
+          "C": "غلط؛ COUNTIFS لا تحتوي sum_range.",
+          "D": "غلط؛ ترتيب كل زوج معكوس؛ الصحيح Range ثم Criteria."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0020",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0021",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 21,
+      "originalQuestionNumber": 21,
+      "question": "Which formula counts rows where Region is 'West' AND Status is 'Closed'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=COUNTIFS(A:A,\"West\",B:B,\"Closed\")"
+        },
+        {
+          "id": "B",
+          "text": "=COUNTIF(A:A,\"West\",B:B,\"Closed\")"
+        },
+        {
+          "id": "C",
+          "text": "=COUNTIFS(A:A,B:B,\"West\",\"Closed\")"
+        },
+        {
+          "id": "D",
+          "text": "=SUMIFS(A:A,\"West\",B:B,\"Closed\")"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "general-formulas",
+      "topic": "General Formulas & Functions",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "2e05ba094d7433cd",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 4,
+        "originalQuestionNumber": 21
+      },
+      "aiExplanation": {
+        "ar": "لأن الصيغة الصحيحة لازم تستخدم الـsyntax وترتيب الـarguments أو clauses بشكل سليم. الاختيار «=COUNTIFS(A:A,\"West\",B:B,\"Closed\")» هو اللي يحقق المطلوب كما هو مذكور في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "المطلوب عد الصفوف التي تحقق شرطين معًا: Region = West وStatus = Closed، لذلك نستخدم COUNTIFS بزوجين من الشروط.",
+        "options": {
+          "A": "صح؛ الصيغة تربط الشرطين بمنطق AND.",
+          "B": "غلط؛ COUNTIF لا تأخذ زوجين من الشروط بهذه الصورة.",
+          "C": "غلط؛ ترتيب Arguments داخل COUNTIFS غير صحيح.",
+          "D": "غلط؛ SUMIFS وظيفة جمع وليست عدّ."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0021",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0022",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 22,
+      "originalQuestionNumber": 22,
+      "question": "In COUNTIFS, must all the criteria_range arguments be the same size?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No, they can be different sizes"
+        },
+        {
+          "id": "B",
+          "text": "Yes, all ranges must have the same number of rows and columns"
+        },
+        {
+          "id": "C",
+          "text": "Only the first two ranges need to match"
+        },
+        {
+          "id": "D",
+          "text": "Size does not matter for text criteria"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "6da4a3b85eb0affd",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 5,
+        "originalQuestionNumber": 22
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Yes, all ranges must have the same number of rows and columns» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "COUNTIFS تقارن Criteria Ranges صفًا بصف، لذلك لازم تكون النطاقات متوافقة في الحجم حتى تتطابق المواضع بين الشروط.",
+        "options": {
+          "A": "غلط؛ اختلاف الأحجام يسبب مشكلة في التقييم.",
+          "B": "صح؛ النطاقات لازم تكون بنفس عدد الصفوف والأعمدة المتناظرة.",
+          "C": "غلط؛ الشرط ينطبق على كل Criteria Ranges وليس أول اثنين فقط.",
+          "D": "غلط؛ نوع الـcriteria Text أو Numeric لا يلغي شرط توافق الأحجام."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0022",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0023",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 23,
+      "originalQuestionNumber": 23,
+      "question": "Which logical operator connects multiple conditions in COUNTIFS by default?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OR"
+        },
+        {
+          "id": "B",
+          "text": "AND"
+        },
+        {
+          "id": "C",
+          "text": "NOT"
+        },
+        {
+          "id": "D",
+          "text": "XOR"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f5999af208e083d5",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 5,
+        "originalQuestionNumber": 23
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «AND» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "COUNTIFS تعتبر كل Criteria Pair شرطًا إضافيًا لازم يتحقق، ولذلك الربط الافتراضي بينهم AND.",
+        "options": {
+          "A": "غلط؛ OR يحتاج طريقة صياغة مختلفة، وليس السلوك الافتراضي.",
+          "B": "صح؛ كل الشروط يجب أن تتحقق.",
+          "C": "غلط؛ NOT مش هو الربط الافتراضي.",
+          "D": "غلط؛ XOR غير مستخدم تلقائيًا هنا."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0023",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0024",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 24,
+      "originalQuestionNumber": 24,
+      "question": "How would you count cells between 10 and 20 (inclusive) in column A using\nCOUNTIFS?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=COUNTIFS(A:A,\">=10\",A:A,\"<=20\")"
+        },
+        {
+          "id": "B",
+          "text": "=COUNTIF(A:A,\"10-20\")"
+        },
+        {
+          "id": "C",
+          "text": "=COUNTIFS(A:A,\"10\",A:A,\"20\")"
+        },
+        {
+          "id": "D",
+          "text": "=COUNTIFS(A:A,\">10<20\")"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "conditional-aggregation",
+      "topic": "Conditional Aggregation",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f8499c311c800ed3",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 5,
+        "originalQuestionNumber": 24
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «=COUNTIFS(A:A,\">=10\",A:A,\"<=20\")» هو التعريف أو السلوك الصحيح المرتبط بموضوع Conditional Aggregation وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "لعد القيم من 10 إلى 20 Inclusive، نطبق شرطين على نفس Range: >=10 و<=20. بما إن COUNTIFS تربطهم بـAND فالنتيجة تكون القيم داخل المجال.",
+        "options": {
+          "A": "صح؛ الشرطان على نفس Range يحددان الحد الأدنى والأقصى بشكل صحيح.",
+          "B": "غلط؛ COUNTIF لا تفسر النص 10-20 كمدى رقمي.",
+          "C": "غلط؛ ده يعد القيم التي تساوي 10 وفي نفس الوقت تساوي 20، وده مستحيل لنفس الخلية.",
+          "D": "غلط؛ لا يمكن دمج Operatorين بهذا الشكل داخل Criteria واحدة."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0024",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0025",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 25,
+      "originalQuestionNumber": 25,
+      "question": "What does VLOOKUP stand for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vertical Lookup"
+        },
+        {
+          "id": "B",
+          "text": "Value Lookup"
+        },
+        {
+          "id": "C",
+          "text": "Variable Lookup"
+        },
+        {
+          "id": "D",
+          "text": "Vector Lookup"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "lookup-reference",
+      "topic": "Lookup & Reference",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "7819ab32e0a92eec",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 5,
+        "originalQuestionNumber": 25
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Vertical Lookup» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "VLOOKUP اختصار لـVertical Lookup لأنها تبحث رأسيًا داخل أول عمود من table_array ثم ترجع قيمة من عمود آخر في نفس الصف.",
+        "options": {
+          "A": "صح؛ الاسم الكامل هو Vertical Lookup.",
+          "B": "غلط؛ V لا ترمز إلى Value.",
+          "C": "غلط؛ V لا ترمز إلى Variable.",
+          "D": "غلط؛ VLOOKUP ليست اختصارًا لـVector Lookup."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0025",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0026",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 26,
+      "originalQuestionNumber": 26,
+      "question": "What is the correct syntax for VLOOKUP?",
+      "options": [
+        {
+          "id": "A",
+          "text": "VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])"
+        },
+        {
+          "id": "B",
+          "text": "VLOOKUP(table_array, lookup_value, col_index_num)"
+        },
+        {
+          "id": "C",
+          "text": "VLOOKUP(lookup_value, col_index_num, table_array)"
+        },
+        {
+          "id": "D",
+          "text": "VLOOKUP(range_lookup, lookup_value, table_array)"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "lookup-reference",
+      "topic": "Lookup & Reference",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a4055fb3f544176b",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 5,
+        "originalQuestionNumber": 26
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "VLOOKUP تحتاج: lookup_value، ثم table_array، ثم رقم العمود المراد إرجاعه داخل الجدول، ثم range_lookup اختياري لتحديد Exact/Approximate Match.",
+        "options": {
+          "A": "صح؛ ده ترتيب الـArguments القياسي.",
+          "B": "غلط؛ يبدأ بـtable_array بدل lookup_value ويفتقد range_lookup.",
+          "C": "غلط؛ col_index_num وtable_array مبدلين.",
+          "D": "غلط؛ range_lookup ليس أول Argument."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0026",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0027",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 27,
+      "originalQuestionNumber": 27,
+      "question": "In VLOOKUP, what does setting the range_lookup argument to FALSE do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It performs an approximate match"
+        },
+        {
+          "id": "B",
+          "text": "It performs an exact match"
+        },
+        {
+          "id": "C",
+          "text": "It searches only the first column"
+        },
+        {
+          "id": "D",
+          "text": "It ignores the lookup_value"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "lookup-reference",
+      "topic": "Lookup & Reference",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "698970f9d1918ece",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 6,
+        "originalQuestionNumber": 27
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «It performs an exact match» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "FALSE في الـArgument الرابع تطلب Exact Match، يعني Excel لازم يلاقي lookup_value مطابق بالضبط وإلا يرجع #N/A.",
+        "options": {
+          "A": "غلط؛ Approximate Match يرتبط عادةً بـTRUE أو حذف الـArgument في الاستخدام التقليدي.",
+          "B": "صح؛ FALSE تعني Exact Match.",
+          "C": "غلط؛ VLOOKUP تبحث أصلًا في أول عمود من table_array بغض النظر عن FALSE.",
+          "D": "غلط؛ lookup_value لا يتم تجاهله."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0027",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0028",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 28,
+      "originalQuestionNumber": 28,
+      "question": "What is a key limitation of VLOOKUP regarding the lookup column?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It can only look up numbers, not text"
+        },
+        {
+          "id": "B",
+          "text": "It can only search for a value in the leftmost column of the table array"
+        },
+        {
+          "id": "C",
+          "text": "It cannot be used with named ranges"
+        },
+        {
+          "id": "D",
+          "text": "It requires the data to be sorted alphabetically"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "lookup-reference",
+      "topic": "Lookup & Reference",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "b4196a7878f58b6b",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 6,
+        "originalQuestionNumber": 28
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «It can only search for a value in the leftmost column of the table array» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "VLOOKUP تبحث عن lookup_value داخل أول Column في table_array، وبالتالي لا تستطيع بالطريقة التقليدية أن تبحث في عمود يمين الجدول وترجع قيمة من عمود يقع على يساره.",
+        "options": {
+          "A": "غلط؛ VLOOKUP تستطيع التعامل مع Text وأرقام.",
+          "B": "صح؛ lookup column يجب أن يكون العمود الأيسر داخل table_array.",
+          "C": "غلط؛ يمكن استخدامها مع Named Ranges.",
+          "D": "غلط؛ الفرز يرتبط بحالات Approximate Match، وليس شرطًا عامًا لكل VLOOKUP."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0028",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0029",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 29,
+      "originalQuestionNumber": 29,
+      "question": "What does the col_index_num argument in VLOOKUP represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The row number of the result"
+        },
+        {
+          "id": "B",
+          "text": "The column number within the table array from which to return a value"
+        },
+        {
+          "id": "C",
+          "text": "The number of columns in the entire sheet"
+        },
+        {
+          "id": "D",
+          "text": "The index of the lookup_value itself"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "lookup-reference",
+      "topic": "Lookup & Reference",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a3ae0314ebc4cb00",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 6,
+        "originalQuestionNumber": 29
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «The column number within the table array from which to return a value» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "col_index_num هو رقم العمود داخل table_array الذي سيتم إرجاع القيمة منه، ويبدأ العد من أول عمود في table_array باعتباره 1.",
+        "options": {
+          "A": "غلط؛ لا يمثل رقم الصف.",
+          "B": "صح؛ يحدد عمود الإرجاع داخل table_array.",
+          "C": "غلط؛ لا يعتمد على عدد أعمدة الـWorksheet كلها.",
+          "D": "غلط؛ لا يمثل Index للـlookup_value نفسها."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0029",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0030",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 30,
+      "originalQuestionNumber": 30,
+      "question": "What error does VLOOKUP return when it cannot find a match?",
+      "options": [
+        {
+          "id": "A",
+          "text": "#REF!"
+        },
+        {
+          "id": "B",
+          "text": "#N/A"
+        },
+        {
+          "id": "C",
+          "text": "#VALUE!"
+        },
+        {
+          "id": "D",
+          "text": "#NULL!"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "lookup-reference",
+      "topic": "Lookup & Reference",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5a9ccb57756d87f6",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 6,
+        "originalQuestionNumber": 30
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «#N/A» هو التعريف أو السلوك الصحيح المرتبط بموضوع Lookup & Reference وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "عندما تستخدم VLOOKUP في Exact Match ولا تجد قيمة مطابقة، الخطأ المعتاد هو #N/A بمعنى أن القيمة المطلوبة غير متاحة/لم يتم العثور عليها.",
+        "options": {
+          "A": "غلط؛ #REF! غالبًا يشير إلى Reference غير صالح مثل رقم عمود خارج نطاق الجدول.",
+          "B": "صح؛ #N/A هو الخطأ المعتاد عند عدم العثور على Match.",
+          "C": "غلط؛ #VALUE! يشير عادةً لمشكلة في نوع/صيغة Argument.",
+          "D": "غلط؛ #NULL! مرتبط بتقاطع Ranges غير صحيح، وليس Missing Lookup Match."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0030",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0031",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 31,
+      "originalQuestionNumber": 31,
+      "question": "Which function is often recommended as a more flexible alternative to VLOOKUP\nbecause it can look left as well as right?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SUMIF"
+        },
+        {
+          "id": "B",
+          "text": "COUNTIF"
+        },
+        {
+          "id": "C",
+          "text": "INDEX/MATCH"
+        },
+        {
+          "id": "D",
+          "text": "AVERAGEIF"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "lookup-reference",
+      "topic": "Lookup & Reference",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a3797bdd75a6caae",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 6,
+        "originalQuestionNumber": 31
+      },
+      "aiExplanation": {
+        "ar": "لأن كل Function/Feature في Lookup & Reference لها وظيفة محددة. «INDEX/MATCH» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "INDEX/MATCH أكثر مرونة من VLOOKUP لأن MATCH تحدد موضع القيمة وINDEX ترجع القيمة من Range مستقل، لذلك يمكن الإرجاع من اليسار أو اليمين.",
+        "options": {
+          "A": "غلط؛ SUMIF ليست Lookup Function.",
+          "B": "غلط؛ COUNTIF للعد الشرطي.",
+          "C": "صح؛ INDEX/MATCH تسمح ببحث أكثر مرونة ومنها Left Lookup.",
+          "D": "غلط؛ AVERAGEIF تحسب متوسطًا بشرط وليست Lookup."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0031",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0032",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 32,
+      "originalQuestionNumber": 32,
+      "question": "What is the primary purpose of a PivotTable in Excel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To create charts automatically"
+        },
+        {
+          "id": "B",
+          "text": "To summarize, analyze, and explore large amounts of data interactively"
+        },
+        {
+          "id": "C",
+          "text": "To sort data alphabetically only"
+        },
+        {
+          "id": "D",
+          "text": "To remove duplicate values from a dataset"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "ec396e79af0b7664",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 7,
+        "originalQuestionNumber": 32
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع PivotTables & PivotCharts. الاختيار «To summarize, analyze, and explore large amounts of data interactively» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "PivotTable مصممة لتلخيص وتحليل كمية كبيرة من البيانات بسرعة: تقدر تجمع، تعدّ، تحسب Average، تقسّم حسب Categories وتغيّر طريقة العرض بشكل تفاعلي.",
+        "options": {
+          "A": "غلط؛ PivotTable ممكن ترتبط بـPivotChart لكنها لا تُستخدم أساسًا لإنشاء Charts تلقائيًا.",
+          "B": "صح؛ هدفها الأساسي التلخيص والتحليل والاستكشاف التفاعلي.",
+          "C": "غلط؛ Sorting مجرد وظيفة فرعية وليست الغرض الأساسي.",
+          "D": "غلط؛ إزالة التكرارات وظيفة Remove Duplicates وليست وظيفة PivotTable الأساسية."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0032",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0033",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 33,
+      "originalQuestionNumber": 33,
+      "question": "Which of the following areas is NOT part of a standard PivotTable field layout?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rows"
+        },
+        {
+          "id": "B",
+          "text": "Columns"
+        },
+        {
+          "id": "C",
+          "text": "Filters"
+        },
+        {
+          "id": "D",
+          "text": "Formulas"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "0fb73cea0362b6b3",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 7,
+        "originalQuestionNumber": 33
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Formulas» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "Field Layout القياسي في PivotTable يحتوي Rows وColumns وValues وFilters. كلمة Formulas ليست Area مستقلة ضمن الأربع مناطق الأساسية.",
+        "options": {
+          "A": "غلط؛ Rows منطقة أساسية.",
+          "B": "غلط؛ Columns منطقة أساسية.",
+          "C": "غلط؛ Filters منطقة أساسية.",
+          "D": "صح؛ Formulas ليست إحدى مناطق الـField Layout القياسية."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0033",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0034",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 34,
+      "originalQuestionNumber": 34,
+      "question": "What happens when you drag a numeric field into the 'Values' area of a PivotTable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is automatically deleted"
+        },
+        {
+          "id": "B",
+          "text": "It is summarized, by default using SUM for numbers"
+        },
+        {
+          "id": "C",
+          "text": "It becomes a filter automatically"
+        },
+        {
+          "id": "D",
+          "text": "It is converted to text"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4216f60a141d2f7a",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 7,
+        "originalQuestionNumber": 34
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «It is summarized, by default using SUM for numbers» هو التفسير الأقرب للسلوك الصحيح في PivotTables & PivotCharts.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "لما تحط Numeric Field في Values، Excel يحاول تلخيصه Aggregation. غالبًا مع البيانات الرقمية تكون Sum هي العملية الافتراضية، مع إمكانية تغييرها.",
+        "options": {
+          "A": "غلط؛ الحقل لا يتم حذفه.",
+          "B": "صح؛ يتم تلخيصه وغالبًا باستخدام SUM افتراضيًا للبيانات الرقمية.",
+          "C": "غلط؛ وضعه في Values لا يحوله تلقائيًا إلى Filter.",
+          "D": "غلط؛ لا يتم تحويله إلى Text."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0034",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0035",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 35,
+      "originalQuestionNumber": 35,
+      "question": "How can you change the summary calculation (e.g., from Sum to Average) in a\nPivotTable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By editing the source data directly"
+        },
+        {
+          "id": "B",
+          "text": "By using Value Field Settings"
+        },
+        {
+          "id": "C",
+          "text": "It cannot be changed once set"
+        },
+        {
+          "id": "D",
+          "text": "By deleting and recreating the entire table"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "211700a2bf8683b4",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 7,
+        "originalQuestionNumber": 35
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «By using Value Field Settings» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "Value Field Settings هي المكان الذي تختار منه نوع التلخيص مثل Sum أو Count أو Average أو Max وغيرها بدون تعديل Source Data.",
+        "options": {
+          "A": "غلط؛ لا تحتاج تغيير البيانات الأصلية لتغيير Aggregation.",
+          "B": "صح؛ Value Field Settings هي الأداة المخصصة لذلك.",
+          "C": "غلط؛ يمكن تغيير نوع التلخيص في أي وقت.",
+          "D": "غلط؛ لا تحتاج حذف وإعادة إنشاء PivotTable."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0035",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0036",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 36,
+      "originalQuestionNumber": 36,
+      "question": "What must you do to see updated results in a PivotTable after changing the source\ndata?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nothing, it updates instantly"
+        },
+        {
+          "id": "B",
+          "text": "Refresh the PivotTable"
+        },
+        {
+          "id": "C",
+          "text": "Delete and recreate the PivotTable"
+        },
+        {
+          "id": "D",
+          "text": "Save the file and reopen it"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "828d45f535fc5434",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 7,
+        "originalQuestionNumber": 36
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Refresh the PivotTable» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "PivotTable تحتفظ بـCache/نتيجة مبنية على Source Data وقت آخر Refresh. لو المصدر اتغير، لازم تعمل Refresh علشان التغييرات تظهر.",
+        "options": {
+          "A": "غلط؛ التحديث ليس دائمًا لحظيًا مع تغيير المصدر.",
+          "B": "صح؛ Refresh تعيد قراءة المصدر وتحديث النتائج.",
+          "C": "غلط؛ إعادة الإنشاء غير ضرورية.",
+          "D": "غلط؛ Save/Reopen مش هو الإجراء المطلوب بدل Refresh."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0036",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0037",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 37,
+      "originalQuestionNumber": 37,
+      "question": "What is a 'Slicer' used for in relation to PivotTables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To slice raw data into separate files"
+        },
+        {
+          "id": "B",
+          "text": "To provide a visual, interactive way to filter PivotTable data"
+        },
+        {
+          "id": "C",
+          "text": "To calculate totals automatically"
+        },
+        {
+          "id": "D",
+          "text": "To convert a PivotTable into a PivotChart"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "4b1390bc6dd0bee2",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 8,
+        "originalQuestionNumber": 37
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «To provide a visual, interactive way to filter PivotTable data» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "Slicer عبارة عن Filter بصري على شكل أزرار/اختيارات، وبتسهل على المستخدم فلترة PivotTable بطريقة تفاعلية وواضحة.",
+        "options": {
+          "A": "غلط؛ Slicer لا تقسم البيانات إلى Files.",
+          "B": "صح؛ تستخدم كفلتر بصري تفاعلي.",
+          "C": "غلط؛ الحسابات ليست وظيفتها الأساسية.",
+          "D": "غلط؛ Slicer لا تحول PivotTable إلى PivotChart."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0037",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0038",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 38,
+      "originalQuestionNumber": 38,
+      "question": "What is a PivotChart primarily used for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To edit raw data directly"
+        },
+        {
+          "id": "B",
+          "text": "To provide a visual representation of PivotTable data"
+        },
+        {
+          "id": "C",
+          "text": "To replace VLOOKUP formulas"
+        },
+        {
+          "id": "D",
+          "text": "To sort data without summarizing it"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f70b93f6dabeb0e7",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 8,
+        "originalQuestionNumber": 38
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع PivotTables & PivotCharts. الاختيار «To provide a visual representation of PivotTable data» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "PivotChart هي Visualization مرتبطة ببيانات PivotTable، فبتحوّل الملخصات الموجودة في PivotTable إلى Chart تفاعلي.",
+        "options": {
+          "A": "غلط؛ PivotChart لا تستخدم لتحرير Raw Data.",
+          "B": "صح؛ هي تمثيل بصري لبيانات PivotTable.",
+          "C": "غلط؛ لا تستبدل Lookup Functions.",
+          "D": "غلط؛ هدفها Visualization وليس مجرد Sorting."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0038",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0039",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 39,
+      "originalQuestionNumber": 39,
+      "question": "Which of the following is true about PivotCharts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They can exist independently without any PivotTable"
+        },
+        {
+          "id": "B",
+          "text": "They are typically linked to and interact with an associated PivotTable"
+        },
+        {
+          "id": "C",
+          "text": "They cannot be filtered"
+        },
+        {
+          "id": "D",
+          "text": "They only support pie charts"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "cbdc598f28d0170b",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 8,
+        "originalQuestionNumber": 39
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «They are typically linked to and interact with an associated PivotTable» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "PivotChart عادةً مرتبطة بـPivotTable/Pivot Data، ولذلك الفلاتر والتغييرات التحليلية في الـPivot تنعكس عليها.",
+        "options": {
+          "A": "غلط حسب سياق السؤال؛ PivotChart مرتبطة عادةً ببنية PivotTable أو Pivot Data.",
+          "B": "صح؛ تكون مرتبطة وتتفاعل مع PivotTable المصاحبة.",
+          "C": "غلط؛ يمكن فلترتها وتتأثر بالـFilters.",
+          "D": "غلط؛ تدعم أنواع Charts متعددة وليست Pie فقط."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0039",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0040",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 40,
+      "originalQuestionNumber": 40,
+      "question": "What happens to a PivotChart when you filter its associated PivotTable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The PivotChart remains unchanged"
+        },
+        {
+          "id": "B",
+          "text": "The PivotChart updates automatically to reflect the filtered data"
+        },
+        {
+          "id": "C",
+          "text": "The PivotChart is deleted"
+        },
+        {
+          "id": "D",
+          "text": "You must manually redraw the chart"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "8b1d714df7d62134",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 8,
+        "originalQuestionNumber": 40
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «The PivotChart updates automatically to reflect the filtered data» هو التفسير الأقرب للسلوك الصحيح في PivotTables & PivotCharts.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "بما إن PivotChart مرتبطة بالـPivotTable، أي Filter يغيّر البيانات المعروضة في الـPivotTable سينعكس تلقائيًا على الرسم.",
+        "options": {
+          "A": "غلط؛ الرسم يتغير مع الفلترة.",
+          "B": "صح؛ يتم تحديث PivotChart لتعكس البيانات المفلترة.",
+          "C": "غلط؛ الفلترة لا تحذف الـChart.",
+          "D": "غلط؛ لا تحتاج إعادة رسمها يدويًا."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0040",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0041",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 41,
+      "originalQuestionNumber": 41,
+      "question": "Which of the following chart types is commonly used in PivotCharts to compare\ncategories?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Column chart"
+        },
+        {
+          "id": "B",
+          "text": "Only scatter charts"
+        },
+        {
+          "id": "C",
+          "text": "Only radar charts"
+        },
+        {
+          "id": "D",
+          "text": "Only 3D surface charts"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5cf0d189754b7571",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 8,
+        "originalQuestionNumber": 41
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Column chart» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "Column Chart اختيار شائع لمقارنة قيم بين Categories لأن أطوال الأعمدة تجعل الفروق واضحة بصريًا.",
+        "options": {
+          "A": "صح؛ Column Chart مناسبة جدًا لمقارنة Categories.",
+          "B": "غلط؛ PivotCharts ليست مقصورة على Scatter.",
+          "C": "غلط؛ ليست مقصورة على Radar.",
+          "D": "غلط؛ ليست مقصورة على 3D Surface."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0041",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0042",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 42,
+      "originalQuestionNumber": 42,
+      "question": "Where can Field Buttons be found on a PivotChart?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They cannot be shown on PivotCharts"
+        },
+        {
+          "id": "B",
+          "text": "On the chart itself, allowing interactive filtering"
+        },
+        {
+          "id": "C",
+          "text": "Only in the PivotTable, never on the chart"
+        },
+        {
+          "id": "D",
+          "text": "In the Excel Ribbon only"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "pivot-tables",
+      "topic": "PivotTables & PivotCharts",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f083fe0d79107bd3",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 9,
+        "originalQuestionNumber": 42
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «On the chart itself, allowing interactive filtering» هو التعريف أو السلوك الصحيح المرتبط بموضوع PivotTables & PivotCharts وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "Field Buttons يمكن إظهارها على PivotChart نفسها، وبتدي المستخدم وسيلة مباشرة للتحكم في Fields والفلترة من داخل الـChart.",
+        "options": {
+          "A": "غلط؛ يمكن عرض Field Buttons.",
+          "B": "صح؛ تظهر على الرسم وتدعم التفاعل والفلترة.",
+          "C": "غلط؛ ليست محصورة داخل PivotTable فقط.",
+          "D": "غلط؛ ليست موجودة في Ribbon فقط."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0042",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0043",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 43,
+      "originalQuestionNumber": 43,
+      "question": "What does the INDEX function return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The position of a value within a range"
+        },
+        {
+          "id": "B",
+          "text": "The value at a given row and column position within a range"
+        },
+        {
+          "id": "C",
+          "text": "The sum of all values in a range"
+        },
+        {
+          "id": "D",
+          "text": "A count of matching cells"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "lookup-reference",
+      "topic": "Lookup & Reference",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "22e91fdf153491ab",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 9,
+        "originalQuestionNumber": 43
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «The value at a given row and column position within a range». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "INDEX ترجع القيمة الموجودة عند تقاطع row_num وcolumn_num داخل Array/Range. أما تحديد موضع قيمة داخل Range فده أقرب لوظيفة MATCH.",
+        "options": {
+          "A": "غلط؛ إرجاع Position هو دور MATCH في الاستخدام الشائع.",
+          "B": "صح؛ INDEX ترجع القيمة عند Row/Column محددين.",
+          "C": "غلط؛ لا تجمع القيم.",
+          "D": "غلط؛ لا تعدّ الخلايا المطابقة."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0043",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0044",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 44,
+      "originalQuestionNumber": 44,
+      "question": "What is the correct basic syntax for INDEX?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INDEX(array, row_num, [column_num])"
+        },
+        {
+          "id": "B",
+          "text": "INDEX(row_num, array, column_num)"
+        },
+        {
+          "id": "C",
+          "text": "INDEX(array, criteria)"
+        },
+        {
+          "id": "D",
+          "text": "INDEX(column_num, row_num, array)"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "general-formulas",
+      "topic": "General Formulas & Functions",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "e12fe9a501e67720",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 9,
+        "originalQuestionNumber": 44
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «INDEX(array, row_num, [column_num])» هو التعريف أو السلوك الصحيح المرتبط بموضوع General Formulas & Functions وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "Syntax الأساسية لـINDEX في صورة Array هي INDEX(array, row_num, [column_num])، وcolumn_num اختياري في بعض الحالات مثل Single-Column Array.",
+        "options": {
+          "A": "صح؛ ده ترتيب الـArguments الصحيح.",
+          "B": "غلط؛ row_num لا يأتي قبل array.",
+          "C": "غلط؛ INDEX لا تستخدم criteria كـArgument بهذه الصورة.",
+          "D": "غلط؛ ترتيب Arguments معكوس."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0044",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0045",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 45,
+      "originalQuestionNumber": 45,
+      "question": "Why is INDEX often combined with MATCH?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MATCH finds the position of a value, which INDEX then uses to retrieve the actual value"
+        },
+        {
+          "id": "B",
+          "text": "INDEX cannot work without MATCH"
+        },
+        {
+          "id": "C",
+          "text": "MATCH sums values that INDEX then counts"
+        },
+        {
+          "id": "D",
+          "text": "They must always be used together for formatting"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "general-formulas",
+      "topic": "General Formulas & Functions",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "45945fb6d0095fe3",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 9,
+        "originalQuestionNumber": 45
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «MATCH finds the position of a value, which INDEX then uses to retrieve the actual value» هو التفسير الأقرب للسلوك الصحيح في General Formulas & Functions.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "MATCH تبحث عن موضع lookup_value داخل Range وترجع Position رقمي، ثم INDEX تستخدم هذا الموضع لإرجاع القيمة الفعلية من Range آخر. لذلك الاتنين يكملوا بعض في Lookup مرن.",
+        "options": {
+          "A": "صح؛ ده بالضبط دور كل Function في التركيبة.",
+          "B": "غلط؛ INDEX يمكن استخدامها وحدها لو row/column position معروف.",
+          "C": "غلط؛ MATCH لا تجمع القيم، وINDEX لا تعدّها.",
+          "D": "غلط؛ استخدامهم معًا ليس له علاقة بإجبار Formatting معين."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0045",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0046",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 46,
+      "originalQuestionNumber": 46,
+      "question": "Compared to VLOOKUP, what advantage does INDEX/MATCH offer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It can only look up numeric values"
+        },
+        {
+          "id": "B",
+          "text": "It can look up values to the left of the lookup column, unlike VLOOKUP"
+        },
+        {
+          "id": "C",
+          "text": "It is always faster regardless of data size"
+        },
+        {
+          "id": "D",
+          "text": "It does not require specifying a range"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "lookup-reference",
+      "topic": "Lookup & Reference",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1cdedf088a240b02",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 9,
+        "originalQuestionNumber": 46
+      },
+      "aiExplanation": {
+        "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Lookup & Reference. الاختيار «It can look up values to the left of the lookup column, unlike VLOOKUP» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "INDEX/MATCH تفصل Range البحث عن Range الإرجاع، فممكن تبحث في عمود وترجع قيمة من عمود على يساره؛ VLOOKUP التقليدية مقيدة بأن Lookup Column تكون أول عمود في table_array.",
+        "options": {
+          "A": "غلط؛ INDEX/MATCH تعمل مع Text وأرقام حسب البيانات.",
+          "B": "صح؛ تتيح Left Lookup بشكل مرن.",
+          "C": "غلط؛ كلمة always تجعل العبارة غير دقيقة؛ الأداء يعتمد على الحالة وحجم البيانات والإصدار.",
+          "D": "غلط؛ ما زلت تحتاج تحديد Ranges داخل INDEX وMATCH."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0046",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0047",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 47,
+      "originalQuestionNumber": 47,
+      "question": "If you omit the column_num argument in INDEX for a single-column array, what\nhappens?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Excel returns an error"
+        },
+        {
+          "id": "B",
+          "text": "Excel assumes column_num is 1 and returns the value from that row"
+        },
+        {
+          "id": "C",
+          "text": "Excel returns the entire array"
+        },
+        {
+          "id": "D",
+          "text": "Excel sums the entire array"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "general-formulas",
+      "topic": "General Formulas & Functions",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "6da6f47f6cb8560f",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 10,
+        "originalQuestionNumber": 47
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Excel assumes column_num is 1 and returns the value from that row» هو التفسير الأقرب للسلوك الصحيح في General Formulas & Functions.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "لو Array عبارة عن Column واحد، مفيش اختيار بين أعمدة متعددة، لذلك Excel يعتبر column_num = 1 ويستخدم row_num لتحديد القيمة المطلوبة.",
+        "options": {
+          "A": "غلط؛ حذف column_num مسموح في Single-Column Array.",
+          "B": "صح؛ يتم افتراض العمود الأول والوحيد.",
+          "C": "غلط؛ لا ترجع الـArray بالكامل لمجرد حذف column_num.",
+          "D": "غلط؛ INDEX لا تقوم بعملية SUM."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0047",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0048",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 48,
+      "originalQuestionNumber": 48,
+      "question": "What does the MODE function calculate in Excel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The average of a set of numbers"
+        },
+        {
+          "id": "B",
+          "text": "The most frequently occurring value in a set of numbers"
+        },
+        {
+          "id": "C",
+          "text": "The middle value in a sorted set of numbers"
+        },
+        {
+          "id": "D",
+          "text": "The total sum of a set of numbers"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "power-pivot-dax",
+      "topic": "Power Pivot & DAX",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "adf10a85c9d10fb9",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 10,
+        "originalQuestionNumber": 48
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «The most frequently occurring value in a set of numbers» هو التعريف أو السلوك الصحيح المرتبط بموضوع Power Pivot & DAX وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "MODE تقيس القيمة الأكثر تكرارًا في مجموعة بيانات. Mean هو المتوسط الحسابي، Median هي القيمة الوسطى بعد الترتيب، وSum هو المجموع.",
+        "options": {
+          "A": "غلط؛ المتوسط الحسابي هو AVERAGE/Mean.",
+          "B": "صح؛ Mode هي القيمة الأكثر تكرارًا.",
+          "C": "غلط؛ القيمة الوسطى هي Median.",
+          "D": "غلط؛ المجموع هو Sum."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0048",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0049",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 49,
+      "originalQuestionNumber": 49,
+      "question": "Which modern function is recommended over MODE for finding a single most\nfrequent value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MODE.SNGL"
+        },
+        {
+          "id": "B",
+          "text": "AVERAGEIF"
+        },
+        {
+          "id": "C",
+          "text": "SUMPRODUCT"
+        },
+        {
+          "id": "D",
+          "text": "COUNTBLANK"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "statistics",
+      "topic": "Statistics",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a911c58e7c03d90d",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 10,
+        "originalQuestionNumber": 49
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «MODE.SNGL» هو التعريف أو السلوك الصحيح المرتبط بموضوع Statistics وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "MODE.SNGL هي الدالة الحديثة التي ترجع قيمة Mode واحدة. توجد أيضًا MODE.MULT لو البيانات لها أكثر من Mode وتريد إرجاع أكثر من نتيجة.",
+        "options": {
+          "A": "صح؛ MODE.SNGL هي البديل الحديث لإرجاع Mode واحدة.",
+          "B": "غلط؛ AVERAGEIF تحسب متوسطًا بشرط.",
+          "C": "غلط؛ SUMPRODUCT تنفذ مجموع حاصل ضرب Arrays وليست دالة Mode.",
+          "D": "غلط؛ COUNTBLANK تعدّ الخلايا الفارغة."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0049",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-excel-q0050",
+      "trackId": "excel",
+      "track": "Excel",
+      "officialSet": 1,
+      "originalOrder": 50,
+      "originalQuestionNumber": 50,
+      "question": "What does MODE return if there is no repeating value in the dataset?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Zero"
+        },
+        {
+          "id": "B",
+          "text": "#N/A error"
+        },
+        {
+          "id": "C",
+          "text": "The first value in the range"
+        },
+        {
+          "id": "D",
+          "text": "The average of all values"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "statistics",
+      "topic": "Statistics",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "37e5e9eeb2e1279c",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 10,
+        "originalQuestionNumber": 50
+      },
+      "aiExplanation": {
+        "ar": "لأننا بنتتبع تنفيذ التعبير/الكود خطوة بخطوة، فالنتيجة النهائية المطابقة هي «#N/A error». لازم نركز على ترتيب العمليات والسلوك الفعلي للدالة أو الاستعلام.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-pilot",
+        "summary": "لو كل القيم مختلفة ولا توجد قيمة تتكرر أكثر من غيرها، فلا يوجد Mode يمكن إرجاعه، لذلك MODE ترجع #N/A حسب الإجابة الرسمية.",
+        "options": {
+          "A": "غلط؛ عدم وجود Mode لا يعني أن النتيجة Zero.",
+          "B": "صح؛ #N/A تشير إلى عدم وجود قيمة متكررة تصلح كـMode.",
+          "C": "غلط؛ الدالة لا تختار أول قيمة عشوائيًا.",
+          "D": "غلط؛ Average مفهوم مختلف تمامًا عن Mode."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-excel-q0050",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    }
+  ]
+}

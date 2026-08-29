@@ -1,0 +1,3415 @@
+{
+  "schemaVersion": "1.0",
+  "bankId": "official-professional-tableau-bank-002",
+  "title": "Professional Tableau Official QBank - Section 2",
+  "levelId": "professional-data-analysis",
+  "trackId": "tableau",
+  "track": "Tableau",
+  "sourceType": "official-qbank",
+  "authority": "Official Ministry QBank",
+  "sourceFile": "Professional_MCQ_Exercises.pdf",
+  "sourceRevision": "professional-tableau-r1",
+  "questionCount": 50,
+  "questions": [
+    {
+      "id": "official-professional-tableau-q0051",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 51,
+      "originalQuestionNumber": 8,
+      "question": "A user should choose one value between 1000, 2000, and 3000 to control a Sales Threshold calculation.\nWhich feature should hold the selected threshold?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Group"
+        },
+        {
+          "id": "B",
+          "text": "Hierarchy"
+        },
+        {
+          "id": "C",
+          "text": "Cluster"
+        },
+        {
+          "id": "D",
+          "text": "Parameter"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "analytics",
+      "topic": "Analytics",
+      "difficulty": "Hard",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "6a701a22f67283e8",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 191,
+        "originalQuestionNumber": 8
+      },
+      "aiExplanation": {
+        "ar": "لأن كل Function/Feature في Analytics لها وظيفة محددة. «Parameter» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما المستخدم يختار قيمة واحدة مثل 1000 أو2000 أو3000 علشان تتحكم في Calculation، فالـParameter هي الأنسب لأنها تخزن Input واحدة قابلة للتغيير.",
+        "options": {
+          "A": "غلط؛ Group تجمع Members من Dimension في Category واحدة، ولا تخزن Threshold واحدة يختارها المستخدم.",
+          "B": "غلط؛ Hierarchy تنظّم مستويات Detail مرتبطة، مثل Region ثمCity.",
+          "C": "غلط؛ Cluster تجمع Marks المتشابهة تحليليًا، ولا تعمل كInput value.",
+          "D": "صح؛ Parameter تخزن قيمة واحدة يختارها المستخدم ويمكن استخدامها في Sales Threshold calculation."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0051",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0052",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 52,
+      "originalQuestionNumber": 9,
+      "question": "What will this calculated field return when Sales = 850?\nIF [Sales] >= 1000 THEN \"High\" ELSE \"Standard\" END",
+      "options": [
+        {
+          "id": "A",
+          "text": "Standard"
+        },
+        {
+          "id": "B",
+          "text": "High"
+        },
+        {
+          "id": "C",
+          "text": "850"
+        },
+        {
+          "id": "D",
+          "text": "TRUE"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "calculations",
+      "topic": "Calculated Fields & Calculations",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "9c16a7c8b8e932e3",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 191,
+        "originalQuestionNumber": 9
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Standard» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Calculations وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الشرط يفحص هل Sales أكبر من أوتساوي 1000. بما أن 850 أقل من 1000، يتم تنفيذ ELSE وإرجاع Standard.",
+        "options": {
+          "A": "صح؛ 850 لا تحقق شرط >=1000، لذلك النتيجة Standard.",
+          "B": "غلط؛ High تظهر فقط إذا كانت Sales على الأقل 1000.",
+          "C": "غلط؛ Calculation ترجع نصًا High أوStandard، وليس الرقم 850.",
+          "D": "غلط؛ الـIF هنا ترجع Text result وليس Boolean."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0052",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0053",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 53,
+      "originalQuestionNumber": 10,
+      "question": "You need a new value equal to Sales minus Cost for every record. Which approach is the most\nsuitable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Create a hierarchy from Sales to Cost."
+        },
+        {
+          "id": "B",
+          "text": "Create a calculated field such as [Sales] - [Cost]."
+        },
+        {
+          "id": "C",
+          "text": "Create a group containing Sales and Cost."
+        },
+        {
+          "id": "D",
+          "text": "Create a story point for each value."
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "parameters-sets-groups",
+      "topic": "Parameters, Sets, Groups & Hierarchies",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1a7a29aad90a37ae",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 191,
+        "originalQuestionNumber": 10
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Create a calculated field such as [Sales] - [Cost].» هو التعريف أو السلوك الصحيح المرتبط بموضوع Parameters, Sets, Groups & Hierarchies وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإنشاء قيمة جديدة لكل Record اعتمادًا على Fields موجودة، نستخدم Calculated Field بصيغة مثل [Sales] - [Cost].",
+        "options": {
+          "A": "غلط؛ Hierarchy تنظم مستويات Dimensions ولا تنفذ طرحًا بين Measures.",
+          "B": "صح؛ Calculated Field هي الأداة المناسبة لحساب Sales minus Cost.",
+          "C": "غلط؛ Group تجمع Members وليست عملية حسابية.",
+          "D": "غلط؛ Story تنظّم تسلسل Views ولا تحسب قيمة لكل Record."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0053",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0054",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 54,
+      "originalQuestionNumber": 11,
+      "question": "A worksheet contains 200 products. You want to display only the 10 products with the highest\nSUM(Sales). Which filter option best matches the requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Wildcard filter containing the text 10"
+        },
+        {
+          "id": "B",
+          "text": "General filter selecting the first 10 product names"
+        },
+        {
+          "id": "C",
+          "text": "Condition filter where Product Name is greater than 10"
+        },
+        {
+          "id": "D",
+          "text": "Top filter: Top 10 by SUM(Sales)"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filters",
+      "topic": "Filters",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "0244eccdb4ed9ad3",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 192,
+        "originalQuestionNumber": 11
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Filters. الاختيار «Top filter: Top 10 by SUM(Sales)» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "المطلوب اختيار أعلى 10 Products حسب SUM(Sales)، وده بالضبط استخدام Top filter المبني على Measure مجمعة.",
+        "options": {
+          "A": "غلط؛ Wildcard filter تبحث في Text pattern، وليس Top 10 حسب Sales.",
+          "B": "غلط؛ اختيار أول 10 أسماء لا يضمن أنهم الأعلى مبيعًا.",
+          "C": "غلط؛ Product Name ليس رقمًا للمقارنة >10، والشرط لا يمثل ترتيبًا حسب Sales.",
+          "D": "صح؛ Top 10 by SUM(Sales) يطابق المتطلب مباشرة."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0054",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0055",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 55,
+      "originalQuestionNumber": 12,
+      "question": "Which chart displays data using bars?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pie chart"
+        },
+        {
+          "id": "B",
+          "text": "Line chart"
+        },
+        {
+          "id": "C",
+          "text": "Bar chart"
+        },
+        {
+          "id": "D",
+          "text": "Map"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Easy",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "d718d248e3118c92",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 192,
+        "originalQuestionNumber": 12
+      },
+      "aiExplanation": {
+        "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Bar chart» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Bar chart تعرض القيم باستخدام أشرطة، وطول كل Bar يمثل مقدار القيمة.",
+        "options": {
+          "A": "غلط؛ Pie chart تستخدم Slices.",
+          "B": "غلط؛ Line chart تستخدم خطوطًا تربط النقاط.",
+          "C": "صح؛ Bar chart تعتمد على Bars.",
+          "D": "غلط؛ Map تمثل البيانات مكانيًا."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0055",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0056",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 56,
+      "originalQuestionNumber": 13,
+      "question": "You want to filter Customer Name so that only names beginning with \"A\" are kept. Which filter type\nis the most direct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Wildcard filter"
+        },
+        {
+          "id": "B",
+          "text": "Top filter"
+        },
+        {
+          "id": "C",
+          "text": "Context filter"
+        },
+        {
+          "id": "D",
+          "text": "Measure Names filter"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filters",
+      "topic": "Filters",
+      "difficulty": "Hard",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3a3ada38048d3d6c",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 192,
+        "originalQuestionNumber": 13
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Wildcard filter» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو المطلوب الاحتفاظ بأسماء تبدأ بحرف A، فالـWildcard filter هي الأكثر مباشرة لأنها تدعم Pattern matching على Text.",
+        "options": {
+          "A": "صح؛ يمكن ضبطها على Starts With A.",
+          "B": "غلط؛ Top filter تعتمد على Ranking وليس بداية النص.",
+          "C": "غلط؛ Context filter تتعلق بأولوية/سياق التصفية وليس Text pattern.",
+          "D": "غلط؛ Measure Names filter تخص أسماء Measures."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0056",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0057",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 57,
+      "originalQuestionNumber": 14,
+      "question": "You have separate worksheets for Sales Trend, Sales by Category, and Sales Map. You want users to\nsee and interact with them together on one screen. What should you create?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A hierarchy"
+        },
+        {
+          "id": "B",
+          "text": "A calculated field"
+        },
+        {
+          "id": "C",
+          "text": "A dashboard"
+        },
+        {
+          "id": "D",
+          "text": "A data-source filter"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "spatial",
+      "topic": "Spatial & Maps",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "7340171fd65dbd53",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 192,
+        "originalQuestionNumber": 14
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «A dashboard» هو التعريف أو السلوك الصحيح المرتبط بموضوع Spatial & Maps وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dashboard هي المكان الذي يجمع Worksheets متعددة على شاشة واحدة مع إمكانية التفاعل بينها.",
+        "options": {
+          "A": "غلط؛ Hierarchy تنظم مستويات Detail داخل Fields.",
+          "B": "غلط؛ Calculated Field تنتج قيمة مشتقة.",
+          "C": "صح؛ Dashboard تجمع Sales Trend وCategory وMap على شاشة واحدة.",
+          "D": "غلط؛ Data-source filter تقيد البيانات ولا تجمع Views."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0057",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0058",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 58,
+      "originalQuestionNumber": 15,
+      "question": "A dashboard contains a bar chart by Category and a map by City. You want clicking a Category bar to\nlimit the map to that Category. Which feature best supports this behavior?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A hierarchy inside the map"
+        },
+        {
+          "id": "B",
+          "text": "A filter action between the two views"
+        },
+        {
+          "id": "C",
+          "text": "A group created from the cities"
+        },
+        {
+          "id": "D",
+          "text": "A parameter that stores the dashboard name"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "spatial",
+      "topic": "Spatial & Maps",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "ea8922bd87b52ce9",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 192,
+        "originalQuestionNumber": 15
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Spatial & Maps. الاختيار «A filter action between the two views» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Filter Action تسمح لاختيار Mark في Worksheet أن يفلتر Worksheet أخرى داخل Dashboard، مثل Category bar يفلتر Map.",
+        "options": {
+          "A": "غلط؛ Hierarchy داخل الخريطة لا تربط Click event بين Views.",
+          "B": "صح؛ Filter action تنقل التحديد كFilter للView الهدف.",
+          "C": "غلط؛ Group للمدن لا تربط التفاعل بين Chart وMap.",
+          "D": "غلط؛ Parameter باسم Dashboard لا تحقق Click-to-filter المطلوب."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0058",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0059",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 59,
+      "originalQuestionNumber": 16,
+      "question": "You want to present an analysis in this order: Overview -> Regional Issue -> Product Detail -> Final\nRecommendation. Which Tableau feature is designed for this sequence?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Set"
+        },
+        {
+          "id": "B",
+          "text": "Group"
+        },
+        {
+          "id": "C",
+          "text": "Cluster"
+        },
+        {
+          "id": "D",
+          "text": "Story"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "analytics",
+      "topic": "Analytics",
+      "difficulty": "Hard",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1516e3206b9f7079",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 192,
+        "originalQuestionNumber": 16
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Story» هو التفسير الأقرب للسلوك الصحيح في Analytics.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Story مصممة لتقديم تحليل في تسلسل منطقي من Story Points، مثل Overview ثمIssue ثمDetail ثمRecommendation.",
+        "options": {
+          "A": "غلط؛ Set تمثل Membership لمجموعة.",
+          "B": "غلط؛ Group تجمع Dimension members.",
+          "C": "غلط؛ Cluster تجمع Marks متشابهة.",
+          "D": "صح؛ Story هي الميزة الخاصة بالتسلسل السردي للViews."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0059",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0060",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 60,
+      "originalQuestionNumber": 17,
+      "question": "Your data contains Latitude and Longitude columns and you want to create one spatial point from\neach row. Which calculation is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DISTANCE([Latitude], [Longitude])"
+        },
+        {
+          "id": "B",
+          "text": "MAKEPOINT([Latitude], [Longitude])"
+        },
+        {
+          "id": "C",
+          "text": "GROUP([Latitude], [Longitude])"
+        },
+        {
+          "id": "D",
+          "text": "CLUSTER([Latitude], [Longitude])"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "spatial",
+      "topic": "Spatial & Maps",
+      "difficulty": "Hard",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "aef0be039079c370",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 192,
+        "originalQuestionNumber": 17
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Spatial & Maps. الاختيار «MAKEPOINT([Latitude], [Longitude])» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "MAKEPOINT تجمع Latitude وLongitude في Spatial Point واحدة لكل Row.",
+        "options": {
+          "A": "غلط؛ DISTANCE تحتاج Spatial points لقياس المسافة بينها، ولا تنشئ نقطة من إحداثيين.",
+          "B": "صح؛ MAKEPOINT([Latitude],[Longitude]) هي الحساب المناسب.",
+          "C": "غلط؛ GROUP ليست Spatial calculation.",
+          "D": "غلط؛ CLUSTER لا تنشئ Geometry."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0060",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0061",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 61,
+      "originalQuestionNumber": 18,
+      "question": "Where do you normally create one individual chart in Tableau?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Worksheet"
+        },
+        {
+          "id": "B",
+          "text": "Story"
+        },
+        {
+          "id": "C",
+          "text": "Parameter"
+        },
+        {
+          "id": "D",
+          "text": "Data Source page"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "5bb0635dccf6eea5",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 193,
+        "originalQuestionNumber": 18
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Worksheet» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Design وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "الChart الفردية يتم إنشاؤها عادةً داخل Worksheet.",
+        "options": {
+          "A": "صح؛ Worksheet هي مساحة بناء View/Chart منفردة.",
+          "B": "غلط؛ Story تجمع تسلسل Views.",
+          "C": "غلط؛ Parameter Input value.",
+          "D": "غلط؛ Data Source page لإدارة الاتصال والبيانات."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0061",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0062",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 62,
+      "originalQuestionNumber": 19,
+      "question": "A scatter plot shows stores using Sales and Profit. You want Tableau to automatically find stores with\nsimilar patterns and place them into groups. Which feature should you use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hierarchy"
+        },
+        {
+          "id": "B",
+          "text": "Parameter"
+        },
+        {
+          "id": "C",
+          "text": "Story"
+        },
+        {
+          "id": "D",
+          "text": "Cluster"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "parameters-sets-groups",
+      "topic": "Parameters, Sets, Groups & Hierarchies",
+      "difficulty": "Hard",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "b2410d517c187468",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 193,
+        "originalQuestionNumber": 19
+      },
+      "aiExplanation": {
+        "ar": "لأن كل Function/Feature في Parameters, Sets, Groups & Hierarchies لها وظيفة محددة. «Cluster» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Cluster تستخدم لتجميع Stores ذات الأنماط المتشابهة تلقائيًا بناءً على Measures مثل Sales وProfit.",
+        "options": {
+          "A": "غلط؛ Hierarchy للتنقل بين مستويات Detail.",
+          "B": "غلط؛ Parameter قيمة يحددها المستخدم.",
+          "C": "غلط؛ Story لتسلسل التحليل.",
+          "D": "صح؛ Cluster هي الميزة المخصصة للتجميع التلقائي حسب التشابه."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0062",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0063",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 63,
+      "originalQuestionNumber": 20,
+      "question": "Where can you combine multiple charts on one screen?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Group"
+        },
+        {
+          "id": "B",
+          "text": "Calculated field"
+        },
+        {
+          "id": "C",
+          "text": "Dashboard"
+        },
+        {
+          "id": "D",
+          "text": "Filter"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "bbc34efecf58fdc4",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 193,
+        "originalQuestionNumber": 20
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Dashboard» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Design وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dashboard تجمع عدة Charts/Worksheets في Layout واحدة تفاعلية.",
+        "options": {
+          "A": "غلط؛ Group تجمع Dimension members.",
+          "B": "غلط؛ Calculated field للحساب.",
+          "C": "صح؛ Dashboard هي المكان المناسب لتجميع Charts.",
+          "D": "غلط؛ Filter تقيد البيانات ولا تجمع Views."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0063",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0064",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 64,
+      "originalQuestionNumber": 21,
+      "question": "Before creating charts in Tableau, what should you do first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Write Python code"
+        },
+        {
+          "id": "B",
+          "text": "Connect Tableau to the data"
+        },
+        {
+          "id": "C",
+          "text": "Create a dashboard"
+        },
+        {
+          "id": "D",
+          "text": "Create a story"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Easy",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "02f2009cf2acc3ec",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 193,
+        "originalQuestionNumber": 21
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Connect Tableau to the data» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Design وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "قبل بناء Charts لازم Tableau تكون متصلة بمصدر البيانات الذي ستستخدمه.",
+        "options": {
+          "A": "غلط؛ Python ليست خطوة إلزامية لبداية Tableau.",
+          "B": "صح؛ الاتصال بالبيانات هو البداية الطبيعية.",
+          "C": "غلط؛ Dashboard تأتي بعد وجود Worksheets.",
+          "D": "غلط؛ Story تبنى بعد وجود Views للتحليل."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0064",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0065",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 65,
+      "originalQuestionNumber": 22,
+      "question": "Which chart is usually best for showing how Sales changes over time?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Line chart"
+        },
+        {
+          "id": "B",
+          "text": "Pie chart"
+        },
+        {
+          "id": "C",
+          "text": "Map"
+        },
+        {
+          "id": "D",
+          "text": "Text table"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Easy",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "543d34888db39dda",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 193,
+        "originalQuestionNumber": 22
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & Design. الاختيار «Line chart» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Line chart هي الأنسب غالبًا لعرض تغير Sales عبر الزمن لأنها توضح Trend من نقطة زمنية لأخرى.",
+        "options": {
+          "A": "صح؛ مناسبة للسلاسل الزمنية.",
+          "B": "غلط؛ Pie chart لParts of Whole.",
+          "C": "غلط؛ Map للتحليل الجغرافي.",
+          "D": "غلط؛ Text table تعرض أرقامًا لكن لا توضح Trend بصريًا بنفس القوة."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0065",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0066",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 66,
+      "originalQuestionNumber": 23,
+      "question": "Which field is most likely a Dimension?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sales"
+        },
+        {
+          "id": "B",
+          "text": "Profit"
+        },
+        {
+          "id": "C",
+          "text": "Customer Name"
+        },
+        {
+          "id": "D",
+          "text": "Quantity"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dimensions-measures",
+      "topic": "Dimensions, Measures & Field Types",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "cc9ebbdd758e067f",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 193,
+        "originalQuestionNumber": 23
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Customer Name» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Customer Name Field وصفية تصنيفية، لذلك هي الأكثر احتمالًا أن تكون Dimension.",
+        "options": {
+          "A": "غلط؛ Sales عادةً Measure رقمية.",
+          "B": "غلط؛ Profit عادةً Measure رقمية.",
+          "C": "صح؛ Customer Name Field وصفية.",
+          "D": "غلط؛ Quantity عادةً Measure رقمية."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0066",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0067",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 67,
+      "originalQuestionNumber": 24,
+      "question": "Which field is most likely a Measure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Product Name"
+        },
+        {
+          "id": "B",
+          "text": "Region"
+        },
+        {
+          "id": "C",
+          "text": "Category"
+        },
+        {
+          "id": "D",
+          "text": "Sales"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dimensions-measures",
+      "topic": "Dimensions, Measures & Field Types",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "2d6e91a2f462ae63",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 193,
+        "originalQuestionNumber": 24
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Sales» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Sales قيمة رقمية قابلة للتجميع، لذلك هي Measure نموذجية.",
+        "options": {
+          "A": "غلط؛ Product Name Dimension وصفية.",
+          "B": "غلط؛ Region Dimension تصنيفية.",
+          "C": "غلط؛ Category Dimension تصنيفية.",
+          "D": "صح؛ Sales Measure رقمية قابلة للAggregation."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0067",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0068",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 68,
+      "originalQuestionNumber": 25,
+      "question": "Which visualization should you use to show Sales by country?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Map"
+        },
+        {
+          "id": "B",
+          "text": "Bar chart"
+        },
+        {
+          "id": "C",
+          "text": "Parameter"
+        },
+        {
+          "id": "D",
+          "text": "Story"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "spatial",
+      "topic": "Spatial & Maps",
+      "difficulty": "Easy",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "b8ff98817600e530",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 193,
+        "originalQuestionNumber": 25
+      },
+      "aiExplanation": {
+        "ar": "لأن اختيار الـvisual بيعتمد على نوع المقارنة أو التحليل المطلوب. «Map» هو الأنسب لطبيعة البيانات والهدف المذكور في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإظهار Sales حسب Country، الـMap هي Visualization الطبيعية لأنها تربط القيمة بالموقع الجغرافي.",
+        "options": {
+          "A": "صح؛ Map مناسبة للCountry-level geographic analysis.",
+          "B": "غلط؛ Bar chart يمكنها المقارنة لكنها لا تعرض البعد الجغرافي مكانيًا.",
+          "C": "غلط؛ Parameter ليست Visualization.",
+          "D": "غلط؛ Story تسلسل Views وليست Chart type."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0068",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0069",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 69,
+      "originalQuestionNumber": 26,
+      "question": "If you place Category on Rows and Sales on Columns, what will Tableau most likely show?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A country map"
+        },
+        {
+          "id": "B",
+          "text": "A Sales comparison by Category"
+        },
+        {
+          "id": "C",
+          "text": "A customer list"
+        },
+        {
+          "id": "D",
+          "text": "A multi-page story"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "calculations",
+      "topic": "Calculated Fields & Calculations",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "dd7fef39bb30958f",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 194,
+        "originalQuestionNumber": 26
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «A Sales comparison by Category» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Calculations وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Category على Rows وSales على Columns ينتج عادةً مقارنة Sales بين Categories، غالبًا في شكل Bars حسب الإعدادات الافتراضية.",
+        "options": {
+          "A": "غلط؛ لا يوجد Geographic field لإنشاء Map.",
+          "B": "صح؛ Field placement ينتج Comparison by Category.",
+          "C": "غلط؛ لا يطلب Customer field.",
+          "D": "غلط؛ Story لا تُنشأ بوضع Fields على Rows/Columns."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0069",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0070",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 70,
+      "originalQuestionNumber": 27,
+      "question": "What should you use to display only one selected Category?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cluster"
+        },
+        {
+          "id": "B",
+          "text": "Hierarchy"
+        },
+        {
+          "id": "C",
+          "text": "Filter"
+        },
+        {
+          "id": "D",
+          "text": "Story"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "analytics",
+      "topic": "Analytics",
+      "difficulty": "Hard",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c2155c5e1603adb6",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 194,
+        "originalQuestionNumber": 27
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Filter» هو التعريف أو السلوك الصحيح المرتبط بموضوع Analytics وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لإظهار Category واحدة فقط نستخدم Filter على Category.",
+        "options": {
+          "A": "غلط؛ Cluster للتجميع حسب التشابه.",
+          "B": "غلط؛ Hierarchy للتنقل بين مستويات.",
+          "C": "صح؛ Filter تقيد البيانات للقيمة المختارة.",
+          "D": "غلط؛ Story لا تستخدم لتقييد Category واحدة."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0070",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0071",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 71,
+      "originalQuestionNumber": 28,
+      "question": "Which option on the Marks card changes the color of the marks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data Source"
+        },
+        {
+          "id": "B",
+          "text": "Pages"
+        },
+        {
+          "id": "C",
+          "text": "Tooltip"
+        },
+        {
+          "id": "D",
+          "text": "Color"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dimensions-measures",
+      "topic": "Dimensions, Measures & Field Types",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "e3928232d7ffaae8",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 194,
+        "originalQuestionNumber": 28
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Color» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Color على Marks card تتحكم في لون Marks ويمكن استخدامها لتمييز Categories أوتمثيل Measure بالألوان.",
+        "options": {
+          "A": "غلط؛ Data Source لإدارة مصدر البيانات.",
+          "B": "غلط؛ Pages تتحكم في تسلسل Pages حسب Field.",
+          "C": "غلط؛ Tooltip للمعلومات عند Hover.",
+          "D": "صح؛ Color تغير ألوان Marks."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0071",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0072",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 72,
+      "originalQuestionNumber": 29,
+      "question": "What happens when you place a field on Label?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Its values appear as text on the chart"
+        },
+        {
+          "id": "B",
+          "text": "Tableau deletes the field"
+        },
+        {
+          "id": "C",
+          "text": "A new dashboard is created"
+        },
+        {
+          "id": "D",
+          "text": "The data becomes a map"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "74f1078602e10c28",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 194,
+        "originalQuestionNumber": 29
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Its values appear as text on the chart» هو التفسير الأقرب للسلوك الصحيح في Visualizations & Design.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "وضع Field على Label يجعل قيمها تظهر كنصوص على Marks في الـView.",
+        "options": {
+          "A": "صح؛ Label تضيف Text labels على الرسم.",
+          "B": "غلط؛ الحقل لا يُحذف.",
+          "C": "غلط؛ لا تنشئ Dashboard.",
+          "D": "غلط؛ Label لا تحول البيانات إلى Map."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0072",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0073",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 73,
+      "originalQuestionNumber": 30,
+      "question": "What is the purpose of a Tooltip?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Change the data source type"
+        },
+        {
+          "id": "B",
+          "text": "Show information when the pointer is over a mark"
+        },
+        {
+          "id": "C",
+          "text": "Combine multiple worksheets"
+        },
+        {
+          "id": "D",
+          "text": "Delete null values"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dashboards-actions",
+      "topic": "Dashboards, Actions & Stories",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c13ac4b77d73ecf2",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 194,
+        "originalQuestionNumber": 30
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Dashboards, Actions & Stories. الاختيار «Show information when the pointer is over a mark» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Tooltip تعرض معلومات إضافية عندما يمر Pointer فوق Mark.",
+        "options": {
+          "A": "غلط؛ Data source type لا تتغير بالTooltip.",
+          "B": "صح؛ هذا هو استخدامها الأساسي.",
+          "C": "غلط؛ Dashboard هي التي تجمع Worksheets.",
+          "D": "غلط؛ Tooltip لا تنظف Nulls."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0073",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0074",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 74,
+      "originalQuestionNumber": 31,
+      "question": "Which feature can help you change a Bar Chart into a Line Chart?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data pane"
+        },
+        {
+          "id": "B",
+          "text": "Filters shelf"
+        },
+        {
+          "id": "C",
+          "text": "Show Me or the Marks card"
+        },
+        {
+          "id": "D",
+          "text": "Story pane"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "32acbeaf3ca71894",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 194,
+        "originalQuestionNumber": 31
+      },
+      "aiExplanation": {
+        "ar": "لأن كل Function/Feature في Visualizations & Design لها وظيفة محددة. «Show Me or the Marks card» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Show Me أوMarks card تسمح بتغيير نوع Visualization مثل التحويل من Bar إلىLine.",
+        "options": {
+          "A": "غلط؛ Data pane لإدارة Fields.",
+          "B": "غلط؛ Filters shelf للتصفية.",
+          "C": "صح؛ كلاهما يساعد في تغيير نوع Chart.",
+          "D": "غلط؛ Story pane لبناء التسلسل السردي."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0074",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0075",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 2,
+      "originalOrder": 75,
+      "originalQuestionNumber": 32,
+      "question": "What appears after you choose Show Filter?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A new calculated field"
+        },
+        {
+          "id": "B",
+          "text": "A new data source"
+        },
+        {
+          "id": "C",
+          "text": "A new worksheet"
+        },
+        {
+          "id": "D",
+          "text": "A filter control for selecting values"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filters",
+      "topic": "Filters",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "adc143a555df4537",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 194,
+        "originalQuestionNumber": 32
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «A filter control for selecting values» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Show Filter تعرض Filter Control في الـView أوDashboard ليسمح للمستخدم باختيار Values.",
+        "options": {
+          "A": "غلط؛ لا تنشئ Calculated Field.",
+          "B": "غلط؛ لا تضيف Data Source.",
+          "C": "غلط؛ لا تنشئ Worksheet.",
+          "D": "صح؛ يظهر Filter control للتفاعل مع القيم."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0075",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0076",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 76,
+      "originalQuestionNumber": 16,
+      "question": "Which filter is most appropriate for keeping orders whose aggregated Profit is between 5,000 and\n20,000?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A hierarchy filter containing Profit, Sales, and Quantity, within the report setup described in the question."
+        },
+        {
+          "id": "B",
+          "text": "A wildcard filter applied to the textual form of Profit."
+        },
+        {
+          "id": "C",
+          "text": "A measure range filter based on the aggregated Profit value."
+        },
+        {
+          "id": "D",
+          "text": "A geographic filter that treats Profit as a postal code."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filters",
+      "topic": "Filters",
+      "difficulty": "Medium",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "f2ec2a8e3e09f6b0",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 195,
+        "originalQuestionNumber": 16
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Filters. الاختيار «A measure range filter based on the aggregated Profit value.» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما الشرط على Measure مجمعة مثل Profit ويجب أن تقع بين 5000 و20000، Measure range filter هي الأنسب.",
+        "options": {
+          "A": "غلط؛ Hierarchy ليست Filter Range على Profit.",
+          "B": "غلط؛ Wildcard filter مخصصة للنصوص وليست نطاقًا عدديًا.",
+          "C": "صح؛ Measure range filter تطابق شرط Aggregated Profit بين حدين.",
+          "D": "غلط؛ Geographic filter لا يناسب Profit."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0076",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0077",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 77,
+      "originalQuestionNumber": 17,
+      "question": "An analyst changes YEAR(Order Date) from discrete to continuous while keeping the Year date level.\nWhat changes visually?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tableau expands each year automatically into quarters and months."
+        },
+        {
+          "id": "B",
+          "text": "Year is converted from a dimension into a numerical measure."
+        },
+        {
+          "id": "C",
+          "text": "The aggregation of every displayed measure changes to AVG."
+        },
+        {
+          "id": "D",
+          "text": "Separate year headers become positions on a continuous axis."
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "calculations",
+      "topic": "Calculated Fields & Calculations",
+      "difficulty": "Hard",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "10151dfc7ee0b059",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 195,
+        "originalQuestionNumber": 17
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Separate year headers become positions on a continuous axis.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Calculated Fields & Calculations وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "تحويل YEAR(Order Date) من Discrete إلىContinuous يحوّل السنوات من Headers منفصلة إلى Positions على Axis مستمر مع بقاء مستوى التاريخ Year.",
+        "options": {
+          "A": "غلط؛ لا يتم التوسع تلقائيًا إلىQuarter/Month بسبب Continuous فقط.",
+          "B": "غلط؛ Year لا تتحول إلى Measure لمجرد تغيير Discrete/Continuous.",
+          "C": "غلط؛ Aggregation للMeasures لا تتحول تلقائيًا إلىAVG.",
+          "D": "صح؛ Headers المنفصلة تصبح نقاطًا على Continuous axis."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0077",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0078",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 78,
+      "originalQuestionNumber": 18,
+      "question": "A line chart should show one point per quarter across three years. Which date configuration is most\nsuitable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use discrete quarter names without adding a year component."
+        },
+        {
+          "id": "B",
+          "text": "Convert Order Date to text and sort the values alphabetically, without altering the connected source records."
+        },
+        {
+          "id": "C",
+          "text": "Use a quarter-level date value that preserves the year in the timeline."
+        },
+        {
+          "id": "D",
+          "text": "Place DAY(Order Date) on Columns and hide most axis labels."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "24453c00537fbef8",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 195,
+        "originalQuestionNumber": 18
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Use a quarter-level date value that preserves the year in the timeline.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Design وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو تريد نقطة لكل Quarter عبر عدة Years، لازم تستخدم Quarter-level Date تحافظ على السنة داخل Timeline حتى لا تتجمع نفس الأرباع من سنوات مختلفة.",
+        "options": {
+          "A": "غلط؛ Quarter names وحدها Q1-Q4 قد تجمع نفس الQuarter عبر سنوات متعددة.",
+          "B": "غلط؛ تحويل التاريخ إلىText وترتيبه أبجديًا يضعف التسلسل الزمني.",
+          "C": "صح؛ Quarter-level date مع Year context تحفظ Timeline الصحيح.",
+          "D": "غلط؛ DAY level أدق من المطلوب ولا يعكس Quarter مباشرة."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0078",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0079",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 79,
+      "originalQuestionNumber": 19,
+      "question": "A view uses only discrete Month Name and combines data from multiple years. What is the core\nissue?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Discrete months are always sorted by total Sales rather than calendar order, while retaining the current filters and field\nroles."
+        },
+        {
+          "id": "B",
+          "text": "The month categories omit the year, so values from different years aggregate together."
+        },
+        {
+          "id": "C",
+          "text": "Month Name automatically filters the dataset to the latest year."
+        },
+        {
+          "id": "D",
+          "text": "The date field becomes a measure whenever multiple years are present."
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dimensions-measures",
+      "topic": "Dimensions, Measures & Field Types",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "bd0a02084fadc3be",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 195,
+        "originalQuestionNumber": 19
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «The month categories omit the year, so values from different years aggregate together.» هو التفسير الأقرب للسلوك الصحيح في Dimensions, Measures & Field Types.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "استخدام Month Name discrete فقط مع سنوات متعددة يزيل Year context، فتتجمع مثلًا كل قيم January من سنوات مختلفة تحت Category واحدة.",
+        "options": {
+          "A": "غلط؛ المشكلة الأساسية ليست Sorting by Sales.",
+          "B": "صح؛ غياب Year يجعل نفس الشهور عبر السنوات تتجمع.",
+          "C": "غلط؛ Month Name لا يفلتر تلقائيًا لأحدث سنة.",
+          "D": "غلط؛ وجود سنوات متعددة لا يحول Date إلىMeasure."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0079",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0080",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 80,
+      "originalQuestionNumber": 20,
+      "question": "What is the practical difference between placing Customer ID on Detail and placing it only on\nTooltip?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Detail filters customers from the view, while Tooltip preserves the visible records, under the stated worksheet\nconfiguration."
+        },
+        {
+          "id": "B",
+          "text": "Tooltip increases granularity, while Detail changes only the displayed description."
+        },
+        {
+          "id": "C",
+          "text": "Detail can increase the number of marks, while Tooltip only adds information shown on interaction."
+        },
+        {
+          "id": "D",
+          "text": "Tooltip converts Customer ID to a measure, while Detail keeps it as a dimension."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dashboards-actions",
+      "topic": "Dashboards, Actions & Stories",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "84c364d202440781",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 196,
+        "originalQuestionNumber": 20
+      },
+      "aiExplanation": {
+        "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Dashboards, Actions & Stories. الاختيار «Detail can increase the number of marks, while Tooltip only adds information shown on interaction.» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Detail تدخل Field في مستوى تفصيل Marks وقد تزيد عدد الـMarks، بينما Tooltip تضيف معلومات تظهر عندHover بدون تغيير Granularity وحدها.",
+        "options": {
+          "A": "غلط؛ Detail لا تعني Filtering تلقائيًا.",
+          "B": "غلط؛ العكس تقريبًا: Detail تؤثر فيGranularity وTooltip في الوصف.",
+          "C": "صح؛ Detail قد تزيد Marks، Tooltip فقط تعرض معلومات إضافية عند التفاعل.",
+          "D": "غلط؛ Tooltip لا تحول Customer ID إلىMeasure."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0080",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0081",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 81,
+      "originalQuestionNumber": 21,
+      "question": "Most marks appear the same color because two Profit values are extreme outliers. Which response is\nmost appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Review the color range and choose a scale that communicates the central values without hiding the outliers."
+        },
+        {
+          "id": "B",
+          "text": "Convert Profit to text so each numerical value receives a separate category color, without altering the connected source\nrecords."
+        },
+        {
+          "id": "C",
+          "text": "Move Profit to Pages because continuous fields cannot be encoded by color."
+        },
+        {
+          "id": "D",
+          "text": "Remove all negative Profit records before applying any color encoding."
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Hard",
+      "questionType": "best-decision",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "992d1e3a2f8614d3",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 196,
+        "originalQuestionNumber": 21
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Visualizations & Design. الاختيار «Review the color range and choose a scale that communicates the central values without hiding the outliers.» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو Outliers تجعل باقي Marks متقاربة لونًا، الأفضل مراجعة Color Range/Scale بحيث تظل القيم المركزية قابلة للقراءة من غير إخفاء Outliers.",
+        "options": {
+          "A": "صح؛ تعديل Scale يحسن التمييز مع الحفاظ على البيانات.",
+          "B": "غلط؛ تحويل Profit إلىText يفقد معناها العددي ويحوّل اللون إلى Categories منفصلة.",
+          "C": "غلط؛ Pages ليست حلًا لمشكلة Color scale.",
+          "D": "غلط؛ حذف كل Negative Profit يغيّر البيانات وقد يزيل معلومات مهمة."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0081",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0082",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 82,
+      "originalQuestionNumber": 22,
+      "question": "When is a reference band more informative than a single reference line?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When the analyst wants to replace every mark with a text label, under the stated worksheet configuration."
+        },
+        {
+          "id": "B",
+          "text": "When a dimension must be converted into a continuous measure."
+        },
+        {
+          "id": "C",
+          "text": "When the analysis needs to emphasize an interval rather than one benchmark value."
+        },
+        {
+          "id": "D",
+          "text": "When the worksheet needs to connect to a second data source."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "analytics",
+      "topic": "Analytics",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c2b93bac2a58d811",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 196,
+        "originalQuestionNumber": 22
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «When the analysis needs to emphasize an interval rather than one benchmark value.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Analytics وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Reference Band تبرز Range أوInterval كامل، بينما Reference Line تمثل قيمة Benchmark واحدة.",
+        "options": {
+          "A": "غلط؛ لا تستبدل Marks بنصوص.",
+          "B": "غلط؛ لا تحول Dimension إلىMeasure.",
+          "C": "صح؛ Band أفضل عندما يكون المهم Interval بين حدين.",
+          "D": "غلط؛ ليس لها علاقة بالاتصال بمصدر ثاني."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0082",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0083",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 83,
+      "originalQuestionNumber": 23,
+      "question": "Which view is most likely to support a meaningful Tableau forecast?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A dashboard image that contains manually typed monthly totals."
+        },
+        {
+          "id": "B",
+          "text": "A text table listing Product Name without any date field."
+        },
+        {
+          "id": "C",
+          "text": "A bar chart containing only discrete Region and Category dimensions, without altering the connected source records."
+        },
+        {
+          "id": "D",
+          "text": "A continuous monthly timeline with an aggregated Sales measure and sufficient history."
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "analytics",
+      "topic": "Analytics",
+      "difficulty": "Hard",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1394b69f16ba14f1",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 196,
+        "originalQuestionNumber": 23
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «A continuous monthly timeline with an aggregated Sales measure and sufficient history.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Analytics وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Forecast يحتاج Timeline زمنية واضحة مع Measure مجمعة وتاريخ كافٍ. Continuous monthly timeline مع Sales هي الأنسب بين الخيارات.",
+        "options": {
+          "A": "غلط؛ صورة Dashboard بأرقام مكتوبة يدويًا ليست Time Series data قابلة للتحليل.",
+          "B": "غلط؛ لا يوجد Date field.",
+          "C": "غلط؛ Region وCategory فقط لا يوفران Timeline زمنية.",
+          "D": "صح؛ Continuous monthly timeline + aggregated Sales + history مناسبة للForecast."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0083",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0084",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 84,
+      "originalQuestionNumber": 24,
+      "question": "Why can an Automatic dashboard layout still be difficult to use on a narrow mobile screen?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Automatic sizing disables filters on every device with a small screen, while retaining the current filters and field roles."
+        },
+        {
+          "id": "B",
+          "text": "Automatic layouts remove worksheet titles to preserve the data source."
+        },
+        {
+          "id": "C",
+          "text": "The available space may shrink objects beyond a readable or useful size."
+        },
+        {
+          "id": "D",
+          "text": "Mobile screens force every continuous measure to become discrete."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dashboards-actions",
+      "topic": "Dashboards, Actions & Stories",
+      "difficulty": "Hard",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "b98363c8bc619e8f",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 196,
+        "originalQuestionNumber": 24
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «The available space may shrink objects beyond a readable or useful size.» هو التفسير الأقرب للسلوك الصحيح في Dashboards, Actions & Stories.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Automatic layout قد تصغّر Objects لتناسب شاشة ضيقة، وده ممكن يجعل النصوص والCharts غير مقروءة أوغير عملية.",
+        "options": {
+          "A": "غلط؛ Automatic sizing لا يعني تعطيل Filters على كل الأجهزة الصغيرة.",
+          "B": "غلط؛ لا تزيل Titles تلقائيًا كقاعدة.",
+          "C": "صح؛ المساحة المحدودة قد تضغط Objects أكثر من اللازم.",
+          "D": "غلط؛ نوع الشاشة لا يحول Measures من Continuous إلىDiscrete."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0084",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0085",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 85,
+      "originalQuestionNumber": 25,
+      "question": "What is a major risk of using many floating objects in a dashboard that may be resized?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Their independent coordinates can produce overlaps or inconsistent spacing."
+        },
+        {
+          "id": "B",
+          "text": "Floating objects automatically modify the connected source tables."
+        },
+        {
+          "id": "C",
+          "text": "Each floating object creates a new worksheet in the workbook."
+        },
+        {
+          "id": "D",
+          "text": "Floating objects prevent dashboard actions from receiving user selections, within the report setup described in the\nquestion."
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dashboards-actions",
+      "topic": "Dashboards, Actions & Stories",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "484888a311d1a8cd",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 197,
+        "originalQuestionNumber": 25
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Their independent coordinates can produce overlaps or inconsistent spacing.» هو التفسير الأقرب للسلوك الصحيح في Dashboards, Actions & Stories.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Floating Objects تعتمد على Coordinates مستقلة، ومع Resize يمكن أن تتداخل أوتظهر بمسافات غير متناسقة.",
+        "options": {
+          "A": "صح؛ ده Risk معروف في Layouts القابلة لتغيير الحجم.",
+          "B": "غلط؛ Floating لا تعدل Source Tables.",
+          "C": "غلط؛ لا تنشئ Worksheet جديدة.",
+          "D": "غلط؛ لا تمنع Actions تلقائيًا من استقبال Selection."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0085",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0086",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 86,
+      "originalQuestionNumber": 26,
+      "question": "Why should a numeric Employee ID usually be changed from a measure to a dimension?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tableau cannot display numerical measures anywhere in a worksheet."
+        },
+        {
+          "id": "B",
+          "text": "Its numbers identify categories and should not normally be summed or averaged."
+        },
+        {
+          "id": "C",
+          "text": "Changing it to a dimension automatically removes duplicated employees, without altering the connected source\nrecords."
+        },
+        {
+          "id": "D",
+          "text": "Employee ID must be a dimension before it can contain null values."
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dimensions-measures",
+      "topic": "Dimensions, Measures & Field Types",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c82e73c263df8ffb",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 197,
+        "originalQuestionNumber": 26
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيختبر سبب السلوك أو المشكلة. الاختيار «Its numbers identify categories and should not normally be summed or averaged.» هو التفسير الأقرب للسلوك الصحيح في Dimensions, Measures & Field Types.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Employee ID حتى لو Numeric فهي Identifier تصنيفي، فلا معنى عادةً لجمعها أوحساب متوسطها؛ لذلك تُعامل كDimension.",
+        "options": {
+          "A": "غلط؛ Tableau يمكنها عرض Numerical Measures عادي.",
+          "B": "صح؛ الرقم يمثل Category/Identity وليس Quantity قابلة للتجميع.",
+          "C": "غلط؛ تغيير Role لا يزيل duplicates من البيانات.",
+          "D": "غلط؛ وجود Nulls لا يتطلب أن تكون Dimension."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0086",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0087",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 87,
+      "originalQuestionNumber": 27,
+      "question": "A text filter keeps “Technology” and “Biotechnology,” but the requirement is values beginning with\n“Tech.” Which match rule is needed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Starts With should replace the broader Contains rule."
+        },
+        {
+          "id": "B",
+          "text": "Ends With should be used because the two values end with the same letters."
+        },
+        {
+          "id": "C",
+          "text": "A measure range filter should replace the text filter."
+        },
+        {
+          "id": "D",
+          "text": "COUNTD should be applied before the wildcard rule is evaluated."
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filters",
+      "topic": "Filters",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "d21a06e7d2beb2c5",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 197,
+        "originalQuestionNumber": 27
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Starts With should replace the broader Contains rule.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Filters وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لو الشرط هو Values تبدأ بـTech، فلازم استخدام Starts With بدل Contains؛ Contains أوسع ويمكن أن يطابق Biotechnology لأنها تحتوي Tech داخل النص.",
+        "options": {
+          "A": "صح؛ Starts With تطابق بداية النص فقط.",
+          "B": "غلط؛ Ends With تبحث في نهاية النص.",
+          "C": "غلط؛ Measure range filter للأرقام وليس Text pattern.",
+          "D": "غلط؛ COUNTD لا يحل Pattern matching."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0087",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0088",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 88,
+      "originalQuestionNumber": 28,
+      "question": "A chart compares 70 products and becomes unreadable. Which revision retains the most decision\nvalue?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Show a relevant Top N ranking and provide a detailed view for further exploration."
+        },
+        {
+          "id": "B",
+          "text": "Convert Product Name into a measure and calculate its average."
+        },
+        {
+          "id": "C",
+          "text": "Assign every product a different color and keep all labels visible."
+        },
+        {
+          "id": "D",
+          "text": "Reduce the font size until the complete product list fits on one screen, under the stated worksheet configuration."
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a1b8469b2f33e3fa",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 197,
+        "originalQuestionNumber": 28
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Show a relevant Top N ranking and provide a detailed view for further exploration.» هو التعريف أو السلوك الصحيح المرتبط بموضوع Visualizations & Design وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "لما 70 Product تجعل الـChart غير مقروءة، Top N يحافظ على أهم المعلومات، مع View تفصيلية لاستكشاف باقي المنتجات.",
+        "options": {
+          "A": "صح؛ يقلل التشويش ويحافظ على Decision value.",
+          "B": "غلط؛ تحويل Product Name إلىMeasure وحساب Average غير منطقي.",
+          "C": "غلط؛ 70 لونًا وLabels تزيد الفوضى.",
+          "D": "غلط؛ تصغير الخط جدًا يضر القراءة بدل تحسين التحليل."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0088",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0089",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 89,
+      "originalQuestionNumber": 29,
+      "question": "Why might an analyst duplicate a worksheet before testing a different filter strategy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Duplicating a worksheet disables aggregation for its measures."
+        },
+        {
+          "id": "B",
+          "text": "The duplicated worksheet receives an independent copy of the source data."
+        },
+        {
+          "id": "C",
+          "text": "The original view remains available as a comparison and recovery point."
+        },
+        {
+          "id": "D",
+          "text": "Filters can be created only after a worksheet has been duplicated."
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "filters",
+      "topic": "Filters",
+      "difficulty": "Medium",
+      "questionType": "troubleshooting",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "aafefbce49d1f795",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 197,
+        "originalQuestionNumber": 29
+      },
+      "aiExplanation": {
+        "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Filters. الاختيار «The original view remains available as a comparison and recovery point.» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Duplicate Worksheet تتيح تجربة Filter Strategy مختلفة مع الاحتفاظ بالView الأصلية للمقارنة أوالرجوع.",
+        "options": {
+          "A": "غلط؛ Duplicate لا تعطل Aggregation.",
+          "B": "غلط؛ لا تنشئ Copy مستقلة من Source data.",
+          "C": "صح؛ تحفظ الأصل كReference/Recovery point.",
+          "D": "غلط؛ يمكن إنشاء Filters بدون Duplicate."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0089",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0090",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 90,
+      "originalQuestionNumber": 30,
+      "question": "Which worksheet title provides the clearest analytical context?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Quarterly Profit by Customer Segment - 2026 (USD)"
+        },
+        {
+          "id": "B",
+          "text": "Profit Visualization"
+        },
+        {
+          "id": "C",
+          "text": "Segment Results and Other Information, under the stated worksheet configuration."
+        },
+        {
+          "id": "D",
+          "text": "Worksheet for Business Analysis"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "products-publishing",
+      "topic": "Products & Publishing",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c1fb0e8768b14824",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 198,
+        "originalQuestionNumber": 30
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Quarterly Profit by Customer Segment - 2026 (USD)» هو التعريف أو السلوك الصحيح المرتبط بموضوع Products & Publishing وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "العنوان الأفضل يذكر Metric وDimension/segment والزمن والوحدة، فيعطي Context تحليلي واضح.",
+        "options": {
+          "A": "صح؛ Quarterly Profit by Customer Segment - 2026 (USD) محدد وواضح.",
+          "B": "غلط؛ عام جدًا ولا يذكر Segment أوTime أوUnit.",
+          "C": "غلط؛ مبهم وطويل بدون Context محدد.",
+          "D": "غلط؛ عنوان عام لا يصف التحليل."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0090",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0091",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 91,
+      "originalQuestionNumber": 31,
+      "question": "Which function counts unique non-null values?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SUM"
+        },
+        {
+          "id": "B",
+          "text": "COUNTD"
+        },
+        {
+          "id": "C",
+          "text": "CONCAT"
+        },
+        {
+          "id": "D",
+          "text": "AVG"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "calculations",
+      "topic": "Calculated Fields & Calculations",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "a743558f12b1b0db",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 198,
+        "originalQuestionNumber": 31
+      },
+      "aiExplanation": {
+        "ar": "لأن كل Function/Feature في Calculated Fields & Calculations لها وظيفة محددة. «COUNTD» هي الأداة أو الوظيفة التي تنفذ المطلوب مباشرة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "COUNTD تحسب عدد القيم المميزة Unique غيرNull وفق صياغة السؤال.",
+        "options": {
+          "A": "غلط؛ SUM تجمع قيمًا رقمية.",
+          "B": "صح؛ COUNTD = Count Distinct.",
+          "C": "غلط؛ CONCAT تجمع Text.",
+          "D": "غلط؛ AVG تحسب المتوسط."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0091",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0092",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 92,
+      "originalQuestionNumber": 32,
+      "question": "What does a hierarchy help users do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Export a worksheet as a driver"
+        },
+        {
+          "id": "B",
+          "text": "Remove every filter from a dashboard, within the report setup described in the question."
+        },
+        {
+          "id": "C",
+          "text": "Navigate between related levels of detail"
+        },
+        {
+          "id": "D",
+          "text": "Change numerical data into text"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "parameters-sets-groups",
+      "topic": "Parameters, Sets, Groups & Hierarchies",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "7a1cfe79a311b349",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 198,
+        "originalQuestionNumber": 32
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Navigate between related levels of detail» هو التعريف أو السلوك الصحيح المرتبط بموضوع Parameters, Sets, Groups & Hierarchies وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Hierarchy تساعد المستخدم على التنقل بين Levels مترابطة من Detail مثل Country ثمState ثمCity.",
+        "options": {
+          "A": "غلط؛ لا تصدر Worksheet كDriver.",
+          "B": "غلط؛ لا تزيل Filters منDashboard.",
+          "C": "صح؛ وظيفتها Drill between related levels.",
+          "D": "غلط؛ لا تحول Numeric data إلىText."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0092",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0093",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 93,
+      "originalQuestionNumber": 33,
+      "question": "What is created when selected dimension members are combined into one category?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A continuous axis"
+        },
+        {
+          "id": "B",
+          "text": "A reference line"
+        },
+        {
+          "id": "C",
+          "text": "A group"
+        },
+        {
+          "id": "D",
+          "text": "A forecast"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dimensions-measures",
+      "topic": "Dimensions, Measures & Field Types",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "96b84ecc402a2a9f",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 198,
+        "originalQuestionNumber": 33
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «A group» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "جمع Dimension members مختارة في Category واحدة ينتج Group.",
+        "options": {
+          "A": "غلط؛ Continuous axis نوع عرض لمحور.",
+          "B": "غلط؛ Reference line Benchmark.",
+          "C": "صح؛ Group تجمع Members تحت Category واحدة.",
+          "D": "غلط؛ Forecast توقع زمني."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0093",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0094",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 94,
+      "originalQuestionNumber": 34,
+      "question": "What does a blue field pill normally indicate in Tableau?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A discrete field"
+        },
+        {
+          "id": "B",
+          "text": "A deleted field"
+        },
+        {
+          "id": "C",
+          "text": "A continuous field"
+        },
+        {
+          "id": "D",
+          "text": "A disconnected source"
+        }
+      ],
+      "correctAnswer": "A",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dimensions-measures",
+      "topic": "Dimensions, Measures & Field Types",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1420054f2fc18686",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 198,
+        "originalQuestionNumber": 34
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «A discrete field» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Tableau، الـBlue pill تدل عادةً على Field Discrete.",
+        "options": {
+          "A": "صح؛ Blue = Discrete وفق convention القياسي في Tableau.",
+          "B": "غلط؛ Deleted field لا يشار لها بهذه الطريقة.",
+          "C": "غلط؛ Continuous عادةً Green.",
+          "D": "غلط؛ لون الـpill لا يعني disconnected source."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0094",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0095",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 95,
+      "originalQuestionNumber": 35,
+      "question": "What does a green field pill normally indicate in Tableau?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A published story"
+        },
+        {
+          "id": "B",
+          "text": "A continuous field"
+        },
+        {
+          "id": "C",
+          "text": "A discrete field"
+        },
+        {
+          "id": "D",
+          "text": "A hidden worksheet"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dimensions-measures",
+      "topic": "Dimensions, Measures & Field Types",
+      "difficulty": "Hard",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "530e9dc05936b539",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 199,
+        "originalQuestionNumber": 35
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «A continuous field» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "في Tableau، الـGreen pill تدل عادةً على Field Continuous.",
+        "options": {
+          "A": "غلط؛ Story لا تمثل Green pill.",
+          "B": "صح؛ Green = Continuous.",
+          "C": "غلط؛ Discrete عادةً Blue.",
+          "D": "غلط؛ Hidden worksheet ليست معنى Green pill."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0095",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0096",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 96,
+      "originalQuestionNumber": 36,
+      "question": "What is the main purpose of the Marks card?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To rename the workbook file, without altering the connected source records."
+        },
+        {
+          "id": "B",
+          "text": "To manage user passwords"
+        },
+        {
+          "id": "C",
+          "text": "To install database drivers"
+        },
+        {
+          "id": "D",
+          "text": "To control how marks are encoded and displayed"
+        }
+      ],
+      "correctAnswer": "D",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dimensions-measures",
+      "topic": "Dimensions, Measures & Field Types",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "dc86c9df40e01ad4",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 199,
+        "originalQuestionNumber": 36
+      },
+      "aiExplanation": {
+        "ar": "لأن السؤال بيسأل عن الاستخدام الأنسب أو الغرض الأساسي في موضوع Dimensions, Measures & Field Types. الاختيار «To control how marks are encoded and displayed» هو الأكثر تطابقًا مع الوظيفة المطلوبة.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Marks card تتحكم في Encoding وطريقة عرض Marks مثل Color وSize وLabel وDetail وTooltip.",
+        "options": {
+          "A": "غلط؛ Rename workbook ليس دور Marks.",
+          "B": "غلط؛ User passwords ليست من Marks.",
+          "C": "غلط؛ Database drivers لا تُثبت منها.",
+          "D": "صح؛ تتحكم في كيفية تمثيل Marks وعرضها."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0096",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0097",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 97,
+      "originalQuestionNumber": 37,
+      "question": "Which Marks property would display categories using different colors?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pages"
+        },
+        {
+          "id": "B",
+          "text": "Color"
+        },
+        {
+          "id": "C",
+          "text": "Detail"
+        },
+        {
+          "id": "D",
+          "text": "Columns"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "visuals-design",
+      "topic": "Visualizations & Design",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "3721944b7bcfbbc5",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 199,
+        "originalQuestionNumber": 37
+      },
+      "aiExplanation": {
+        "ar": "لأن الفكرة هنا هي التمييز بين مفاهيم متقاربة في Visualizations & Design. الاختيار «Color» يعبّر عن الفرق أو الميزة الصحيحة المذكورة في السؤال.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Color property على Marks card تستخدم لتمييز Categories بألوان مختلفة أوتمثيل قيمة لونية.",
+        "options": {
+          "A": "غلط؛ Pages للتحريك/التقسيم حسب Field.",
+          "B": "صح؛ Color هي Property المسؤولة عن الألوان.",
+          "C": "غلط؛ Detail تغير مستوى Granularity.",
+          "D": "غلط؛ Columns Shelf ليست Marks property للون."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0097",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0098",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 98,
+      "originalQuestionNumber": 38,
+      "question": "Which Marks card property shows additional information when a user hovers over a mark?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Color"
+        },
+        {
+          "id": "B",
+          "text": "Tooltip"
+        },
+        {
+          "id": "C",
+          "text": "Size"
+        },
+        {
+          "id": "D",
+          "text": "Detail"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dimensions-measures",
+      "topic": "Dimensions, Measures & Field Types",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "1999d3bea1aef1f7",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 199,
+        "originalQuestionNumber": 38
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Tooltip» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dimensions, Measures & Field Types وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Tooltip property تضيف معلومات تظهر عندHover على Mark.",
+        "options": {
+          "A": "غلط؛ Color للون.",
+          "B": "صح؛ Tooltip للمعلومات عند Hover.",
+          "C": "غلط؛ Size لحجم Mark.",
+          "D": "غلط؛ Detail للGranularity."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0098",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0099",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 99,
+      "originalQuestionNumber": 39,
+      "question": "What does a dashboard combine?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only data-source connection logs, under the stated worksheet configuration."
+        },
+        {
+          "id": "B",
+          "text": "Only calculated field formulas"
+        },
+        {
+          "id": "C",
+          "text": "Worksheets and supporting objects in one interactive layout"
+        },
+        {
+          "id": "D",
+          "text": "Only database passwords"
+        }
+      ],
+      "correctAnswer": "C",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dashboards-actions",
+      "topic": "Dashboards, Actions & Stories",
+      "difficulty": "Medium",
+      "questionType": "scenario-application",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "eded32b6f828f9d8",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 199,
+        "originalQuestionNumber": 39
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «Worksheets and supporting objects in one interactive layout» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboards, Actions & Stories وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Dashboard تجمع Worksheets مع Supporting Objects مثل Text وFilters وImages داخل Interactive Layout واحدة.",
+        "options": {
+          "A": "غلط؛ ليست مجرد Connection logs.",
+          "B": "غلط؛ لا تجمع Calculated formulas فقط.",
+          "C": "صح؛ هذا تعريف Dashboard.",
+          "D": "غلط؛ Passwords ليست محتوى Dashboard."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0099",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    },
+    {
+      "id": "official-professional-tableau-q0100",
+      "trackId": "tableau",
+      "track": "Tableau",
+      "officialSet": 3,
+      "originalOrder": 100,
+      "originalQuestionNumber": 40,
+      "question": "What is a Tableau story designed to present?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A collection of hidden passwords, without altering the connected source records."
+        },
+        {
+          "id": "B",
+          "text": "A sequence of analytical views or points"
+        },
+        {
+          "id": "C",
+          "text": "A single raw data record"
+        },
+        {
+          "id": "D",
+          "text": "A list of installed drivers"
+        }
+      ],
+      "correctAnswer": "B",
+      "officialTextLocked": true,
+      "sourceType": "official-qbank",
+      "authority": "Official Ministry QBank",
+      "topicId": "dashboards-actions",
+      "topic": "Dashboards, Actions & Stories",
+      "difficulty": "Easy",
+      "questionType": "direct-knowledge",
+      "syllabusAlignment": "not-yet-matched",
+      "curriculumTopicId": null,
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "fingerprint": "c52cc34c1f523c7f",
+      "officialSource": {
+        "file": "Professional_MCQ_Exercises.pdf",
+        "page": 200,
+        "originalQuestionNumber": 40
+      },
+      "aiExplanation": {
+        "ar": "لأن الاختيار «A sequence of analytical views or points» هو التعريف أو السلوك الصحيح المرتبط بموضوع Dashboards, Actions & Stories وفقًا لصياغة السؤال والإجابة الرسمية.",
+        "source": "ai-generated",
+        "label": "AI Explanation — Arabic"
+      },
+      "deepExplanation": {
+        "language": "ar",
+        "source": "platform-generated",
+        "status": "reviewed-batch",
+        "summary": "Tableau Story تعرض Sequence من analytical views أوStory Points لشرح التحليل خطوة بخطوة.",
+        "options": {
+          "A": "غلط؛ لا تعرض Hidden passwords.",
+          "B": "صح؛ Sequence of analytical views or points هو الغرض.",
+          "C": "غلط؛ ليست Raw record واحدة.",
+          "D": "غلط؛ ليست قائمة Drivers."
+        }
+      },
+      "reuseAudit": {
+        "matchType": "exact-section-reuse",
+        "juniorQuestionId": "official-tableau-q0100",
+        "explanationReuse": "verified-reuse",
+        "reviewStatus": "source-verified"
+      }
+    }
+  ]
+}

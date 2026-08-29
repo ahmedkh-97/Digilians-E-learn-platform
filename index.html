@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.10.9" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.11.0" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -350,41 +350,41 @@
         <div id="officialLevelGrid" class="official-level-grid"></div>
       </section>
 
-      <!-- JUNIOR DATA ANALYSIS HUB -->
+      <!-- OFFICIAL DATA ANALYSIS LEVEL HUB -->
       <section id="officialJuniorView" class="view">
         <div class="context-bar">
           <button class="back-btn" id="officialJuniorBackBtn">← Levels</button>
-          <div class="breadcrumb">Official QBank / Junior Data Analysis</div>
-          <span class="official-source-badge desktop-only">JUNIOR</span>
+          <div class="breadcrumb" id="officialLevelBreadcrumb">Official QBank / Junior Data Analysis</div>
+          <span class="official-source-badge desktop-only" id="officialLevelBadge">JUNIOR</span>
         </div>
 
         <div class="page-heading official-heading">
           <div>
-            <span class="eyebrow">JUNIOR DATA ANALYSIS</span>
-            <h2>Official Junior Question Bank</h2>
-            <p>Choose a track, then solve each official section separately. Every ranked section keeps its own result, retakes and leaderboard.</p>
+            <span class="eyebrow" id="officialLevelEyebrow">JUNIOR DATA ANALYSIS</span>
+            <h2 id="officialLevelTitle">Official Junior Question Bank</h2>
+            <p id="officialLevelDescription">Choose a track, then solve each official section separately. Every ranked section keeps its own result, retakes and leaderboard.</p>
           </div>
-          <span class="official-source-badge">930 QUESTIONS</span>
+          <span class="official-source-badge" id="officialLevelQuestionBadge">930 QUESTIONS</span>
         </div>
 
         <div class="official-overview-grid">
           <article class="official-overview-card"><span>Total Questions</span><strong id="officialTotalQuestions">0</strong><small>preserved from source</small></article>
-          <article class="official-overview-card"><span>Tracks</span><strong id="officialTrackCount">6</strong><small>Junior Data Analysis</small></article>
+          <article class="official-overview-card"><span>Tracks</span><strong id="officialTrackCount">6</strong><small id="officialTrackCountLabel">Junior Data Analysis</small></article>
           <article class="official-overview-card"><span>Sections</span><strong id="officialSectionCount">21</strong><small>ranked separately</small></article>
           <article class="official-overview-card"><span>Your Study Progress</span><strong id="officialOverallProgress">0%</strong><small>reviewed questions</small></article>
         </div>
 
-        <section class="official-final-card">
+        <section class="official-final-card" id="officialFinalCard">
           <div>
-            <span class="eyebrow">JUNIOR OFFICIAL FINAL — RANKED</span>
-            <h3>100 Questions · 120 Minutes</h3>
-            <p>20 Excel · 20 Power BI · 20 SQL · 20 Python · 10 Tableau · 10 Looker Studio. A saved name is required before starting.</p>
+            <span class="eyebrow" id="officialFinalEyebrow">JUNIOR OFFICIAL FINAL — RANKED</span>
+            <h3 id="officialFinalTitle">100 Questions · 120 Minutes</h3>
+            <p id="officialFinalDescription">20 Excel · 20 Power BI · 20 SQL · 20 Python · 10 Tableau · 10 Looker Studio. A saved name is required before starting.</p>
           </div>
           <button class="primary-btn" id="startOfficialFinalBtn">Start Junior Final →</button>
         </section>
 
         <div class="section-title-row official-track-title">
-          <div><span class="eyebrow">TRACKS</span><h3>Choose a Junior question bank</h3></div>
+          <div><span class="eyebrow">TRACKS</span><h3 id="officialTrackChooserTitle">Choose a Junior question bank</h3></div>
         </div>
         <div id="officialTrackGrid" class="official-track-grid"></div>
       </section>
@@ -881,6 +881,6 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/app.js?v=0.10.9"></script>
+  <script type="module" src="assets/js/app.js?v=0.11.0"></script>
 </body>
 </html>
