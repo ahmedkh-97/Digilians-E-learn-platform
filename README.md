@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.15.3
+# Digilians E-Learn Platform V0.16.0
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1258,3 +1258,50 @@ Reworked the Data Analysis track-selection cards to remove text/footer overlap.
 - Incomplete tracks show `Coming Soon`.
 - Cards keep equal grid height on desktop while remaining free to grow when content requires it.
 - Mobile cards use natural height.
+
+
+## V0.16.0 — Python Study Content V2
+
+Python Study was rebuilt from a revision-oriented summary into a deeper teaching experience while preserving the existing assessment system.
+
+### Learning depth
+Every one of the 75 Python Study Sections now includes:
+- What Is It?
+- Why Do We Need It?
+- Mental Model
+- Step-by-Step concept walkthrough
+- Comparison table when the concept benefits from contrast
+- Before → Operation → After visualization for important NumPy/Pandas transformations
+- Code Lab
+- Try Changing This
+- Source-grounded Quick Check
+- Source Trace
+
+### Code coverage
+- Previous code walkthroughs: 47
+- V2 code walkthroughs: 77
+- Every Study Section now has at least one code/example walkthrough.
+- Newly created explanatory examples are labeled `PLATFORM CLARIFICATION`.
+- Source-based/rendered examples keep their existing source labels.
+
+### Quick Checks
+- 75/75 sections have an interactive Quick Check.
+- 75 unique Quick Check questions.
+- Correct/wrong feedback appears inside Study after the learner answers.
+- Quick Checks are sourced from the existing session-scoped production banks and do not change exam scoring.
+
+### Reading model
+Python code walkthrough detail cards are now presented vertically rather than as a dense two-column dashboard:
+`Code → Explanation → Line-by-Line → Execution Trace → Expected Output → Why It Works → Mistakes → Exam Tips`
+
+### Data-analysis specific teaching
+NumPy and Pandas lessons use Before/Operation/After panels to show how data changes.
+
+Visualization lessons emphasize:
+`Question → Variables → Chart Choice → Read the Visual → Insight`
+
+### Assessment protection
+Study V2 changes no assessment content:
+- Python 13 Question Banks / 520 questions are byte-identical to V0.15.3.
+- 13 Python Session Practice exam files are byte-identical to V0.15.3.
+- Exam blueprints, question-bank registry, exam registry and Official QBank data are unchanged.

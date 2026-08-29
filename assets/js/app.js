@@ -1365,6 +1365,96 @@ function renderPythonCodeLines(code){
       <span class="python-code-text">${escapeHtml(line) || " "}</span>
     </span>`).join("");
 }
+function renderPythonLessonV2(lesson,sectionId){
+  if(!lesson)return "";
+  const model=lesson.mentalModel||{};
+  const comparison=lesson.comparison;
+  const flow=lesson.dataFlow;
+  const quick=lesson.quickCheck;
+
+  const comparisonHtml=comparison?.headers?.length
+    ?`<div class="python-v2-block python-comparison-block" dir="ltr">
+        <div class="python-v2-block-head">
+          <span>COMPARE</span>
+          <strong>شوف الفرق بدل ما تحفظه</strong>
+        </div>
+        <div class="python-comparison-wrap">
+          <table>
+            <thead><tr>${comparison.headers.map(h=>`<th>${escapeHtml(h)}</th>`).join("")}</tr></thead>
+            <tbody>${comparison.rows.map(row=>`<tr>${row.map(cell=>`<td>${formatStudyMixedText(String(cell))}</td>`).join("")}</tr>`).join("")}</tbody>
+          </table>
+        </div>
+      </div>`
+    :"";
+
+  const flowHtml=flow
+    ?`<div class="python-v2-block python-dataflow-block">
+        <div class="python-v2-block-head" dir="ltr">
+          <span>BEFORE → OPERATION → AFTER</span>
+          <strong>شوف البيانات وهي بتتغير</strong>
+        </div>
+        <div class="python-dataflow-grid" dir="ltr">
+          <div><span>BEFORE</span><pre>${escapeHtml(flow.before||"")}</pre></div>
+          <div class="operation"><span>OPERATION</span><pre>${escapeHtml(flow.operation||"")}</pre></div>
+          <div><span>AFTER</span><pre>${escapeHtml(flow.after||"")}</pre></div>
+        </div>
+        <p class="python-dataflow-meaning" dir="rtl">${formatStudyMixedText(flow.meaningAr||"")}</p>
+      </div>`
+    :"";
+
+  const quickHtml=quick?.options?.length
+    ?`<div class="python-v2-block python-quick-check" data-quick-check="${escapeHtml(sectionId)}">
+        <div class="python-v2-block-head" dir="ltr">
+          <span>QUICK CHECK</span>
+          <strong>اختبر فهمك قبل ما تكمل</strong>
+        </div>
+        <p class="python-quick-question" dir="ltr">${escapeHtml(quick.question)}</p>
+        <div class="python-quick-options">
+          ${quick.options.map(o=>`<button type="button" data-quick-option="${escapeHtml(o.id)}">
+            <b>${escapeHtml(o.id)}</b><span>${escapeHtml(o.text)}</span>
+          </button>`).join("")}
+        </div>
+        <div class="python-quick-feedback hidden" dir="rtl"></div>
+        <div class="python-quick-source" dir="ltr">Source: ${escapeHtml(quick.sourceTrace||"")}</div>
+      </div>`
+    :"";
+
+  return `
+    <div class="python-v2-stack">
+      <section class="python-v2-intro-grid">
+        <div class="python-v2-block">
+          <div class="python-v2-block-head" dir="ltr"><span>WHAT IS IT?</span><strong>يعني إيه؟</strong></div>
+          <p dir="rtl">${formatStudyMixedText(lesson.whatIsItAr||"")}</p>
+        </div>
+        <div class="python-v2-block">
+          <div class="python-v2-block-head" dir="ltr"><span>WHY DO WE NEED IT?</span><strong>ليه مهم؟</strong></div>
+          <p dir="rtl">${formatStudyMixedText(lesson.whyItMattersAr||"")}</p>
+        </div>
+      </section>
+
+      <div class="python-v2-block python-mental-model ${escapeHtml(model.type||"concept")}">
+        <div class="python-v2-block-head" dir="ltr"><span>MENTAL MODEL</span><strong>كوّن صورة ذهنية</strong></div>
+        <h4 dir="rtl">${formatStudyMixedText(model.title||"")}</h4>
+        <p dir="rtl">${formatStudyMixedText(model.body||"")}</p>
+      </div>
+
+      ${(lesson.conceptWalkthroughAr||[]).length?`
+        <div class="python-v2-block python-concept-walkthrough">
+          <div class="python-v2-block-head" dir="ltr"><span>STEP-BY-STEP</span><strong>افهم الفكرة بالترتيب</strong></div>
+          <ol dir="rtl">${lesson.conceptWalkthroughAr.map(x=>`<li>${formatStudyMixedText(x)}</li>`).join("")}</ol>
+        </div>`:""}
+
+      ${comparisonHtml}
+      ${flowHtml}
+
+      <div class="python-v2-block python-try-this">
+        <div class="python-v2-block-head" dir="ltr"><span>TRY CHANGING THIS</span><strong>جرّب بنفسك</strong></div>
+        <p dir="rtl">${formatStudyMixedText(lesson.tryThisAr||"")}</p>
+      </div>
+      ${quickHtml}
+    </div>`;
+}
+
 function renderPythonStudySection(s,i,id){
   const article=document.createElement("section");
   article.className="study-section python-study-section";
@@ -1514,11 +1604,17 @@ function renderPythonStudySection(s,i,id){
       </div>
       ${(s.codeExamples||[]).length?`<span class="python-example-count">${s.codeExamples.length} CODE ${s.codeExamples.length===1?"WALKTHROUGH":"WALKTHROUGHS"}</span>`:""}
     </header>
-    ${summary}
+    ${s.lessonV2?renderPythonLessonV2(s.lessonV2,s.id||id):summary}
     ${keyTerms}
-    ${concepts}
+    ${!s.lessonV2?concepts:""}
     ${analysis}
-    ${examples?`<div class="python-examples-stack">${examples}</div>`:""}
+    ${examples?`<div class="python-examples-stack">
+      <div class="python-examples-title" dir="ltr">
+        <span>CODE LAB</span>
+        <strong>${(s.codeExamples||[]).length} walkthrough${(s.codeExamples||[]).length===1?"":"s"}</strong>
+      </div>
+      ${examples}
+    </div>`:""}
     ${sectionTrace}`;
 
   article.querySelectorAll(".python-copy-code").forEach(btn=>btn.addEventListener("click",async()=>{
@@ -1530,6 +1626,27 @@ function renderPythonStudySection(s,i,id){
     }catch{
       showToast("Copy is unavailable in this browser. Select the code manually.");
     }
+  }));
+
+  article.querySelectorAll(".python-quick-check").forEach(check=>{
+    const quick=s.lessonV2?.quickCheck;
+    if(!quick)return;
+    const feedback=check.querySelector(".python-quick-feedback");
+    check.querySelectorAll("[data-quick-option]").forEach(btn=>btn.addEventListener("click",()=>{
+      if(check.dataset.answered==="true")return;
+      check.dataset.answered="true";
+      const selected=btn.dataset.quickOption;
+      const correct=selected===quick.correctAnswer;
+      check.querySelectorAll("[data-quick-option]").forEach(option=>{
+        option.disabled=true;
+        if(option.dataset.quickOption===quick.correctAnswer)option.classList.add("correct");
+        else if(option===btn && !correct)option.classList.add("wrong");
+      });
+      feedback.classList.remove("hidden");
+      feedback.classList.toggle("correct",correct);
+      feedback.classList.toggle("wrong",!correct);
+      feedback.innerHTML=`<strong>${correct?"صح ✓":"مش صح — الإجابة الصحيحة "+escapeHtml(quick.correctAnswer)}</strong><p>${formatStudyMixedText(quick.explanationAr||"")}</p>`;
+    }));
   }));
 
   return article;
@@ -1755,6 +1872,7 @@ function openStudy(){
   const studyView=$("studyView");
   studyView?.classList.toggle("sql-readable-study",isSqlStudy);
   studyView?.classList.toggle("python-code-study",isPythonStudy);
+  studyView?.classList.toggle("python-study-v2",isPythonStudy && m.study?.displayMode==="python-code-learning-v2");
 
   const toc=$("studyTocList"),sections=$("studySections");
   toc.innerHTML="";sections.innerHTML="";
