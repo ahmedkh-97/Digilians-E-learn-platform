@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-sql-session06-subqueries-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "moduleId": "session-06-subqueries-set-operations",
+    "module": "Session 6 — Relational Joins & Query Composition",
+    "title": "Session 6 — Subqueries & Set Operations — Bank 001",
+    "version": "1.0",
+    "status": "active",
+    "sourceFiles": [
+      "Session6.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-sql-session06-subqueries-q001",
+      "question": "What is a subquery (nested query) according to Session 6?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A complete SELECT query placed inside another SQL query."
+        },
+        {
+          "id": "B",
+          "text": "A table alias used twice."
+        },
+        {
+          "id": "C",
+          "text": "A command that permanently changes a table schema."
+        },
+        {
+          "id": "D",
+          "text": "A Cartesian product with no join condition."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Subquery أو Nested Query هو SELECT كامل جوه query تاني.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "nested-query-basics",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "subquery-complete-select-inside-query",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 16 — Sub-Queries"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q002",
+      "question": "According to the basic subquery explanation, which query is executed first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The outer query only."
+        },
+        {
+          "id": "B",
+          "text": "The inner query."
+        },
+        {
+          "id": "C",
+          "text": "ORDER BY always executes first."
+        },
+        {
+          "id": "D",
+          "text": "UNION ALL always executes first."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المحاضرة بتوضح إن الـ inner query بيتنفذ الأول ثم يستخدم الـ outer query نتيجته، في النموذج غير correlated اللي بتشرحه هنا.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "nested-query-basics",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "subquery-inner-executed-first-course-framing",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 16 — Sub-Queries"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q003",
+      "question": "Where does Session 6 say an inner query is usually placed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only after ORDER BY."
+        },
+        {
+          "id": "B",
+          "text": "Only inside CREATE TABLE."
+        },
+        {
+          "id": "C",
+          "text": "In WHERE or HAVING clauses."
+        },
+        {
+          "id": "D",
+          "text": "Only after UNION ALL."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "السلايد بيذكر إن الـ inner query غالبًا يكون في WHERE أو HAVING، وممكن كمان يظهر في FROM كـ inline view.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-where-having",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "subquery-usually-where-or-having",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 16 — Sub-Queries"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q004",
+      "question": "What name is used when a subquery appears in the FROM clause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Self join."
+        },
+        {
+          "id": "B",
+          "text": "Outer key."
+        },
+        {
+          "id": "C",
+          "text": "Savepoint."
+        },
+        {
+          "id": "D",
+          "text": "Inline view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Session 6 بتسمي الـ subquery الموجود في FROM باسم inline view.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-from-inline-view",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "subquery-from-called-inline-view",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 16 and 26 — Inline View"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q005",
+      "question": "In the Giza example, what does the inner query return for the outer Employee query to use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Department numbers whose location is Giza."
+        },
+        {
+          "id": "B",
+          "text": "Employee salaries above average."
+        },
+        {
+          "id": "C",
+          "text": "All employee names directly."
+        },
+        {
+          "id": "D",
+          "text": "Only duplicate department rows."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ inner query بيجيب `Dnumber` من dept حيث location='giza'، وبعدها الـ outer query يفلتر Employee بـ `Dno IN (...)`.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-where",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "subquery-giza-inner-returns-department-numbers",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 17 — Giza nested-query example"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q006",
+      "question": "What does `UNION` do according to Session 6?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Joins columns side by side using a foreign key."
+        },
+        {
+          "id": "B",
+          "text": "Combines the outputs of two SELECT statements into one result and removes repeated rows."
+        },
+        {
+          "id": "C",
+          "text": "Keeps only NULL values."
+        },
+        {
+          "id": "D",
+          "text": "Updates matching rows in both tables."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "UNION بيجمع ناتج SELECT مع ناتج SELECT تاني، والصف المتكرر في الناتجين بيظهر مرة واحدة.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-combines-select-results-removes-duplicates",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 21 — Union Operator"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q007",
+      "question": "Which two compatibility conditions are listed for UNION?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Both SELECTs must read from the same table and use the same WHERE clause."
+        },
+        {
+          "id": "B",
+          "text": "Both SELECTs must contain a primary key and a foreign key."
+        },
+        {
+          "id": "C",
+          "text": "The SELECTs should return the same number of columns with compatible/same data types."
+        },
+        {
+          "id": "D",
+          "text": "Both SELECTs must use GROUP BY and HAVING."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "السلايد بيشترط نفس عدد الأعمدة ونفس data type للأعمدة المقابلة علشان UNION يكون صالح.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-column-count-and-type-compatibility",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 21 — Union Operator conditions"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q008",
+      "question": "How does UNION ALL differ from UNION in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UNION ALL can only return one column."
+        },
+        {
+          "id": "B",
+          "text": "UNION ALL requires a self join."
+        },
+        {
+          "id": "C",
+          "text": "UNION ALL removes all NULL rows."
+        },
+        {
+          "id": "D",
+          "text": "UNION ALL does not eliminate repeated rows."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الفرق الأساسي هنا إن UNION بيزيل التكرار، لكن UNION ALL يحتفظ بالصفوف المتكررة.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union-all",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-all-keeps-duplicates",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 21 — UNION ALL"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q009",
+      "question": "What defines a correlated subquery?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It references one or more columns from the outer query."
+        },
+        {
+          "id": "B",
+          "text": "It never contains SELECT."
+        },
+        {
+          "id": "C",
+          "text": "It always uses UNION ALL."
+        },
+        {
+          "id": "D",
+          "text": "It can only appear in CREATE TABLE."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Correlated Subquery مربوط بالـ outer query لأنه بيرجع يستخدم column منها، زي `e.DepartmentID` في مثال متوسط راتب القسم.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "correlated-subquery",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "correlated-subquery-references-outer-query",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 25 — Correlated Subqueries"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q010",
+      "question": "What can a subquery in the SELECT list return in the example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A new physical database."
+        },
+        {
+          "id": "B",
+          "text": "A scalar value such as an order count or maximum order amount for each customer."
+        },
+        {
+          "id": "C",
+          "text": "A table constraint definition."
+        },
+        {
+          "id": "D",
+          "text": "A join type declaration."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Subquery في SELECT list بيحسب قيمة واحدة لكل صف outer، زي OrderCount أو MaxOrder.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-select",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "select-list-subquery-returns-scalar-value",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 24 — Subqueries in SELECT Clause"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q011",
+      "question": "The highest-paid-employee example contains `(SELECT MAX(sal) FROM EMP)` inside another subquery. What does that innermost query produce?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The department name directly."
+        },
+        {
+          "id": "B",
+          "text": "Every employee row."
+        },
+        {
+          "id": "C",
+          "text": "The maximum salary value in EMP."
+        },
+        {
+          "id": "D",
+          "text": "A list of all department numbers."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "أعمق subquery بتحسب `MAX(sal)` الأول؛ بعدها المستوى اللي فوقها يحدد deptno للموظف صاحب الراتب ده.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "nested-subquery",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-subquery-innermost-max-salary",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 18–19 — Highest-paid employee nested query"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q012",
+      "question": "In `WHERE salary > ALL (SELECT salary FROM employee WHERE Dno=5)`, what must be true for an employee to qualify?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Their salary must equal at least one salary in department 5."
+        },
+        {
+          "id": "B",
+          "text": "Their salary must be less than the minimum salary in department 5."
+        },
+        {
+          "id": "C",
+          "text": "They must work in department 5."
+        },
+        {
+          "id": "D",
+          "text": "Their salary must be greater than every salary returned for department 5."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "`> ALL` معناها القيمة لازم تكون أكبر من كل القيم اللي رجعتها الـ subquery.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "any-all-exists",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "all-greater-than-every-subquery-value",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 20 — Salary > ALL subquery example"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q013",
+      "question": "What does `> ANY (subquery)` mean in the Session 6 pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The value only needs to be greater than at least one value returned by the subquery."
+        },
+        {
+          "id": "B",
+          "text": "The value must be greater than every returned value."
+        },
+        {
+          "id": "C",
+          "text": "The subquery must return exactly one row."
+        },
+        {
+          "id": "D",
+          "text": "The query ignores the subquery result."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ANY معناها الشرط يتحقق مع أي قيمة واحدة على الأقل من نتائج الـ subquery، بعكس ALL.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "any-all-exists",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "any-compares-successfully-to-at-least-one-value",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 27 — ANY example"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q014",
+      "question": "What does EXISTS test in the customer/orders example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Whether every customer has the same order amount."
+        },
+        {
+          "id": "B",
+          "text": "Whether the correlated subquery returns at least one order row for the current customer."
+        },
+        {
+          "id": "C",
+          "text": "Whether the Customers table has duplicate names."
+        },
+        {
+          "id": "D",
+          "text": "Whether Orders contains only NULL values."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "EXISTS مهمته يشوف هل الـ subquery رجعت أي row. في المثال ده يختبر وجود Order مرتبط بالـ Customer الحالي.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "any-all-exists",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "exists-customer-has-at-least-one-order",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 27 — EXISTS example"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q015",
+      "question": "In the correlated subquery for employees earning more than their department average, why is `DepartmentID = e.DepartmentID` important?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It sorts employees by department."
+        },
+        {
+          "id": "B",
+          "text": "It turns the query into UNION ALL."
+        },
+        {
+          "id": "C",
+          "text": "It makes the inner average specific to the current employee's department."
+        },
+        {
+          "id": "D",
+          "text": "It removes the Salary comparison."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المرجع `e.DepartmentID` جاي من الـ outer query، وده اللي يخلي AVG يتحسب للقسم الخاص بكل موظف بدل متوسط عام لكل الشركة.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "correlated-subquery",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "correlated-department-average-outer-reference",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 25 — Correlated department-average subquery"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q016",
+      "question": "The query `SELECT Name FROM Employees UNION SELECT Name FROM Employees_retired` returns a name present in both tables how many times?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Twice."
+        },
+        {
+          "id": "B",
+          "text": "Zero times."
+        },
+        {
+          "id": "C",
+          "text": "Four times."
+        },
+        {
+          "id": "D",
+          "text": "Once."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "UNION بيزيل duplicate rows من الناتج الموحد، فلو الاسم موجود بنفس الشكل في الناحيتين هيظهر مرة واحدة.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-current-retired-duplicate-name-once",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 23 — Current and previous employees with UNION"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q017",
+      "question": "If the previous query uses UNION ALL instead, how many times would a name that appears once in each table be returned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Twice."
+        },
+        {
+          "id": "B",
+          "text": "Once."
+        },
+        {
+          "id": "C",
+          "text": "Zero times."
+        },
+        {
+          "id": "D",
+          "text": "Only if it is NULL."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "UNION ALL لا يزيل التكرار، لذلك row من كل SELECT يفضل موجود، فيظهر الاسم مرتين.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union-all",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-all-duplicate-name-twice",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 21 — UNION ALL duplicate behavior"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q018",
+      "question": "Which column names does a UNION result display according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The column names from the second SELECT query only."
+        },
+        {
+          "id": "B",
+          "text": "The column names from the first SELECT query."
+        },
+        {
+          "id": "C",
+          "text": "A concatenation of both column-name sets."
+        },
+        {
+          "id": "D",
+          "text": "No column names."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السلايد بيذكر إن أسماء أعمدة الناتج بتكون أسماء الأعمدة من الـ first query.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-result-column-names-from-first-query",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 21 — Union Operator"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q019",
+      "question": "A SELECT-list subquery calculates `COUNT(*)` from Orders where `o.CustomerID = c.CustomerID`. What does the resulting OrderCount represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The number of all customers in the database."
+        },
+        {
+          "id": "B",
+          "text": "The maximum order amount for all customers."
+        },
+        {
+          "id": "C",
+          "text": "The number of orders for the current customer row from the outer query."
+        },
+        {
+          "id": "D",
+          "text": "The number of columns in Orders."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ subquery correlated بـ CustomerID الحالي، لذلك COUNT(*) بيتحسب للعميل الموجود في صف الـ outer query.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-select",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "scalar-subquery-order-count-per-customer",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 24 — Subqueries in SELECT Clause"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q020",
+      "question": "Which requirement most directly calls for a correlated subquery?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Return all rows from one table."
+        },
+        {
+          "id": "B",
+          "text": "Rename a table permanently."
+        },
+        {
+          "id": "C",
+          "text": "Combine two same-shaped result sets and remove duplicates."
+        },
+        {
+          "id": "D",
+          "text": "Compare each employee's salary with the average salary of that employee's own department."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "لأن المقارنة بتتغير حسب DepartmentID لكل employee في الـ outer query، فده استخدام طبيعي لـ correlated subquery.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "correlated-subquery",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "correlated-subquery-per-row-department-average",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 25 — Correlated Subqueries"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q021",
+      "question": "Products in category Luxury have prices {100, 200, 300}. Which product price satisfies `Price > ANY (...)`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "150."
+        },
+        {
+          "id": "B",
+          "text": "90."
+        },
+        {
+          "id": "C",
+          "text": "100 only because equality is required."
+        },
+        {
+          "id": "D",
+          "text": "No value can satisfy ANY."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "150 أكبر من قيمة واحدة على الأقل من {100,200,300} وهي 100، فشرط `> ANY` يتحقق.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "any-all-exists",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "any-price-greater-than-at-least-one-luxury-price",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 27 — ANY subquery"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q022",
+      "question": "Budget prices are {20, 40, 60}. Which price satisfies `Price > ALL (...)`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "50."
+        },
+        {
+          "id": "B",
+          "text": "70."
+        },
+        {
+          "id": "C",
+          "text": "40."
+        },
+        {
+          "id": "D",
+          "text": "20."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`> ALL` لازم يكون أكبر من أعلى قيمة ضمن المجموعة كلها؛ 70 أكبر من 20 و40 و60.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "any-all-exists",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "all-price-greater-than-every-budget-price",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 27 — ALL subquery"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q023",
+      "question": "A company wants customers who have at least one matching order without needing any value from Orders in the SELECT list. Which taught pattern is a natural fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Cartesian product."
+        },
+        {
+          "id": "B",
+          "text": "DROP TABLE Orders."
+        },
+        {
+          "id": "C",
+          "text": "A correlated EXISTS subquery."
+        },
+        {
+          "id": "D",
+          "text": "UNION ALL between Customers and Orders regardless of columns."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "EXISTS مناسب جدًا لما المطلوب مجرد التأكد إن فيه row مرتبط، من غير ما نحتاج نرجع أعمدة من Orders.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "any-all-exists",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "exists-for-customers-with-orders",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 27 — EXISTS correlated example"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q024",
+      "question": "A report needs `CustomerName` plus a derived `MaxOrder` value for each customer. Which Session 6 technique directly matches this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A self join on Customers."
+        },
+        {
+          "id": "B",
+          "text": "A Cartesian product with Orders."
+        },
+        {
+          "id": "C",
+          "text": "A UNION that stacks customer names and order amounts in one column."
+        },
+        {
+          "id": "D",
+          "text": "A scalar subquery in the SELECT list correlated by CustomerID."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 24 بيعرض نفس النمط: outer Customers ومعاه subquery في SELECT تحسب `MAX(OrderAmount)` لكل CustomerID.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-select",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "select-list-scalar-max-order-per-customer",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 24 — MaxOrder scalar subquery"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q025",
+      "question": "A store query needs products whose category ID is in the set of category IDs located in Cairo. Which taught structure matches the Giza department example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`WHERE CategoryID IN (SELECT CategoryID ... WHERE Location='Cairo')`."
+        },
+        {
+          "id": "B",
+          "text": "A self join of Products with itself."
+        },
+        {
+          "id": "C",
+          "text": "A FULL OUTER JOIN with no condition."
+        },
+        {
+          "id": "D",
+          "text": "TRUNCATE Categories before SELECT."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ده نفس pattern Slide 17: outer table بيتفلتر بـ `IN` على IDs راجعة من subquery داخل WHERE.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-where",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "where-in-subquery-category-location",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 17 — `Dno IN (SELECT Dnumber...)` pattern"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q026",
+      "question": "Which change would make the department-average subquery non-correlated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Add another reference to `e.DepartmentID`."
+        },
+        {
+          "id": "B",
+          "text": "Remove the reference to the outer alias so the inner query no longer depends on `e.DepartmentID`."
+        },
+        {
+          "id": "C",
+          "text": "Move the outer alias into the SELECT list too."
+        },
+        {
+          "id": "D",
+          "text": "Replace AVG with MAX while keeping the outer reference."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Correlated معناها inner query تعتمد على قيمة من outer query؛ لو شلت المرجع الخارجي، بقت مستقلة/non-correlated.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "correlated-subquery",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "correlated-vs-noncorrelated-outer-reference",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 25–26 — Correlated vs Non-correlated"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q027",
+      "question": "A UNION is attempted between a SELECT returning two columns and another returning three columns. What issue conflicts with the session rules?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UNION requires every table to have a foreign key."
+        },
+        {
+          "id": "B",
+          "text": "UNION cannot contain text columns."
+        },
+        {
+          "id": "C",
+          "text": "The SELECTs do not return the same number of columns."
+        },
+        {
+          "id": "D",
+          "text": "UNION requires a self join first."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "من شروط UNION إن الجانبين يكون عندهم نفس عدد الأعمدة؛ 2 مقابل 3 يخالف الشرط مباشرة.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-mismatched-column-count-invalid",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 21 — UNION conditions"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q028",
+      "question": "A UNION aligns one numeric column with a text column in the corresponding position. Which course rule is being violated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UNION columns must always be primary keys."
+        },
+        {
+          "id": "B",
+          "text": "UNION requires ORDER BY in each SELECT."
+        },
+        {
+          "id": "C",
+          "text": "UNION cannot use aliases."
+        },
+        {
+          "id": "D",
+          "text": "Corresponding UNION columns should have compatible/same data types."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "السلايد يشترط توافق نوع البيانات للأعمدة المقابلة، فربط numeric مع text يخالف القاعدة المذكورة.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-mismatched-data-types",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 21 — UNION conditions"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q029",
+      "question": "The E-commerce assignment asks for customer stats such as total spent, order count, and average order value using subqueries in SELECT. Which design matches the requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use correlated scalar subqueries in the SELECT list, one per derived customer statistic."
+        },
+        {
+          "id": "B",
+          "text": "Use a Cartesian product and no aggregation."
+        },
+        {
+          "id": "C",
+          "text": "Use only DROP TABLE statements."
+        },
+        {
+          "id": "D",
+          "text": "Use a self join on Customers with no Orders reference."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ assignment نفسه بيطلب subqueries in SELECT للـ customer stats، وSlide 24 بيوضح scalar correlated subqueries لنفس النوع من derived columns.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-select",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "assignment-customer-stats-with-select-subqueries",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 24 and 29 — SELECT subqueries and E-commerce assignment"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q030",
+      "question": "The lab asks for customers who placed orders above average using a nested query. What role does the innermost average subquery play?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It creates the Customers table."
+        },
+        {
+          "id": "B",
+          "text": "It computes the benchmark value that another query uses to filter orders."
+        },
+        {
+          "id": "C",
+          "text": "It converts the query into a RIGHT JOIN."
+        },
+        {
+          "id": "D",
+          "text": "It deletes duplicate orders."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "في pattern `OrderAmount > (SELECT AVG(OrderAmount) FROM Orders)`، الـ innermost query بتحسب المتوسط اللي هنقارن به كل order.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "nested-subquery",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-subquery-average-order-benchmark",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 26 and 28 — Orders above average nested query"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q031",
+      "question": "First SELECT returns rows {A,B}; second SELECT returns {B,C}. What rows does UNION return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "{A,B,B,C}."
+        },
+        {
+          "id": "B",
+          "text": "{B} only."
+        },
+        {
+          "id": "C",
+          "text": "{A,B,C}."
+        },
+        {
+          "id": "D",
+          "text": "{A,C} only."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "UNION بيجمع النتيجتين وبيزيل التكرار، لذلك B المشتركة تظهر مرة واحدة.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-set-combination-removes-duplicate-b",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 21 — UNION duplicate elimination"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q032",
+      "question": "Using the same inputs {A,B} and {B,C}, what does UNION ALL return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "{A,B,C}."
+        },
+        {
+          "id": "B",
+          "text": "{B} only."
+        },
+        {
+          "id": "C",
+          "text": "{A,C} only."
+        },
+        {
+          "id": "D",
+          "text": "{A,B,B,C}."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "UNION ALL يحتفظ بكل rows من الناحيتين، وبالتالي B تظهر مرتين.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union-all",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "union-all-preserves-duplicate-b",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 21 — UNION ALL"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q033",
+      "question": "A correlated subquery intended to compare each employee with their own department average accidentally omits `WHERE DepartmentID = e.DepartmentID` inside the subquery. What changes conceptually?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The comparison becomes against one overall average rather than a department-specific average."
+        },
+        {
+          "id": "B",
+          "text": "The query becomes a self join automatically."
+        },
+        {
+          "id": "C",
+          "text": "The query becomes a UNION."
+        },
+        {
+          "id": "D",
+          "text": "The outer employee rows are permanently updated."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "من غير outer reference، AVG هيتحسب على كل Employees بدل قسم الموظف الحالي، وبالتالي المعنى اتغير من per-department إلى global average.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "correlated-subquery",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "correlated-subquery-missing-correlation-global-average",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 25 — Correlated department-average example"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q034",
+      "question": "A query uses a subquery in FROM and then selects from its derived result. What Session 6 term describes that derived source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Self join."
+        },
+        {
+          "id": "B",
+          "text": "Inline view."
+        },
+        {
+          "id": "C",
+          "text": "Cartesian product."
+        },
+        {
+          "id": "D",
+          "text": "Foreign-key cascade."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ subquery داخل FROM اسمها inline view حسب Slides 16 و26.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-from-inline-view",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "from-subquery-derived-source-inline-view",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 16 and 26 — Inline View"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q035",
+      "question": "Which nested-query sequence best matches the highest-paid-employee department example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Find department name → delete the employee → calculate MAX salary."
+        },
+        {
+          "id": "B",
+          "text": "Run UNION ALL → create a table → find MIN salary."
+        },
+        {
+          "id": "C",
+          "text": "Find MAX salary → find the employee's deptno with that salary → find the department name for that deptno."
+        },
+        {
+          "id": "D",
+          "text": "Find every department → Cartesian product with employees → drop duplicates."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الاستعلام nested من الداخل للخارج: MAX(sal)، بعده deptno للموظف صاحب الـ max، وبعدها dname للقسم.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "nested-subquery",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "highest-paid-department-nested-execution-sequence",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 18–19 — Highest-paid employee department"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q036",
+      "question": "Luxury prices are {100,200,300}. Compare the predicates `Price > ANY (...)` and `Price > ALL (...)` for Price=250. Which is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Both are true."
+        },
+        {
+          "id": "B",
+          "text": "Both are false."
+        },
+        {
+          "id": "C",
+          "text": "`> ANY` is false, but `> ALL` is true."
+        },
+        {
+          "id": "D",
+          "text": "`> ANY` is true, but `> ALL` is false."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "250 أكبر من بعض القيم (100 و200) فـ ANY true، لكنه مش أكبر من 300، فـ ALL false.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "any-all-exists",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "compare-any-vs-all-price-250",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 27 — ANY and ALL"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q037",
+      "question": "A scalar SELECT-list subquery is correlated by CustomerID and calculates COUNT(*). Customer 7 has no Orders rows. What count is logically produced by COUNT(*) over that empty matching set?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0."
+        },
+        {
+          "id": "B",
+          "text": "NULL is guaranteed by the session for COUNT(*)."
+        },
+        {
+          "id": "C",
+          "text": "1 because the customer row exists."
+        },
+        {
+          "id": "D",
+          "text": "The customer row must be removed from the outer query."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ scalar subquery بتحسب COUNT على Orders المطابقة للعميل. لو مفيش rows مطابقة فالعدّ يساوي 0، والـ outer Customer يفضل موجود لأننا مش بنعمل INNER JOIN هنا.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-select",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "scalar-count-no-matching-orders-zero",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 24 — OrderCount correlated scalar subquery"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q038",
+      "question": "A developer wants current and retired employee names, including repeated names from both sources for auditing. Which set operator is the better fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UNION."
+        },
+        {
+          "id": "B",
+          "text": "UNION ALL."
+        },
+        {
+          "id": "C",
+          "text": "INNER JOIN."
+        },
+        {
+          "id": "D",
+          "text": "Self JOIN."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "بما إن التكرار مطلوب للحفاظ على كل occurrence، UNION ALL هو الأنسب لأنه لا يزيل duplicates.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "set-operations",
+      "subtopicId": "union-all",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "audit-requires-union-all-preserve-repetition",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 21 and 23 — UNION vs UNION ALL"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q039",
+      "question": "A query is intended to be correlated, but the inner query has no reference at all to the current outer row. What is the best diagnosis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is automatically a self join."
+        },
+        {
+          "id": "B",
+          "text": "It is automatically a FULL OUTER JOIN."
+        },
+        {
+          "id": "C",
+          "text": "It is non-correlated and will compute the same independent inner result for the outer rows."
+        },
+        {
+          "id": "D",
+          "text": "It becomes DDL rather than a query."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "التمييز الرئيسي إن correlated subquery لازم تعتمد على outer column. من غير المرجع ده، الـ inner query مستقلة.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "correlated-subquery",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "missing-outer-reference-makes-subquery-noncorrelated",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 25–26 — Correlated vs Non-correlated"
+      }
+    },
+    {
+      "id": "da-sql-session06-subqueries-q040",
+      "question": "A customer query uses an outer SELECT, an IN subquery over Orders, and inside that subquery an AVG(OrderAmount) subquery. Which part should be reasoned about first to understand the filter threshold?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The outer CustomerName projection."
+        },
+        {
+          "id": "B",
+          "text": "A nonexistent JOIN alias."
+        },
+        {
+          "id": "C",
+          "text": "UNION column naming rules."
+        },
+        {
+          "id": "D",
+          "text": "The innermost AVG(OrderAmount) subquery."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "في nested pattern لازم تبدأ من أعمق subquery لأنها بتحسب threshold (المتوسط)، وبعدها مستوى Orders يحدد IDs، ثم outer query يرجع أسماء العملاء.",
+        "en": ""
+      },
+      "topic": "Subqueries & Set Operations",
+      "topicId": "subqueries",
+      "subtopicId": "nested-subquery",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "nested-orders-above-average-reason-inside-out",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 26 — Customers with orders above average"
+      }
+    }
+  ]
+}

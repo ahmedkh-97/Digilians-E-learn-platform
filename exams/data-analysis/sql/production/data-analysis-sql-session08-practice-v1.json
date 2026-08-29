@@ -1,0 +1,3471 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-sql-session08-practice-v1",
+    "title": "Session 8 — SQL Practice",
+    "description": "Validated practice set for Analytical SQL: Window Functions, CTEs & Pivoting, using the production question banks linked to Session8.pptx.",
+    "course": "Data Analysis",
+    "module": "SQL & Databases — Session 8",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-sql-session08-window-q001",
+      "question": "What is the core purpose of a SQL window function in Session 8?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To calculate across rows related to the current row without collapsing them with GROUP BY."
+        },
+        {
+          "id": "B",
+          "text": "To permanently create a new table."
+        },
+        {
+          "id": "C",
+          "text": "To remove every duplicate row from storage."
+        },
+        {
+          "id": "D",
+          "text": "To grant database permissions."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Window Function بتعمل calculation على مجموعة rows مرتبطة بالـ current row، وبتحافظ على الصفوف بدل ما تختصرهم زي GROUP BY.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "window-function-purpose",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "window-function-calculates-related-rows-without-group-collapse",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 3–4 — Window Function Definition"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q002",
+      "question": "Which clause shown in Session 8 divides rows into groups for a window calculation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "GROUP BY only"
+        },
+        {
+          "id": "B",
+          "text": "PARTITION BY"
+        },
+        {
+          "id": "C",
+          "text": "PIVOT"
+        },
+        {
+          "id": "D",
+          "text": "BEGIN CATCH"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "في مثال AVG كـ window function، `PARTITION BY department_id` بيقسم الصفوف لمجموعات داخل الـ window من غير ما يلغي تفاصيل كل row.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "partition-by",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "window-partition-by-divides-window-groups",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 8 — Aggregate Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q003",
+      "question": "What does LAG() return according to Session 8?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A value from the following row."
+        },
+        {
+          "id": "B",
+          "text": "The number of rows in the partition."
+        },
+        {
+          "id": "C",
+          "text": "A value from the row that precedes the current row."
+        },
+        {
+          "id": "D",
+          "text": "A pivoted column header."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "`LAG()` بيرجع قيمة من row سابق للـ current row، بينما `LEAD()` بيبص لقدّام.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "lag-lead",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lag-returns-previous-row-value",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 9 — Value Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q004",
+      "question": "A report must show every employee row plus the average salary of that employee's department. Which approach best matches the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "AVG(salary) with GROUP BY employee name only"
+        },
+        {
+          "id": "B",
+          "text": "PIVOT without an aggregate"
+        },
+        {
+          "id": "C",
+          "text": "DROP INDEX on department_id"
+        },
+        {
+          "id": "D",
+          "text": "AVG(salary) OVER (PARTITION BY department_id)"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المطلوب نحافظ على كل employee row ونضيف متوسط القسم؛ ده بالضبط استخدام `AVG(...) OVER(PARTITION BY ...)` الموجود في السلايد.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "aggregate-window-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "department-average-window-per-row-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 8 — Aggregate Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q005",
+      "question": "A sales analyst wants each row to show the value from the immediately previous sale after sorting by amount. Which taught function fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LAG()"
+        },
+        {
+          "id": "B",
+          "text": "LEAD()"
+        },
+        {
+          "id": "C",
+          "text": "PIVOT"
+        },
+        {
+          "id": "D",
+          "text": "NTILE() only"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ده سيناريو جديد لنفس concept: لو عايزين القيمة السابقة حسب ORDER BY نستخدم `LAG()`.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "lag-lead",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-lag-previous-value-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 9 — Value Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q006",
+      "question": "You need ranking where tied salaries share a rank and the next rank number is skipped. Which function should be used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DENSE_RANK()"
+        },
+        {
+          "id": "B",
+          "text": "RANK()"
+        },
+        {
+          "id": "C",
+          "text": "ROW_NUMBER()"
+        },
+        {
+          "id": "D",
+          "text": "NTILE()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "`RANK()` بيدي نفس الرتبة للـ ties وبعدها بيسيب gap في أرقام الرتب، وده الفرق الأساسي عن DENSE_RANK.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "rank-ties-with-gaps-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — Rank Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q007",
+      "question": "You need a unique sequential number for every row even when salary values are tied. Which function fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RANK()"
+        },
+        {
+          "id": "B",
+          "text": "DENSE_RANK()"
+        },
+        {
+          "id": "C",
+          "text": "ROW_NUMBER()"
+        },
+        {
+          "id": "D",
+          "text": "AVG() OVER()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "`ROW_NUMBER()` بيدي unique number لكل row في result set حتى لو القيم متساوية.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "row-number-unique-number-per-row-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — Rank Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q008",
+      "question": "A report must split ordered employees into four roughly equal buckets. Which function from Session 8 is intended for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RANK(4)"
+        },
+        {
+          "id": "B",
+          "text": "LAG(4)"
+        },
+        {
+          "id": "C",
+          "text": "PIVOT(4)"
+        },
+        {
+          "id": "D",
+          "text": "NTILE(4)"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "`NTILE()` بيقسم rows في ordered partition إلى عدد محدد من المجموعات المتقاربة في الحجم.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ntile",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ntile-roughly-equal-buckets-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — NTILE"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q009",
+      "question": "A long nested query is hard to read and the same intermediate result needs to be referenced more than once in the main query. What does Session 8 recommend?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use a CTE defined with WITH."
+        },
+        {
+          "id": "B",
+          "text": "Use DROP TABLE."
+        },
+        {
+          "id": "C",
+          "text": "Use PIVOT only."
+        },
+        {
+          "id": "D",
+          "text": "Use a Cartesian product."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المحاضرة بتقدم CTE كـ named temporary result set يحسن readability وممكن يت referenced أكتر من مرة في نفس الـ main query.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-purpose",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "cte-readability-and-reuse-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 11–13 — CTE Purpose and Comparison"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q010",
+      "question": "A reporting query first filters high-value orders, then needs to join that filtered set to customers. Which taught pattern is most suitable for a clean query?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Convert every row into a PIVOT column first."
+        },
+        {
+          "id": "B",
+          "text": "Create a CTE for the filtered rows, then join the CTE in the main query."
+        },
+        {
+          "id": "C",
+          "text": "Use DROP INDEX before the join."
+        },
+        {
+          "id": "D",
+          "text": "Use LEAD() instead of filtering."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده نفس pattern بتاع HighEarners في السلايد: نجهز subset في CTE وبعدها نعمل join في الـ main query.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-with-joins",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-cte-filter-then-join-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 14 — CTE Practice Case"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q011",
+      "question": "An employee table has salaries 4000 and 6000 in department 10, and 9000 in department 20. What avg_salary is shown beside the 4000 row by `AVG(salary) OVER(PARTITION BY department_id)`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "4000"
+        },
+        {
+          "id": "B",
+          "text": "6333.33"
+        },
+        {
+          "id": "C",
+          "text": "5000"
+        },
+        {
+          "id": "D",
+          "text": "9000"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Department 10 فيه 4000 و6000، فمتوسطه 5000. الـ window average بيتكرر جنب كل row في نفس القسم.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "aggregate-window-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-partition-average-two-row-department",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 8 — Aggregate Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q012",
+      "question": "For salaries ordered as 3000, 5000, 7000, what does `LAG(salary) OVER(ORDER BY salary)` return for the row with salary 5000?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5000"
+        },
+        {
+          "id": "B",
+          "text": "7000"
+        },
+        {
+          "id": "C",
+          "text": "NULL"
+        },
+        {
+          "id": "D",
+          "text": "3000"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "بعد الترتيب 3000 ثم 5000 ثم 7000، القيمة السابقة للـ 5000 هي 3000، وده اللي LAG بيرجعه.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "lag-lead",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-lag-middle-row",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 9 — Value Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q013",
+      "question": "For salaries ordered as 3000, 5000, 7000, what does `LEAD(salary) OVER(ORDER BY salary)` return for the row with salary 5000?",
+      "options": [
+        {
+          "id": "A",
+          "text": "7000"
+        },
+        {
+          "id": "B",
+          "text": "3000"
+        },
+        {
+          "id": "C",
+          "text": "5000"
+        },
+        {
+          "id": "D",
+          "text": "NULL"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "LEAD بيجيب القيمة التالية حسب ORDER BY، وبالتالي بعد 5000 تيجي 7000.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "lag-lead",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-lead-middle-row",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 9 — Value Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q014",
+      "question": "Salaries ordered DESC are 9000, 9000, 7000. What RANK() values are assigned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 1, 2"
+        },
+        {
+          "id": "B",
+          "text": "1, 1, 3"
+        },
+        {
+          "id": "C",
+          "text": "1, 2, 3"
+        },
+        {
+          "id": "D",
+          "text": "3, 3, 1"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "مع RANK، الـ ties بياخدوا نفس rank، وبعدهم يحصل gap؛ فـ 9000 و9000 = 1، وبعدهم 7000 = 3.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-rank-tie-gap-9000-9000-7000",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — RANK() Behavior"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q015",
+      "question": "In a product list ordered by price DESC as 100, 100, 80, what DENSE_RANK() values should appear?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 1, 3"
+        },
+        {
+          "id": "B",
+          "text": "1, 2, 3"
+        },
+        {
+          "id": "C",
+          "text": "1, 1, 2"
+        },
+        {
+          "id": "D",
+          "text": "3, 3, 2"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "ده سيناريو مشابه للمرتبات: DENSE_RANK بيدي نفس rank للـ ties من غير ما يسيب gap، فتبقى 1,1,2.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-trace-dense-rank-product-ties",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — DENSE_RANK() Behavior"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q016",
+      "question": "If three rows have equal salary and `ROW_NUMBER() OVER(ORDER BY salary DESC)` is applied, what is guaranteed by the taught definition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All three rows must receive rank 1."
+        },
+        {
+          "id": "B",
+          "text": "The three rows are removed as duplicates."
+        },
+        {
+          "id": "C",
+          "text": "The result must contain only one row."
+        },
+        {
+          "id": "D",
+          "text": "Each row receives a different row number."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "تعريف ROW_NUMBER في المحاضرة إنه assigns a unique number to each row، حتى لو قيمة الـ salary متساوية.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-row-number-tied-values-still-unique",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — ROW_NUMBER()"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q017",
+      "question": "A query uses `DENSE_RANK() OVER(PARTITION BY Department ORDER BY Salary DESC)`. What happens when the Department changes?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The ranking starts independently within the new department partition."
+        },
+        {
+          "id": "B",
+          "text": "The ranking continues globally with no reset."
+        },
+        {
+          "id": "C",
+          "text": "All salaries are summed before ranking."
+        },
+        {
+          "id": "D",
+          "text": "The department column becomes a PIVOT header."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "وجود PARTITION BY Department معناه كل Department ليه ranking مستقل عن الأقسام التانية.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "partition-by",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-dense-rank-partition-resets-per-department",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — DENSE_RANK with PARTITION BY"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q018",
+      "question": "Given ordered values 10, 20, 30, what does LEAD(value) return for the final row if no default is specified?",
+      "options": [
+        {
+          "id": "A",
+          "text": "30"
+        },
+        {
+          "id": "B",
+          "text": "NULL"
+        },
+        {
+          "id": "C",
+          "text": "20"
+        },
+        {
+          "id": "D",
+          "text": "10"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السلايد بيذكر إن آخر row في partition بيرجع NULL مع LEAD لو مفيش subsequent row ولا default محدد.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "lag-lead-edge-values",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-lead-last-row-null",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 9 — LAG/LEAD Null at Start/End"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q019",
+      "question": "Given ordered values 10, 20, 30, what does LAG(value) return for the first row if no default is specified?",
+      "options": [
+        {
+          "id": "A",
+          "text": "10"
+        },
+        {
+          "id": "B",
+          "text": "20"
+        },
+        {
+          "id": "C",
+          "text": "NULL"
+        },
+        {
+          "id": "D",
+          "text": "30"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "أول row مفيش قبله row، فـ LAG بيرجع NULL لو default مش متحدد.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "lag-lead-edge-values",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-lag-first-row-null",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 9 — LAG/LEAD Null at Start/End"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q020",
+      "question": "An ordered sales list is 120, 100, 100, 80. Which sequence matches DENSE_RANK()?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 2, 2, 4"
+        },
+        {
+          "id": "B",
+          "text": "1, 2, 3, 4"
+        },
+        {
+          "id": "C",
+          "text": "4, 2, 2, 1"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, 2, 3"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "DENSE_RANK بيحافظ على نفس rank للـ tie، لكن من غير gap: 120=1، 100=2 و2، 80=3.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-trace-dense-rank-four-sales-values",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — DENSE_RANK()"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q021",
+      "question": "Which line correctly begins a CTE according to the syntax slide?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WITH CTE_Name AS ("
+        },
+        {
+          "id": "B",
+          "text": "CREATE CTE CTE_Name ("
+        },
+        {
+          "id": "C",
+          "text": "PIVOT CTE_Name AS ("
+        },
+        {
+          "id": "D",
+          "text": "BEGIN CTE_Name WITH ("
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ CTE بيتعرّف باستخدام `WITH CTE_Name AS (` وبعدها SELECT الداخلي.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-syntax",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-identify-valid-cte-opening-syntax",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 12 — CTE Syntax"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q022",
+      "question": "After defining `WITH HighEarners AS (SELECT * FROM Staff WHERE Salary > 7000)`, what rows are available from HighEarners?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All Staff rows regardless of salary."
+        },
+        {
+          "id": "B",
+          "text": "Only Staff rows whose Salary is greater than 7000."
+        },
+        {
+          "id": "C",
+          "text": "Only Departments rows."
+        },
+        {
+          "id": "D",
+          "text": "Only rows with Salary exactly 7000."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ CTE نفسه مبني على filter `Salary > 7000`، فالناتج المؤقت فيه الـ Staff rows اللي عدت الشرط فقط.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-filtering",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-high-earners-cte-filter-result",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 14 — CTE Practice Case"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q023",
+      "question": "In the HighEarners example, the main query joins `HighEarners h` to `Departments d` using what relationship?",
+      "options": [
+        {
+          "id": "A",
+          "text": "h.Salary = d.DeptName"
+        },
+        {
+          "id": "B",
+          "text": "h.StaffName = d.DeptID"
+        },
+        {
+          "id": "C",
+          "text": "h.DeptID = d.DeptID"
+        },
+        {
+          "id": "D",
+          "text": "h.DeptID > d.DeptID"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المثال بيربط الـ filtered staff بالـ department table على `DeptID` عشان يرجع StaffName مع DeptName.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-with-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-cte-practice-join-condition",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 14 — CTE Practice Case"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q024",
+      "question": "What is the immediate effect of `CREATE INDEX idx_department ON employees (department);` in the course framing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It creates a new department column."
+        },
+        {
+          "id": "B",
+          "text": "It deletes duplicate departments."
+        },
+        {
+          "id": "C",
+          "text": "It converts department values into PIVOT headers."
+        },
+        {
+          "id": "D",
+          "text": "It creates an index intended to provide quicker access to rows for queries involving department."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Session 8 بتعرّف الـ Index كـ data structure لتحسين سرعة الوصول للـ rows، والمثال بيعمل index على department.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "indexes",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-create-index-department-purpose",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 7 — Indexes"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q025",
+      "question": "A table `orders` is frequently accessed by `customer_id`. Which statement matches the taught CREATE INDEX pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE INDEX idx_customer ON orders (customer_id);"
+        },
+        {
+          "id": "B",
+          "text": "CREATE CTE idx_customer ON orders (customer_id);"
+        },
+        {
+          "id": "C",
+          "text": "PIVOT INDEX idx_customer FROM orders;"
+        },
+        {
+          "id": "D",
+          "text": "DROP INDEX idx_customer ON orders (customer_id);"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ده نفس syntax اللي في المحاضرة لكن على table/column مختلفين: `CREATE INDEX name ON table(column)`.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "indexes",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-trace-create-index-on-customer-id",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 7 — Indexes"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q026",
+      "question": "Which statement matches the Session 8 example for removing the department index?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DELETE INDEX idx_department;"
+        },
+        {
+          "id": "B",
+          "text": "DROP INDEX IF EXISTS idx_department;"
+        },
+        {
+          "id": "C",
+          "text": "REMOVE INDEX ON idx_department;"
+        },
+        {
+          "id": "D",
+          "text": "DROP TABLE idx_department;"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "السلايد بيدي المثال `DROP INDEX IF EXISTS idx_department;` لإزالة الـ index.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "indexes",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-drop-index-if-exists-syntax",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 7 — Indexes"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q027",
+      "question": "What key result difference does Session 8 highlight between a window aggregate and GROUP BY?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A window aggregate permanently changes the table."
+        },
+        {
+          "id": "B",
+          "text": "GROUP BY is required inside every window function."
+        },
+        {
+          "id": "C",
+          "text": "A window aggregate can calculate across related rows while retaining the current rows."
+        },
+        {
+          "id": "D",
+          "text": "Window functions can only be used with PIVOT."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ Window Function بتضيف calculation على rows من غير ما تختصر الـ result لنفس شكل GROUP BY.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "window-vs-group-by",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-window-retains-rows-vs-group-by",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 4 — Window Function Key Term"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q028",
+      "question": "Employees in department A have salaries 50 and 70; department B has 100. For the 70 row, `AVG(salary) OVER(PARTITION BY department)` returns what?",
+      "options": [
+        {
+          "id": "A",
+          "text": "70"
+        },
+        {
+          "id": "B",
+          "text": "73.33"
+        },
+        {
+          "id": "C",
+          "text": "100"
+        },
+        {
+          "id": "D",
+          "text": "60"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ partition بتاع A فيه 50 و70 فقط، فالمتوسط 60 ويتعرض جنب row الـ 70.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "aggregate-window-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-partition-average-50-70",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 8 — Aggregate Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q029",
+      "question": "Values ordered by date are 5, 9, 14. What does LAG(value) return for the row containing 14?",
+      "options": [
+        {
+          "id": "A",
+          "text": "9"
+        },
+        {
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "14"
+        },
+        {
+          "id": "D",
+          "text": "NULL"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ده external-similar لنفس LAG concept: القيمة السابقة مباشرة للـ 14 في الترتيب هي 9.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "lag-lead",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-trace-lag-date-ordered-values",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 9 — Value Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q030",
+      "question": "Salaries DESC are 100, 90, 90, 80. Which sequence matches RANK()?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 2, 2, 3"
+        },
+        {
+          "id": "B",
+          "text": "1, 2, 2, 4"
+        },
+        {
+          "id": "C",
+          "text": "1, 2, 3, 4"
+        },
+        {
+          "id": "D",
+          "text": "4, 3, 3, 1"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "RANK بيسيب gap بعد tie: 100=1، الاتنين 90=2، وبعدهم 80=4.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-rank-four-values-gap-after-tie",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — RANK()"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q031",
+      "question": "Salaries DESC are 100, 90, 90, 80. Which sequence matches ROW_NUMBER()?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 2, 2, 4"
+        },
+        {
+          "id": "B",
+          "text": "1, 2, 2, 3"
+        },
+        {
+          "id": "C",
+          "text": "Each row gets a distinct sequence such as 1, 2, 3, 4."
+        },
+        {
+          "id": "D",
+          "text": "All tied rows must have the same number."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "ROW_NUMBER هدفه unique sequence لكل row؛ tie في salary ما يخليش الرقم يتكرر.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-row-number-four-values-with-tie",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — ROW_NUMBER()"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q032",
+      "question": "You want tied scores to share a position but you do not want gaps in the next position number. Which ranking function is the best decision?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RANK()"
+        },
+        {
+          "id": "B",
+          "text": "ROW_NUMBER()"
+        },
+        {
+          "id": "C",
+          "text": "LAG()"
+        },
+        {
+          "id": "D",
+          "text": "DENSE_RANK()"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "لو عايز ties تشترك في rank ومن غير gaps يبقى DENSE_RANK هو الاختيار الأنسب.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "best-dense-rank-for-ties-without-gaps",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — Ranking Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q033",
+      "question": "A query has deeply nested logic and the same intermediate result will be referenced repeatedly in the main statement. Which choice best follows Session 8?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Refactor the intermediate result into a CTE."
+        },
+        {
+          "id": "B",
+          "text": "Convert it to NTILE()."
+        },
+        {
+          "id": "C",
+          "text": "Use a self join only."
+        },
+        {
+          "id": "D",
+          "text": "Drop the source table and rebuild it."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Session 8 بتفضل CTE في الحالة دي بسبب readability وreuse داخل الـ main query.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-vs-subquery",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "best-cte-for-complex-reusable-intermediate-result",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 13 — Subquery vs CTE"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q034",
+      "question": "A report needs a named temporary result set only during one statement, primarily for readability. What is the best taught feature?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A permanent table created with CREATE TABLE."
+        },
+        {
+          "id": "B",
+          "text": "A CTE."
+        },
+        {
+          "id": "C",
+          "text": "A PIVOT header list."
+        },
+        {
+          "id": "D",
+          "text": "A DROP INDEX command."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ CTE في المحاضرة عبارة عن temporary named result set أثناء تنفيذ query واحدة، وهدفه الأساسي readability/maintenance.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-purpose",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "best-cte-for-single-statement-named-result",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 11 — Common Table Expressions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q035",
+      "question": "A customer leaderboard must give tied totals the same position and continue with the next consecutive position. Which taught function should be selected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ROW_NUMBER()"
+        },
+        {
+          "id": "B",
+          "text": "LEAD()"
+        },
+        {
+          "id": "C",
+          "text": "DENSE_RANK()"
+        },
+        {
+          "id": "D",
+          "text": "PIVOT"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "ده external-similar لاستخدام ranking: ties + consecutive ranks = DENSE_RANK.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "ranking-functions",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-best-dense-rank-customer-leaderboard",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — DENSE_RANK()"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q036",
+      "question": "A query currently uses GROUP BY only to calculate a department average, but the requirement changes to keep every employee row. What is the best change from Session 8?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use PIVOT with no aggregate."
+        },
+        {
+          "id": "B",
+          "text": "Use DROP INDEX on salary."
+        },
+        {
+          "id": "C",
+          "text": "Use DELETE followed by INSERT."
+        },
+        {
+          "id": "D",
+          "text": "Use AVG(salary) OVER(PARTITION BY department_id)."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "لما نحتاج نحافظ على كل row ونحسب group-level metric، الـ aggregate window function أنسب من GROUP BY.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "window-vs-group-by",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "best-replace-group-by-with-window-to-retain-detail",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 4 and 8 — Window Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q037",
+      "question": "A developer writes `AVG(salary) PARTITION BY department_id` without `OVER(...)`. What is the main problem relative to the taught syntax?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The window specification is missing the OVER(...) wrapper."
+        },
+        {
+          "id": "B",
+          "text": "AVG cannot be used as a window function."
+        },
+        {
+          "id": "C",
+          "text": "PARTITION BY must always be replaced by PIVOT."
+        },
+        {
+          "id": "D",
+          "text": "The query must use DROP INDEX first."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "كل أمثلة الـ window functions في Session 8 بتستخدم `... OVER (...)`; PARTITION BY جزء جوه OVER مش بديل له.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "window-syntax",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "troubleshoot-missing-over-wrapper",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 8 — Aggregate Window Function Syntax"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q038",
+      "question": "A ranking query needs the rank to restart for each department, but it currently uses only `RANK() OVER(ORDER BY salary DESC)`. What is missing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A PIVOT clause."
+        },
+        {
+          "id": "B",
+          "text": "PARTITION BY department inside OVER(...)."
+        },
+        {
+          "id": "C",
+          "text": "DROP INDEX IF EXISTS."
+        },
+        {
+          "id": "D",
+          "text": "A BEGIN CATCH block."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "من غير PARTITION BY الرانك global. لو عايزه يبدأ من جديد لكل department لازم تضيف `PARTITION BY department` جوه OVER.",
+        "en": ""
+      },
+      "topic": "Window Functions",
+      "topicId": "window-functions",
+      "subtopicId": "partition-by",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "troubleshoot-ranking-not-resetting-by-department",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 10 — DENSE_RANK with PARTITION BY"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q039",
+      "question": "A CTE is written as `CTE_Name AS (SELECT ...) SELECT * FROM CTE_Name;` and fails to match the lecture syntax. What keyword is missing at the start?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PIVOT"
+        },
+        {
+          "id": "B",
+          "text": "WINDOW"
+        },
+        {
+          "id": "C",
+          "text": "WITH"
+        },
+        {
+          "id": "D",
+          "text": "INDEX"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "تعريف CTE في السلايد يبدأ بـ `WITH CTE_Name AS (...)`، فالمشكلة الأساسية إن WITH ناقصة.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-syntax",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "troubleshoot-cte-missing-with-keyword",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 12 — CTE Syntax"
+      }
+    },
+    {
+      "id": "da-sql-session08-window-q040",
+      "question": "A team creates `CREATE INDEX idx_status ON tickets(status);` expecting it to convert status values into report columns. What is wrong with that expectation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE INDEX automatically performs PIVOT after creation."
+        },
+        {
+          "id": "B",
+          "text": "Indexes are only for deleting duplicate rows."
+        },
+        {
+          "id": "C",
+          "text": "PIVOT can only be used to speed WHERE filters."
+        },
+        {
+          "id": "D",
+          "text": "An index is for quicker data access; turning values into columns is a PIVOT task."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده external-similar troubleshooting: الـ Index هدفه query access/performance، أما تحويل unique values لcolumns فهو PIVOT.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "indexes",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-troubleshoot-index-vs-pivot-expectation",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 7 and 16 — Indexes vs Pivot Purpose"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q001",
+      "question": "What characterizes a single-row subquery in Session 8?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It returns one value: one row and one column."
+        },
+        {
+          "id": "B",
+          "text": "It must return every row from a table."
+        },
+        {
+          "id": "C",
+          "text": "It can only be used with PIVOT."
+        },
+        {
+          "id": "D",
+          "text": "It always returns a list for IN."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Single-Row Subquery بيرجع قيمة واحدة فقط، يعني row واحدة وcolumn واحدة.",
+        "en": ""
+      },
+      "topic": "Subqueries",
+      "topicId": "subqueries",
+      "subtopicId": "single-row-subqueries",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session08-single-row-subquery-one-value",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 5 — Single-Row Subqueries"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q002",
+      "question": "Which operators does Session 8 associate with multi-row subqueries?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE, ALTER, DROP"
+        },
+        {
+          "id": "B",
+          "text": "IN, ANY, ALL"
+        },
+        {
+          "id": "C",
+          "text": "LAG, LEAD, NTILE"
+        },
+        {
+          "id": "D",
+          "text": "COMMIT, ROLLBACK, SAVEPOINT"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Multi-Row Subquery بيرجع list، والمحاضرة بتربطه بـ `IN`, `ANY`, و`ALL`.",
+        "en": ""
+      },
+      "topic": "Subqueries",
+      "topicId": "subqueries",
+      "subtopicId": "multi-row-subqueries",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session08-multi-row-operators-in-any-all",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 6 — Multi-Row Subqueries"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q003",
+      "question": "What reliability note does Session 8 give when a subquery might return NULLs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Always replace NOT IN with PIVOT."
+        },
+        {
+          "id": "B",
+          "text": "Use RANK instead of any subquery."
+        },
+        {
+          "id": "C",
+          "text": "Prefer NOT EXISTS instead of NOT IN."
+        },
+        {
+          "id": "D",
+          "text": "Drop the NULL-containing table."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "السلايد بيقول لو الـ subquery ممكن يرجع NULLs، الأفضل استخدام `NOT EXISTS` بدل `NOT IN` للموثوقية.",
+        "en": ""
+      },
+      "topic": "Subqueries",
+      "topicId": "subqueries",
+      "subtopicId": "not-exists-null-safety",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session08-prefer-not-exists-when-null-possible",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 6 — Multi-Row Subqueries Note"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q004",
+      "question": "A dashboard needs product categories to appear as separate report columns. Which taught transformation matches this need?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LAG"
+        },
+        {
+          "id": "B",
+          "text": "DROP INDEX"
+        },
+        {
+          "id": "C",
+          "text": "TRY...CATCH"
+        },
+        {
+          "id": "D",
+          "text": "PIVOT"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "PIVOT هدفه تحويل unique values من column إلى headers/columns، وده مناسب لتقارير cross-tab.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "pivot-purpose",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "pivot-category-values-to-report-columns-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 16 — Introduction to PIVOT"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q005",
+      "question": "A PIVOT report needs totals by category. Which component is required according to Session 8?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An aggregate such as SUM or AVG."
+        },
+        {
+          "id": "B",
+          "text": "A DROP TABLE statement."
+        },
+        {
+          "id": "C",
+          "text": "A ROLLBACK only."
+        },
+        {
+          "id": "D",
+          "text": "A LAG function only."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "من Core Components للـ PIVOT وجود aggregation زي SUM أو AVG، مع column to pivot وقائمة القيم.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "pivot-components",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "pivot-requires-aggregation-component-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 16 — PIVOT Core Components"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q006",
+      "question": "A monthly sales report must turn region values into columns and sum SalesAmount for each region. Which feature best fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LAG(SalesAmount) only."
+        },
+        {
+          "id": "B",
+          "text": "PIVOT with SUM(SalesAmount)."
+        },
+        {
+          "id": "C",
+          "text": "DROP INDEX on region."
+        },
+        {
+          "id": "D",
+          "text": "TRY...CATCH without a query."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده external-similar لنفس Pivot concept: regions تبقى headers والـ SalesAmount يتجمع بـ SUM.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "static-pivot",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-pivot-regions-columns-sum-sales",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 16–17 — PIVOT Purpose and Syntax"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q007",
+      "question": "A SQL Server batch must execute one block when a Boolean condition is TRUE and another when it is FALSE. Which taught construct fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PIVOT"
+        },
+        {
+          "id": "B",
+          "text": "DENSE_RANK()"
+        },
+        {
+          "id": "C",
+          "text": "IF...ELSE"
+        },
+        {
+          "id": "D",
+          "text": "CREATE INDEX"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "`IF...ELSE` هو control-flow construct لتشغيل blocks مختلفة حسب Boolean condition.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "if-else",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "if-else-boolean-branching-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 20–21 — IF...ELSE"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q008",
+      "question": "Inside a SELECT, you need to return \"Expensive\" or \"Affordable\" based on price. Which standard expression does Session 8 recommend?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP INDEX"
+        },
+        {
+          "id": "B",
+          "text": "BEGIN TRANSACTION only"
+        },
+        {
+          "id": "C",
+          "text": "NTILE()"
+        },
+        {
+          "id": "D",
+          "text": "CASE"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "لإرجاع conditional value داخل SELECT، الـ standard والأوسع دعمًا هو `CASE`.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "case-expression",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "case-for-conditional-value-in-select-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 22 — CASE Expression"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q009",
+      "question": "For a simple binary true/false value in SQL Server 2012+, which shorthand function is shown?",
+      "options": [
+        {
+          "id": "A",
+          "text": "IIF()"
+        },
+        {
+          "id": "B",
+          "text": "LEAD()"
+        },
+        {
+          "id": "C",
+          "text": "COALESCE()"
+        },
+        {
+          "id": "D",
+          "text": "NTILE()"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Session 8 بتعرض `IIF(Boolean_expression, value_if_true, value_if_false)` كـ shorthand لـ simple CASE.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "iif",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "iif-binary-shorthand-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 23 — IIF() Function"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q010",
+      "question": "A stored batch may raise a runtime error and must move to an error-handling block. Which taught construct is designed for that?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PIVOT with SUM"
+        },
+        {
+          "id": "B",
+          "text": "BEGIN TRY...END TRY with BEGIN CATCH...END CATCH"
+        },
+        {
+          "id": "C",
+          "text": "RANK with PARTITION BY"
+        },
+        {
+          "id": "D",
+          "text": "CREATE INDEX with IF EXISTS"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده external-similar لنفس error-handling concept: TRY يراقب التنفيذ، ولو حصل runtime error ينتقل للـ CATCH.",
+        "en": ""
+      },
+      "topic": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "subtopicId": "try-catch",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-try-catch-runtime-error-scenario",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 24 — TRY...CATCH"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q011",
+      "question": "For salaries 3000, 5000, 7000, what rows satisfy `WHERE Salary > (SELECT AVG(Salary) FROM Staff)`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only 3000."
+        },
+        {
+          "id": "B",
+          "text": "3000 and 5000."
+        },
+        {
+          "id": "C",
+          "text": "Only the row with salary 7000."
+        },
+        {
+          "id": "D",
+          "text": "All three rows."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المتوسط = 5000، والشرط `>` مش `>=`، فـ 7000 بس هي اللي تعدي.",
+        "en": ""
+      },
+      "topic": "Subqueries",
+      "topicId": "subqueries",
+      "subtopicId": "single-row-subqueries",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-single-row-subquery-average-filter-3000-5000-7000",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 5 — Single-Row Subquery Example"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q012",
+      "question": "A multi-row subquery returns values 2, 4, 6. Which outer value matches `IN (subquery)`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "7"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "`IN` بيختبر العضوية في list الناتجة من الـ subquery؛ 4 موجودة ضمن 2,4,6.",
+        "en": ""
+      },
+      "topic": "Subqueries",
+      "topicId": "subqueries",
+      "subtopicId": "multi-row-subqueries",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-in-multirow-list-membership",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 6 — Multi-Row Subqueries"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q013",
+      "question": "In the static PIVOT example, what becomes the pivoted column headers?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The listed Category values: Electronics, Furniture, and Clothing."
+        },
+        {
+          "id": "B",
+          "text": "SalesAmount values themselves."
+        },
+        {
+          "id": "C",
+          "text": "Every row number generated by ROW_NUMBER()."
+        },
+        {
+          "id": "D",
+          "text": "The index name idx_department."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ `FOR Category IN ([Electronics], [Furniture], [Clothing])` هو اللي بيحدد الـ headers الناتجة.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "static-pivot",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-pivot-category-in-list-becomes-headers",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 17 — PIVOT Syntax"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q014",
+      "question": "A support-ticket report pivots `Status` with values Open, Closed, Pending. What becomes columns in the result?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the aggregate function name."
+        },
+        {
+          "id": "B",
+          "text": "Open, Closed, and Pending."
+        },
+        {
+          "id": "C",
+          "text": "The original row numbers."
+        },
+        {
+          "id": "D",
+          "text": "The TRY and CATCH blocks."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده external-similar: القيم المحددة في IN للـ pivot column تتحول headers/columns في التقرير.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "static-pivot",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-trace-pivot-status-values-to-columns",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 16–17 — PIVOT"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q015",
+      "question": "When is Dynamic Pivot described as useful?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When there is only one fixed category forever."
+        },
+        {
+          "id": "B",
+          "text": "Only when deleting rows."
+        },
+        {
+          "id": "C",
+          "text": "When the column names are not known in advance."
+        },
+        {
+          "id": "D",
+          "text": "Only when creating a primary key."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Dynamic Pivot بيتستخدم لما أسماء الـ columns المطلوبة مش معروفة مسبقًا.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "dynamic-pivot",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-dynamic-pivot-unknown-columns-use-case",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 18 — Dynamic Pivot"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q016",
+      "question": "Which set of tools does the Dynamic Pivot slide mention for building and executing the dynamic column list?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LAG, LEAD, and NTILE"
+        },
+        {
+          "id": "B",
+          "text": "CREATE, ALTER, and DROP only"
+        },
+        {
+          "id": "C",
+          "text": "COMMIT, ROLLBACK, and SAVEPOINT only"
+        },
+        {
+          "id": "D",
+          "text": "STUFF, FOR XML PATH, and sp_executesql"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "السلايد بيذكر STUFF وFOR XML PATH لبناء column-list string، و`sp_executesql` للتنفيذ.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "dynamic-pivot",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-dynamic-pivot-tools-stuff-xml-sp-executesql",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 18 — Dynamic Pivot"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q017",
+      "question": "Given `@mySalary = 5000` and `@avgSalary = 4000`, which IF...ELSE branch runs for `IF @mySalary > @avgSalary`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The TRUE branch printing that the salary is above average."
+        },
+        {
+          "id": "B",
+          "text": "The ELSE branch."
+        },
+        {
+          "id": "C",
+          "text": "Both branches."
+        },
+        {
+          "id": "D",
+          "text": "Neither branch because IF cannot compare integers."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "5000 > 4000 = TRUE، فالتنفيذ يدخل أول BEGIN...END block.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "if-else",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-if-else-salary-5000-vs-4000",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 21 — IF...ELSE Example"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q018",
+      "question": "If `@stock = 2` and the condition is `IF @stock > 5`, which branch should execute?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The TRUE branch."
+        },
+        {
+          "id": "B",
+          "text": "The ELSE branch, if present."
+        },
+        {
+          "id": "C",
+          "text": "Both blocks at once."
+        },
+        {
+          "id": "D",
+          "text": "The PIVOT branch."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده external-similar: 2 > 5 = FALSE، فلو ELSE موجود هو اللي هيتنفذ.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "if-else",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-trace-if-else-stock-false-branch",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 20–21 — IF...ELSE Logic"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q019",
+      "question": "For `CASE WHEN price > 100 THEN 'Expensive' ELSE 'Affordable' END`, what category is returned when price = 150?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Affordable"
+        },
+        {
+          "id": "B",
+          "text": "NULL necessarily"
+        },
+        {
+          "id": "C",
+          "text": "Expensive"
+        },
+        {
+          "id": "D",
+          "text": "150"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "150 أكبر من 100، فـ CASE بيرجع result بتاع WHEN وهو `Expensive`.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "case-expression",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-case-price-150-expensive",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 22 — CASE Example"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q020",
+      "question": "For `IIF(price > 100, 'Expensive', 'Affordable')`, what is returned when price = 80?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Expensive"
+        },
+        {
+          "id": "B",
+          "text": "80"
+        },
+        {
+          "id": "C",
+          "text": "NULL necessarily"
+        },
+        {
+          "id": "D",
+          "text": "Affordable"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "80 > 100 = FALSE، فـ IIF بيرجع القيمة التالتة `Affordable`.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "iif",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-iif-price-80-affordable",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 23 — IIF Example"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q021",
+      "question": "In the TRY...CATCH example, `SELECT 1 / @Denominator` runs with `@Denominator = 0`. What flow is taught?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A runtime error occurs and execution jumps from TRY to CATCH."
+        },
+        {
+          "id": "B",
+          "text": "The division returns 0 and TRY continues normally."
+        },
+        {
+          "id": "C",
+          "text": "The PIVOT block runs automatically."
+        },
+        {
+          "id": "D",
+          "text": "The table is dropped automatically."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Divide-by-zero مثال مباشر على runtime error؛ لما يحصل جوه TRY التنفيذ ينتقل للـ CATCH.",
+        "en": ""
+      },
+      "topic": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "subtopicId": "try-catch",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-try-catch-divide-by-zero-flow",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 24 — TRY...CATCH Example"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q022",
+      "question": "Inside a CATCH block, which taught function returns the error message text?",
+      "options": [
+        {
+          "id": "A",
+          "text": "AVG()"
+        },
+        {
+          "id": "B",
+          "text": "ERROR_MESSAGE()"
+        },
+        {
+          "id": "C",
+          "text": "LEAD()"
+        },
+        {
+          "id": "D",
+          "text": "NTILE()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Session 8 بتذكر `ERROR_MESSAGE()` ضمن diagnostic functions داخل CATCH.",
+        "en": ""
+      },
+      "topic": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "subtopicId": "error-functions",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-error-message-function-in-catch",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 24–25 — Error Diagnostic Functions"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q023",
+      "question": "A transaction begins, a DML operation fails inside TRY, and `@@TRANCOUNT > 0` in CATCH. What action does the shown pattern take?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COMMIT TRANSACTION regardless of the error."
+        },
+        {
+          "id": "B",
+          "text": "PIVOT the transaction."
+        },
+        {
+          "id": "C",
+          "text": "ROLLBACK TRANSACTION"
+        },
+        {
+          "id": "D",
+          "text": "CREATE INDEX on @@TRANCOUNT."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ pattern في Slide 25 بيعمل rollback داخل CATCH لو لسه فيه active transaction، للحفاظ على integrity.",
+        "en": ""
+      },
+      "topic": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "subtopicId": "transaction-error-handling",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-catch-rolls-back-active-transaction",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 25 — Transaction Management in CATCH"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q024",
+      "question": "An order update is wrapped in a transaction. If one statement raises an error, what matches the taught safety pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Always commit even after the error."
+        },
+        {
+          "id": "B",
+          "text": "Replace the transaction with NTILE()."
+        },
+        {
+          "id": "C",
+          "text": "Drop the Orders table."
+        },
+        {
+          "id": "D",
+          "text": "Let CATCH roll back the active transaction instead of committing partial work."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده external-similar لنفس pattern: لو operation فشلت، CATCH يعمل ROLLBACK للـ active transaction بدل partial commit.",
+        "en": ""
+      },
+      "topic": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "subtopicId": "transaction-error-handling",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-trace-rollback-failed-order-update-transaction",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 25 — Transaction Management"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q025",
+      "question": "Which statement does Session 8 describe as the preferred modern way to raise an exception?",
+      "options": [
+        {
+          "id": "A",
+          "text": "THROW"
+        },
+        {
+          "id": "B",
+          "text": "RAISERROR only"
+        },
+        {
+          "id": "C",
+          "text": "PIVOT"
+        },
+        {
+          "id": "D",
+          "text": "DENSE_RANK"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "السلايد بيذكر `THROW` كـ preferred modern method، و`RAISERROR` كـ legacy method.",
+        "en": ""
+      },
+      "topic": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "subtopicId": "custom-errors",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-throw-preferred-modern-custom-error",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 25 — Raising Custom Errors"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q026",
+      "question": "A conditional label must be returned inside a SELECT query. Which taught feature is the appropriate in-query choice rather than procedural IF...ELSE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "BEGIN TRY only."
+        },
+        {
+          "id": "B",
+          "text": "CASE (or IIF for a simple binary condition)."
+        },
+        {
+          "id": "C",
+          "text": "DROP INDEX."
+        },
+        {
+          "id": "D",
+          "text": "NTILE only."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Session 8 بيفرق بين IF...ELSE للتحكم في flow وبين CASE/IIF لإرجاع conditional values داخل SELECT/UPDATE/WHERE.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "case-vs-if-else",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-case-iif-for-in-query-values-vs-if-else",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 20 and 22–23 — IF...ELSE vs CASE/IIF"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q027",
+      "question": "For a simple filter that fits naturally in a WHERE clause, which feature does the Summary slide recommend?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PIVOT always."
+        },
+        {
+          "id": "B",
+          "text": "TRY...CATCH always."
+        },
+        {
+          "id": "C",
+          "text": "A subquery."
+        },
+        {
+          "id": "D",
+          "text": "Dynamic Pivot always."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ Summary بتقول: use Subqueries for simple filtering in WHERE clause.",
+        "en": ""
+      },
+      "topic": "Subqueries",
+      "topicId": "subqueries",
+      "subtopicId": "subquery-best-practice",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-summary-subquery-for-simple-where-filter",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 26 — Summary & Best Practices"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q028",
+      "question": "A complex reporting query has several joins and readability is becoming poor. Which approach follows the Session 8 summary?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use PIVOT even if no cross-tab is needed."
+        },
+        {
+          "id": "B",
+          "text": "Replace joins with DROP INDEX."
+        },
+        {
+          "id": "C",
+          "text": "Use IIF to hold entire result sets."
+        },
+        {
+          "id": "D",
+          "text": "Use a CTE to organize the complex joins and improve code clarity."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده external-similar للـ best practice: CTEs مناسبة للـ complex joins وتحسين code clarity.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-best-practice",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-trace-summary-cte-for-complex-joins",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 26 — Summary & Best Practices"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q029",
+      "question": "When does the Summary slide recommend using PIVOT?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When the required output is a cross-tab reporting format."
+        },
+        {
+          "id": "B",
+          "text": "For every WHERE condition."
+        },
+        {
+          "id": "C",
+          "text": "Whenever an error occurs."
+        },
+        {
+          "id": "D",
+          "text": "Whenever a transaction starts."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المحاضرة بتوصي باستخدام Pivot لما الـ output نفسه محتاج cross-tab format للتقرير.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "pivot-best-practice",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-summary-pivot-only-for-cross-tab-output",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 26 — Summary & Best Practices"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q030",
+      "question": "According to the Subquery vs CTE comparison, which feature supports recursion?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Regular subquery in the comparison."
+        },
+        {
+          "id": "B",
+          "text": "CTE"
+        },
+        {
+          "id": "C",
+          "text": "PIVOT only."
+        },
+        {
+          "id": "D",
+          "text": "CREATE INDEX only."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الجدول في Slide 13 بيذكر إن CTE supports Recursive CTEs بينما subquery لا.",
+        "en": ""
+      },
+      "topic": "Common Table Expressions",
+      "topicId": "common-table-expressions",
+      "subtopicId": "cte-vs-subquery",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-cte-supports-recursion-comparison",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 13 — Subquery vs CTE"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q031",
+      "question": "A multi-row subquery returns salaries 3000, 5000, 7000. For an outer condition `salary > ALL (subquery)`, which salary value would satisfy it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "7000"
+        },
+        {
+          "id": "B",
+          "text": "5000"
+        },
+        {
+          "id": "C",
+          "text": "8000"
+        },
+        {
+          "id": "D",
+          "text": "3000"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "`> ALL` لازم تكون أكبر من كل القيم الناتجة؛ أعلى قيمة 7000، فـ 8000 تحقق الشرط.",
+        "en": ""
+      },
+      "topic": "Subqueries",
+      "topicId": "subqueries",
+      "subtopicId": "multi-row-subqueries",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-greater-than-all-multirow-values",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 6 — Multi-Row Subqueries with ALL"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q032",
+      "question": "Why can `NOT IN (subquery)` be risky when that subquery may include NULL according to Session 8?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NOT IN automatically deletes NULL rows from the table."
+        },
+        {
+          "id": "B",
+          "text": "NULL makes PIVOT mandatory."
+        },
+        {
+          "id": "C",
+          "text": "NOT IN can only be used with indexes."
+        },
+        {
+          "id": "D",
+          "text": "The lecture explicitly recommends NOT EXISTS instead for better reliability when NULLs may appear."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "النقطة المطلوبة هنا مش تفاصيل خارج المنهج؛ السلايد نفسها بتقول استخدم NOT EXISTS بدل NOT IN لو NULLs محتملة عشان reliability.",
+        "en": ""
+      },
+      "topic": "Subqueries",
+      "topicId": "subqueries",
+      "subtopicId": "not-exists-null-safety",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-not-in-null-risk-course-recommendation",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 6 — NOT EXISTS vs NOT IN Note"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q033",
+      "question": "A PIVOT statement specifies the pivot column and IN list but omits an aggregate expression. What core component is missing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The aggregation such as SUM(...) or AVG(...)."
+        },
+        {
+          "id": "B",
+          "text": "A LAG default."
+        },
+        {
+          "id": "C",
+          "text": "A THROW statement."
+        },
+        {
+          "id": "D",
+          "text": "A DROP INDEX statement."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "PIVOT في المحاضرة له 3 core components، وأحدهم aggregation. من غيرها الـ design ناقص بالنسبة للـ syntax المعروض.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "pivot-components",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-pivot-missing-aggregate-component",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 16–17 — PIVOT Components and Syntax"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q034",
+      "question": "A transaction performs several DML statements that must act as one safe unit and runtime errors are possible. Which taught design is best?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Commit before running the DML so errors are ignored."
+        },
+        {
+          "id": "B",
+          "text": "BEGIN TRANSACTION, TRY the DML, COMMIT on success, and ROLLBACK in CATCH when needed."
+        },
+        {
+          "id": "C",
+          "text": "Use PIVOT instead of a transaction."
+        },
+        {
+          "id": "D",
+          "text": "Use RANK to decide whether errors matter."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده pattern Slide 25: transaction + TRY/CATCH، COMMIT لو نجح، وROLLBACK داخل CATCH عند الخطأ.",
+        "en": ""
+      },
+      "topic": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "subtopicId": "transaction-error-handling",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-best-transaction-try-catch-commit-rollback-pattern",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 25 — Transaction Management"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q035",
+      "question": "You need to raise a new custom exception using the modern method shown in Session 8. Which should you choose?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RAISERROR as the preferred modern method."
+        },
+        {
+          "id": "B",
+          "text": "PIVOT"
+        },
+        {
+          "id": "C",
+          "text": "THROW"
+        },
+        {
+          "id": "D",
+          "text": "AVG() OVER()"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Session 8 بتسمي THROW الـ preferred modern method، بينما RAISERROR legacy.",
+        "en": ""
+      },
+      "topic": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "subtopicId": "custom-errors",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "best-choose-throw-modern-exception",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 25 — Raising Custom Errors"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q036",
+      "question": "A report is simple: filter employees above the company average using one scalar result. Which approach best follows the lecture guidance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Build a Dynamic Pivot."
+        },
+        {
+          "id": "B",
+          "text": "Use TRY...CATCH as the filter."
+        },
+        {
+          "id": "C",
+          "text": "Use NTILE to replace the average comparison."
+        },
+        {
+          "id": "D",
+          "text": "Use a single-row subquery in the WHERE clause."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المثال نفسه في Slide 5 بيستخدم single-row subquery للـ AVG، والـ Summary بيفضل subquery للـ simple WHERE filtering.",
+        "en": ""
+      },
+      "topic": "Subqueries",
+      "topicId": "subqueries",
+      "subtopicId": "single-row-subqueries",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "best-single-row-subquery-for-above-average-filter",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 5 and 26 — Single-Row Subquery and Best Practice"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q037",
+      "question": "An error occurs inside BEGIN TRY, but the code continues with statements later in the TRY block instead of going to CATCH. What contradicts the taught behavior?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Session 8 says execution should immediately jump to the associated CATCH block when an error occurs in TRY."
+        },
+        {
+          "id": "B",
+          "text": "TRY is supposed to ignore every runtime error."
+        },
+        {
+          "id": "C",
+          "text": "CATCH runs only after PIVOT."
+        },
+        {
+          "id": "D",
+          "text": "Errors automatically create indexes."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ behavior المعروض واضح: runtime error جوه TRY ينقل التنفيذ فورًا للـ CATCH، فاستمرار باقي TRY يناقض الـ construct المشرح.",
+        "en": ""
+      },
+      "topic": "SQL Error Handling",
+      "topicId": "sql-error-handling",
+      "subtopicId": "try-catch",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "troubleshoot-try-not-jumping-to-catch-contradiction",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 24 — TRY...CATCH Behavior"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q038",
+      "question": "A CASE expression is written inside SELECT without the closing keyword after the conditions. What is missing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CATCH"
+        },
+        {
+          "id": "B",
+          "text": "END"
+        },
+        {
+          "id": "C",
+          "text": "PIVOT"
+        },
+        {
+          "id": "D",
+          "text": "OVER"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Syntax الـ CASE في السلايد بينتهي بـ `END` قبل alias أو باقي SELECT.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "case-expression",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "troubleshoot-case-missing-end-keyword",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 22 — CASE Syntax"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q039",
+      "question": "A developer uses IIF for a requirement with five different conditional outcomes and the logic becomes unreadable. What course-aligned correction is better?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace all conditions with CREATE INDEX."
+        },
+        {
+          "id": "B",
+          "text": "Use PIVOT even though no row-to-column transformation is needed."
+        },
+        {
+          "id": "C",
+          "text": "Use CASE with multiple WHEN branches for the multi-condition logic."
+        },
+        {
+          "id": "D",
+          "text": "Use LAG for the five categories."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "IIF مناسب للـ binary true/false. لما الحالات متعددة، CASE أوضح ومصمم لـ multiple conditions.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "case-vs-iif",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "troubleshoot-overusing-iif-for-many-branches",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slides 22–23 — CASE and IIF"
+      }
+    },
+    {
+      "id": "da-sql-session08-advanced-q040",
+      "question": "A reporting team hard-codes `[North], [South]` in a static PIVOT even though new region names appear unpredictably every month. What is the better taught fix?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Keep the fixed list forever and ignore new regions."
+        },
+        {
+          "id": "B",
+          "text": "Replace PIVOT with DROP INDEX."
+        },
+        {
+          "id": "C",
+          "text": "Use ROLLBACK to create new columns."
+        },
+        {
+          "id": "D",
+          "text": "Use the Dynamic Pivot concept because the column names are not known in advance."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده external-similar troubleshooting مباشر: variable/unknown future headers هي الحالة اللي Dynamic Pivot معمول لها في Slide 18.",
+        "en": ""
+      },
+      "topic": "Pivoting",
+      "topicId": "pivoting",
+      "subtopicId": "dynamic-pivot",
+      "importance": "supporting",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "external-troubleshoot-static-pivot-with-changing-region-list",
+      "source": {
+        "file": "Session8.pptx",
+        "reference": "Slide 18 — Dynamic Pivot"
+      }
+    }
+  ]
+}

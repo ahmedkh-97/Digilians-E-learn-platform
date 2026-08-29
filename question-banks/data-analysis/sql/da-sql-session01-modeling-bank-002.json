@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-sql-session01-modeling-bank-002",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "moduleId": "session-01-relational-data-modeling",
+    "module": "Session 1 — Relational Databases & Data Modeling for Data Engineers",
+    "title": "Session 1 — Data Modeling Process, Normalization, Warehousing Schemas & Constraints — Bank 002",
+    "version": "1.0",
+    "status": "active",
+    "sourceFiles": [
+      "Session1 (1).pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-sql-session01-q041",
+      "question": "A project team has finished identifying business requirements and high-level entities, and is about to translate them into a structured logical design before choosing storage details. Which transition best matches the course modeling process?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Physical Data Model → Conceptual Data Model"
+        },
+        {
+          "id": "B",
+          "text": "Conceptual Data Model → Logical Data Model"
+        },
+        {
+          "id": "C",
+          "text": "Database Instance → ER notation"
+        },
+        {
+          "id": "D",
+          "text": "Snowflake Schema → Hierarchical Model"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ process في المادة يبدأ Conceptual ثم Logical ثم Physical؛ بعد high-level business view الخطوة التالية هي Logical design.",
+        "en": ""
+      },
+      "topic": "Data Modeling Process",
+      "topicId": "data-modeling-process",
+      "subtopicId": "conceptual-logical-physical",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "modeling-process-order",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 46–47 — Data Modeling Process"
+      }
+    },
+    {
+      "id": "da-sql-session01-q042",
+      "question": "A team is still discussing business requirements and high-level entities before deciding data types or indexes. Which modeling level is closest to this stage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Database instance"
+        },
+        {
+          "id": "B",
+          "text": "Conceptual data model"
+        },
+        {
+          "id": "C",
+          "text": "Document model"
+        },
+        {
+          "id": "D",
+          "text": "Physical data model"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Conceptual Data Model هو المستوى الأعلى المرتبط بفهم business requirements والعلاقات العامة قبل التفاصيل المنطقية والفيزيائية.",
+        "en": ""
+      },
+      "topic": "Data Modeling Process",
+      "topicId": "data-modeling-process",
+      "subtopicId": "conceptual-logical-physical",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "conceptual-model-business-requirements",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 46 — Data Modeling Process diagram"
+      }
+    },
+    {
+      "id": "da-sql-session01-q043",
+      "question": "Two backups taken on Monday and Friday contain different row values, but both follow the same tables, fields, data types, and relationships. Which interpretation is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They are different schemas because row values changed"
+        },
+        {
+          "id": "B",
+          "text": "Neither contains data because schemas never allow values"
+        },
+        {
+          "id": "C",
+          "text": "They are the same instance because schema is unchanged"
+        },
+        {
+          "id": "D",
+          "text": "They are different database instances governed by the same schema"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ schema هو التصميم الثابت نسبيًا، أما actual values في لحظة معينة فهي database instance؛ لذلك ممكن instances تختلف مع نفس schema.",
+        "en": ""
+      },
+      "topic": "Schema and Data",
+      "topicId": "schema-vs-instance",
+      "subtopicId": "schema-instance",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "schema-vs-instance-definition",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 48 — Schema Vs. Data"
+      }
+    },
+    {
+      "id": "da-sql-session01-q044",
+      "question": "Which of the following belongs to the schema rather than to a changing database instance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Table names, fields, data types, and relationships"
+        },
+        {
+          "id": "B",
+          "text": "Today's current row values only"
+        },
+        {
+          "id": "C",
+          "text": "The values inserted by users this morning"
+        },
+        {
+          "id": "D",
+          "text": "A one-time query result snapshot"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتوضح إن schema بيشمل structural constraints زي table names وfields وdata types والعلاقات، مش القيم الحالية نفسها.",
+        "en": ""
+      },
+      "topic": "Schema and Data",
+      "topicId": "schema-vs-instance",
+      "subtopicId": "schema-contents",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "schema-structural-elements",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 48 — Schema Vs. Data"
+      }
+    },
+    {
+      "id": "da-sql-session01-q045",
+      "question": "A database keeps the same table design for months while rows are inserted and updated every day. Which statement is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The database instance never changes once created"
+        },
+        {
+          "id": "B",
+          "text": "The schema may remain stable while database instances change over time"
+        },
+        {
+          "id": "C",
+          "text": "Schema and instance are identical concepts"
+        },
+        {
+          "id": "D",
+          "text": "The schema must change every time one row changes"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ instance هو snapshot للقيم الحالية ولذلك بيتغير، بينما الـ schema غالبًا يفضل ثابت لأنه بيوصف التصميم.",
+        "en": ""
+      },
+      "topic": "Schema and Data",
+      "topicId": "schema-vs-instance",
+      "subtopicId": "schema-instance",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "schema-stable-instance-changing",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 48 — Schema Vs. Data"
+      }
+    },
+    {
+      "id": "da-sql-session01-q046",
+      "question": "A table repeats the same student details across many subject rows, causing redundancy and update inconsistencies. Which design process from the session directly targets this problem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Adding more repeating columns"
+        },
+        {
+          "id": "B",
+          "text": "Normalization"
+        },
+        {
+          "id": "C",
+          "text": "Removing all keys"
+        },
+        {
+          "id": "D",
+          "text": "Changing the model to a document store regardless of requirements"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Normalization في المادة هدفها تنظيم tables/attributes لتقليل redundancy وdependency، وده بالضبط يعالج تكرار نفس البيانات ومشاكل التحديث.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "normalization-overview",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "normalization-purpose",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 50–51 — Normalization / What is Normalization"
+      }
+    },
+    {
+      "id": "da-sql-session01-q047",
+      "question": "In a relation, every StudentID always determines exactly one StudentName. Which statement best describes StudentID → StudentName using the course terminology?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is an M:N cardinality ratio"
+        },
+        {
+          "id": "B",
+          "text": "It is a functional dependency"
+        },
+        {
+          "id": "C",
+          "text": "It is total participation"
+        },
+        {
+          "id": "D",
+          "text": "It is a multivalued attribute"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Functional Dependency معناها قيمة attribute أو مجموعة attributes تحدد قيمة attribute آخر؛ هنا StudentID يحدد StudentName.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "functional-dependency",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "functional-dependency-definition",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 51 — Functional Dependency"
+      }
+    },
+    {
+      "id": "da-sql-session01-q048",
+      "question": "An attribute's value can be determined only when the entire composite primary key is known. Which dependency type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multivalued participation"
+        },
+        {
+          "id": "B",
+          "text": "Full functional dependency"
+        },
+        {
+          "id": "C",
+          "text": "Partial functional dependency"
+        },
+        {
+          "id": "D",
+          "text": "Transitive functional dependency"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Full Functional Dependency معناها إن الـ non-key attribute يعتمد على الـ whole Primary Key، مش جزء منه.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "full-functional-dependency",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "full-functional-dependency-whole-key",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 52 — Types of functional dependency"
+      }
+    },
+    {
+      "id": "da-sql-session01-q049",
+      "question": "A table has composite key (StudentID, Subject), but Teacher is determined by Subject alone. What type of dependency is present?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Partial functional dependency"
+        },
+        {
+          "id": "B",
+          "text": "Total participation"
+        },
+        {
+          "id": "C",
+          "text": "Full functional dependency"
+        },
+        {
+          "id": "D",
+          "text": "No functional dependency"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لأن Teacher بيتحدد بجزء واحد من الـ composite key وهو Subject، فدي Partial Functional Dependency.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "partial-functional-dependency",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "partial-dependency-part-composite-key",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 52 and 56 — Partial Functional Dependency / 2NF example"
+      }
+    },
+    {
+      "id": "da-sql-session01-q050",
+      "question": "StudentID determines ZipCode, and ZipCode determines City. What dependency pattern does this illustrate for City?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transitive functional dependency"
+        },
+        {
+          "id": "B",
+          "text": "Partial functional dependency"
+        },
+        {
+          "id": "C",
+          "text": "No dependency"
+        },
+        {
+          "id": "D",
+          "text": "Multivalued attribute mapping"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "City معتمد على ZipCode، وZipCode نفسه معتمد على الـ key؛ ده Transitive Dependency لأن non-key attribute بيحدد non-key attribute آخر.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "transitive-functional-dependency",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "transitive-dependency-zip-city",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 52 and 58 — Transitive Functional Dependency / 3NF example"
+      }
+    },
+    {
+      "id": "da-sql-session01-q051",
+      "question": "A designer tries to normalize a table but leaves several Subject values in one cell for each student. Which first-stage requirement has not been satisfied?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2NF, because every key must be composite"
+        },
+        {
+          "id": "B",
+          "text": "1NF, because repeating or multivalued groups have not been removed"
+        },
+        {
+          "id": "C",
+          "text": "3NF, because every table must be a snowflake"
+        },
+        {
+          "id": "D",
+          "text": "Physical modeling, because indexes are missing"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "قبل 2NF و3NF لازم 1NF تتحقق. وجود multiple subject values داخل cell واحد يعني إن القيم لسه مش atomic/repeating groups لسه موجودة.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "first-normal-form",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "1nf-remove-repeating-groups",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 53–55 — Steps in Normalization / 1NF example"
+      }
+    },
+    {
+      "id": "da-sql-session01-q052",
+      "question": "A relation is in 1NF and uses composite key (OrderID, ProductID). ProductName depends only on ProductID. Which normal form rule identifies the next issue?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1NF, because ProductName is a repeating group"
+        },
+        {
+          "id": "B",
+          "text": "Star Schema, because every composite key is a fact table"
+        },
+        {
+          "id": "C",
+          "text": "3NF, because ProductName determines the primary key"
+        },
+        {
+          "id": "D",
+          "text": "2NF, because a non-key attribute depends on only part of the composite key"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "دي Partial Functional Dependency على جزء من الـ composite key، و2NF هي المرحلة اللي تزيل النوع ده من الاعتماد.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "second-normal-form",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "2nf-remove-partial-dependencies",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 52, 53 and 56 — Partial dependency / 2NF"
+      }
+    },
+    {
+      "id": "da-sql-session01-q053",
+      "question": "A relation has reached 2NF, but ZipCode determines City while both are non-key attributes. Which next normalization goal applies?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Convert the table to a hierarchical model"
+        },
+        {
+          "id": "B",
+          "text": "Return to 1NF and add repeating groups"
+        },
+        {
+          "id": "C",
+          "text": "Create an M:N relationship automatically"
+        },
+        {
+          "id": "D",
+          "text": "Move toward 3NF by removing the transitive dependency"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "بعد 2NF، لو non-key attribute زي ZipCode بيحدد non-key attribute زي City، عندنا transitive dependency والهدف التالي 3NF.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "third-normal-form",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "3nf-remove-transitive-dependencies",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 53 and 58 — Steps in Normalization / 3NF"
+      }
+    },
+    {
+      "id": "da-sql-session01-q054",
+      "question": "A table contains one row per student with several Subject/Grade/Teacher groups embedded inside that row. What should be addressed first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remove every primary key"
+        },
+        {
+          "id": "B",
+          "text": "Immediately convert it to a snowflake schema"
+        },
+        {
+          "id": "C",
+          "text": "Remove the repeating or multivalued groups to reach 1NF"
+        },
+        {
+          "id": "D",
+          "text": "Add more repeating subject columns"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المثال قبل 1NF فيه repeating groups/multivalued data للمواد والدرجات والمدرسين، فأول خطوة هي جعل القيم atomic وفصل التكرار.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "first-normal-form",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "1nf-repeating-groups-example",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 54–55 — Normalization example and 1NF"
+      }
+    },
+    {
+      "id": "da-sql-session01-q055",
+      "question": "After the 1NF step in the course example, why is Stud_Subject separated from Student?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To make every subject a weak entity"
+        },
+        {
+          "id": "B",
+          "text": "To remove the Student primary key"
+        },
+        {
+          "id": "C",
+          "text": "To represent repeating subject-related values as separate rows instead of a multivalued group"
+        },
+        {
+          "id": "D",
+          "text": "To force a 1:1 relationship between Student and Subject"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "فصل Stud_Subject بيحول الـ repeating group إلى rows منفصلة مرتبطة بالـ Student، وده يخلي البيانات atomic ومتوافقة مع 1NF.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "first-normal-form",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "1nf-stud-subject-separation",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 55 — 1NF example"
+      }
+    },
+    {
+      "id": "da-sql-session01-q056",
+      "question": "A relation is already in 1NF. What additional condition is required for 2NF?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Every table must have exactly two columns"
+        },
+        {
+          "id": "B",
+          "text": "All non-key attributes must depend on another non-key attribute"
+        },
+        {
+          "id": "C",
+          "text": "Every relationship must be M:N"
+        },
+        {
+          "id": "D",
+          "text": "Every non-key attribute must be fully functionally dependent on the primary key"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "2NF بتحتاج 1NF أولًا، وبعدها كل non-key attributes تعتمد على الـ whole primary key بدون partial dependency.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "second-normal-form",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "2nf-definition",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 56 — 2NF"
+      }
+    },
+    {
+      "id": "da-sql-session01-q057",
+      "question": "In Stud_Subject(SID, Subject, Grade, Teacher), suppose the key is (SID, Subject) and Subject determines Teacher. Which decomposition matches the course's 2NF result?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stud_Subject(SID, Teacher) only"
+        },
+        {
+          "id": "B",
+          "text": "Stud_Subject(SID, Subject, Grade) and Subject(Subject, Teacher)"
+        },
+        {
+          "id": "C",
+          "text": "Student(SID, Subject, Teacher, Grade) only"
+        },
+        {
+          "id": "D",
+          "text": "Subject(SID, Grade) and Teacher(Teacher)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Teacher بيعتمد على Subject فقط، وهو جزء من composite key، فبنزيل الـ partial dependency بفصل Subject(Subject, Teacher) عن Stud_Subject.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "second-normal-form",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "2nf-decompose-subject-teacher",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 56–57 — 2NF example"
+      }
+    },
+    {
+      "id": "da-sql-session01-q058",
+      "question": "A designer says a table with a single-column primary key cannot suffer from partial dependency on part of that key. How does this align with the course example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It contradicts the course because every key is composite"
+        },
+        {
+          "id": "B",
+          "text": "It means the table must be in 3NF automatically"
+        },
+        {
+          "id": "C",
+          "text": "It means functional dependency does not exist"
+        },
+        {
+          "id": "D",
+          "text": "It aligns with the note that the Student table is already 2NF because there is no composite primary key"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Partial Dependency بتظهر لما non-key attribute يعتمد على جزء من Composite Key. لذلك المثال بيعتبر Student table 2NF من ناحية الـ partial dependency لأنه مفيش composite PK.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "second-normal-form",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "2nf-single-key-no-partial-dependency",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 56 — 2NF example note"
+      }
+    },
+    {
+      "id": "da-sql-session01-q059",
+      "question": "What additional rule is required to move from 2NF to 3NF in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Convert all relationships to unary"
+        },
+        {
+          "id": "B",
+          "text": "Make every attribute multivalued"
+        },
+        {
+          "id": "C",
+          "text": "Remove transitive dependencies"
+        },
+        {
+          "id": "D",
+          "text": "Add repeating groups"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "3NF = 2NF PLUS no transitive dependencies.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "third-normal-form",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "3nf-definition",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 58 — 3NF"
+      }
+    },
+    {
+      "id": "da-sql-session01-q060",
+      "question": "In Student(SID, SName, Birthdate, City, ZipCode), the course indicates ZipCode → City. Why is this a 3NF issue?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ZipCode and City form an M:N relationship"
+        },
+        {
+          "id": "B",
+          "text": "City is a multivalued key"
+        },
+        {
+          "id": "C",
+          "text": "City depends on a non-key attribute ZipCode, creating a transitive dependency"
+        },
+        {
+          "id": "D",
+          "text": "SID is not allowed to determine any attribute"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المشكلة إن SID يحدد ZipCode وZipCode يحدد City، فـ City مش dependent مباشرة على الـ key فقط؛ عندنا Transitive Dependency.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "third-normal-form",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "3nf-zip-city-transitive",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 58 — 3NF example"
+      }
+    },
+    {
+      "id": "da-sql-session01-q061",
+      "question": "Which decomposition best reflects the course's 3NF treatment of City and ZipCode?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Duplicate City in every subject row"
+        },
+        {
+          "id": "B",
+          "text": "Move SID into every city value as a multivalued field"
+        },
+        {
+          "id": "C",
+          "text": "Keep student data separate and create a city/zip relation so the transitive dependency is removed"
+        },
+        {
+          "id": "D",
+          "text": "Merge Student and Subject back into one repeating table"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتفصل بيانات City/ZipCode في relation مستقلة لتمنع non-key attribute من تحديد non-key attribute داخل Student.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "third-normal-form",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "3nf-decompose-city-zip",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 59 — 3NF decomposition"
+      }
+    },
+    {
+      "id": "da-sql-session01-q062",
+      "question": "A table has no repeating groups and no partial dependency, but DepartmentName determines DepartmentLocation while both are non-key attributes. What should be investigated next?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A unary relationship by definition"
+        },
+        {
+          "id": "B",
+          "text": "A violation of 1NF caused by repeating groups"
+        },
+        {
+          "id": "C",
+          "text": "A need to add multivalued columns"
+        },
+        {
+          "id": "D",
+          "text": "A transitive dependency that may violate 3NF"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "لو 1NF و2NF متحققين ولسه non-key attribute بيحدد non-key attribute تاني، فده Transitive Dependency وهي نقطة 3NF.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "third-normal-form",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "3nf-diagnose-nonkey-to-nonkey",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 52 and 58 — Transitive dependency / 3NF"
+      }
+    },
+    {
+      "id": "da-sql-session01-q063",
+      "question": "A team attempts to reach 2NF before removing repeating groups from the original table. What is the best diagnosis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The sequence is wrong because 2NF assumes the relation is already in 1NF"
+        },
+        {
+          "id": "B",
+          "text": "3NF must always be performed before 1NF"
+        },
+        {
+          "id": "C",
+          "text": "Normalization does not use ordered stages"
+        },
+        {
+          "id": "D",
+          "text": "The sequence is correct because 1NF is optional"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتعرض Normal Forms كمراحل متتابعة: لازم 1NF الأول، وبعدها 2NF، ثم 3NF.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "normalization-sequence",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "normalization-order-1nf-2nf-3nf",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 53–58 — Steps in Normalization"
+      }
+    },
+    {
+      "id": "da-sql-session01-q064",
+      "question": "Which statement best describes a Star Schema in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A document collection stored as JSON"
+        },
+        {
+          "id": "B",
+          "text": "A tree of parent-child records"
+        },
+        {
+          "id": "C",
+          "text": "Only normalized sub-dimensions with no fact table"
+        },
+        {
+          "id": "D",
+          "text": "One fact table connected to multiple dimension tables with denormalized dimensions"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Star Schema فيها fact table مركزية متصلة بعدة dimension tables، والـ dimensions فيها denormalized لتبسيط وتسريع الاستعلامات.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "topicId": "warehouse-schema-design",
+      "subtopicId": "star-schema",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "star-schema-structure",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 60 — Star Schema"
+      }
+    },
+    {
+      "id": "da-sql-session01-q065",
+      "question": "Why can a Star Schema offer faster query performance according to the comparison in the material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It always stores less redundant data"
+        },
+        {
+          "id": "B",
+          "text": "It eliminates dimension tables"
+        },
+        {
+          "id": "C",
+          "text": "It normalizes every dimension into sub-dimensions"
+        },
+        {
+          "id": "D",
+          "text": "Its simpler, flatter structure typically requires fewer joins"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المقارنة بتوضح إن Star Schema أبسط وبتحتاج joins أقل، لذلك query performance عادة أسرع، مقابل redundancy أعلى.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "topicId": "warehouse-schema-design",
+      "subtopicId": "star-schema",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "star-schema-faster-fewer-joins",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 60 and 62 — Star Schema / comparison"
+      }
+    },
+    {
+      "id": "da-sql-session01-q066",
+      "question": "Which statement best describes a Snowflake Schema in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "There is no fact table concept"
+        },
+        {
+          "id": "B",
+          "text": "All dimensions are intentionally denormalized"
+        },
+        {
+          "id": "C",
+          "text": "Dimensions are normalized and may be split into sub-dimensions"
+        },
+        {
+          "id": "D",
+          "text": "It stores only semi-structured JSON"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Snowflake Schema بتعمل normalization للـ dimensions، وده ممكن ينتج sub-dimensions ويقلل redundancy.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "topicId": "warehouse-schema-design",
+      "subtopicId": "snowflake-schema",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "snowflake-schema-structure",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 61 — Snowflake Schema"
+      }
+    },
+    {
+      "id": "da-sql-session01-q067",
+      "question": "A warehouse design prioritizes storage efficiency and reduced redundancy, and the team accepts more joins and higher structural complexity. Which schema fits the course guidance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Star Schema"
+        },
+        {
+          "id": "B",
+          "text": "Hierarchical Model only"
+        },
+        {
+          "id": "C",
+          "text": "Snowflake Schema"
+        },
+        {
+          "id": "D",
+          "text": "Document Model only"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Snowflake أكثر normalized، فـ redundancy أقل وstorage efficiency أعلى، لكن structure أعقد وjoins أكتر.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "topicId": "warehouse-schema-design",
+      "subtopicId": "star-vs-snowflake",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "snowflake-storage-efficiency-complexity",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 61–62 — Snowflake Schema / comparison"
+      }
+    },
+    {
+      "id": "da-sql-session01-q068",
+      "question": "A dashboard workload needs simple query patterns and fast reporting, while some dimension redundancy is acceptable. Which design is favored by the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Star Schema"
+        },
+        {
+          "id": "B",
+          "text": "Weak Entity Model"
+        },
+        {
+          "id": "C",
+          "text": "Snowflake Schema"
+        },
+        {
+          "id": "D",
+          "text": "Unary M:N mapping"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتذكر Star Schema كأفضل اختيار لـ simple reports/dashboards وبـ faster joins، مع قبول redundancy أعلى.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "topicId": "warehouse-schema-design",
+      "subtopicId": "star-vs-snowflake",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "star-simple-reporting-fast-query",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 60 and 62 — Star Schema / comparison"
+      }
+    },
+    {
+      "id": "da-sql-session01-q069",
+      "question": "Which comparison is correct according to the Star vs Snowflake table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Snowflake always requires fewer joins"
+        },
+        {
+          "id": "B",
+          "text": "Star has more redundancy; Snowflake has less redundancy"
+        },
+        {
+          "id": "C",
+          "text": "Star is more complex to maintain than Snowflake"
+        },
+        {
+          "id": "D",
+          "text": "Star is more normalized than Snowflake"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "جدول المقارنة بيذكر Storage: Star = More redundant، Snowflake = Less redundant.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "topicId": "warehouse-schema-design",
+      "subtopicId": "star-vs-snowflake",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "star-snowflake-storage-redundancy",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 62 — Star vs Snowflake comparison"
+      }
+    },
+    {
+      "id": "da-sql-session01-q070",
+      "question": "Which comparison is correct according to the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Snowflake is intended only for simple dashboards"
+        },
+        {
+          "id": "B",
+          "text": "Star always stores less redundant data"
+        },
+        {
+          "id": "C",
+          "text": "Star is generally easier to maintain; Snowflake is more complex"
+        },
+        {
+          "id": "D",
+          "text": "Snowflake is flatter than Star"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "في المقارنة: Maintenance في Star أسهل، بينما Snowflake أكثر تعقيدًا بسبب normalization وتعدد الجداول.",
+        "en": ""
+      },
+      "topic": "Data Warehousing Schemas",
+      "topicId": "warehouse-schema-design",
+      "subtopicId": "star-vs-snowflake",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "star-snowflake-maintenance",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 62 — Star vs Snowflake comparison"
+      }
+    },
+    {
+      "id": "da-sql-session01-q071",
+      "question": "In the e-commerce Star Schema lab, which table is specified as the fact table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sales"
+        },
+        {
+          "id": "B",
+          "text": "Products"
+        },
+        {
+          "id": "C",
+          "text": "Customers"
+        },
+        {
+          "id": "D",
+          "text": "Time"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ lab بيطلب fact table باسم Sales، مع dimensions مرتبطة زي Customers وProducts وTime.",
+        "en": ""
+      },
+      "topic": "Schema Design Practice",
+      "topicId": "schema-design-practice",
+      "subtopicId": "star-schema-lab",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-star-fact-sales",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 64 — Implement a Star Schema for an E-commerce Sales Database"
+      }
+    },
+    {
+      "id": "da-sql-session01-q072",
+      "question": "Which set of dimension tables is explicitly requested in the e-commerce Star Schema lab?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Customers, Products, and Time"
+        },
+        {
+          "id": "B",
+          "text": "Employee, SalaryAccount, and Medicine"
+        },
+        {
+          "id": "C",
+          "text": "Category, Supplier, and Network"
+        },
+        {
+          "id": "D",
+          "text": "Teacher, Course, and Surgeon"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ lab بيحدد dimension tables: Customers, Products, Time حول Sales fact table.",
+        "en": ""
+      },
+      "topic": "Schema Design Practice",
+      "topicId": "schema-design-practice",
+      "subtopicId": "star-schema-lab",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-star-dimensions",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 64 — Star Schema lab"
+      }
+    },
+    {
+      "id": "da-sql-session01-q073",
+      "question": "For the Product Catalog Snowflake lab, what normalization step is requested?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Store Category and Supplier as repeating groups"
+        },
+        {
+          "id": "B",
+          "text": "Remove Product information entirely"
+        },
+        {
+          "id": "C",
+          "text": "Merge Category and Supplier into the Sales fact table"
+        },
+        {
+          "id": "D",
+          "text": "Separate Category and Supplier into different tables"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ Snowflake lab بيطلب normalize Products table عن طريق فصل Category وSupplier في جداول مختلفة.",
+        "en": ""
+      },
+      "topic": "Schema Design Practice",
+      "topicId": "schema-design-practice",
+      "subtopicId": "snowflake-schema-lab",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-snowflake-normalize-category-supplier",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 64 — Snowflake Schema Product Catalog lab"
+      }
+    },
+    {
+      "id": "da-sql-session01-q074",
+      "question": "Which constraints are explicitly required in the lab note?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No constraints because the schema is analytical"
+        },
+        {
+          "id": "B",
+          "text": "Only PRIMARY KEY"
+        },
+        {
+          "id": "C",
+          "text": "Only CHECK and no keys"
+        },
+        {
+          "id": "D",
+          "text": "PRIMARY KEY, FOREIGN KEY, UNIQUE, and CHECK"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ lab note بيطلب تطبيق PRIMARY KEY وFOREIGN KEY وUNIQUE، وكمان CHECK constraint على السعر.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "constraint-types",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-required-constraints",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 64 — Create and Enforce Data Constraints"
+      }
+    },
+    {
+      "id": "da-sql-session01-q075",
+      "question": "What rule should the CHECK constraint enforce in the Products table according to the lab?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ProductID must be negative"
+        },
+        {
+          "id": "B",
+          "text": "Price must be greater than zero"
+        },
+        {
+          "id": "C",
+          "text": "Price must always equal zero"
+        },
+        {
+          "id": "D",
+          "text": "Supplier must be stored in the Price column"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتحدد CHECK constraint للتأكد إن prices في Products أكبر من zero.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "check-constraint",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "check-price-positive",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 64 — CHECK constraint requirement"
+      }
+    },
+    {
+      "id": "da-sql-session01-q076",
+      "question": "A Products table accepts a price of -15 even though the lab requirement says prices must be positive. Which missing control best explains the problem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A CHECK constraint enforcing Price > 0"
+        },
+        {
+          "id": "B",
+          "text": "A database instance snapshot"
+        },
+        {
+          "id": "C",
+          "text": "A unary relationship"
+        },
+        {
+          "id": "D",
+          "text": "A composite attribute for ProductName"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لو السعر السالب اتقبل، فده معناه إن قاعدة التحقق المطلوبة مش متطبقة؛ الـ CHECK لازم يمنع Price <= 0.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "check-constraint",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "check-price-positive-troubleshooting",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 64 — CHECK constraint requirement"
+      }
+    },
+    {
+      "id": "da-sql-session01-q077",
+      "question": "What does the retail sales assignment ask students to do after creating a Star Schema?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Convert it to a Snowflake Schema by normalizing two dimensions"
+        },
+        {
+          "id": "B",
+          "text": "Convert every table to a document model"
+        },
+        {
+          "id": "C",
+          "text": "Remove the fact table"
+        },
+        {
+          "id": "D",
+          "text": "Replace all dimensions with weak entities"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ assignment بيطلب أولًا Star Schema، وبعدها تحويله إلى Snowflake عن طريق normalizing 2 dimensions.",
+        "en": ""
+      },
+      "topic": "Schema Design Practice",
+      "topicId": "schema-design-practice",
+      "subtopicId": "retail-schema-assignment",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "assignment-star-to-snowflake",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 65 — Assignment"
+      }
+    },
+    {
+      "id": "da-sql-session01-q078",
+      "question": "Why does the assignment ask for sample queries on both Star and Snowflake designs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To remove the need for dimensions"
+        },
+        {
+          "id": "B",
+          "text": "To prove both schemas always use the same number of joins"
+        },
+        {
+          "id": "C",
+          "text": "To compare query complexity and performance between the two schema styles"
+        },
+        {
+          "id": "D",
+          "text": "To demonstrate that normalization never affects query structure"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ assignment نفسه بيطلب compare query complexity and performance، فكتابة queries على الاتنين بتخلي المقارنة عملية.",
+        "en": ""
+      },
+      "topic": "Schema Design Practice",
+      "topicId": "schema-design-practice",
+      "subtopicId": "retail-schema-assignment",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "assignment-compare-query-complexity-performance",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 65 — Assignment"
+      }
+    },
+    {
+      "id": "da-sql-session01-q079",
+      "question": "In the hands-on library lab, which core design activity is required after drawing the ER diagram?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remove relationships before creating tables"
+        },
+        {
+          "id": "B",
+          "text": "Store every entity in one multivalued column"
+        },
+        {
+          "id": "C",
+          "text": "Map the ER diagram into relational tables with primary and foreign keys"
+        },
+        {
+          "id": "D",
+          "text": "Convert the system directly to XML only"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ library lab بيربط بين ER modeling والتنفيذ العلاقي: بعد رسم ERD لازم يتم mapping لجداول relational مع Primary Keys وForeign Keys.",
+        "en": ""
+      },
+      "topic": "Schema Design Practice",
+      "topicId": "schema-design-practice",
+      "subtopicId": "library-erd-lab",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-library-erd-to-relations",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 83 — Hands On Lab"
+      }
+    },
+    {
+      "id": "da-sql-session01-q080",
+      "question": "The student-course assignment asks for an ER diagram and relational mapping with what additional requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Constraints"
+        },
+        {
+          "id": "B",
+          "text": "No keys or relationships"
+        },
+        {
+          "id": "C",
+          "text": "A document database only"
+        },
+        {
+          "id": "D",
+          "text": "A network model instead of tables"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ assignment في نهاية الجلسة بيطلب تصميم ERD لنظام student-course registration ثم mapping إلى relational tables مع constraints.",
+        "en": ""
+      },
+      "topic": "Schema Design Practice",
+      "topicId": "schema-design-practice",
+      "subtopicId": "student-course-assignment",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "assignment-student-course-constraints",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 84 — Assignment"
+      }
+    }
+  ]
+}

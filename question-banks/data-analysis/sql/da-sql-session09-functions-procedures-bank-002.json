@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-sql-session09-functions-procedures-bank-002",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "moduleId": "session-09-views-functions-procedures",
+    "module": "Session 9 — Reusable SQL Logic: Views & Functions",
+    "title": "Session 9 — SQL Functions & Stored Procedures — Bank 002",
+    "version": "1.0",
+    "status": "active",
+    "sourceFiles": [
+      "Session9.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-sql-session09-funcproc-q001",
+      "question": "What does a scalar SQL function do according to Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It operates on a single value and returns a single value."
+        },
+        {
+          "id": "B",
+          "text": "It always combines multiple tables."
+        },
+        {
+          "id": "C",
+          "text": "It permanently stores query results."
+        },
+        {
+          "id": "D",
+          "text": "It can only be used inside a stored procedure."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Scalar Function بتاخد قيمة واحدة وتطلع قيمة واحدة، زي UPPER(name).",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "scalar-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-scalar-function-definition",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 12 — SQL Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q002",
+      "question": "Which function is used in the lecture to convert employee names to uppercase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT()"
+        },
+        {
+          "id": "B",
+          "text": "UPPER()"
+        },
+        {
+          "id": "C",
+          "text": "ROUND()"
+        },
+        {
+          "id": "D",
+          "text": "DATE_ADD()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "مثال الـ Scalar Functions في Slide 13 هو SELECT UPPER(name) FROM employees;.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-upper-uppercase-example",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 13 — Scalar Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q003",
+      "question": "Which function example counts the total number of orders?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CONCAT(*)"
+        },
+        {
+          "id": "B",
+          "text": "UPPER(*)"
+        },
+        {
+          "id": "C",
+          "text": "COUNT(*)"
+        },
+        {
+          "id": "D",
+          "text": "DAY(*)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Slide 14 تستخدم SELECT COUNT(*) FROM orders; لحساب إجمالي عدد الطلبات.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "aggregate-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-count-orders-example",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 14 — Aggregate Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q004",
+      "question": "What is ROUND(AVG(salary), 2) intended to do in the lecture example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Return the two highest salaries."
+        },
+        {
+          "id": "B",
+          "text": "Round every salary to the nearest hundred."
+        },
+        {
+          "id": "C",
+          "text": "Count employees with two-digit salaries."
+        },
+        {
+          "id": "D",
+          "text": "Calculate average salary and round the result to two decimal places."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "AVG بتحسب المتوسط وROUND(..., 2) بتقرب الناتج لرقمين عشريين.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "mathematical-functions",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-round-average-two-decimals",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 15 — Mathematical Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q005",
+      "question": "Which function is used to combine first_name and last_name into one full-name value in Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CONCAT()"
+        },
+        {
+          "id": "B",
+          "text": "COUNT()"
+        },
+        {
+          "id": "C",
+          "text": "DATEDIFF()"
+        },
+        {
+          "id": "D",
+          "text": "MAX()"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Slide 16 تستخدم CONCAT(first_name, ' ', last_name) لإنشاء full name.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-concat-full-name",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 16 — String Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q006",
+      "question": "What is a stored procedure according to Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A client-side spreadsheet formula."
+        },
+        {
+          "id": "B",
+          "text": "A set of SQL statements stored and executed on the database server."
+        },
+        {
+          "id": "C",
+          "text": "A view that cannot accept parameters."
+        },
+        {
+          "id": "D",
+          "text": "A database index that stores only keys."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Stored Procedure هي مجموعة SQL statements محفوظة وتتنفذ على database server.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "stored-procedure-definition",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-stored-procedure-definition",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 23 — What is a Stored Procedure?"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q007",
+      "question": "Which capability of stored procedures is explicitly listed in Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They can never return results."
+        },
+        {
+          "id": "B",
+          "text": "They must execute only on the client."
+        },
+        {
+          "id": "C",
+          "text": "They can accept information in the form of parameters."
+        },
+        {
+          "id": "D",
+          "text": "They replace every table with a view."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتذكر إن Stored Procedures تقبل parameters وترجع results للـ client.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-parameters",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-accepts-parameters",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 23 — What is a Stored Procedure?"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q008",
+      "question": "Which is listed as a benefit of stored procedures?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mandatory duplication of SQL logic"
+        },
+        {
+          "id": "B",
+          "text": "Increased network traffic by design"
+        },
+        {
+          "id": "C",
+          "text": "Removal of all database security"
+        },
+        {
+          "id": "D",
+          "text": "Reuse of code"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "من المزايا المذكورة: reduction in network traffic، performance، reuse of code، وزيادة security.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-benefits",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-benefit-code-reuse",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 24 — Benefits of Stored Procedures"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q009",
+      "question": "What does an input parameter such as @DepartmentID let a stored procedure do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Receive a value that can be used inside the procedure's SQL logic."
+        },
+        {
+          "id": "B",
+          "text": "Rename the database automatically."
+        },
+        {
+          "id": "C",
+          "text": "Create a view for every row."
+        },
+        {
+          "id": "D",
+          "text": "Disable WHERE conditions."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ input parameter بيمرر قيمة للـ procedure عشان تستخدمها في الاستعلام، زي DepartmentID في مثال Slide 26.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-parameters",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-input-parameter-purpose",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — How to Use This Procedure"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q010",
+      "question": "What does SELECT CONCAT(first_name, ' ', last_name) FROM employees; return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The number of employees."
+        },
+        {
+          "id": "B",
+          "text": "A combined full-name value for each employee row."
+        },
+        {
+          "id": "C",
+          "text": "The average length of all names."
+        },
+        {
+          "id": "D",
+          "text": "Only employees whose names are uppercase."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "CONCAT بيجمع النصوص المحددة لكل row، وهنا بيرجع first_name + space + last_name.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-concat-output-tracing",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 16 — String Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q011",
+      "question": "What is the output purpose of SELECT DAY(RESCUEDATE) FROM PETRESCUE WHERE ANIMAL='Cat';?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Return the full date plus one day."
+        },
+        {
+          "id": "B",
+          "text": "Count all Cat rows."
+        },
+        {
+          "id": "C",
+          "text": "Return the day-of-month portion of RESCUEDATE for rows where ANIMAL is Cat."
+        },
+        {
+          "id": "D",
+          "text": "Return the month name only."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DAY() في المثال بتستخرج جزء اليوم من التاريخ بعد فلترة الصفوف اللي ANIMAL='Cat'.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-day-function-cat-filter",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 20 — Date, Time Functions (continued)"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q012",
+      "question": "What does DATE_ADD(RESCUEDATE, INTERVAL 3 DAY) compute in the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The number of days since RESCUEDATE."
+        },
+        {
+          "id": "B",
+          "text": "The month of RESCUEDATE."
+        },
+        {
+          "id": "C",
+          "text": "A date three years before RESCUEDATE."
+        },
+        {
+          "id": "D",
+          "text": "A date three days after each RESCUEDATE."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "DATE_ADD مع INTERVAL 3 DAY تضيف 3 أيام على RESCUEDATE.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-arithmetic",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-date-add-three-days",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 21 — Date or Time Arithmetic"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q013",
+      "question": "Which special registers are shown in Session 9 for obtaining current date/time information?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CURRENT_DATE and CURRENT_TIME"
+        },
+        {
+          "id": "B",
+          "text": "TODAY_TABLE and NOW_COLUMN"
+        },
+        {
+          "id": "C",
+          "text": "SYSTEM_DAY and SYSTEM_HOUR"
+        },
+        {
+          "id": "D",
+          "text": "DATE_INDEX and TIME_INDEX"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Slide 22 تعرض CURRENT_DATE وCURRENT_TIME كـ special registers.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-current-date-current-time",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 22 — Date or Time Arithmetic"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q014",
+      "question": "A dashboard needs customer tenure based on a stored JoinDate and the current date. Which taught family of logic is most relevant?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP VIEW only"
+        },
+        {
+          "id": "B",
+          "text": "Date/time functions and date arithmetic such as DATEDIFF with the current date."
+        },
+        {
+          "id": "C",
+          "text": "COUNT(*) without any date expression"
+        },
+        {
+          "id": "D",
+          "text": "CREATE INDEX only"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Assignment نفسه يطلب date calculations for customer tenure، والمادة تعرض DATEDIFF وCURRENT_DATE ضمن Date/Time Arithmetic.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-arithmetic",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-customer-tenure-date-diff-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 22 and 29 — Date Arithmetic / Assignment"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q015",
+      "question": "Which classification best fits COUNT(*) in Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "String function"
+        },
+        {
+          "id": "B",
+          "text": "View command"
+        },
+        {
+          "id": "C",
+          "text": "Aggregate function"
+        },
+        {
+          "id": "D",
+          "text": "Stored procedure parameter"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "COUNT(*) بيحسب نتيجة واحدة من multiple rows، لذلك هو Aggregate Function.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "aggregate-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-count-is-aggregate",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 12 and 14 — SQL / Aggregate Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q016",
+      "question": "Which classification best fits ROUND() in the Session 9 function categories?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Date function"
+        },
+        {
+          "id": "B",
+          "text": "View command"
+        },
+        {
+          "id": "C",
+          "text": "Join operator"
+        },
+        {
+          "id": "D",
+          "text": "Mathematical function"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 12 تصنف Mathematical Functions كفئة، وSlide 15 تستخدم ROUND() كمثال مباشر.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "mathematical-functions",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-round-mathematical-function",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 12 and 15 — SQL / Mathematical Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q017",
+      "question": "A query returns customer segments using CASE inside a view. What role does CASE play?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It returns a conditional value based on the first matching condition."
+        },
+        {
+          "id": "B",
+          "text": "It creates a stored procedure automatically."
+        },
+        {
+          "id": "C",
+          "text": "It permanently groups rows into new tables."
+        },
+        {
+          "id": "D",
+          "text": "It replaces the view with an index."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "CASE expression بتختار قيمة output حسب الشروط، زي VIP/Premium/Standard/Basic في الـ View.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "case-expression",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-case-conditional-value-in-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 17–18 — CASE in Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q018",
+      "question": "A procedure GetEmployeesInDepartment receives @DepartmentID = 101 and uses WHERE DepartmentID = @DepartmentID. What is the parameter doing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Changing every employee's DepartmentID to 101."
+        },
+        {
+          "id": "B",
+          "text": "Filtering the procedure's query to DepartmentID 101."
+        },
+        {
+          "id": "C",
+          "text": "Creating a new database numbered 101."
+        },
+        {
+          "id": "D",
+          "text": "Dropping department 101."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "القيمة 101 بتدخل للـ parameter ثم WHERE تستخدمها لفلترة الموظفين على نفس DepartmentID.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-execution",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-department-parameter-tracing",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — How to Use This Procedure"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q019",
+      "question": "A caller wants to run GetEmployeesInDepartment for department 101. Which invocation matches the Session 9 example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT PROCEDURE GetEmployeesInDepartment INTO 101;"
+        },
+        {
+          "id": "B",
+          "text": "RUN VIEW GetEmployeesInDepartment 101;"
+        },
+        {
+          "id": "C",
+          "text": "EXEC GetEmployeesInDepartment @DepartmentID = 101;"
+        },
+        {
+          "id": "D",
+          "text": "DROP GetEmployeesInDepartment 101;"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Slide 26 تعرض EXEC كطريقة تشغيل الـ Stored Procedure مع parameter.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-execution",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-exec-procedure-syntax",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — How to Use This Procedure"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q020",
+      "question": "A company repeatedly sends the same multi-statement business logic from an application to the database. Which Session 9 feature is the best candidate for reuse on the server?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A new physical database for each request"
+        },
+        {
+          "id": "B",
+          "text": "DROP VIEW"
+        },
+        {
+          "id": "C",
+          "text": "A wildcard in LIKE"
+        },
+        {
+          "id": "D",
+          "text": "Stored procedure"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده external-similar مبني على benefits الـ Stored Procedures: reuse of code وتقليل network traffic لأن logic محفوظ وينفذ على السيرفر.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-benefits",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-server-side-reuse-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 23–24 — Stored Procedures / Benefits"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q021",
+      "question": "Why can stored procedures reduce network traffic according to the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reusable SQL logic runs on the database server instead of repeatedly sending all statements from the client."
+        },
+        {
+          "id": "B",
+          "text": "Because procedures delete network packets."
+        },
+        {
+          "id": "C",
+          "text": "Because procedures prevent all client connections."
+        },
+        {
+          "id": "D",
+          "text": "Because they convert queries into images."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "منطق الـ procedure محفوظ على server، فالـ client يرسل call/parameters بدل إرسال نفس مجموعة statements كل مرة، وده يفسر تقليل network traffic.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-benefits",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-network-traffic-reason",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 24 — Benefits of Stored Procedures"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q022",
+      "question": "The procedure UPDATE_SAL receives empNum and rating. If rating = 1, what does the shown example indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The employee is deleted."
+        },
+        {
+          "id": "B",
+          "text": "The first UPDATE branch increases the employee's salary by 10%."
+        },
+        {
+          "id": "C",
+          "text": "The salary is reduced by 10%."
+        },
+        {
+          "id": "D",
+          "text": "The procedure creates a view instead."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المثال في Slides 25–26 يوضح إن rating = 1 ينفذ UPDATE salary = salary * 1.10 للموظف المحدد.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-conditional-update",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-update-sal-rating-one-ten-percent",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 25–26 — CREATE PROCEDURE / Procedure Execution"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q023",
+      "question": "If the same UPDATE_SAL procedure is called with a rating other than 1, what does the shown logic do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It always applies both 10% and 5% increases."
+        },
+        {
+          "id": "B",
+          "text": "It drops the employee row."
+        },
+        {
+          "id": "C",
+          "text": "It uses the second UPDATE branch that multiplies salary by 1.05."
+        },
+        {
+          "id": "D",
+          "text": "It returns COUNT(*) only."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الكود الظاهر فيه branch تاني بشرط rating <> 1 لزيادة 5%، وبالتالي مش المفروض ينفذ branch الـ 10% في نفس الحالة.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-conditional-update",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-update-sal-nonone-five-percent",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 25 — CREATE PROCEDURE statement"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q024",
+      "question": "A report needs total orders, total amount spent, cleaned customer names, and customer tenure. Which combination best matches the Session 9 assignment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only DROP VIEW and DELETE"
+        },
+        {
+          "id": "B",
+          "text": "Only CREATE INDEX"
+        },
+        {
+          "id": "C",
+          "text": "Only a Cartesian product"
+        },
+        {
+          "id": "D",
+          "text": "Aggregate functions + string functions + date calculations, optionally exposed through a view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ Assignment يطلب total orders/amount، formatting، CASE، وdate calculations؛ يعني استخدام aggregate + string + date functions داخل reporting query/view.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "functions-reporting-integration",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-report-functions-integration-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 27–29 — Lab / Assignment"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q025",
+      "question": "What is the main difference between scalar and aggregate functions in the Session 9 classification?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Scalar functions operate on a single value; aggregate functions compute a result from multiple rows."
+        },
+        {
+          "id": "B",
+          "text": "Scalar functions can only be used in views; aggregates only in procedures."
+        },
+        {
+          "id": "C",
+          "text": "Aggregate functions always return text; scalar functions always return dates."
+        },
+        {
+          "id": "D",
+          "text": "There is no difference in the lecture."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الفرق الأساسي المذكور في Slide 12 هو نطاق العمل: scalar على single value، aggregate على multiple rows.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "function-categories",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-scalar-vs-aggregate",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 12 — SQL Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q026",
+      "question": "If AVG(salary) returns 5432.6789, what would ROUND(AVG(salary), 2) produce conceptually?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5432"
+        },
+        {
+          "id": "B",
+          "text": "5432.68"
+        },
+        {
+          "id": "C",
+          "text": "54.326789"
+        },
+        {
+          "id": "D",
+          "text": "543267.89"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ROUND(..., 2) يقرب النتيجة لرقمين بعد العلامة العشرية، فـ 5432.6789 تصبح 5432.68.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "mathematical-functions",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-round-average-calculation-5432",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 15 — Mathematical Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q027",
+      "question": "A query writer tries to use CONCAT to count rows. What is the problem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CONCAT only works on dates."
+        },
+        {
+          "id": "B",
+          "text": "COUNT can only combine strings."
+        },
+        {
+          "id": "C",
+          "text": "CONCAT is a string function for combining text; COUNT is the aggregate function for counting rows."
+        },
+        {
+          "id": "D",
+          "text": "Both functions always perform the same task."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "دي troubleshooting بين function categories: CONCAT للنصوص، COUNT للعدّ على rows.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "function-categories",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-concat-vs-count-misuse",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 12, 14, and 16 — Function Categories"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q028",
+      "question": "A stored procedure is created to return employees by department, but the query ignores @DepartmentID and has no WHERE condition. What is the likely result?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The parameter automatically filters rows even if unused."
+        },
+        {
+          "id": "B",
+          "text": "The procedure becomes a view."
+        },
+        {
+          "id": "C",
+          "text": "SQL automatically inserts WHERE DepartmentID = @DepartmentID."
+        },
+        {
+          "id": "D",
+          "text": "The parameter has no filtering effect, so the query can return employees from all departments."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ parameter لازم يدخل فعليًا في query. لو ما استخدمتوش في WHERE، مش هيحصل filtering تلقائي.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-parameters",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-unused-parameter-diagnosis",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — How to Use This Procedure"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q029",
+      "question": "Which design is best when a query simply needs an uppercase version of a name for display?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use UPPER(name) in the SELECT output."
+        },
+        {
+          "id": "B",
+          "text": "Create a stored procedure that drops the table."
+        },
+        {
+          "id": "C",
+          "text": "Use COUNT(*) on the name."
+        },
+        {
+          "id": "D",
+          "text": "Use DATE_ADD on the name."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لـ display formatting بسيط، UPPER() مباشرة في SELECT هو الاختيار المناسب حسب مثال Scalar Functions.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-upper-display-best-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 13 — Scalar Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q030",
+      "question": "Which design is best for exposing a reusable sales-dashboard result that already includes cleaned names, aggregates, CASE categories, and date calculations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Duplicate the source tables for every dashboard refresh."
+        },
+        {
+          "id": "B",
+          "text": "Create a reporting view whose SELECT contains the taught functions and CASE logic."
+        },
+        {
+          "id": "C",
+          "text": "Use DROP VIEW after each SELECT."
+        },
+        {
+          "id": "D",
+          "text": "Avoid SQL functions and calculate nothing."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده يجمع الـ Lab والـ Assignment: View reusable للتقرير، وداخله aggregate/string/date functions وCASE حسب المطلوب.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-design-integration",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-sales-dashboard-view-best-design",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 27–29 — Lab / Assignment"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q031",
+      "question": "A procedure accepts @DepartmentID but a caller passes 101 while the query hard-codes WHERE DepartmentID = 200. What is the main defect?",
+      "options": [
+        {
+          "id": "A",
+          "text": "EXEC automatically replaces 200 with 101."
+        },
+        {
+          "id": "B",
+          "text": "The procedure will return both departments because parameters are additive."
+        },
+        {
+          "id": "C",
+          "text": "The procedure ignores the supplied parameter for filtering and will use the hard-coded department instead."
+        },
+        {
+          "id": "D",
+          "text": "The parameter converts 200 into a view name."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المشكلة إن query مش مرتبطة بالـ parameter؛ hard-coded 200 هي اللي تتحكم في النتيجة، فالقيمة 101 ملهاش تأثير.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-parameters",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-hardcoded-filter-ignores-param",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — Procedure Parameters"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q032",
+      "question": "A procedure is intended to raise salary by 10% only when rating = 1 and by 5% otherwise. Which implementation decision best matches the shown UPDATE_SAL logic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Run both UPDATE statements unconditionally."
+        },
+        {
+          "id": "B",
+          "text": "Remove empNum from the WHERE clause."
+        },
+        {
+          "id": "C",
+          "text": "Convert salary to text before multiplication."
+        },
+        {
+          "id": "D",
+          "text": "Use mutually exclusive conditions so only the appropriate UPDATE branch affects the employee."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الهدف إن branch واحدة بس تتطبق حسب rating؛ لازم الشروط تبقى mutually exclusive ومعها employee filter عشان ما يحصلش تحديث غير مقصود.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-conditional-update",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-mutually-exclusive-updates",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 25 — CREATE PROCEDURE statement"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q033",
+      "question": "Suppose an employee salary is 5000 and UPDATE_SAL applies salary = salary * 1.10 for rating = 1. What is the new salary?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5500"
+        },
+        {
+          "id": "B",
+          "text": "5050"
+        },
+        {
+          "id": "C",
+          "text": "5100"
+        },
+        {
+          "id": "D",
+          "text": "6000"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "5000 × 1.10 = 5500، وده tracing مباشر لمنطق زيادة 10% الظاهر في الـ procedure.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-conditional-update",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-ten-percent-5000",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 25 — CREATE PROCEDURE statement"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q034",
+      "question": "Suppose an employee salary is 8000 and the second UPDATE_SAL branch applies salary = salary * 1.05. What is the new salary?",
+      "options": [
+        {
+          "id": "A",
+          "text": "8050"
+        },
+        {
+          "id": "B",
+          "text": "8400"
+        },
+        {
+          "id": "C",
+          "text": "8800"
+        },
+        {
+          "id": "D",
+          "text": "7600"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "8000 × 1.05 = 8400، أي زيادة 5%.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-conditional-update",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-five-percent-8000",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 25 — CREATE PROCEDURE statement"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q035",
+      "question": "A reporting query needs both the original RESCUEDATE and the date three days later. Which expression from the taught material should be added as a derived output?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT(RESCUEDATE, 3)"
+        },
+        {
+          "id": "B",
+          "text": "CONCAT(RESCUEDATE, COUNT(*))"
+        },
+        {
+          "id": "C",
+          "text": "DATE_ADD(RESCUEDATE, INTERVAL 3 DAY)"
+        },
+        {
+          "id": "D",
+          "text": "UPPER(RESCUEDATE)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DATE_ADD هو التعبير المستخدم في Slide 21 لإضافة 3 أيام على التاريخ.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-arithmetic",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-date-add-derived-column-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 21 — Date or Time Arithmetic"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q036",
+      "question": "A query uses DAY(RESCUEDATE) expecting it to return the full YYYY-MM-DD date. What is wrong?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DAY() always returns the year."
+        },
+        {
+          "id": "B",
+          "text": "DAY() counts rows instead of dates."
+        },
+        {
+          "id": "C",
+          "text": "DAY() creates a stored procedure."
+        },
+        {
+          "id": "D",
+          "text": "DAY() extracts the day portion, not the full date."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "مثال Slide 20 يوضح إن DAY() تستخرج day portion فقط، زي 29 أو 11، مش التاريخ الكامل.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-day-function-full-date-misunderstanding",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 20 — Date, Time Functions (continued)"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q037",
+      "question": "A sales dashboard needs one reusable object that hides raw complexity, returns total orders and total amount, formats customer names, categorizes performance, and calculates tenure. Which combination most directly follows the Session 9 assignment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A view whose SELECT combines aggregates, string/date functions, and CASE logic."
+        },
+        {
+          "id": "B",
+          "text": "A view containing only DROP statements."
+        },
+        {
+          "id": "C",
+          "text": "A stored procedure that never returns a result."
+        },
+        {
+          "id": "D",
+          "text": "An index used as the dashboard output table."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ده نفس تكامل Assignment: View + aggregate functions + formatting functions + CASE + date calculations.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-design-integration",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-dashboard-full-integration-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 29 — Assignment"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q038",
+      "question": "Why is SELECT COUNT(*) FROM orders; an aggregate query even though it returns only one value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because COUNT is a string function."
+        },
+        {
+          "id": "B",
+          "text": "Because it computes that single result from multiple input rows."
+        },
+        {
+          "id": "C",
+          "text": "Because every one-row result is a scalar function."
+        },
+        {
+          "id": "D",
+          "text": "Because orders must contain exactly one row."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Aggregate Function ممكن ترجع قيمة واحدة لكنها بتحسبها من multiple rows؛ ده بالضبط تعريف aggregate في Slide 12.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "aggregate-functions",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-aggregate-single-result-multiple-rows",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 12 and 14 — Aggregate Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q039",
+      "question": "A developer sends the full SQL body of a repeated process from the client every time, despite already having a stored procedure for it. Which benefit is being underused?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The ability of views to store independent data."
+        },
+        {
+          "id": "B",
+          "text": "The ability of COUNT to uppercase text."
+        },
+        {
+          "id": "C",
+          "text": "Reduction in network traffic and code reuse."
+        },
+        {
+          "id": "D",
+          "text": "The ability of DROP VIEW to calculate dates."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "لو كل مرة بنرسل كل statements بدل calling procedure، بنفقد جزء من فائدة code reuse وتقليل network traffic المذكورة في Slide 24.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-benefits",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-benefits-underused",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 24 — Benefits of Stored Procedures"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q040",
+      "question": "A query needs to present a customer's full name and a rounded average purchase value in the same result. Which combination stays within the taught Session 9 functions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT(...) for the name and UPPER(...) for the numeric average."
+        },
+        {
+          "id": "B",
+          "text": "DATE_ADD(...) for the name and DROP VIEW for the average."
+        },
+        {
+          "id": "C",
+          "text": "EXEC for the name and CREATE VIEW for the numeric rounding."
+        },
+        {
+          "id": "D",
+          "text": "CONCAT(...) for the name and ROUND(AVG(...), 2) for the average."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "CONCAT مخصص لتجميع النصوص، وROUND(AVG(...),2) هو نفس pattern المستخدم لتقريب المتوسط.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "functions-reporting-integration",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-concat-round-avg-combination",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 15–16 — Mathematical / String Functions"
+      }
+    }
+  ]
+}

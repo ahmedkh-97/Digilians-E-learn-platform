@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-sql-session06-joins-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "moduleId": "session-06-relational-joins",
+    "module": "Session 6 — Relational Joins & Query Composition",
+    "title": "Session 6 — Relational Joins — Bank 001",
+    "version": "1.0",
+    "status": "active",
+    "sourceFiles": [
+      "Session6.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-sql-session06-joins-q001",
+      "question": "Which statement best describes an equijoin in Session 6?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The join condition uses equality between related columns."
+        },
+        {
+          "id": "B",
+          "text": "The join must return every row from both tables."
+        },
+        {
+          "id": "C",
+          "text": "The join compares only unrelated text columns."
+        },
+        {
+          "id": "D",
+          "text": "The join always uses BETWEEN instead of equality."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Equijoin في المحاضرة قائم على equality condition بين الأعمدة المرتبطة، وغالبًا بيكون الربط بين PK وFK.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "equi-join",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "equijoin-equality-condition",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 3–4 — Equi JOIN / Equijoins and Non-Equijoins"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q002",
+      "question": "What makes a join a non-equijoin according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It joins a table to itself."
+        },
+        {
+          "id": "B",
+          "text": "Its join condition uses an operator other than equality."
+        },
+        {
+          "id": "C",
+          "text": "It returns only unmatched rows."
+        },
+        {
+          "id": "D",
+          "text": "It combines SELECT outputs vertically."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Non-Equijoin بيستخدم شرط ربط غير =، زي BETWEEN في مثال salary grades.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "non-equi-join",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "non-equijoin-non-equality-condition",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 4 and 15 — Non-Equijoin definition and example"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q003",
+      "question": "What does an INNER JOIN return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All rows from the left table only."
+        },
+        {
+          "id": "B",
+          "text": "All rows from the right table only."
+        },
+        {
+          "id": "C",
+          "text": "Rows that have at least one match in both joined tables."
+        },
+        {
+          "id": "D",
+          "text": "Every possible pair of rows regardless of a match."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "INNER JOIN بيرجع الصفوف اللي لها match بين الجدولين، ومش بيحافظ تلقائيًا على الصفوف غير المتطابقة.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "inner-join",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "inner-join-matched-rows",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — Types of Equi Join"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q004",
+      "question": "Which statement describes an outer join in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It can only join a table to itself."
+        },
+        {
+          "id": "B",
+          "text": "It always removes duplicate rows."
+        },
+        {
+          "id": "C",
+          "text": "It requires a subquery in the WHERE clause."
+        },
+        {
+          "id": "D",
+          "text": "It can return matched rows plus rows with no match on one side."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Outer JOIN هدفه الاحتفاظ بصفوف حتى لو مفيش match في الطرف الآخر، حسب نوع LEFT/RIGHT/FULL.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "outer-join-preserves-unmatched",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 5 and 13 — Outer Join"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q005",
+      "question": "What is a self join?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A table is referenced more than once so it can be joined to itself."
+        },
+        {
+          "id": "B",
+          "text": "Two query results are combined with UNION."
+        },
+        {
+          "id": "C",
+          "text": "Every row is deleted and recreated."
+        },
+        {
+          "id": "D",
+          "text": "A subquery is placed in the SELECT list."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Self Join بيستخدم نفس الجدول مرتين بأسماء/aliases مختلفة علشان نقارن صفوف من الجدول بنفسه، زي employee مع supervisor.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "self-join",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "self-join-same-table-multiple-references",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 5 and 11 — Self Join"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q006",
+      "question": "What is the result pattern of a Cartesian product?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only rows with equal primary keys."
+        },
+        {
+          "id": "B",
+          "text": "All possible combinations of rows from the involved tables."
+        },
+        {
+          "id": "C",
+          "text": "Only rows with NULL values."
+        },
+        {
+          "id": "D",
+          "text": "Only the first matching row from each table."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Cartesian Product بيعمل كل combinations الممكنة بين صفوف الجدولين، وده ممكن يحصل بالغلط لو شرط الربط ناقص.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "cartesian-product",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "cartesian-all-row-combinations",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — Cartesian Product"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q007",
+      "question": "Two joined tables both contain a column named ID. What does the session recommend?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rename the database before querying."
+        },
+        {
+          "id": "B",
+          "text": "Use DISTINCT on the ID column."
+        },
+        {
+          "id": "C",
+          "text": "Prefix the ambiguous column with its table name or table alias."
+        },
+        {
+          "id": "D",
+          "text": "Replace ID with COUNT(ID)."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "لما اسم العمود موجود في أكتر من جدول، لازم تحدده بـ table.column أو alias.column علشان تمنع ambiguity.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "ambiguous-columns",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ambiguous-column-qualify-with-table",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 7 — Ambiguous Column Names"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q008",
+      "question": "Why are table aliases useful in join queries?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They permanently rename the physical table."
+        },
+        {
+          "id": "B",
+          "text": "They automatically convert an INNER JOIN to OUTER JOIN."
+        },
+        {
+          "id": "C",
+          "text": "They remove duplicate rows from the result."
+        },
+        {
+          "id": "D",
+          "text": "They shorten table references and help resolve ambiguous column names."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Alias اسم بديل داخل الـ query فقط؛ بيسهّل كتابة الأسماء الطويلة وبيحل ambiguity زي e.ID وd.name.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "table-aliases",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "table-alias-purpose",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 10 — Table Alias"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q009",
+      "question": "In the query `FROM department, employee WHERE department.id = employee.deptid`, what role does the WHERE equality play?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It supplies the join condition connecting the two tables."
+        },
+        {
+          "id": "B",
+          "text": "It sorts departments alphabetically."
+        },
+        {
+          "id": "C",
+          "text": "It creates a new foreign key constraint."
+        },
+        {
+          "id": "D",
+          "text": "It converts the query into a UNION."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "في الـ comma join syntax المستخدمة في السلايد، شرط `department.id = employee.deptid` هو اللي بيربط الصفوف المتوافقة بين الجدولين.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "equi-join",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "legacy-comma-join-equality-condition",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 6 and 9 — Equijoin examples"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q010",
+      "question": "Which join type is demonstrated by joining employees to the same employees table to obtain each supervisor's name?",
+      "options": [
+        {
+          "id": "A",
+          "text": "FULL OUTER JOIN."
+        },
+        {
+          "id": "B",
+          "text": "Self join."
+        },
+        {
+          "id": "C",
+          "text": "Cartesian product."
+        },
+        {
+          "id": "D",
+          "text": "UNION ALL."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المثال بيعمل alias للـ employees مرتين: e للموظف وs للمشرف، وبالتالي ده Self Join.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "self-join",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "self-join-employee-supervisor",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 11 — Employee and supervisor Self Join"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q011",
+      "question": "Consider `SELECT e.name, s.name FROM employees e, employees s WHERE e.supervisorID = s.ID`. Which row for an employee with `supervisorID = NULL` will be returned by this equijoin?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The employee is returned with their own name as supervisor."
+        },
+        {
+          "id": "B",
+          "text": "The employee is returned with every supervisor."
+        },
+        {
+          "id": "C",
+          "text": "No row for that employee, because NULL does not match a supervisor ID in the equality condition."
+        },
+        {
+          "id": "D",
+          "text": "The query automatically converts NULL to 0."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الشرط `e.supervisorID = s.ID` محتاج match؛ الموظف اللي SupervisorID عنده NULL مش هيلقى صف مطابق في الربط ده.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "self-join",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "self-join-null-supervisor-unmatched",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 11–12 — Self Join data and query"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q012",
+      "question": "The RIGHT OUTER JOIN example lists HR even though HR has no assigned employee. Why?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RIGHT JOIN removes unmatched departments."
+        },
+        {
+          "id": "B",
+          "text": "The WHERE clause creates a fake employee."
+        },
+        {
+          "id": "C",
+          "text": "The query is actually a Cartesian product."
+        },
+        {
+          "id": "D",
+          "text": "The departments table is on the preserved right side of the join."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "في المثال `employees e RIGHT OUTER JOIN departments d`، كل صفوف departments لازم تظهر؛ لذلك HR يظهر حتى من غير employee match.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "right-join-preserves-departments",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 14 — RIGHT OUTER JOIN example"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q013",
+      "question": "You need every row from table A, with matching information from B when available. Which join matches the session definition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A LEFT JOIN B."
+        },
+        {
+          "id": "B",
+          "text": "A INNER JOIN B."
+        },
+        {
+          "id": "C",
+          "text": "A RIGHT JOIN B."
+        },
+        {
+          "id": "D",
+          "text": "A Cartesian product with B."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "LEFT JOIN بيحافظ على كل صفوف الجدول الموجود على الشمال ويضيف بيانات B لما يكون فيه match.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "left-join-preserve-left-table",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 13 — LEFT JOIN"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q014",
+      "question": "You need every row from the right-hand table even when the left-hand table has no match. Which join should you choose?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN."
+        },
+        {
+          "id": "B",
+          "text": "RIGHT JOIN."
+        },
+        {
+          "id": "C",
+          "text": "Self JOIN."
+        },
+        {
+          "id": "D",
+          "text": "Non-Equijoin only."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "RIGHT JOIN بيحافظ على كل صفوف الجدول على اليمين، حتى لو مفيش match من الشمال.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "right-join-preserve-right-table",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 13 — RIGHT JOIN"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q015",
+      "question": "Which join is intended when you want rows preserved from both sides, whether matched or unmatched?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN."
+        },
+        {
+          "id": "B",
+          "text": "Self JOIN."
+        },
+        {
+          "id": "C",
+          "text": "FULL OUTER JOIN."
+        },
+        {
+          "id": "D",
+          "text": "Equijoin using only WHERE."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "FULL OUTER JOIN بيجمع الـ matches ويحافظ كمان على الصفوف غير المتطابقة من الطرفين.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "full-outer-preserve-both-sides",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 13 — FULL JOIN"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q016",
+      "question": "In the non-equijoin example, employee Ahmed has salary 5000 and job grades are B: 1000–4000 and A: 4000–7000. Which grade matches the BETWEEN condition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Grade B."
+        },
+        {
+          "id": "B",
+          "text": "Both grades must be returned because it is an outer join."
+        },
+        {
+          "id": "C",
+          "text": "No grade because BETWEEN cannot be used in joins."
+        },
+        {
+          "id": "D",
+          "text": "Grade A."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ query يربط salary بالمدى `BETWEEN lowsal AND highsal`. راتب 5000 داخل مدى 4000–7000، إذن Grade A.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "non-equi-join",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "non-equijoin-between-salary-grade",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 15 — Salary grade Non-Equijoin"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q017",
+      "question": "A developer writes `FROM employees, departments` but forgets the condition linking employee.deptid to department.id. What problem is most likely?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Cartesian product containing all possible employee-department combinations."
+        },
+        {
+          "id": "B",
+          "text": "The database automatically infers the foreign-key join."
+        },
+        {
+          "id": "C",
+          "text": "Only unmatched employees are returned."
+        },
+        {
+          "id": "D",
+          "text": "The result is automatically grouped by department."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "من غير join condition، كل صف من employees هيتقابل مع كل صف من departments، وده Cartesian Product.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "cartesian-product",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "missing-join-condition-cartesian-product",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 5–6 — Cartesian product and equijoin condition"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q018",
+      "question": "A query joins `customers` and `orders`, and both tables contain `id`. The SELECT list contains only `id` without qualification. What is the best fix?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace `id` with `DISTINCT id`."
+        },
+        {
+          "id": "B",
+          "text": "Use a qualified reference such as `customers.id` or an alias such as `c.id`."
+        },
+        {
+          "id": "C",
+          "text": "Add `ORDER BY id`."
+        },
+        {
+          "id": "D",
+          "text": "Change the join to FULL OUTER JOIN."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المشكلة ambiguity في اسم العمود، والحل هو qualification باسم الجدول أو alias.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "ambiguous-columns",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ambiguous-id-use-qualified-reference",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 7 — Ambiguous Column Names"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q019",
+      "question": "Which rewrite best preserves the meaning of `FROM department d, employee e WHERE d.id = e.deptid` while using the aliases correctly?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use `d` and `e` as new permanent table names."
+        },
+        {
+          "id": "B",
+          "text": "Remove the join condition because aliases imply the relationship."
+        },
+        {
+          "id": "C",
+          "text": "Reference department columns with `d.` and employee columns with `e.` throughout the query."
+        },
+        {
+          "id": "D",
+          "text": "Use the same alias `d` for both tables."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ aliases مجرد أسماء بديلة داخل الاستعلام؛ لازم تفضل تستخدم شرط الربط وتحدد الأعمدة بالـ alias الصحيح.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "table-aliases",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "aliases-preserve-explicit-join-condition",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 10 — Table Alias example"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q020",
+      "question": "A row exists in employees with deptid 10, but no department row has id 10. What happens to that employee in a standard INNER/equality join to departments?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The employee is returned with a NULL department automatically."
+        },
+        {
+          "id": "B",
+          "text": "The employee is duplicated once for every department."
+        },
+        {
+          "id": "C",
+          "text": "The database creates department 10 automatically."
+        },
+        {
+          "id": "D",
+          "text": "The employee is excluded because there is no matching department row."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "INNER/equality join بيرجع الصفوف اللي لها match فقط، فالموظف بدون department مطابق مش هيظهر.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "inner-join",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "inner-join-unmatched-row-excluded",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — INNER JOIN matched-row behavior"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q021",
+      "question": "An e-commerce report must list only customers who have at least one matching order. Which join behavior is required?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN between Customers and Orders on CustomerID."
+        },
+        {
+          "id": "B",
+          "text": "LEFT JOIN with Customers preserved regardless of orders."
+        },
+        {
+          "id": "C",
+          "text": "FULL OUTER JOIN preserving unmatched rows from both tables."
+        },
+        {
+          "id": "D",
+          "text": "Cartesian product between Customers and Orders."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المطلوب customers اللي عندهم order مطابق فقط، وده سلوك INNER JOIN.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "inner-join",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "inner-join-customers-with-orders",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — INNER JOIN"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q022",
+      "question": "A customer report must show every customer, including customers who have never placed an order. Customers is the left table. Which join is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN Orders."
+        },
+        {
+          "id": "B",
+          "text": "LEFT JOIN Orders."
+        },
+        {
+          "id": "C",
+          "text": "RIGHT JOIN Orders while preserving Orders."
+        },
+        {
+          "id": "D",
+          "text": "Self join Customers."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "طالما Customers هو الجدول الأساسي وكل العملاء لازم يظهروا، LEFT JOIN يحافظ عليهم حتى لو بيانات Orders طلعت NULL.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "left-join-all-customers-even-no-orders",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 13 — LEFT JOIN"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q023",
+      "question": "A report starts from sales on the left and stores on the right, but it must include every store even if no sales exist. Which join direction matches that layout?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN, preserving only matches."
+        },
+        {
+          "id": "B",
+          "text": "LEFT JOIN, preserving the sales table only."
+        },
+        {
+          "id": "C",
+          "text": "RIGHT JOIN, preserving the stores table on the right."
+        },
+        {
+          "id": "D",
+          "text": "Self join on stores."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "بما إن Stores موجودة يمين الاستعلام وهي اللي لازم كلها تظهر، RIGHT JOIN هو الاتجاه المناسب.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "right-join-all-stores-even-no-sales",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 13 — RIGHT JOIN"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q024",
+      "question": "An Employees table contains employee_id and manager_id, both referring to employees. What technique best retrieves employee and manager names from that one table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UNION between Employees and itself."
+        },
+        {
+          "id": "B",
+          "text": "TRUNCATE followed by SELECT."
+        },
+        {
+          "id": "C",
+          "text": "A Cartesian product without a condition."
+        },
+        {
+          "id": "D",
+          "text": "Self join using two aliases for Employees."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "دي نفس فكرة supervisor في المحاضرة: نفس الجدول يمثل الموظف والمدير، فنستخدم Self Join باثنين aliases.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "self-join",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "self-join-employee-manager-hierarchy",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 11 — Self Join supervisor pattern"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q025",
+      "question": "A commission table defines ranges using MinSales and MaxSales rather than a key equal to Sales.Amount. Which taught join pattern fits best?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A non-equijoin using a range condition such as BETWEEN."
+        },
+        {
+          "id": "B",
+          "text": "An equijoin that requires Sales.Amount = MinSales."
+        },
+        {
+          "id": "C",
+          "text": "A self join with no range condition."
+        },
+        {
+          "id": "D",
+          "text": "A FULL JOIN with no ON clause."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لما العلاقة مبنية على range مش equality key، بنستخدم Non-Equijoin زي مثال salary وjob_grades.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "non-equi-join",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "non-equijoin-range-commission-tier",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 15 — Non-Equijoin with BETWEEN"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q026",
+      "question": "Table X has 3 rows and table Y has 4 rows. If a Cartesian product is produced, how many row combinations are possible?",
+      "options": [
+        {
+          "id": "A",
+          "text": "3."
+        },
+        {
+          "id": "B",
+          "text": "12."
+        },
+        {
+          "id": "C",
+          "text": "4."
+        },
+        {
+          "id": "D",
+          "text": "7."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Cartesian Product = كل صف من X مع كل صف من Y، إذن 3 × 4 = 12 combination.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "cartesian-product",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "cartesian-product-row-count-3x4",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — Cartesian Product"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q027",
+      "question": "Customers has IDs {1,2,3}. Orders contains rows for CustomerID {1,1,3}. An INNER JOIN on CustomerID returns how many joined rows?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2 joined rows."
+        },
+        {
+          "id": "B",
+          "text": "4 joined rows."
+        },
+        {
+          "id": "C",
+          "text": "3 joined rows."
+        },
+        {
+          "id": "D",
+          "text": "6 joined rows."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "كل order مطابق بيعمل صف في الناتج: العميل 1 له صفين، العميل 3 له صف واحد، والعميل 2 ملوش match؛ الإجمالي 3.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "inner-join",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "inner-join-one-to-many-row-count",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — INNER JOIN matched rows"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q028",
+      "question": "In an outer join, what commonly appears in columns from the non-matching side of a preserved row?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The string 'MATCH'."
+        },
+        {
+          "id": "B",
+          "text": "Zeros in every column regardless of type."
+        },
+        {
+          "id": "C",
+          "text": "A duplicate of the preserved row's values."
+        },
+        {
+          "id": "D",
+          "text": "NULL values."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Outer joins بتحافظ على الصف غير المتطابق، وأعمدة الطرف اللي ملوش match بتظهر كـ NULL، وهي نفس الفكرة المذكورة قبل كده في NULL with LEFT JOIN.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "outer-join-unmatched-side-null",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 13–14 — Outer Join unmatched rows"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q029",
+      "question": "The requirement is: 'Display all departments even if they have no employees assigned.' Which choice matches the Session 6 example most directly?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Preserve the Departments table with an outer join, such as the shown RIGHT OUTER JOIN layout."
+        },
+        {
+          "id": "B",
+          "text": "Use an INNER JOIN so only staffed departments remain."
+        },
+        {
+          "id": "C",
+          "text": "Use a self join on Employees."
+        },
+        {
+          "id": "D",
+          "text": "Use a non-equijoin based on salary ranges."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Slide 14 بيطبق requirement ده تحديدًا باستخدام RIGHT OUTER JOIN لأن Departments موجودة على اليمين ولازم كلها تظهر.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "all-departments-even-unassigned-use-outer-join",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 14 — Display all departments even without employees"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q030",
+      "question": "A university report places Students on the left and Enrollments on the right and must show students with zero enrollments. Which join is the closest taught pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN from Students to Enrollments."
+        },
+        {
+          "id": "B",
+          "text": "LEFT JOIN from Students to Enrollments."
+        },
+        {
+          "id": "C",
+          "text": "Non-equijoin using BETWEEN."
+        },
+        {
+          "id": "D",
+          "text": "Cartesian product."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده تطبيق مباشر لفكرة LEFT JOIN: كل Students يظهروا، واللي ملوش Enrollment هتكون أعمدة الطرف اليمين NULL.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "left-join-students-with-zero-enrollments",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 13 — LEFT JOIN"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q031",
+      "question": "Suppose table A contains keys {1,2} and table B contains keys {2,3}. A FULL OUTER JOIN on key equality should preserve which key set?",
+      "options": [
+        {
+          "id": "A",
+          "text": "{2} only."
+        },
+        {
+          "id": "B",
+          "text": "{1,2} only."
+        },
+        {
+          "id": "C",
+          "text": "{1,2,3}."
+        },
+        {
+          "id": "D",
+          "text": "{2,3} only."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "FULL OUTER JOIN بيحافظ على matched key 2 وكمان unmatched key 1 من A و3 من B، فالناتج يغطي {1,2,3}.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "full-outer-join-preserves-union-of-keys",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 13 — FULL JOIN"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q032",
+      "question": "The session shows older comma-style joins such as `FROM department, employee WHERE department.id = employee.deptid`. What is the key logical requirement that prevents a Cartesian product?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An ORDER BY clause."
+        },
+        {
+          "id": "B",
+          "text": "A DISTINCT keyword."
+        },
+        {
+          "id": "C",
+          "text": "A table alias on only one table."
+        },
+        {
+          "id": "D",
+          "text": "A condition that relates the corresponding rows of the two tables."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "اللي يمنع Cartesian Product هو وجود join predicate يربط الصفوف، مش مجرد كتابة الجدولين في FROM.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "equi-join",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "comma-join-needs-relational-predicate",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 6 and 9 — Equijoin examples"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q033",
+      "question": "Which pair correctly distinguishes the two join-condition families taught in Session 6?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Equijoin: equality condition; Non-equijoin: condition using an operator other than equality."
+        },
+        {
+          "id": "B",
+          "text": "Equijoin: preserves unmatched rows; Non-equijoin: removes duplicates."
+        },
+        {
+          "id": "C",
+          "text": "Equijoin: same table twice; Non-equijoin: different tables only."
+        },
+        {
+          "id": "D",
+          "text": "Equijoin: UNION; Non-equijoin: UNION ALL."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "التمييز الأساسي في Slides 3–4 هو نوع شرط الربط: equality مقابل non-equality operator.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "non-equi-join",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "equi-vs-non-equi-condition-family",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 3–4 — Equijoin vs Non-Equijoin"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q034",
+      "question": "A query joins two tables that both have `name` and `id`, and then uses `SELECT id, name`. It fails as ambiguous. Which repair is most robust?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remove the join condition and keep the unqualified columns."
+        },
+        {
+          "id": "B",
+          "text": "Assign aliases to both tables and qualify both selected columns with the intended alias."
+        },
+        {
+          "id": "C",
+          "text": "Add UNION ALL below the query."
+        },
+        {
+          "id": "D",
+          "text": "Replace both columns with `SELECT *`."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "استخدام aliases مع qualification زي `e.id, d.name` بيحدد مصدر كل عمود بوضوح وبيمنع ambiguity.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "ambiguous-columns",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "robust-ambiguity-fix-alias-and-qualification",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 7 and 10 — Ambiguous columns and aliases"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q035",
+      "question": "Departments has one department row, and Employees has three employees referencing that department. An INNER JOIN on department ID returns how many rows for that department?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One row because the department key is unique."
+        },
+        {
+          "id": "B",
+          "text": "Zero rows because one-to-many joins are not allowed."
+        },
+        {
+          "id": "C",
+          "text": "Three rows, one for each matching employee."
+        },
+        {
+          "id": "D",
+          "text": "Four rows because the department row is added separately."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ join بيكرر بيانات department لكل employee مطابق. Unique PK في department لا يمنع وجود عدة FK matches في employees.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "inner-join",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "inner-join-one-department-three-employees",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — INNER JOIN matched rows"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q036",
+      "question": "A report unexpectedly explodes from hundreds of rows to millions after a second table is added. There is no ON/WHERE relationship between the two tables. Which diagnosis best fits the material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A FULL JOIN is removing too many rows."
+        },
+        {
+          "id": "B",
+          "text": "A table alias is multiplying values."
+        },
+        {
+          "id": "C",
+          "text": "UNION is preserving duplicates."
+        },
+        {
+          "id": "D",
+          "text": "An accidental Cartesian product caused by the missing join relationship."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الزيادة الضخمة مع غياب شرط الربط علامة واضحة على Cartesian Product: كل صف بيتجمع مع كل صف من الجدول الثاني.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "cartesian-product",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "exploding-row-count-missing-join-predicate",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — Cartesian Product"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q037",
+      "question": "Why are two aliases especially important in the supervisor self-join example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They let SQL treat two references to the same Employees table as different roles: employee and supervisor."
+        },
+        {
+          "id": "B",
+          "text": "They make the table physically duplicate itself."
+        },
+        {
+          "id": "C",
+          "text": "They convert NULL supervisors to valid IDs."
+        },
+        {
+          "id": "D",
+          "text": "They force a FULL OUTER JOIN automatically."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "في Self Join نفس الجدول له دورين مختلفين، والـ aliases e وs بيميزوا role الموظف عن role المشرف.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "self-join",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "self-join-aliases-distinguish-roles",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 11 — Self Join"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q038",
+      "question": "Employees rows are (Ahmed, dept 100), (Mona, dept 100). Departments are 100 IT and 300 HR. Using the session's RIGHT OUTER JOIN pattern with Departments preserved, how many output rows are expected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2 rows: only Ahmed–IT and Mona–IT."
+        },
+        {
+          "id": "B",
+          "text": "3 rows: Ahmed–IT, Mona–IT, and one HR row with no matching employee."
+        },
+        {
+          "id": "C",
+          "text": "1 row: only HR."
+        },
+        {
+          "id": "D",
+          "text": "4 rows because every employee pairs with every department."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Department 100 له اتنين matches فيطلع صفين، وDepartment 300 لازم يظهر كصف unmatched لأن RIGHT JOIN بيحافظ على departments؛ الإجمالي 3.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "right-outer-join-multiple-matches-plus-unmatched",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 14 — RIGHT OUTER JOIN departments example"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q039",
+      "question": "A has keys {1,2,2}; B has keys {2,2,3}. For an equality INNER JOIN, how many rows are produced for key 2 alone?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 row."
+        },
+        {
+          "id": "B",
+          "text": "2 rows."
+        },
+        {
+          "id": "C",
+          "text": "4 rows."
+        },
+        {
+          "id": "D",
+          "text": "3 rows."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "كل صف key=2 في A يطابق كل صف key=2 في B. عندنا 2 × 2 = 4 joined rows للـ key 2.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "inner-join",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "inner-join-duplicate-key-many-to-many-count",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slide 5 — INNER JOIN matched rows"
+      }
+    },
+    {
+      "id": "da-sql-session06-joins-q040",
+      "question": "A developer uses INNER JOIN for a requirement that explicitly says 'show every department, including empty departments.' What is the conceptual error?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INNER JOIN always creates a Cartesian product."
+        },
+        {
+          "id": "B",
+          "text": "INNER JOIN cannot compare equal keys."
+        },
+        {
+          "id": "C",
+          "text": "INNER JOIN automatically removes departments with more than one employee."
+        },
+        {
+          "id": "D",
+          "text": "INNER JOIN discards departments with no employee match; an outer join is required to preserve them."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المشكلة إن INNER JOIN بيحافظ على matches بس، بينما requirement محتاج unmatched departments كمان؛ لذلك لازم Outer Join مناسب.",
+        "en": ""
+      },
+      "topic": "Relational Joins & Query Composition",
+      "topicId": "joins",
+      "subtopicId": "outer-joins",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "wrong-inner-join-for-unmatched-departments",
+      "source": {
+        "file": "Session6.pptx",
+        "reference": "Slides 5, 13–14 — Inner vs Outer Join"
+      }
+    }
+  ]
+}

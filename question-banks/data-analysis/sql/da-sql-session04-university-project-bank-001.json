@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-sql-session04-university-project-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "moduleId": "session-04-university-project",
+    "module": "Session 4 — University Database Design & Implementation",
+    "title": "Session 4 — University Database Integration — Bank 001",
+    "version": "1.0",
+    "status": "active",
+    "sourceFiles": [
+      "Session4.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-sql-session04-q001",
+      "question": "Which entities are explicitly in the core University project scope?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Customers, Products, Orders, and Payments."
+        },
+        {
+          "id": "B",
+          "text": "Books, Authors, Borrowers, and Loans."
+        },
+        {
+          "id": "C",
+          "text": "Films, Actors, Genres, and Reviews."
+        },
+        {
+          "id": "D",
+          "text": "Students, Courses, Instructors, and Enrollments."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 4 بيحدد الـ core entities: Students, Courses, Instructors, Enrollments.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "university-project-scope",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "university-core-entities",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 4 — Scope & Entities"
+      }
+    },
+    {
+      "id": "da-sql-session04-q002",
+      "question": "What role does Enrollments play in the project model?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A junction entity connecting Students and Courses."
+        },
+        {
+          "id": "B",
+          "text": "A replacement for Students."
+        },
+        {
+          "id": "C",
+          "text": "A database-level index."
+        },
+        {
+          "id": "D",
+          "text": "A text-formatting function."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتسمي Enrollments junction وبتربط Students 1—M Enrollments وCourses 1—M Enrollments.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "university-relationships",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "enrollments-junction-entity",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 4 — Scope & Entities"
+      }
+    },
+    {
+      "id": "da-sql-session04-q003",
+      "question": "What normalization target is stated for the University project?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stop at 1NF."
+        },
+        {
+          "id": "B",
+          "text": "Aim for 3NF."
+        },
+        {
+          "id": "C",
+          "text": "Use no normalization."
+        },
+        {
+          "id": "D",
+          "text": "Always denormalize every table."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 4 بتذكر صراحة Normalization: Aim for 3NF.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "normalization",
+      "subtopicId": "third-normal-form",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "university-project-aim-3nf",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 4 — Normalization: Aim for 3NF"
+      }
+    },
+    {
+      "id": "da-sql-session04-q004",
+      "question": "Which naming style is recommended in the project?",
+      "options": [
+        {
+          "id": "A",
+          "text": "snake_case, such as student_id and course_code."
+        },
+        {
+          "id": "B",
+          "text": "CamelCase only."
+        },
+        {
+          "id": "C",
+          "text": "Spaces in every column name."
+        },
+        {
+          "id": "D",
+          "text": "Single-letter table names only."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المشروع بيوصي بـ snake_case ويدي student_id وcourse_code كأمثلة.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "sql-naming",
+      "importance": "supporting",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "university-snake-case-naming",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 4 — Naming convention"
+      }
+    },
+    {
+      "id": "da-sql-session04-q005",
+      "question": "Which Student attribute is explicitly marked UNIQUE in the conceptual guide?",
+      "options": [
+        {
+          "id": "A",
+          "text": "first_name"
+        },
+        {
+          "id": "B",
+          "text": "email"
+        },
+        {
+          "id": "C",
+          "text": "last_name"
+        },
+        {
+          "id": "D",
+          "text": "enrollment_year"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ conceptual guide يحدد email كـ UNIQUE في Students.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "unique-constraint",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "student-email-unique",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 5 — ERD Conceptual Guide"
+      }
+    },
+    {
+      "id": "da-sql-session04-q006",
+      "question": "Which Course attribute is explicitly marked UNIQUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "title"
+        },
+        {
+          "id": "B",
+          "text": "course_code"
+        },
+        {
+          "id": "C",
+          "text": "credits"
+        },
+        {
+          "id": "D",
+          "text": "course_id as a non-key field"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "course_code مذكور كـ UNIQUE natural key في Courses.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "unique-constraint",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "course-code-unique",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5 and 7 — course_code UNIQUE"
+      }
+    },
+    {
+      "id": "da-sql-session04-q007",
+      "question": "What valid range is specified for course credits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0 through 100."
+        },
+        {
+          "id": "B",
+          "text": "Exactly 3 only."
+        },
+        {
+          "id": "C",
+          "text": "At least 10."
+        },
+        {
+          "id": "D",
+          "text": "1 through 6."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "CHECK rule في المشروع: credits من 1 إلى 6.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "check-constraint",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "course-credits-check-1-6",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5 and 7 — credits CHECK 1–6"
+      }
+    },
+    {
+      "id": "da-sql-session04-q008",
+      "question": "What minimum enrollment year is enforced in the shown Students DDL?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2000"
+        },
+        {
+          "id": "B",
+          "text": "1900"
+        },
+        {
+          "id": "C",
+          "text": "2025"
+        },
+        {
+          "id": "D",
+          "text": "No minimum is defined."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ DDL يستخدم CHECK (enrollment_year >= 2000).",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "check-constraint",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "student-enrollment-year-min-2000",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5–6 — enrollment_year CHECK >= 2000"
+      }
+    },
+    {
+      "id": "da-sql-session04-q009",
+      "question": "What does the project use to ensure an enrollment references existing Students and Courses?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ORDER BY."
+        },
+        {
+          "id": "B",
+          "text": "DISTINCT."
+        },
+        {
+          "id": "C",
+          "text": "Foreign keys."
+        },
+        {
+          "id": "D",
+          "text": "TRIM()."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Slide 7 يربط FK بالـ referential integrity، وEnrollments فيها student_id FK وcourse_id FK.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "foreign-key",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "enrollment-foreign-keys-integrity",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5 and 7 — Enrollments FKs / integrity"
+      }
+    },
+    {
+      "id": "da-sql-session04-q010",
+      "question": "What combination is the optional Teaches table primary key built from?",
+      "options": [
+        {
+          "id": "A",
+          "text": "instructor_id only."
+        },
+        {
+          "id": "B",
+          "text": "course_id only."
+        },
+        {
+          "id": "C",
+          "text": "instructor_id, course_id, and term."
+        },
+        {
+          "id": "D",
+          "text": "term and grade only."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ conceptual guide يعرّف PK(instructor_id, course_id, term) في Teaches.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "teaches-relationship",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "teaches-composite-primary-key",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 5 — Optional Teaches table"
+      }
+    },
+    {
+      "id": "da-sql-session04-q011",
+      "question": "Which columns in Enrollments directly connect an enrollment row to its Student and Course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "enrollment_id and grade."
+        },
+        {
+          "id": "B",
+          "text": "term and grade."
+        },
+        {
+          "id": "C",
+          "text": "student_id and course_id."
+        },
+        {
+          "id": "D",
+          "text": "first_name and title."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "student_id وcourse_id هما الـ FKs اللي بيربطوا Enrollments بـ Students وCourses.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "university-relationships",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "enrollments-student-course-fks",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 5 — Enrollments conceptual schema"
+      }
+    },
+    {
+      "id": "da-sql-session04-q012",
+      "question": "The project defines UNIQUE(student_id, course_id, term) in Enrollments. What does it prevent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A student from taking different courses."
+        },
+        {
+          "id": "B",
+          "text": "A course from having multiple students."
+        },
+        {
+          "id": "C",
+          "text": "Any two enrollments from sharing the same term."
+        },
+        {
+          "id": "D",
+          "text": "The same student-course-term combination from being inserted more than once."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ composite UNIQUE بيمنع تكرار نفس الثلاثي فقط، لكنه يسمح للطالب بكورسات مختلفة أو terms مختلفة.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "composite-unique",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "enrollment-unique-student-course-term",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 5 — Enrollments UNIQUE(student_id, course_id, term)"
+      }
+    },
+    {
+      "id": "da-sql-session04-q013",
+      "question": "A course is inserted with credits = 7. What should happen under the project rules?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It should be accepted because credits are text."
+        },
+        {
+          "id": "B",
+          "text": "The Courses table should be dropped."
+        },
+        {
+          "id": "C",
+          "text": "It should violate the CHECK constraint."
+        },
+        {
+          "id": "D",
+          "text": "The value should automatically become 6."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "credits لازم تكون بين 1 و6؛ القيمة 7 تخالف CHECK.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "check-constraint",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "reject-course-credits-seven",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5 and 7 — credits CHECK 1–6"
+      }
+    },
+    {
+      "id": "da-sql-session04-q014",
+      "question": "A student is inserted with enrollment_year = 1999. What should happen?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It should be accepted with no issue."
+        },
+        {
+          "id": "B",
+          "text": "It should be converted to 2000 automatically."
+        },
+        {
+          "id": "C",
+          "text": "It should delete other students."
+        },
+        {
+          "id": "D",
+          "text": "It should violate the enrollment_year CHECK constraint."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ rule هو enrollment_year >= 2000، وبالتالي 1999 غير مسموح.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "check-constraint",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "reject-enrollment-year-1999",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5–6 — enrollment_year CHECK >= 2000"
+      }
+    },
+    {
+      "id": "da-sql-session04-q015",
+      "question": "In the shown Students DDL, what happens if email is NULL?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It violates NOT NULL on email."
+        },
+        {
+          "id": "B",
+          "text": "It is accepted because UNIQUE allows NULL by definition in the slide."
+        },
+        {
+          "id": "C",
+          "text": "The student_id becomes NULL too."
+        },
+        {
+          "id": "D",
+          "text": "The row is sorted last."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الكود يعرّف email VARCHAR(100) UNIQUE NOT NULL، فـ NULL غير مسموح.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "not-null-constraint",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "student-email-not-null",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 6 — Students DDL"
+      }
+    },
+    {
+      "id": "da-sql-session04-q016",
+      "question": "Why is student_id suitable as the Student primary key in the shown design?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It stores all course titles."
+        },
+        {
+          "id": "B",
+          "text": "It represents a grouped query result."
+        },
+        {
+          "id": "C",
+          "text": "It replaces the need for Enrollments."
+        },
+        {
+          "id": "D",
+          "text": "It uniquely identifies each Student row."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 7 يعرّف PK كوسيلة row uniqueness per entity، وstudent_id هو PK للطلاب.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "primary-key",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "student-id-unique-row-identifier",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5–7 — Student PK / PK purpose"
+      }
+    },
+    {
+      "id": "da-sql-session04-q017",
+      "question": "Why is email described as a natural-key style UNIQUE attribute rather than the Student primary key in the provided design?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The design permits duplicate emails without restriction."
+        },
+        {
+          "id": "B",
+          "text": "email is a foreign key to Courses."
+        },
+        {
+          "id": "C",
+          "text": "The design uses student_id as the PK while separately enforcing email uniqueness."
+        },
+        {
+          "id": "D",
+          "text": "email is a CHECK expression, not a column."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المشروع بيفصل surrogate identifier student_id كـ PK عن business/natural unique value email.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "unique-constraint",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "student-pk-vs-email-unique",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5 and 7 — PK and UNIQUE natural keys"
+      }
+    },
+    {
+      "id": "da-sql-session04-q018",
+      "question": "To show each course with its enrolled students, which relationship path in the project model must be followed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Courses → Enrollments → Students."
+        },
+        {
+          "id": "B",
+          "text": "Courses → Instructors only."
+        },
+        {
+          "id": "C",
+          "text": "Students → Students."
+        },
+        {
+          "id": "D",
+          "text": "Enrollments → Version Control."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لأن Enrollments هي junction بين Courses وStudents، فالاستعلام المنطقي يمر من Course إلى Enrollments ثم Student.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "project-required-queries",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "students-per-course-relationship-path",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 4–5 and 9 — schema / Students per Course query"
+      }
+    },
+    {
+      "id": "da-sql-session04-q019",
+      "question": "For the optional Instructors M—M Courses relationship, which table is intended to represent the association?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Enrollments"
+        },
+        {
+          "id": "B",
+          "text": "Students"
+        },
+        {
+          "id": "C",
+          "text": "Courses only without an association table"
+        },
+        {
+          "id": "D",
+          "text": "Teaches"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 4 يذكر Instructors M—M Courses via Teaches، وSlide 5 يحدد أعمدة Teaches.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "teaches-relationship",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "instructor-course-many-to-many-via-teaches",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 4–5 — optional Teaches"
+      }
+    },
+    {
+      "id": "da-sql-session04-q020",
+      "question": "If the project keeps Teaches, which field allows the same instructor-course pair to be represented in different academic terms?",
+      "options": [
+        {
+          "id": "A",
+          "text": "term"
+        },
+        {
+          "id": "B",
+          "text": "email"
+        },
+        {
+          "id": "C",
+          "text": "credits"
+        },
+        {
+          "id": "D",
+          "text": "grade only"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "term جزء من composite PK، فاختلاف term يسمح بسجلات مختلفة لنفس instructor-course pair عبر الفصول.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "teaches-relationship",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "teaches-term-distinguishes-offerings",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 5 — Teaches composite PK"
+      }
+    },
+    {
+      "id": "da-sql-session04-q021",
+      "question": "Why does the project use a junction-style Enrollments table rather than storing a list of courses inside each Student row?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It prevents Courses from having titles."
+        },
+        {
+          "id": "B",
+          "text": "It models the Student-Course association relationally and supports attributes such as term and grade."
+        },
+        {
+          "id": "C",
+          "text": "It removes the need for foreign keys."
+        },
+        {
+          "id": "D",
+          "text": "It forces every student to take exactly one course."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Enrollments بتمثل العلاقة نفسها وبتحمل term وgrade، وده أنسب من multivalued list داخل Student.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "university-relationships",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "why-enrollments-junction-with-attributes",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 4–5 — Enrollments junction schema"
+      }
+    },
+    {
+      "id": "da-sql-session04-q022",
+      "question": "Which project constraint protects against an enrollment pointing to a student_id that does not exist?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The UNIQUE constraint on course_code."
+        },
+        {
+          "id": "B",
+          "text": "The CHECK on credits."
+        },
+        {
+          "id": "C",
+          "text": "The foreign key from Enrollments.student_id to Students."
+        },
+        {
+          "id": "D",
+          "text": "The NOT NULL on course title only."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "دي وظيفة referential integrity: FK لازم يشير إلى parent row موجود.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "foreign-key",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "fk-prevents-nonexistent-student-enrollment",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5 and 7 — FK referential integrity"
+      }
+    },
+    {
+      "id": "da-sql-session04-q023",
+      "question": "The checklist asks for at least how many Students to be inserted?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "6"
+        },
+        {
+          "id": "D",
+          "text": "20"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 10 بيحدد minimum seed: 10 students.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "project-checklist",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "project-seed-min-10-students",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 10 — Hands-on Checklist"
+      }
+    },
+    {
+      "id": "da-sql-session04-q024",
+      "question": "The checklist asks for at least how many Instructors?",
+      "options": [
+        {
+          "id": "A",
+          "text": "10"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "20"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المطلوب 5 instructors كحد أدنى في seed data.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "project-checklist",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "project-seed-min-5-instructors",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 10 — Hands-on Checklist"
+      }
+    },
+    {
+      "id": "da-sql-session04-q025",
+      "question": "The checklist asks for at least how many Courses?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "20"
+        },
+        {
+          "id": "D",
+          "text": "6"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 10 يطلب 6 courses على الأقل.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "project-checklist",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "project-seed-min-6-courses",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 10 — Hands-on Checklist"
+      }
+    },
+    {
+      "id": "da-sql-session04-q026",
+      "question": "The checklist asks for at least how many Enrollments?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "10"
+        },
+        {
+          "id": "D",
+          "text": "20"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المطلوب 20 enrollments على الأقل.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "project-checklist",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "project-seed-min-20-enrollments",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 10 — Hands-on Checklist"
+      }
+    },
+    {
+      "id": "da-sql-session04-q027",
+      "question": "Which project query requirement most directly needs counting courses per instructor?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Students who enrolled recently."
+        },
+        {
+          "id": "B",
+          "text": "Instructors Teaching > 2 Courses."
+        },
+        {
+          "id": "C",
+          "text": "Students have more than 4 credit courses."
+        },
+        {
+          "id": "D",
+          "text": "Insert realistic sample data."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المطلوب تحديد instructors اللي بيدرسوا أكتر من كورسين، فده يحتاج count للـ course associations لكل instructor.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "project-required-queries",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "query-instructor-load-over-two",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 9 — Required queries"
+      }
+    },
+    {
+      "id": "da-sql-session04-q028",
+      "question": "Which project query requirement is based on a course credit threshold?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Students per Course."
+        },
+        {
+          "id": "B",
+          "text": "Instructors Teaching > 2 Courses."
+        },
+        {
+          "id": "C",
+          "text": "Students have more than 4 credit courses."
+        },
+        {
+          "id": "D",
+          "text": "Students who enrolled recently."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Slide 9 يذكر صراحة query للطلاب المرتبطين بكورسات credits > 4.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "project-required-queries",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "query-students-courses-over4-credits",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 9 — Required queries"
+      }
+    },
+    {
+      "id": "da-sql-session04-q029",
+      "question": "The Students DDL uses IDENTITY(1,1) on student_id. What other property is explicitly attached to that column?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PRIMARY KEY"
+        },
+        {
+          "id": "B",
+          "text": "UNIQUE email"
+        },
+        {
+          "id": "C",
+          "text": "CHECK credits 1–6"
+        },
+        {
+          "id": "D",
+          "text": "FOREIGN KEY to Courses"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الكود يكتب student_id INT IDENTITY(1,1) PRIMARY KEY.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "primary-key",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "student-id-ddl-primary-key",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 6 — Students DDL"
+      }
+    },
+    {
+      "id": "da-sql-session04-q030",
+      "question": "Which pair of constraints is applied to students.email in the shown DDL?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UNIQUE and NOT NULL."
+        },
+        {
+          "id": "B",
+          "text": "PRIMARY KEY and CHECK."
+        },
+        {
+          "id": "C",
+          "text": "FOREIGN KEY and DEFAULT."
+        },
+        {
+          "id": "D",
+          "text": "CHECK and IDENTITY."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "email معرف بـ UNIQUE NOT NULL، يعني لازم قيمة وممنوع التكرار.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "unique-constraint",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "student-email-unique-not-null-pair",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 6 — Students DDL"
+      }
+    },
+    {
+      "id": "da-sql-session04-q031",
+      "question": "A student takes the same course in Fall 2025 and Spring 2026. Does UNIQUE(student_id, course_id, term) allow both rows?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No, because student_id and course_id repeat."
+        },
+        {
+          "id": "B",
+          "text": "Yes, because the term value differs."
+        },
+        {
+          "id": "C",
+          "text": "No, because UNIQUE allows only one enrollment per student ever."
+        },
+        {
+          "id": "D",
+          "text": "Only if grade is NULL."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ uniqueness على الثلاث أعمدة معًا؛ تغيير term يعني إن الـ composite value مختلفة، فالسجلين مسموحين.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "composite-unique",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "composite-unique-allows-different-term",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 5 — Enrollments composite UNIQUE"
+      }
+    },
+    {
+      "id": "da-sql-session04-q032",
+      "question": "A student is accidentally inserted twice into the same course and same term. Which project rule should detect the duplicate even if enrollment_id values differ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UNIQUE(student_id, course_id, term)."
+        },
+        {
+          "id": "B",
+          "text": "CHECK (credits 1–6)."
+        },
+        {
+          "id": "C",
+          "text": "UNIQUE(course_code)."
+        },
+        {
+          "id": "D",
+          "text": "The instructor department field."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "حتى لو enrollment_id مختلف، الثلاثي student/course/term نفسه، فالـ composite UNIQUE يمنع التكرار.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "composite-unique",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "composite-unique-detects-duplicate-enrollment",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 5 — Enrollments composite UNIQUE"
+      }
+    },
+    {
+      "id": "da-sql-session04-q033",
+      "question": "A designer removes Enrollments and stores course_id directly in Students. What important project capability is lost for students taking multiple courses?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The ability to store student names."
+        },
+        {
+          "id": "B",
+          "text": "A proper representation of multiple Student-Course associations and relationship attributes such as term and grade."
+        },
+        {
+          "id": "C",
+          "text": "The ability to create a primary key."
+        },
+        {
+          "id": "D",
+          "text": "The ability to use snake_case."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Student واحد ممكن يرتبط بكذا Course، والعلاقة نفسها لها term/grade؛ Enrollments هي المكان الطبيعي لتمثيل كل association.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "university-relationships",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "diagnose-removing-enrollments-junction",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 4–5 — Enrollments junction and attributes"
+      }
+    },
+    {
+      "id": "da-sql-session04-q034",
+      "question": "The optional Teaches table has PK(instructor_id, course_id, term). What design need does this composite key address?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It guarantees each instructor teaches only one course forever."
+        },
+        {
+          "id": "B",
+          "text": "It uniquely identifies an instructor teaching a specific course in a specific term."
+        },
+        {
+          "id": "C",
+          "text": "It replaces both Instructors and Courses tables."
+        },
+        {
+          "id": "D",
+          "text": "It stores the instructor email three times."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ composite PK بيربط الثلاث dimensions للسجل: instructor + course + term، ويميز كل teaching assignment.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "teaches-relationship",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "teaches-composite-key-semantic",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 5 — Teaches composite PK"
+      }
+    },
+    {
+      "id": "da-sql-session04-q035",
+      "question": "To answer “Instructors Teaching > 2 Courses” using Teaches, which taught query pattern best matches the requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use DISTINCT instructor_id only with no counting."
+        },
+        {
+          "id": "B",
+          "text": "Use CHECK credits > 2 on Courses."
+        },
+        {
+          "id": "C",
+          "text": "Delete instructors who teach two courses."
+        },
+        {
+          "id": "D",
+          "text": "Group teaching rows by instructor and filter groups whose course count is greater than 2."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المطلوب threshold على عدد courses لكل instructor، فده منطقيًا GROUP BY instructor مع aggregate count ثم HAVING > 2.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "project-required-queries",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "project-instructor-load-group-having-pattern",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 9 — Instructors Teaching > 2 Courses"
+      }
+    },
+    {
+      "id": "da-sql-session04-q036",
+      "question": "To show each course with its enrolled students, which three core tables are sufficient in the project’s non-optional schema?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Courses, Teaches, and Instructors only."
+        },
+        {
+          "id": "B",
+          "text": "Students, Instructors, and Version Control."
+        },
+        {
+          "id": "C",
+          "text": "Courses, Enrollments, and Students."
+        },
+        {
+          "id": "D",
+          "text": "Enrollments only."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Course ↔ Student العلاقة بتمر عبر Enrollments، لذلك التلات جداول دول كفاية للمطلوب الأساسي.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "project-required-queries",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "students-per-course-three-table-path",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 4–5 and 9 — core schema / query requirement"
+      }
+    },
+    {
+      "id": "da-sql-session04-q037",
+      "question": "A designer stores instructor email repeatedly inside every Teaches row even though it already belongs to Instructors. Which project goal does that work against?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The snake_case naming convention only."
+        },
+        {
+          "id": "B",
+          "text": "The stated aim for a normalized 3NF design."
+        },
+        {
+          "id": "C",
+          "text": "The requirement to have 20 enrollments."
+        },
+        {
+          "id": "D",
+          "text": "The CHECK on credits."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "تكرار instructor attribute داخل association table بدون حاجة بيزود redundancy وبيتعارض مع هدف 3NF المذكور للمشروع.",
+        "en": ""
+      },
+      "topic": "Normalization",
+      "topicId": "normalization",
+      "subtopicId": "third-normal-form",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "university-avoid-repeating-instructor-data-3nf",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 4–5 — Aim for 3NF / normalized entity separation"
+      }
+    },
+    {
+      "id": "da-sql-session04-q038",
+      "question": "A course_code already exists and another Course row tries to reuse it with a different course_id. Which project rule should block the insert?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PRIMARY KEY on student_id."
+        },
+        {
+          "id": "B",
+          "text": "CHECK on enrollment_year."
+        },
+        {
+          "id": "C",
+          "text": "UNIQUE on course_code."
+        },
+        {
+          "id": "D",
+          "text": "The Enrollments term field."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "course_code معرف كـ UNIQUE natural key، فاختلاف course_id لا يسمح بتكرار course_code.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "unique-constraint",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "duplicate-course-code-blocked",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 5 and 7 — course_code UNIQUE"
+      }
+    },
+    {
+      "id": "da-sql-session04-q039",
+      "question": "An Enrollment references student_id 99, but no Student 99 exists. Which integrity principle is being violated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the snake_case naming rule."
+        },
+        {
+          "id": "B",
+          "text": "A GROUP BY requirement."
+        },
+        {
+          "id": "C",
+          "text": "The credits CHECK constraint."
+        },
+        {
+          "id": "D",
+          "text": "Referential integrity enforced by the foreign key."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "FK معناها إن القيمة لازم تشير لـ parent key موجود؛ عدم وجود Student 99 هو referential integrity violation.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "foreign-key",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "orphan-enrollment-referential-integrity",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slide 7 — FK referential integrity"
+      }
+    },
+    {
+      "id": "da-sql-session04-q040",
+      "question": "Which design best satisfies the project’s combination of many student-course registrations, term-specific grades, and duplicate protection?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Keep Students and Courses separate, use Enrollments as the junction, and enforce UNIQUE(student_id, course_id, term)."
+        },
+        {
+          "id": "B",
+          "text": "Put all course IDs and grades in comma-separated Student columns."
+        },
+        {
+          "id": "C",
+          "text": "Merge every Student and Course into one repeating table with no keys."
+        },
+        {
+          "id": "D",
+          "text": "Store only enrollment_id and discard student_id/course_id."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ده بالضبط structure المشروع: entities مستقلة + junction Enrollments بعلاقة ومعلومات term/grade + composite UNIQUE لمنع duplicate registration في نفس term.",
+        "en": ""
+      },
+      "topic": "University Database Project",
+      "topicId": "schema-design-practice",
+      "subtopicId": "university-integrated-design",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "integrated-university-junction-design",
+      "source": {
+        "file": "Session4.pptx",
+        "reference": "Slides 4–7 — University schema, constraints and integrity"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-sql-session01-modeling-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "moduleId": "session-01-relational-data-modeling",
+    "module": "Session 1 — Relational Databases & Data Modeling for Data Engineers",
+    "title": "Session 1 — Database Fundamentals, ER Modeling & Relational Mapping — Bank 001",
+    "version": "1.0",
+    "status": "active",
+    "sourceFiles": [
+      "Session1 (1).pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-sql-session01-q001",
+      "question": "An organization needs a structured electronic way to store, manage, retrieve, and manipulate operational information. Which concept from the session best matches this requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A single temporary query result"
+        },
+        {
+          "id": "B",
+          "text": "A database"
+        },
+        {
+          "id": "C",
+          "text": "A database instance snapshot only"
+        },
+        {
+          "id": "D",
+          "text": "An ER relationship symbol"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المتطلبات هنا هي نفس وظيفة الـ database في المادة: organized collection of data لدعم storage, management, retrieval, and manipulation.",
+        "en": ""
+      },
+      "topic": "Database Fundamentals",
+      "topicId": "database-fundamentals",
+      "subtopicId": "database-definition",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "database-definition",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 4 — What are Databases?"
+      }
+    },
+    {
+      "id": "da-sql-session01-q002",
+      "question": "A proposed system allows only one user, loses data after the session ends, and provides no reliability or safety guarantees. Which DBMS objective from the course is most clearly missing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reliable and safe multi-user access to persistent data"
+        },
+        {
+          "id": "B",
+          "text": "Snowflake dimension normalization"
+        },
+        {
+          "id": "C",
+          "text": "Graphical ER notation"
+        },
+        {
+          "id": "D",
+          "text": "Composite attribute decomposition"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ DBMS في المادة مطلوب منه reliable, safe, multi-user storage والوصول لـ persistent data؛ المواصفات المذكورة بتفشل في أكتر من عنصر أساسي.",
+        "en": ""
+      },
+      "topic": "Database Fundamentals",
+      "topicId": "database-fundamentals",
+      "subtopicId": "dbms-purpose",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dbms-purpose",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 5 — Database Management System (DBMS) provides"
+      }
+    },
+    {
+      "id": "da-sql-session01-q003",
+      "question": "A company wants to reduce duplicate stored values and decrease update inconsistencies. Which database advantage directly addresses this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Greater dependence on application programs"
+        },
+        {
+          "id": "B",
+          "text": "Reduced data redundancy and improved consistency"
+        },
+        {
+          "id": "C",
+          "text": "Increased compatibility problems"
+        },
+        {
+          "id": "D",
+          "text": "Higher data-entry and retrieval costs"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "تقليل data redundancy بيقلل تكرار نفس البيانات، وده يقلل فرص updating errors ويحسن consistency.",
+        "en": ""
+      },
+      "topic": "Database Fundamentals",
+      "topicId": "database-fundamentals",
+      "subtopicId": "database-advantages",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "database-advantage-redundancy-consistency",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 6 — Advantages of using Databases"
+      }
+    },
+    {
+      "id": "da-sql-session01-q004",
+      "question": "Which item is listed as a possible disadvantage of using databases?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No compatibility concerns"
+        },
+        {
+          "id": "B",
+          "text": "Automatic elimination of all security risks"
+        },
+        {
+          "id": "C",
+          "text": "Complexity"
+        },
+        {
+          "id": "D",
+          "text": "Guaranteed zero cost"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتذكر Complexity وCost وSecurity وCompatibility كعيوب أو تحديات محتملة لاستخدام قواعد البيانات.",
+        "en": ""
+      },
+      "topic": "Database Fundamentals",
+      "topicId": "database-fundamentals",
+      "subtopicId": "database-disadvantages",
+      "importance": "supporting",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "database-disadvantages",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 7 — Disadvantages of using Databases"
+      }
+    },
+    {
+      "id": "da-sql-session01-q005",
+      "question": "A designer is deciding how data should be structured, related, constrained, and accessed before building the database. Which artifact is the designer defining?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A backup file"
+        },
+        {
+          "id": "B",
+          "text": "A data model"
+        },
+        {
+          "id": "C",
+          "text": "A database instance only"
+        },
+        {
+          "id": "D",
+          "text": "A single query result"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Data Model هو اللي بيحدد structure وrelationships وconstraints وطريقة تنظيم والوصول للبيانات قبل التنفيذ.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "topicId": "data-models",
+      "subtopicId": "data-model-definition",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "data-model-definition",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 10 — Data Model"
+      }
+    },
+    {
+      "id": "da-sql-session01-q006",
+      "question": "A system stores records in a tree where every record has one parent and can have several children. Which model matches this structure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Document model"
+        },
+        {
+          "id": "B",
+          "text": "Hierarchical model"
+        },
+        {
+          "id": "C",
+          "text": "Object-oriented model"
+        },
+        {
+          "id": "D",
+          "text": "Relational model"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Hierarchical model بينظم البيانات في tree-like structure: كل record له single parent وممكن يكون له multiple children.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "topicId": "data-models",
+      "subtopicId": "hierarchical-model",
+      "importance": "supporting",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "hierarchical-model-tree-structure",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 12 — Hierarchical Model"
+      }
+    },
+    {
+      "id": "da-sql-session01-q007",
+      "question": "Which data model in the course is described as supporting many-to-many relationships among database constraints?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Network model"
+        },
+        {
+          "id": "B",
+          "text": "Document model"
+        },
+        {
+          "id": "C",
+          "text": "Hierarchical model"
+        },
+        {
+          "id": "D",
+          "text": "Schema model"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتوصف الـ Network model بأنه مناسب لتمثيل many-to-many relationships.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "topicId": "data-models",
+      "subtopicId": "network-model",
+      "importance": "supporting",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "network-model-many-to-many",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 13 — Network Model"
+      }
+    },
+    {
+      "id": "da-sql-session01-q008",
+      "question": "A system stores flexible semi-structured records such as JSON or XML instead of rigid tables. Which model is being used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Document model"
+        },
+        {
+          "id": "B",
+          "text": "Entity-Relationship model"
+        },
+        {
+          "id": "C",
+          "text": "Relational model"
+        },
+        {
+          "id": "D",
+          "text": "Hierarchical model"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Document model بيخزن flexible, semi-structured documents زي JSON وXML بدل rigid tables.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "topicId": "data-models",
+      "subtopicId": "document-model",
+      "importance": "supporting",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "document-model-semi-structured",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 15 — Document Model"
+      }
+    },
+    {
+      "id": "da-sql-session01-q009",
+      "question": "A Student relation has columns RollNumber, Name, and CGPA. When the row (003, Harsh, 8.5) is examined, what does that row represent in the relational model?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A relationship diamond"
+        },
+        {
+          "id": "B",
+          "text": "A multivalued attribute"
+        },
+        {
+          "id": "C",
+          "text": "One record (tuple) for a student"
+        },
+        {
+          "id": "D",
+          "text": "A database schema constraint only"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "في relational model الصف الكامل يمثل tuple/record، بينما كل column يمثل attribute.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "topicId": "data-models",
+      "subtopicId": "relational-model",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "relational-row-tuple-record",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 16 — Relational Model"
+      }
+    },
+    {
+      "id": "da-sql-session01-q010",
+      "question": "Which statement about the relational model is supported by the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data is stored in tables and the model supports data independence"
+        },
+        {
+          "id": "B",
+          "text": "Data must be stored only as XML documents"
+        },
+        {
+          "id": "C",
+          "text": "It is used only for object methods and classes"
+        },
+        {
+          "id": "D",
+          "text": "Every record must have multiple parents"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتذكر إن الـ Relational Model هو الأكثر استخدامًا، البيانات فيه stored in tables، وبيسمح بـ data independence.",
+        "en": ""
+      },
+      "topic": "Data Models",
+      "topicId": "data-models",
+      "subtopicId": "relational-model",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "relational-model-characteristics",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 17 — Relational Model"
+      }
+    },
+    {
+      "id": "da-sql-session01-q011",
+      "question": "What is the primary role of the Entity-Relationship (ER) model in this material?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To represent entities and relationships graphically for relational database design"
+        },
+        {
+          "id": "B",
+          "text": "To calculate query execution time"
+        },
+        {
+          "id": "C",
+          "text": "To execute transactions directly"
+        },
+        {
+          "id": "D",
+          "text": "To replace database tables with XML documents"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ ER Model أداة graphical لتصميم relational databases قبل التنفيذ، وبيوضح entities وattributes وrelationships وconstraints.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "er-purpose",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "er-model-purpose",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 18–20 — Entity-Relationship Model / Modeling"
+      }
+    },
+    {
+      "id": "da-sql-session01-q012",
+      "question": "In classic ER notation shown in the course, which shape represents an entity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ellipse"
+        },
+        {
+          "id": "B",
+          "text": "Double line"
+        },
+        {
+          "id": "C",
+          "text": "Diamond"
+        },
+        {
+          "id": "D",
+          "text": "Rectangle"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "في الـ ER notation المعروضة: Entity = rectangle، Relationship = diamond، Attribute = ellipse.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "er-notation",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "er-notation-entity-rectangle",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 21 — Entity Relationship Modeling: Key Components"
+      }
+    },
+    {
+      "id": "da-sql-session01-q013",
+      "question": "In classic ER notation shown in the course, which shape represents a relationship?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ellipse"
+        },
+        {
+          "id": "B",
+          "text": "Rectangle"
+        },
+        {
+          "id": "C",
+          "text": "Single line"
+        },
+        {
+          "id": "D",
+          "text": "Diamond"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ Relationship بيتُمثل بالـ diamond في الـ ER notation المستخدمة في المادة.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "er-notation",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "er-notation-relationship-diamond",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 21 — Entity Relationship Modeling: Key Components"
+      }
+    },
+    {
+      "id": "da-sql-session01-q014",
+      "question": "A Customer exists independently in a system, while an Address entity is modeled as dependent on that Customer. How should they be classified?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Customer is weak; Address is strong"
+        },
+        {
+          "id": "B",
+          "text": "Both must be document models"
+        },
+        {
+          "id": "C",
+          "text": "Customer is strong; Address is weak"
+        },
+        {
+          "id": "D",
+          "text": "Both are weak"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Strong Entity بيقدر يوجد بشكل مستقل، بينما Weak Entity وجوده dependent على strong/parent entity.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "strong-vs-weak-entities",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "strong-weak-entity-classification",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 22 — Entities & Attributes"
+      }
+    },
+    {
+      "id": "da-sql-session01-q015",
+      "question": "Which is a composite attribute according to the course examples?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Age derived from DOB"
+        },
+        {
+          "id": "B",
+          "text": "Phone Numbers"
+        },
+        {
+          "id": "C",
+          "text": "Employee ID"
+        },
+        {
+          "id": "D",
+          "text": "Full Name = First Name + Last Name"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Composite attribute بيتكوّن من أجزاء أصغر، والمثال في المادة Full Name المكوّن من First Name + Last Name.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "attribute-types",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "attribute-type-composite",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 23 — Entities & Attributes"
+      }
+    },
+    {
+      "id": "da-sql-session01-q016",
+      "question": "An Age value is calculated from Date of Birth instead of being stored directly. What type of attribute is Age in this example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Derived attribute"
+        },
+        {
+          "id": "B",
+          "text": "Strong entity"
+        },
+        {
+          "id": "C",
+          "text": "Composite attribute"
+        },
+        {
+          "id": "D",
+          "text": "Multivalued attribute"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لما قيمة attribute تتحسب من قيمة تانية، زي Age من DOB، فهي Derived attribute.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "attribute-types",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "attribute-type-derived",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 23 — Entities & Attributes"
+      }
+    },
+    {
+      "id": "da-sql-session01-q017",
+      "question": "A designer models Employee manages Employee and Supplier supplies Product to Warehouse. Which pair of relationship degrees is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Both are binary"
+        },
+        {
+          "id": "B",
+          "text": "Ternary and binary"
+        },
+        {
+          "id": "C",
+          "text": "Binary and unary"
+        },
+        {
+          "id": "D",
+          "text": "Unary for Employee manages Employee; ternary for Supplier–Product–Warehouse"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Degree بيتحسب بعدد الـ entity types المشاركة: Employee مع نفسه = Unary، بينما Supplier + Product + Warehouse = Ternary.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "relationship-degree",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "relationship-degree-definition",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 24 — Relationship Degree"
+      }
+    },
+    {
+      "id": "da-sql-session01-q018",
+      "question": "Supplier supplies Product to Warehouse. What is the degree of this relationship?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One-to-one"
+        },
+        {
+          "id": "B",
+          "text": "Binary"
+        },
+        {
+          "id": "C",
+          "text": "Unary"
+        },
+        {
+          "id": "D",
+          "text": "Ternary"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "هنا عندنا 3 entities: Supplier وProduct وWarehouse، وبالتالي relationship degree = Ternary.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "relationship-degree",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "relationship-degree-ternary-example",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 24 — Relationship Degree"
+      }
+    },
+    {
+      "id": "da-sql-session01-q019",
+      "question": "A designer confuses relationship degree with cardinality. In an ERD, what should be used to decide whether the relationship is 1:1, 1:N, or M:N?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The number of entity types participating in the relationship"
+        },
+        {
+          "id": "B",
+          "text": "The number of database users"
+        },
+        {
+          "id": "C",
+          "text": "The number of attributes inside the entities"
+        },
+        {
+          "id": "D",
+          "text": "The number of instances of one entity that can relate to instances of another"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "1:1 و1:N وM:N هي Cardinality Ratios، وبتوصف عدد الـ instances المرتبطة، مش عدد الـ entity types المشاركة؛ ده اسمه Degree.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "cardinality",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "cardinality-definition",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 24–25 — Relationship Degree and Cardinality Ratio"
+      }
+    },
+    {
+      "id": "da-sql-session01-q020",
+      "question": "Students can enroll in many Courses, and each Course can contain many Students. Which cardinality applies?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1:N"
+        },
+        {
+          "id": "B",
+          "text": "M:N"
+        },
+        {
+          "id": "C",
+          "text": "1:1"
+        },
+        {
+          "id": "D",
+          "text": "Unary"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "لأن كل Student ممكن يرتبط بأكتر من Course وكل Course بأكتر من Student، فالعلاقة Many-to-Many (M:N).",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "cardinality",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "cardinality-many-to-many",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 25 — Relationship Cardinality Ratio"
+      }
+    },
+    {
+      "id": "da-sql-session01-q021",
+      "question": "If every Employee must participate in a Works-In relationship with a Department, what participation type does Employee have?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Partial participation"
+        },
+        {
+          "id": "B",
+          "text": "Ternary participation"
+        },
+        {
+          "id": "C",
+          "text": "Total participation"
+        },
+        {
+          "id": "D",
+          "text": "Weak participation"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Total Participation معناها كل instance من الـ entity لازم يشارك في العلاقة؛ المادة بتدي نفس فكرة Employee works in Department.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "participation",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "participation-total",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 26 — Relationship Participation"
+      }
+    },
+    {
+      "id": "da-sql-session01-q022",
+      "question": "How is total participation shown in the ERD notation used in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Double line"
+        },
+        {
+          "id": "B",
+          "text": "Dashed rectangle"
+        },
+        {
+          "id": "C",
+          "text": "Double ellipse"
+        },
+        {
+          "id": "D",
+          "text": "Single line"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "في المادة: Double line = Total Participation، وSingle line = Partial Participation.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "participation",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "participation-notation",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 26 — Relationship Participation"
+      }
+    },
+    {
+      "id": "da-sql-session01-q023",
+      "question": "A Professor may or may not supervise a Student. What participation type does this describe for Professor?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Total participation"
+        },
+        {
+          "id": "B",
+          "text": "M:N cardinality"
+        },
+        {
+          "id": "C",
+          "text": "Partial participation"
+        },
+        {
+          "id": "D",
+          "text": "Weak entity dependency"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "بما إن مش كل Professors لازم يشاركوا في العلاقة، ده Partial Participation.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "participation",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "participation-partial",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 26 — Relationship Participation"
+      }
+    },
+    {
+      "id": "da-sql-session01-q024",
+      "question": "Which statement correctly distinguishes a primary key from a foreign key in relational mapping?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A primary key is used only for multivalued attributes"
+        },
+        {
+          "id": "B",
+          "text": "A foreign key can never reference a parent entity"
+        },
+        {
+          "id": "C",
+          "text": "Both keys must always contain duplicate values"
+        },
+        {
+          "id": "D",
+          "text": "A primary key identifies rows in its table; a foreign key references a key from another related table"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Primary Key بيحدد كل row بشكل فريد داخل الجدول، بينما Foreign Key بيربط جدول بجدول تاني عن طريق referencing key من الجدول المرتبط.",
+        "en": ""
+      },
+      "topic": "ER Modeling",
+      "topicId": "er-modeling",
+      "subtopicId": "primary-foreign-keys",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "primary-vs-foreign-key",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 27 — Primary keys and Foreign keys"
+      }
+    },
+    {
+      "id": "da-sql-session01-q025",
+      "question": "After completing an ERD, a developer creates one relational table per entity but stores each entity attribute as a separate row instead of a column. What mapping rule is being violated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All attributes must become databases"
+        },
+        {
+          "id": "B",
+          "text": "Every relationship must become a weak entity"
+        },
+        {
+          "id": "C",
+          "text": "Entities should become tables and attributes should become columns"
+        },
+        {
+          "id": "D",
+          "text": "Every entity must be converted into a document"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ basic mapping rule في المادة واضح: Entity → Table وAttribute → Column. تحويل attributes إلى rows هنا تطبيق خاطئ للـ mapping.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "basic-mapping",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "mapping-entity-table-attribute-column",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 28 — Mapping Entity Diagrams To Tables"
+      }
+    },
+    {
+      "id": "da-sql-session01-q026",
+      "question": "A strong entity has a composite Address attribute made of HouseNo, Street, and Town. What should happen during relational mapping?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Create a weak entity only for HouseNo"
+        },
+        {
+          "id": "B",
+          "text": "Drop the Address information entirely"
+        },
+        {
+          "id": "C",
+          "text": "Decompose Address into the atomic columns HouseNo, Street, and Town"
+        },
+        {
+          "id": "D",
+          "text": "Store all address parts as a single multivalued field"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتطلب decomposing composite attributes إلى atomic attributes، زي Address → HouseNo, Street, Town.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "strong-entity-mapping",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "mapping-composite-attribute-atomic",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 30 — Mapping Strong Entities"
+      }
+    },
+    {
+      "id": "da-sql-session01-q027",
+      "question": "A Surgeon can have multiple Surgery Skills. According to the mapping rule in the material, what is the correct design?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Store all skills in one non-atomic cell in Surgeon"
+        },
+        {
+          "id": "B",
+          "text": "Create a separate Sur_Skills relation containing the surgeon key and Skill"
+        },
+        {
+          "id": "C",
+          "text": "Make each skill a separate database"
+        },
+        {
+          "id": "D",
+          "text": "Remove Skill because it is multivalued"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Multivalued attribute بيتحول لعلاقة منفصلة تشمل Primary Key بتاع الـ strong entity + الـ multivalued attribute، زي Sur_Skills(EmpNo, Skill).",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "strong-entity-mapping",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "mapping-multivalued-separate-relation",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 30–31 — Mapping Strong Entities"
+      }
+    },
+    {
+      "id": "da-sql-session01-q028",
+      "question": "Why is EmpNo included in the Dependent relation when mapping a weak entity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because the weak entity depends on the parent Employee and needs the parent's key"
+        },
+        {
+          "id": "B",
+          "text": "Because every weak entity must have no relationship to its parent"
+        },
+        {
+          "id": "C",
+          "text": "Because EmpNo is a multivalued attribute"
+        },
+        {
+          "id": "D",
+          "text": "Because weak entities cannot contain foreign keys"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Weak Entity بيعتمد على الـ parent، لذلك Primary Key للـ parent (EmpNo) يدخل في relation بتاع الـ weak entity للربط والتعريف.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "weak-entity-mapping",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "weak-entity-parent-key",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 32–33 — Mapping Weak Entities"
+      }
+    },
+    {
+      "id": "da-sql-session01-q029",
+      "question": "For the Dependent weak entity example, which composite key is proposed in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "EmpNo + EmpName"
+        },
+        {
+          "id": "B",
+          "text": "EmpName + D_Gender"
+        },
+        {
+          "id": "C",
+          "text": "D_Birthday + Relationship"
+        },
+        {
+          "id": "D",
+          "text": "EmpNo + D_Name"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المادة بتقترح Composite Primary Key من EmpNo الخاص بالـ parent + D_Name الخاص بالـ dependent.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "weak-entity-mapping",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "weak-entity-composite-pk",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 33 — Mapping Weak Entities example"
+      }
+    },
+    {
+      "id": "da-sql-session01-q030",
+      "question": "Teacher and Course have an M:N relationship. What is the required relational mapping approach in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Place every Teacher ID in one Course cell"
+        },
+        {
+          "id": "B",
+          "text": "Create an associative relation containing EmpNo and CrId"
+        },
+        {
+          "id": "C",
+          "text": "Merge Teacher and Course into one row without keys"
+        },
+        {
+          "id": "D",
+          "text": "Place every Course ID in one Teacher cell"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "M:N ماينفعش نحلها بإضافة key واحد مباشرة لجدول الطرف التاني؛ بنعمل relation جديدة مثل ThCourses(EmpNo, CrId) غالبًا بمفتاح مركب.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "binary-many-to-many",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "binary-mn-associative-relation",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 34–35 — Mapping Binary Relationships: M:N"
+      }
+    },
+    {
+      "id": "da-sql-session01-q031",
+      "question": "A designer places a list of many Course IDs inside a single Teacher field to represent an M:N relationship. What is the main problem highlighted by the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It converts the relationship into unary"
+        },
+        {
+          "id": "B",
+          "text": "It creates total participation automatically"
+        },
+        {
+          "id": "C",
+          "text": "It guarantees third normal form"
+        },
+        {
+          "id": "D",
+          "text": "It breaks atomicity; an associative relation should be created instead"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المادة بتوضح إن embedding multiple keys في field واحد في M:N يكسّر atomicity، والحل إنشاء relation مستقلة.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "binary-many-to-many",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "binary-mn-atomicity-error",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 34 — Mapping Binary Relationships: M:N"
+      }
+    },
+    {
+      "id": "da-sql-session01-q032",
+      "question": "In a 1:N Teacher-to-Course relationship, where should Teacher's primary key be placed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "In a separate table that contains no keys"
+        },
+        {
+          "id": "B",
+          "text": "As a multivalued field in Teacher"
+        },
+        {
+          "id": "C",
+          "text": "As a foreign key in the Course table on the N side"
+        },
+        {
+          "id": "D",
+          "text": "As the primary key of every table in the database"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "في 1:N بنحط Primary Key بتاع طرف الـ 1 كـ Foreign Key في طرف الـ N؛ هنا EmpNo يروح في Course.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "binary-one-to-many",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "binary-1n-fk-on-many-side",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 36–37 — Mapping Binary Relationships: 1:N"
+      }
+    },
+    {
+      "id": "da-sql-session01-q033",
+      "question": "For a 1:1 relationship with total participation on both sides, which implementation is allowed by the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Store both entities as multivalued attributes"
+        },
+        {
+          "id": "B",
+          "text": "Merge both entities into one relation or place one entity's primary key as a foreign key in the other"
+        },
+        {
+          "id": "C",
+          "text": "Always create a many-to-many associative table"
+        },
+        {
+          "id": "D",
+          "text": "Never use foreign keys"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "في 1:1 مع Total Participation من الطرفين، المادة تسمح بدمج الطرفين في relation واحدة أو وضع PK أحدهما كـ FK في الآخر.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "binary-one-to-one",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "binary-11-total-both-mapping",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slides 38–39 — Mapping 1:1, total participation both sides"
+      }
+    },
+    {
+      "id": "da-sql-session01-q034",
+      "question": "In the Employee–Salary Account example with total participation on both sides, why can the merged relation avoid null values for the paired attributes?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because every Employee must have one Salary Account and every Salary Account must belong to one Employee"
+        },
+        {
+          "id": "B",
+          "text": "Because all attributes are multivalued"
+        },
+        {
+          "id": "C",
+          "text": "Because weak entities never allow nulls"
+        },
+        {
+          "id": "D",
+          "text": "Because the relationship is M:N"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Total Participation من الطرفين معناها كل Employee مرتبط بحساب وكل حساب مرتبط بموظف، فبيانات الطرفين في الـ merged relation مطلوبة ومش optional.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "binary-one-to-one",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "binary-11-total-both-nullability",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 39 — Employee–Salary Account mapping"
+      }
+    },
+    {
+      "id": "da-sql-session01-q035",
+      "question": "In a 1:1 relationship where Course has total participation but some Instructors have no Course, which placement shown in the course is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Place every Course value inside Instructor as a list"
+        },
+        {
+          "id": "B",
+          "text": "Remove Instructor from the design"
+        },
+        {
+          "id": "C",
+          "text": "Create an M:N bridge table"
+        },
+        {
+          "id": "D",
+          "text": "Place Instructor EmpId as InsNo in Course"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "لما Course مشارك كليًا بينما بعض Instructors ممكن مايبقاش عندهم Course، المادة بتحط EmpId الخاص بالـ Instructor كـ InsNo داخل Course.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "binary-one-to-one",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "binary-11-one-side-total",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 40 — 1:1 Total participation on one side"
+      }
+    },
+    {
+      "id": "da-sql-session01-q036",
+      "question": "A Person has a unary 1:1 'marries' relationship with another Person. How is it mapped in the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Create a Product table"
+        },
+        {
+          "id": "B",
+          "text": "Add PartnerNID as a self-referencing foreign key in Person"
+        },
+        {
+          "id": "C",
+          "text": "Add multiple partner IDs in one cell"
+        },
+        {
+          "id": "D",
+          "text": "Use no key because unary relationships cannot use keys"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "في unary 1:1، نفس الجدول بيرجع لنفسه: Person فيه PartnerNID كـ Foreign Key يشير إلى NID لشخص آخر.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "unary-one-to-one",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "unary-11-self-reference",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 42 — Mapping U-nary 1:1"
+      }
+    },
+    {
+      "id": "da-sql-session01-q037",
+      "question": "In the unary 1:N Employee supervision example, what does SuperEid represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A multivalued attribute containing all employees"
+        },
+        {
+          "id": "B",
+          "text": "The Employee's own age"
+        },
+        {
+          "id": "C",
+          "text": "The Eid of another Employee who acts as supervisor"
+        },
+        {
+          "id": "D",
+          "text": "A separate Department primary key"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "SuperEid هو self-referencing Foreign Key؛ قيمته Eid لموظف آخر هو الـ supervisor.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "unary-one-to-many",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "unary-1n-supervisor-fk",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 43 — Mapping U-nary 1:N"
+      }
+    },
+    {
+      "id": "da-sql-session01-q038",
+      "question": "A bill-of-materials style design lets each Medicine contain several other Medicines, and each component Medicine may appear in several mixtures. Which mapping pattern matches the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remove the recursive relationship"
+        },
+        {
+          "id": "B",
+          "text": "Add every component to one text field in Medicine"
+        },
+        {
+          "id": "C",
+          "text": "Use a separate Ingredients relation with MainDrug and CompDrug"
+        },
+        {
+          "id": "D",
+          "text": "Use a 1:1 self-reference only"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "ده unary M:N؛ المادة بتحله بعلاقة منفصلة Ingredients(MainDrug, CompDrug)، وممكن تضيف attributes للعلاقة زي Dose عند الحاجة.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "unary-many-to-many",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "unary-mn-associative-relation",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 44 — Mapping U-nary M:N"
+      }
+    },
+    {
+      "id": "da-sql-session01-q039",
+      "question": "A surgeon performs a particular surgery on a particular patient, and the surgery date must be stored for that combination. Where should the date be recorded according to the course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "In a separate relationship relation such as OperationData"
+        },
+        {
+          "id": "B",
+          "text": "Only in the Patient table"
+        },
+        {
+          "id": "C",
+          "text": "As a multivalued attribute of every entity"
+        },
+        {
+          "id": "D",
+          "text": "Only in the Surgeon table"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لأن SurDate صفة مرتبطة بالـ complex relationship نفسها بين Surgeon وSurgery وPatient، المادة بتنشئ relation منفصلة OperationData لحفظ المفاتيح مع SurDate.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "complex-relationship-mapping",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "complex-relationship-attribute-relation",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 45 — Map Complex Relationships"
+      }
+    },
+    {
+      "id": "da-sql-session01-q040",
+      "question": "A designer stores SurDate in the Patient table even though the same patient can have multiple surgeries by different surgeons. What is the best diagnosis based on the course example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Patient table should be deleted"
+        },
+        {
+          "id": "B",
+          "text": "The date belongs to the multi-entity relationship and should be stored in a separate relation with the participating keys"
+        },
+        {
+          "id": "C",
+          "text": "The relationship should be changed to 1:1 regardless of reality"
+        },
+        {
+          "id": "D",
+          "text": "All keys should be replaced by multivalued attributes"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "SurDate بتوصف حدث محدد يجمع Surgeon + Patient + Surgery، فحطها في Patient لوحده يفقد سياق الحدث. الحل relation منفصلة بمفاتيح الأطراف وتاريخ العملية.",
+        "en": ""
+      },
+      "topic": "ER to Relational Mapping",
+      "topicId": "er-relational-mapping",
+      "subtopicId": "complex-relationship-mapping",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "complex-relationship-attribute-misplacement",
+      "source": {
+        "file": "Session1 (1).pptx",
+        "reference": "Slide 45 — Map Complex Relationships"
+      }
+    }
+  ]
+}

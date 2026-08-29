@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-sql-session05-filtering-aggregation-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "moduleId": "session-05-filtering-aggregation",
+    "module": "Session 5 — Advanced Filtering & Aggregations",
+    "title": "Session 5 — Filtering, NULLs & Aggregations — Bank 001",
+    "version": "1.0",
+    "status": "active",
+    "sourceFiles": [
+      "Session5.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-sql-session05-q001",
+      "question": "According to the query execution diagram, which clause is processed first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT"
+        },
+        {
+          "id": "B",
+          "text": "FROM"
+        },
+        {
+          "id": "C",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "D",
+          "text": "LIMIT"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الرسم في Slide 2 بيبدأ بـ FROM، وبعدها WHERE ثم GROUP BY ثم HAVING ثم SELECT ثم ORDER BY ثم LIMIT.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "query-execution-order",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "execution-order-from-first",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 2 — Query execution order"
+      }
+    },
+    {
+      "id": "da-sql-session05-q002",
+      "question": "What is the main role of WHERE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Filter rows before grouping."
+        },
+        {
+          "id": "B",
+          "text": "Sort the final result."
+        },
+        {
+          "id": "C",
+          "text": "Create a table."
+        },
+        {
+          "id": "D",
+          "text": "Rename columns permanently."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "WHERE هي filtering clause للـ base rows وبتتنفذ قبل GROUP BY حسب ترتيب التنفيذ المعروض.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "where-comparison",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "where-filters-base-rows",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 2 and 4 — WHERE filtering"
+      }
+    },
+    {
+      "id": "da-sql-session05-q003",
+      "question": "Which operator means “greater than or equal to”?",
+      "options": [
+        {
+          "id": "A",
+          "text": ">="
+        },
+        {
+          "id": "B",
+          "text": "<>"
+        },
+        {
+          "id": "C",
+          "text": "<="
+        },
+        {
+          "id": "D",
+          "text": "="
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "جدول comparison operators في المادة بيحدد >= بمعنى greater than or equal to.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "comparison-operators",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "comparison-greater-equal",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 5 — Comparison operators"
+      }
+    },
+    {
+      "id": "da-sql-session05-q004",
+      "question": "How should a string such as Japan be written in the WHERE examples?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Without quotes."
+        },
+        {
+          "id": "B",
+          "text": "Inside square brackets only."
+        },
+        {
+          "id": "C",
+          "text": "Inside single quotes, e.g. 'Japan'."
+        },
+        {
+          "id": "D",
+          "text": "As an aggregate function."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتوضح إن string literals في الفلترة بتتحط بين single quotes.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "where-strings",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "where-string-single-quotes",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 6 — WHERE with strings"
+      }
+    },
+    {
+      "id": "da-sql-session05-q005",
+      "question": "When should AND be used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When any one criterion is enough."
+        },
+        {
+          "id": "B",
+          "text": "Only when sorting rows."
+        },
+        {
+          "id": "C",
+          "text": "Only with NULL values."
+        },
+        {
+          "id": "D",
+          "text": "When all specified criteria must be satisfied."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 10 بتقول صراحة استخدم AND لو لازم كل الشروط تتحقق.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "and-requires-all-criteria",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 10 — AND operator"
+      }
+    },
+    {
+      "id": "da-sql-session05-q006",
+      "question": "What does BETWEEN express in the shown filtering examples?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A wildcard pattern."
+        },
+        {
+          "id": "B",
+          "text": "A table join."
+        },
+        {
+          "id": "C",
+          "text": "A duplicate-removal operation."
+        },
+        {
+          "id": "D",
+          "text": "A range between two boundary values."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "BETWEEN مستخدمة لتحديد range زي release_year BETWEEN 1994 AND 2000.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "between",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "between-range-filter",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 7 and 12 — BETWEEN"
+      }
+    },
+    {
+      "id": "da-sql-session05-q007",
+      "question": "Which keyword is listed for filtering a text pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "HAVING"
+        },
+        {
+          "id": "B",
+          "text": "SUM"
+        },
+        {
+          "id": "C",
+          "text": "DROP"
+        },
+        {
+          "id": "D",
+          "text": "LIKE"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "LIKE ضمن أدوات Filtering text وبتستخدم pattern بدل قيمة نصية محددة.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "like-patterns",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "like-filters-pattern",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 13 — Filtering text"
+      }
+    },
+    {
+      "id": "da-sql-session05-q008",
+      "question": "Which keyword checks whether a value belongs to a listed set?",
+      "options": [
+        {
+          "id": "A",
+          "text": "IN"
+        },
+        {
+          "id": "B",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "C",
+          "text": "TRIM"
+        },
+        {
+          "id": "D",
+          "text": "DROP INDEX"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "IN مستخدمة في المثال FirstName in ('Mark', 'John', 'Sara').",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "in-operator",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "in-membership-list",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 15 — WHERE, IN"
+      }
+    },
+    {
+      "id": "da-sql-session05-q009",
+      "question": "What does NULL represent in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The numeric value 0."
+        },
+        {
+          "id": "B",
+          "text": "A missing, unknown, or unavailable value."
+        },
+        {
+          "id": "C",
+          "text": "An empty string only."
+        },
+        {
+          "id": "D",
+          "text": "The Boolean value False."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتأكد إن NULL معناها missing/unknown/no value ومش هي 0 أو empty string أو False.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "null-basics",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "null-means-missing-unknown",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 18–19 — NULL basics"
+      }
+    },
+    {
+      "id": "da-sql-session05-q010",
+      "question": "Which statement about COUNT is supported by the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT(column) counts non-missing values, while COUNT(*) counts rows including rows where that column may be NULL."
+        },
+        {
+          "id": "B",
+          "text": "COUNT(column) always counts more rows than COUNT(*)."
+        },
+        {
+          "id": "C",
+          "text": "COUNT(*) ignores all rows containing any NULL."
+        },
+        {
+          "id": "D",
+          "text": "COUNT can only be used on text fields."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتفرق بين COUNT(field_name) اللي بيعد القيم غير المفقودة وبين COUNT(*) اللي بيعد الصفوف.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "count-null-behavior",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "count-column-vs-star-null",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 16 — Missing values and COUNT"
+      }
+    },
+    {
+      "id": "da-sql-session05-q011",
+      "question": "Which condition correctly selects films released in either 1994 or 2000?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE release_year = 1994 OR release_year = 2000"
+        },
+        {
+          "id": "B",
+          "text": "WHERE release_year = 1994 OR 2000"
+        },
+        {
+          "id": "C",
+          "text": "WHERE release_year BETWEEN 1994 OR 2000"
+        },
+        {
+          "id": "D",
+          "text": "WHERE OR release_year = 1994, 2000"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتعرض الصيغة الصحيحة بتكرار اسم العمود مع كل جزء من OR، وبتعرض WHERE release_year = 1994 OR 2000 كصيغة invalid.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "or-repeat-complete-condition",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 9 — OR operator correct vs invalid"
+      }
+    },
+    {
+      "id": "da-sql-session05-q012",
+      "question": "Which condition correctly selects release years greater than 1994 and less than 2000?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE release_year > 1994 AND release_year < 2000"
+        },
+        {
+          "id": "B",
+          "text": "WHERE release_year > 1994 AND < 2000"
+        },
+        {
+          "id": "C",
+          "text": "WHERE release_year = 1994 OR 2000"
+        },
+        {
+          "id": "D",
+          "text": "WHERE release_year LIKE 1994 AND 2000"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "كل شرط مع AND لازم يكون expression كامل؛ المادة بتعرض حذف اسم العمود من الشرط الثاني كـ invalid.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "and-complete-two-comparisons",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 10 — AND operator correct vs invalid"
+      }
+    },
+    {
+      "id": "da-sql-session05-q013",
+      "question": "Why does the session place parentheses around groups of AND/OR conditions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To turn the query into DDL."
+        },
+        {
+          "id": "B",
+          "text": "To remove NULL values automatically."
+        },
+        {
+          "id": "C",
+          "text": "To make the intended logical grouping explicit."
+        },
+        {
+          "id": "D",
+          "text": "To make GROUP BY optional."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "في المثال المركب، parentheses بتوضح إن سنة الإصدار لها مجموعة OR مستقلة وشهادة الفيلم لها مجموعة OR مستقلة قبل ربطهم بـ AND.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "parentheses-group-and-or-logic",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 11 — AND, OR with parentheses"
+      }
+    },
+    {
+      "id": "da-sql-session05-q014",
+      "question": "Which condition is equivalent to release_year >= 1994 AND release_year <= 2000 in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "release_year BETWEEN 1994 AND 2000"
+        },
+        {
+          "id": "B",
+          "text": "release_year IN 1994 TO 2000"
+        },
+        {
+          "id": "C",
+          "text": "release_year LIKE 1994 AND 2000"
+        },
+        {
+          "id": "D",
+          "text": "release_year IS NULL 1994, 2000"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Slide 12 بتعرض الصيغتين كطريقتين للتعبير عن نفس range.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "between",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "between-equivalent-inclusive-range",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 12 — BETWEEN vs paired comparisons"
+      }
+    },
+    {
+      "id": "da-sql-session05-q015",
+      "question": "According to the wildcard table, what does % represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Zero or more characters."
+        },
+        {
+          "id": "B",
+          "text": "Exactly one character."
+        },
+        {
+          "id": "C",
+          "text": "Only numeric characters."
+        },
+        {
+          "id": "D",
+          "text": "A NULL value."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "% هو wildcard لعدد من الأحرف من صفر فأكثر حسب الجدول الموجود في Slide 14.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "wildcards",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "wildcard-percent-zero-or-more",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 14 — Wildcard Characters"
+      }
+    },
+    {
+      "id": "da-sql-session05-q016",
+      "question": "According to the wildcard table, what does _ represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Zero or more characters."
+        },
+        {
+          "id": "B",
+          "text": "A single character."
+        },
+        {
+          "id": "C",
+          "text": "A group created by GROUP BY."
+        },
+        {
+          "id": "D",
+          "text": "A missing value."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ underscore _ في الجدول بيمثل single character.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "wildcards",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "wildcard-underscore-single-char",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 14 — Wildcard Characters"
+      }
+    },
+    {
+      "id": "da-sql-session05-q017",
+      "question": "A table has 8 rows; salary is NULL in 3 rows. What are COUNT(*) and COUNT(salary)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "8 and 5."
+        },
+        {
+          "id": "B",
+          "text": "5 and 8."
+        },
+        {
+          "id": "C",
+          "text": "8 and 8."
+        },
+        {
+          "id": "D",
+          "text": "5 and 3."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "COUNT(*) يعد كل الصفوف = 8، بينما COUNT(salary) يستبعد 3 NULL فيبقى 5.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "count-null-behavior",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-count-star-vs-column-null",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 16 — COUNT(field) vs COUNT(*)"
+      }
+    },
+    {
+      "id": "da-sql-session05-q018",
+      "question": "Which predicate correctly finds rows where birthdate is missing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE birthdate = NULL"
+        },
+        {
+          "id": "B",
+          "text": "WHERE birthdate = 0"
+        },
+        {
+          "id": "C",
+          "text": "WHERE birthdate LIKE NULL"
+        },
+        {
+          "id": "D",
+          "text": "WHERE birthdate IS NULL"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المادة بتوضح إن المقارنة = NULL غلط لأن أي comparison مع NULL ينتج UNKNOWN؛ الصح IS NULL.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "null-predicates",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "is-null-correct-predicate",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 17 and 19 — IS NULL / comparison with NULL"
+      }
+    },
+    {
+      "id": "da-sql-session05-q019",
+      "question": "What does COALESCE(phone, 'No phone') do in the session example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deletes rows with NULL phone."
+        },
+        {
+          "id": "B",
+          "text": "Converts every phone to uppercase."
+        },
+        {
+          "id": "C",
+          "text": "Returns 'No phone' when phone is NULL; otherwise returns phone."
+        },
+        {
+          "id": "D",
+          "text": "Counts only non-NULL phone values."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "COALESCE بتستبدل NULL بقيمة fallback؛ المثال بيعرض No phone لو phone مفقود.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "coalesce",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "coalesce-replaces-null-default",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 20 — COALESCE handling NULL"
+      }
+    },
+    {
+      "id": "da-sql-session05-q020",
+      "question": "In the LEFT JOIN example, what appears for course when a student has no matching enrollment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "An empty table name"
+        },
+        {
+          "id": "C",
+          "text": "The student ID repeated as course"
+        },
+        {
+          "id": "D",
+          "text": "NULL"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المادة بتذكر إن LEFT JOIN لما مفيش matching row بيظهر NULL في أعمدة الطرف المفقود، ومنها course.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "null-in-left-join",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "left-join-unmatched-course-null",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 20 — NULL in joins"
+      }
+    },
+    {
+      "id": "da-sql-session05-q021",
+      "question": "What is the difference between DISTINCT and deleting duplicates from the table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DISTINCT permanently deletes duplicate rows."
+        },
+        {
+          "id": "B",
+          "text": "DISTINCT creates a UNIQUE constraint."
+        },
+        {
+          "id": "C",
+          "text": "DISTINCT removes duplicates from query output; it does not delete stored rows."
+        },
+        {
+          "id": "D",
+          "text": "There is no difference."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتشرح DISTINCT كإزالة للتكرار من الـ output، بينما حذف duplicates فعليًا له method منفصلة بـ ROW_NUMBER وDELETE.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-aggregation",
+      "subtopicId": "duplicates-distinct",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "distinct-output-vs-delete-rows",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 21 and 23 — DISTINCT vs deleting duplicates"
+      }
+    },
+    {
+      "id": "da-sql-session05-q022",
+      "question": "Which pattern does the session use to find values that appear more than once?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ORDER BY ... WHERE COUNT(*) = 0"
+        },
+        {
+          "id": "B",
+          "text": "GROUP BY ... HAVING COUNT(*) > 1"
+        },
+        {
+          "id": "C",
+          "text": "DISTINCT ... DROP TABLE"
+        },
+        {
+          "id": "D",
+          "text": "COALESCE ... CREATE INDEX"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "لإيجاد duplicates، المادة تستخدم GROUP BY على القيمة ثم HAVING COUNT(*) > 1.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-aggregation",
+      "subtopicId": "find-duplicates",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "find-duplicates-group-having-count",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 22 — Finding Duplicates"
+      }
+    },
+    {
+      "id": "da-sql-session05-q023",
+      "question": "In the ROW_NUMBER duplicate-deletion method, which rows are deleted?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rows with rn = 1 only."
+        },
+        {
+          "id": "B",
+          "text": "Rows with rn > 1, keeping the first occurrence."
+        },
+        {
+          "id": "C",
+          "text": "Every row in the table."
+        },
+        {
+          "id": "D",
+          "text": "Only rows where rn is NULL."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المثال بيحسب ROW_NUMBER داخل كل duplicate group ثم DELETE WHERE rn > 1، فيحتفظ بأول occurrence.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "row-number-duplicates",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "row-number-delete-rn-greater-one",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 23 — Deleting Duplicates (Keeping One Copy)"
+      }
+    },
+    {
+      "id": "da-sql-session05-q024",
+      "question": "Which aggregate functions are listed as numerical-fields-only in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT() and MAX()"
+        },
+        {
+          "id": "B",
+          "text": "AVG() and SUM()"
+        },
+        {
+          "id": "C",
+          "text": "MIN() and MAX()"
+        },
+        {
+          "id": "D",
+          "text": "COUNT() and MIN()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 25 بيفصل AVG وSUM كوظائف للحقول العددية، بينما COUNT/MIN/MAX مذكورة تحت various data types.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "aggregate-function-types",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "avg-sum-numeric-only",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 24–25 — Aggregate functions"
+      }
+    },
+    {
+      "id": "da-sql-session05-q025",
+      "question": "Which aggregate functions are shown as usable across various data types?",
+      "options": [
+        {
+          "id": "A",
+          "text": "AVG() and SUM() only"
+        },
+        {
+          "id": "B",
+          "text": "COUNT(), MIN(), and MAX()"
+        },
+        {
+          "id": "C",
+          "text": "DATE_ADD() and DATEDIFF()"
+        },
+        {
+          "id": "D",
+          "text": "UPPER() and LOWER()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتذكر COUNT وMIN وMAX تحت Various data types.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "aggregate-function-types",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "count-min-max-various-types",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 25 — Non-numerical data"
+      }
+    },
+    {
+      "id": "da-sql-session05-q026",
+      "question": "What does ORDER BY Price DESC do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Filters out low prices."
+        },
+        {
+          "id": "B",
+          "text": "Groups equal prices into one row."
+        },
+        {
+          "id": "C",
+          "text": "Changes stored prices permanently."
+        },
+        {
+          "id": "D",
+          "text": "Sorts rows from higher Price to lower Price."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "DESC مع ORDER BY بيعمل sorting تنازلي في النتيجة، مش filtering ولا update للبيانات.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "order-by",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "order-by-price-desc",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 26 — ORDER BY / DESC"
+      }
+    },
+    {
+      "id": "da-sql-session05-q027",
+      "question": "What is the purpose of GROUP BY Country in the shown customer count query?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sort countries alphabetically only."
+        },
+        {
+          "id": "B",
+          "text": "Delete repeated countries."
+        },
+        {
+          "id": "C",
+          "text": "Create one group per Country so COUNT can be calculated per group."
+        },
+        {
+          "id": "D",
+          "text": "Replace NULL countries with a default."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "GROUP BY بيقسم الصفوف لمجموعات حسب Country علشان الـ aggregate يتحسب لكل مجموعة.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "group-by",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "group-by-country-purpose",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 27 — GROUP BY"
+      }
+    },
+    {
+      "id": "da-sql-session05-q028",
+      "question": "What does HAVING COUNT(CustomerID) > 5 filter?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Individual customer rows before grouping."
+        },
+        {
+          "id": "B",
+          "text": "Only rows where CustomerID itself is greater than 5."
+        },
+        {
+          "id": "C",
+          "text": "Groups whose customer count is greater than 5."
+        },
+        {
+          "id": "D",
+          "text": "The table schema."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "HAVING بيشتغل على grouped/aggregated data، وهنا بيحتفظ بالمجموعات اللي COUNT فيها أكبر من 5.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "having",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "having-count-over-five-groups",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 28–29 — HAVING / HAVING vs WHERE"
+      }
+    },
+    {
+      "id": "da-sql-session05-q029",
+      "question": "Which statement best distinguishes WHERE and HAVING?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE sorts while HAVING joins."
+        },
+        {
+          "id": "B",
+          "text": "WHERE filters individual rows; HAVING filters grouped results."
+        },
+        {
+          "id": "C",
+          "text": "WHERE is only for strings; HAVING is only for numbers."
+        },
+        {
+          "id": "D",
+          "text": "HAVING runs before FROM."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتوضح الفرق مباشرة: WHERE للـ records قبل التجميع، HAVING للـ grouped records بعد GROUP BY.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "having-vs-where",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "where-vs-having-difference",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 29 — HAVING vs WHERE"
+      }
+    },
+    {
+      "id": "da-sql-session05-q030",
+      "question": "A report needs only departments whose employee count exceeds 10. Which filter is the best fit after GROUP BY department?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE COUNT(*) > 10 before GROUP BY"
+        },
+        {
+          "id": "B",
+          "text": "ORDER BY department > 10"
+        },
+        {
+          "id": "C",
+          "text": "IS NULL COUNT(*) > 10"
+        },
+        {
+          "id": "D",
+          "text": "HAVING COUNT(*) > 10"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "لأن الشرط على aggregate ناتج بعد GROUP BY، فالأداة المناسبة هي HAVING.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "having",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "choose-having-for-aggregate-threshold",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 27–29 — GROUP BY and HAVING"
+      }
+    },
+    {
+      "id": "da-sql-session05-q031",
+      "question": "Given rows with colors {yellow, blue, yellow} and lengths {long, short, short} in the same order, how many rows satisfy color = 'yellow' OR length = 'short'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "3"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الصف الأول يحقق yellow، الثاني يحقق short، والثالث يحقق الشرطين؛ OR يكفي فيه تحقق أي شرط، فكل الصفوف الثلاثة ترجع.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-or-three-rows",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 7–11 — OR and AND filtering"
+      }
+    },
+    {
+      "id": "da-sql-session05-q032",
+      "question": "Using the same three rows, how many satisfy color = 'yellow' AND length = 'short'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "AND يتطلب الشرطين معًا؛ الصف الثالث فقط yellow وshort في نفس الوقت.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-and-three-rows",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 7–11 — AND filtering"
+      }
+    },
+    {
+      "id": "da-sql-session05-q033",
+      "question": "A query intends to filter films from 1994 or 1995 and certification PG or R. Which structure best preserves the intended logic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "year=1994 OR (year=1995 AND certification='PG') OR certification='R'"
+        },
+        {
+          "id": "B",
+          "text": "year BETWEEN 1994 AND certification"
+        },
+        {
+          "id": "C",
+          "text": "(year=1994 OR year=1995) AND (certification='PG' OR certification='R')"
+        },
+        {
+          "id": "D",
+          "text": "year=1994 AND year=1995 AND certification='PG' AND certification='R'"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة نفسها بتستخدم مجموعتين parentheses ثم AND بينهم علشان تمنع اختلاط أولوية AND/OR.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "complex-and-or-parentheses-pattern",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 11 — AND, OR grouped logic"
+      }
+    },
+    {
+      "id": "da-sql-session05-q034",
+      "question": "A dataset has 6 rows in one city group, but one row has CustomerID = NULL. What are COUNT(*) and COUNT(CustomerID) for that group?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5 and 6."
+        },
+        {
+          "id": "B",
+          "text": "6 and 6."
+        },
+        {
+          "id": "C",
+          "text": "5 and 5."
+        },
+        {
+          "id": "D",
+          "text": "6 and 5."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "COUNT(*) يعد الصفوف الستة، بينما COUNT(CustomerID) يستبعد القيمة NULL فيكون 5.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "count-null-behavior",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "group-count-null-id-difference",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 16 — COUNT and missing values"
+      }
+    },
+    {
+      "id": "da-sql-session05-q035",
+      "question": "A query is written SELECT country, COUNT(*) FROM customers WHERE active=1 GROUP BY country HAVING COUNT(*)>5 ORDER BY country;. Which operation happens immediately after WHERE in the session’s logical execution order?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT"
+        },
+        {
+          "id": "B",
+          "text": "GROUP BY"
+        },
+        {
+          "id": "C",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "D",
+          "text": "LIMIT"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ترتيب التنفيذ المعروض هو FROM ثم WHERE ثم GROUP BY ثم HAVING ثم SELECT ثم ORDER BY ثم LIMIT.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "query-execution-order",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "execution-order-after-where-groupby",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 2 — Query execution order"
+      }
+    },
+    {
+      "id": "da-sql-session05-q036",
+      "question": "A team writes WHERE salary = NULL and gets no expected matches. What is the best diagnosis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NULL must be written as the string 'NULL'."
+        },
+        {
+          "id": "B",
+          "text": "WHERE cannot filter numeric columns."
+        },
+        {
+          "id": "C",
+          "text": "Comparisons with NULL yield UNKNOWN; use IS NULL instead."
+        },
+        {
+          "id": "D",
+          "text": "The query requires GROUP BY salary."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتوضح إن = NULL غلط منطقيًا لأن comparison مع NULL يعطي UNKNOWN؛ الصح IS NULL.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "null-predicates",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "diagnose-equals-null-use-is-null",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 19 — Behavior of NULL"
+      }
+    },
+    {
+      "id": "da-sql-session05-q037",
+      "question": "Names A, A, B, B, B are grouped and filtered with HAVING COUNT(*) > 1. Which groups remain and with what counts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only B with 3."
+        },
+        {
+          "id": "B",
+          "text": "A with 2 and B with 3."
+        },
+        {
+          "id": "C",
+          "text": "Only A with 2."
+        },
+        {
+          "id": "D",
+          "text": "A and B each with 1."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "GROUP BY يعمل مجموعتين A وB، والاتنين count أكبر من 1، فيبقوا A=2 وB=3.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-aggregation",
+      "subtopicId": "find-duplicates",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-group-having-duplicates",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 22 — GROUP BY + HAVING COUNT > 1"
+      }
+    },
+    {
+      "id": "da-sql-session05-q038",
+      "question": "In the ROW_NUMBER method, three duplicate rows share the same partition key and are ordered 10, 20, 30. If rn > 1 is deleted, which ordered row remains?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only value 30."
+        },
+        {
+          "id": "B",
+          "text": "Values 20 and 30."
+        },
+        {
+          "id": "C",
+          "text": "The row ordered first, value 10."
+        },
+        {
+          "id": "D",
+          "text": "No rows remain."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "ROW_NUMBER يدي 1 لأول صف حسب ORDER BY؛ DELETE rn > 1 يحذف الثاني والثالث ويحتفظ بالأول.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "row-number-duplicates",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-row-number-keeps-first",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 23 — ROW_NUMBER duplicate deletion"
+      }
+    },
+    {
+      "id": "da-sql-session05-q039",
+      "question": "A report must exclude rows with missing phone numbers rather than replace them. Which predicate best fits the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "phone IS NOT NULL"
+        },
+        {
+          "id": "B",
+          "text": "COALESCE(phone, 'No phone') only"
+        },
+        {
+          "id": "C",
+          "text": "phone = NULL"
+        },
+        {
+          "id": "D",
+          "text": "COUNT(*) = phone"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "IS NOT NULL مخصص لاختيار القيم الموجودة واستبعاد المفقودة، بينما COALESCE يستبدلها في العرض.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "null-predicates",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "choose-is-not-null-to-exclude-missing",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 18–20 — IS NOT NULL / COALESCE"
+      }
+    },
+    {
+      "id": "da-sql-session05-q040",
+      "question": "A grouped query tries to use WHERE COUNT(*) > 5 after GROUP BY. What is the best correction based on the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace GROUP BY with DISTINCT only."
+        },
+        {
+          "id": "B",
+          "text": "Move COUNT(*) into a CHECK constraint."
+        },
+        {
+          "id": "C",
+          "text": "Use ORDER BY COUNT(*) > 5 as the filter."
+        },
+        {
+          "id": "D",
+          "text": "Use HAVING COUNT(*) > 5 for the aggregate condition."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الشرط على aggregate لازم يكون HAVING لأن WHERE مخصص للصفوف قبل التجميع.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "having-vs-where",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "fix-aggregate-filter-use-having",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 28–29 — HAVING vs WHERE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1754 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-sql-session02-ddl-dml-dql-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "moduleId": "session-02-sql-command-languages",
+    "module": "Session 2 — SQL Command Languages (Restricted Scope)",
+    "title": "Session 2 — DDL, DML & DQL — Bank 001",
+    "version": "1.0",
+    "status": "active",
+    "sourceFiles": [
+      "Session2.pptx"
+    ],
+    "scopeRestriction": {
+      "included": [
+        "DDL",
+        "DML",
+        "DQL"
+      ],
+      "excluded": [
+        "Data Types",
+        "Database Constraints",
+        "DCL",
+        "TCL"
+      ],
+      "note": "User explicitly restricted Session2.pptx production to DDL, DML, and DQL only."
+    }
+  },
+  "questions": [
+    {
+      "id": "da-sql-session02-q001",
+      "question": "Which statement best describes SQL according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SQL is a database engine that stores files by itself."
+        },
+        {
+          "id": "B",
+          "text": "SQL is a query language used to perform operations on data and database objects; it is not itself a database system."
+        },
+        {
+          "id": "C",
+          "text": "SQL is only a graphical ER-modeling tool."
+        },
+        {
+          "id": "D",
+          "text": "SQL is a hardware component inside the DBMS."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتعرّف SQL كـ Structured Query Language لتنفيذ عمليات على البيانات والجداول، وبتؤكد إنها مش Database System بحد ذاتها.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "sql-overview",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "sql-definition-language-not-dbms",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 6 — What is SQL?"
+      }
+    },
+    {
+      "id": "da-sql-session02-q002",
+      "question": "In the session diagram showing how applications communicate with a DBMS, what language is placed between applications and the DBMS?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ERD notation"
+        },
+        {
+          "id": "B",
+          "text": "A physical data model"
+        },
+        {
+          "id": "C",
+          "text": "A database instance snapshot"
+        },
+        {
+          "id": "D",
+          "text": "SQL"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "في الرسم الموجود في Slide 5، SQL هي طبقة التواصل بين التطبيقات والـ DBMS، وده بيوضح دورها كلغة أوامر واستعلامات.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "sql-overview",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "sql-dbms-communication",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 5 — How to communicate with the DBMS?"
+      }
+    },
+    {
+      "id": "da-sql-session02-q003",
+      "question": "Which SQL command family contains CREATE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DDL"
+        },
+        {
+          "id": "B",
+          "text": "DML"
+        },
+        {
+          "id": "C",
+          "text": "DQL"
+        },
+        {
+          "id": "D",
+          "text": "None of DDL, DML, or DQL"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "CREATE موجودة تحت DDL لأنها بتعرّف أو تنشئ structure جديد في قاعدة البيانات.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-overview",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-create-classification",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 8 — Types of SQL Commands"
+      }
+    },
+    {
+      "id": "da-sql-session02-q004",
+      "question": "Which SQL command family contains INSERT?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DDL"
+        },
+        {
+          "id": "B",
+          "text": "DQL"
+        },
+        {
+          "id": "C",
+          "text": "DML"
+        },
+        {
+          "id": "D",
+          "text": "None of DDL, DML, or DQL"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "INSERT مصنفة في المادة تحت DML لأنها بتضيف data rows داخل جدول موجود.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-overview",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dml-insert-classification",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 8 — Types of SQL Commands"
+      }
+    },
+    {
+      "id": "da-sql-session02-q005",
+      "question": "Which SQL command is shown under DQL in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT"
+        },
+        {
+          "id": "B",
+          "text": "ALTER"
+        },
+        {
+          "id": "C",
+          "text": "DELETE"
+        },
+        {
+          "id": "D",
+          "text": "TRUNCATE"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ diagram في Slide 8 بيضع SELECT تحت DQL تحديدًا، بينما ALTER تحت DDL وDELETE تحت DML.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dql-select",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dql-select-classification",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 8 — Types of SQL Commands"
+      }
+    },
+    {
+      "id": "da-sql-session02-q006",
+      "question": "What is the main role of DDL as presented in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only reading rows without changing anything."
+        },
+        {
+          "id": "B",
+          "text": "Only inserting new records into existing tables."
+        },
+        {
+          "id": "C",
+          "text": "Changing the structure of database tables, such as creating, altering, or deleting tables."
+        },
+        {
+          "id": "D",
+          "text": "Only changing user permissions."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DDL مسؤولة عن Structure: إنشاء الجدول أو تعديل بنيته أو حذف الجدول، مش مجرد تغيير قيم الصفوف.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-overview",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-purpose-structure",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 9 — Data Definition Language (DDL)"
+      }
+    },
+    {
+      "id": "da-sql-session02-q007",
+      "question": "What is the main role of DML as presented in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Creating and dropping table structures only."
+        },
+        {
+          "id": "B",
+          "text": "Defining ER-diagram symbols."
+        },
+        {
+          "id": "C",
+          "text": "Creating user permissions only."
+        },
+        {
+          "id": "D",
+          "text": "Modifying data in the database through commands such as INSERT, UPDATE, and DELETE."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "DML مسؤولة عن Manipulation للبيانات المخزنة، والمادة بتذكر INSERT وUPDATE وDELETE كأوامرها الأساسية.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-overview",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dml-purpose-data",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 14 — Data Manipulation Language (DML)"
+      }
+    },
+    {
+      "id": "da-sql-session02-q008",
+      "question": "Which set contains only DDL commands listed in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INSERT, UPDATE, DELETE, SELECT"
+        },
+        {
+          "id": "B",
+          "text": "CREATE, ALTER, DROP, TRUNCATE"
+        },
+        {
+          "id": "C",
+          "text": "CREATE, INSERT, SELECT, DELETE"
+        },
+        {
+          "id": "D",
+          "text": "ALTER, UPDATE, SELECT, INSERT"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "القائمة الصحيحة كما وردت في المادة هي CREATE وALTER وDROP وTRUNCATE تحت DDL.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-overview",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-command-set",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 9 — Data Definition Language (DDL)"
+      }
+    },
+    {
+      "id": "da-sql-session02-q009",
+      "question": "Which set contains only DML commands listed in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE, ALTER, DROP"
+        },
+        {
+          "id": "B",
+          "text": "SELECT, CREATE, TRUNCATE"
+        },
+        {
+          "id": "C",
+          "text": "ALTER, INSERT, SELECT"
+        },
+        {
+          "id": "D",
+          "text": "INSERT, UPDATE, DELETE"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المادة بتجمع INSERT وUPDATE وDELETE تحت DML، لأنها أوامر تتعامل مع تغييرات البيانات.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-overview",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dml-command-set",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 14 — Data Manipulation Language (DML)"
+      }
+    },
+    {
+      "id": "da-sql-session02-q010",
+      "question": "According to the session, which statement about DDL transaction behavior is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DDL commands are auto-committed and their changes are permanently saved."
+        },
+        {
+          "id": "B",
+          "text": "DDL commands are described as never saving changes."
+        },
+        {
+          "id": "C",
+          "text": "DDL commands are described as DQL operations."
+        },
+        {
+          "id": "D",
+          "text": "DDL commands are described as row-only operations."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "حسب صياغة الـ session، أوامر DDL موصوفة بأنها auto-committed؛ السؤال هنا يقيس محتوى المادة كما هو.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-overview",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "ddl-auto-commit-course-framing",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 9 — Data Definition Language (DDL)"
+      }
+    },
+    {
+      "id": "da-sql-session02-q011",
+      "question": "According to the session, which statement about DML transaction behavior is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DML commands always delete the table structure."
+        },
+        {
+          "id": "B",
+          "text": "DML commands are all classified as DDL."
+        },
+        {
+          "id": "C",
+          "text": "DML commands are not auto-committed and their changes can be rolled back before they are permanently saved."
+        },
+        {
+          "id": "D",
+          "text": "DML commands cannot change stored records."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "حسب الـ session، DML ليست auto-committed ويمكن rollback للتغييرات قبل تثبيتها؛ السؤال ملتزم بصياغة الملف.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-overview",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "dml-not-auto-commit-course-framing",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 14 — Data Manipulation Language (DML)"
+      }
+    },
+    {
+      "id": "da-sql-session02-q012",
+      "question": "Which DDL command is specifically used to create a new table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP"
+        },
+        {
+          "id": "B",
+          "text": "CREATE"
+        },
+        {
+          "id": "C",
+          "text": "DELETE"
+        },
+        {
+          "id": "D",
+          "text": "SELECT"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "CREATE هي الأمر المخصص لإنشاء Table جديد؛ DROP للحذف وDELETE للصفوف وSELECT تحت DQL.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-create",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-create-purpose",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 10 — DDL CREATE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q013",
+      "question": "Consider the statement: CREATE TABLE EMPLOYEE (Name VARCHAR2(20), Email VARCHAR2(100), DOB DATE); What operation is this statement performing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Creating a new table named EMPLOYEE with defined columns."
+        },
+        {
+          "id": "B",
+          "text": "Adding a new row to EMPLOYEE."
+        },
+        {
+          "id": "C",
+          "text": "Deleting all rows from EMPLOYEE."
+        },
+        {
+          "id": "D",
+          "text": "Querying rows from EMPLOYEE."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الكود يبدأ بـ CREATE TABLE، وبالتالي أثره إنشاء جدول EMPLOYEE وتعريف أعمدته، وليس إدخال records.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-create",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-create-code-effect",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 10 — DDL CREATE example"
+      }
+    },
+    {
+      "id": "da-sql-session02-q014",
+      "question": "A company is introducing an AuditLog table that does not yet exist. Based only on the DDL concepts taught in the session, which command is the best choice?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INSERT INTO"
+        },
+        {
+          "id": "B",
+          "text": "DELETE FROM"
+        },
+        {
+          "id": "C",
+          "text": "SELECT"
+        },
+        {
+          "id": "D",
+          "text": "CREATE TABLE"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "طالما المطلوب Table جديد غير موجود، الاختيار الصحيح من DDL هو CREATE TABLE.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-create",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-create-new-table-scenario",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 10 — DDL CREATE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q015",
+      "question": "What does DROP do according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deletes only one selected row."
+        },
+        {
+          "id": "B",
+          "text": "Adds a new column to an existing table."
+        },
+        {
+          "id": "C",
+          "text": "Deletes both the table structure and the records stored in the table."
+        },
+        {
+          "id": "D",
+          "text": "Queries the table without changing it."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DROP في المادة يحذف الـ structure نفسه بالإضافة إلى الـ records الموجودة داخله.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-drop",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-drop-purpose",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 11 — DDL DROP"
+      }
+    },
+    {
+      "id": "da-sql-session02-q016",
+      "question": "What is the result intended by this statement from the session: DROP TABLE EMPLOYEE;?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only rows with a matching condition are removed."
+        },
+        {
+          "id": "B",
+          "text": "The EMPLOYEE table itself is deleted, including its stored records."
+        },
+        {
+          "id": "C",
+          "text": "A new EMPLOYEE table is created."
+        },
+        {
+          "id": "D",
+          "text": "A new column is added to EMPLOYEE."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "DROP TABLE EMPLOYEE يعني إزالة الجدول نفسه؛ ده مختلف عن DELETE اللي يتعامل مع rows داخل جدول موجود.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-drop",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-drop-code-effect",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 11 — DDL DROP example"
+      }
+    },
+    {
+      "id": "da-sql-session02-q017",
+      "question": "A temporary table is no longer needed at all, including its structure and existing records. Which taught command best matches this requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DELETE FROM with a condition"
+        },
+        {
+          "id": "B",
+          "text": "INSERT INTO"
+        },
+        {
+          "id": "C",
+          "text": "SELECT"
+        },
+        {
+          "id": "D",
+          "text": "DROP TABLE"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "لما المطلوب التخلص من الجدول بالكامل بما فيه بنيته، DROP هو القرار المناسب من الأوامر التي تم تدريسها.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-drop",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-drop-retire-table-scenario",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 11 — DDL DROP"
+      }
+    },
+    {
+      "id": "da-sql-session02-q018",
+      "question": "What is ALTER used for in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Changing the structure of an existing table, such as adding a new attribute or modifying an existing one."
+        },
+        {
+          "id": "B",
+          "text": "Adding a new data row only."
+        },
+        {
+          "id": "C",
+          "text": "Returning query results only."
+        },
+        {
+          "id": "D",
+          "text": "Deleting the entire table and all records only."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ALTER يستخدم لتعديل Structure جدول موجود، مثل ADD attribute جديد أو MODIFY attribute حالي.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-alter",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-alter-purpose",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 12 — DDL ALTER"
+      }
+    },
+    {
+      "id": "da-sql-session02-q019",
+      "question": "What does the following statement do: ALTER TABLE STU_DETAILS ADD (ADDRESS VARCHAR2(20));?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Inserts a student row containing an address."
+        },
+        {
+          "id": "B",
+          "text": "Adds an ADDRESS column to the existing STU_DETAILS table."
+        },
+        {
+          "id": "C",
+          "text": "Deletes the STU_DETAILS table."
+        },
+        {
+          "id": "D",
+          "text": "Selects the ADDRESS values from STU_DETAILS."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "صيغة ALTER ... ADD في المثال بتضيف column جديد اسمه ADDRESS إلى الجدول الموجود.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-alter",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-alter-add-column-code",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 12 — DDL ALTER example"
+      }
+    },
+    {
+      "id": "da-sql-session02-q020",
+      "question": "An existing Customers table must gain a new LoyaltyCode column without replacing the whole table. Which taught command family and action best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DML using INSERT INTO"
+        },
+        {
+          "id": "B",
+          "text": "DQL using SELECT"
+        },
+        {
+          "id": "C",
+          "text": "DDL using ALTER TABLE ... ADD"
+        },
+        {
+          "id": "D",
+          "text": "DML using DELETE FROM"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "إضافة Column إلى جدول موجود هي Structure change، لذلك تندرج تحت DDL وبالتحديد ALTER TABLE ... ADD.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-alter",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-alter-add-column-scenario",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 12 — DDL ALTER"
+      }
+    },
+    {
+      "id": "da-sql-session02-q021",
+      "question": "What is TRUNCATE used for according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deleting the table structure itself."
+        },
+        {
+          "id": "B",
+          "text": "Adding a new attribute to a table."
+        },
+        {
+          "id": "C",
+          "text": "Deleting all rows from a table and freeing the space containing the table."
+        },
+        {
+          "id": "D",
+          "text": "Changing selected existing values with UPDATE."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "TRUNCATE موصوف في المادة بأنه يحذف كل rows من الجدول ويحرر المساحة المرتبطة بها.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-truncate",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-truncate-purpose",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 13 — DDL TRUNCATE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q022",
+      "question": "Which command best matches the goal \"remove all rows from EMPLOYEE\" while using the DDL operation taught specifically for that purpose?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TRUNCATE TABLE EMPLOYEE;"
+        },
+        {
+          "id": "B",
+          "text": "DROP TABLE EMPLOYEE;"
+        },
+        {
+          "id": "C",
+          "text": "ALTER TABLE EMPLOYEE ADD ADDRESS VARCHAR2(20);"
+        },
+        {
+          "id": "D",
+          "text": "INSERT INTO EMPLOYEE VALUES (...);"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لإفراغ كل rows باستخدام أمر DDL المخصص لذلك في الملف، الاختيار هو TRUNCATE TABLE.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-truncate",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-truncate-vs-other-ddl",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 13 — DDL TRUNCATE example"
+      }
+    },
+    {
+      "id": "da-sql-session02-q023",
+      "question": "Consider: TRUNCATE TABLE EMPLOYEE; Which description matches the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is a DML command that adds one employee."
+        },
+        {
+          "id": "B",
+          "text": "It is a DQL command that returns all employee rows."
+        },
+        {
+          "id": "C",
+          "text": "It is a DDL command that adds a new column."
+        },
+        {
+          "id": "D",
+          "text": "It is a DDL command intended to remove all rows from EMPLOYEE and free the associated space."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "TRUNCATE مصنف DDL، والأثر المذكور له هو إزالة جميع الصفوف وتحرير المساحة، وليس إضافة أو قراءة data.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-truncate",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-truncate-code-effect",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 13 — DDL TRUNCATE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q024",
+      "question": "A staging table must be emptied completely before the next load, but the requirement is not to delete the table definition itself. Which taught command best matches this scenario?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP TABLE"
+        },
+        {
+          "id": "B",
+          "text": "TRUNCATE TABLE"
+        },
+        {
+          "id": "C",
+          "text": "ALTER TABLE ... ADD"
+        },
+        {
+          "id": "D",
+          "text": "CREATE TABLE"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "DROP يحذف الـ table structure، بينما TRUNCATE موجه لإزالة كل الصفوف؛ لذلك السيناريو يناسب TRUNCATE.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-truncate",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-truncate-clear-staging-scenario",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slides 11 and 13 — DROP vs TRUNCATE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q025",
+      "question": "What is INSERT used for according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Inserting data into a row of a table."
+        },
+        {
+          "id": "B",
+          "text": "Changing the structure of a table."
+        },
+        {
+          "id": "C",
+          "text": "Deleting the table structure."
+        },
+        {
+          "id": "D",
+          "text": "Classifying SELECT as DQL."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "INSERT وظيفته إضافة data إلى row داخل table موجود.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-insert",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dml-insert-purpose",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 15 — DML INSERT"
+      }
+    },
+    {
+      "id": "da-sql-session02-q026",
+      "question": "What is the intended effect of: INSERT INTO javatpoint (Author, Subject) VALUES ('Sonoo', 'DBMS');?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The table structure is deleted."
+        },
+        {
+          "id": "B",
+          "text": "All rows are removed from the table."
+        },
+        {
+          "id": "C",
+          "text": "A new column named Subject is added."
+        },
+        {
+          "id": "D",
+          "text": "A new row with the supplied Author and Subject values is inserted into the table."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "INSERT INTO ... VALUES تضيف row جديد بالقيم المعطاة للأعمدة المحددة.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-insert",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dml-insert-code-effect",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 15 — DML INSERT example"
+      }
+    },
+    {
+      "id": "da-sql-session02-q027",
+      "question": "A school registration system needs to add a newly registered student as a new record in an existing Students table. Which taught DML command is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ALTER"
+        },
+        {
+          "id": "B",
+          "text": "INSERT"
+        },
+        {
+          "id": "C",
+          "text": "TRUNCATE"
+        },
+        {
+          "id": "D",
+          "text": "DROP"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "إضافة طالب جديد كـ record جديد هي عملية INSERT ضمن DML.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-insert",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dml-insert-new-record-scenario",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 15 — DML INSERT"
+      }
+    },
+    {
+      "id": "da-sql-session02-q028",
+      "question": "What is DELETE used for according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Creating a new table structure."
+        },
+        {
+          "id": "B",
+          "text": "Adding a new column to an existing table."
+        },
+        {
+          "id": "C",
+          "text": "Removing one or more rows from a table."
+        },
+        {
+          "id": "D",
+          "text": "Classifying SELECT as DQL."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DELETE في المادة مخصص لإزالة row واحد أو أكثر من جدول.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-delete",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dml-delete-purpose",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 16 — DML DELETE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q029",
+      "question": "What is the intended effect of: DELETE FROM javatpoint WHERE Author='Sonoo';?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The javatpoint table structure is dropped."
+        },
+        {
+          "id": "B",
+          "text": "A new Author column is added."
+        },
+        {
+          "id": "C",
+          "text": "A new row for Sonoo is inserted."
+        },
+        {
+          "id": "D",
+          "text": "Rows in javatpoint matching Author='Sonoo' are removed."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "وجود WHERE Author='Sonoo' يعني أن الـ DELETE يستهدف الصفوف المطابقة للشرط، وليس Structure الجدول.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-delete",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dml-delete-where-code-effect",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 16 — DML DELETE example"
+      }
+    },
+    {
+      "id": "da-sql-session02-q030",
+      "question": "A table contains several obsolete records identified by a condition, and only those records should be removed. Which taught command is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DELETE FROM ... WHERE condition"
+        },
+        {
+          "id": "B",
+          "text": "DROP TABLE"
+        },
+        {
+          "id": "C",
+          "text": "CREATE TABLE"
+        },
+        {
+          "id": "D",
+          "text": "ALTER TABLE ... ADD"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "عندما المطلوب حذف records بناءً على condition، الصيغة التي قدمتها المادة هي DELETE FROM ... WHERE condition.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-delete",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dml-delete-filtered-rows-scenario",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 16 — DML DELETE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q031",
+      "question": "Which command is listed as a DML command even though its detailed syntax is not shown in this session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TRUNCATE"
+        },
+        {
+          "id": "B",
+          "text": "UPDATE"
+        },
+        {
+          "id": "C",
+          "text": "CREATE"
+        },
+        {
+          "id": "D",
+          "text": "SELECT"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "UPDATE مذكور في الـ taxonomy وفي قائمة DML، لكن الملف لا يعرض له syntax تفصيلي؛ لذلك السؤال يختبر التصنيف فقط.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-update",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "dml-update-classification",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slides 8 and 14 — UPDATE under DML"
+      }
+    },
+    {
+      "id": "da-sql-session02-q032",
+      "question": "An existing customer record contains an old email address that must be changed rather than inserting or deleting the customer. Which DML command named in the session matches that task?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE"
+        },
+        {
+          "id": "B",
+          "text": "DROP"
+        },
+        {
+          "id": "C",
+          "text": "UPDATE"
+        },
+        {
+          "id": "D",
+          "text": "TRUNCATE"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة تذكر updating records كعملية SQL وتضع UPDATE تحت DML؛ تغيير قيمة في record موجود يناسب UPDATE.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dml-update",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dml-update-existing-record-scenario",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slides 6, 8 and 14 — updating records / UPDATE under DML"
+      }
+    },
+    {
+      "id": "da-sql-session02-q033",
+      "question": "Which comparison correctly distinguishes ALTER and UPDATE based on the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ALTER is DDL for table structure changes, while UPDATE is DML for changes to stored data."
+        },
+        {
+          "id": "B",
+          "text": "ALTER and UPDATE are both DQL commands."
+        },
+        {
+          "id": "C",
+          "text": "ALTER inserts rows while UPDATE creates tables."
+        },
+        {
+          "id": "D",
+          "text": "ALTER deletes rows while UPDATE drops the table structure."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ALTER يغير table structure، بينما UPDATE ينتمي إلى DML ويستخدم لتغيير البيانات؛ الفرق هو Schema/Structure مقابل Data.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-vs-dml",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-alter-vs-dml-update",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slides 12 and 14 — ALTER vs DML UPDATE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q034",
+      "question": "A developer first creates a Students table and later adds a student row. Which command pairing correctly matches those two tasks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "INSERT INTO, then DROP TABLE"
+        },
+        {
+          "id": "B",
+          "text": "DELETE FROM, then ALTER TABLE"
+        },
+        {
+          "id": "C",
+          "text": "SELECT, then TRUNCATE TABLE"
+        },
+        {
+          "id": "D",
+          "text": "CREATE TABLE, then INSERT INTO"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "إنشاء الجدول أولًا يحتاج CREATE TABLE، وبعد وجوده إضافة row جديد تحتاج INSERT INTO.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-vs-dml",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-create-then-dml-insert",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slides 10 and 15 — CREATE and INSERT"
+      }
+    },
+    {
+      "id": "da-sql-session02-q035",
+      "question": "Which statement correctly compares DROP and DELETE using the session definitions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP and DELETE are both DQL commands."
+        },
+        {
+          "id": "B",
+          "text": "DELETE removes the table structure, while DROP only removes selected rows."
+        },
+        {
+          "id": "C",
+          "text": "DROP removes the table structure and its records, while DELETE removes one or more rows from a table."
+        },
+        {
+          "id": "D",
+          "text": "DROP adds columns, while DELETE creates rows."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DROP يزيل الجدول نفسه مع بياناته، بينما DELETE يزيل rows من جدول موجود؛ لذلك لا يمكن اعتبارهما نفس العملية.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-vs-dml",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-drop-vs-dml-delete",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slides 11 and 16 — DROP vs DELETE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q036",
+      "question": "A developer needs to remove every row from a table. Which distinction from the session is most relevant when choosing between TRUNCATE and DELETE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TRUNCATE is DQL while DELETE is DDL."
+        },
+        {
+          "id": "B",
+          "text": "TRUNCATE is taught as DDL for deleting all rows and freeing space, while DELETE is DML for removing one or more rows."
+        },
+        {
+          "id": "C",
+          "text": "TRUNCATE creates tables while DELETE alters columns."
+        },
+        {
+          "id": "D",
+          "text": "Both commands are taught only as aliases for SELECT."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة تفرق بين TRUNCATE كـ DDL لإزالة كل الصفوف، وDELETE كـ DML لإزالة row أو أكثر؛ ده جوهر الاختيار هنا.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-vs-dml",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-truncate-vs-dml-delete",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slides 13, 14 and 16 — TRUNCATE vs DELETE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q037",
+      "question": "How is SELECT classified in the SQL command diagram from the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DDL"
+        },
+        {
+          "id": "B",
+          "text": "DML"
+        },
+        {
+          "id": "C",
+          "text": "It is not shown in any SQL command family."
+        },
+        {
+          "id": "D",
+          "text": "DQL"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "في Slide 8، SELECT هو الأمر الموجود تحت DQL. الملف لا يشرح DQL بتفصيل أكبر من هذا التصنيف في هذه الجلسة.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "dql-select",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "dql-select-family",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 8 — Types of SQL Commands"
+      }
+    },
+    {
+      "id": "da-sql-session02-q038",
+      "question": "A developer wants to remove one erroneous record but proposes DROP TABLE Orders. What is wrong with this choice based on the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP is only used to query data."
+        },
+        {
+          "id": "B",
+          "text": "DROP is the same as INSERT."
+        },
+        {
+          "id": "C",
+          "text": "DROP removes the table structure and its records; DELETE should be used to remove row data."
+        },
+        {
+          "id": "D",
+          "text": "DELETE is the command for creating tables."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "استخدام DROP لحذف record واحد خطر لأنه يحذف table structure أيضًا؛ المناسب للـ rows هو DELETE.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-vs-dml",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "troubleshoot-drop-vs-delete",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slides 11 and 16 — DROP vs DELETE"
+      }
+    },
+    {
+      "id": "da-sql-session02-q039",
+      "question": "Consider the sequence: CREATE TABLE T (...); followed by INSERT INTO T VALUES (...); How should the two statements be classified?",
+      "options": [
+        {
+          "id": "A",
+          "text": "First DML, then DDL"
+        },
+        {
+          "id": "B",
+          "text": "First DDL, then DML"
+        },
+        {
+          "id": "C",
+          "text": "Both DQL"
+        },
+        {
+          "id": "D",
+          "text": "Both DDL"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "CREATE TABLE من DDL لأنها تنشئ structure، وبعدها INSERT INTO من DML لأنها تضيف data.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-vs-dml",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "classify-create-insert-sequence",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slides 8, 10 and 15 — CREATE and INSERT"
+      }
+    },
+    {
+      "id": "da-sql-session02-q040",
+      "question": "Consider the command sequence: ALTER TABLE T ADD X INT; DELETE FROM T WHERE ...; SELECT ... . Which family sequence matches the session taxonomy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DDL, DML, DQL"
+        },
+        {
+          "id": "B",
+          "text": "DML, DDL, DQL"
+        },
+        {
+          "id": "C",
+          "text": "DQL, DML, DDL"
+        },
+        {
+          "id": "D",
+          "text": "DDL, DQL, DML"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ALTER مصنف DDL، DELETE مصنف DML، وSELECT مصنف DQL؛ وبالتالي الترتيب الصحيح DDL ثم DML ثم DQL.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-vs-dml",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "classify-alter-delete-select-sequence",
+      "source": {
+        "file": "Session2.pptx",
+        "reference": "Slide 8 with Slides 12 and 16 — SQL command families"
+      }
+    }
+  ]
+}

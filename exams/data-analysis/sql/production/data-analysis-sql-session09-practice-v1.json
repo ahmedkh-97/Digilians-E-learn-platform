@@ -1,0 +1,3471 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-sql-session09-practice-v1",
+    "title": "Session 9 — SQL Practice",
+    "description": "Validated practice set for Reusable SQL Logic: Views & Functions, using the production question banks linked to Session9.pptx.",
+    "course": "Data Analysis",
+    "module": "SQL & Databases — Session 9",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-sql-session09-views-q001",
+      "question": "According to Session 9, what is a SQL view?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A logical table based on a table or another view."
+        },
+        {
+          "id": "B",
+          "text": "A physical copy of all rows in a table."
+        },
+        {
+          "id": "C",
+          "text": "A transaction log stored outside the database."
+        },
+        {
+          "id": "D",
+          "text": "A special index that permanently sorts rows."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ View في المادة عبارة عن logical table مبني على table أو view تاني، وبيمثل نافذة لعرض البيانات بدل ما يكون نسخة مادية مستقلة منها.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-definition",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-definition-logical-table",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q002",
+      "question": "Which statement best describes where a view's data comes from?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The view always stores a separate duplicate of every source row."
+        },
+        {
+          "id": "B",
+          "text": "The view exposes data from its base tables; it does not contain its own independent data."
+        },
+        {
+          "id": "C",
+          "text": "The view gets data only from temporary tables."
+        },
+        {
+          "id": "D",
+          "text": "The view can read only metadata, not table rows."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ View لا يملك بيانات مستقلة؛ البيانات المعروضة جاية من الـ base tables، والـ View نفسه محفوظ كتعريف SELECT.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-base-tables",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-base-table-data-source",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q003",
+      "question": "What are the tables on which a view is based called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pivot tables"
+        },
+        {
+          "id": "B",
+          "text": "Shadow tables"
+        },
+        {
+          "id": "C",
+          "text": "Base tables"
+        },
+        {
+          "id": "D",
+          "text": "Archive tables"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتسمي الجداول اللي الـ View مبني عليها Base Tables.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-base-tables",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-base-tables-term",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q004",
+      "question": "How is a view stored according to the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "As a CSV file on the client."
+        },
+        {
+          "id": "B",
+          "text": "As a mandatory materialized copy of the rows."
+        },
+        {
+          "id": "C",
+          "text": "As an index key only."
+        },
+        {
+          "id": "D",
+          "text": "As a SELECT statement in the data dictionary."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ View definition بيتخزن كـ SELECT statement في الـ data dictionary حسب شرح Session 9.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-storage",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-stored-select-data-dictionary",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q005",
+      "question": "Which command creates a new view?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE VIEW"
+        },
+        {
+          "id": "B",
+          "text": "BUILD VIEW"
+        },
+        {
+          "id": "C",
+          "text": "MAKE VIEW"
+        },
+        {
+          "id": "D",
+          "text": "INSERT VIEW"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الأمر المستخدم لإنشاء View جديد هو CREATE VIEW.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "create-view",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-create-view-command",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 3 and 6 — Views / Creating Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q006",
+      "question": "A reporting team repeatedly uses a long join between EMPLOYEE and DEPARTMENT only to show employee and department names. Which course concept best fits this need?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Create a second copy of both tables for every report."
+        },
+        {
+          "id": "B",
+          "text": "Create a view that saves the reusable SELECT logic."
+        },
+        {
+          "id": "C",
+          "text": "Drop the foreign key and query each table separately."
+        },
+        {
+          "id": "D",
+          "text": "Use DELETE to reduce the number of rows."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده external-similar scenario لكن مبني على نفس مفهوم Slide 4: الـ View بيبسّط complex queries وبيسمح بإعادة استخدام الـ SELECT logic بدل تكراره.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-reuse-complex-join-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q007",
+      "question": "Which is listed as an advantage of views in Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Force every query to use SELECT *."
+        },
+        {
+          "id": "B",
+          "text": "Remove the need for base tables."
+        },
+        {
+          "id": "C",
+          "text": "Restrict data access."
+        },
+        {
+          "id": "D",
+          "text": "Guarantee that every complex view is directly updatable."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "من مزايا الـ Views المذكورة: restrict data access، تبسيط complex queries، data independence، وتقديم رؤى مختلفة لنفس البيانات.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-advantage-restrict-access",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q008",
+      "question": "What is the simplest way to retrieve all columns exposed by a view named vw_work_hrs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OPEN VIEW vw_work_hrs;"
+        },
+        {
+          "id": "B",
+          "text": "FETCH VIEW vw_work_hrs ALL;"
+        },
+        {
+          "id": "C",
+          "text": "SHOW TABLE vw_work_hrs COLUMNS ONLY;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT * FROM vw_work_hrs;"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ View بيتعمله query زي الجدول العادي، وبالتالي SELECT * FROM vw_work_hrs; صحيحة.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "query-view",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-select-all",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 8 — Retrieving Data from a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q009",
+      "question": "Which command removes a view definition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP VIEW view_name;"
+        },
+        {
+          "id": "B",
+          "text": "DELETE VIEW view_name;"
+        },
+        {
+          "id": "C",
+          "text": "TRUNCATE VIEW view_name;"
+        },
+        {
+          "id": "D",
+          "text": "REMOVE TABLE view_name;"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "حذف الـ View نفسه يتم بـ DROP VIEW، وليس DELETE لأن DELETE يتعامل مع rows.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "drop-view",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-drop-view-command",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 11 — Removing a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q010",
+      "question": "Which feature is characteristic of a simple view in the Session 9 comparison?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It must always join three or more tables."
+        },
+        {
+          "id": "B",
+          "text": "It is based on one table and does not contain functions or groups of data."
+        },
+        {
+          "id": "C",
+          "text": "It always contains aggregate functions."
+        },
+        {
+          "id": "D",
+          "text": "DML operations are never allowed through it."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "في جدول Simple vs Complex Views، الـ Simple View بيكون من table واحدة ولا يحتوي functions أو groups of data، وغالبًا DML ممكن من خلاله.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "simple-vs-complex-views",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-simple-view-characteristics",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 5 — Simple Views and Complex Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q011",
+      "question": "A view joins Employee, Project, and Works_on to expose employee names, project name, and hours. How should it be classified using the lecture's comparison?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Simple view"
+        },
+        {
+          "id": "B",
+          "text": "Index-only view"
+        },
+        {
+          "id": "C",
+          "text": "Complex view"
+        },
+        {
+          "id": "D",
+          "text": "Transaction view"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "لأن الـ View مبني على أكتر من table فهو Complex View حسب المقارنة في Slide 5، وده نفس نمط المثال في Slide 7.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "simple-vs-complex-views",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-complex-view-multi-table-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 5 and 7 — Complex Views / Creating Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q012",
+      "question": "Which optional clause appears in the Session 9 CREATE VIEW syntax?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WITH PIVOT OPTION"
+        },
+        {
+          "id": "B",
+          "text": "WITH PROCEDURE OPTION"
+        },
+        {
+          "id": "C",
+          "text": "WITH INDEX OPTION"
+        },
+        {
+          "id": "D",
+          "text": "WITH CHECK OPTION"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 6 تعرض WITH CHECK OPTION كـ optional clause في نهاية CREATE VIEW syntax.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "with-check-option",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-create-view-optional-check-option",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 6 and 9 — WITH CHECK OPTION"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q013",
+      "question": "In the Suppliers view example, which predicate appears before WITH CHECK OPTION?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE status > 15"
+        },
+        {
+          "id": "B",
+          "text": "WHERE status < 15"
+        },
+        {
+          "id": "C",
+          "text": "GROUP BY status"
+        },
+        {
+          "id": "D",
+          "text": "ORDER BY status DESC"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الكود في Slide 9 يحتوي WHERE status > 15 ثم WITH CHECK OPTION.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "with-check-option",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-suppliers-view-status-filter",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 9 — Views with Check Option"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q014",
+      "question": "A developer asks whether DML should be assumed to work the same way through simple and complex views. Which answer matches Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DML is impossible through every view."
+        },
+        {
+          "id": "B",
+          "text": "DML can be performed through simple views, while it is not always applicable through complex views."
+        },
+        {
+          "id": "C",
+          "text": "DML is always allowed through every complex view."
+        },
+        {
+          "id": "D",
+          "text": "Only DROP operations can be performed through simple views."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 5 واضح: DML operations ممكن على simple views، لكن complex views مش دائمًا ينفع نعمل DML من خلالها.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-dml",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-dml-simple-vs-complex",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 5 — Simple Views and Complex Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q015",
+      "question": "Which view best represents the lecture's example of simplifying a complex query?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A view containing only the text 'INNER JOIN' with no SELECT."
+        },
+        {
+          "id": "B",
+          "text": "A copy of EMPLOYEE created with INSERT INTO every time."
+        },
+        {
+          "id": "C",
+          "text": "A view that stores a SELECT joining EMPLOYEE and DEPARTMENT and exposes the needed columns."
+        },
+        {
+          "id": "D",
+          "text": "A view that drops DEPARTMENT after each query."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "مثال Slide 4 بيستخدم CREATE VIEW مع INNER JOIN بين EMPLOYEE وDEPARTMENT لتبسيط الاستعلام المتكرر.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-with-join",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-best-use-join-reuse",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q016",
+      "question": "A company wants analysts to see customer name and segment but not all raw customer columns. Which course feature is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Give analysts direct access to every base-table column."
+        },
+        {
+          "id": "B",
+          "text": "Duplicate the database for each analyst."
+        },
+        {
+          "id": "C",
+          "text": "Replace all customer values with NULL."
+        },
+        {
+          "id": "D",
+          "text": "Expose only the approved columns through a view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده external-similar مبني على advantage 'Restrict data access': الـ View يقدر يعرض subset مناسب من الأعمدة بدل كشف كل الـ base table.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-restrict-columns-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q017",
+      "question": "What does CREATE OR REPLACE VIEW do according to Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It modifies an existing view or creates it if it does not exist."
+        },
+        {
+          "id": "B",
+          "text": "It deletes the base tables and recreates them."
+        },
+        {
+          "id": "C",
+          "text": "It inserts rows into the view only."
+        },
+        {
+          "id": "D",
+          "text": "It converts a view into an index."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تذكر إن CREATE OR REPLACE VIEW بيعدل View موجود أو ينشئه لو مش موجود.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "modify-view",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-create-or-replace-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 3 and 10 — Modifying a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q018",
+      "question": "Consider the lecture example:\nCREATE OR REPLACE VIEW vw_work_hrs AS\nSELECT Fname, Lname, Pname, Hours\nFROM Employee, Project, Works_on\nWHERE SSN=ESSN AND PNO=PNUMBER AND Dno = 5;\nWhat is the added effect compared with the earlier version?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The view now returns all departments regardless of Dno."
+        },
+        {
+          "id": "B",
+          "text": "The view is further restricted to rows where Dno = 5."
+        },
+        {
+          "id": "C",
+          "text": "The view is converted to a stored procedure."
+        },
+        {
+          "id": "D",
+          "text": "The joins are removed and only Employee is queried."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الإضافة الجديدة في Slide 10 هي AND Dno = 5، وبالتالي الـ View بقى مقيّد بصفوف department 5.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "modify-view",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-replace-adds-dno-filter",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 10 — Modifying a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q019",
+      "question": "If a view exposes Fname, Lname, Pname, and Hours, what does this query request?\nSELECT fname, lname, hours FROM vw_work_hrs;",
+      "options": [
+        {
+          "id": "A",
+          "text": "All columns from the three base tables."
+        },
+        {
+          "id": "B",
+          "text": "Only Pname from the view."
+        },
+        {
+          "id": "C",
+          "text": "Only fname, lname, and hours from the rows exposed by the view."
+        },
+        {
+          "id": "D",
+          "text": "A deletion of the Hours column."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "SELECT المحدد بياخد فقط الأعمدة fname وlname وhours من الـ View، حتى لو الـ View نفسه بيعرض Pname كمان.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "query-view",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-select-subset-columns",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 8 — Retrieving Data from a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q020",
+      "question": "A view is defined from a SELECT that uses CASE to create CustomerSegment. Which statement is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CASE cannot appear in a view definition."
+        },
+        {
+          "id": "B",
+          "text": "CASE automatically turns the view into a base table."
+        },
+        {
+          "id": "C",
+          "text": "CASE can only be used inside DROP VIEW."
+        },
+        {
+          "id": "D",
+          "text": "CASE can be used inside the view's SELECT to derive a conditional output column."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slides 17–18 بتوضح إن CASE ينفع داخل query بتاعة الـ View لإنشاء column مشتق زي CustomerSegment.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "case-in-views",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-case-expression-inside-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 17–18 — Conditional Logic with CASE in Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q021",
+      "question": "A sales view categorizes TotalSpent > 10000 as 'VIP', 5000–10000 as 'Premium', 1000–4999 as 'Standard', else 'Basic'. What category is returned for TotalSpent = 7500?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Premium"
+        },
+        {
+          "id": "B",
+          "text": "VIP"
+        },
+        {
+          "id": "C",
+          "text": "Standard"
+        },
+        {
+          "id": "D",
+          "text": "Basic"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "7500 يقع داخل BETWEEN 5000 AND 10000، وبالتالي CASE ترجع Premium.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "case-in-views",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-case-7500-premium",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 18 — CASE in vw_CustomerSegments"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q022",
+      "question": "Using the same CASE logic from vw_CustomerSegments, what category is returned for TotalSpent = 900?",
+      "options": [
+        {
+          "id": "A",
+          "text": "VIP"
+        },
+        {
+          "id": "B",
+          "text": "Basic"
+        },
+        {
+          "id": "C",
+          "text": "Premium"
+        },
+        {
+          "id": "D",
+          "text": "Standard"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "900 لا يحقق أي من الشروط الأعلى، فبيوصل لـ ELSE ويرجع Basic.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "case-in-views",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-case-900-basic",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 18 — CASE in vw_CustomerSegments"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q023",
+      "question": "Which design best supports presenting different views of the same underlying data to different teams?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Create duplicate base tables for every user."
+        },
+        {
+          "id": "B",
+          "text": "Force all teams to use the exact same SELECT *."
+        },
+        {
+          "id": "C",
+          "text": "Create separate views that expose the relevant columns or rows for each team."
+        },
+        {
+          "id": "D",
+          "text": "Delete columns that one team does not need."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "من مزايا الـ Views إنها تقدم different views of the same data بدون ما نكرر الـ base data.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-different-presentations-same-data",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q024",
+      "question": "Which statement about a view based on another view is supported by Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A view can only be based on a physical table."
+        },
+        {
+          "id": "B",
+          "text": "A view can only be based on a stored procedure."
+        },
+        {
+          "id": "C",
+          "text": "A view must always be based on exactly three tables."
+        },
+        {
+          "id": "D",
+          "text": "A view can be based on a table or another view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "تعريف Slide 3 صريح: view is a logical table based on a table or another view.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-definition",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-can-use-another-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q025",
+      "question": "A developer needs to change an existing view's SELECT definition without deleting the base tables. Which lecture command is most appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE OR REPLACE VIEW"
+        },
+        {
+          "id": "B",
+          "text": "DROP TABLE"
+        },
+        {
+          "id": "C",
+          "text": "DELETE FROM"
+        },
+        {
+          "id": "D",
+          "text": "TRUNCATE TABLE"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لتعديل تعريف الـ View، Session 9 تعرض CREATE OR REPLACE VIEW كمثال مباشر، من غير ما نلمس الـ base tables.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "modify-view",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-modification-best-command",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 10 — Modifying a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q026",
+      "question": "Why is a view useful for data independence in the lecture's framing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because a view permanently removes the base schema."
+        },
+        {
+          "id": "B",
+          "text": "Users can query a logical representation instead of depending directly on every base-table detail."
+        },
+        {
+          "id": "C",
+          "text": "Because a view forces all data into one column."
+        },
+        {
+          "id": "D",
+          "text": "Because views do not use SELECT statements."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Data independence هنا معناها إن المستهلك يتعامل مع logical representation ثابت نسبيًا بدل الاعتماد المباشر على كل تفاصيل الـ base tables.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-data-independence-reason",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q027",
+      "question": "A complex view includes grouped data and functions. Based on the Session 9 table, what should you assume about DML through that view?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is always guaranteed to support every DML operation."
+        },
+        {
+          "id": "B",
+          "text": "It can never be selected from."
+        },
+        {
+          "id": "C",
+          "text": "It is not always applicable and should not be assumed to work like a simple view."
+        },
+        {
+          "id": "D",
+          "text": "It automatically becomes an index."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ Complex View ممكن يحتوي functions/groups، والمادة تؤكد إن DML من خلاله Not always، فلازم ما نفترضش إنه قابل للتعديل زي Simple View.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-dml",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-complex-view-dml-caution",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 5 — Simple Views and Complex Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q028",
+      "question": "What does SELECT * FROM EmployeeDepartmentInfo; do after the view from Slide 4 has been created?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It drops EmployeeDepartmentInfo."
+        },
+        {
+          "id": "B",
+          "text": "It recreates EMPLOYEE and DEPARTMENT."
+        },
+        {
+          "id": "C",
+          "text": "It changes every department name."
+        },
+        {
+          "id": "D",
+          "text": "It retrieves the columns and rows exposed by the EmployeeDepartmentInfo view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "بعد إنشاء الـ View، SELECT * FROM اسم_الـView بيقرأ البيانات اللي الـ View بيعرضها، زي التعامل مع table في SELECT.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "query-view",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-query-created-employee-department-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — EmployeeDepartmentInfo View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q029",
+      "question": "Which view definition most closely matches the lecture syntax pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE VIEW v AS SELECT col1, col2 FROM t WHERE condition;"
+        },
+        {
+          "id": "B",
+          "text": "CREATE v VIEW VALUES col1, col2;"
+        },
+        {
+          "id": "C",
+          "text": "VIEW v INSERT SELECT FROM t;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT VIEW v FROM t CREATE;"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ pattern في Slide 6 هو CREATE VIEW ... AS subquery، وبالتالي الاختيار اللي يحتوي CREATE VIEW ثم AS SELECT هو الصحيح.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "create-view",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-create-view-syntax-pattern",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 6 — Creating Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q030",
+      "question": "Which ordering matches the Suppliers view code shown in Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT * FROM suppliers WITH CHECK OPTION WHERE status > 15;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT * FROM suppliers WHERE status > 15 WITH CHECK OPTION;"
+        },
+        {
+          "id": "C",
+          "text": "WITH CHECK OPTION SELECT * FROM suppliers WHERE status > 15;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT * WITH CHECK OPTION WHERE status > 15 FROM suppliers;"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 9 تعرض الترتيب: SELECT ... FROM suppliers ثم WHERE status > 15 ثم WITH CHECK OPTION.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "with-check-option",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-suppliers-view-check-option-order",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 9 — Views with Check Option"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q031",
+      "question": "A team created a view to hide sensitive columns, but users are still querying the base table directly. What is the main design problem relative to the intended view advantage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The view must contain a PIVOT."
+        },
+        {
+          "id": "B",
+          "text": "Every view must include GROUP BY."
+        },
+        {
+          "id": "C",
+          "text": "The restricted view is being bypassed, so the data-access restriction benefit is not being enforced by how users access data."
+        },
+        {
+          "id": "D",
+          "text": "The base table should always be dropped after creating a view."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "لو الهدف restrict data access، لكن المستخدمين لسه بيعدوا الـ View ويروحوا للـ base table، يبقى ميزة التقييد مش متحققة عمليًا.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-security-bypass-diagnosis",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q032",
+      "question": "A developer expects DROP VIEW vw_work_hrs; to delete Employee, Project, and Works_on. What is wrong with that expectation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP VIEW deletes only one row from each base table."
+        },
+        {
+          "id": "B",
+          "text": "DROP VIEW converts the base tables to views."
+        },
+        {
+          "id": "C",
+          "text": "DROP VIEW is the syntax for updating a view."
+        },
+        {
+          "id": "D",
+          "text": "DROP VIEW removes the view definition, not the base tables on which it depends."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "DROP VIEW بيحذف الـ View definition فقط. الـ base tables تفضل موجودة؛ دي نقطة مهمة في فهم الفرق بين logical view والـ tables الأصلية.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "drop-view",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-drop-view-does-not-drop-base-tables",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 3 and 11 — Views / Removing a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q033",
+      "question": "A view joins three tables and includes grouped data. A developer assumes an UPDATE through the view must succeed because SELECT from the view works. What is the best diagnosis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The view is complex; successful SELECT access does not mean every DML operation is supported through it."
+        },
+        {
+          "id": "B",
+          "text": "SELECT access proves all DML must work."
+        },
+        {
+          "id": "C",
+          "text": "The only issue is that the view name is too short."
+        },
+        {
+          "id": "D",
+          "text": "The query must use UNION ALL before UPDATE."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "قراءة Complex View بـ SELECT شيء، وإمكانية DML من خلاله شيء تاني. Slide 5 تقول إن DML للـ complex views ليس دائمًا applicable.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-dml",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-complex-view-select-vs-dml",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 5 — Simple Views and Complex Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q034",
+      "question": "A dashboard needs a stable reusable query that combines customers and recent orders, applies CASE segmentation, and hides unused raw columns. Which design best follows Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Copy all source tables into a new database for each refresh."
+        },
+        {
+          "id": "B",
+          "text": "Create a view whose SELECT performs the needed joins/filtering and CASE expression, exposing only dashboard columns."
+        },
+        {
+          "id": "C",
+          "text": "Use DROP VIEW after every dashboard query."
+        },
+        {
+          "id": "D",
+          "text": "Replace CASE with DELETE statements."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده external-similar بيجمع أكتر من مفهوم من Session 9: view لتبسيط query، تقييد الأعمدة، وCASE داخل view لإنشاء segmentation.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-design-integration",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-dashboard-integration-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 4, 17–18, and 27 — Views / CASE / Lab"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q035",
+      "question": "If the base-table rows change after a non-materialized logical view has been created, what should a query of the view conceptually reflect?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the rows that existed at the moment CREATE VIEW ran."
+        },
+        {
+          "id": "B",
+          "text": "No rows until the view is recreated."
+        },
+        {
+          "id": "C",
+          "text": "The current data exposed by the view's stored SELECT logic."
+        },
+        {
+          "id": "D",
+          "text": "A permanently cached CSV snapshot."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "بما إن المادة تعرف الـ View كـ logical table لا يملك data of its own ومحفوظ كـ SELECT، فالاستعلام منه يعكس البيانات الحالية اللي يطلعها الـ SELECT من الـ base tables.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-storage",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-logical-view-reflects-current-base-data",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q036",
+      "question": "Which change most clearly turns a simple one-table view into a complex view using the lecture's comparison?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Renaming the view only."
+        },
+        {
+          "id": "B",
+          "text": "Selecting fewer columns from the same table with no functions."
+        },
+        {
+          "id": "C",
+          "text": "Adding a semicolon at the end."
+        },
+        {
+          "id": "D",
+          "text": "Adding grouping or functions, or basing it on more than one table."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ Complex View في Slide 5 يتميز بإمكانية استخدام one or more tables وfunctions وgroups of data، بعكس الـ Simple View.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "simple-vs-complex-views",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-simple-to-complex-view-transition",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 5 — Simple Views and Complex Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q037",
+      "question": "A query against a view fails because the view was previously removed with DROP VIEW. What is the most direct fix consistent with the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Recreate the view definition with CREATE VIEW (or CREATE OR REPLACE VIEW where appropriate)."
+        },
+        {
+          "id": "B",
+          "text": "Run DELETE FROM the missing view."
+        },
+        {
+          "id": "C",
+          "text": "Add GROUP BY to every base table."
+        },
+        {
+          "id": "D",
+          "text": "Drop the base tables too."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لو الـ View اتشال بـ DROP VIEW، لازم تعريفه يتعمل من جديد باستخدام CREATE VIEW أو CREATE OR REPLACE حسب السياق.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "modify-view",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-recreate-dropped-view-fix",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 10–11 — Modifying / Removing a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q038",
+      "question": "A team uses a view instead of duplicating base tables when it only needs a simplified reusable result. Why does that choice match Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because a view always stores more data than a table."
+        },
+        {
+          "id": "B",
+          "text": "It provides a logical reusable SELECT layer without requiring a separate independent copy of the data."
+        },
+        {
+          "id": "C",
+          "text": "Because views cannot depend on tables."
+        },
+        {
+          "id": "D",
+          "text": "Because views remove the need for SELECT."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ View بيقدم logical layer reusable فوق البيانات الأصلية، وده يحقق تبسيط الاستعلام والعرض من غير تكرار مستقل للبيانات.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-vs-copy-best-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 3–4 — Views / Advantages"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q039",
+      "question": "In the Slide 7 view definition, why are both conditions SSN=ESSN and PNO=PNUMBER needed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They sort the output alphabetically."
+        },
+        {
+          "id": "B",
+          "text": "They convert Hours to an aggregate automatically."
+        },
+        {
+          "id": "C",
+          "text": "They connect the participating Employee, Works_on, and Project rows so the view returns related employee/project work information."
+        },
+        {
+          "id": "D",
+          "text": "They remove the view from the database."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الشرطين هما join conditions بيربطوا Employee بـ Works_on ثم Works_on بـ Project عشان الـ View يجيب بيانات مترابطة بدل Cartesian combinations.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-with-join",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-multi-table-join-conditions",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 7 — Creating Views (Cont’d)"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q040",
+      "question": "A view uses CASE to classify TotalSpent and a user queries only CustomerName and CustomerSegment. Which data is returned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All base-table columns plus the CASE source code."
+        },
+        {
+          "id": "B",
+          "text": "Only rows where CustomerSegment is NULL."
+        },
+        {
+          "id": "C",
+          "text": "A stored procedure result instead of view data."
+        },
+        {
+          "id": "D",
+          "text": "The requested two columns, with CustomerSegment computed by the CASE logic in the view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ View يحسب CustomerSegment بالـ CASE داخل تعريفه، وبعد كده SELECT يقدر يطلب بس CustomerName وCustomerSegment زي أي أعمدة exposed.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "case-in-views",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-case-view-selected-derived-column",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 18 — vw_CustomerSegments"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q001",
+      "question": "What does a scalar SQL function do according to Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It operates on a single value and returns a single value."
+        },
+        {
+          "id": "B",
+          "text": "It always combines multiple tables."
+        },
+        {
+          "id": "C",
+          "text": "It permanently stores query results."
+        },
+        {
+          "id": "D",
+          "text": "It can only be used inside a stored procedure."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ Scalar Function بتاخد قيمة واحدة وتطلع قيمة واحدة، زي UPPER(name).",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "scalar-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-scalar-function-definition",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 12 — SQL Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q002",
+      "question": "Which function is used in the lecture to convert employee names to uppercase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT()"
+        },
+        {
+          "id": "B",
+          "text": "UPPER()"
+        },
+        {
+          "id": "C",
+          "text": "ROUND()"
+        },
+        {
+          "id": "D",
+          "text": "DATE_ADD()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "مثال الـ Scalar Functions في Slide 13 هو SELECT UPPER(name) FROM employees;.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-upper-uppercase-example",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 13 — Scalar Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q003",
+      "question": "Which function example counts the total number of orders?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CONCAT(*)"
+        },
+        {
+          "id": "B",
+          "text": "UPPER(*)"
+        },
+        {
+          "id": "C",
+          "text": "COUNT(*)"
+        },
+        {
+          "id": "D",
+          "text": "DAY(*)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Slide 14 تستخدم SELECT COUNT(*) FROM orders; لحساب إجمالي عدد الطلبات.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "aggregate-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-count-orders-example",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 14 — Aggregate Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q004",
+      "question": "What is ROUND(AVG(salary), 2) intended to do in the lecture example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Return the two highest salaries."
+        },
+        {
+          "id": "B",
+          "text": "Round every salary to the nearest hundred."
+        },
+        {
+          "id": "C",
+          "text": "Count employees with two-digit salaries."
+        },
+        {
+          "id": "D",
+          "text": "Calculate average salary and round the result to two decimal places."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "AVG بتحسب المتوسط وROUND(..., 2) بتقرب الناتج لرقمين عشريين.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "mathematical-functions",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-round-average-two-decimals",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 15 — Mathematical Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q005",
+      "question": "Which function is used to combine first_name and last_name into one full-name value in Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CONCAT()"
+        },
+        {
+          "id": "B",
+          "text": "COUNT()"
+        },
+        {
+          "id": "C",
+          "text": "DATEDIFF()"
+        },
+        {
+          "id": "D",
+          "text": "MAX()"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Slide 16 تستخدم CONCAT(first_name, ' ', last_name) لإنشاء full name.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-concat-full-name",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 16 — String Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q006",
+      "question": "What is a stored procedure according to Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A client-side spreadsheet formula."
+        },
+        {
+          "id": "B",
+          "text": "A set of SQL statements stored and executed on the database server."
+        },
+        {
+          "id": "C",
+          "text": "A view that cannot accept parameters."
+        },
+        {
+          "id": "D",
+          "text": "A database index that stores only keys."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Stored Procedure هي مجموعة SQL statements محفوظة وتتنفذ على database server.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "stored-procedure-definition",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-stored-procedure-definition",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 23 — What is a Stored Procedure?"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q007",
+      "question": "Which capability of stored procedures is explicitly listed in Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They can never return results."
+        },
+        {
+          "id": "B",
+          "text": "They must execute only on the client."
+        },
+        {
+          "id": "C",
+          "text": "They can accept information in the form of parameters."
+        },
+        {
+          "id": "D",
+          "text": "They replace every table with a view."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتذكر إن Stored Procedures تقبل parameters وترجع results للـ client.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-parameters",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-accepts-parameters",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 23 — What is a Stored Procedure?"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q008",
+      "question": "Which is listed as a benefit of stored procedures?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mandatory duplication of SQL logic"
+        },
+        {
+          "id": "B",
+          "text": "Increased network traffic by design"
+        },
+        {
+          "id": "C",
+          "text": "Removal of all database security"
+        },
+        {
+          "id": "D",
+          "text": "Reuse of code"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "من المزايا المذكورة: reduction in network traffic، performance، reuse of code، وزيادة security.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-benefits",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-benefit-code-reuse",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 24 — Benefits of Stored Procedures"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q009",
+      "question": "What does an input parameter such as @DepartmentID let a stored procedure do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Receive a value that can be used inside the procedure's SQL logic."
+        },
+        {
+          "id": "B",
+          "text": "Rename the database automatically."
+        },
+        {
+          "id": "C",
+          "text": "Create a view for every row."
+        },
+        {
+          "id": "D",
+          "text": "Disable WHERE conditions."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ input parameter بيمرر قيمة للـ procedure عشان تستخدمها في الاستعلام، زي DepartmentID في مثال Slide 26.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-parameters",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-input-parameter-purpose",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — How to Use This Procedure"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q010",
+      "question": "What does SELECT CONCAT(first_name, ' ', last_name) FROM employees; return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The number of employees."
+        },
+        {
+          "id": "B",
+          "text": "A combined full-name value for each employee row."
+        },
+        {
+          "id": "C",
+          "text": "The average length of all names."
+        },
+        {
+          "id": "D",
+          "text": "Only employees whose names are uppercase."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "CONCAT بيجمع النصوص المحددة لكل row، وهنا بيرجع first_name + space + last_name.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-concat-output-tracing",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 16 — String Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q011",
+      "question": "What is the output purpose of SELECT DAY(RESCUEDATE) FROM PETRESCUE WHERE ANIMAL='Cat';?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Return the full date plus one day."
+        },
+        {
+          "id": "B",
+          "text": "Count all Cat rows."
+        },
+        {
+          "id": "C",
+          "text": "Return the day-of-month portion of RESCUEDATE for rows where ANIMAL is Cat."
+        },
+        {
+          "id": "D",
+          "text": "Return the month name only."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DAY() في المثال بتستخرج جزء اليوم من التاريخ بعد فلترة الصفوف اللي ANIMAL='Cat'.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-day-function-cat-filter",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 20 — Date, Time Functions (continued)"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q012",
+      "question": "What does DATE_ADD(RESCUEDATE, INTERVAL 3 DAY) compute in the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The number of days since RESCUEDATE."
+        },
+        {
+          "id": "B",
+          "text": "The month of RESCUEDATE."
+        },
+        {
+          "id": "C",
+          "text": "A date three years before RESCUEDATE."
+        },
+        {
+          "id": "D",
+          "text": "A date three days after each RESCUEDATE."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "DATE_ADD مع INTERVAL 3 DAY تضيف 3 أيام على RESCUEDATE.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-arithmetic",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-date-add-three-days",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 21 — Date or Time Arithmetic"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q013",
+      "question": "Which special registers are shown in Session 9 for obtaining current date/time information?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CURRENT_DATE and CURRENT_TIME"
+        },
+        {
+          "id": "B",
+          "text": "TODAY_TABLE and NOW_COLUMN"
+        },
+        {
+          "id": "C",
+          "text": "SYSTEM_DAY and SYSTEM_HOUR"
+        },
+        {
+          "id": "D",
+          "text": "DATE_INDEX and TIME_INDEX"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Slide 22 تعرض CURRENT_DATE وCURRENT_TIME كـ special registers.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-current-date-current-time",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 22 — Date or Time Arithmetic"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q014",
+      "question": "A dashboard needs customer tenure based on a stored JoinDate and the current date. Which taught family of logic is most relevant?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP VIEW only"
+        },
+        {
+          "id": "B",
+          "text": "Date/time functions and date arithmetic such as DATEDIFF with the current date."
+        },
+        {
+          "id": "C",
+          "text": "COUNT(*) without any date expression"
+        },
+        {
+          "id": "D",
+          "text": "CREATE INDEX only"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Assignment نفسه يطلب date calculations for customer tenure، والمادة تعرض DATEDIFF وCURRENT_DATE ضمن Date/Time Arithmetic.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-arithmetic",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-customer-tenure-date-diff-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 22 and 29 — Date Arithmetic / Assignment"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q015",
+      "question": "Which classification best fits COUNT(*) in Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "String function"
+        },
+        {
+          "id": "B",
+          "text": "View command"
+        },
+        {
+          "id": "C",
+          "text": "Aggregate function"
+        },
+        {
+          "id": "D",
+          "text": "Stored procedure parameter"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "COUNT(*) بيحسب نتيجة واحدة من multiple rows، لذلك هو Aggregate Function.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "aggregate-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-count-is-aggregate",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 12 and 14 — SQL / Aggregate Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q016",
+      "question": "Which classification best fits ROUND() in the Session 9 function categories?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Date function"
+        },
+        {
+          "id": "B",
+          "text": "View command"
+        },
+        {
+          "id": "C",
+          "text": "Join operator"
+        },
+        {
+          "id": "D",
+          "text": "Mathematical function"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 12 تصنف Mathematical Functions كفئة، وSlide 15 تستخدم ROUND() كمثال مباشر.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "mathematical-functions",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-round-mathematical-function",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 12 and 15 — SQL / Mathematical Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q017",
+      "question": "A query returns customer segments using CASE inside a view. What role does CASE play?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It returns a conditional value based on the first matching condition."
+        },
+        {
+          "id": "B",
+          "text": "It creates a stored procedure automatically."
+        },
+        {
+          "id": "C",
+          "text": "It permanently groups rows into new tables."
+        },
+        {
+          "id": "D",
+          "text": "It replaces the view with an index."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "CASE expression بتختار قيمة output حسب الشروط، زي VIP/Premium/Standard/Basic في الـ View.",
+        "en": ""
+      },
+      "topic": "SQL Server Control Flow",
+      "topicId": "sql-server-control-flow",
+      "subtopicId": "case-expression",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-case-conditional-value-in-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 17–18 — CASE in Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q018",
+      "question": "A procedure GetEmployeesInDepartment receives @DepartmentID = 101 and uses WHERE DepartmentID = @DepartmentID. What is the parameter doing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Changing every employee's DepartmentID to 101."
+        },
+        {
+          "id": "B",
+          "text": "Filtering the procedure's query to DepartmentID 101."
+        },
+        {
+          "id": "C",
+          "text": "Creating a new database numbered 101."
+        },
+        {
+          "id": "D",
+          "text": "Dropping department 101."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "القيمة 101 بتدخل للـ parameter ثم WHERE تستخدمها لفلترة الموظفين على نفس DepartmentID.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-execution",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-department-parameter-tracing",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — How to Use This Procedure"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q019",
+      "question": "A caller wants to run GetEmployeesInDepartment for department 101. Which invocation matches the Session 9 example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT PROCEDURE GetEmployeesInDepartment INTO 101;"
+        },
+        {
+          "id": "B",
+          "text": "RUN VIEW GetEmployeesInDepartment 101;"
+        },
+        {
+          "id": "C",
+          "text": "EXEC GetEmployeesInDepartment @DepartmentID = 101;"
+        },
+        {
+          "id": "D",
+          "text": "DROP GetEmployeesInDepartment 101;"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Slide 26 تعرض EXEC كطريقة تشغيل الـ Stored Procedure مع parameter.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-execution",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-exec-procedure-syntax",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — How to Use This Procedure"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q020",
+      "question": "A company repeatedly sends the same multi-statement business logic from an application to the database. Which Session 9 feature is the best candidate for reuse on the server?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A new physical database for each request"
+        },
+        {
+          "id": "B",
+          "text": "DROP VIEW"
+        },
+        {
+          "id": "C",
+          "text": "A wildcard in LIKE"
+        },
+        {
+          "id": "D",
+          "text": "Stored procedure"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده external-similar مبني على benefits الـ Stored Procedures: reuse of code وتقليل network traffic لأن logic محفوظ وينفذ على السيرفر.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-benefits",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-server-side-reuse-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 23–24 — Stored Procedures / Benefits"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q021",
+      "question": "Why can stored procedures reduce network traffic according to the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reusable SQL logic runs on the database server instead of repeatedly sending all statements from the client."
+        },
+        {
+          "id": "B",
+          "text": "Because procedures delete network packets."
+        },
+        {
+          "id": "C",
+          "text": "Because procedures prevent all client connections."
+        },
+        {
+          "id": "D",
+          "text": "Because they convert queries into images."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "منطق الـ procedure محفوظ على server، فالـ client يرسل call/parameters بدل إرسال نفس مجموعة statements كل مرة، وده يفسر تقليل network traffic.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-benefits",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-network-traffic-reason",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 24 — Benefits of Stored Procedures"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q022",
+      "question": "The procedure UPDATE_SAL receives empNum and rating. If rating = 1, what does the shown example indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The employee is deleted."
+        },
+        {
+          "id": "B",
+          "text": "The first UPDATE branch increases the employee's salary by 10%."
+        },
+        {
+          "id": "C",
+          "text": "The salary is reduced by 10%."
+        },
+        {
+          "id": "D",
+          "text": "The procedure creates a view instead."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المثال في Slides 25–26 يوضح إن rating = 1 ينفذ UPDATE salary = salary * 1.10 للموظف المحدد.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-conditional-update",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-update-sal-rating-one-ten-percent",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 25–26 — CREATE PROCEDURE / Procedure Execution"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q023",
+      "question": "If the same UPDATE_SAL procedure is called with a rating other than 1, what does the shown logic do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It always applies both 10% and 5% increases."
+        },
+        {
+          "id": "B",
+          "text": "It drops the employee row."
+        },
+        {
+          "id": "C",
+          "text": "It uses the second UPDATE branch that multiplies salary by 1.05."
+        },
+        {
+          "id": "D",
+          "text": "It returns COUNT(*) only."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الكود الظاهر فيه branch تاني بشرط rating <> 1 لزيادة 5%، وبالتالي مش المفروض ينفذ branch الـ 10% في نفس الحالة.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-conditional-update",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-update-sal-nonone-five-percent",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 25 — CREATE PROCEDURE statement"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q024",
+      "question": "A report needs total orders, total amount spent, cleaned customer names, and customer tenure. Which combination best matches the Session 9 assignment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only DROP VIEW and DELETE"
+        },
+        {
+          "id": "B",
+          "text": "Only CREATE INDEX"
+        },
+        {
+          "id": "C",
+          "text": "Only a Cartesian product"
+        },
+        {
+          "id": "D",
+          "text": "Aggregate functions + string functions + date calculations, optionally exposed through a view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ Assignment يطلب total orders/amount، formatting، CASE، وdate calculations؛ يعني استخدام aggregate + string + date functions داخل reporting query/view.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "functions-reporting-integration",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-report-functions-integration-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 27–29 — Lab / Assignment"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q025",
+      "question": "What is the main difference between scalar and aggregate functions in the Session 9 classification?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Scalar functions operate on a single value; aggregate functions compute a result from multiple rows."
+        },
+        {
+          "id": "B",
+          "text": "Scalar functions can only be used in views; aggregates only in procedures."
+        },
+        {
+          "id": "C",
+          "text": "Aggregate functions always return text; scalar functions always return dates."
+        },
+        {
+          "id": "D",
+          "text": "There is no difference in the lecture."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الفرق الأساسي المذكور في Slide 12 هو نطاق العمل: scalar على single value، aggregate على multiple rows.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "function-categories",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-scalar-vs-aggregate",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 12 — SQL Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q026",
+      "question": "If AVG(salary) returns 5432.6789, what would ROUND(AVG(salary), 2) produce conceptually?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5432"
+        },
+        {
+          "id": "B",
+          "text": "5432.68"
+        },
+        {
+          "id": "C",
+          "text": "54.326789"
+        },
+        {
+          "id": "D",
+          "text": "543267.89"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ROUND(..., 2) يقرب النتيجة لرقمين بعد العلامة العشرية، فـ 5432.6789 تصبح 5432.68.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "mathematical-functions",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-round-average-calculation-5432",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 15 — Mathematical Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q027",
+      "question": "A query writer tries to use CONCAT to count rows. What is the problem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CONCAT only works on dates."
+        },
+        {
+          "id": "B",
+          "text": "COUNT can only combine strings."
+        },
+        {
+          "id": "C",
+          "text": "CONCAT is a string function for combining text; COUNT is the aggregate function for counting rows."
+        },
+        {
+          "id": "D",
+          "text": "Both functions always perform the same task."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "دي troubleshooting بين function categories: CONCAT للنصوص، COUNT للعدّ على rows.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "function-categories",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-concat-vs-count-misuse",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 12, 14, and 16 — Function Categories"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q028",
+      "question": "A stored procedure is created to return employees by department, but the query ignores @DepartmentID and has no WHERE condition. What is the likely result?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The parameter automatically filters rows even if unused."
+        },
+        {
+          "id": "B",
+          "text": "The procedure becomes a view."
+        },
+        {
+          "id": "C",
+          "text": "SQL automatically inserts WHERE DepartmentID = @DepartmentID."
+        },
+        {
+          "id": "D",
+          "text": "The parameter has no filtering effect, so the query can return employees from all departments."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ parameter لازم يدخل فعليًا في query. لو ما استخدمتوش في WHERE، مش هيحصل filtering تلقائي.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-parameters",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-unused-parameter-diagnosis",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — How to Use This Procedure"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q029",
+      "question": "Which design is best when a query simply needs an uppercase version of a name for display?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use UPPER(name) in the SELECT output."
+        },
+        {
+          "id": "B",
+          "text": "Create a stored procedure that drops the table."
+        },
+        {
+          "id": "C",
+          "text": "Use COUNT(*) on the name."
+        },
+        {
+          "id": "D",
+          "text": "Use DATE_ADD on the name."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لـ display formatting بسيط، UPPER() مباشرة في SELECT هو الاختيار المناسب حسب مثال Scalar Functions.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-upper-display-best-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 13 — Scalar Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q030",
+      "question": "Which design is best for exposing a reusable sales-dashboard result that already includes cleaned names, aggregates, CASE categories, and date calculations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Duplicate the source tables for every dashboard refresh."
+        },
+        {
+          "id": "B",
+          "text": "Create a reporting view whose SELECT contains the taught functions and CASE logic."
+        },
+        {
+          "id": "C",
+          "text": "Use DROP VIEW after each SELECT."
+        },
+        {
+          "id": "D",
+          "text": "Avoid SQL functions and calculate nothing."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده يجمع الـ Lab والـ Assignment: View reusable للتقرير، وداخله aggregate/string/date functions وCASE حسب المطلوب.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-design-integration",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-sales-dashboard-view-best-design",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 27–29 — Lab / Assignment"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q031",
+      "question": "A procedure accepts @DepartmentID but a caller passes 101 while the query hard-codes WHERE DepartmentID = 200. What is the main defect?",
+      "options": [
+        {
+          "id": "A",
+          "text": "EXEC automatically replaces 200 with 101."
+        },
+        {
+          "id": "B",
+          "text": "The procedure will return both departments because parameters are additive."
+        },
+        {
+          "id": "C",
+          "text": "The procedure ignores the supplied parameter for filtering and will use the hard-coded department instead."
+        },
+        {
+          "id": "D",
+          "text": "The parameter converts 200 into a view name."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المشكلة إن query مش مرتبطة بالـ parameter؛ hard-coded 200 هي اللي تتحكم في النتيجة، فالقيمة 101 ملهاش تأثير.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-parameters",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-hardcoded-filter-ignores-param",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 26 — Procedure Parameters"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q032",
+      "question": "A procedure is intended to raise salary by 10% only when rating = 1 and by 5% otherwise. Which implementation decision best matches the shown UPDATE_SAL logic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Run both UPDATE statements unconditionally."
+        },
+        {
+          "id": "B",
+          "text": "Remove empNum from the WHERE clause."
+        },
+        {
+          "id": "C",
+          "text": "Convert salary to text before multiplication."
+        },
+        {
+          "id": "D",
+          "text": "Use mutually exclusive conditions so only the appropriate UPDATE branch affects the employee."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الهدف إن branch واحدة بس تتطبق حسب rating؛ لازم الشروط تبقى mutually exclusive ومعها employee filter عشان ما يحصلش تحديث غير مقصود.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-conditional-update",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-mutually-exclusive-updates",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 25 — CREATE PROCEDURE statement"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q033",
+      "question": "Suppose an employee salary is 5000 and UPDATE_SAL applies salary = salary * 1.10 for rating = 1. What is the new salary?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5500"
+        },
+        {
+          "id": "B",
+          "text": "5050"
+        },
+        {
+          "id": "C",
+          "text": "5100"
+        },
+        {
+          "id": "D",
+          "text": "6000"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "5000 × 1.10 = 5500، وده tracing مباشر لمنطق زيادة 10% الظاهر في الـ procedure.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-conditional-update",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-ten-percent-5000",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 25 — CREATE PROCEDURE statement"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q034",
+      "question": "Suppose an employee salary is 8000 and the second UPDATE_SAL branch applies salary = salary * 1.05. What is the new salary?",
+      "options": [
+        {
+          "id": "A",
+          "text": "8050"
+        },
+        {
+          "id": "B",
+          "text": "8400"
+        },
+        {
+          "id": "C",
+          "text": "8800"
+        },
+        {
+          "id": "D",
+          "text": "7600"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "8000 × 1.05 = 8400، أي زيادة 5%.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-conditional-update",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-five-percent-8000",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 25 — CREATE PROCEDURE statement"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q035",
+      "question": "A reporting query needs both the original RESCUEDATE and the date three days later. Which expression from the taught material should be added as a derived output?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT(RESCUEDATE, 3)"
+        },
+        {
+          "id": "B",
+          "text": "CONCAT(RESCUEDATE, COUNT(*))"
+        },
+        {
+          "id": "C",
+          "text": "DATE_ADD(RESCUEDATE, INTERVAL 3 DAY)"
+        },
+        {
+          "id": "D",
+          "text": "UPPER(RESCUEDATE)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DATE_ADD هو التعبير المستخدم في Slide 21 لإضافة 3 أيام على التاريخ.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-arithmetic",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-date-add-derived-column-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 21 — Date or Time Arithmetic"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q036",
+      "question": "A query uses DAY(RESCUEDATE) expecting it to return the full YYYY-MM-DD date. What is wrong?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DAY() always returns the year."
+        },
+        {
+          "id": "B",
+          "text": "DAY() counts rows instead of dates."
+        },
+        {
+          "id": "C",
+          "text": "DAY() creates a stored procedure."
+        },
+        {
+          "id": "D",
+          "text": "DAY() extracts the day portion, not the full date."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "مثال Slide 20 يوضح إن DAY() تستخرج day portion فقط، زي 29 أو 11، مش التاريخ الكامل.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-day-function-full-date-misunderstanding",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 20 — Date, Time Functions (continued)"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q037",
+      "question": "A sales dashboard needs one reusable object that hides raw complexity, returns total orders and total amount, formats customer names, categorizes performance, and calculates tenure. Which combination most directly follows the Session 9 assignment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A view whose SELECT combines aggregates, string/date functions, and CASE logic."
+        },
+        {
+          "id": "B",
+          "text": "A view containing only DROP statements."
+        },
+        {
+          "id": "C",
+          "text": "A stored procedure that never returns a result."
+        },
+        {
+          "id": "D",
+          "text": "An index used as the dashboard output table."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ده نفس تكامل Assignment: View + aggregate functions + formatting functions + CASE + date calculations.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-design-integration",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-dashboard-full-integration-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 29 — Assignment"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q038",
+      "question": "Why is SELECT COUNT(*) FROM orders; an aggregate query even though it returns only one value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because COUNT is a string function."
+        },
+        {
+          "id": "B",
+          "text": "Because it computes that single result from multiple input rows."
+        },
+        {
+          "id": "C",
+          "text": "Because every one-row result is a scalar function."
+        },
+        {
+          "id": "D",
+          "text": "Because orders must contain exactly one row."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ Aggregate Function ممكن ترجع قيمة واحدة لكنها بتحسبها من multiple rows؛ ده بالضبط تعريف aggregate في Slide 12.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "aggregate-functions",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-aggregate-single-result-multiple-rows",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 12 and 14 — Aggregate Functions"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q039",
+      "question": "A developer sends the full SQL body of a repeated process from the client every time, despite already having a stored procedure for it. Which benefit is being underused?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The ability of views to store independent data."
+        },
+        {
+          "id": "B",
+          "text": "The ability of COUNT to uppercase text."
+        },
+        {
+          "id": "C",
+          "text": "Reduction in network traffic and code reuse."
+        },
+        {
+          "id": "D",
+          "text": "The ability of DROP VIEW to calculate dates."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "لو كل مرة بنرسل كل statements بدل calling procedure، بنفقد جزء من فائدة code reuse وتقليل network traffic المذكورة في Slide 24.",
+        "en": ""
+      },
+      "topic": "Stored Procedures",
+      "topicId": "stored-procedures",
+      "subtopicId": "procedure-benefits",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-procedure-benefits-underused",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 24 — Benefits of Stored Procedures"
+      }
+    },
+    {
+      "id": "da-sql-session09-funcproc-q040",
+      "question": "A query needs to present a customer's full name and a rounded average purchase value in the same result. Which combination stays within the taught Session 9 functions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT(...) for the name and UPPER(...) for the numeric average."
+        },
+        {
+          "id": "B",
+          "text": "DATE_ADD(...) for the name and DROP VIEW for the average."
+        },
+        {
+          "id": "C",
+          "text": "EXEC for the name and CREATE VIEW for the numeric rounding."
+        },
+        {
+          "id": "D",
+          "text": "CONCAT(...) for the name and ROUND(AVG(...), 2) for the average."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "CONCAT مخصص لتجميع النصوص، وROUND(AVG(...),2) هو نفس pattern المستخدم لتقريب المتوسط.",
+        "en": ""
+      },
+      "topic": "SQL Functions & Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "functions-reporting-integration",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-concat-round-avg-combination",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 15–16 — Mathematical / String Functions"
+      }
+    }
+  ]
+}

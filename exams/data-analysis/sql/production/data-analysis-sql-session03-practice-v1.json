@@ -1,0 +1,1751 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-sql-session03-practice-v1",
+    "title": "Session 3 — SQL Practice",
+    "description": "Validated practice set for SQL Query Fundamentals, using the production question banks linked to Session3.pptx.",
+    "course": "Data Analysis",
+    "module": "SQL & Databases — Session 3",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-sql-session03-q001",
+      "question": "Which statement about SQL keyword case is supported by Session 3?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SQL keywords must always be lowercase."
+        },
+        {
+          "id": "B",
+          "text": "SELECT and select are different commands."
+        },
+        {
+          "id": "C",
+          "text": "SELECT and select have the same meaning as SQL keywords."
+        },
+        {
+          "id": "D",
+          "text": "Only WHERE is case insensitive."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتوضح إن SQL keywords نفسها case insensitive، فـ SELECT وselect ليهم نفس المعنى كأوامر SQL.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "sql-syntax-basics",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "sql-keywords-case-insensitive",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 6 — SQL Syntax"
+      }
+    },
+    {
+      "id": "da-sql-session03-q002",
+      "question": "What is the main purpose of a semicolon in SQL according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To convert SELECT into DDL."
+        },
+        {
+          "id": "B",
+          "text": "To separate SQL statements, especially when multiple statements are sent in one call."
+        },
+        {
+          "id": "C",
+          "text": "To sort query results."
+        },
+        {
+          "id": "D",
+          "text": "To create a primary key automatically."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ semicolon هو الفاصل القياسي بين SQL statements، خصوصًا لما النظام يسمح بتنفيذ أكتر من statement في نفس الطلب.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "statement-termination",
+      "importance": "supporting",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "semicolon-separates-statements",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 7 — Semicolon after SQL Statements?"
+      }
+    },
+    {
+      "id": "da-sql-session03-q003",
+      "question": "What does SELECT * FROM customers; request?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only distinct customers."
+        },
+        {
+          "id": "B",
+          "text": "Only rows where age is greater than 30."
+        },
+        {
+          "id": "C",
+          "text": "Only the customer name column."
+        },
+        {
+          "id": "D",
+          "text": "All columns from the customers table."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "النجمة * مع SELECT معناها اختيار كل الأعمدة من الجدول المحدد في FROM.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "select-from-basics",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "select-star-all-columns",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 13 — SELECT, WHERE, ORDER BY basics"
+      }
+    },
+    {
+      "id": "da-sql-session03-q004",
+      "question": "In a basic SELECT query, what is the role of FROM?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It sorts the final rows."
+        },
+        {
+          "id": "B",
+          "text": "It removes duplicates."
+        },
+        {
+          "id": "C",
+          "text": "It identifies the table from which data is retrieved."
+        },
+        {
+          "id": "D",
+          "text": "It updates existing rows."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "FROM بتحدد الجدول اللي الاستعلام هيقرأ منه البيانات.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "select-from-basics",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "from-chooses-table",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 12 — SQL Building Blocks"
+      }
+    },
+    {
+      "id": "da-sql-session03-q005",
+      "question": "What does DISTINCT do in a SELECT query?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It deletes duplicate rows from the table permanently."
+        },
+        {
+          "id": "B",
+          "text": "It sorts values descending."
+        },
+        {
+          "id": "C",
+          "text": "It returns only distinct values or rows from the selected output."
+        },
+        {
+          "id": "D",
+          "text": "It groups rows before filtering."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DISTINCT بتأثر على نتيجة الاستعلام فقط وبتشيل التكرار من الـ output، مش من البيانات المخزنة.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "select-distinct",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "distinct-removes-output-duplicates",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 16–18 — SELECT DISTINCT"
+      }
+    },
+    {
+      "id": "da-sql-session03-q006",
+      "question": "What does DESC mean when used with ORDER BY?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Filter duplicate rows."
+        },
+        {
+          "id": "B",
+          "text": "Sort in descending order."
+        },
+        {
+          "id": "C",
+          "text": "Sort in ascending order only."
+        },
+        {
+          "id": "D",
+          "text": "Delete rows from the bottom of a table."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "DESC اختصار descending وبيخلي الترتيب من الأكبر للأصغر أو من Z لـ A حسب نوع البيانات.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "order-by",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "order-by-desc-meaning",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 13 — ORDER BY age DESC, name ASC"
+      }
+    },
+    {
+      "id": "da-sql-session03-q007",
+      "question": "Which DDL statement is listed as creating an index (search key)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE INDEX"
+        },
+        {
+          "id": "B",
+          "text": "CREATE VIEW"
+        },
+        {
+          "id": "C",
+          "text": "INSERT INTO"
+        },
+        {
+          "id": "D",
+          "text": "GROUP BY"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Session 3 بتذكر CREATE INDEX صراحة كـ DDL لإنشاء index أو search key.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-indexes",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "ddl-create-index-purpose",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 10 — DDL statements"
+      }
+    },
+    {
+      "id": "da-sql-session03-q008",
+      "question": "What does DROP TABLE do according to Session 3?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deletes one matching row only."
+        },
+        {
+          "id": "B",
+          "text": "Returns distinct values."
+        },
+        {
+          "id": "C",
+          "text": "Deletes a table."
+        },
+        {
+          "id": "D",
+          "text": "Sorts the table by its primary key."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DROP TABLE من أوامر DDL وبيحذف الجدول نفسه، مش مجرد صف واحد.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-drop",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "drop-table-deletes-table",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 10 — DDL statements"
+      }
+    },
+    {
+      "id": "da-sql-session03-q009",
+      "question": "Which command is used to update existing rows?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT DISTINCT"
+        },
+        {
+          "id": "B",
+          "text": "CREATE INDEX"
+        },
+        {
+          "id": "C",
+          "text": "DROP TABLE"
+        },
+        {
+          "id": "D",
+          "text": "UPDATE"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "UPDATE هو أمر تعديل البيانات الموجودة بالفعل، وSession 3 بتعرض UPDATE ... SET ... WHERE ضمن CRUD.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "crud-update",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "update-existing-rows",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 20 — CRUD Overview"
+      }
+    },
+    {
+      "id": "da-sql-session03-q010",
+      "question": "What is the risk of omitting WHERE from an UPDATE or DELETE, according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The statement can affect all rows."
+        },
+        {
+          "id": "B",
+          "text": "The query becomes a SELECT statement."
+        },
+        {
+          "id": "C",
+          "text": "Only the first row is affected."
+        },
+        {
+          "id": "D",
+          "text": "The table is automatically dropped."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتنبه إن غياب WHERE في UPDATE أو DELETE ممكن يخلي العملية تطبق على كل الصفوف، ودي نقطة troubleshooting مهمة.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "crud-safety",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "missing-where-affects-all-rows",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 26 — Common Pitfalls & Fixes"
+      }
+    },
+    {
+      "id": "da-sql-session03-q011",
+      "question": "The Students example has columns LastName and FirstName. Which query returns exactly those two columns?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT * FROM Students WHERE LastName, FirstName;"
+        },
+        {
+          "id": "B",
+          "text": "UPDATE Students SET LastName, FirstName;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT LastName, FirstName FROM Students;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT DISTINCT * FROM Students ORDER BY FirstName;"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المثال في الشرائح 14–15 بيستخدم SELECT LastName, FirstName FROM Students لاختيار عمودين محددين.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "select-specific-columns",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "select-two-specific-columns",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 14–15 — SELECT example"
+      }
+    },
+    {
+      "id": "da-sql-session03-q012",
+      "question": "In the Students DISTINCT example, the City values are Puerto Princesa, Quezon, and Quezon. What does SELECT DISTINCT City return?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Quezon only."
+        },
+        {
+          "id": "B",
+          "text": "Puerto Princesa, Quezon, and Quezon."
+        },
+        {
+          "id": "C",
+          "text": "Puerto Princesa and Quezon."
+        },
+        {
+          "id": "D",
+          "text": "Three NULL values."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "DISTINCT بيحتفظ بكل قيمة مختلفة مرة واحدة، لذلك Quezon المتكررة بتظهر مرة واحدة فقط.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "select-distinct",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "distinct-city-result",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 17–18 — DISTINCT City example"
+      }
+    },
+    {
+      "id": "da-sql-session03-q013",
+      "question": "Using the sample customers in Slide 22, how many customers satisfy WHERE age > 30?",
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "7"
+        },
+        {
+          "id": "D",
+          "text": "6"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الأعمار الأكبر من 30 هي 34 و41 و33 و45 و31 و36، يعني 6 صفوف.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "where-filtering",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "where-age-over-30-count",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 22–23 — sample customers and WHERE age > 30"
+      }
+    },
+    {
+      "id": "da-sql-session03-q014",
+      "question": "Using the sample customers, which customer appears first under ORDER BY age DESC, name ASC?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Omar Khalid, age 41."
+        },
+        {
+          "id": "B",
+          "text": "Fahad Zayed, age 45."
+        },
+        {
+          "id": "C",
+          "text": "Maya Haddad, age 22."
+        },
+        {
+          "id": "D",
+          "text": "Sara Ahmed, age 34."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "أكبر age في البيانات هو 45 لفهد، لذلك يظهر أولًا مع DESC.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "order-by",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "order-by-age-desc-first-row",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 22–23 — sample data and sorting"
+      }
+    },
+    {
+      "id": "da-sql-session03-q015",
+      "question": "Using the sample customers, what count does GROUP BY city produce for Riyadh?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "9"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Riyadh موجودة مع Ali Hassan وFahad Zayed، لذلك COUNT(*) للمجموعة يساوي 2.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "group-by-aggregates",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "group-by-riyadh-count",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 22 and 24 — sample data / GROUP BY city"
+      }
+    },
+    {
+      "id": "da-sql-session03-q016",
+      "question": "Using the sample customers, what is AVG(age) for the Riyadh group?",
+      "options": [
+        {
+          "id": "A",
+          "text": "29"
+        },
+        {
+          "id": "B",
+          "text": "37"
+        },
+        {
+          "id": "C",
+          "text": "45"
+        },
+        {
+          "id": "D",
+          "text": "74"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "أعمار Riyadh هي 29 و45، والمتوسط (29+45)/2 = 37.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "group-by-aggregates",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "avg-age-riyadh-trace",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 19 and 22 — AVG(age) by city / sample data"
+      }
+    },
+    {
+      "id": "da-sql-session03-q017",
+      "question": "What row is targeted by UPDATE customers SET email = ... WHERE customer_id = 5;?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the row whose customer_id equals 5."
+        },
+        {
+          "id": "B",
+          "text": "Every row in customers."
+        },
+        {
+          "id": "C",
+          "text": "Only rows with NULL email."
+        },
+        {
+          "id": "D",
+          "text": "The fifth column of every row."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "WHERE customer_id = 5 بيحدد الصف صاحب المفتاح 5 فقط؛ رقم 5 هنا قيمة row identifier مش رقم عمود.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "crud-update",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "update-target-by-customer-id",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 25 — Hands-On: Update & Delete"
+      }
+    },
+    {
+      "id": "da-sql-session03-q018",
+      "question": "What does DELETE FROM customers WHERE email = 'noura.salem@example.com'; do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Drops the customers table structure."
+        },
+        {
+          "id": "B",
+          "text": "Removes rows whose email matches that value."
+        },
+        {
+          "id": "C",
+          "text": "Changes the matching email to NULL."
+        },
+        {
+          "id": "D",
+          "text": "Deletes the email column only."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "DELETE FROM ... WHERE بيحذف الصفوف المطابقة للشرط، مش الجدول نفسه ولا العمود.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "crud-delete",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "delete-by-email-condition",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 25 — Hands-On: Update & Delete"
+      }
+    },
+    {
+      "id": "da-sql-session03-q019",
+      "question": "In the customers table definition, which constraint prevents the same email value from being stored more than once?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UNIQUE on email."
+        },
+        {
+          "id": "B",
+          "text": "CHECK on age."
+        },
+        {
+          "id": "C",
+          "text": "NOT NULL on name."
+        },
+        {
+          "id": "D",
+          "text": "IDENTITY on customer_id."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "UNIQUE على email هو القيد المخصص لمنع تكرار نفس القيمة في هذا العمود.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "unique-constraint",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "customers-email-unique",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 21 — Hands-On: Create the Table"
+      }
+    },
+    {
+      "id": "da-sql-session03-q020",
+      "question": "The customers table has CHECK (age BETWEEN 0 AND 120). Which attempted age violates the rule?",
+      "options": [
+        {
+          "id": "A",
+          "text": "125"
+        },
+        {
+          "id": "B",
+          "text": "0"
+        },
+        {
+          "id": "C",
+          "text": "35"
+        },
+        {
+          "id": "D",
+          "text": "120"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "BETWEEN 0 AND 120 بيحدد المجال المقبول؛ 125 خارجه وبالتالي يخرق CHECK.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "check-constraint",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "age-check-rejects-125",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 21 — CHECK (age BETWEEN 0 AND 120)"
+      }
+    },
+    {
+      "id": "da-sql-session03-q021",
+      "question": "A MySQL table is stored with a specific table name spelling. What caution does Session 3 give?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All SQL keywords must match table-name case."
+        },
+        {
+          "id": "B",
+          "text": "Use the table name as it exists in the database because MySQL may distinguish table-name case."
+        },
+        {
+          "id": "C",
+          "text": "Column values are always case sensitive."
+        },
+        {
+          "id": "D",
+          "text": "SELECT must be written in uppercase or it fails."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتفرق بين SQL keywords اللي case insensitive وبين table names في MySQL اللي لازم تتكتب زي ما هي موجودة.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "sql-syntax-basics",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "mysql-table-name-case-caution",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 6 — SQL Syntax"
+      }
+    },
+    {
+      "id": "da-sql-session03-q022",
+      "question": "Which pair correctly contrasts DDL and DML examples from Session 3?",
+      "options": [
+        {
+          "id": "A",
+          "text": "GROUP BY changes structure; DROP TABLE sorts rows."
+        },
+        {
+          "id": "B",
+          "text": "SELECT DISTINCT creates a database; UPDATE creates an index."
+        },
+        {
+          "id": "C",
+          "text": "CREATE TABLE changes structure; INSERT INTO adds data."
+        },
+        {
+          "id": "D",
+          "text": "INSERT INTO drops a table; ORDER BY alters a database."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "CREATE TABLE من DDL لإنشاء structure، بينما INSERT INTO من DML لإضافة بيانات.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-vs-dml",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session3-ddl-vs-dml-example",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 9–11 — DDL and DML"
+      }
+    },
+    {
+      "id": "da-sql-session03-q023",
+      "question": "In CREATE TABLE customers, which column is explicitly defined as the PRIMARY KEY?",
+      "options": [
+        {
+          "id": "A",
+          "text": "name"
+        },
+        {
+          "id": "B",
+          "text": "customer_id"
+        },
+        {
+          "id": "C",
+          "text": "email"
+        },
+        {
+          "id": "D",
+          "text": "city"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الكود في Slide 21 بيعرّف customer_id كـ INT IDENTITY(1,1) PRIMARY KEY.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "primary-key",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "customers-primary-key-column",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 21 — customers table DDL"
+      }
+    },
+    {
+      "id": "da-sql-session03-q024",
+      "question": "A second customer is inserted with an email already present in the table. Which part of the Session 3 schema is intended to stop that?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ORDER BY age DESC."
+        },
+        {
+          "id": "B",
+          "text": "The city VARCHAR length."
+        },
+        {
+          "id": "C",
+          "text": "SELECT DISTINCT in a later query."
+        },
+        {
+          "id": "D",
+          "text": "The UNIQUE constraint on email."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "SELECT DISTINCT يعالج تكرار الـ output فقط، لكن منع duplicate email وقت التخزين مسؤولية UNIQUE constraint.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "unique-constraint",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "duplicate-email-prevented-by-unique",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 21 and 26 — UNIQUE / duplicate pitfall"
+      }
+    },
+    {
+      "id": "da-sql-session03-q025",
+      "question": "What happens if an INSERT attempts to store NULL in customers.name under the shown schema?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It automatically becomes an empty string."
+        },
+        {
+          "id": "B",
+          "text": "It violates the NOT NULL constraint on name."
+        },
+        {
+          "id": "C",
+          "text": "It deletes the row."
+        },
+        {
+          "id": "D",
+          "text": "It is allowed because name has no constraint."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "name معرف بـ VARCHAR(100) NOT NULL، وبالتالي NULL غير مسموح في العمود.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "not-null-constraint",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "customers-name-not-null",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 21 — name VARCHAR(100) NOT NULL"
+      }
+    },
+    {
+      "id": "da-sql-session03-q026",
+      "question": "Which query best matches the requirement “return name and age for customers older than 30”?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT * FROM customers ORDER BY age > 30;"
+        },
+        {
+          "id": "B",
+          "text": "UPDATE customers SET age > 30;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT name, age FROM customers WHERE age > 30;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT DISTINCT age > 30 FROM customers;"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المطلوب اختيار عمودين ثم فلترة الصفوف، وده يتحقق بـ SELECT name, age ... WHERE age > 30.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "where-filtering",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "choose-query-name-age-over-30",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 13 — SELECT specific columns + WHERE"
+      }
+    },
+    {
+      "id": "da-sql-session03-q027",
+      "question": "What does ORDER BY age DESC, name ASC mean?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sort names descending first, then ignore age."
+        },
+        {
+          "id": "B",
+          "text": "Sort by age descending first; for equal ages, sort names ascending."
+        },
+        {
+          "id": "C",
+          "text": "Filter ages descending and names ascending."
+        },
+        {
+          "id": "D",
+          "text": "Group rows by age and then delete duplicate names."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ORDER BY بيطبّق مفاتيح الترتيب بالترتيب المكتوب: age DESC أولًا ثم name ASC عند التعادل.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "order-by",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "multi-column-order-by-priority",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 13 — ORDER BY age DESC, name ASC"
+      }
+    },
+    {
+      "id": "da-sql-session03-q028",
+      "question": "A query uses SELECT DISTINCT city FROM customers. Which statement is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Repeated city values are returned once in the query result."
+        },
+        {
+          "id": "B",
+          "text": "Repeated city rows are permanently deleted."
+        },
+        {
+          "id": "C",
+          "text": "The city column becomes UNIQUE automatically."
+        },
+        {
+          "id": "D",
+          "text": "Rows are sorted by city descending automatically."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "DISTINCT يغير result set فقط؛ لا يحذف بيانات ولا ينشئ constraint.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "select-distinct",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "distinct-city-output-only",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 16 — DISTINCT semantics"
+      }
+    },
+    {
+      "id": "da-sql-session03-q029",
+      "question": "Which query pattern is used in the session to count customers per city?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT DISTINCT COUNT city WITHOUT GROUP BY."
+        },
+        {
+          "id": "B",
+          "text": "UPDATE city SET COUNT(*)."
+        },
+        {
+          "id": "C",
+          "text": "CREATE INDEX city COUNT(*)."
+        },
+        {
+          "id": "D",
+          "text": "SELECT city, COUNT(*) ... GROUP BY city."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "COUNT(*) مع GROUP BY city بيحسب عدد الصفوف داخل كل مجموعة مدينة.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "group-by-aggregates",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "count-per-city-group-by-pattern",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 19 and 24 — COUNT customers per city"
+      }
+    },
+    {
+      "id": "da-sql-session03-q030",
+      "question": "Why does the session recommend avoiding SELECT * in production?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT * always deletes duplicate rows."
+        },
+        {
+          "id": "B",
+          "text": "SELECT * cannot read tables with primary keys."
+        },
+        {
+          "id": "C",
+          "text": "SELECT * changes the schema automatically."
+        },
+        {
+          "id": "D",
+          "text": "It recommends specifying the needed columns instead."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 26 بتعتبر SELECT * pitfall في production وبتوصي باختيار الأعمدة المطلوبة صراحة.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "query-quality",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "avoid-select-star-production",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 26 — Common Pitfalls & Fixes"
+      }
+    },
+    {
+      "id": "da-sql-session03-q031",
+      "question": "Using the Slide 22 sample data, a query applies WHERE age > 30 and then ORDER BY age DESC. Which first three names are returned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Omar Khalid, Fahad Zayed, Sara Ahmed."
+        },
+        {
+          "id": "B",
+          "text": "Fahad Zayed, Sara Ahmed, Yousef Nabil."
+        },
+        {
+          "id": "C",
+          "text": "Fahad Zayed, Omar Khalid, Hani Mansour."
+        },
+        {
+          "id": "D",
+          "text": "Maya Haddad, Leila Faris, Ali Hassan."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "بعد فلترة age > 30 يبقى 6 عملاء، وترتيبهم تنازليًا يبدأ 45 ثم 41 ثم 36: Fahad ثم Omar ثم Hani.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "where-order-combination",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-filter-then-sort-top3",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 22–23 — sample data / WHERE and ORDER BY"
+      }
+    },
+    {
+      "id": "da-sql-session03-q032",
+      "question": "Using the sample data, GROUP BY city followed by ORDER BY COUNT(*) DESC puts which city first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cairo."
+        },
+        {
+          "id": "B",
+          "text": "Jeddah."
+        },
+        {
+          "id": "C",
+          "text": "All cities tie with one row."
+        },
+        {
+          "id": "D",
+          "text": "Riyadh."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Riyadh هي المدينة الوحيدة المتكررة مرتين؛ باقي المدن مرة واحدة، فبتتصدر عند ترتيب COUNT(*) تنازليًا.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "group-by-aggregates",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "group-count-order-riyadh-first",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 22 and 24 — grouped customer counts"
+      }
+    },
+    {
+      "id": "da-sql-session03-q033",
+      "question": "A developer runs UPDATE customers SET city = 'Cairo'; and intended to change only one customer. What is the best diagnosis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UPDATE cannot modify text columns."
+        },
+        {
+          "id": "B",
+          "text": "The command is DDL and will drop the table."
+        },
+        {
+          "id": "C",
+          "text": "A GROUP BY clause is required for every UPDATE."
+        },
+        {
+          "id": "D",
+          "text": "The missing WHERE clause can update every row."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المشكلة الأساسية هي عدم وجود WHERE، والمادة تحذر إنه ممكن يؤثر على كل الصفوف.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "crud-safety",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "diagnose-update-without-where",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 26 — Missing WHERE on UPDATE/DELETE"
+      }
+    },
+    {
+      "id": "da-sql-session03-q034",
+      "question": "A team must change the email only for customer_id 7. Which approach best follows the session’s safe CRUD pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use UPDATE without WHERE and rely on row order."
+        },
+        {
+          "id": "B",
+          "text": "Use DROP TABLE then recreate the table."
+        },
+        {
+          "id": "C",
+          "text": "Use UPDATE ... SET ... WHERE customer_id = 7."
+        },
+        {
+          "id": "D",
+          "text": "Use SELECT DISTINCT customer_id = 7."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ safe pattern هو تحديد الصف المطلوب بوضوح في WHERE مع UPDATE، زي المثال في Slide 25.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "crud-safety",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "safe-update-with-key-filter",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 20, 25 and 26 — UPDATE pattern / safety"
+      }
+    },
+    {
+      "id": "da-sql-session03-q035",
+      "question": "Which query best implements “show customers older than 30, displaying name and age, oldest first”?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT name, age FROM customers GROUP BY age > 30;"
+        },
+        {
+          "id": "B",
+          "text": "DELETE FROM customers WHERE age > 30 ORDER BY age DESC;"
+        },
+        {
+          "id": "C",
+          "text": "SELECT DISTINCT age > 30 FROM customers UPDATE age DESC;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT name, age FROM customers WHERE age > 30 ORDER BY age DESC;"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المطلوب يجمع projection + filtering + sorting: SELECT الأعمدة، WHERE للشرط، وORDER BY DESC للترتيب.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "query-composition",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "compose-select-where-order-query",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 12–13 — SQL building blocks and examples"
+      }
+    },
+    {
+      "id": "da-sql-session03-q036",
+      "question": "Assume email is UNIQUE. After inserting one row with email x@example.com, a DELETE with WHERE email = 'x@example.com' succeeds. At most how many rows can that DELETE remove because of that email condition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "0 always"
+        },
+        {
+          "id": "C",
+          "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "Every row"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "UNIQUE يمنع وجود أكتر من صف بنفس email، لذلك شرط مساواة على القيمة دي يطابق بحد أقصى صف واحد.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "unique-constraint",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "unique-email-delete-max-one",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 21 and 25 — UNIQUE email / DELETE by email"
+      }
+    },
+    {
+      "id": "da-sql-session03-q037",
+      "question": "Which sequence correctly maps the CRUD-style actions shown in Session 3?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE TABLE → INSERT → UPDATE → DELETE."
+        },
+        {
+          "id": "B",
+          "text": "INSERT → CREATE INDEX → GROUP BY → DROP DATABASE."
+        },
+        {
+          "id": "C",
+          "text": "SELECT DISTINCT → ALTER DATABASE → HAVING → COMMIT."
+        },
+        {
+          "id": "D",
+          "text": "DELETE → CREATE TABLE → SELECT → DROP INDEX only."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Session 3 بتميز إنشاء الـ structure بـ CREATE TABLE، ثم إدخال البيانات INSERT، تعديلها UPDATE، وحذف صفوف DELETE.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "crud-overview",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "crud-action-sequence",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 20 — CRUD Overview"
+      }
+    },
+    {
+      "id": "da-sql-session03-q038",
+      "question": "A developer wants a search key without changing row values. Which Session 3 DDL command is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UPDATE"
+        },
+        {
+          "id": "B",
+          "text": "INSERT INTO"
+        },
+        {
+          "id": "C",
+          "text": "SELECT DISTINCT"
+        },
+        {
+          "id": "D",
+          "text": "CREATE INDEX"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "CREATE INDEX هو أمر DDL المخصص لإنشاء index/search key، وده لا يعني تعديل قيم الصفوف نفسها.",
+        "en": ""
+      },
+      "topic": "SQL Command Languages",
+      "topicId": "sql-command-languages",
+      "subtopicId": "ddl-indexes",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "choose-create-index-for-search-key",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 10 — CREATE INDEX"
+      }
+    },
+    {
+      "id": "da-sql-session03-q039",
+      "question": "A duplicate email insert fails under the sample customers schema. Which fix best respects the intended design?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the email column with SELECT *."
+        },
+        {
+          "id": "B",
+          "text": "Insert a different email value rather than removing the UNIQUE constraint just to allow duplication."
+        },
+        {
+          "id": "C",
+          "text": "Drop the customers table."
+        },
+        {
+          "id": "D",
+          "text": "Remove WHERE clauses from future UPDATE statements."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتستخدم UNIQUE لمنع duplicate emails وبتعتبر عدم التعامل مع duplicates pitfall؛ الأفضل تصحيح البيانات بدل كسر القيد المقصود.",
+        "en": ""
+      },
+      "topic": "Database Constraints",
+      "topicId": "database-constraints",
+      "subtopicId": "unique-constraint",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "respect-unique-fix-duplicate-input",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slides 21 and 26 — UNIQUE / duplicate handling"
+      }
+    },
+    {
+      "id": "da-sql-session03-q040",
+      "question": "Starting from the Slide 22 sample data, suppose customer_id 5 belongs to Yousef Nabil. The email is updated to noura.salem@example.com and then the shown DELETE removes rows with that email. What happens to that customer row?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is removed by the DELETE because its email now matches the condition."
+        },
+        {
+          "id": "B",
+          "text": "It remains because UPDATE prevents DELETE."
+        },
+        {
+          "id": "C",
+          "text": "All customers are removed."
+        },
+        {
+          "id": "D",
+          "text": "Only the email value is removed while the row remains."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "بعد UPDATE قيمة email للصف 5 تبقى القيمة اللي DELETE بيدور عليها، وبالتالي DELETE يحذف الصف المطابق.",
+        "en": ""
+      },
+      "topic": "SQL Query Fundamentals",
+      "topicId": "sql-query-fundamentals",
+      "subtopicId": "crud-update-delete-tracing",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-update-then-delete-same-email",
+      "source": {
+        "file": "Session3.pptx",
+        "reference": "Slide 25 — Update email then delete by email"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3471 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "data-analysis-sql-session05-practice-v1",
+    "title": "Session 5 — SQL Practice",
+    "description": "Validated practice set for Advanced Filtering & Aggregations in SQL, using the production question banks linked to Session5.pptx.",
+    "course": "Data Analysis",
+    "module": "SQL & Databases — Session 5",
+    "category": "Session Practice",
+    "uploadedBy": "Ahmed Khaled",
+    "createdAt": "2026-08-29",
+    "version": "1.0",
+    "difficulty": "Mixed",
+    "settings": {
+      "timer": {
+        "enabled": false,
+        "durationMinutes": null
+      },
+      "allowRetake": true,
+      "feedbackModes": [
+        "instant",
+        "exam"
+      ],
+      "shuffleQuestions": false,
+      "shuffleOptions": false,
+      "passingScore": 60
+    }
+  },
+  "questions": [
+    {
+      "id": "da-sql-session05-q001",
+      "question": "According to the query execution diagram, which clause is processed first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT"
+        },
+        {
+          "id": "B",
+          "text": "FROM"
+        },
+        {
+          "id": "C",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "D",
+          "text": "LIMIT"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الرسم في Slide 2 بيبدأ بـ FROM، وبعدها WHERE ثم GROUP BY ثم HAVING ثم SELECT ثم ORDER BY ثم LIMIT.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "query-execution-order",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "execution-order-from-first",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 2 — Query execution order"
+      }
+    },
+    {
+      "id": "da-sql-session05-q002",
+      "question": "What is the main role of WHERE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Filter rows before grouping."
+        },
+        {
+          "id": "B",
+          "text": "Sort the final result."
+        },
+        {
+          "id": "C",
+          "text": "Create a table."
+        },
+        {
+          "id": "D",
+          "text": "Rename columns permanently."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "WHERE هي filtering clause للـ base rows وبتتنفذ قبل GROUP BY حسب ترتيب التنفيذ المعروض.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "where-comparison",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "where-filters-base-rows",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 2 and 4 — WHERE filtering"
+      }
+    },
+    {
+      "id": "da-sql-session05-q003",
+      "question": "Which operator means “greater than or equal to”?",
+      "options": [
+        {
+          "id": "A",
+          "text": ">="
+        },
+        {
+          "id": "B",
+          "text": "<>"
+        },
+        {
+          "id": "C",
+          "text": "<="
+        },
+        {
+          "id": "D",
+          "text": "="
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "جدول comparison operators في المادة بيحدد >= بمعنى greater than or equal to.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "comparison-operators",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "comparison-greater-equal",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 5 — Comparison operators"
+      }
+    },
+    {
+      "id": "da-sql-session05-q004",
+      "question": "How should a string such as Japan be written in the WHERE examples?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Without quotes."
+        },
+        {
+          "id": "B",
+          "text": "Inside square brackets only."
+        },
+        {
+          "id": "C",
+          "text": "Inside single quotes, e.g. 'Japan'."
+        },
+        {
+          "id": "D",
+          "text": "As an aggregate function."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتوضح إن string literals في الفلترة بتتحط بين single quotes.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "where-strings",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "where-string-single-quotes",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 6 — WHERE with strings"
+      }
+    },
+    {
+      "id": "da-sql-session05-q005",
+      "question": "When should AND be used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When any one criterion is enough."
+        },
+        {
+          "id": "B",
+          "text": "Only when sorting rows."
+        },
+        {
+          "id": "C",
+          "text": "Only with NULL values."
+        },
+        {
+          "id": "D",
+          "text": "When all specified criteria must be satisfied."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 10 بتقول صراحة استخدم AND لو لازم كل الشروط تتحقق.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "and-requires-all-criteria",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 10 — AND operator"
+      }
+    },
+    {
+      "id": "da-sql-session05-q006",
+      "question": "What does BETWEEN express in the shown filtering examples?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A wildcard pattern."
+        },
+        {
+          "id": "B",
+          "text": "A table join."
+        },
+        {
+          "id": "C",
+          "text": "A duplicate-removal operation."
+        },
+        {
+          "id": "D",
+          "text": "A range between two boundary values."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "BETWEEN مستخدمة لتحديد range زي release_year BETWEEN 1994 AND 2000.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "between",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "between-range-filter",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 7 and 12 — BETWEEN"
+      }
+    },
+    {
+      "id": "da-sql-session05-q007",
+      "question": "Which keyword is listed for filtering a text pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "HAVING"
+        },
+        {
+          "id": "B",
+          "text": "SUM"
+        },
+        {
+          "id": "C",
+          "text": "DROP"
+        },
+        {
+          "id": "D",
+          "text": "LIKE"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "LIKE ضمن أدوات Filtering text وبتستخدم pattern بدل قيمة نصية محددة.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "like-patterns",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "like-filters-pattern",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 13 — Filtering text"
+      }
+    },
+    {
+      "id": "da-sql-session05-q008",
+      "question": "Which keyword checks whether a value belongs to a listed set?",
+      "options": [
+        {
+          "id": "A",
+          "text": "IN"
+        },
+        {
+          "id": "B",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "C",
+          "text": "TRIM"
+        },
+        {
+          "id": "D",
+          "text": "DROP INDEX"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "IN مستخدمة في المثال FirstName in ('Mark', 'John', 'Sara').",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "in-operator",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "in-membership-list",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 15 — WHERE, IN"
+      }
+    },
+    {
+      "id": "da-sql-session05-q009",
+      "question": "What does NULL represent in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The numeric value 0."
+        },
+        {
+          "id": "B",
+          "text": "A missing, unknown, or unavailable value."
+        },
+        {
+          "id": "C",
+          "text": "An empty string only."
+        },
+        {
+          "id": "D",
+          "text": "The Boolean value False."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتأكد إن NULL معناها missing/unknown/no value ومش هي 0 أو empty string أو False.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "null-basics",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "null-means-missing-unknown",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 18–19 — NULL basics"
+      }
+    },
+    {
+      "id": "da-sql-session05-q010",
+      "question": "Which statement about COUNT is supported by the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT(column) counts non-missing values, while COUNT(*) counts rows including rows where that column may be NULL."
+        },
+        {
+          "id": "B",
+          "text": "COUNT(column) always counts more rows than COUNT(*)."
+        },
+        {
+          "id": "C",
+          "text": "COUNT(*) ignores all rows containing any NULL."
+        },
+        {
+          "id": "D",
+          "text": "COUNT can only be used on text fields."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتفرق بين COUNT(field_name) اللي بيعد القيم غير المفقودة وبين COUNT(*) اللي بيعد الصفوف.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "count-null-behavior",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "count-column-vs-star-null",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 16 — Missing values and COUNT"
+      }
+    },
+    {
+      "id": "da-sql-session05-q011",
+      "question": "Which condition correctly selects films released in either 1994 or 2000?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE release_year = 1994 OR release_year = 2000"
+        },
+        {
+          "id": "B",
+          "text": "WHERE release_year = 1994 OR 2000"
+        },
+        {
+          "id": "C",
+          "text": "WHERE release_year BETWEEN 1994 OR 2000"
+        },
+        {
+          "id": "D",
+          "text": "WHERE OR release_year = 1994, 2000"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة بتعرض الصيغة الصحيحة بتكرار اسم العمود مع كل جزء من OR، وبتعرض WHERE release_year = 1994 OR 2000 كصيغة invalid.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "or-repeat-complete-condition",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 9 — OR operator correct vs invalid"
+      }
+    },
+    {
+      "id": "da-sql-session05-q012",
+      "question": "Which condition correctly selects release years greater than 1994 and less than 2000?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE release_year > 1994 AND release_year < 2000"
+        },
+        {
+          "id": "B",
+          "text": "WHERE release_year > 1994 AND < 2000"
+        },
+        {
+          "id": "C",
+          "text": "WHERE release_year = 1994 OR 2000"
+        },
+        {
+          "id": "D",
+          "text": "WHERE release_year LIKE 1994 AND 2000"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "كل شرط مع AND لازم يكون expression كامل؛ المادة بتعرض حذف اسم العمود من الشرط الثاني كـ invalid.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "and-complete-two-comparisons",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 10 — AND operator correct vs invalid"
+      }
+    },
+    {
+      "id": "da-sql-session05-q013",
+      "question": "Why does the session place parentheses around groups of AND/OR conditions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To turn the query into DDL."
+        },
+        {
+          "id": "B",
+          "text": "To remove NULL values automatically."
+        },
+        {
+          "id": "C",
+          "text": "To make the intended logical grouping explicit."
+        },
+        {
+          "id": "D",
+          "text": "To make GROUP BY optional."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "في المثال المركب، parentheses بتوضح إن سنة الإصدار لها مجموعة OR مستقلة وشهادة الفيلم لها مجموعة OR مستقلة قبل ربطهم بـ AND.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "parentheses-group-and-or-logic",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 11 — AND, OR with parentheses"
+      }
+    },
+    {
+      "id": "da-sql-session05-q014",
+      "question": "Which condition is equivalent to release_year >= 1994 AND release_year <= 2000 in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "release_year BETWEEN 1994 AND 2000"
+        },
+        {
+          "id": "B",
+          "text": "release_year IN 1994 TO 2000"
+        },
+        {
+          "id": "C",
+          "text": "release_year LIKE 1994 AND 2000"
+        },
+        {
+          "id": "D",
+          "text": "release_year IS NULL 1994, 2000"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Slide 12 بتعرض الصيغتين كطريقتين للتعبير عن نفس range.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "between",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "between-equivalent-inclusive-range",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 12 — BETWEEN vs paired comparisons"
+      }
+    },
+    {
+      "id": "da-sql-session05-q015",
+      "question": "According to the wildcard table, what does % represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Zero or more characters."
+        },
+        {
+          "id": "B",
+          "text": "Exactly one character."
+        },
+        {
+          "id": "C",
+          "text": "Only numeric characters."
+        },
+        {
+          "id": "D",
+          "text": "A NULL value."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "% هو wildcard لعدد من الأحرف من صفر فأكثر حسب الجدول الموجود في Slide 14.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "wildcards",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "wildcard-percent-zero-or-more",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 14 — Wildcard Characters"
+      }
+    },
+    {
+      "id": "da-sql-session05-q016",
+      "question": "According to the wildcard table, what does _ represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Zero or more characters."
+        },
+        {
+          "id": "B",
+          "text": "A single character."
+        },
+        {
+          "id": "C",
+          "text": "A group created by GROUP BY."
+        },
+        {
+          "id": "D",
+          "text": "A missing value."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ underscore _ في الجدول بيمثل single character.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "wildcards",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "wildcard-underscore-single-char",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 14 — Wildcard Characters"
+      }
+    },
+    {
+      "id": "da-sql-session05-q017",
+      "question": "A table has 8 rows; salary is NULL in 3 rows. What are COUNT(*) and COUNT(salary)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "8 and 5."
+        },
+        {
+          "id": "B",
+          "text": "5 and 8."
+        },
+        {
+          "id": "C",
+          "text": "8 and 8."
+        },
+        {
+          "id": "D",
+          "text": "5 and 3."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "COUNT(*) يعد كل الصفوف = 8، بينما COUNT(salary) يستبعد 3 NULL فيبقى 5.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "count-null-behavior",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-count-star-vs-column-null",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 16 — COUNT(field) vs COUNT(*)"
+      }
+    },
+    {
+      "id": "da-sql-session05-q018",
+      "question": "Which predicate correctly finds rows where birthdate is missing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE birthdate = NULL"
+        },
+        {
+          "id": "B",
+          "text": "WHERE birthdate = 0"
+        },
+        {
+          "id": "C",
+          "text": "WHERE birthdate LIKE NULL"
+        },
+        {
+          "id": "D",
+          "text": "WHERE birthdate IS NULL"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المادة بتوضح إن المقارنة = NULL غلط لأن أي comparison مع NULL ينتج UNKNOWN؛ الصح IS NULL.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "null-predicates",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "is-null-correct-predicate",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 17 and 19 — IS NULL / comparison with NULL"
+      }
+    },
+    {
+      "id": "da-sql-session05-q019",
+      "question": "What does COALESCE(phone, 'No phone') do in the session example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deletes rows with NULL phone."
+        },
+        {
+          "id": "B",
+          "text": "Converts every phone to uppercase."
+        },
+        {
+          "id": "C",
+          "text": "Returns 'No phone' when phone is NULL; otherwise returns phone."
+        },
+        {
+          "id": "D",
+          "text": "Counts only non-NULL phone values."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "COALESCE بتستبدل NULL بقيمة fallback؛ المثال بيعرض No phone لو phone مفقود.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "coalesce",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "coalesce-replaces-null-default",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 20 — COALESCE handling NULL"
+      }
+    },
+    {
+      "id": "da-sql-session05-q020",
+      "question": "In the LEFT JOIN example, what appears for course when a student has no matching enrollment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "An empty table name"
+        },
+        {
+          "id": "C",
+          "text": "The student ID repeated as course"
+        },
+        {
+          "id": "D",
+          "text": "NULL"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المادة بتذكر إن LEFT JOIN لما مفيش matching row بيظهر NULL في أعمدة الطرف المفقود، ومنها course.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "null-in-left-join",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "left-join-unmatched-course-null",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 20 — NULL in joins"
+      }
+    },
+    {
+      "id": "da-sql-session05-q021",
+      "question": "What is the difference between DISTINCT and deleting duplicates from the table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DISTINCT permanently deletes duplicate rows."
+        },
+        {
+          "id": "B",
+          "text": "DISTINCT creates a UNIQUE constraint."
+        },
+        {
+          "id": "C",
+          "text": "DISTINCT removes duplicates from query output; it does not delete stored rows."
+        },
+        {
+          "id": "D",
+          "text": "There is no difference."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتشرح DISTINCT كإزالة للتكرار من الـ output، بينما حذف duplicates فعليًا له method منفصلة بـ ROW_NUMBER وDELETE.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-aggregation",
+      "subtopicId": "duplicates-distinct",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "distinct-output-vs-delete-rows",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 21 and 23 — DISTINCT vs deleting duplicates"
+      }
+    },
+    {
+      "id": "da-sql-session05-q022",
+      "question": "Which pattern does the session use to find values that appear more than once?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ORDER BY ... WHERE COUNT(*) = 0"
+        },
+        {
+          "id": "B",
+          "text": "GROUP BY ... HAVING COUNT(*) > 1"
+        },
+        {
+          "id": "C",
+          "text": "DISTINCT ... DROP TABLE"
+        },
+        {
+          "id": "D",
+          "text": "COALESCE ... CREATE INDEX"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "لإيجاد duplicates، المادة تستخدم GROUP BY على القيمة ثم HAVING COUNT(*) > 1.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-aggregation",
+      "subtopicId": "find-duplicates",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "find-duplicates-group-having-count",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 22 — Finding Duplicates"
+      }
+    },
+    {
+      "id": "da-sql-session05-q023",
+      "question": "In the ROW_NUMBER duplicate-deletion method, which rows are deleted?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rows with rn = 1 only."
+        },
+        {
+          "id": "B",
+          "text": "Rows with rn > 1, keeping the first occurrence."
+        },
+        {
+          "id": "C",
+          "text": "Every row in the table."
+        },
+        {
+          "id": "D",
+          "text": "Only rows where rn is NULL."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المثال بيحسب ROW_NUMBER داخل كل duplicate group ثم DELETE WHERE rn > 1، فيحتفظ بأول occurrence.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "row-number-duplicates",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "row-number-delete-rn-greater-one",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 23 — Deleting Duplicates (Keeping One Copy)"
+      }
+    },
+    {
+      "id": "da-sql-session05-q024",
+      "question": "Which aggregate functions are listed as numerical-fields-only in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT() and MAX()"
+        },
+        {
+          "id": "B",
+          "text": "AVG() and SUM()"
+        },
+        {
+          "id": "C",
+          "text": "MIN() and MAX()"
+        },
+        {
+          "id": "D",
+          "text": "COUNT() and MIN()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 25 بيفصل AVG وSUM كوظائف للحقول العددية، بينما COUNT/MIN/MAX مذكورة تحت various data types.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "aggregate-function-types",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "avg-sum-numeric-only",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 24–25 — Aggregate functions"
+      }
+    },
+    {
+      "id": "da-sql-session05-q025",
+      "question": "Which aggregate functions are shown as usable across various data types?",
+      "options": [
+        {
+          "id": "A",
+          "text": "AVG() and SUM() only"
+        },
+        {
+          "id": "B",
+          "text": "COUNT(), MIN(), and MAX()"
+        },
+        {
+          "id": "C",
+          "text": "DATE_ADD() and DATEDIFF()"
+        },
+        {
+          "id": "D",
+          "text": "UPPER() and LOWER()"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتذكر COUNT وMIN وMAX تحت Various data types.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "aggregate-function-types",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "count-min-max-various-types",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 25 — Non-numerical data"
+      }
+    },
+    {
+      "id": "da-sql-session05-q026",
+      "question": "What does ORDER BY Price DESC do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Filters out low prices."
+        },
+        {
+          "id": "B",
+          "text": "Groups equal prices into one row."
+        },
+        {
+          "id": "C",
+          "text": "Changes stored prices permanently."
+        },
+        {
+          "id": "D",
+          "text": "Sorts rows from higher Price to lower Price."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "DESC مع ORDER BY بيعمل sorting تنازلي في النتيجة، مش filtering ولا update للبيانات.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "order-by",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "order-by-price-desc",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 26 — ORDER BY / DESC"
+      }
+    },
+    {
+      "id": "da-sql-session05-q027",
+      "question": "What is the purpose of GROUP BY Country in the shown customer count query?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sort countries alphabetically only."
+        },
+        {
+          "id": "B",
+          "text": "Delete repeated countries."
+        },
+        {
+          "id": "C",
+          "text": "Create one group per Country so COUNT can be calculated per group."
+        },
+        {
+          "id": "D",
+          "text": "Replace NULL countries with a default."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "GROUP BY بيقسم الصفوف لمجموعات حسب Country علشان الـ aggregate يتحسب لكل مجموعة.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "group-by",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "group-by-country-purpose",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 27 — GROUP BY"
+      }
+    },
+    {
+      "id": "da-sql-session05-q028",
+      "question": "What does HAVING COUNT(CustomerID) > 5 filter?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Individual customer rows before grouping."
+        },
+        {
+          "id": "B",
+          "text": "Only rows where CustomerID itself is greater than 5."
+        },
+        {
+          "id": "C",
+          "text": "Groups whose customer count is greater than 5."
+        },
+        {
+          "id": "D",
+          "text": "The table schema."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "HAVING بيشتغل على grouped/aggregated data، وهنا بيحتفظ بالمجموعات اللي COUNT فيها أكبر من 5.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "having",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "having-count-over-five-groups",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 28–29 — HAVING / HAVING vs WHERE"
+      }
+    },
+    {
+      "id": "da-sql-session05-q029",
+      "question": "Which statement best distinguishes WHERE and HAVING?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE sorts while HAVING joins."
+        },
+        {
+          "id": "B",
+          "text": "WHERE filters individual rows; HAVING filters grouped results."
+        },
+        {
+          "id": "C",
+          "text": "WHERE is only for strings; HAVING is only for numbers."
+        },
+        {
+          "id": "D",
+          "text": "HAVING runs before FROM."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المادة بتوضح الفرق مباشرة: WHERE للـ records قبل التجميع، HAVING للـ grouped records بعد GROUP BY.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "having-vs-where",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "where-vs-having-difference",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 29 — HAVING vs WHERE"
+      }
+    },
+    {
+      "id": "da-sql-session05-q030",
+      "question": "A report needs only departments whose employee count exceeds 10. Which filter is the best fit after GROUP BY department?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE COUNT(*) > 10 before GROUP BY"
+        },
+        {
+          "id": "B",
+          "text": "ORDER BY department > 10"
+        },
+        {
+          "id": "C",
+          "text": "IS NULL COUNT(*) > 10"
+        },
+        {
+          "id": "D",
+          "text": "HAVING COUNT(*) > 10"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "لأن الشرط على aggregate ناتج بعد GROUP BY، فالأداة المناسبة هي HAVING.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "having",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "choose-having-for-aggregate-threshold",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 27–29 — GROUP BY and HAVING"
+      }
+    },
+    {
+      "id": "da-sql-session05-q031",
+      "question": "Given rows with colors {yellow, blue, yellow} and lengths {long, short, short} in the same order, how many rows satisfy color = 'yellow' OR length = 'short'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "3"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الصف الأول يحقق yellow، الثاني يحقق short، والثالث يحقق الشرطين؛ OR يكفي فيه تحقق أي شرط، فكل الصفوف الثلاثة ترجع.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-or-three-rows",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 7–11 — OR and AND filtering"
+      }
+    },
+    {
+      "id": "da-sql-session05-q032",
+      "question": "Using the same three rows, how many satisfy color = 'yellow' AND length = 'short'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "AND يتطلب الشرطين معًا؛ الصف الثالث فقط yellow وshort في نفس الوقت.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-and-three-rows",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 7–11 — AND filtering"
+      }
+    },
+    {
+      "id": "da-sql-session05-q033",
+      "question": "A query intends to filter films from 1994 or 1995 and certification PG or R. Which structure best preserves the intended logic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "year=1994 OR (year=1995 AND certification='PG') OR certification='R'"
+        },
+        {
+          "id": "B",
+          "text": "year BETWEEN 1994 AND certification"
+        },
+        {
+          "id": "C",
+          "text": "(year=1994 OR year=1995) AND (certification='PG' OR certification='R')"
+        },
+        {
+          "id": "D",
+          "text": "year=1994 AND year=1995 AND certification='PG' AND certification='R'"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة نفسها بتستخدم مجموعتين parentheses ثم AND بينهم علشان تمنع اختلاط أولوية AND/OR.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "logical-operators",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "complex-and-or-parentheses-pattern",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 11 — AND, OR grouped logic"
+      }
+    },
+    {
+      "id": "da-sql-session05-q034",
+      "question": "A dataset has 6 rows in one city group, but one row has CustomerID = NULL. What are COUNT(*) and COUNT(CustomerID) for that group?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5 and 6."
+        },
+        {
+          "id": "B",
+          "text": "6 and 6."
+        },
+        {
+          "id": "C",
+          "text": "5 and 5."
+        },
+        {
+          "id": "D",
+          "text": "6 and 5."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "COUNT(*) يعد الصفوف الستة، بينما COUNT(CustomerID) يستبعد القيمة NULL فيكون 5.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "count-null-behavior",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "group-count-null-id-difference",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 16 — COUNT and missing values"
+      }
+    },
+    {
+      "id": "da-sql-session05-q035",
+      "question": "A query is written SELECT country, COUNT(*) FROM customers WHERE active=1 GROUP BY country HAVING COUNT(*)>5 ORDER BY country;. Which operation happens immediately after WHERE in the session’s logical execution order?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT"
+        },
+        {
+          "id": "B",
+          "text": "GROUP BY"
+        },
+        {
+          "id": "C",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "D",
+          "text": "LIMIT"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ترتيب التنفيذ المعروض هو FROM ثم WHERE ثم GROUP BY ثم HAVING ثم SELECT ثم ORDER BY ثم LIMIT.",
+        "en": ""
+      },
+      "topic": "Advanced Filtering & Aggregations",
+      "topicId": "sql-filtering",
+      "subtopicId": "query-execution-order",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "execution-order-after-where-groupby",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 2 — Query execution order"
+      }
+    },
+    {
+      "id": "da-sql-session05-q036",
+      "question": "A team writes WHERE salary = NULL and gets no expected matches. What is the best diagnosis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NULL must be written as the string 'NULL'."
+        },
+        {
+          "id": "B",
+          "text": "WHERE cannot filter numeric columns."
+        },
+        {
+          "id": "C",
+          "text": "Comparisons with NULL yield UNKNOWN; use IS NULL instead."
+        },
+        {
+          "id": "D",
+          "text": "The query requires GROUP BY salary."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتوضح إن = NULL غلط منطقيًا لأن comparison مع NULL يعطي UNKNOWN؛ الصح IS NULL.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "null-predicates",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "diagnose-equals-null-use-is-null",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 19 — Behavior of NULL"
+      }
+    },
+    {
+      "id": "da-sql-session05-q037",
+      "question": "Names A, A, B, B, B are grouped and filtered with HAVING COUNT(*) > 1. Which groups remain and with what counts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only B with 3."
+        },
+        {
+          "id": "B",
+          "text": "A with 2 and B with 3."
+        },
+        {
+          "id": "C",
+          "text": "Only A with 2."
+        },
+        {
+          "id": "D",
+          "text": "A and B each with 1."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "GROUP BY يعمل مجموعتين A وB، والاتنين count أكبر من 1، فيبقوا A=2 وB=3.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-aggregation",
+      "subtopicId": "find-duplicates",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-group-having-duplicates",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 22 — GROUP BY + HAVING COUNT > 1"
+      }
+    },
+    {
+      "id": "da-sql-session05-q038",
+      "question": "In the ROW_NUMBER method, three duplicate rows share the same partition key and are ordered 10, 20, 30. If rn > 1 is deleted, which ordered row remains?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only value 30."
+        },
+        {
+          "id": "B",
+          "text": "Values 20 and 30."
+        },
+        {
+          "id": "C",
+          "text": "The row ordered first, value 10."
+        },
+        {
+          "id": "D",
+          "text": "No rows remain."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "ROW_NUMBER يدي 1 لأول صف حسب ORDER BY؛ DELETE rn > 1 يحذف الثاني والثالث ويحتفظ بالأول.",
+        "en": ""
+      },
+      "topic": "Duplicates",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "row-number-duplicates",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-row-number-keeps-first",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 23 — ROW_NUMBER duplicate deletion"
+      }
+    },
+    {
+      "id": "da-sql-session05-q039",
+      "question": "A report must exclude rows with missing phone numbers rather than replace them. Which predicate best fits the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "phone IS NOT NULL"
+        },
+        {
+          "id": "B",
+          "text": "COALESCE(phone, 'No phone') only"
+        },
+        {
+          "id": "C",
+          "text": "phone = NULL"
+        },
+        {
+          "id": "D",
+          "text": "COUNT(*) = phone"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "IS NOT NULL مخصص لاختيار القيم الموجودة واستبعاد المفقودة، بينما COALESCE يستبدلها في العرض.",
+        "en": ""
+      },
+      "topic": "NULL Handling",
+      "topicId": "sql-filtering",
+      "subtopicId": "null-predicates",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "choose-is-not-null-to-exclude-missing",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 18–20 — IS NOT NULL / COALESCE"
+      }
+    },
+    {
+      "id": "da-sql-session05-q040",
+      "question": "A grouped query tries to use WHERE COUNT(*) > 5 after GROUP BY. What is the best correction based on the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace GROUP BY with DISTINCT only."
+        },
+        {
+          "id": "B",
+          "text": "Move COUNT(*) into a CHECK constraint."
+        },
+        {
+          "id": "C",
+          "text": "Use ORDER BY COUNT(*) > 5 as the filter."
+        },
+        {
+          "id": "D",
+          "text": "Use HAVING COUNT(*) > 5 for the aggregate condition."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الشرط على aggregate لازم يكون HAVING لأن WHERE مخصص للصفوف قبل التجميع.",
+        "en": ""
+      },
+      "topic": "Aggregations",
+      "topicId": "sql-aggregation",
+      "subtopicId": "having-vs-where",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "fix-aggregate-filter-use-having",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 28–29 — HAVING vs WHERE"
+      }
+    },
+    {
+      "id": "da-sql-session05-q041",
+      "question": "What does EXISTS check according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Whether every value is greater than every other value."
+        },
+        {
+          "id": "B",
+          "text": "Whether a subquery returns any rows."
+        },
+        {
+          "id": "C",
+          "text": "Whether a string contains a wildcard."
+        },
+        {
+          "id": "D",
+          "text": "Whether a table has a primary key."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "EXISTS في المادة وظيفته التحقق هل الـ subquery رجّع أي rows ولا لأ.",
+        "en": ""
+      },
+      "topic": "Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "exists",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "exists-checks-any-row",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 30 — ANY, ALL, EXISTS"
+      }
+    },
+    {
+      "id": "da-sql-session05-q042",
+      "question": "What does ANY (or SOME) mean in the session summary?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The comparison must match all values."
+        },
+        {
+          "id": "B",
+          "text": "It sorts every value."
+        },
+        {
+          "id": "C",
+          "text": "The comparison can match any value from the subquery result."
+        },
+        {
+          "id": "D",
+          "text": "It replaces NULL values."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "ANY/SOME معناها إن المقارنة تنجح مع أي قيمة مناسبة من نتيجة الـ subquery.",
+        "en": ""
+      },
+      "topic": "Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "any-all",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "any-matches-any-subquery-value",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 30 — ANY / SOME"
+      }
+    },
+    {
+      "id": "da-sql-session05-q043",
+      "question": "What does ALL mean in the session summary?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only one value must satisfy it."
+        },
+        {
+          "id": "B",
+          "text": "It checks whether rows exist."
+        },
+        {
+          "id": "C",
+          "text": "It groups rows automatically."
+        },
+        {
+          "id": "D",
+          "text": "The comparison must satisfy all values from the subquery result."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ALL معناها إن الشرط لازم يتحقق بالنسبة لكل القيم الموجودة في نتيجة الـ subquery.",
+        "en": ""
+      },
+      "topic": "Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "any-all",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "all-matches-all-subquery-values",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 30 — ALL"
+      }
+    },
+    {
+      "id": "da-sql-session05-q044",
+      "question": "Which function converts text to uppercase in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LOWER(text)"
+        },
+        {
+          "id": "B",
+          "text": "TRIM(text)"
+        },
+        {
+          "id": "C",
+          "text": "DATEDIFF(date1, date2)"
+        },
+        {
+          "id": "D",
+          "text": "UPPER(text)"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "UPPER هي الـ string function المستخدمة لتحويل النص لحروف كبيرة.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "upper-converts-uppercase",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — String Functions"
+      }
+    },
+    {
+      "id": "da-sql-session05-q045",
+      "question": "Which function converts text to lowercase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LOWER(text)"
+        },
+        {
+          "id": "B",
+          "text": "UPPER(text)"
+        },
+        {
+          "id": "C",
+          "text": "CONCAT(str1, str2)"
+        },
+        {
+          "id": "D",
+          "text": "NOW()"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "LOWER هي المقابل لـ UPPER وبتحوّل النص لحروف صغيرة.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lower-converts-lowercase",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — String Functions"
+      }
+    },
+    {
+      "id": "da-sql-session05-q046",
+      "question": "Which function joins strings together?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SUBSTRING(text, start, length)"
+        },
+        {
+          "id": "B",
+          "text": "TRIM(text)"
+        },
+        {
+          "id": "C",
+          "text": "COUNT(*)"
+        },
+        {
+          "id": "D",
+          "text": "CONCAT(str1, str2)"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "CONCAT بتجمع string values مع بعض، زي City + comma + Country في المثال.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "concat-combines-strings",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — CONCAT example"
+      }
+    },
+    {
+      "id": "da-sql-session05-q047",
+      "question": "Which function returns the current date/time in the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "YEAR(date)"
+        },
+        {
+          "id": "B",
+          "text": "DATEDIFF(date1, date2)"
+        },
+        {
+          "id": "C",
+          "text": "NOW()"
+        },
+        {
+          "id": "D",
+          "text": "LENGTH(text)"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "NOW() مذكورة كـ current date/time function.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "now-current-datetime",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — Date Functions"
+      }
+    },
+    {
+      "id": "da-sql-session05-q048",
+      "question": "What is CASE used for in SQL according to the session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Creating indexes."
+        },
+        {
+          "id": "B",
+          "text": "Conditional logic that returns results based on WHEN conditions."
+        },
+        {
+          "id": "C",
+          "text": "Deleting duplicate rows automatically."
+        },
+        {
+          "id": "D",
+          "text": "Defining foreign keys."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "CASE بتنفذ conditional logic: كل WHEN بيتفحص وبيرجع THEN المناسب، وإلا ELSE.",
+        "en": ""
+      },
+      "topic": "CASE Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "case-statements",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "case-conditional-logic",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 32–33 — CASE Statements"
+      }
+    },
+    {
+      "id": "da-sql-session05-q049",
+      "question": "In the age-group CASE example, what label is used for Age < 20?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Young Adult"
+        },
+        {
+          "id": "B",
+          "text": "Teen"
+        },
+        {
+          "id": "C",
+          "text": "Adult"
+        },
+        {
+          "id": "D",
+          "text": "Senior"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 33 بتصنّف Age < 20 كـ Teen.",
+        "en": ""
+      },
+      "topic": "CASE Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "case-statements",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "case-age-under20-teen",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 33 — CASE age groups"
+      }
+    },
+    {
+      "id": "da-sql-session05-q050",
+      "question": "In the age-group CASE example, what label is used by ELSE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Teen"
+        },
+        {
+          "id": "B",
+          "text": "Young Adult"
+        },
+        {
+          "id": "C",
+          "text": "Senior"
+        },
+        {
+          "id": "D",
+          "text": "Adult"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "بعد تغطية أقل من 20، و20–35، و36–60، الـ ELSE بيصنّف الباقي Senior.",
+        "en": ""
+      },
+      "topic": "CASE Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "case-statements",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "case-else-senior",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 33 — CASE age groups"
+      }
+    },
+    {
+      "id": "da-sql-session05-q051",
+      "question": "Which function extracts part of a text value using a start position and length?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CONCAT(str1, str2)"
+        },
+        {
+          "id": "B",
+          "text": "SUBSTRING(text, start, length)"
+        },
+        {
+          "id": "C",
+          "text": "DATE_ADD(date, INTERVAL n DAY)"
+        },
+        {
+          "id": "D",
+          "text": "COUNT(*)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "SUBSTRING هي الدالة المذكورة لاستخراج جزء من string باستخدام start وlength.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "substring-extracts-text-part",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — String Functions"
+      }
+    },
+    {
+      "id": "da-sql-session05-q052",
+      "question": "Which function removes surrounding spaces from text?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TRIM(text)"
+        },
+        {
+          "id": "B",
+          "text": "LENGTH(text)"
+        },
+        {
+          "id": "C",
+          "text": "LOWER(text)"
+        },
+        {
+          "id": "D",
+          "text": "YEAR(date)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "TRIM وظيفتها تنظيف الـ leading/trailing spaces من النص.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trim-removes-surrounding-spaces",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — String Functions"
+      }
+    },
+    {
+      "id": "da-sql-session05-q053",
+      "question": "Which function returns the length of a text value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DATEDIFF(date1, date2)"
+        },
+        {
+          "id": "B",
+          "text": "DATE_ADD(date, INTERVAL n DAY)"
+        },
+        {
+          "id": "C",
+          "text": "LENGTH(text)"
+        },
+        {
+          "id": "D",
+          "text": "EXISTS"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "LENGTH(text) مذكورة ضمن String Functions لقياس طول النص.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "length-returns-text-length",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — String Functions"
+      }
+    },
+    {
+      "id": "da-sql-session05-q054",
+      "question": "What does DATE_ADD(OrderDate, INTERVAL 7 DAY) represent in the session example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A date seven days after OrderDate."
+        },
+        {
+          "id": "B",
+          "text": "The number of days since OrderDate."
+        },
+        {
+          "id": "C",
+          "text": "Only the year part of OrderDate."
+        },
+        {
+          "id": "D",
+          "text": "The current timestamp."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "DATE_ADD بتضيف interval للتاريخ؛ المثال بيحسب DeliveryDate بعد 7 أيام من OrderDate.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "date-add-seven-days-delivery",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — DATE_ADD example"
+      }
+    },
+    {
+      "id": "da-sql-session05-q055",
+      "question": "What does DATEDIFF(NOW(), OrderDate) represent in the session example?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A date seven days after the order."
+        },
+        {
+          "id": "B",
+          "text": "The order month only."
+        },
+        {
+          "id": "C",
+          "text": "The customer name in uppercase."
+        },
+        {
+          "id": "D",
+          "text": "The difference in days between now and the order date."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المثال يسمي الناتج DaysSinceOrder، وDATEDIFF بتحسب الفرق بين NOW() وOrderDate.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "datediff-days-since-order",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — DATEDIFF example"
+      }
+    },
+    {
+      "id": "da-sql-session05-q056",
+      "question": "Which functions extract calendar components from a date?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UPPER, LOWER, and TRIM"
+        },
+        {
+          "id": "B",
+          "text": "YEAR(date), MONTH(date), and DAY(date)"
+        },
+        {
+          "id": "C",
+          "text": "AVG, SUM, and COUNT"
+        },
+        {
+          "id": "D",
+          "text": "ANY, ALL, and EXISTS"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 31 بتذكر YEAR وMONTH وDAY لاستخراج أجزاء التاريخ.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "year-month-day-components",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — Date Functions"
+      }
+    },
+    {
+      "id": "da-sql-session05-q057",
+      "question": "A customer is age 35. Which CASE label from the session is returned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Teen"
+        },
+        {
+          "id": "B",
+          "text": "Adult"
+        },
+        {
+          "id": "C",
+          "text": "Young Adult"
+        },
+        {
+          "id": "D",
+          "text": "Senior"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "CASE يستخدم BETWEEN 20 AND 35 لفئة Young Adult، و35 داخل المجال.",
+        "en": ""
+      },
+      "topic": "CASE Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "case-statements",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "case-age35-young-adult",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 33 — CASE age groups"
+      }
+    },
+    {
+      "id": "da-sql-session05-q058",
+      "question": "A customer is age 36. Which CASE label is returned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Young Adult"
+        },
+        {
+          "id": "B",
+          "text": "Teen"
+        },
+        {
+          "id": "C",
+          "text": "Adult"
+        },
+        {
+          "id": "D",
+          "text": "Senior"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الفئة التالية هي BETWEEN 36 AND 60 → Adult، لذلك 36 تدخل Adult.",
+        "en": ""
+      },
+      "topic": "CASE Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "case-statements",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "case-age36-adult",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 33 — CASE age groups"
+      }
+    },
+    {
+      "id": "da-sql-session05-q059",
+      "question": "A customer is age 61. Which CASE label is returned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Adult"
+        },
+        {
+          "id": "B",
+          "text": "Young Adult"
+        },
+        {
+          "id": "C",
+          "text": "Teen"
+        },
+        {
+          "id": "D",
+          "text": "Senior"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "61 مش داخل أي من ranges السابقة، لذلك ELSE ترجع Senior.",
+        "en": ""
+      },
+      "topic": "CASE Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "case-statements",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "case-age61-senior",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 33 — CASE age groups"
+      }
+    },
+    {
+      "id": "da-sql-session05-q060",
+      "question": "Which expression from the session builds a combined City/Country text value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UPPER(OrderDate)"
+        },
+        {
+          "id": "B",
+          "text": "CONCAT(City, ' , ' , Country) conceptually combines the values with a separator."
+        },
+        {
+          "id": "C",
+          "text": "DATEDIFF(City, Country)"
+        },
+        {
+          "id": "D",
+          "text": "EXISTS(City, Country)"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المثال بيستخدم CONCAT(City, comma+space, Country) لإنشاء FullAddress.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "concat-city-country-address",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — CONCAT FullAddress example"
+      }
+    },
+    {
+      "id": "da-sql-session05-q061",
+      "question": "The lab asks to categorize customers by age group. Which SQL feature is explicitly intended for that task?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CASE"
+        },
+        {
+          "id": "B",
+          "text": "CREATE INDEX"
+        },
+        {
+          "id": "C",
+          "text": "DROP TABLE"
+        },
+        {
+          "id": "D",
+          "text": "TRUNCATE"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ lab في Slide 34 بيطلب استخدام CASE لتصنيف العملاء حسب العمر.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "intermediate-lab",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-use-case-for-age-groups",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 34 — Intermediate SQL Hands-on"
+      }
+    },
+    {
+      "id": "da-sql-session05-q062",
+      "question": "The lab asks to check related data using a nested query. Which feature does it specifically name?",
+      "options": [
+        {
+          "id": "A",
+          "text": "EXISTS"
+        },
+        {
+          "id": "B",
+          "text": "TRIM"
+        },
+        {
+          "id": "C",
+          "text": "DROP INDEX"
+        },
+        {
+          "id": "D",
+          "text": "CHECK"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Slide 34 بيطلب nested queries with EXISTS للتحقق من related data.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "intermediate-lab",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-nested-query-exists",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 34 — Intermediate SQL Hands-on"
+      }
+    },
+    {
+      "id": "da-sql-session05-q063",
+      "question": "Which pair is explicitly practiced as string functions in the lab?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NOW and DATE_ADD"
+        },
+        {
+          "id": "B",
+          "text": "ANY and ALL"
+        },
+        {
+          "id": "C",
+          "text": "COUNT and HAVING"
+        },
+        {
+          "id": "D",
+          "text": "UPPER and LOWER"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ lab يذكر UPPER وLOWER وCONCAT كـ string functions.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "intermediate-lab",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-string-functions-upper-lower",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 34 — Lab tasks"
+      }
+    },
+    {
+      "id": "da-sql-session05-q064",
+      "question": "Which pair is explicitly practiced as date functions in the lab?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NOW and DATE_ADD"
+        },
+        {
+          "id": "B",
+          "text": "UPPER and CONCAT"
+        },
+        {
+          "id": "C",
+          "text": "MIN and MAX"
+        },
+        {
+          "id": "D",
+          "text": "LIKE and IN"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ lab يذكر NOW وDATE_ADD ضمن date functions المطلوبة للتدريب.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "intermediate-lab",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "lab-date-functions-now-dateadd",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 34 — Lab tasks"
+      }
+    },
+    {
+      "id": "da-sql-session05-q065",
+      "question": "The assignment asks to identify high-value customers. What threshold is specified?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Age greater than 5000."
+        },
+        {
+          "id": "B",
+          "text": "More than 5000 orders."
+        },
+        {
+          "id": "C",
+          "text": "Spend greater than 5000."
+        },
+        {
+          "id": "D",
+          "text": "Order date after year 5000."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ assignment ينص على high-value customers = spend > 5000.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "ecommerce-assignment",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "assignment-high-value-threshold-5000",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 35 — E-commerce assignment"
+      }
+    },
+    {
+      "id": "da-sql-session05-q066",
+      "question": "What does the assignment ask CASE to categorize?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Orders by table name."
+        },
+        {
+          "id": "B",
+          "text": "Customers by purchase frequency."
+        },
+        {
+          "id": "C",
+          "text": "Columns by data type."
+        },
+        {
+          "id": "D",
+          "text": "Indexes by size."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 35 بيطلب categorization حسب purchase frequency باستخدام CASE.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "ecommerce-assignment",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "assignment-case-purchase-frequency",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 35 — E-commerce assignment"
+      }
+    },
+    {
+      "id": "da-sql-session05-q067",
+      "question": "What time condition does the assignment ask nested queries to check?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Whether customers are older than 6 years."
+        },
+        {
+          "id": "B",
+          "text": "Whether six tables exist."
+        },
+        {
+          "id": "C",
+          "text": "Whether customers placed orders within the last 6 months."
+        },
+        {
+          "id": "D",
+          "text": "Whether every order is exactly 6 days old."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المطلوب في الـ assignment هو التحقق من orders خلال آخر 6 شهور باستخدام nested queries.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "ecommerce-assignment",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "assignment-orders-last-six-months",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 35 — E-commerce assignment"
+      }
+    },
+    {
+      "id": "da-sql-session05-q068",
+      "question": "In the sample Orders data, which customer_id has four listed orders?",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
+          "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "البيانات في Slide 36 فيها Orders 105–108 كلها customer_id = 3، أي أربع طلبات.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "ecommerce-sample-data",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "sample-customer3-four-orders",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 36 — E-commerce sample data"
+      }
+    },
+    {
+      "id": "da-sql-session05-q069",
+      "question": "Using the sample Orders data, what is total spend for customer_id 1?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2000"
+        },
+        {
+          "id": "B",
+          "text": "3800"
+        },
+        {
+          "id": "C",
+          "text": "6800"
+        },
+        {
+          "id": "D",
+          "text": "5300"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "customer 1 عنده 2000 + 1800 + 1500 = 5300، وبالتالي يتجاوز threshold 5000.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "ecommerce-sample-data",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "sample-customer1-total-5300",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 36 — Orders for customer_id 1"
+      }
+    },
+    {
+      "id": "da-sql-session05-q070",
+      "question": "Using the sample Orders data, what is total spend for customer_id 3?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5100"
+        },
+        {
+          "id": "B",
+          "text": "1200"
+        },
+        {
+          "id": "C",
+          "text": "3900"
+        },
+        {
+          "id": "D",
+          "text": "6500"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "customer 3 عنده 1200 + 1300 + 1400 + 1200 = 5100.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "ecommerce-sample-data",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "sample-customer3-total-5100",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 36 — Orders for customer_id 3"
+      }
+    },
+    {
+      "id": "da-sql-session05-q071",
+      "question": "A subquery returns values {10, 20, 30}. Conceptually, which condition is easier to satisfy: x > ANY(subquery) or x > ALL(subquery)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "x > ALL(subquery), because ALL always means one value."
+        },
+        {
+          "id": "B",
+          "text": "They are always identical."
+        },
+        {
+          "id": "C",
+          "text": "Neither can compare numeric values."
+        },
+        {
+          "id": "D",
+          "text": "x > ANY(subquery), because it only needs to be greater than at least one returned value."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ANY يتطلب نجاح المقارنة مع أي قيمة، بينما ALL يتطلب نجاحها مع كل القيم؛ لذلك ANY أقل تشددًا.",
+        "en": ""
+      },
+      "topic": "Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "any-all",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "compare-any-vs-all-strictness",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 30 — ANY vs ALL definitions"
+      }
+    },
+    {
+      "id": "da-sql-session05-q072",
+      "question": "A team only needs to know whether at least one related order exists for a customer. Which feature best matches that intent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ALL"
+        },
+        {
+          "id": "B",
+          "text": "TRIM"
+        },
+        {
+          "id": "C",
+          "text": "SUM without a subquery"
+        },
+        {
+          "id": "D",
+          "text": "EXISTS"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "EXISTS مصمم للتحقق من وجود أي row في subquery، فده أنسب من حساب أو إرجاع كل التفاصيل.",
+        "en": ""
+      },
+      "topic": "Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "exists",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "choose-exists-for-related-row-presence",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 30 and 34 — EXISTS / lab"
+      }
+    },
+    {
+      "id": "da-sql-session05-q073",
+      "question": "A customer has City = Cairo and Country = Egypt. What output concept does CONCAT(City, ' , ' , Country) produce?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Two separate result rows."
+        },
+        {
+          "id": "B",
+          "text": "A date difference."
+        },
+        {
+          "id": "C",
+          "text": "A single text such as Cairo, Egypt."
+        },
+        {
+          "id": "D",
+          "text": "A Boolean EXISTS result."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "CONCAT بيجمع القيم النصية في expression واحد مع separator، فالناتج FullAddress من الشكل Cairo, Egypt.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "string-functions",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-concat-city-country",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — CONCAT FullAddress example"
+      }
+    },
+    {
+      "id": "da-sql-session05-q074",
+      "question": "Assume OrderDate is 2025-03-01. Conceptually, DATE_ADD(OrderDate, INTERVAL 7 DAY) returns which date?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2025-03-08"
+        },
+        {
+          "id": "B",
+          "text": "2025-03-07"
+        },
+        {
+          "id": "C",
+          "text": "2025-04-01"
+        },
+        {
+          "id": "D",
+          "text": "2025-02-22"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "إضافة 7 أيام إلى 1 مارس تنتج 8 مارس. السؤال بيختبر نفس DATE_ADD pattern الموجود في المادة بقيم جديدة.",
+        "en": ""
+      },
+      "topic": "String & Date Functions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "date-functions",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-dateadd-seven-days",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 31 — DATE_ADD(date, INTERVAL n DAY)"
+      }
+    },
+    {
+      "id": "da-sql-session05-q075",
+      "question": "A CASE expression checks WHEN score >= 90 THEN 'A', WHEN score >= 80 THEN 'B', ELSE 'C'. What is returned for score = 85?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A"
+        },
+        {
+          "id": "B",
+          "text": "C"
+        },
+        {
+          "id": "C",
+          "text": "B"
+        },
+        {
+          "id": "D",
+          "text": "NULL"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "CASE بيتم فحص WHEN بالترتيب: 85 لا يحقق >=90 لكنه يحقق >=80، فيرجع B.",
+        "en": ""
+      },
+      "topic": "CASE Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "case-statements",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "trace-case-score85",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 32–33 — CASE conditional logic"
+      }
+    },
+    {
+      "id": "da-sql-session05-q076",
+      "question": "Why is the order of WHEN clauses important in a CASE expression with overlapping conditions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CASE always evaluates all matches and concatenates them."
+        },
+        {
+          "id": "B",
+          "text": "The first matching WHEN determines the returned result."
+        },
+        {
+          "id": "C",
+          "text": "WHEN clauses are only formatting comments."
+        },
+        {
+          "id": "D",
+          "text": "ELSE is evaluated before WHEN."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "CASE بيمشي على الشروط بالترتيب وبيستخدم أول condition متحقق؛ لذلك ترتيب الشروط المتداخلة يغيّر النتيجة.",
+        "en": ""
+      },
+      "topic": "CASE Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "case-statements",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "case-first-matching-condition-order",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 32–33 — CASE syntax and age example"
+      }
+    },
+    {
+      "id": "da-sql-session05-q077",
+      "question": "Using Slide 36 data, which customer IDs have total spend greater than 5000 if totals are summed across all their listed orders?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 3 only."
+        },
+        {
+          "id": "B",
+          "text": "1, 2, 3, and 4."
+        },
+        {
+          "id": "C",
+          "text": "2 and 4 only."
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3 only."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الإجماليات: customer1=5300، customer2=6000، customer3=5100، customer4=7000؛ الأربعة أكبر من 5000.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "ecommerce-sample-data",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "calculation-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "sample-all-customers-over5000-total",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 35–36 — high-value threshold / sample orders"
+      }
+    },
+    {
+      "id": "da-sql-session05-q078",
+      "question": "Using the sample Orders rows, which customer has the highest purchase frequency by number of listed orders?",
+      "options": [
+        {
+          "id": "A",
+          "text": "customer_id 3"
+        },
+        {
+          "id": "B",
+          "text": "customer_id 1"
+        },
+        {
+          "id": "C",
+          "text": "customer_id 2"
+        },
+        {
+          "id": "D",
+          "text": "customer_id 4"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "customer 3 عنده 4 orders، customer1 عنده 3، والباقي واحد لكل منهم، فـ customer3 الأعلى frequency.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "ecommerce-sample-data",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "sample-highest-purchase-frequency-customer3",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slide 36 — E-commerce sample data"
+      }
+    },
+    {
+      "id": "da-sql-session05-q079",
+      "question": "A query must show customer names in uppercase and also whether each customer has at least one order. Which combination of taught features best matches the requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TRIM() for existence and ALL for uppercase."
+        },
+        {
+          "id": "B",
+          "text": "UPPER() for the name and EXISTS for the related-order check."
+        },
+        {
+          "id": "C",
+          "text": "DATE_ADD() for uppercase and SUM() for existence."
+        },
+        {
+          "id": "D",
+          "text": "ROW_NUMBER() for uppercase and LIKE for existence."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "UPPER بتحول الاسم، وEXISTS بتتحقق من وجود related rows؛ الاتنين مذكورين صراحة في Session 5.",
+        "en": ""
+      },
+      "topic": "Advanced Query Expressions",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "functions-exists-integration",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "combine-upper-and-exists",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 30–31 and 34 — EXISTS / UPPER"
+      }
+    },
+    {
+      "id": "da-sql-session05-q080",
+      "question": "The assignment requires high-value detection, purchase-frequency categories, and recent-order checks. Which combination of taught techniques maps best to those three tasks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP TABLE, TRIM, and CREATE INDEX only."
+        },
+        {
+          "id": "B",
+          "text": "DISTINCT only for all three tasks."
+        },
+        {
+          "id": "C",
+          "text": "CHECK constraints only for all three tasks."
+        },
+        {
+          "id": "D",
+          "text": "SUM/GROUP BY for spend, CASE for categories, and a nested EXISTS-style check for recent orders."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "المهام الثلاثة محتاجة تجميع للإنفاق، conditional classification بـ CASE، وnested related-data check بـ EXISTS حسب الـ assignment والـ lab.",
+        "en": ""
+      },
+      "topic": "Intermediate SQL Lab",
+      "topicId": "sql-advanced-query-expressions",
+      "subtopicId": "ecommerce-assignment",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "assignment-integrated-sum-case-exists",
+      "source": {
+        "file": "Session5.pptx",
+        "reference": "Slides 34–35 — Lab and E-commerce assignment"
+      }
+    }
+  ]
+}

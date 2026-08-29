@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": "2.0",
+  "bank": {
+    "id": "da-sql-session09-views-bank-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "sql",
+    "track": "SQL & Databases",
+    "moduleId": "session-09-views-functions-procedures",
+    "module": "Session 9 — Reusable SQL Logic: Views & Functions",
+    "title": "Session 9 — Views — Bank 001",
+    "version": "1.0",
+    "status": "active",
+    "sourceFiles": [
+      "Session9.pptx"
+    ]
+  },
+  "questions": [
+    {
+      "id": "da-sql-session09-views-q001",
+      "question": "According to Session 9, what is a SQL view?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A logical table based on a table or another view."
+        },
+        {
+          "id": "B",
+          "text": "A physical copy of all rows in a table."
+        },
+        {
+          "id": "C",
+          "text": "A transaction log stored outside the database."
+        },
+        {
+          "id": "D",
+          "text": "A special index that permanently sorts rows."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ View في المادة عبارة عن logical table مبني على table أو view تاني، وبيمثل نافذة لعرض البيانات بدل ما يكون نسخة مادية مستقلة منها.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-definition",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-definition-logical-table",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q002",
+      "question": "Which statement best describes where a view's data comes from?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The view always stores a separate duplicate of every source row."
+        },
+        {
+          "id": "B",
+          "text": "The view exposes data from its base tables; it does not contain its own independent data."
+        },
+        {
+          "id": "C",
+          "text": "The view gets data only from temporary tables."
+        },
+        {
+          "id": "D",
+          "text": "The view can read only metadata, not table rows."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ View لا يملك بيانات مستقلة؛ البيانات المعروضة جاية من الـ base tables، والـ View نفسه محفوظ كتعريف SELECT.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-base-tables",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-base-table-data-source",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q003",
+      "question": "What are the tables on which a view is based called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pivot tables"
+        },
+        {
+          "id": "B",
+          "text": "Shadow tables"
+        },
+        {
+          "id": "C",
+          "text": "Base tables"
+        },
+        {
+          "id": "D",
+          "text": "Archive tables"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "المادة بتسمي الجداول اللي الـ View مبني عليها Base Tables.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-base-tables",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-base-tables-term",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q004",
+      "question": "How is a view stored according to the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "As a CSV file on the client."
+        },
+        {
+          "id": "B",
+          "text": "As a mandatory materialized copy of the rows."
+        },
+        {
+          "id": "C",
+          "text": "As an index key only."
+        },
+        {
+          "id": "D",
+          "text": "As a SELECT statement in the data dictionary."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ View definition بيتخزن كـ SELECT statement في الـ data dictionary حسب شرح Session 9.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-storage",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-stored-select-data-dictionary",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q005",
+      "question": "Which command creates a new view?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE VIEW"
+        },
+        {
+          "id": "B",
+          "text": "BUILD VIEW"
+        },
+        {
+          "id": "C",
+          "text": "MAKE VIEW"
+        },
+        {
+          "id": "D",
+          "text": "INSERT VIEW"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الأمر المستخدم لإنشاء View جديد هو CREATE VIEW.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "create-view",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-create-view-command",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 3 and 6 — Views / Creating Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q006",
+      "question": "A reporting team repeatedly uses a long join between EMPLOYEE and DEPARTMENT only to show employee and department names. Which course concept best fits this need?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Create a second copy of both tables for every report."
+        },
+        {
+          "id": "B",
+          "text": "Create a view that saves the reusable SELECT logic."
+        },
+        {
+          "id": "C",
+          "text": "Drop the foreign key and query each table separately."
+        },
+        {
+          "id": "D",
+          "text": "Use DELETE to reduce the number of rows."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده external-similar scenario لكن مبني على نفس مفهوم Slide 4: الـ View بيبسّط complex queries وبيسمح بإعادة استخدام الـ SELECT logic بدل تكراره.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-reuse-complex-join-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q007",
+      "question": "Which is listed as an advantage of views in Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Force every query to use SELECT *."
+        },
+        {
+          "id": "B",
+          "text": "Remove the need for base tables."
+        },
+        {
+          "id": "C",
+          "text": "Restrict data access."
+        },
+        {
+          "id": "D",
+          "text": "Guarantee that every complex view is directly updatable."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "من مزايا الـ Views المذكورة: restrict data access، تبسيط complex queries، data independence، وتقديم رؤى مختلفة لنفس البيانات.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-advantage-restrict-access",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q008",
+      "question": "What is the simplest way to retrieve all columns exposed by a view named vw_work_hrs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OPEN VIEW vw_work_hrs;"
+        },
+        {
+          "id": "B",
+          "text": "FETCH VIEW vw_work_hrs ALL;"
+        },
+        {
+          "id": "C",
+          "text": "SHOW TABLE vw_work_hrs COLUMNS ONLY;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT * FROM vw_work_hrs;"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ View بيتعمله query زي الجدول العادي، وبالتالي SELECT * FROM vw_work_hrs; صحيحة.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "query-view",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-select-all",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 8 — Retrieving Data from a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q009",
+      "question": "Which command removes a view definition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP VIEW view_name;"
+        },
+        {
+          "id": "B",
+          "text": "DELETE VIEW view_name;"
+        },
+        {
+          "id": "C",
+          "text": "TRUNCATE VIEW view_name;"
+        },
+        {
+          "id": "D",
+          "text": "REMOVE TABLE view_name;"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "حذف الـ View نفسه يتم بـ DROP VIEW، وليس DELETE لأن DELETE يتعامل مع rows.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "drop-view",
+      "importance": "important",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-drop-view-command",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 11 — Removing a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q010",
+      "question": "Which feature is characteristic of a simple view in the Session 9 comparison?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It must always join three or more tables."
+        },
+        {
+          "id": "B",
+          "text": "It is based on one table and does not contain functions or groups of data."
+        },
+        {
+          "id": "C",
+          "text": "It always contains aggregate functions."
+        },
+        {
+          "id": "D",
+          "text": "DML operations are never allowed through it."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "في جدول Simple vs Complex Views، الـ Simple View بيكون من table واحدة ولا يحتوي functions أو groups of data، وغالبًا DML ممكن من خلاله.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "simple-vs-complex-views",
+      "importance": "core",
+      "difficulty": "Easy",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-simple-view-characteristics",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 5 — Simple Views and Complex Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q011",
+      "question": "A view joins Employee, Project, and Works_on to expose employee names, project name, and hours. How should it be classified using the lecture's comparison?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Simple view"
+        },
+        {
+          "id": "B",
+          "text": "Index-only view"
+        },
+        {
+          "id": "C",
+          "text": "Complex view"
+        },
+        {
+          "id": "D",
+          "text": "Transaction view"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "لأن الـ View مبني على أكتر من table فهو Complex View حسب المقارنة في Slide 5، وده نفس نمط المثال في Slide 7.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "simple-vs-complex-views",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-complex-view-multi-table-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 5 and 7 — Complex Views / Creating Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q012",
+      "question": "Which optional clause appears in the Session 9 CREATE VIEW syntax?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WITH PIVOT OPTION"
+        },
+        {
+          "id": "B",
+          "text": "WITH PROCEDURE OPTION"
+        },
+        {
+          "id": "C",
+          "text": "WITH INDEX OPTION"
+        },
+        {
+          "id": "D",
+          "text": "WITH CHECK OPTION"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slide 6 تعرض WITH CHECK OPTION كـ optional clause في نهاية CREATE VIEW syntax.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "with-check-option",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-create-view-optional-check-option",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 6 and 9 — WITH CHECK OPTION"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q013",
+      "question": "In the Suppliers view example, which predicate appears before WITH CHECK OPTION?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WHERE status > 15"
+        },
+        {
+          "id": "B",
+          "text": "WHERE status < 15"
+        },
+        {
+          "id": "C",
+          "text": "GROUP BY status"
+        },
+        {
+          "id": "D",
+          "text": "ORDER BY status DESC"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الكود في Slide 9 يحتوي WHERE status > 15 ثم WITH CHECK OPTION.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "with-check-option",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-suppliers-view-status-filter",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 9 — Views with Check Option"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q014",
+      "question": "A developer asks whether DML should be assumed to work the same way through simple and complex views. Which answer matches Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DML is impossible through every view."
+        },
+        {
+          "id": "B",
+          "text": "DML can be performed through simple views, while it is not always applicable through complex views."
+        },
+        {
+          "id": "C",
+          "text": "DML is always allowed through every complex view."
+        },
+        {
+          "id": "D",
+          "text": "Only DROP operations can be performed through simple views."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 5 واضح: DML operations ممكن على simple views، لكن complex views مش دائمًا ينفع نعمل DML من خلالها.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-dml",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-dml-simple-vs-complex",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 5 — Simple Views and Complex Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q015",
+      "question": "Which view best represents the lecture's example of simplifying a complex query?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A view containing only the text 'INNER JOIN' with no SELECT."
+        },
+        {
+          "id": "B",
+          "text": "A copy of EMPLOYEE created with INSERT INTO every time."
+        },
+        {
+          "id": "C",
+          "text": "A view that stores a SELECT joining EMPLOYEE and DEPARTMENT and exposes the needed columns."
+        },
+        {
+          "id": "D",
+          "text": "A view that drops DEPARTMENT after each query."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "مثال Slide 4 بيستخدم CREATE VIEW مع INNER JOIN بين EMPLOYEE وDEPARTMENT لتبسيط الاستعلام المتكرر.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-with-join",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-best-use-join-reuse",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q016",
+      "question": "A company wants analysts to see customer name and segment but not all raw customer columns. Which course feature is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Give analysts direct access to every base-table column."
+        },
+        {
+          "id": "B",
+          "text": "Duplicate the database for each analyst."
+        },
+        {
+          "id": "C",
+          "text": "Replace all customer values with NULL."
+        },
+        {
+          "id": "D",
+          "text": "Expose only the approved columns through a view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "ده external-similar مبني على advantage 'Restrict data access': الـ View يقدر يعرض subset مناسب من الأعمدة بدل كشف كل الـ base table.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-restrict-columns-scenario",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q017",
+      "question": "What does CREATE OR REPLACE VIEW do according to Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It modifies an existing view or creates it if it does not exist."
+        },
+        {
+          "id": "B",
+          "text": "It deletes the base tables and recreates them."
+        },
+        {
+          "id": "C",
+          "text": "It inserts rows into the view only."
+        },
+        {
+          "id": "D",
+          "text": "It converts a view into an index."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المادة تذكر إن CREATE OR REPLACE VIEW بيعدل View موجود أو ينشئه لو مش موجود.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "modify-view",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-create-or-replace-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 3 and 10 — Modifying a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q018",
+      "question": "Consider the lecture example:\nCREATE OR REPLACE VIEW vw_work_hrs AS\nSELECT Fname, Lname, Pname, Hours\nFROM Employee, Project, Works_on\nWHERE SSN=ESSN AND PNO=PNUMBER AND Dno = 5;\nWhat is the added effect compared with the earlier version?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The view now returns all departments regardless of Dno."
+        },
+        {
+          "id": "B",
+          "text": "The view is further restricted to rows where Dno = 5."
+        },
+        {
+          "id": "C",
+          "text": "The view is converted to a stored procedure."
+        },
+        {
+          "id": "D",
+          "text": "The joins are removed and only Employee is queried."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الإضافة الجديدة في Slide 10 هي AND Dno = 5، وبالتالي الـ View بقى مقيّد بصفوف department 5.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "modify-view",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-replace-adds-dno-filter",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 10 — Modifying a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q019",
+      "question": "If a view exposes Fname, Lname, Pname, and Hours, what does this query request?\nSELECT fname, lname, hours FROM vw_work_hrs;",
+      "options": [
+        {
+          "id": "A",
+          "text": "All columns from the three base tables."
+        },
+        {
+          "id": "B",
+          "text": "Only Pname from the view."
+        },
+        {
+          "id": "C",
+          "text": "Only fname, lname, and hours from the rows exposed by the view."
+        },
+        {
+          "id": "D",
+          "text": "A deletion of the Hours column."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "SELECT المحدد بياخد فقط الأعمدة fname وlname وhours من الـ View، حتى لو الـ View نفسه بيعرض Pname كمان.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "query-view",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-select-subset-columns",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 8 — Retrieving Data from a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q020",
+      "question": "A view is defined from a SELECT that uses CASE to create CustomerSegment. Which statement is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CASE cannot appear in a view definition."
+        },
+        {
+          "id": "B",
+          "text": "CASE automatically turns the view into a base table."
+        },
+        {
+          "id": "C",
+          "text": "CASE can only be used inside DROP VIEW."
+        },
+        {
+          "id": "D",
+          "text": "CASE can be used inside the view's SELECT to derive a conditional output column."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Slides 17–18 بتوضح إن CASE ينفع داخل query بتاعة الـ View لإنشاء column مشتق زي CustomerSegment.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "case-in-views",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-case-expression-inside-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 17–18 — Conditional Logic with CASE in Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q021",
+      "question": "A sales view categorizes TotalSpent > 10000 as 'VIP', 5000–10000 as 'Premium', 1000–4999 as 'Standard', else 'Basic'. What category is returned for TotalSpent = 7500?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Premium"
+        },
+        {
+          "id": "B",
+          "text": "VIP"
+        },
+        {
+          "id": "C",
+          "text": "Standard"
+        },
+        {
+          "id": "D",
+          "text": "Basic"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "7500 يقع داخل BETWEEN 5000 AND 10000، وبالتالي CASE ترجع Premium.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "case-in-views",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-case-7500-premium",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 18 — CASE in vw_CustomerSegments"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q022",
+      "question": "Using the same CASE logic from vw_CustomerSegments, what category is returned for TotalSpent = 900?",
+      "options": [
+        {
+          "id": "A",
+          "text": "VIP"
+        },
+        {
+          "id": "B",
+          "text": "Basic"
+        },
+        {
+          "id": "C",
+          "text": "Premium"
+        },
+        {
+          "id": "D",
+          "text": "Standard"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "900 لا يحقق أي من الشروط الأعلى، فبيوصل لـ ELSE ويرجع Basic.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "case-in-views",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-case-900-basic",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 18 — CASE in vw_CustomerSegments"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q023",
+      "question": "Which design best supports presenting different views of the same underlying data to different teams?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Create duplicate base tables for every user."
+        },
+        {
+          "id": "B",
+          "text": "Force all teams to use the exact same SELECT *."
+        },
+        {
+          "id": "C",
+          "text": "Create separate views that expose the relevant columns or rows for each team."
+        },
+        {
+          "id": "D",
+          "text": "Delete columns that one team does not need."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "من مزايا الـ Views إنها تقدم different views of the same data بدون ما نكرر الـ base data.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-different-presentations-same-data",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q024",
+      "question": "Which statement about a view based on another view is supported by Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A view can only be based on a physical table."
+        },
+        {
+          "id": "B",
+          "text": "A view can only be based on a stored procedure."
+        },
+        {
+          "id": "C",
+          "text": "A view must always be based on exactly three tables."
+        },
+        {
+          "id": "D",
+          "text": "A view can be based on a table or another view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "تعريف Slide 3 صريح: view is a logical table based on a table or another view.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-definition",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "direct-knowledge",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-can-use-another-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q025",
+      "question": "A developer needs to change an existing view's SELECT definition without deleting the base tables. Which lecture command is most appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE OR REPLACE VIEW"
+        },
+        {
+          "id": "B",
+          "text": "DROP TABLE"
+        },
+        {
+          "id": "C",
+          "text": "DELETE FROM"
+        },
+        {
+          "id": "D",
+          "text": "TRUNCATE TABLE"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لتعديل تعريف الـ View، Session 9 تعرض CREATE OR REPLACE VIEW كمثال مباشر، من غير ما نلمس الـ base tables.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "modify-view",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-modification-best-command",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 10 — Modifying a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q026",
+      "question": "Why is a view useful for data independence in the lecture's framing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because a view permanently removes the base schema."
+        },
+        {
+          "id": "B",
+          "text": "Users can query a logical representation instead of depending directly on every base-table detail."
+        },
+        {
+          "id": "C",
+          "text": "Because a view forces all data into one column."
+        },
+        {
+          "id": "D",
+          "text": "Because views do not use SELECT statements."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Data independence هنا معناها إن المستهلك يتعامل مع logical representation ثابت نسبيًا بدل الاعتماد المباشر على كل تفاصيل الـ base tables.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-data-independence-reason",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q027",
+      "question": "A complex view includes grouped data and functions. Based on the Session 9 table, what should you assume about DML through that view?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is always guaranteed to support every DML operation."
+        },
+        {
+          "id": "B",
+          "text": "It can never be selected from."
+        },
+        {
+          "id": "C",
+          "text": "It is not always applicable and should not be assumed to work like a simple view."
+        },
+        {
+          "id": "D",
+          "text": "It automatically becomes an index."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الـ Complex View ممكن يحتوي functions/groups، والمادة تؤكد إن DML من خلاله Not always، فلازم ما نفترضش إنه قابل للتعديل زي Simple View.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-dml",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-complex-view-dml-caution",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 5 — Simple Views and Complex Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q028",
+      "question": "What does SELECT * FROM EmployeeDepartmentInfo; do after the view from Slide 4 has been created?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It drops EmployeeDepartmentInfo."
+        },
+        {
+          "id": "B",
+          "text": "It recreates EMPLOYEE and DEPARTMENT."
+        },
+        {
+          "id": "C",
+          "text": "It changes every department name."
+        },
+        {
+          "id": "D",
+          "text": "It retrieves the columns and rows exposed by the EmployeeDepartmentInfo view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "بعد إنشاء الـ View، SELECT * FROM اسم_الـView بيقرأ البيانات اللي الـ View بيعرضها، زي التعامل مع table في SELECT.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "query-view",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-query-created-employee-department-view",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — EmployeeDepartmentInfo View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q029",
+      "question": "Which view definition most closely matches the lecture syntax pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CREATE VIEW v AS SELECT col1, col2 FROM t WHERE condition;"
+        },
+        {
+          "id": "B",
+          "text": "CREATE v VIEW VALUES col1, col2;"
+        },
+        {
+          "id": "C",
+          "text": "VIEW v INSERT SELECT FROM t;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT VIEW v FROM t CREATE;"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "الـ pattern في Slide 6 هو CREATE VIEW ... AS subquery، وبالتالي الاختيار اللي يحتوي CREATE VIEW ثم AS SELECT هو الصحيح.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "create-view",
+      "importance": "core",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-create-view-syntax-pattern",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 6 — Creating Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q030",
+      "question": "Which ordering matches the Suppliers view code shown in Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SELECT * FROM suppliers WITH CHECK OPTION WHERE status > 15;"
+        },
+        {
+          "id": "B",
+          "text": "SELECT * FROM suppliers WHERE status > 15 WITH CHECK OPTION;"
+        },
+        {
+          "id": "C",
+          "text": "WITH CHECK OPTION SELECT * FROM suppliers WHERE status > 15;"
+        },
+        {
+          "id": "D",
+          "text": "SELECT * WITH CHECK OPTION WHERE status > 15 FROM suppliers;"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Slide 9 تعرض الترتيب: SELECT ... FROM suppliers ثم WHERE status > 15 ثم WITH CHECK OPTION.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "with-check-option",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-suppliers-view-check-option-order",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 9 — Views with Check Option"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q031",
+      "question": "A team created a view to hide sensitive columns, but users are still querying the base table directly. What is the main design problem relative to the intended view advantage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The view must contain a PIVOT."
+        },
+        {
+          "id": "B",
+          "text": "Every view must include GROUP BY."
+        },
+        {
+          "id": "C",
+          "text": "The restricted view is being bypassed, so the data-access restriction benefit is not being enforced by how users access data."
+        },
+        {
+          "id": "D",
+          "text": "The base table should always be dropped after creating a view."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "لو الهدف restrict data access، لكن المستخدمين لسه بيعدوا الـ View ويروحوا للـ base table، يبقى ميزة التقييد مش متحققة عمليًا.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-security-bypass-diagnosis",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 4 — Advantages of Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q032",
+      "question": "A developer expects DROP VIEW vw_work_hrs; to delete Employee, Project, and Works_on. What is wrong with that expectation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DROP VIEW deletes only one row from each base table."
+        },
+        {
+          "id": "B",
+          "text": "DROP VIEW converts the base tables to views."
+        },
+        {
+          "id": "C",
+          "text": "DROP VIEW is the syntax for updating a view."
+        },
+        {
+          "id": "D",
+          "text": "DROP VIEW removes the view definition, not the base tables on which it depends."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "DROP VIEW بيحذف الـ View definition فقط. الـ base tables تفضل موجودة؛ دي نقطة مهمة في فهم الفرق بين logical view والـ tables الأصلية.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "drop-view",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-drop-view-does-not-drop-base-tables",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 3 and 11 — Views / Removing a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q033",
+      "question": "A view joins three tables and includes grouped data. A developer assumes an UPDATE through the view must succeed because SELECT from the view works. What is the best diagnosis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The view is complex; successful SELECT access does not mean every DML operation is supported through it."
+        },
+        {
+          "id": "B",
+          "text": "SELECT access proves all DML must work."
+        },
+        {
+          "id": "C",
+          "text": "The only issue is that the view name is too short."
+        },
+        {
+          "id": "D",
+          "text": "The query must use UNION ALL before UPDATE."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "قراءة Complex View بـ SELECT شيء، وإمكانية DML من خلاله شيء تاني. Slide 5 تقول إن DML للـ complex views ليس دائمًا applicable.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-dml",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-complex-view-select-vs-dml",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 5 — Simple Views and Complex Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q034",
+      "question": "A dashboard needs a stable reusable query that combines customers and recent orders, applies CASE segmentation, and hides unused raw columns. Which design best follows Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Copy all source tables into a new database for each refresh."
+        },
+        {
+          "id": "B",
+          "text": "Create a view whose SELECT performs the needed joins/filtering and CASE expression, exposing only dashboard columns."
+        },
+        {
+          "id": "C",
+          "text": "Use DROP VIEW after every dashboard query."
+        },
+        {
+          "id": "D",
+          "text": "Replace CASE with DELETE statements."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "ده external-similar بيجمع أكتر من مفهوم من Session 9: view لتبسيط query، تقييد الأعمدة، وCASE داخل view لإنشاء segmentation.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-design-integration",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "best-decision",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-dashboard-integration-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 4, 17–18, and 27 — Views / CASE / Lab"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q035",
+      "question": "If the base-table rows change after a non-materialized logical view has been created, what should a query of the view conceptually reflect?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the rows that existed at the moment CREATE VIEW ran."
+        },
+        {
+          "id": "B",
+          "text": "No rows until the view is recreated."
+        },
+        {
+          "id": "C",
+          "text": "The current data exposed by the view's stored SELECT logic."
+        },
+        {
+          "id": "D",
+          "text": "A permanently cached CSV snapshot."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "بما إن المادة تعرف الـ View كـ logical table لا يملك data of its own ومحفوظ كـ SELECT، فالاستعلام منه يعكس البيانات الحالية اللي يطلعها الـ SELECT من الـ base tables.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-storage",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-logical-view-reflects-current-base-data",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 3 — Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q036",
+      "question": "Which change most clearly turns a simple one-table view into a complex view using the lecture's comparison?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Renaming the view only."
+        },
+        {
+          "id": "B",
+          "text": "Selecting fewer columns from the same table with no functions."
+        },
+        {
+          "id": "C",
+          "text": "Adding a semicolon at the end."
+        },
+        {
+          "id": "D",
+          "text": "Adding grouping or functions, or basing it on more than one table."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ Complex View في Slide 5 يتميز بإمكانية استخدام one or more tables وfunctions وgroups of data، بعكس الـ Simple View.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "simple-vs-complex-views",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-simple-to-complex-view-transition",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 5 — Simple Views and Complex Views"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q037",
+      "question": "A query against a view fails because the view was previously removed with DROP VIEW. What is the most direct fix consistent with the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Recreate the view definition with CREATE VIEW (or CREATE OR REPLACE VIEW where appropriate)."
+        },
+        {
+          "id": "B",
+          "text": "Run DELETE FROM the missing view."
+        },
+        {
+          "id": "C",
+          "text": "Add GROUP BY to every base table."
+        },
+        {
+          "id": "D",
+          "text": "Drop the base tables too."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "لو الـ View اتشال بـ DROP VIEW، لازم تعريفه يتعمل من جديد باستخدام CREATE VIEW أو CREATE OR REPLACE حسب السياق.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "modify-view",
+      "importance": "important",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "troubleshooting",
+      "sourceType": "external-similar",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-recreate-dropped-view-fix",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 10–11 — Modifying / Removing a View"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q038",
+      "question": "A team uses a view instead of duplicating base tables when it only needs a simplified reusable result. Why does that choice match Session 9?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because a view always stores more data than a table."
+        },
+        {
+          "id": "B",
+          "text": "It provides a logical reusable SELECT layer without requiring a separate independent copy of the data."
+        },
+        {
+          "id": "C",
+          "text": "Because views cannot depend on tables."
+        },
+        {
+          "id": "D",
+          "text": "Because views remove the need for SELECT."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "الـ View بيقدم logical layer reusable فوق البيانات الأصلية، وده يحقق تبسيط الاستعلام والعرض من غير تكرار مستقل للبيانات.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-advantages",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "scenario-application",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-vs-copy-best-decision",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slides 3–4 — Views / Advantages"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q039",
+      "question": "In the Slide 7 view definition, why are both conditions SSN=ESSN and PNO=PNUMBER needed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They sort the output alphabetically."
+        },
+        {
+          "id": "B",
+          "text": "They convert Hours to an aggregate automatically."
+        },
+        {
+          "id": "C",
+          "text": "They connect the participating Employee, Works_on, and Project rows so the view returns related employee/project work information."
+        },
+        {
+          "id": "D",
+          "text": "They remove the view from the database."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "الشرطين هما join conditions بيربطوا Employee بـ Works_on ثم Works_on بـ Project عشان الـ View يجيب بيانات مترابطة بدل Cartesian combinations.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "view-with-join",
+      "importance": "core",
+      "difficulty": "Hard",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-view-multi-table-join-conditions",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 7 — Creating Views (Cont’d)"
+      }
+    },
+    {
+      "id": "da-sql-session09-views-q040",
+      "question": "A view uses CASE to classify TotalSpent and a user queries only CustomerName and CustomerSegment. Which data is returned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All base-table columns plus the CASE source code."
+        },
+        {
+          "id": "B",
+          "text": "Only rows where CustomerSegment is NULL."
+        },
+        {
+          "id": "C",
+          "text": "A stored procedure result instead of view data."
+        },
+        {
+          "id": "D",
+          "text": "The requested two columns, with CustomerSegment computed by the CASE logic in the view."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـ View يحسب CustomerSegment بالـ CASE داخل تعريفه، وبعد كده SELECT يقدر يطلب بس CustomerName وCustomerSegment زي أي أعمدة exposed.",
+        "en": ""
+      },
+      "topic": "Views",
+      "topicId": "views",
+      "subtopicId": "case-in-views",
+      "importance": "important",
+      "difficulty": "Medium",
+      "trackId": "sql",
+      "track": "SQL & Databases",
+      "questionType": "code-tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": true,
+      "conceptKey": "session09-case-view-selected-derived-column",
+      "source": {
+        "file": "Session9.pptx",
+        "reference": "Slide 18 — vw_CustomerSegments"
+      }
+    }
+  ]
+}
