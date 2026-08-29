@@ -10,13 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.18.1" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.18.2" />
 </head>
 <body>
-  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.18.1">
+  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.18.2">
     <strong>DIGILIANS TEST MODE</strong>
     <span>This is a LOCAL TEST build — not the live GitHub site.</span>
-    <b>V0.18.1</b>
+    <b>V0.18.2</b>
   </div>
   <script>
     (function () {
@@ -33,7 +33,7 @@
   <!-- STARTUP / CRASH RECOVERY — independent from app.js -->
   <div id="fatalRecovery" class="fatal-recovery hidden" role="alertdialog" aria-modal="true" aria-labelledby="fatalRecoveryTitle">
     <article class="fatal-recovery-card">
-      <span class="fatal-recovery-badge">RECOVERY MODE · V0.18.1</span>
+      <span class="fatal-recovery-badge">RECOVERY MODE · V0.18.2</span>
       <div class="fatal-recovery-icon">!</div>
       <h2 id="fatalRecoveryTitle">The platform could not start correctly.</h2>
       <p id="fatalRecoveryMessage">A startup error prevented the application from loading.</p>
@@ -98,6 +98,50 @@
       });
     })();
   </script>
+
+  <!-- LIVE UPDATE SYSTEM -->
+  <aside id="updateBanner" class="update-banner hidden" aria-live="polite" aria-label="Platform update available">
+    <div class="update-banner-icon">↻</div>
+    <div class="update-banner-copy">
+      <span id="updateBannerEyebrow">NEW UPDATE AVAILABLE</span>
+      <strong id="updateBannerTitle">A newer Digilians E-Learn version is ready.</strong>
+      <p id="updateBannerMessage">Refresh safely to get the latest fixes and improvements.</p>
+    </div>
+    <div class="update-banner-actions">
+      <button type="button" class="update-banner-link" id="updateDetailsBtn">What’s New</button>
+      <button type="button" class="primary-btn update-now-btn" id="updateNowBtn">Update Now</button>
+      <button type="button" class="update-dismiss-btn" id="updateLaterBtn" aria-label="Hide update notification for this session">Later</button>
+    </div>
+  </aside>
+
+  <div id="whatsNewModal" class="whats-new-backdrop hidden" aria-hidden="true">
+    <article class="whats-new-card" role="dialog" aria-modal="true" aria-labelledby="whatsNewTitle">
+      <button type="button" class="whats-new-close" id="whatsNewCloseBtn" aria-label="Close">×</button>
+      <div class="whats-new-hero">
+        <span class="whats-new-badge">DIGILIANS E-LEARN UPDATE</span>
+        <div class="whats-new-version-row">
+          <h2 id="whatsNewTitle">What’s New</h2>
+          <span id="whatsNewVersion">V0.18.2</span>
+        </div>
+        <p id="whatsNewSubtitle">Latest improvements, fixes and learning upgrades.</p>
+      </div>
+
+      <div id="whatsNewLatest" class="whats-new-latest"></div>
+
+      <details class="whats-new-history" id="whatsNewHistoryPanel">
+        <summary>
+          <span>Recent update history</span>
+          <strong>View previous releases</strong>
+        </summary>
+        <div id="whatsNewHistoryList"></div>
+      </details>
+
+      <div class="whats-new-footer">
+        <small id="whatsNewSafetyNote">Updates never clear your local Study progress or saved results.</small>
+        <button type="button" class="primary-btn" id="whatsNewGotItBtn">Got it</button>
+      </div>
+    </article>
+  </div>
 
   <div class="ambient ambient-one"></div>
   <div class="ambient ambient-two"></div>
@@ -1011,6 +1055,12 @@
         <span>Built for a smoother learning experience.</span>
       </div>
       <div class="footer-credit">
+        <button type="button" class="footer-version-btn" id="footerWhatsNewBtn">
+          <span id="footerVersionText">V0.18.2</span>
+          <i id="footerUpdateDot" class="footer-update-dot hidden" aria-label="Update available"></i>
+          What’s New
+        </button>
+        <span class="footer-credit-separator">•</span>
         Designed &amp; Developed by
         <a href="https://www.linkedin.com/in/ahmed-khalid97" target="_blank" rel="noopener noreferrer">Ahmed Khaled ↗</a>
       </div>
@@ -1039,6 +1089,10 @@
     </div>
 
     <div class="drawer-actions">
+      <button class="secondary-btn wide update-drawer-btn" id="openWhatsNewBtn">
+        <span>What’s New & Updates</span>
+        <b id="profileVersionBadge">V0.18.2</b>
+      </button>
       <button class="primary-btn wide" id="openValidatorBtn">Exam / Bank JSON Validator →</button>
       <button class="secondary-btn wide" id="changeNameBtn">Change saved name</button>
     </div>
@@ -1065,6 +1119,7 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/app.js?v=0.18.1"></script>
+  <script type="module" src="assets/js/update-manager.js?v=0.18.2"></script>
+  <script type="module" src="assets/js/app.js?v=0.18.2"></script>
 </body>
 </html>

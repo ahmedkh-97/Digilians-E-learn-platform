@@ -74,6 +74,9 @@ function initials(name){
 }
 
 function routeTo(id){
+  window.__DIGILIANS_EXAM_ACTIVE__=id==="examView";
+  window.dispatchEvent(new CustomEvent("digilians:routechange",{detail:{viewId:id,examActive:id==="examView"}}));
+
   if(id!=="studyView" && state.studyObserver){
     state.studyObserver.disconnect();
     state.studyObserver=null;

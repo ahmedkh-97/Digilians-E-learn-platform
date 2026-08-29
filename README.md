@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.18.1
+# Digilians E-Learn Platform V0.18.2
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1772,3 +1772,76 @@ Verified:
 - code source keeps `white-space: pre`
 - code block height remains compact
 - no page-level horizontal overflow
+
+
+## V0.18.2 — Live Update & What’s New System
+
+### Update detection
+From V0.18.2 onward, an already-open platform tab checks `VERSION.txt` every 5 minutes.
+
+The request uses:
+- timestamp query cache busting
+- `cache: no-store`
+- no-cache request headers
+
+If GitHub LIVE contains a newer semantic version, the open tab displays:
+
+`New Update Available — Vx.x.x`
+
+No automatic reload is performed.
+
+### Safe exam behavior
+The application publishes whether `examView` is active.
+
+If a newer release is detected during an exam:
+- Update Now is disabled
+- the learner is told to finish the exam first
+- the active attempt is never force-reloaded
+- after submission/result, Update Now becomes available immediately
+
+This applies to ranked and non-ranked attempts.
+
+### Update Now
+Update Now:
+1. deletes Cache API entries when available
+2. does not clear or remove localStorage
+3. navigates to the same GitHub Pages path with a unique cache-busting query
+4. the new index then loads versioned CSS/JS assets
+
+Saved Study progress, Quick Checks, results, profile name and local exam data are not deliberately cleared by the update manager.
+
+### What’s New
+The current release notes appear once per installed version.
+
+Seen version key:
+
+`digilians.whatsNew.seenVersion`
+
+The learner can reopen release notes from:
+- Profile → What’s New & Updates
+- Footer → version / What’s New
+
+When a newer version is already detected, these entry points show the upcoming/latest release.
+
+### Changelog
+Release notes live in:
+
+`data/changelog.json`
+
+It currently contains the latest release plus recent history.
+
+### Future release rule
+Every future live release must update all of:
+- `VERSION.txt`
+- `data/changelog.json`
+- `data-build-version` in `index.html`
+- CSS/app/update-manager cache query versions in `index.html`
+
+The shipped Pre-Deploy checker validates this contract.
+
+### Important migration note
+Tabs that were opened before V0.18.2 do not contain the update manager yet.
+
+Those users need one manual refresh after V0.18.2 is deployed.
+
+After that first refresh, later releases can be detected automatically while their tab remains open.
