@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.12.3" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.13.0" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -380,7 +380,10 @@
             <h3 id="officialFinalTitle">100 Questions · 120 Minutes</h3>
             <p id="officialFinalDescription">20 Excel · 20 Power BI · 20 SQL · 20 Python · 10 Tableau · 10 Looker Studio. A saved name is required before starting.</p>
           </div>
-          <button class="primary-btn" id="startOfficialFinalBtn">Start Junior Final →</button>
+          <div class="official-final-actions">
+            <button class="secondary-btn" id="officialLevelOverallRankingBtn">Junior Overall Ranking ↗</button>
+            <button class="primary-btn" id="startOfficialFinalBtn">Start Junior Final →</button>
+          </div>
         </section>
 
         <div class="section-title-row official-track-title">
@@ -407,13 +410,14 @@
             <button class="secondary-btn" id="officialStudyAllBtn">Study All Questions</button>
             <button class="ghost-btn" id="officialRandomPracticeBtn">Random Practice 40</button>
             <button class="ghost-btn" id="officialRandomExamBtn">Random Exam 50</button>
+            <button class="secondary-btn" id="officialTrackOverallRankingBtn">Track Overall Ranking ↗</button>
           </div>
         </div>
 
         <div class="official-track-summary">
           <div><span>Reviewed</span><strong id="officialTrackHubReviewed">0 / 0</strong></div>
           <div><span>Best Sections</span><strong id="officialTrackHubCompleted">0 / 0</strong></div>
-          <div><span>Rank Rule</span><strong>Best attempt</strong></div>
+          <div><span>Overall Rank</span><strong id="officialTrackRankRule">Completion → Total Grade</strong></div>
         </div>
 
         <div class="section-title-row">
@@ -665,22 +669,58 @@
 
       <!-- RANKING -->
       <section id="rankingView" class="view">
-        <div class="page-heading">
+        <div class="page-heading ranking-heading">
           <div>
-            <span class="eyebrow">RANKING</span>
-            <h2>Class leaderboard</h2>
-            <p>Best attempt only. Higher score ranks first; ties are broken by faster completion time.</p>
+            <span class="eyebrow">RANKING CENTER</span>
+            <h2>Compete at every level</h2>
+            <p>Every exam keeps its own leaderboard. Track and full-bank rankings add the best result from each fixed Official Section only.</p>
           </div>
           <button class="ghost-btn" id="refreshLeaderboardBtn">Refresh ↻</button>
         </div>
 
-        <div class="leaderboard-toolbar">
-          <label for="rankingExamSelect">Leaderboard for</label>
-          <select id="rankingExamSelect"></select>
+        <div class="ranking-mode-tabs" role="tablist" aria-label="Ranking type">
+          <button class="ranking-mode-tab active" data-ranking-mode="junior-overall" role="tab">Junior Overall</button>
+          <button class="ranking-mode-tab" data-ranking-mode="professional-overall" role="tab">Professional Overall</button>
+          <button class="ranking-mode-tab" data-ranking-mode="track" role="tab">Track Overall</button>
+          <button class="ranking-mode-tab" data-ranking-mode="exam" role="tab">Exam Ranking</button>
+        </div>
+
+        <div class="ranking-rule-card">
+          <span class="ranking-rule-icon">Σ</span>
+          <div>
+            <strong id="rankingRuleTitle">Full Bank Total Grades</strong>
+            <p id="rankingRuleText">Best attempt per fixed section • completion ranks first • Random Practice, Random Exam and Final simulations do not add marks to the bank total.</p>
+          </div>
+        </div>
+
+        <div id="rankingTrackToolbar" class="leaderboard-toolbar ranking-scope-toolbar hidden">
+          <div class="ranking-toolbar-field">
+            <label for="rankingTrackLevelSelect">Level</label>
+            <select id="rankingTrackLevelSelect" aria-label="Choose ranking level"></select>
+          </div>
+          <div class="ranking-toolbar-field grow">
+            <label for="rankingTrackSelect">Track</label>
+            <select id="rankingTrackSelect" aria-label="Choose track overall ranking"></select>
+          </div>
           <span class="live-chip"><i></i> LIVE</span>
         </div>
 
-        <div class="leaderboard-preview">
+        <div id="rankingExamToolbar" class="leaderboard-toolbar ranking-scope-toolbar hidden">
+          <div class="ranking-toolbar-field grow">
+            <label for="rankingExamSelect">Leaderboard for</label>
+            <select id="rankingExamSelect"></select>
+          </div>
+          <span class="live-chip"><i></i> LIVE</span>
+        </div>
+
+        <div id="rankingScopeSummary" class="ranking-scope-summary">
+          <div><span>Scope</span><strong id="rankingScopeName">Junior Data Analysis</strong></div>
+          <div><span>Total Marks</span><strong id="rankingScopeMarks">930</strong></div>
+          <div><span>Fixed Sections</span><strong id="rankingScopeSections">21</strong></div>
+          <div><span>Scoring</span><strong id="rankingScopeScoring">Best per section</strong></div>
+        </div>
+
+        <div class="leaderboard-preview ranking-preview">
           <div id="leaderboardStatus" class="status-card info">
             <div class="status-icon">↗</div>
             <div>
@@ -692,9 +732,14 @@
           <div id="leaderboardContent" class="hidden">
             <div class="podium" id="leaderboardPodium"></div>
 
-            <div class="leaderboard-table-wrap">
-              <div class="leaderboard-table-head">
-                <span>Rank</span><span>Student</span><span>Score</span><span>Time</span>
+            <div class="leaderboard-table-wrap" id="leaderboardTableWrap">
+              <div class="leaderboard-table-head" id="leaderboardTableHead">
+                <span>Rank</span>
+                <span>Student</span>
+                <span id="rankingHeadProgress">Score</span>
+                <span id="rankingHeadGrade">Time</span>
+                <span id="rankingHeadPercent" class="hidden">Overall</span>
+                <span id="rankingHeadTime" class="hidden">Time</span>
               </div>
               <div id="leaderboardList" class="leaderboard-list"></div>
             </div>
@@ -703,12 +748,12 @@
               <div>
                 <span class="eyebrow">YOUR POSITION</span>
                 <h3 id="rankingLocalName">Guest</h3>
-                <small id="rankingGap">Complete this exam to join the leaderboard.</small>
+                <small id="rankingGap">Complete a ranked activity to join the leaderboard.</small>
               </div>
               <div class="rank-local-stats">
                 <div><span>Rank</span><strong id="rankingOnlineRank">—</strong></div>
-                <div><span>Best</span><strong id="rankingBest">—</strong></div>
-                <div><span>Attempts</span><strong id="rankingAttempts">0</strong></div>
+                <div><span id="rankingBestLabel">Best</span><strong id="rankingBest">—</strong></div>
+                <div><span id="rankingAttemptsLabel">Attempts</span><strong id="rankingAttempts">0</strong></div>
               </div>
             </div>
           </div>
@@ -881,6 +926,6 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/app.js?v=0.12.3"></script>
+  <script type="module" src="assets/js/app.js?v=0.13.0"></script>
 </body>
 </html>

@@ -6,7 +6,8 @@ import {
 } from "./storage.js";
 
 import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
-import {submitAttemptOnline,getLeaderboard} from "./online.js";
+import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds} from "./online.js";
+import {buildAggregateLeaderboard} from "./ranking-engine.js";
 import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
 import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
@@ -42,6 +43,10 @@ const state={
   filter:"All",
   playerId:null,
   rankingExamId:null,
+  rankingMode:"junior-overall",
+  rankingTrackLevelId:"junior-data-analysis",
+  rankingTrackId:"excel",
+  rankingRequestId:0,
   lastValidatorRoute:"dashboardView",
   validatorPayload:null,
   validatorRegistryEntry:null,
@@ -199,6 +204,14 @@ async function loadData(){
   state.coverageRegistry=coverageRegistry;
   state.officialRegistry=officialRegistry;
   state.officialFinalBlueprints=officialFinalBlueprintRegistry.blueprints || [];
+  try{
+    const savedMode=localStorage.getItem("digilians_ranking_mode");
+    const savedTrackLevel=localStorage.getItem("digilians_ranking_track_level");
+    const savedTrack=localStorage.getItem("digilians_ranking_track");
+    if(["junior-overall","professional-overall","track","exam"].includes(savedMode))state.rankingMode=savedMode;
+    if(savedTrackLevel)state.rankingTrackLevelId=savedTrackLevel;
+    if(savedTrack)state.rankingTrackId=savedTrack;
+  }catch{}
 
   const manifests={},syllabusMaps={},coverageMaps={};
   await Promise.all((curriculumRegistry.tracks||[]).map(async item=>{
@@ -411,6 +424,7 @@ function renderOfficialJuniorHub(){
     $("officialFinalTitle").textContent=`${finalBlueprint.questionCount} Questions · ${finalBlueprint.timerMinutes} Minutes`;
     $("officialFinalDescription").textContent=`${finalBlueprint.distribution.map(x=>`${x.count} ${x.label}`).join(" · ")}. Platform-generated simulation using official questions; a saved name is required.`;
     $("startOfficialFinalBtn").textContent=`Start ${levelShort} Final →`;
+    $("officialLevelOverallRankingBtn").textContent=`${levelShort} Overall Ranking ↗`;
   }
   $("officialTotalQuestions").textContent=level.questionCount||0;
   $("officialTrackCount").textContent=level.tracks?.length||0;
@@ -479,7 +493,10 @@ function renderOfficialTrackHub(){
     card.querySelector(".section-study-btn").addEventListener("click",()=>openOfficialStudyScope(section.sectionId));
     card.querySelector(".section-solve-btn").addEventListener("click",()=>requireRankedIdentity(()=>prepareOfficialSection(section.sectionId),"Enter your name before solving a ranked Official QBank section."));
     card.querySelector(".section-rank-btn").addEventListener("click",()=>requireRankedIdentity(()=>{
-      state.rankingExamId=examId;routeTo("rankingView");
+      state.rankingMode="exam";
+      state.rankingExamId=examId;
+      try{localStorage.setItem("digilians_ranking_mode","exam");localStorage.setItem("digilians_last_ranking_exam_id",examId)}catch{}
+      routeTo("rankingView");
     },"Enter your name before opening a section leaderboard."));
     grid.appendChild(card);
   }
@@ -1183,6 +1200,22 @@ if($("startOfficialFinalBtn"))$("startOfficialFinalBtn").addEventListener('click
   const level=officialLevelMeta();
   requireRankedIdentity(prepareOfficialFinalExam,`Enter your name before starting the ranked ${level?.title||"Official"} Final.`);
 });
+if($("officialLevelOverallRankingBtn"))$("officialLevelOverallRankingBtn").addEventListener("click",()=>requireRankedIdentity(()=>{
+  state.rankingMode=state.officialLevelId==="professional-data-analysis"?"professional-overall":"junior-overall";
+  try{localStorage.setItem("digilians_ranking_mode",state.rankingMode)}catch{}
+  routeTo("rankingView");
+},"Enter your name before opening the full-bank Total Grades leaderboard."));
+if($("officialTrackOverallRankingBtn"))$("officialTrackOverallRankingBtn").addEventListener("click",()=>requireRankedIdentity(()=>{
+  state.rankingMode="track";
+  state.rankingTrackLevelId=state.officialLevelId;
+  state.rankingTrackId=state.officialTrackId;
+  try{
+    localStorage.setItem("digilians_ranking_mode","track");
+    localStorage.setItem("digilians_ranking_track_level",state.rankingTrackLevelId);
+    localStorage.setItem("digilians_ranking_track",state.rankingTrackId||"");
+  }catch{}
+  routeTo("rankingView");
+},"Enter your name before opening this Track Total Grades leaderboard."));
 if($("officialStudyBackBtn"))$("officialStudyBackBtn").addEventListener('click',()=>routeTo('officialTrackView'));
 if($("officialStudyAllBtn"))$("officialStudyAllBtn").addEventListener('click',()=>openOfficialStudyScope(null));
 if($("officialRandomPracticeBtn"))$("officialRandomPracticeBtn").addEventListener('click',()=>requireRankedIdentity(()=>prepareOfficialTrack('instant'),"Enter your name before starting ranked Official Practice."));
@@ -1630,9 +1663,11 @@ async function retryPendingAttempts(){
 
 function formatLeaderboardTime(seconds){
   const total=Math.max(0,Number(seconds)||0);
-  const mins=Math.floor(total/60);
-  const secs=total%60;
-  return mins?`${mins}m ${secs}s`:`${secs}s`;
+  const hours=Math.floor(total/3600);
+  const mins=Math.floor((total%3600)/60);
+  const secs=Math.floor(total%60);
+  if(hours)return `${hours}h ${String(mins).padStart(2,"0")}m`;
+  return mins?`${mins}m ${String(secs).padStart(2,"0")}s`:`${secs}s`;
 }
 
 function escapeHtml(value){
@@ -1767,8 +1802,12 @@ $("reviewRetakeBtn").addEventListener("click",()=>routeTo("setupView"));
 $("viewResultRankingBtn").addEventListener("click",()=>{
   if(!state.lastResult?.record?.examId)return;
   requireRankedIdentity(()=>{
+    state.rankingMode="exam";
     state.rankingExamId=state.lastResult.record.examId;
-    try{localStorage.setItem("digilians_last_ranking_exam_id",state.rankingExamId)}catch{}
+    try{
+      localStorage.setItem("digilians_ranking_mode","exam");
+      localStorage.setItem("digilians_last_ranking_exam_id",state.rankingExamId);
+    }catch{}
     routeTo("rankingView");
   },"Enter your name to open this leaderboard.");
 });
@@ -1840,7 +1879,6 @@ function populateRankingExamSelect(){
   const dataAnalysisIds=[];
   const availableLevels=(state.officialRegistry.levels||[]).filter(x=>x.available!==false);
 
-  // Finals first: Junior, then Professional. Each final has an isolated source-revision-aware ID.
   for(const level of availableLevels){
     const blueprint=officialFinalBlueprintForLevel(level.levelId);
     if(!blueprint)continue;
@@ -1852,7 +1890,6 @@ function populateRankingExamSelect(){
     group.appendChild(option);select.appendChild(group);dataAnalysisIds.push(option.value);
   }
 
-  // Official section leaderboards.
   for(const level of availableLevels){
     const group=document.createElement("optgroup");
     group.label=`Official QBank — ${level.title} Sections`;
@@ -1867,7 +1904,6 @@ function populateRankingExamSelect(){
     if(group.children.length)select.appendChild(group);
   }
 
-  // Random Official Practice / Exam leaderboards. These are ranked activities too.
   for(const level of availableLevels){
     const group=document.createElement("optgroup");
     group.label=`Official QBank — ${level.title} Track Challenges`;
@@ -1898,10 +1934,10 @@ function populateRankingExamSelect(){
   if(otherGroup.children.length)select.appendChild(otherGroup);
 
   const availableIds=[...select.options].map(o=>o.value),validDataIds=dataAnalysisIds.filter(id=>availableIds.includes(id));let preferred="";
-  if(state.rankingExamId && validDataIds.includes(state.rankingExamId))preferred=state.rankingExamId;
+  if(state.rankingExamId && availableIds.includes(state.rankingExamId))preferred=state.rankingExamId;
   try{
     const last=localStorage.getItem("digilians_last_ranking_exam_id")||"";
-    if(!preferred && last && validDataIds.includes(last))preferred=last;
+    if(!preferred && last && availableIds.includes(last))preferred=last;
   }catch{}
   if(!preferred&&validDataIds.length){
     const counts={};
@@ -1912,72 +1948,159 @@ function populateRankingExamSelect(){
   }
   if(!preferred){
     const juniorFinalId=officialFinalBlueprintForLevel("junior-data-analysis")?.id||"";
-    if(juniorFinalId&&validDataIds.includes(juniorFinalId))preferred=juniorFinalId;
+    if(juniorFinalId&&availableIds.includes(juniorFinalId))preferred=juniorFinalId;
   }
-  if(!preferred&&validDataIds.length)preferred=validDataIds[0];
   if(!preferred)preferred=availableIds[0]||"";
   select.value=preferred;state.rankingExamId=select.value||preferred;
 }
-async function renderRanking(){
-  $("rankingLocalName").textContent=state.studentName || "Guest";
 
-  populateRankingExamSelect();
+function rankingLevel(levelId){
+  return (state.officialRegistry.levels||[]).find(x=>x.levelId===levelId)||null;
+}
+function fixedSectionCatalog(levelId,trackId=null){
+  const level=rankingLevel(levelId);
+  if(!level)return [];
+  return (level.tracks||[])
+    .filter(track=>!trackId || track.trackId===trackId)
+    .flatMap(track=>(track.sections||[]).map(section=>({
+      examId:officialSectionExamId(level.levelId,track.trackId,section.sectionNumber,track.sourceRevision||"source-r1"),
+      levelId:level.levelId,
+      trackId:track.trackId,
+      track:track.track,
+      sectionId:section.sectionId,
+      sectionTitle:section.title,
+      questionCount:section.questionCount
+    })));
+}
+function populateRankingTrackControls(){
+  const levelSelect=$("rankingTrackLevelSelect"),trackSelect=$("rankingTrackSelect");
+  if(!levelSelect||!trackSelect)return;
+  const levels=(state.officialRegistry.levels||[]).filter(x=>x.available!==false);
 
-  const examId=state.rankingExamId;
-  $("rankingAttempts").textContent=getUserResults().filter(r=>r.examId===examId).length;
-  const status=$("leaderboardStatus");
-  const content=$("leaderboardContent");
-
-  if(!examId){
-    status.classList.remove("hidden");
-    content.classList.add("hidden");
-    status.innerHTML=`<div class="status-icon">↗</div><div><strong>No exams available</strong><p>Add an active exam to start a leaderboard.</p></div>`;
-    return;
+  levelSelect.innerHTML="";
+  for(const level of levels){
+    const option=document.createElement("option");
+    option.value=level.levelId;option.textContent=level.title;
+    levelSelect.appendChild(option);
   }
+  if(!levels.some(x=>x.levelId===state.rankingTrackLevelId))state.rankingTrackLevelId=levels[0]?.levelId||"junior-data-analysis";
+  levelSelect.value=state.rankingTrackLevelId;
 
-  status.className="status-card info";
-  status.classList.remove("hidden");
-  status.innerHTML=`<div class="status-icon">↗</div><div><strong>Loading leaderboard…</strong><p>Fetching the latest shared results from Supabase.</p></div>`;
-  content.classList.add("hidden");
-
-  try{
-    const board=await getLeaderboard(examId);
-    renderOnlineLeaderboard(board);
-    status.classList.add("hidden");
-    content.classList.remove("hidden");
-  }catch(error){
-    console.error("Leaderboard fetch failed:",error);
-    status.className="status-card danger";
-    status.innerHTML=`<div class="status-icon">!</div><div><strong>Leaderboard is temporarily unavailable</strong><p>Your local exam results are still safe. Check your connection and try Refresh.</p></div>`;
-    content.classList.add("hidden");
+  const level=rankingLevel(state.rankingTrackLevelId);
+  trackSelect.innerHTML="";
+  for(const track of level?.tracks||[]){
+    const option=document.createElement("option");
+    option.value=track.trackId;option.textContent=track.track;
+    trackSelect.appendChild(option);
   }
+  if(!(level?.tracks||[]).some(x=>x.trackId===state.rankingTrackId))state.rankingTrackId=level?.tracks?.[0]?.trackId||null;
+  trackSelect.value=state.rankingTrackId||"";
+}
+function rankingModeLevelId(){
+  if(state.rankingMode==="professional-overall")return "professional-data-analysis";
+  if(state.rankingMode==="track")return state.rankingTrackLevelId;
+  return "junior-data-analysis";
+}
+function rankingScopeForMode(){
+  if(state.rankingMode==="exam")return null;
+  const levelId=rankingModeLevelId();
+  const level=rankingLevel(levelId);
+  const track=state.rankingMode==="track"?(level?.tracks||[]).find(x=>x.trackId===state.rankingTrackId):null;
+  const sections=fixedSectionCatalog(levelId,track?.trackId||null);
+  return {
+    levelId,level,track,sections,
+    name:track?`${level.title} • ${track.track}`:level?.title||"Official QBank",
+    maxScore:sections.reduce((sum,s)=>sum+s.questionCount,0),
+    sectionCount:sections.length
+  };
+}
+function setRankingMode(mode,{render=true}={}){
+  state.rankingMode=mode;
+  try{localStorage.setItem("digilians_ranking_mode",mode)}catch{}
+  if(render)renderRanking();
+}
+function syncRankingModeUI(){
+  document.querySelectorAll("[data-ranking-mode]").forEach(btn=>btn.classList.toggle("active",btn.dataset.rankingMode===state.rankingMode));
+  $("rankingTrackToolbar").classList.toggle("hidden",state.rankingMode!=="track");
+  $("rankingExamToolbar").classList.toggle("hidden",state.rankingMode!=="exam");
+  $("rankingScopeSummary").classList.toggle("hidden",state.rankingMode==="exam");
+  populateRankingTrackControls();
+  if(state.rankingMode==="exam")populateRankingExamSelect();
 }
 
+function setExamTableMode(){
+  $("leaderboardTableWrap").classList.remove("aggregate");
+  $("leaderboardTableHead").classList.remove("aggregate");
+  document.querySelectorAll("#leaderboardList .leaderboard-row").forEach(x=>x.classList.remove("aggregate"));
+  $("rankingHeadProgress").textContent="Score";
+  $("rankingHeadGrade").textContent="Time";
+  $("rankingHeadPercent").classList.add("hidden");
+  $("rankingHeadTime").classList.add("hidden");
+  $("rankingBestLabel").textContent="Best";
+  $("rankingAttemptsLabel").textContent="Attempts";
+}
+function setAggregateTableMode(){
+  $("leaderboardTableWrap").classList.add("aggregate");
+  $("leaderboardTableHead").classList.add("aggregate");
+  $("rankingHeadProgress").textContent="Progress";
+  $("rankingHeadGrade").textContent="Total Grade";
+  $("rankingHeadPercent").textContent="Overall";
+  $("rankingHeadTime").textContent="Total Time";
+  $("rankingHeadPercent").classList.remove("hidden");
+  $("rankingHeadTime").classList.remove("hidden");
+  $("rankingBestLabel").textContent="Total Grade";
+  $("rankingAttemptsLabel").textContent="Completed";
+}
+function setRankingLoading(message="Fetching the latest shared results from Supabase."){
+  const status=$("leaderboardStatus"),content=$("leaderboardContent");
+  status.className="status-card info";
+  status.classList.remove("hidden");
+  status.innerHTML=`<div class="status-icon">↗</div><div><strong>Loading leaderboard…</strong><p>${escapeHtml(message)}</p></div>`;
+  content.classList.add("hidden");
+}
+function showRankingError(error){
+  console.error("Leaderboard fetch failed:",error);
+  const status=$("leaderboardStatus"),content=$("leaderboardContent");
+  status.className="status-card danger";
+  status.classList.remove("hidden");
+  status.innerHTML=`<div class="status-icon">!</div><div><strong>Leaderboard is temporarily unavailable</strong><p>Your local exam results are still safe. Check your connection and try Refresh.</p></div>`;
+  content.classList.add("hidden");
+}
+function showRankingContent(){
+  $("leaderboardStatus").classList.add("hidden");
+  $("leaderboardContent").classList.remove("hidden");
+}
+function renderPodium(board,{aggregate=false,maxScore=0}={}){
+  const podium=$("leaderboardPodium");podium.innerHTML="";
+  if(!board.length){
+    podium.innerHTML=`<div class="status-card info"><div class="status-icon">✦</div><div><strong>Be the first on this leaderboard</strong><p>No shared ranked results have been submitted for this scope yet.</p></div></div>`;
+    return;
+  }
+  const top=board.slice(0,3);
+  const order=top.length>=3?[top[1],top[0],top[2]]:top.length===2?[top[1],top[0]]:top;
+  order.forEach(entry=>{
+    const place=document.createElement("div");
+    const classes=entry.rank===1?"first":entry.rank===2?"second":"third";
+    place.className=`podium-place ${classes} ${entry.player_id===state.playerId?"you":""}`;
+    const main=aggregate?`${entry.totalScore}/${maxScore}`:`${entry.percentage}%`;
+    const sub=aggregate?`${entry.completedSections}/${entry.totalSections} sections • ${entry.percentage}%`:"Best attempt";
+    place.innerHTML=`
+      <span>${entry.rank}</span>
+      <div class="avatar">${escapeHtml(initials(entry.student_name))}</div>
+      <strong class="podium-name">${escapeHtml(entry.student_name)}</strong>
+      <div class="podium-score">${main}</div>
+      <div class="podium-sub">${sub}</div>`;
+    podium.appendChild(place);
+  });
+}
 function renderOnlineLeaderboard(board){
-  const podium=$("leaderboardPodium");
-  const list=$("leaderboardList");
-  podium.innerHTML="";
-  list.innerHTML="";
+  setExamTableMode();
+  renderPodium(board);
+  const list=$("leaderboardList");list.innerHTML="";
 
   if(!board.length){
-    podium.innerHTML=`<div class="status-card info"><div class="status-icon">✦</div><div><strong>Be the first on this leaderboard</strong><p>No online attempts have been submitted for this exam yet.</p></div></div>`;
     list.innerHTML=`<div class="leaderboard-row"><span>—</span><span class="leaderboard-name">No scores yet</span><span>—</span><span>—</span></div>`;
   }else{
-    const top=board.slice(0,3);
-    const order=top.length>=3?[top[1],top[0],top[2]]:top.length===2?[top[1],top[0]]:top;
-
-    order.forEach(entry=>{
-      const place=document.createElement("div");
-      const classes=entry.rank===1?"first":entry.rank===2?"second":"third";
-      place.className=`podium-place ${classes} ${entry.player_id===state.playerId?"you":""}`;
-      place.innerHTML=`
-        <span>${entry.rank}</span>
-        <div class="avatar">${escapeHtml(initials(entry.student_name))}</div>
-        <strong class="podium-name">${escapeHtml(entry.student_name)}</strong>
-        <div class="podium-score">${entry.percentage}%</div>`;
-      podium.appendChild(place);
-    });
-
     board.forEach(entry=>{
       const row=document.createElement("div");
       const isMe=entry.player_id===state.playerId;
@@ -1997,6 +2120,7 @@ function renderOnlineLeaderboard(board){
   const me=board.find(x=>x.player_id===state.playerId);
   $("rankingOnlineRank").textContent=me?`#${me.rank}`:"—";
   $("rankingBest").textContent=me?`${me.percentage}%`:"—";
+  $("rankingAttempts").textContent=getUserResults().filter(r=>r.examId===state.rankingExamId).length;
 
   const gap=$("rankingGap");
   if(!me){
@@ -2006,16 +2130,145 @@ function renderOnlineLeaderboard(board){
   }else{
     const previous=board[me.rank-2];
     if(previous.percentage>me.percentage){
-      gap.textContent=`You are ${previous.percentage-me.percentage} point${previous.percentage-me.percentage===1?"":"s"} behind #${previous.rank}.`;
+      gap.textContent=`You are ${Math.round((previous.percentage-me.percentage)*10)/10} point${previous.percentage-me.percentage===1?"":"s"} behind #${previous.rank}.`;
     }else{
       gap.textContent=`Same score as #${previous.rank}; improve your completion time to move up.`;
     }
   }
 }
+function renderAggregateLeaderboard(result,scope){
+  setAggregateTableMode();
+  const {board,maxScore,totalSections}=result;
+  renderPodium(board,{aggregate:true,maxScore});
+  const list=$("leaderboardList");list.innerHTML="";
 
+  if(!board.length){
+    list.innerHTML=`<div class="leaderboard-row aggregate"><span>—</span><span class="leaderboard-name">No section totals yet</span><span>—</span><span>—</span><span>—</span><span>—</span></div>`;
+  }else{
+    board.forEach(entry=>{
+      const row=document.createElement("div");
+      const isMe=entry.player_id===state.playerId;
+      row.className=`leaderboard-row aggregate ${isMe?"you":""}`;
+      row.innerHTML=`
+        <span class="leaderboard-rank">#${entry.rank}</span>
+        <span class="leaderboard-student">
+          <span class="avatar">${escapeHtml(initials(entry.student_name))}</span>
+          <span class="leaderboard-name">${escapeHtml(entry.student_name)}${isMe?'<span class="you-tag">YOU</span>':""}</span>
+        </span>
+        <span class="leaderboard-progress">${entry.completedSections}/${totalSections}</span>
+        <span class="leaderboard-grade">${entry.totalScore}/${maxScore}</span>
+        <span class="leaderboard-percent">${entry.percentage}%</span>
+        <span class="leaderboard-time">${formatLeaderboardTime(entry.totalTimeSeconds)}</span>`;
+      list.appendChild(row);
+    });
+  }
+
+  const me=board.find(x=>x.player_id===state.playerId);
+  $("rankingOnlineRank").textContent=me?`#${me.rank}`:"—";
+  $("rankingBest").textContent=me?`${me.totalScore}/${maxScore}`:"—";
+  $("rankingAttempts").textContent=me?`${me.completedSections}/${totalSections}`:"0/"+totalSections;
+
+  const gap=$("rankingGap");
+  if(!me){
+    gap.textContent=`Solve the fixed sections in ${scope.name} to enter this Total Grades ranking.`;
+  }else if(me.rank===1){
+    gap.textContent=me.completedSections===totalSections
+      ?"You completed the full scope and currently lead the Total Grades ranking."
+      :`You currently lead with ${me.completedSections}/${totalSections} fixed sections completed.`;
+  }else{
+    const previous=board[me.rank-2];
+    if(previous.completedSections>me.completedSections){
+      gap.textContent=`Complete ${previous.completedSections-me.completedSections} more fixed section${previous.completedSections-me.completedSections===1?"":"s"} to match #${previous.rank}'s completion.`;
+    }else if(previous.totalScore>me.totalScore){
+      gap.textContent=`You are ${previous.totalScore-me.totalScore} mark${previous.totalScore-me.totalScore===1?"":"s"} behind #${previous.rank}.`;
+    }else{
+      gap.textContent=`Same completion and grade as #${previous.rank}; total completion time is the tie-breaker.`;
+    }
+  }
+}
+function updateRankingScopeSummary(scope){
+  if(!scope)return;
+  $("rankingScopeName").textContent=scope.name;
+  $("rankingScopeMarks").textContent=scope.maxScore;
+  $("rankingScopeSections").textContent=scope.sectionCount;
+  $("rankingScopeScoring").textContent="Best per section";
+
+  const isTrack=Boolean(scope.track);
+  $("rankingRuleTitle").textContent=isTrack?`${scope.track.track} Total Grades`:"Full Bank Total Grades";
+  $("rankingRuleText").textContent=isTrack
+    ?`Best attempt from each fixed ${scope.track.track} section. Completion ranks first, then total marks, then total time. Random Practice/Exam do not add marks.`
+    :`Best attempt per fixed section across the full ${scope.level?.title||"bank"}. Completion ranks first, then total marks, then total time. Random Practice, Random Exam and Final simulations do not add marks.`;
+}
+async function renderRanking(){
+  $("rankingLocalName").textContent=state.studentName || "Guest";
+  const requestId=++state.rankingRequestId;
+
+  try{
+    const savedMode=localStorage.getItem("digilians_ranking_mode");
+    if(savedMode && ["junior-overall","professional-overall","track","exam"].includes(savedMode) && !state.rankingMode)state.rankingMode=savedMode;
+  }catch{}
+
+  syncRankingModeUI();
+
+  if(state.rankingMode==="exam"){
+    $("rankingRuleTitle").textContent="Individual Exam Leaderboard";
+    $("rankingRuleText").textContent="Best attempt only. Higher percentage ranks first; ties are broken by faster completion time.";
+    setRankingLoading();
+    const examId=state.rankingExamId;
+    if(!examId){
+      $("leaderboardStatus").innerHTML=`<div class="status-icon">↗</div><div><strong>No exams available</strong><p>Add an active exam to start a leaderboard.</p></div>`;
+      return;
+    }
+    try{
+      const board=await getLeaderboard(examId);
+      if(requestId!==state.rankingRequestId)return;
+      renderOnlineLeaderboard(board);
+      showRankingContent();
+    }catch(error){
+      if(requestId===state.rankingRequestId)showRankingError(error);
+    }
+    return;
+  }
+
+  const scope=rankingScopeForMode();
+  updateRankingScopeSummary(scope);
+  setRankingLoading(`Combining best attempts from ${scope.sectionCount} fixed section leaderboard${scope.sectionCount===1?"":"s"}.`);
+  try{
+    const rows=await fetchAttemptsForExamIds(scope.sections.map(s=>s.examId));
+    if(requestId!==state.rankingRequestId)return;
+    const result=buildAggregateLeaderboard(rows,scope.sections);
+    renderAggregateLeaderboard(result,scope);
+    showRankingContent();
+  }catch(error){
+    if(requestId===state.rankingRequestId)showRankingError(error);
+  }
+}
+
+document.querySelectorAll("[data-ranking-mode]").forEach(btn=>btn.addEventListener("click",()=>{
+  const mode=btn.dataset.rankingMode;
+  setRankingMode(mode);
+}));
+$("rankingTrackLevelSelect").addEventListener("change",e=>{
+  state.rankingTrackLevelId=e.target.value;
+  state.rankingTrackId=rankingLevel(state.rankingTrackLevelId)?.tracks?.[0]?.trackId||null;
+  try{
+    localStorage.setItem("digilians_ranking_track_level",state.rankingTrackLevelId);
+    localStorage.setItem("digilians_ranking_track",state.rankingTrackId||"");
+  }catch{}
+  renderRanking();
+});
+$("rankingTrackSelect").addEventListener("change",e=>{
+  state.rankingTrackId=e.target.value;
+  try{localStorage.setItem("digilians_ranking_track",state.rankingTrackId)}catch{}
+  renderRanking();
+});
 $("rankingExamSelect").addEventListener("change",e=>{
   state.rankingExamId=e.target.value;
-  try{localStorage.setItem("digilians_last_ranking_exam_id",state.rankingExamId)}catch{}
+  state.rankingMode="exam";
+  try{
+    localStorage.setItem("digilians_ranking_mode","exam");
+    localStorage.setItem("digilians_last_ranking_exam_id",state.rankingExamId);
+  }catch{}
   renderRanking();
 });
 $("refreshLeaderboardBtn").addEventListener("click",()=>renderRanking());

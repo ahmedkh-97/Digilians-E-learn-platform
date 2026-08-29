@@ -60,6 +60,47 @@ export async function fetchExamAttempts(examId) {
   return (await apiFetch(url)) || [];
 }
 
+const ATTEMPT_SELECT = [
+  "player_id",
+  "student_name",
+  "exam_id",
+  "exam_title",
+  "exam_version",
+  "score",
+  "wrong",
+  "unanswered",
+  "total_questions",
+  "percentage",
+  "time_taken_seconds",
+  "feedback_mode",
+  "submitted_at"
+].join(",");
+
+export async function fetchAttemptsForExamIds(examIds,{chunkSize=8,pageSize=1000}={}){
+  const unique=[...new Set((examIds||[]).filter(Boolean))];
+  if(!unique.length)return [];
+
+  const out=[];
+  for(let start=0;start<unique.length;start+=chunkSize){
+    const chunk=unique.slice(start,start+chunkSize);
+    const filter=encodeURIComponent(`in.(${chunk.join(",")})`);
+    let offset=0;
+
+    while(true){
+      const url=
+        `${ATTEMPTS_ENDPOINT}?select=${ATTEMPT_SELECT}`+
+        `&exam_id=${filter}`+
+        `&order=submitted_at.asc`+
+        `&limit=${pageSize}&offset=${offset}`;
+      const page=(await apiFetch(url))||[];
+      out.push(...page);
+      if(page.length<pageSize)break;
+      offset+=pageSize;
+    }
+  }
+  return out;
+}
+
 function isBetterAttempt(candidate, current) {
   if (!current) return true;
   if (candidate.percentage !== current.percentage) {

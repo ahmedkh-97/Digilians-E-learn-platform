@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.12.3
+# Digilians E-Learn Platform V0.13.0
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1085,3 +1085,16 @@ Fixes:
 - Static Junior-only fallback copy was removed from generic Professional-capable flows.
 
 QA report: `docs/FULL-PLATFORM-QA-V0.12.3.md`
+
+
+## V0.13.0 — Ranking V2
+
+Ranking is now hierarchical:
+
+- Exam Ranking: every ranked exam/activity remains independent.
+- Track Overall: sums the best attempt from every fixed section in the selected track.
+- Junior Overall: Total Grades across all 930 Junior source questions.
+- Professional Overall: Total Grades across all 1189 Professional source questions.
+- Completion ranks first, then Total Grade, then total time.
+- Random Practice 40 / Random Exam 50 / Final simulations remain separately ranked but are excluded from aggregate Total Grades.
+- No Supabase schema migration is required.
