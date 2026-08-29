@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.11.0
+# Digilians E-Learn Platform V0.12.3
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -852,3 +852,236 @@ Professional Data Analysis is now an active, isolated Official QBank level.
 - Junior 930-question source and rankings remain unchanged
 
 Professional Final is intentionally not enabled in this phase; section ranking and per-track Random Practice/Exam are active.
+
+
+## V0.11.1 — Professional SQL Variant Deep Explanations Batch 1
+
+Completed the first **50 Professional SQL variant questions** using the approved reuse workflow.
+
+- Junior explanations were used only as conceptual/review references.
+- Every Professional question was rechecked against its own wording, A/B/C/D options, and official answer.
+- `reuseAudit.explanationReuse` changed from `adapt-and-review` to `adapted-and-reviewed`.
+- Every completed question now has a Professional-specific Arabic `deepExplanation` with A/B/C/D analysis.
+- Official Professional wording, options, answer, source order, and source metadata remain unchanged.
+
+Professional SQL status after this batch:
+- 50 variants: adapted and reviewed
+- 56 variants: still adapt-and-review
+- 45 unique questions: new explanation required
+- Total SQL: 151
+
+
+## V0.11.2 — Professional SQL Variant Deep Explanations COMPLETE
+
+Completed the remaining **56 Professional SQL variant questions**.
+
+Professional SQL reuse status:
+- **106 / 106 variants adapted and reviewed**
+- **45 unique SQL questions still require new explanations**
+- Total Professional SQL: **151**
+
+Every completed variant now has:
+- Professional-specific Arabic concept explanation
+- A/B/C/D analysis
+- `reuseAudit.explanationReuse: adapted-and-reviewed`
+- `deepExplanation.status: reviewed-batch`
+
+Official Professional wording, options, answers, source order, and source metadata remain unchanged.
+
+
+## V0.11.3 — Professional SQL Deep Explanations COMPLETE
+
+Completed all **45 unique Professional SQL questions** with new, source-specific Arabic deep explanations.
+
+Professional SQL is now **151 / 151 complete**:
+- 106 variants: adapted and reviewed from Junior reference concepts
+- 45 unique: newly written and reviewed
+- every question has A/B/C/D analysis
+- official question wording, options, answer and source order remain unchanged
+
+Unique topics completed in this batch include:
+RIGHT JOIN, triggers, UDFs, ALTER/DROP VIEW, ER modeling, weak entities, M:N mapping,
+operator precedence, star vs snowflake schemas, DECIMAL, DDL/DCL, DATE_ADD, IF...ELSE,
+subqueries, ALL/EXISTS, window functions, RANK/DENSE_RANK/ROW_NUMBER/LAG, PIVOT,
+TRY/CATCH, SQL categories, aliases, ISNULL, logical query execution order, UPPER and CONCAT.
+
+
+## V0.11.4 — Professional Python Variants COMPLETE
+
+Completed all **56 Professional Python variant questions** using the approved reuse workflow.
+
+Professional Python status:
+- **56 / 56 variants adapted and reviewed**
+- **94 unique Python questions still require new explanations**
+- Total Professional Python: **150**
+
+Each completed variant now includes:
+- Professional-specific Arabic concept explanation
+- A/B/C/D option analysis
+- `reuseAudit.explanationReuse: adapted-and-reviewed`
+- `deepExplanation.status: reviewed-batch`
+
+Junior material was used only as a conceptual/review reference. Official Professional wording,
+options, answers, order and source metadata remain unchanged.
+
+
+## V0.11.5 — Professional Python Unique Batch 1
+
+Completed the first **50 / 94 unique Professional Python questions** with new, source-specific deep explanations.
+
+Professional Python status:
+- 56 variants: adapted and reviewed
+- 50 unique: newly created and reviewed
+- **106 / 150 total Python questions now have deep explanations**
+- **44 unique Python questions remain**
+
+This batch includes Python fundamentals, loops, collections, functions, Pandas basics,
+advanced output tracing, NumPy indexing/reshaping/broadcasting/aggregation, mutable default
+arguments, copying behavior, recursion, nested loops, and exact code-execution reasoning.
+
+Official wording, options, answers, source order, and source metadata remain unchanged.
+
+
+## V0.11.6 — Professional Python Deep Explanations COMPLETE
+
+Completed the remaining **44 unique Professional Python questions**.
+
+Professional Python is now **150 / 150 complete**:
+- 56 variants: adapted and reviewed
+- 94 unique: newly written and reviewed
+- every question has an Arabic concept/execution explanation plus A/B/C/D analysis
+- official question wording, options, answer and source order remain unchanged
+
+This final batch covers advanced NumPy and Pandas execution tracing, DataFrame copying,
+sorting, value_counts, missing-data handling, duplicate handling, map/apply, datetime access,
+basic Python syntax/types/operators, sets, input, loops, strings, Pandas structures and Matplotlib.
+
+
+## V0.11.7 — Professional Web Scraping Deep Explanations Batch 1
+
+Completed the first **50 / 123 Professional Web Scraping questions** with new, source-specific Arabic deep explanations.
+
+Coverage in this batch:
+- requests.get, headers, timeout and HTTP 200
+- BeautifulSoup creation, parsers, prettify, find/find_all and ResultSet
+- tags, attributes, get_text, href, urljoin and image attributes
+- CSS-selector searching and DOM navigation
+- BeautifulSoup limitations with JavaScript
+- Selenium fundamentals, WebDriver, element locating, clicking and send_keys
+
+Every completed question now includes A/B/C/D analysis.
+Official question wording, options, answer, source order and source metadata remain unchanged.
+
+
+## V0.11.8 — Professional Web Scraping Deep Explanations Batch 2
+
+Completed the next **50 Professional Web Scraping questions**.
+
+Professional Web Scraping status:
+- **100 / 123 questions complete**
+- **23 questions remain**
+
+This batch covers Selenium waits and browser control, feedparser/RSS/Atom,
+HTTP status codes, scraping ethics, robots.txt, APIs, User-Agent and request delays,
+HTML structure, Scrapy, dynamic JavaScript pages, and core BeautifulSoup concepts.
+
+Every completed question includes an Arabic explanation plus A/B/C/D analysis.
+Official question wording, options, answers, source order and source metadata remain unchanged.
+
+
+## V0.11.9 — Professional Web Scraping Deep Explanations COMPLETE
+
+Completed the remaining **23 Professional Web Scraping questions**.
+
+Professional Web Scraping is now **123 / 123 complete**.
+
+Final coverage includes:
+- BeautifulSoup find_all/select and CSS selectors
+- HTML attributes and parsers
+- XPath
+- pandas read_html
+- pagination
+- JSON APIs
+- headless browsers and CAPTCHA
+- rate limiting, Authorization headers and cookies
+- requests response text/status_code
+- robust scraper practices
+- structured storage and privacy/legal considerations
+
+Every Professional Web Scraping question now includes an Arabic explanation and A/B/C/D analysis.
+Official wording, options, answers, source order and source metadata remain unchanged.
+
+
+## V0.12.0 — Professional Machine Learning Deep Explanations Batch 1
+
+Completed the first **50 / 90 Professional Machine Learning questions** with new, source-specific Arabic deep explanations.
+
+Coverage in this batch:
+- Linear and Multiple Linear Regression
+- MSE, R² and Ordinary Least Squares
+- Logistic Regression, sigmoid, thresholds and Log Loss
+- SVM and kernels
+- Decision Trees and Random Forest
+- K-Means and the Elbow Method
+- overfitting, underfitting, regularization and bias-variance tradeoff
+- supervised, unsupervised and reinforcement learning
+- classification vs regression
+- features, targets and train/test split
+
+Every completed question includes A/B/C/D analysis.
+Official question wording, options, answer, source order and source metadata remain unchanged.
+
+
+## V0.12.1 — Professional Deep Explanations COMPLETE
+
+Completed the remaining **40 Professional Machine Learning questions**.
+
+Professional Machine Learning is now **90 / 90 complete**.
+
+The entire Professional Official QBank is now **1189 / 1189 complete with deep explanations**:
+- Excel: 230 / 230
+- Power BI: 235 / 235
+- SQL & Databases: 151 / 151
+- Python: 150 / 150
+- Web Scraping: 123 / 123
+- Machine Learning: 90 / 90
+- Tableau: 210 / 210
+
+Every Professional question has a platform-generated Arabic deep explanation with A/B/C/D analysis.
+Official wording, options, official answers, source order, source numbering and source metadata remain unchanged.
+
+The Professional Final Exam blueprint remains intentionally inactive until its seven-track distribution
+is separately approved; the Junior final distribution has not been copied automatically.
+
+
+## V0.12.2 — Professional Official Final ACTIVATED
+
+- 100 questions / 120 minutes
+- 7 Professional tracks
+- Source-proportional distribution: 19 Excel / 20 Power BI / 13 SQL / 13 Python / 10 Web Scraping / 7 Machine Learning / 18 Tableau
+- Topic-aware selection inside every track
+- Fingerprint deduplication within each generated attempt
+- Separate Professional Final leaderboard
+- Professional Final ID: `official-professional-data-analysis-final-v1-professional-1189-r1`
+- The weighting is explicitly labeled as platform-generated, not an official ministry final-exam specification.
+
+
+## V0.12.3 — Full Platform QA & UX Stability Pass
+
+Junior + Professional QA pass completed after Professional Final activation.
+
+Fixes:
+- Professional Final resume now restores the correct Professional level/track context.
+- Mistake tracking now uses the correct level-specific source revision after resume.
+- Result buttons use the correct Junior/Professional QBank label.
+- Back/review/setup navigation restores the original Official QBank level context.
+- `View Ranking` now preserves the leaderboard of the exam just completed.
+- Random Official Practice 40 and Exam 50 leaderboards are now selectable in Ranking.
+- Dashboard Official QBank count now reflects all active levels (2119 questions).
+- Generated Official exams show their real title in `Continue Where You Left Off`.
+- Official results can be launched again directly from the Continue card.
+- Official result records now retain feedback mode and exam category for reliable reruns.
+- Search/filter/file controls received explicit accessibility labels.
+- Static Junior-only fallback copy was removed from generic Professional-capable flows.
+
+QA report: `docs/FULL-PLATFORM-QA-V0.12.3.md`

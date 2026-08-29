@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.11.0" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.12.3" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -184,7 +184,7 @@
           <div>
             <span class="eyebrow">OFFICIAL MINISTRY QBANK</span>
             <h3>Study the official bank exactly as published</h3>
-            <p><strong id="officialHomeCount">930</strong> official questions across Excel, Power BI, SQL, Python, Tableau and Looker Studio.</p>
+            <p><strong id="officialHomeCount">2119</strong> official questions across separate Junior and Professional Data Analysis banks.</p>
           </div>
           <button class="primary-btn" id="openOfficialHomeBtn">Open Official QBank <span>→</span></button>
         </section>
@@ -376,7 +376,7 @@
 
         <section class="official-final-card" id="officialFinalCard">
           <div>
-            <span class="eyebrow" id="officialFinalEyebrow">JUNIOR OFFICIAL FINAL — RANKED</span>
+            <span class="eyebrow" id="officialFinalEyebrow">OFFICIAL QBANK FINAL — RANKED</span>
             <h3 id="officialFinalTitle">100 Questions · 120 Minutes</h3>
             <p id="officialFinalDescription">20 Excel · 20 Power BI · 20 SQL · 20 Python · 10 Tableau · 10 Looker Studio. A saved name is required before starting.</p>
           </div>
@@ -392,7 +392,7 @@
       <!-- OFFICIAL TRACK / SECTIONS -->
       <section id="officialTrackView" class="view">
         <div class="context-bar">
-          <button class="back-btn" id="officialTrackBackBtn">← Junior QBank</button>
+          <button class="back-btn" id="officialTrackBackBtn">← Official QBank</button>
           <div class="breadcrumb" id="officialTrackBreadcrumb">Junior / Excel</div>
           <span class="official-source-badge desktop-only">OFFICIAL</span>
         </div>
@@ -443,9 +443,9 @@
         </div>
 
         <div class="official-toolbar">
-          <div class="search-shell"><span>⌕</span><input id="officialSearch" type="search" placeholder="Search official questions..." /></div>
-          <select id="officialTopicFilter" class="official-select"><option value="all">All topics</option></select>
-          <select id="officialStateFilter" class="official-select"><option value="all">All questions</option><option value="unseen">Unseen</option><option value="reviewed">Reviewed</option><option value="bookmarks">Bookmarks</option><option value="mistakes">Mistakes</option></select>
+          <div class="search-shell"><span>⌕</span><input id="officialSearch" aria-label="Search official questions" type="search" placeholder="Search official questions..." /></div>
+          <select id="officialTopicFilter" aria-label="Filter official questions by topic" class="official-select"><option value="all">All topics</option></select>
+          <select id="officialStateFilter" aria-label="Filter official questions by study state" class="official-select"><option value="all">All questions</option><option value="unseen">Unseen</option><option value="reviewed">Reviewed</option><option value="bookmarks">Bookmarks</option><option value="mistakes">Mistakes</option></select>
         </div>
 
         <div class="official-study-layout">
@@ -477,7 +477,7 @@
         <div class="library-toolbar">
           <div class="search-shell">
             <span>⌕</span>
-            <input id="examSearch" type="search" placeholder="Search by course, module or exam..." />
+            <input id="examSearch" aria-label="Search exams" type="search" placeholder="Search by course, module or exam..." />
           </div>
           <div id="examFilters" class="filter-row"></div>
         </div>
@@ -736,7 +736,7 @@
               <div class="validator-drop-icon">{ }</div>
               <h3>Drop your exam JSON here</h3>
               <p>or choose a file from your device</p>
-              <input id="validatorFileInput" type="file" accept=".json,application/json" hidden />
+              <input id="validatorFileInput" aria-label="Choose a JSON file to validate" type="file" accept=".json,application/json" hidden />
               <button class="primary-btn" id="validatorChooseBtn">Choose JSON File</button>
               <small>Nothing is uploaded anywhere. Validation runs only in your browser.</small>
             </div>
@@ -881,6 +881,6 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/app.js?v=0.11.0"></script>
+  <script type="module" src="assets/js/app.js?v=0.12.3"></script>
 </body>
 </html>

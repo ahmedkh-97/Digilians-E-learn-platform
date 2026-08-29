@@ -12,7 +12,7 @@ import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
 import {evaluateTrackReadiness,finalStatusFromTracks} from "./readiness.js";
 import {evaluateCoverageReadiness,topicPerformance} from "./coverage-engine.js";
-import {loadOfficialTrack,loadOfficialSection,buildOfficialSectionExam,buildOfficialTrackExam,buildOfficialFinal,officialSectionExamId} from "./official-qbank.js";
+import {loadOfficialTrack,loadOfficialSection,buildOfficialSectionExam,buildOfficialTrackExam,buildOfficialFinal,officialSectionExamId,officialTrackRandomExamId} from "./official-qbank.js";
 
 const state={
   studentName:"",
@@ -45,7 +45,7 @@ const state={
   lastValidatorRoute:"dashboardView",
   validatorPayload:null,
   validatorRegistryEntry:null,
-  officialRegistry:{tracks:[],levels:[]},officialFinalBlueprint:null,
+  officialRegistry:{tracks:[],levels:[]},officialFinalBlueprints:[],
   officialLevelId:"junior-data-analysis",officialTrackId:null,officialSectionId:null,officialQuestions:[],officialFiltered:[],officialIndex:0,
   currentRankedActivity:false,identityContinuation:null
 };
@@ -179,7 +179,7 @@ async function loadJson(path){
 }
 
 async function loadData(){
-  const [registry,learning,bankRegistry,blueprints,curriculumRegistry,syllabusRegistry,coverageRegistry,officialRegistry,officialFinalBlueprint]=await Promise.all([
+  const [registry,learning,bankRegistry,blueprints,curriculumRegistry,syllabusRegistry,coverageRegistry,officialRegistry,officialFinalBlueprintRegistry]=await Promise.all([
     loadJson("data/exams.json"),
     loadJson("data/learning.json"),
     loadJson("data/question-banks.json"),
@@ -188,7 +188,7 @@ async function loadData(){
     loadJson("data/syllabus-maps.json"),
     loadJson("data/coverage-blueprints.json"),
     loadJson("data/official-qbank.json"),
-    loadJson("data/official-final-blueprint.json")
+    loadJson("data/official-final-blueprints.json")
   ]);
   state.registry=registry.exams || [];
   state.learning=learning;
@@ -198,7 +198,7 @@ async function loadData(){
   state.syllabusRegistry=syllabusRegistry;
   state.coverageRegistry=coverageRegistry;
   state.officialRegistry=officialRegistry;
-  state.officialFinalBlueprint=officialFinalBlueprint;
+  state.officialFinalBlueprints=officialFinalBlueprintRegistry.blueprints || [];
 
   const manifests={},syllabusMaps={},coverageMaps={};
   await Promise.all((curriculumRegistry.tracks||[]).map(async item=>{
@@ -258,7 +258,10 @@ function renderDashboard(){
   $("attemptCount").textContent=stats.attempts;
 
   renderContinueCard();
-  if($("officialHomeCount")) $("officialHomeCount").textContent=state.officialRegistry.totalQuestions || 0;
+  if($("officialHomeCount")){
+    const officialTotal=(state.officialRegistry.levels||[]).filter(x=>x.available!==false).reduce((sum,x)=>sum+(Number(x.questionCount)||0),0);
+    $("officialHomeCount").textContent=officialTotal || state.officialRegistry.totalQuestions || 0;
+  }
   renderCourses("homeCourseGrid",true);
   renderHomeExams();
   renderMiniAchievements();
@@ -269,23 +272,50 @@ function renderContinueCard(){
   const progress=getExamProgress();
   if(progress && progress.studentName===state.studentName){
     const registryItem=state.registry.find(x=>x.id===progress.examId);
-    const total=registryItem?.questionCount || progress.totalQuestions || 1;
+    const generatedTitle=progress.generatedExam?.exam?.title;
+    const total=registryItem?.questionCount || progress.totalQuestions || progress.generatedExam?.questions?.length || 1;
     const percent=Math.round(((progress.currentIndex+1)/total)*100);
-    $("continueTitle").textContent=registryItem?.title || "Continue your exam";
+    $("continueTitle").textContent=registryItem?.title || generatedTitle || "Continue your exam";
     $("continueSubtitle").textContent=`Question ${progress.currentIndex+1} of ${total} • ${progress.feedbackMode==="instant"?"Instant Feedback":"Exam Mode"}`;
     $("continuePercent").textContent=`${percent}%`;
     $("continueAction").innerHTML='Continue Exam <span>→</span>';
     $("continueAction").onclick=()=>resumeProgress(progress);
     return;
   }
+
   const latest=[...getUserResults()].sort((a,b)=>new Date(b.submittedAt)-new Date(a.submittedAt))[0];
   if(latest){
     const exam=state.registry.find(x=>x.id===latest.examId);
-    $("continueTitle").textContent=exam?`Improve ${exam.title}`:"Beat your personal best";
-    $("continueSubtitle").textContent=`Last score: ${latest.percentage}% • Try again or choose another exam.`;
+    $("continueTitle").textContent=`Improve ${exam?.title || latest.examTitle || "your personal best"}`;
+    $("continueSubtitle").textContent=`Last score: ${latest.percentage}% • Try again and improve your best.`;
     $("continuePercent").textContent=`${latest.percentage}%`;
     $("continueAction").innerHTML='Practice Again <span>→</span>';
-    $("continueAction").onclick=()=>exam?prepareExam(exam):routeTo("examsView");
+
+    if(latest.officialContext){
+      $("continueAction").onclick=()=>{
+        const ctx=latest.officialContext;
+        state.officialLevelId=ctx.levelId || "junior-data-analysis";
+        state.officialTrackId=ctx.trackId || null;
+        state.officialSectionId=ctx.sectionId || null;
+
+        if(ctx.kind==="final"){
+          requireRankedIdentity(prepareOfficialFinalExam,"Your saved name is required for this ranked Official Final.");
+          return;
+        }
+        if(ctx.kind==="section" && ctx.sectionId){
+          requireRankedIdentity(()=>prepareOfficialSection(ctx.sectionId),"Your saved name is required for this ranked section.");
+          return;
+        }
+        if(ctx.kind==="track-random" && ctx.trackId){
+          const mode=latest.feedbackMode || (String(latest.examCategory||latest.examTitle||"").toLowerCase().includes("exam")?"exam":"instant");
+          requireRankedIdentity(()=>prepareOfficialTrack(mode),"Your saved name is required for this ranked Official QBank attempt.");
+          return;
+        }
+        routeTo("officialJuniorView");
+      };
+    }else{
+      $("continueAction").onclick=()=>exam?prepareExam(exam):routeTo("examsView");
+    }
   }else{
     $("continueTitle").textContent="Start your first exam";
     $("continueSubtitle").textContent="Choose a course and begin building your progress.";
@@ -299,14 +329,17 @@ function renderContinueCard(){
 function officialLevelMeta(levelId=state.officialLevelId){
   return (state.officialRegistry.levels||[]).find(x=>x.levelId===levelId)||null;
 }
+function officialFinalBlueprintForLevel(levelId=state.officialLevelId){
+  return (state.officialFinalBlueprints||[]).find(x=>x.levelId===levelId)||null;
+}
 function officialTracks(){
   return officialLevelMeta()?.tracks || [];
 }
-function officialTrackMeta(trackId=state.officialTrackId){
-  return officialTracks().find(x=>x.trackId===trackId)||null;
+function officialTrackMeta(trackId=state.officialTrackId,levelId=state.officialLevelId){
+  return (officialLevelMeta(levelId)?.tracks||[]).find(x=>x.trackId===trackId)||null;
 }
-function officialTrackRevision(trackId=state.officialTrackId){
-  return officialTrackMeta(trackId)?.sourceRevision || "source-r1";
+function officialTrackRevision(trackId=state.officialTrackId,levelId=state.officialLevelId){
+  return officialTrackMeta(trackId,levelId)?.sourceRevision || "source-r1";
 }
 function officialSectionMeta(sectionId=state.officialSectionId){
   return officialTrackMeta()?.sections?.find(x=>x.sectionId===sectionId)||null;
@@ -324,7 +357,7 @@ function renderOfficialHub(){
   grid.innerHTML="";
   const levels=state.officialRegistry.levels?.length?state.officialRegistry.levels:[
     {levelId:"junior-data-analysis",title:"Junior Data Analysis",description:"Official Junior Data Analysis Ministry Question Bank.",available:true,status:"active",questionCount:state.officialRegistry.totalQuestions||0,tracks:state.officialRegistry.tracks||[]},
-    {levelId:"professional-data-analysis",title:"Professional Data Analysis",description:"Professional bank will be added separately.",available:false,status:"coming-soon",questionCount:0,tracks:[]}
+    {levelId:"professional-data-analysis",title:"Professional Data Analysis",description:"Official Professional Data Analysis Ministry Question Bank.",available:true,status:"active",questionCount:0,tracks:[]}
   ];
   for(const level of levels){
     const trackCount=level.tracks?.length||0;
@@ -345,7 +378,7 @@ function renderOfficialHub(){
         <div><span>Sections</span><strong>${sectionCount}</strong></div>
       </div>
       <button class="${level.available?"primary-btn":"secondary-btn"} wide" ${level.available?"":"disabled"}>
-        ${level.available?"Open Level →":"Waiting for Professional QBank"}
+        ${level.available?"Open Level →":"Level unavailable"}
       </button>`;
     if(level.available){
       card.querySelector("button").addEventListener("click",()=>{
@@ -371,7 +404,14 @@ function renderOfficialJuniorHub(){
   $("officialLevelQuestionBadge").textContent=`${level.questionCount||0} QUESTIONS`;
   $("officialTrackCountLabel").textContent=level.title;
   $("officialTrackChooserTitle").textContent=`Choose a ${levelShort} question bank`;
-  $("officialFinalCard").classList.toggle("hidden",!isJunior);
+  const finalBlueprint=officialFinalBlueprintForLevel(level.levelId);
+  $("officialFinalCard").classList.toggle("hidden",!finalBlueprint);
+  if(finalBlueprint){
+    $("officialFinalEyebrow").textContent=`${levelShort.toUpperCase()} OFFICIAL QBANK FINAL — RANKED`;
+    $("officialFinalTitle").textContent=`${finalBlueprint.questionCount} Questions · ${finalBlueprint.timerMinutes} Minutes`;
+    $("officialFinalDescription").textContent=`${finalBlueprint.distribution.map(x=>`${x.count} ${x.label}`).join(" · ")}. Platform-generated simulation using official questions; a saved name is required.`;
+    $("startOfficialFinalBtn").textContent=`Start ${levelShort} Final →`;
+  }
   $("officialTotalQuestions").textContent=level.questionCount||0;
   $("officialTrackCount").textContent=level.tracks?.length||0;
   const sectionCount=(level.tracks||[]).reduce((sum,t)=>sum+(t.sections?.length||0),0);
@@ -622,8 +662,11 @@ async function prepareOfficialTrack(mode){
   configureExamSetup(payload,item,mode);
 }
 async function prepareOfficialFinalExam(){
-  const payload=await buildOfficialFinal({registry:state.officialRegistry,blueprint:state.officialFinalBlueprint,loadJson});
-  const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:'Junior Official QBank',questionCount:100,generator:'official-qbank',ranked:true};
+  const blueprint=officialFinalBlueprintForLevel();
+  if(!blueprint){showToast("No final blueprint is active for this level yet.");return}
+  const payload=await buildOfficialFinal({registry:state.officialRegistry,blueprint,loadJson});
+  const level=officialLevelMeta();
+  const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:`${level?.title||"Official QBank"} Final`,questionCount:payload.questions.length,generator:'official-qbank',ranked:true};
   configureExamSetup(payload,item,'exam');
 }
 
@@ -1136,7 +1179,10 @@ $("examSearch").addEventListener("input",e=>renderExamLibrary(e.target.value));
 if($("openOfficialHomeBtn"))$("openOfficialHomeBtn").addEventListener('click',()=>routeTo('officialQbankView'));
 if($("officialJuniorBackBtn"))$("officialJuniorBackBtn").addEventListener('click',()=>routeTo('officialQbankView'));
 if($("officialTrackBackBtn"))$("officialTrackBackBtn").addEventListener('click',()=>routeTo('officialJuniorView'));
-if($("startOfficialFinalBtn"))$("startOfficialFinalBtn").addEventListener('click',()=>requireRankedIdentity(prepareOfficialFinalExam,"Enter your name before starting the ranked Junior Official Final."));
+if($("startOfficialFinalBtn"))$("startOfficialFinalBtn").addEventListener('click',()=>{
+  const level=officialLevelMeta();
+  requireRankedIdentity(prepareOfficialFinalExam,`Enter your name before starting the ranked ${level?.title||"Official"} Final.`);
+});
 if($("officialStudyBackBtn"))$("officialStudyBackBtn").addEventListener('click',()=>routeTo('officialTrackView'));
 if($("officialStudyAllBtn"))$("officialStudyAllBtn").addEventListener('click',()=>openOfficialStudyScope(null));
 if($("officialRandomPracticeBtn"))$("officialRandomPracticeBtn").addEventListener('click',()=>requireRankedIdentity(()=>prepareOfficialTrack('instant'),"Enter your name before starting ranked Official Practice."));
@@ -1254,9 +1300,16 @@ function configureExamSetup(payload,registryItem,forcedMode=null){
 }
 $("backToLibraryBtn").addEventListener("click",()=>{
   const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
-  if(ctx?.kind==="section" || ctx?.kind==="track-random")routeTo("officialTrackView");
-  else if(ctx?.kind==="final")routeTo("officialJuniorView");
-  else routeTo("examsView");
+  if(ctx?.kind==="section" || ctx?.kind==="track-random"){
+    state.officialLevelId=ctx.levelId || state.officialLevelId;
+    state.officialTrackId=ctx.trackId || state.officialTrackId;
+    state.officialSectionId=null;
+    routeTo("officialTrackView");
+  }else if(ctx?.kind==="final"){
+    state.officialLevelId=ctx.levelId || state.officialLevelId;
+    state.officialTrackId=null;state.officialSectionId=null;
+    routeTo("officialJuniorView");
+  }else routeTo("examsView");
 });
 
 $("beginExamBtn").addEventListener("click",()=>{
@@ -1323,6 +1376,14 @@ async function resumeProgress(progress){
     const errors=validateExamPayload(payload);
     if(errors.length)throw new Error("Invalid exam");
     state.currentExam=payload;state.currentRegistryItem=item;state.currentRankedActivity=item?.ranked!==false;
+
+    const officialCtx=payload.exam?.generatedFromOfficialQbank || null;
+    if(officialCtx){
+      state.officialLevelId=officialCtx.levelId || "junior-data-analysis";
+      state.officialTrackId=officialCtx.trackId || null;
+      state.officialSectionId=officialCtx.sectionId || null;
+    }
+
     state.previousBest=state.studentName?getPreviousBestForExam(payload.exam.id,state.studentName):null;
     startExam(progress);
   }catch(e){clearExamProgress();showToast("Saved progress could not be restored.");routeTo("examsView")}
@@ -1453,7 +1514,8 @@ function finishExam(autoSubmitted){
     examId:state.currentExam.exam.id,examTitle:state.currentExam.exam.title,studentName:state.studentName,
     percentage:result.percentage,correct:result.correct,wrong:result.wrong,unanswered:result.unanswered,
     timeTakenSeconds,submittedAt:new Date().toISOString(),autoSubmitted,
-    clientAttemptId,onlineSynced:false,subjectBreakdown,topicBreakdown,officialContext
+    clientAttemptId,onlineSynced:false,subjectBreakdown,topicBreakdown,officialContext,
+    feedbackMode:state.feedbackMode,examCategory:state.currentExam.exam.category || "Exam"
   };
 
   const onlineAttempt={
@@ -1476,7 +1538,7 @@ function finishExam(autoSubmitted){
     const wrongByTrack={};
     for(const q of state.currentExam.questions){if((state.answers[q.id]??null)!==q.correctAnswer){wrongByTrack[q.trackId] ||= [];wrongByTrack[q.trackId].push(q.id)}}
     const levelId=state.currentExam.exam.generatedFromOfficialQbank.levelId || "junior-data-analysis";
-    Object.entries(wrongByTrack).forEach(([trackId,ids])=>saveOfficialMistakes(trackId,ids,levelId,officialTrackRevision(trackId)));
+    Object.entries(wrongByTrack).forEach(([trackId,ids])=>saveOfficialMistakes(trackId,ids,levelId,officialTrackRevision(trackId,levelId)));
   }
 
   saveResult(record);
@@ -1677,7 +1739,13 @@ function renderResult(){
     $("nextExamBtn").textContent=hasNext?"Next Section →":"Back to Track →";
     $("retakeBtn").textContent="Retake Section";
   }else{
-    $("nextExamBtn").textContent=resultCtx?.kind==="final"?"Back to Junior QBank →":resultCtx?.kind==="track-random"?"Back to Track →":"Next Exam →";
+    if(resultCtx?.kind==="final"){
+      const finalLevel=officialLevelMeta(resultCtx.levelId);
+      const finalShort=finalLevel?.title?.replace(" Data Analysis","") || "Official";
+      $("nextExamBtn").textContent=`Back to ${finalShort} QBank →`;
+    }else{
+      $("nextExamBtn").textContent=resultCtx?.kind==="track-random"?"Back to Track →":"Next Exam →";
+    }
     $("retakeBtn").textContent="Retake";
   }
 
@@ -1698,7 +1766,11 @@ $("retakeBtn").addEventListener("click",()=>routeTo("setupView"));
 $("reviewRetakeBtn").addEventListener("click",()=>routeTo("setupView"));
 $("viewResultRankingBtn").addEventListener("click",()=>{
   if(!state.lastResult?.record?.examId)return;
-  requireRankedIdentity(()=>{state.rankingExamId=state.lastResult.record.examId;routeTo("rankingView")},"Enter your name to open this leaderboard.");
+  requireRankedIdentity(()=>{
+    state.rankingExamId=state.lastResult.record.examId;
+    try{localStorage.setItem("digilians_last_ranking_exam_id",state.rankingExamId)}catch{}
+    routeTo("rankingView");
+  },"Enter your name to open this leaderboard.");
 });
 $("nextExamBtn").addEventListener("click",()=>{
   const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
@@ -1713,8 +1785,17 @@ $("nextExamBtn").addEventListener("click",()=>{
     }
     return;
   }
-  if(ctx?.kind==="final"){routeTo("officialJuniorView");return}
-  if(ctx?.kind==="track-random"){routeTo("officialTrackView");return}
+  if(ctx?.kind==="final"){
+    state.officialLevelId=ctx.levelId || state.officialLevelId;
+    state.officialTrackId=null;state.officialSectionId=null;
+    routeTo("officialJuniorView");return
+  }
+  if(ctx?.kind==="track-random"){
+    state.officialLevelId=ctx.levelId || state.officialLevelId;
+    state.officialTrackId=ctx.trackId || state.officialTrackId;
+    state.officialSectionId=null;
+    routeTo("officialTrackView");return
+  }
   routeTo("examsView");
 });
 
@@ -1741,25 +1822,38 @@ function renderReview(){
 }
 $("reviewHomeBtn").addEventListener("click",()=>{
   const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
-  if(ctx?.kind==="section"||ctx?.kind==="track-random")routeTo("officialTrackView");
-  else if(ctx?.kind==="final")routeTo("officialJuniorView");
-  else routeTo("examsView");
+  if(ctx?.kind==="section"||ctx?.kind==="track-random"){
+    state.officialLevelId=ctx.levelId || state.officialLevelId;
+    state.officialTrackId=ctx.trackId || state.officialTrackId;
+    state.officialSectionId=null;
+    routeTo("officialTrackView");
+  }else if(ctx?.kind==="final"){
+    state.officialLevelId=ctx.levelId || state.officialLevelId;
+    state.officialTrackId=null;state.officialSectionId=null;
+    routeTo("officialJuniorView");
+  }else routeTo("examsView");
 });
 
 function populateRankingExamSelect(){
   const select=$("rankingExamSelect");if(!select)return;
   select.innerHTML="";
   const dataAnalysisIds=[];
+  const availableLevels=(state.officialRegistry.levels||[]).filter(x=>x.available!==false);
 
-  for(const level of (state.officialRegistry.levels||[]).filter(x=>x.available!==false)){
-    if(level.levelId==="junior-data-analysis"){
-      const finalGroup=document.createElement("optgroup");
-      finalGroup.label="Data Analysis — Official Junior Final";
-      const finalOption=document.createElement("option");
-      finalOption.value=state.officialFinalBlueprint?.id || "official-junior-data-analysis-final-v1";
-      finalOption.textContent="Junior Data Analysis • Official Final Simulation";
-      finalGroup.appendChild(finalOption);select.appendChild(finalGroup);dataAnalysisIds.push(finalOption.value);
-    }
+  // Finals first: Junior, then Professional. Each final has an isolated source-revision-aware ID.
+  for(const level of availableLevels){
+    const blueprint=officialFinalBlueprintForLevel(level.levelId);
+    if(!blueprint)continue;
+    const group=document.createElement("optgroup");
+    group.label=`Data Analysis — Official ${level.levelId==="junior-data-analysis"?"Junior":"Professional"} Final`;
+    const option=document.createElement("option");
+    option.value=blueprint.id;
+    option.textContent=`${level.title} • Official QBank Final Simulation`;
+    group.appendChild(option);select.appendChild(group);dataAnalysisIds.push(option.value);
+  }
+
+  // Official section leaderboards.
+  for(const level of availableLevels){
     const group=document.createElement("optgroup");
     group.label=`Official QBank — ${level.title} Sections`;
     for(const track of level.tracks||[]){
@@ -1767,6 +1861,24 @@ function populateRankingExamSelect(){
         const option=document.createElement("option");
         option.value=officialSectionExamId(level.levelId,track.trackId,section.sectionNumber,track.sourceRevision||"source-r1");
         option.textContent=`${level.title.replace(" Data Analysis","")} • ${track.track} • ${section.title}`;
+        group.appendChild(option);dataAnalysisIds.push(option.value);
+      }
+    }
+    if(group.children.length)select.appendChild(group);
+  }
+
+  // Random Official Practice / Exam leaderboards. These are ranked activities too.
+  for(const level of availableLevels){
+    const group=document.createElement("optgroup");
+    group.label=`Official QBank — ${level.title} Track Challenges`;
+    for(const track of level.tracks||[]){
+      for(const challenge of [
+        {category:"Official Practice",label:"Practice 40"},
+        {category:"Official Exam",label:"Exam 50"}
+      ]){
+        const option=document.createElement("option");
+        option.value=officialTrackRandomExamId(level.levelId,track.trackId,challenge.category,track.sourceRevision||"source-r1");
+        option.textContent=`${level.title.replace(" Data Analysis","")} • ${track.track} • ${challenge.label}`;
         group.appendChild(option);dataAnalysisIds.push(option.value);
       }
     }
@@ -1786,10 +1898,24 @@ function populateRankingExamSelect(){
   if(otherGroup.children.length)select.appendChild(otherGroup);
 
   const availableIds=[...select.options].map(o=>o.value),validDataIds=dataAnalysisIds.filter(id=>availableIds.includes(id));let preferred="";
-  try{const last=localStorage.getItem("digilians_last_ranking_exam_id")||"";if(last&&validDataIds.includes(last))preferred=last}catch{}
-  if(!preferred&&validDataIds.length){const counts={};for(const result of getUserResults()){if(validDataIds.includes(result.examId))counts[result.examId]=(counts[result.examId]||0)+1}preferred=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0]?.[0]||""}
-  if(!preferred){const finalId=state.officialFinalBlueprint?.id||"";if(finalId&&validDataIds.includes(finalId))preferred=finalId}
-  if(!preferred&&validDataIds.length)preferred=validDataIds[0];if(!preferred)preferred=availableIds[0]||"";
+  if(state.rankingExamId && validDataIds.includes(state.rankingExamId))preferred=state.rankingExamId;
+  try{
+    const last=localStorage.getItem("digilians_last_ranking_exam_id")||"";
+    if(!preferred && last && validDataIds.includes(last))preferred=last;
+  }catch{}
+  if(!preferred&&validDataIds.length){
+    const counts={};
+    for(const result of getUserResults()){
+      if(validDataIds.includes(result.examId))counts[result.examId]=(counts[result.examId]||0)+1;
+    }
+    preferred=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0]?.[0]||"";
+  }
+  if(!preferred){
+    const juniorFinalId=officialFinalBlueprintForLevel("junior-data-analysis")?.id||"";
+    if(juniorFinalId&&validDataIds.includes(juniorFinalId))preferred=juniorFinalId;
+  }
+  if(!preferred&&validDataIds.length)preferred=validDataIds[0];
+  if(!preferred)preferred=availableIds[0]||"";
   select.value=preferred;state.rankingExamId=select.value||preferred;
 }
 async function renderRanking(){
