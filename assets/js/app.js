@@ -1,6 +1,7 @@
 import {
   getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,
   markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
+  getStudyProgress,updateStudyProgress,clearStudyProgress,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
   getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes
 } from "./storage.js";
@@ -33,11 +34,16 @@ const state={
   currentExam:null,
   currentRegistryItem:null,
   answers:{},
+  markedQuestions:[],
   currentIndex:0,
   feedbackMode:"instant",
   startedAt:null,
   remainingSeconds:null,
   timerId:null,
+  timerPolicy:"none",
+  timerSuspendedAt:null,
+  studyObserver:null,
+  activeStudySectionId:null,
   lastResult:null,
   previousBest:null,
   filter:"All",
@@ -63,6 +69,11 @@ function initials(name){
 }
 
 function routeTo(id){
+  if(id!=="studyView" && state.studyObserver){
+    state.studyObserver.disconnect();
+    state.studyObserver=null;
+    state.activeStudySectionId=null;
+  }
   if(id==="rankingView" && !state.studentName){
     requireRankedIdentity(()=>routeTo("rankingView"),"A saved name is required to view or join ranked leaderboards.");
     return;
@@ -76,7 +87,7 @@ function routeTo(id){
   if(id==="officialJuniorView") renderOfficialJuniorHub();
   if(id==="officialTrackView") renderOfficialTrackHub();
   if(id==="examsView") renderExamLibrary($("examSearch")?.value || "");
-  if(id==="rankingView") renderRanking();
+  if(id==="rankingView"){renderRankedResumeBanner();renderRanking()}
 }
 
 function updateNav(viewId){
@@ -281,17 +292,82 @@ function renderDashboard(){
   renderProfile();
 }
 
+function activeSavedExamProgress(){
+  const progress=getExamProgress();
+  return progress && progress.studentName===state.studentName ? progress : null;
+}
+function effectiveSavedRemaining(progress){
+  if(progress?.remainingSeconds===null || progress?.remainingSeconds===undefined)return null;
+  let remaining=Math.max(0,Number(progress.remainingSeconds)||0);
+  if(progress.timerPolicy==="continuous-ranked" && progress.savedAtEpoch){
+    remaining=Math.max(0,remaining-Math.floor((Date.now()-Number(progress.savedAtEpoch))/1000));
+  }
+  return remaining;
+}
+function formatResumeRemaining(progress){
+  const remaining=effectiveSavedRemaining(progress);
+  if(remaining===null)return "No timer";
+  const mins=Math.floor(remaining/60),secs=remaining%60;
+  return `${String(mins).padStart(2,"0")}:${String(secs).padStart(2,"0")} remaining`;
+}
+function savedProgressTitle(progress){
+  return state.registry.find(x=>x.id===progress.examId)?.title
+    || progress.examTitle
+    || progress.generatedExam?.exam?.title
+    || "Saved Exam";
+}
+function savedProgressMeta(progress){
+  const total=progress.totalQuestions || progress.generatedExam?.questions?.length || 0;
+  const answered=Object.keys(progress.answers||{}).length;
+  const policy=progress.timerPolicy==="continuous-ranked"
+    ?"Ranked timer continues while away"
+    :progress.timerPolicy==="paused"
+      ?"Timer paused while away"
+      :"No timer";
+  return `${answered}/${total} answered • ${formatResumeRemaining(progress)} • ${policy}`;
+}
+function renderExamResumeBanner(){
+  const banner=$("examResumeBanner");if(!banner)return;
+  const progress=activeSavedExamProgress();
+  if(!progress){banner.classList.add("hidden");banner.innerHTML="";return}
+  banner.innerHTML=`
+    <div class="resume-attempt-icon">↻</div>
+    <div class="resume-attempt-copy">
+      <span>IN-PROGRESS ATTEMPT</span>
+      <strong>${escapeHtml(savedProgressTitle(progress))}</strong>
+      <small>${escapeHtml(savedProgressMeta(progress))}</small>
+    </div>
+    <button class="primary-btn">Resume Exam <span>→</span></button>`;
+  banner.querySelector("button").addEventListener("click",()=>resumeProgress(progress));
+  banner.classList.remove("hidden");
+}
+function renderRankedResumeBanner(){
+  const banner=$("rankedResumeBanner");if(!banner)return;
+  const progress=activeSavedExamProgress();
+  if(!progress?.rankedActivity){banner.classList.add("hidden");banner.innerHTML="";return}
+  banner.innerHTML=`
+    <div class="resume-attempt-icon">↻</div>
+    <div class="resume-attempt-copy">
+      <span>IN-PROGRESS RANKED ATTEMPT · NOT COUNTED YET</span>
+      <strong>${escapeHtml(savedProgressTitle(progress))}</strong>
+      <small>${escapeHtml(savedProgressMeta(progress))}. It enters Ranking only after submission.</small>
+    </div>
+    <button class="primary-btn">Resume Ranked Exam <span>→</span></button>`;
+  banner.querySelector("button").addEventListener("click",()=>resumeProgress(progress));
+  banner.classList.remove("hidden");
+}
+
 function renderContinueCard(){
   const progress=getExamProgress();
   if(progress && progress.studentName===state.studentName){
     const registryItem=state.registry.find(x=>x.id===progress.examId);
-    const generatedTitle=progress.generatedExam?.exam?.title;
     const total=registryItem?.questionCount || progress.totalQuestions || progress.generatedExam?.questions?.length || 1;
-    const percent=Math.round(((progress.currentIndex+1)/total)*100);
-    $("continueTitle").textContent=registryItem?.title || generatedTitle || "Continue your exam";
-    $("continueSubtitle").textContent=`Question ${progress.currentIndex+1} of ${total} • ${progress.feedbackMode==="instant"?"Instant Feedback":"Exam Mode"}`;
+    const answered=Object.keys(progress.answers||{}).length;
+    const percent=Math.round((answered/total)*100);
+    $("continueTitle").textContent=savedProgressTitle(progress);
+    $("continueSubtitle").textContent=`Question ${Math.min(total,(progress.currentIndex||0)+1)} of ${total} • ${savedProgressMeta(progress)}`;
     $("continuePercent").textContent=`${percent}%`;
-    $("continueAction").innerHTML='Continue Exam <span>→</span>';
+    $("continueAction").innerHTML='Resume Exam <span>→</span>';
     $("continueAction").onclick=()=>resumeProgress(progress);
     return;
   }
@@ -1029,6 +1105,46 @@ function renderModulePanel(course,track=null){
     panel.querySelector(".module-panel-head").insertAdjacentElement("afterend",list);
   }
 
+  function bestResultForFeedbackMode(examId,mode){
+    return getUserResults()
+      .filter(x=>x.examId===examId && x.feedbackMode===mode)
+      .sort((a,b)=>b.percentage-a.percentage || a.timeTakenSeconds-b.timeTakenSeconds)[0] || null;
+  }
+  function studyPercentForModule(module){
+    const total=module?.study?.sections?.length || 0;
+    if(!total || !state.studentName)return 0;
+    const saved=getStudyProgress(state.studentName,module.id);
+    const valid=new Set((module.study.sections||[]).map((s,i)=>s.id||`section-${i}`));
+    const completed=(saved.completedSections||[]).filter(id=>valid.has(id)).length;
+    return Math.round(completed/total*100);
+  }
+  function updateModuleLearningStats(module){
+    const studyPct=studyPercentForModule(module);
+    const practice=bestResultForFeedbackMode(module?.examId,"instant");
+    const exam=bestResultForFeedbackMode(module?.examId,"exam");
+
+    if($("studyFlowStatus")){
+      $("studyFlowStatus").textContent=studyPct>=100?"Completed 100%":studyPct?`${studyPct}% completed`:"Not started";
+      $("studyFlowStatus").classList.toggle("complete",studyPct>=100);
+    }
+    if($("practiceFlowStatus")){
+      $("practiceFlowStatus").textContent=practice?`Best ${practice.percentage}%`:"Not attempted";
+      $("practiceFlowStatus").classList.toggle("complete",Boolean(practice));
+    }
+    if($("examFlowStatus")){
+      $("examFlowStatus").textContent=exam?`Best ${exam.percentage}%`:"Not attempted";
+      $("examFlowStatus").classList.toggle("complete",Boolean(exam));
+    }
+
+    if($("openStudyBtn")){
+      $("openStudyBtn").innerHTML=studyPct>=100
+        ?'Review Study <span>→</span>'
+        :studyPct
+          ?`Continue Study · ${studyPct}% <span>→</span>`
+          :'Start Study <span>→</span>';
+    }
+  }
+
   function updateSelectedModuleUI(module,row,{scrollToPath=false}={}){
     state.selectedModule=module;
 
@@ -1045,6 +1161,7 @@ function renderModulePanel(course,track=null){
     const moduleHint=$("selectedModuleHint");
     if(moduleName)moduleName.textContent=module.title;
     if(moduleHint)moduleHint.textContent="Next: Study the material, practice with feedback, then take the session exam.";
+    syncLearningFlowStats(module);
 
     const flow=$("moduleLearningFlow");
     if(flow)flow.classList.remove("hidden");
@@ -1256,7 +1373,7 @@ function renderPythonStudySection(s,i,id){
             ${(ex.lineByLine||[]).map((line,idx)=>`
               <div>
                 <bdi dir="ltr">${escapeHtml(String(line.line ?? idx+1))}</bdi>
-                <p dir="auto">${formatStudyMixedText(line.ar||"")}</p>
+                <p dir="rtl" class="python-line-explanation-text">${formatStudyMixedText(line.ar||"")}</p>
               </div>`).join("")}
           </div>
         </div>`
@@ -1371,6 +1488,214 @@ function renderPythonStudySection(s,i,id){
 
   return article;
 }
+function globalBestResultForFeedbackMode(examId,mode){
+  return getUserResults()
+    .filter(x=>x.examId===examId && x.feedbackMode===mode)
+    .sort((a,b)=>b.percentage-a.percentage || a.timeTakenSeconds-b.timeTakenSeconds)[0] || null;
+}
+function globalStudyPercentForModule(module){
+  const total=module?.study?.sections?.length || 0;
+  if(!total || !state.studentName)return 0;
+  const saved=getStudyProgress(state.studentName,module.id);
+  const valid=new Set((module.study.sections||[]).map((s,i)=>s.id||`section-${i}`));
+  const completed=(saved.completedSections||[]).filter(id=>valid.has(id)).length;
+  return Math.round(completed/total*100);
+}
+function syncLearningFlowStats(module){
+  if(!module)return;
+  const studyPct=globalStudyPercentForModule(module);
+  const practice=globalBestResultForFeedbackMode(module?.examId,"instant");
+  const exam=globalBestResultForFeedbackMode(module?.examId,"exam");
+  if($("studyFlowStatus")){
+    $("studyFlowStatus").textContent=studyPct>=100?"Completed 100%":studyPct?`${studyPct}% completed`:"Not started";
+    $("studyFlowStatus").classList.toggle("complete",studyPct>=100);
+  }
+  if($("practiceFlowStatus")){
+    $("practiceFlowStatus").textContent=practice?`Best ${practice.percentage}%`:"Not attempted";
+    $("practiceFlowStatus").classList.toggle("complete",Boolean(practice));
+  }
+  if($("examFlowStatus")){
+    $("examFlowStatus").textContent=exam?`Best ${exam.percentage}%`:"Not attempted";
+    $("examFlowStatus").classList.toggle("complete",Boolean(exam));
+  }
+  if($("openStudyBtn")){
+    $("openStudyBtn").innerHTML=studyPct>=100
+      ?'Review Study <span>→</span>'
+      :studyPct
+        ?`Continue Study · ${studyPct}% <span>→</span>`
+        :'Start Study <span>→</span>';
+  }
+}
+
+function studySectionKey(section,index){
+  return section?.id || `section-${index}`;
+}
+function currentStudySectionIds(){
+  return (state.selectedModule?.study?.sections||[]).map((s,i)=>studySectionKey(s,i));
+}
+function refreshStudyProgressUI(){
+  const module=state.selectedModule;
+  if(!module?.study)return;
+
+  const ids=currentStudySectionIds();
+  const saved=getStudyProgress(state.studentName,module.id);
+  const valid=new Set(ids);
+  const completed=new Set((saved.completedSections||[]).filter(id=>valid.has(id)));
+  const total=ids.length;
+  const count=completed.size;
+  const percent=total?Math.round(count/total*100):0;
+
+  if($("studyProgressText"))$("studyProgressText").textContent=`${count} / ${total} topics completed · ${percent}%`;
+  if($("studyProgressFill"))$("studyProgressFill").style.width=`${percent}%`;
+
+  document.querySelectorAll("[data-study-section-progress]").forEach(btn=>{
+    const key=btn.dataset.studySectionProgress;
+    const done=completed.has(key);
+    btn.classList.toggle("complete",done);
+    btn.textContent=done?"Completed ✓":"Mark Section Complete";
+    btn.setAttribute("aria-pressed",done?"true":"false");
+    btn.closest(".study-section")?.classList.toggle("study-section-complete",done);
+  });
+  document.querySelectorAll("[data-study-toc-section]").forEach(btn=>{
+    const done=completed.has(btn.dataset.studyTocSection);
+    btn.classList.toggle("completed",done);
+    const stateLabel=btn.querySelector(".study-toc-item-state");
+    if(stateLabel && !btn.classList.contains("active")){
+      stateLabel.textContent=done?"✓ Completed":"";
+    }
+  });
+
+  if($("studyMarkAllCompleteBtn")){
+    $("studyMarkAllCompleteBtn").textContent=percent===100?"Study Completed ✓":"Mark Study as Completed ✓";
+    $("studyMarkAllCompleteBtn").disabled=percent===100;
+  }
+  if($("studyResetProgressBtn"))$("studyResetProgressBtn").disabled=count===0 && !saved.lastSectionId;
+
+  const resumeBtn=$("resumeStudyTopicBtn");
+  if(resumeBtn){
+    const canResume=saved.lastSectionId && valid.has(saved.lastSectionId) && percent<100;
+    resumeBtn.classList.toggle("hidden",!canResume);
+    resumeBtn.onclick=canResume?()=>{
+      document.getElementById(`study-section-${saved.lastSectionId}`)?.scrollIntoView({behavior:"smooth",block:"start"});
+    }:null;
+  }
+
+  syncLearningFlowStats(module);
+}
+function toggleStudySectionComplete(sectionId){
+  const module=state.selectedModule;
+  if(!module?.study || !state.studentName)return;
+  const ids=currentStudySectionIds();
+  const saved=getStudyProgress(state.studentName,module.id);
+  const set=new Set(saved.completedSections||[]);
+  set.has(sectionId)?set.delete(sectionId):set.add(sectionId);
+  const validCompleted=ids.filter(id=>set.has(id));
+  updateStudyProgress(state.studentName,module.id,{
+    completedSections:validCompleted,
+    completed:validCompleted.length===ids.length,
+    lastSectionId:sectionId
+  });
+  refreshStudyProgressUI();
+}
+function attachStudySectionProgress(article,section,index,tocBtn){
+  const key=studySectionKey(section,index);
+  const moduleSections=state.selectedModule?.study?.sections || [];
+  article.dataset.studySectionId=key;
+  tocBtn.dataset.studyTocSection=key;
+
+  const footer=document.createElement("div");
+  footer.className="study-section-progress-footer";
+  footer.innerHTML=`
+    <div>
+      <span>TOPIC PROGRESS</span>
+      <small>Save this topic as completed on this device.</small>
+    </div>
+    <button type="button" class="study-section-progress-btn" data-study-section-progress="${escapeHtml(key)}" aria-pressed="false">Mark Section Complete</button>`;
+  footer.querySelector("button").addEventListener("click",()=>toggleStudySectionComplete(key));
+  article.appendChild(footer);
+
+  const nav=document.createElement("div");
+  nav.className="study-topic-nav";
+  const prev=moduleSections[index-1];
+  const next=moduleSections[index+1];
+  nav.innerHTML=`
+    ${prev?`<button type="button" class="study-topic-nav-btn prev" data-study-jump="${escapeHtml(studySectionKey(prev,index-1))}">
+      <span>← PREVIOUS TOPIC</span>
+      <strong>${escapeHtml(prev.title)}</strong>
+    </button>`:`<span></span>`}
+    ${next?`<button type="button" class="study-topic-nav-btn next" data-study-jump="${escapeHtml(studySectionKey(next,index+1))}">
+      <span>NEXT TOPIC →</span>
+      <strong>${escapeHtml(next.title)}</strong>
+    </button>`:`<span></span>`}`;
+  nav.querySelectorAll("[data-study-jump]").forEach(btn=>btn.addEventListener("click",()=>{
+    const target=btn.dataset.studyJump;
+    document.getElementById(`study-section-${target}`)?.scrollIntoView({behavior:"smooth",block:"start"});
+  }));
+  article.appendChild(nav);
+}
+function setActiveStudySection(sectionId,{save=true}={}){
+  if(!sectionId || state.activeStudySectionId===sectionId)return;
+  state.activeStudySectionId=sectionId;
+
+  const module=state.selectedModule;
+  const ids=currentStudySectionIds();
+  const index=ids.indexOf(sectionId);
+  if(index<0)return;
+
+  document.querySelectorAll("[data-study-toc-section]").forEach(btn=>{
+    const active=btn.dataset.studyTocSection===sectionId;
+    btn.classList.toggle("active",active);
+    btn.setAttribute("aria-current",active?"true":"false");
+    const stateLabel=btn.querySelector(".study-toc-item-state");
+    if(stateLabel){
+      if(active)stateLabel.textContent="YOU ARE HERE";
+      else stateLabel.textContent=btn.classList.contains("completed")?"✓ Completed":"";
+    }
+  });
+
+  const total=ids.length;
+  const percent=total?Math.round(((index+1)/total)*100):0;
+  if($("studyTocStatus"))$("studyTocStatus").textContent=`Section ${index+1} of ${total}`;
+  if($("studyTocPercent"))$("studyTocPercent").textContent=`${percent}%`;
+  if($("studyTocMiniFill"))$("studyTocMiniFill").style.width=`${percent}%`;
+
+  const activeBtn=[...document.querySelectorAll("[data-study-toc-section]")]
+    .find(btn=>btn.dataset.studyTocSection===sectionId);
+  const aside=activeBtn?.closest(".study-toc");
+  if(activeBtn && aside){
+    const desired=Math.max(0,activeBtn.offsetTop-(aside.clientHeight/2)+(activeBtn.offsetHeight/2));
+    aside.scrollTo({top:desired,behavior:"smooth"});
+  }
+
+  if(save && state.studentName && module?.id){
+    updateStudyProgress(state.studentName,module.id,{lastSectionId:sectionId});
+  }
+}
+function setupStudySectionObserver(){
+  if(state.studyObserver)state.studyObserver.disconnect();
+  const articles=[...document.querySelectorAll("#studySections .study-section[data-study-section-id]")];
+  if(!articles.length)return;
+
+  state.studyObserver=new IntersectionObserver(()=>{
+    const viewportAnchor=Math.max(120,window.innerHeight*.24);
+    const candidates=articles
+      .map(article=>({article,rect:article.getBoundingClientRect()}))
+      .filter(x=>x.rect.bottom>viewportAnchor && x.rect.top<window.innerHeight*.72)
+      .sort((a,b)=>Math.abs(a.rect.top-viewportAnchor)-Math.abs(b.rect.top-viewportAnchor));
+    if(candidates[0])setActiveStudySection(candidates[0].article.dataset.studySectionId);
+  },{
+    root:null,
+    rootMargin:"-12% 0px -58% 0px",
+    threshold:[0,0.01,0.15,0.35]
+  });
+  articles.forEach(article=>state.studyObserver.observe(article));
+
+  const initial=getStudyProgress(state.studentName,state.selectedModule?.id).lastSectionId;
+  const initialId=initial && articles.some(a=>a.dataset.studySectionId===initial)
+    ?initial
+    :articles[0].dataset.studySectionId;
+  setActiveStudySection(initialId,{save:false});
+}
 function openStudy(){
   const c=state.selectedCourse,m=state.selectedModule;
   if(!c||!m?.study)return;
@@ -1388,35 +1713,64 @@ function openStudy(){
   const toc=$("studyTocList"),sections=$("studySections");
   toc.innerHTML="";sections.innerHTML="";
   m.study.sections.forEach((s,i)=>{
-    const id=`study-section-${s.id || i}`;
+    const key=studySectionKey(s,i);
+    const id=`study-section-${key}`;
     const tocBtn=document.createElement("button");
-    tocBtn.textContent=s.title;
     tocBtn.dir="ltr";
-    tocBtn.addEventListener("click",()=>document.getElementById(id)?.scrollIntoView({behavior:"smooth"}));
+    tocBtn.innerHTML=`
+      <span class="study-toc-item-number">${String(i+1).padStart(2,"0")}</span>
+      <span class="study-toc-item-title">${escapeHtml(s.title)}</span>
+      <span class="study-toc-item-state"></span>`;
+    tocBtn.addEventListener("click",()=>{
+      setActiveStudySection(key);
+      document.getElementById(id)?.scrollIntoView({behavior:"smooth",block:"start"});
+      refreshStudyProgressUI();
+    });
     toc.appendChild(tocBtn);
 
+    let article;
     if(isSqlStudy){
-      sections.appendChild(renderSqlStudySection(s,i,id));
-      return;
-    }
-    if(isPythonStudy){
-      sections.appendChild(renderPythonStudySection(s,i,id));
-      return;
+      article=renderSqlStudySection(s,i,id);
+    }else if(isPythonStudy){
+      article=renderPythonStudySection(s,i,id);
+    }else{
+      article=document.createElement("section");
+      article.className="study-section";article.id=id;
+      const paragraphs=(s.paragraphs||[]).map(p=>`<p>${escapeHtml(p)}</p>`).join("");
+      const bullets=s.bullets?.length?`<ul>${s.bullets.map(b=>`<li>${escapeHtml(b)}</li>`).join("")}</ul>`:"";
+      const callout=s.callout?`<div class="study-callout"><strong>${escapeHtml(s.callout.label)}:</strong> ${escapeHtml(s.callout.text)}</div>`:"";
+      article.innerHTML=`<span class="eyebrow">SECTION ${String(i+1).padStart(2,"0")}</span><h3>${escapeHtml(s.title)}</h3>${paragraphs}${bullets}${callout}`;
     }
 
-    const article=document.createElement("section");
-    article.className="study-section";article.id=id;
-    const paragraphs=(s.paragraphs||[]).map(p=>`<p>${escapeHtml(p)}</p>`).join("");
-    const bullets=s.bullets?.length?`<ul>${s.bullets.map(b=>`<li>${escapeHtml(b)}</li>`).join("")}</ul>`:"";
-    const callout=s.callout?`<div class="study-callout"><strong>${escapeHtml(s.callout.label)}:</strong> ${escapeHtml(s.callout.text)}</div>`:"";
-    article.innerHTML=`<span class="eyebrow">SECTION ${String(i+1).padStart(2,"0")}</span><h3>${escapeHtml(s.title)}</h3>${paragraphs}${bullets}${callout}`;
+    attachStudySectionProgress(article,s,i,tocBtn);
     sections.appendChild(article);
   });
+
+  refreshStudyProgressUI();
   routeTo("studyView");
+  window.requestAnimationFrame(()=>setupStudySectionObserver());
 }
 $("studyBackBtn").addEventListener("click",()=>routeTo("learnView"));
 $("studyToPracticeBtn").addEventListener("click",()=>openModuleExam("instant"));
 $("studyToPracticeTop").addEventListener("click",()=>openModuleExam("instant"));
+$("studyMarkAllCompleteBtn").addEventListener("click",()=>{
+  const module=state.selectedModule;if(!module?.study || !state.studentName)return;
+  const ids=currentStudySectionIds();
+  updateStudyProgress(state.studentName,module.id,{
+    completedSections:ids,
+    completed:true,
+    lastSectionId:ids[ids.length-1]||null
+  });
+  refreshStudyProgressUI();
+  showToast("Study progress saved as completed.");
+});
+$("studyResetProgressBtn").addEventListener("click",()=>{
+  const module=state.selectedModule;if(!module?.study || !state.studentName)return;
+  if(!confirm("Reset saved Study progress for this session? Practice scores, Exam results and Rankings will not be deleted."))return;
+  clearStudyProgress(state.studentName,module.id);
+  refreshStudyProgressUI();
+  showToast("Study progress reset. Exam results were kept.");
+});
 
 function openModuleExam(forcedMode){
   const examId=state.selectedModule?.examId;
@@ -1468,6 +1822,7 @@ function renderExamFilters(){
 
 function renderExamLibrary(filter=""){
   const grid=$("examGrid"); if(!grid)return;
+  renderExamResumeBanner();
   renderExamFilters();
   grid.innerHTML="";
   const list=state.registry.filter(x=>x.active!==false)
@@ -1475,6 +1830,8 @@ function renderExamLibrary(filter=""){
     .filter(x=>`${x.title} ${x.course} ${x.module} ${x.category}`.toLowerCase().includes(filter.toLowerCase()));
   list.forEach(item=>{
     const best=getBestForExam(item.id,state.studentName);
+    const savedProgress=activeSavedExamProgress();
+    const hasResume=Boolean(savedProgress && savedProgress.examId===item.id);
     const isGenerated=item.generator==="question-bank";
     const blueprint=isGenerated?getBlueprint(item.blueprintId):null;
     let readiness=blueprint?getBlueprintReadiness(state.bankRegistry,blueprint):null;
@@ -1496,8 +1853,12 @@ function renderExamLibrary(filter=""){
         <div><span>QUESTIONS</span><strong>${item.questionCount ?? "—"}</strong></div>
         <div><span>YOUR BEST</span><strong>${best?`${best.percentage}%`:"Not attempted"}</strong></div>
       </div>
-      <button class="primary-btn wide">${readiness && !readiness.ready?"Check Pool":"Open Exam"} <span>→</span></button>`;
+      <button class="primary-btn wide">${hasResume?"Resume Exam":readiness && !readiness.ready?"Check Pool":"Open Exam"} <span>→</span></button>`;
     card.querySelector("button").addEventListener("click",()=>{
+      if(hasResume){
+        resumeProgress(savedProgress);
+        return;
+      }
       if(readiness && !readiness.ready){
         showToast(readinessShortText(readiness));
         return;
@@ -1563,6 +1924,11 @@ if($("officialPracticeBtn"))$("officialPracticeBtn").addEventListener('click',()
 if($("officialExamBtn"))$("officialExamBtn").addEventListener('click',()=>requireRankedIdentity(()=>prepareOfficialTrack('exam'),"Enter your name before starting a ranked Official Exam."));
 
 async function prepareExam(registryItem,forcedMode=null){
+  const saved=activeSavedExamProgress();
+  if(saved && saved.examId===registryItem?.id){
+    resumeProgress(saved);
+    return;
+  }
   try{
     let payload;
     if(registryItem.generator==="question-bank"){
@@ -1664,6 +2030,17 @@ $("backToLibraryBtn").addEventListener("click",()=>{
 
 $("beginExamBtn").addEventListener("click",()=>{
   const begin=()=>{
+    const saved=activeSavedExamProgress();
+    if(saved && saved.examId===state.currentExam?.exam?.id){
+      const resume=confirm("A saved attempt already exists for this exam. Press OK to Resume it. Cancel keeps you on this setup screen.");
+      if(resume)resumeProgress(saved);
+      return;
+    }
+    if(saved && saved.examId!==state.currentExam?.exam?.id){
+      const replace=confirm(`You already have an unfinished exam: "${savedProgressTitle(saved)}". Starting a new exam will replace that saved attempt. Continue?`);
+      if(!replace)return;
+      clearExamProgress();
+    }
     state.feedbackMode=document.querySelector('input[name="feedbackMode"]:checked')?.value || "instant";
     startExam();
   };
@@ -1674,24 +2051,67 @@ $("beginExamBtn").addEventListener("click",()=>{
   begin();
 });
 
+function inferTimerPolicy(feedbackMode=state.feedbackMode,ranked=state.currentRankedActivity){
+  const enabled=Boolean(state.currentExam?.exam?.settings?.timer?.enabled);
+  // Ranked Exam Mode keeps elapsed ranking time continuous even when no countdown timer is configured.
+  if(ranked && feedbackMode==="exam")return "continuous-ranked";
+  if(!enabled)return "none";
+  return "paused";
+}
+function timerPolicyLabel(policy=state.timerPolicy){
+  if(policy==="continuous-ranked")return "Ranked exam time continues while you are away.";
+  if(policy==="paused")return "Timer pauses while you are away.";
+  return "No countdown timer; your active-session time is saved.";
+}
 function startExam(restored=null){
   if(state.currentRankedActivity && !state.studentName){
     requireRankedIdentity(()=>startExam(restored),"Your name is required before this ranked attempt can begin.");
     return;
   }
   stopTimer();
+  state.timerSuspendedAt=null;
+
   if(restored){
     state.answers=restored.answers || {};
-    state.currentIndex=restored.currentIndex || 0;
+    state.markedQuestions=[...new Set(restored.markedQuestions || [])];
+    state.currentIndex=Math.min(Math.max(0,restored.currentIndex || 0),Math.max(0,state.currentExam.questions.length-1));
     state.feedbackMode=restored.feedbackMode || "instant";
-    state.startedAt=Date.now()-(restored.elapsedSeconds || 0)*1000;
-    state.remainingSeconds=restored.remainingSeconds ?? null;
+    state.timerPolicy=restored.timerPolicy || inferTimerPolicy(state.feedbackMode,state.currentRankedActivity);
+
+    let elapsed=Math.max(0,Number(restored.elapsedSeconds)||0);
+    let remaining=restored.remainingSeconds ?? null;
+    if(state.timerPolicy==="continuous-ranked" && restored.savedAtEpoch){
+      const awaySeconds=Math.max(0,Math.floor((Date.now()-Number(restored.savedAtEpoch))/1000));
+      elapsed+=awaySeconds;
+      if(remaining!==null)remaining=Math.max(0,Number(remaining)-awaySeconds);
+    }
+
+    state.startedAt=Date.now()-elapsed*1000;
+    state.remainingSeconds=remaining;
   }else{
-    state.answers={};state.currentIndex=0;state.startedAt=Date.now();
+    state.answers={};
+    state.markedQuestions=[];
+    state.currentIndex=0;
+    state.startedAt=Date.now();
     const timer=state.currentExam.exam.settings?.timer;
     state.remainingSeconds=timer?.enabled?timer.durationMinutes*60:null;
+    state.timerPolicy=inferTimerPolicy(state.feedbackMode,state.currentRankedActivity);
   }
-  buildQuestionNavigator();renderQuestion();startTimerIfNeeded();persistProgress();routeTo("examView");
+
+  buildQuestionNavigator();
+  renderQuestion();
+  routeTo("examView");
+  updateTimerPolicyHint();
+
+  if(state.timerPolicy==="continuous-ranked" && state.remainingSeconds!==null && state.remainingSeconds<=0){
+    persistProgress();
+    showToast("The ranked timer expired while you were away. Your saved answers are being submitted.");
+    finishExam(true);
+    return;
+  }
+
+  startTimerIfNeeded();
+  persistProgress();
 }
 
 async function resumeProgress(progress){
@@ -1704,7 +2124,7 @@ async function resumeProgress(progress){
       module:progress.generatedExam.exam?.module||"",
       questionCount:progress.generatedExam.questions?.length||0,
       generator:progress.generatedExam.exam?.generatedFromOfficialQbank?"official-qbank":"question-bank",
-      ranked:true
+      ranked:progress.rankedActivity ?? true
     };
   }
   if(!item){clearExamProgress();routeTo("examsView");return}
@@ -1725,7 +2145,9 @@ async function resumeProgress(progress){
     }
     const errors=validateExamPayload(payload);
     if(errors.length)throw new Error("Invalid exam");
-    state.currentExam=payload;state.currentRegistryItem=item;state.currentRankedActivity=item?.ranked!==false;
+    state.currentExam=payload;
+    state.currentRegistryItem=item;
+    state.currentRankedActivity=progress.rankedActivity ?? (item?.ranked!==false);
 
     const officialCtx=payload.exam?.generatedFromOfficialQbank || null;
     if(officialCtx){
@@ -1736,20 +2158,31 @@ async function resumeProgress(progress){
 
     state.previousBest=state.studentName?getPreviousBestForExam(payload.exam.id,state.studentName):null;
     startExam(progress);
-  }catch(e){clearExamProgress();showToast("Saved progress could not be restored.");routeTo("examsView")}
+  }catch(e){
+    console.error("Resume failed",e);
+    clearExamProgress();
+    showToast("Saved progress could not be restored.");
+    routeTo("examsView");
+  }
 }
 
 function persistProgress(){
   if(!state.currentExam || !state.studentName)return;
   saveExamProgress({
+    progressVersion:2,
     studentName:state.studentName,
     examId:state.currentExam.exam.id,
+    examTitle:state.currentExam.exam.title,
     answers:state.answers,
+    markedQuestions:state.markedQuestions,
     currentIndex:state.currentIndex,
     totalQuestions:state.currentExam.questions.length,
     feedbackMode:state.feedbackMode,
     remainingSeconds:state.remainingSeconds,
     elapsedSeconds:Math.max(0,Math.floor((Date.now()-state.startedAt)/1000)),
+    timerPolicy:state.timerPolicy,
+    rankedActivity:state.currentRankedActivity,
+    savedAtEpoch:Date.now(),
     generatedExam:["question-bank","official-qbank"].includes(state.currentRegistryItem?.generator)?state.currentExam:null
   });
 }
@@ -1757,12 +2190,19 @@ function persistProgress(){
 function buildQuestionNavigator(){
   const nav=$("questionNavigator");nav.innerHTML="";
   state.currentExam.questions.forEach((q,index)=>{
-    const btn=document.createElement("button");btn.className="nav-number";btn.textContent=index+1;
-    btn.addEventListener("click",()=>{state.currentIndex=index;persistProgress();renderQuestion()});
+    const btn=document.createElement("button");
+    btn.className="nav-number";
+    btn.type="button";
+    btn.textContent=index+1;
+    btn.setAttribute("aria-label",`Question ${index+1}`);
+    btn.addEventListener("click",()=>{
+      state.currentIndex=index;
+      persistProgress();
+      renderQuestion();
+    });
     nav.appendChild(btn);
   });
 }
-
 function renderQuestion(){
   const qs=state.currentExam.questions,q=qs[state.currentIndex];
   $("questionCounter").textContent=`Question ${state.currentIndex+1} / ${qs.length}`;
@@ -1770,6 +2210,13 @@ function renderQuestion(){
   $("questionTopic").textContent=q.topic || "General";
   $("questionDifficulty").textContent=q.difficulty || "Medium";
   $("questionText").textContent=q.question;
+
+  const marked=state.markedQuestions.includes(q.id);
+  if($("markReviewBtn")){
+    $("markReviewBtn").classList.toggle("marked",marked);
+    $("markReviewBtn").setAttribute("aria-pressed",marked?"true":"false");
+    $("markReviewBtn").textContent=marked?"★ Marked for Review":"☆ Mark for Review";
+  }
 
   const list=$("optionsList");list.innerHTML="";
   q.options.forEach(option=>{
@@ -1784,18 +2231,31 @@ function renderQuestion(){
     btn.addEventListener("click",()=>selectAnswer(q,option.id));
     list.appendChild(btn);
   });
-  renderInstantFeedback(q);updateNavigator();
+  renderInstantFeedback(q);
+  updateNavigator();
+
   $("prevQuestionBtn").disabled=state.currentIndex===0;
   $("nextQuestionBtn").classList.toggle("hidden",state.currentIndex===qs.length-1);
   $("submitExamBtn").classList.toggle("hidden",state.currentIndex!==qs.length-1);
   const officialKind=state.currentExam?.exam?.generatedFromOfficialQbank?.kind;
   $("submitExamBtn").innerHTML=officialKind==="section"?'Finish Section <span>✓</span>':'Submit Exam <span>✓</span>';
 }
-
 function selectAnswer(q,optionId){
   if(state.feedbackMode==="instant" && state.answers[q.id])return;
-  state.answers[q.id]=optionId;persistProgress();renderQuestion();
+  state.answers[q.id]=optionId;
+  persistProgress();
+  renderQuestion();
 }
+function toggleMarkForReview(){
+  const q=state.currentExam?.questions?.[state.currentIndex];
+  if(!q)return;
+  const set=new Set(state.markedQuestions||[]);
+  set.has(q.id)?set.delete(q.id):set.add(q.id);
+  state.markedQuestions=[...set];
+  persistProgress();
+  renderQuestion();
+}
+$("markReviewBtn").addEventListener("click",toggleMarkForReview);
 
 function renderInstantFeedback(q){
   const box=$("instantFeedback");box.className="feedback-box hidden";box.innerHTML="";
@@ -1819,27 +2279,73 @@ function renderInstantFeedback(q){
 
 function updateNavigator(){
   const answered=Object.keys(state.answers).length;
-  $("answeredCount").textContent=`${answered} answered`;
+  const markedCount=(state.markedQuestions||[]).length;
+  $("answeredCount").textContent=markedCount?`${answered} answered · ${markedCount} marked`:`${answered} answered`;
+
+  const instant=state.feedbackMode==="instant";
+  $("questionNavLegend")?.classList.toggle("exam-mode-legend",!instant);
+
   document.querySelectorAll(".nav-number").forEach((btn,index)=>{
     const q=state.currentExam.questions[index];
+    const selected=state.answers[q.id];
+    const marked=state.markedQuestions.includes(q.id);
+
     btn.classList.toggle("current",index===state.currentIndex);
-    btn.classList.toggle("answered",Boolean(state.answers[q.id]));
+    btn.classList.toggle("marked",marked);
+    btn.classList.remove("answered","correct","wrong","answered-neutral");
+
+    if(selected){
+      if(instant){
+        btn.classList.add(selected===q.correctAnswer?"correct":"wrong");
+      }else{
+        btn.classList.add("answered-neutral");
+      }
+    }
+
+    const status=marked
+      ?`Marked for review${selected?"; answered":""}`
+      :selected
+        ?instant
+          ?selected===q.correctAnswer?"Correct":"Incorrect"
+          :"Answered"
+        :"Unanswered";
+    btn.setAttribute("aria-label",`Question ${index+1}: ${status}${index===state.currentIndex?"; current":""}`);
   });
 }
 $("prevQuestionBtn").addEventListener("click",()=>{if(state.currentIndex>0){state.currentIndex--;persistProgress();renderQuestion()}});
 $("nextQuestionBtn").addEventListener("click",()=>{if(state.currentIndex<state.currentExam.questions.length-1){state.currentIndex++;persistProgress();renderQuestion()}});
 $("submitExamBtn").addEventListener("click",()=>finishExam(false));
 
+function updateTimerPolicyHint(){
+  const display=$("timerDisplay");
+  if(!display)return;
+  display.title=timerPolicyLabel();
+  display.classList.toggle("ranked-continuous",state.timerPolicy==="continuous-ranked");
+}
 $("exitExamBtn").addEventListener("click",()=>{
-  const ok=confirm("Exit the exam? Your current progress is saved on this device and you can continue later.");
-  if(!ok)return;stopTimer();persistProgress();routeTo("dashboardView");
+  const message=state.timerPolicy==="continuous-ranked"
+    ?"Exit this ranked exam? Your answers and current question will be saved, but ranked elapsed time (and the countdown, when enabled) will CONTINUE while you are away. The attempt is not added to Ranking until it is submitted."
+    :"Exit the exam? Your answers, question position and remaining time will be saved. The timer will pause until you resume.";
+  if(!confirm(message))return;
+  stopTimer();
+  persistProgress();
+  state.timerSuspendedAt=null;
+  routeTo("dashboardView");
 });
 
 function startTimerIfNeeded(){
-  if(state.remainingSeconds===null){$("timerDisplay").classList.add("hidden");return}
-  $("timerDisplay").classList.remove("hidden");updateTimerDisplay();
+  stopTimer();
+  if(state.remainingSeconds===null){
+    $("timerDisplay").classList.add("hidden");
+    updateTimerPolicyHint();
+    return;
+  }
+  $("timerDisplay").classList.remove("hidden");
+  updateTimerDisplay();
+  updateTimerPolicyHint();
   state.timerId=setInterval(()=>{
-    state.remainingSeconds--;updateTimerDisplay();
+    state.remainingSeconds=Math.max(0,(state.remainingSeconds??0)-1);
+    updateTimerDisplay();
     if(state.remainingSeconds%5===0)persistProgress();
     if(state.remainingSeconds<=0)finishExam(true);
   },1000);
@@ -1848,7 +2354,53 @@ function updateTimerDisplay(){
   const total=Math.max(0,state.remainingSeconds ?? 0);
   $("timerDisplay").textContent=`${String(Math.floor(total/60)).padStart(2,"0")}:${String(total%60).padStart(2,"0")}`;
 }
-function stopTimer(){if(state.timerId)clearInterval(state.timerId);state.timerId=null}
+function stopTimer(){
+  if(state.timerId)clearInterval(state.timerId);
+  state.timerId=null;
+}
+
+document.addEventListener("visibilitychange",()=>{
+  const examActive=$("examView")?.classList.contains("active");
+  if(!examActive || !state.currentExam)return;
+
+  if(document.hidden){
+    if(state.timerSuspendedAt)return;
+    state.timerSuspendedAt=Date.now();
+    stopTimer();
+    persistProgress();
+    return;
+  }
+
+  if(!state.timerSuspendedAt)return;
+  const awayMs=Math.max(0,Date.now()-state.timerSuspendedAt);
+  const awaySeconds=Math.floor(awayMs/1000);
+
+  if(state.timerPolicy==="continuous-ranked"){
+    if(state.remainingSeconds!==null)state.remainingSeconds=Math.max(0,state.remainingSeconds-awaySeconds);
+    // Keep startedAt unchanged: ranked elapsed time includes time away.
+  }else{
+    // Practice / Instant Feedback / untimed study-style attempts pause elapsed time while away.
+    state.startedAt+=awayMs;
+  }
+
+  state.timerSuspendedAt=null;
+  updateTimerDisplay();
+  persistProgress();
+
+  if(state.timerPolicy==="continuous-ranked" && state.remainingSeconds!==null && state.remainingSeconds<=0){
+    showToast("The ranked timer expired while the tab was inactive.");
+    finishExam(true);
+    return;
+  }
+  startTimerIfNeeded();
+});
+
+window.addEventListener("beforeunload",()=>{
+  if($("examView")?.classList.contains("active") && state.currentExam){
+    stopTimer();
+    persistProgress();
+  }
+});
 
 function finishExam(autoSubmitted){
   stopTimer();

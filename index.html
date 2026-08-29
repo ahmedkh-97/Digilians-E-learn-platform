@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.15.0" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.15.2" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -288,6 +288,7 @@
               <span class="flow-number">01</span>
               <div class="flow-icon">▤</div>
               <span class="pill">STUDY</span>
+              <span class="flow-progress-status" id="studyFlowStatus">Not started</span>
               <h4>Understand the material</h4>
               <p>Read clear sections, key points, examples and visual notes.</p>
               <button class="secondary-btn wide" id="openStudyBtn">Start Study <span>→</span></button>
@@ -296,6 +297,7 @@
               <span class="flow-number">02</span>
               <div class="flow-icon">✦</div>
               <span class="pill">PRACTICE</span>
+              <span class="flow-progress-status" id="practiceFlowStatus">Not attempted</span>
               <h4>Learn from every answer</h4>
               <p>Practice questions with immediate feedback and explanations.</p>
               <button class="secondary-btn wide" id="openPracticeBtn">Start Practice <span>→</span></button>
@@ -304,6 +306,7 @@
               <span class="flow-number">03</span>
               <div class="flow-icon">◉</div>
               <span class="pill">EXAM</span>
+              <span class="flow-progress-status" id="examFlowStatus">Not attempted</span>
               <h4>Test your readiness</h4>
               <p>Take the exam in your preferred feedback mode and track your best.</p>
               <button class="primary-btn wide" id="openModuleExamBtn">Open Exam <span>→</span></button>
@@ -323,6 +326,11 @@
         <div class="study-layout">
           <aside class="study-toc">
             <span class="eyebrow">ON THIS PAGE</span>
+            <div class="study-toc-live">
+              <strong id="studyTocStatus">Section 1 of 1</strong>
+              <span id="studyTocPercent">0%</span>
+            </div>
+            <div class="study-toc-mini-track"><i id="studyTocMiniFill"></i></div>
             <div id="studyTocList"></div>
           </aside>
           <article class="study-content">
@@ -330,6 +338,14 @@
               <span class="pill">STUDY MODE</span>
               <h2 id="studyTitle">Study Module</h2>
               <p id="studyDescription"></p>
+              <div id="studyProgressSummary" class="study-progress-summary">
+                <div>
+                  <span>STUDY PROGRESS</span>
+                  <strong id="studyProgressText">0 / 0 topics completed</strong>
+                </div>
+                <div class="study-progress-bar"><i id="studyProgressFill"></i></div>
+                <button class="ghost-btn hidden" id="resumeStudyTopicBtn">Resume last topic ↓</button>
+              </div>
             </div>
             <div id="studySections"></div>
 
@@ -339,7 +355,11 @@
                 <h3>Ready to practice?</h3>
                 <p>Use instant feedback to strengthen what you just reviewed.</p>
               </div>
-              <button class="primary-btn" id="studyToPracticeBtn">Start Practice <span>→</span></button>
+              <div class="study-finish-actions">
+                <button class="secondary-btn" id="studyMarkAllCompleteBtn">Mark Study as Completed ✓</button>
+                <button class="ghost-btn danger-ghost" id="studyResetProgressBtn">Reset Study Progress</button>
+                <button class="primary-btn" id="studyToPracticeBtn">Start Practice <span>→</span></button>
+              </div>
             </div>
           </article>
         </div>
@@ -487,6 +507,8 @@
           </div>
         </div>
 
+        <section id="examResumeBanner" class="resume-attempt-banner hidden" aria-live="polite"></section>
+
         <div class="library-toolbar">
           <div class="search-shell">
             <span>⌕</span>
@@ -574,16 +596,22 @@
               <span class="answered-count" id="answeredCount">0 answered</span>
             </div>
             <div id="questionNavigator" class="question-navigator"></div>
-            <div class="nav-legend">
+            <div class="nav-legend" id="questionNavLegend">
               <span><i class="legend-dot current"></i> Current</span>
-              <span><i class="legend-dot answered"></i> Answered</span>
+              <span class="legend-instant-only"><i class="legend-dot correct"></i> Correct</span>
+              <span class="legend-instant-only"><i class="legend-dot wrong"></i> Wrong</span>
+              <span class="legend-exam-only"><i class="legend-dot answered"></i> Answered</span>
+              <span><i class="legend-star">★</i> Marked</span>
             </div>
           </aside>
 
           <section class="question-card">
-            <div class="question-tags">
-              <span class="pill subtle" id="questionTopic">Topic</span>
-              <span class="pill subtle" id="questionDifficulty">Medium</span>
+            <div class="question-top-row">
+              <div class="question-tags">
+                <span class="pill subtle" id="questionTopic">Topic</span>
+                <span class="pill subtle" id="questionDifficulty">Medium</span>
+              </div>
+              <button class="mark-review-btn" id="markReviewBtn" type="button" aria-pressed="false">☆ Mark for Review</button>
             </div>
             <h2 id="questionText"></h2>
             <div id="optionsList" class="options-list"></div>
@@ -686,6 +714,8 @@
           </div>
           <button class="ghost-btn" id="refreshLeaderboardBtn">Refresh ↻</button>
         </div>
+
+        <section id="rankedResumeBanner" class="resume-attempt-banner ranked-resume hidden" aria-live="polite"></section>
 
         <div class="ranking-mode-tabs" role="tablist" aria-label="Ranking type">
           <button class="ranking-mode-tab active" data-ranking-mode="junior-overall" role="tab">Junior Overall</button>
@@ -935,6 +965,6 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/app.js?v=0.15.0"></script>
+  <script type="module" src="assets/js/app.js?v=0.15.2"></script>
 </body>
 </html>

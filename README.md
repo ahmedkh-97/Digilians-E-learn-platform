@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.15.0
+# Digilians E-Learn Platform V0.15.2
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1178,3 +1178,67 @@ Integrated the finalized Python Production V1.0 into `Learn → Data Analysis �
 - SQL remains `final-ready`.
 - Data Analysis Final is still intentionally unavailable because Excel, Power BI, Tableau and Looker Studio production curricula are not complete yet (2/6 required tracks ready).
 - Junior/Professional Official QBank and Ranking V2 remain independent and unchanged.
+
+
+## V0.15.1 — Resume & Study Progress System
+
+### Exam Resume
+- Every in-progress attempt autosaves answers, current question, feedback mode and time state.
+- Dashboard `Continue Where You Left Off` now uses **Resume Exam**.
+- Exams Library displays an in-progress Resume banner and changes the matching exam card to **Resume Exam**.
+- Ranking Center shows an in-progress ranked-attempt banner separately from the leaderboard.
+- Incomplete attempts never enter Ranking; only `finishExam()` saves/syncs a result.
+
+### Smart Time Policy
+- Practice / Instant Feedback: remaining countdown and elapsed attempt time pause while the user is away.
+- Ranked Exam Mode: ranked elapsed time continues while away; if a countdown exists, it also continues.
+- A ranked timer that expires while away auto-submits the saved answers when the user resumes.
+- Tab visibility changes and browser unloads autosave progress.
+- Starting another exam warns before replacing a different unfinished attempt.
+
+### Study Progress
+- Study progress is stored separately per local student name and per module.
+- Every Study section has `Mark Section Complete`.
+- Study page shows completed topics and a percentage progress bar.
+- The Learning Path Study card shows the saved completion percentage.
+- Practice and Exam cards show the best result for Instant Feedback and Exam Mode separately.
+- `Mark Study as Completed` completes all sections.
+- `Reset Study Progress` resets only the current session's Study state; Practice scores, Exam results and Rankings are preserved.
+- `Resume last topic` appears when a last Study topic has been saved.
+
+### Regression
+SQL 520, Python 520, Junior Official 930, Professional Official 1189 and Ranking V2 remain intact.
+
+
+## V0.15.2 — Exam Navigator & Smart Study Navigation
+
+### Exam Navigator
+- Instant Feedback:
+  - Current question keeps the primary-blue focus border.
+  - Correct answered questions become green.
+  - Wrong answered questions become red.
+  - Unanswered questions remain neutral.
+- Exam Mode preserves answer privacy:
+  - answered questions use a neutral answered state;
+  - correct/wrong colors are not shown while solving.
+- Added `Mark for Review`.
+- Marked questions show a gold star in the navigator.
+- Marked-question state is saved with the V0.15.1 Resume payload and restored after leaving/reloading.
+- Navigator count now includes answered + marked counts.
+
+### Smart Study Navigator
+- `ON THIS PAGE` is now a live navigator rather than a static list.
+- Uses `IntersectionObserver` to follow the Study section currently being read.
+- Active item shows `YOU ARE HERE`.
+- Completed items continue to show `✓ Completed`.
+- Displays current reading position as `Section X of Y` and percentage.
+- Active TOC item auto-scrolls inside the sticky navigator when needed.
+- Each Study section now has `Previous Topic` / `Next Topic` controls.
+- The current section is saved as the last Study location for Resume.
+
+### Python readability
+- Reworked the Python `LINE-BY-LINE` layout with explicit LTR line-number isolation and RTL explanation text.
+- English/Python terms remain isolated inside Arabic explanations to reduce bidi reordering.
+
+### Regression
+Resume V0.15.1, Ranking V2, SQL 520, Python 520, Junior Official 930 and Professional Official 1189 remain intact.

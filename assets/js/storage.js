@@ -6,7 +6,8 @@ const KEYS = {
   progress: "digilians.examProgress",
   lastCourse: "digilians.lastCourse",
   pendingAttempts: "digilians.pendingAttempts",
-  officialQbank: "digilians.officialQbank"
+  officialQbank: "digilians.officialQbank",
+  studyProgress: "digilians.studyProgress"
 };
 
 export function getStudentName(){ return localStorage.getItem(KEYS.studentName) || ""; }
@@ -62,6 +63,43 @@ export function getExamProgress(){
   catch { return null; }
 }
 export function clearExamProgress(){ localStorage.removeItem(KEYS.progress); }
+
+function getStudyProgressState(){
+  try{return JSON.parse(localStorage.getItem(KEYS.studyProgress)) || {users:{}}}
+  catch{return {users:{}}}
+}
+function saveStudyProgressState(state){
+  localStorage.setItem(KEYS.studyProgress,JSON.stringify(state));
+}
+function emptyStudyProgress(){
+  return {completedSections:[],completed:false,lastSectionId:null,updatedAt:null};
+}
+export function getStudyProgress(studentName,moduleId){
+  if(!studentName || !moduleId)return emptyStudyProgress();
+  const state=getStudyProgressState();
+  return state.users?.[studentName]?.[moduleId] || emptyStudyProgress();
+}
+export function updateStudyProgress(studentName,moduleId,patch){
+  if(!studentName || !moduleId)return emptyStudyProgress();
+  const state=getStudyProgressState();
+  state.users ||= {};
+  state.users[studentName] ||= {};
+  const current=state.users[studentName][moduleId] || emptyStudyProgress();
+  const next={...current,...patch,updatedAt:new Date().toISOString()};
+  next.completedSections=[...new Set(next.completedSections||[])];
+  state.users[studentName][moduleId]=next;
+  saveStudyProgressState(state);
+  return next;
+}
+export function clearStudyProgress(studentName,moduleId){
+  if(!studentName || !moduleId)return;
+  const state=getStudyProgressState();
+  if(state.users?.[studentName]?.[moduleId]){
+    delete state.users[studentName][moduleId];
+    if(!Object.keys(state.users[studentName]).length)delete state.users[studentName];
+    saveStudyProgressState(state);
+  }
+}
 
 export function setLastCourse(course){ localStorage.setItem(KEYS.lastCourse, course); }
 export function getLastCourse(){ return localStorage.getItem(KEYS.lastCourse) || ""; }
