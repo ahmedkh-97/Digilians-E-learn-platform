@@ -67,7 +67,16 @@ const state={
 };
 
 const $=id=>document.getElementById(id);
-const views=["welcomeView","dashboardView","learnView","studyView","officialQbankView","officialJuniorView","officialTrackView","officialStudyView","examsView","setupView","examView","resultView","reviewView","rankingView","validatorView"];
+const views=["welcomeView","dashboardView","learnView","studyView","officialQbankView","officialJuniorView","officialTrackView","officialStudyView","examsView","setupView","examView","resultView","reviewView","rankingView","analyticsView","validatorView"];
+
+function emitAnalytics(eventType,detail={}){
+  try{
+    window.dispatchEvent(new CustomEvent("digilians:analytics",{
+      detail:{eventType,...detail}
+    }));
+  }catch{}
+}
+
 
 function initials(name){
   return (name || "Guest").trim().split(/\s+/).slice(0,2).map(x=>x[0]?.toUpperCase()).join("") || "G";
@@ -1132,6 +1141,7 @@ function openTrack(course,track){
   state.selectedCourse=course;
   state.selectedTrack=track;
   state.selectedModule=null;
+  emitAnalytics("track_open",{courseId:course?.id||null,trackId:track?.id||null});
   renderCoverageStatus(course);
   renderModulePanel(course,track);
 }
@@ -2026,6 +2036,11 @@ function openStudy(){
   });
 
   refreshStudyProgressUI();
+  emitAnalytics("study_open",{
+    courseId:c?.id||null,
+    trackId:state.selectedTrack?.id||null,
+    moduleId:m?.id||null
+  });
   routeTo("studyView");
   window.requestAnimationFrame(()=>setupStudySectionObserver());
 }
@@ -2380,6 +2395,14 @@ function startExam(restored=null){
   buildQuestionNavigator();
   renderQuestion();
   routeTo("examView");
+  emitAnalytics(state.feedbackMode==="instant"?"practice_start":"exam_start",{
+    courseId:state.selectedCourse?.id||null,
+    trackId:state.selectedTrack?.id||state.currentExam?.exam?.generatedFromOfficialQbank?.trackId||state.currentRegistryItem?.trackId||null,
+    moduleId:state.selectedModule?.id||null,
+    examId:state.currentExam?.exam?.id||null,
+    feedbackMode:state.feedbackMode,
+    metadata:{official:Boolean(state.currentExam?.exam?.generatedFromOfficialQbank)}
+  });
   updateTimerPolicyHint();
 
   if(state.timerPolicy==="continuous-ranked" && state.remainingSeconds!==null && state.remainingSeconds<=0){
@@ -2750,6 +2773,14 @@ function finishExam(autoSubmitted){
   state.lastResult.newBadges=afterAchievements.filter(a=>!beforeAchievements.includes(a.id));
 
   renderResult();
+  emitAnalytics(state.feedbackMode==="instant"?"practice_complete":"exam_complete",{
+    courseId:state.selectedCourse?.id||null,
+    trackId:state.selectedTrack?.id||state.currentExam?.exam?.generatedFromOfficialQbank?.trackId||state.currentRegistryItem?.trackId||null,
+    moduleId:state.selectedModule?.id||null,
+    examId:state.currentExam?.exam?.id||null,
+    feedbackMode:state.feedbackMode,
+    metadata:{official:Boolean(state.currentExam?.exam?.generatedFromOfficialQbank)}
+  });
   routeTo("resultView");
   syncFinishedAttempt(onlineAttempt);
 }

@@ -10,13 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.18.2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.18.3" />
 </head>
 <body>
-  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.18.2">
+  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.18.3">
     <strong>DIGILIANS TEST MODE</strong>
     <span>This is a LOCAL TEST build — not the live GitHub site.</span>
-    <b>V0.18.2</b>
+    <b>V0.18.3</b>
   </div>
   <script>
     (function () {
@@ -33,7 +33,7 @@
   <!-- STARTUP / CRASH RECOVERY — independent from app.js -->
   <div id="fatalRecovery" class="fatal-recovery hidden" role="alertdialog" aria-modal="true" aria-labelledby="fatalRecoveryTitle">
     <article class="fatal-recovery-card">
-      <span class="fatal-recovery-badge">RECOVERY MODE · V0.18.2</span>
+      <span class="fatal-recovery-badge">RECOVERY MODE · V0.18.3</span>
       <div class="fatal-recovery-icon">!</div>
       <h2 id="fatalRecoveryTitle">The platform could not start correctly.</h2>
       <p id="fatalRecoveryMessage">A startup error prevented the application from loading.</p>
@@ -121,7 +121,7 @@
         <span class="whats-new-badge">DIGILIANS E-LEARN UPDATE</span>
         <div class="whats-new-version-row">
           <h2 id="whatsNewTitle">What’s New</h2>
-          <span id="whatsNewVersion">V0.18.2</span>
+          <span id="whatsNewVersion">V0.18.3</span>
         </div>
         <p id="whatsNewSubtitle">Latest improvements, fixes and learning upgrades.</p>
       </div>
@@ -942,6 +942,120 @@
           </div>
         </div>
       </section>
+
+      <!-- PRIVATE PLATFORM ANALYTICS -->
+      <section id="analyticsView" class="view">
+        <div class="page-heading analytics-heading">
+          <div>
+            <span class="eyebrow">PRIVATE ADMIN</span>
+            <h2>Platform Analytics</h2>
+            <p>Anonymous usage insights for Digilians E-Learn. No learner names, answers or IP addresses are collected here.</p>
+          </div>
+          <div class="analytics-heading-actions">
+            <span id="analyticsAdminIdentity" class="analytics-admin-identity">Admin session</span>
+            <button class="ghost-btn" id="analyticsRefreshBtn">Refresh ↻</button>
+            <button class="secondary-btn" id="analyticsLogoutBtn">Admin Logout</button>
+          </div>
+        </div>
+
+        <div id="analyticsGate" class="analytics-gate">
+          <div class="status-card info">
+            <div class="status-icon">⌁</div>
+            <div>
+              <strong>Verifying private analytics access…</strong>
+              <p>Dashboard data is protected by Supabase Auth + Row Level Security.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="analyticsDashboard" class="analytics-dashboard hidden">
+          <div class="analytics-toolbar">
+            <div class="analytics-range-tabs" role="tablist" aria-label="Analytics date range">
+              <button class="analytics-range active" data-analytics-range="today">Today</button>
+              <button class="analytics-range" data-analytics-range="7d">7 Days</button>
+              <button class="analytics-range" data-analytics-range="30d">30 Days</button>
+              <button class="analytics-range" data-analytics-range="all">All Time</button>
+            </div>
+            <div class="analytics-last-updated">
+              <span>LAST UPDATED</span>
+              <strong id="analyticsLastUpdated">—</strong>
+            </div>
+          </div>
+
+          <section class="analytics-kpi-grid" aria-label="Platform overview">
+            <article><span>UNIQUE VISITORS</span><strong id="analyticsVisitors">—</strong><small>Approx. browsers/devices</small></article>
+            <article><span>SESSIONS</span><strong id="analyticsSessions">—</strong><small>Distinct visits</small></article>
+            <article><span>RETURNING VISITORS</span><strong id="analyticsReturning">—</strong><small>2+ sessions in range</small></article>
+            <article><span>PAGE VIEWS</span><strong id="analyticsPageViews">—</strong><small>Route views</small></article>
+            <article><span>EXAM COMPLETIONS</span><strong id="analyticsExamCompletions">—</strong><small>Exam mode</small></article>
+            <article><span>COMPLETION RATE</span><strong id="analyticsCompletionRate">—</strong><small>Exam completes / starts</small></article>
+          </section>
+
+          <section class="analytics-grid two">
+            <article class="analytics-panel">
+              <div class="analytics-panel-head">
+                <div><span class="eyebrow">TREND</span><h3>Visitors & Sessions</h3></div>
+                <span id="analyticsTrendLabel" class="analytics-panel-note">Selected range</span>
+              </div>
+              <div id="analyticsTrendChart" class="analytics-trend-chart"></div>
+            </article>
+
+            <article class="analytics-panel">
+              <div class="analytics-panel-head">
+                <div><span class="eyebrow">LEARNING FUNNEL</span><h3>Study → Practice → Exam</h3></div>
+              </div>
+              <div id="analyticsLearningFunnel" class="analytics-funnel"></div>
+            </article>
+          </section>
+
+          <section class="analytics-grid two">
+            <article class="analytics-panel">
+              <div class="analytics-panel-head">
+                <div><span class="eyebrow">TRACK USAGE</span><h3>Most Used Tracks</h3></div>
+              </div>
+              <div id="analyticsTrackUsage" class="analytics-ranked-bars"></div>
+            </article>
+
+            <article class="analytics-panel">
+              <div class="analytics-panel-head">
+                <div><span class="eyebrow">VERSION ADOPTION</span><h3>Platform Versions</h3></div>
+                <span class="analytics-panel-note">Latest event per visitor</span>
+              </div>
+              <div id="analyticsVersionUsage" class="analytics-version-list"></div>
+            </article>
+          </section>
+
+          <section class="analytics-grid two">
+            <article class="analytics-panel">
+              <div class="analytics-panel-head">
+                <div><span class="eyebrow">OFFICIAL QBANK</span><h3>QBank Activity</h3></div>
+              </div>
+              <div id="analyticsQbankUsage" class="analytics-mini-stats"></div>
+            </article>
+
+            <article class="analytics-panel">
+              <div class="analytics-panel-head">
+                <div><span class="eyebrow">UPDATES</span><h3>Update Adoption</h3></div>
+              </div>
+              <div id="analyticsUpdateUsage" class="analytics-mini-stats"></div>
+            </article>
+          </section>
+
+          <section class="analytics-panel">
+            <div class="analytics-panel-head">
+              <div><span class="eyebrow">RECENT ACTIVITY</span><h3>Anonymous Event Stream</h3></div>
+              <span class="analytics-panel-note">No names • no answers • no IP data</span>
+            </div>
+            <div class="analytics-table-wrap">
+              <div class="analytics-table-head">
+                <span>Time</span><span>Event</span><span>Route / Track</span><span>Version</span>
+              </div>
+              <div id="analyticsRecentEvents" class="analytics-table-body"></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
       <!-- JSON VALIDATOR -->
       <section id="validatorView" class="view">
         <div class="context-bar">
@@ -1056,7 +1170,7 @@
       </div>
       <div class="footer-credit">
         <button type="button" class="footer-version-btn" id="footerWhatsNewBtn">
-          <span id="footerVersionText">V0.18.2</span>
+          <span id="footerVersionText">V0.18.3</span>
           <i id="footerUpdateDot" class="footer-update-dot hidden" aria-label="Update available"></i>
           What’s New
         </button>
@@ -1089,15 +1203,44 @@
     </div>
 
     <div class="drawer-actions">
+      <button class="secondary-btn wide admin-analytics-btn hidden" id="openAnalyticsBtn" data-route="analyticsView">
+        <span>Private Platform Analytics</span>
+        <b>ADMIN</b>
+      </button>
       <button class="secondary-btn wide update-drawer-btn" id="openWhatsNewBtn">
         <span>What’s New & Updates</span>
-        <b id="profileVersionBadge">V0.18.2</b>
+        <b id="profileVersionBadge">V0.18.3</b>
       </button>
       <button class="primary-btn wide" id="openValidatorBtn">Exam / Bank JSON Validator →</button>
       <button class="secondary-btn wide" id="changeNameBtn">Change saved name</button>
     </div>
   </aside>
 
+
+
+  <!-- PRIVATE ANALYTICS ADMIN LOGIN -->
+  <div id="analyticsLoginModal" class="analytics-login-backdrop hidden" aria-hidden="true">
+    <article class="analytics-login-card" role="dialog" aria-modal="true" aria-labelledby="analyticsLoginTitle">
+      <button type="button" class="analytics-login-close" id="analyticsLoginCloseBtn" aria-label="Close">×</button>
+      <span class="eyebrow">PRIVATE ADMIN ACCESS</span>
+      <div class="analytics-login-icon">⌁</div>
+      <h3 id="analyticsLoginTitle">Platform Analytics Login</h3>
+      <p>Only an email approved in the Supabase analytics admin allowlist can read platform analytics.</p>
+
+      <label class="analytics-login-field">
+        <span>Admin Email</span>
+        <input id="analyticsLoginEmail" type="email" autocomplete="username" placeholder="admin@example.com" />
+      </label>
+      <label class="analytics-login-field">
+        <span>Password</span>
+        <input id="analyticsLoginPassword" type="password" autocomplete="current-password" placeholder="••••••••••••" />
+      </label>
+
+      <p id="analyticsLoginError" class="field-error"></p>
+      <button type="button" class="primary-btn wide large-btn" id="analyticsLoginBtn">Sign In to Analytics →</button>
+      <small>This login protects analytics only. Student learning, exams and rankings do not require this admin account.</small>
+    </article>
+  </div>
 
   <!-- RANKED IDENTITY GATE -->
   <div class="ranked-identity-backdrop hidden" id="rankedIdentityModal" aria-hidden="true">
@@ -1119,7 +1262,8 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/update-manager.js?v=0.18.2"></script>
-  <script type="module" src="assets/js/app.js?v=0.18.2"></script>
+  <script type="module" src="assets/js/analytics.js?v=0.18.3"></script>
+  <script type="module" src="assets/js/update-manager.js?v=0.18.3"></script>
+  <script type="module" src="assets/js/app.js?v=0.18.3"></script>
 </body>
 </html>

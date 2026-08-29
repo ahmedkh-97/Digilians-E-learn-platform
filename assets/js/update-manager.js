@@ -8,15 +8,15 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.18.2",
-  title:"Live Update & What’s New System",
+  version:"0.18.3",
+  title:"Private Platform Analytics V1",
   date:"2026-08-29",
-  summary:"Automatic update notifications and in-platform release notes are now available.",
+  summary:"Private anonymous product analytics are now available for the approved admin.",
   highlights:[
-    "Automatic update checks every 5 minutes.",
-    "Safe updates that never force-reload an active exam.",
-    "What’s New appears once per installed version.",
-    "Recent release history is available from Profile and Footer."
+    "Private Analytics dashboard protected by Supabase Auth + RLS.",
+    "Anonymous visitors, sessions, learning activity and version adoption.",
+    "No learner names or question answers collected by analytics.",
+    "Existing Live Update and What’s New behavior remains active."
   ],
   type:"feature"
 };
@@ -225,6 +225,12 @@ async function showUpdateBanner(latestVersion,changelog){
   banner.dataset.releaseSummary=release?.summary || "";
   byId("updateBannerEyebrow").textContent="NEW UPDATE AVAILABLE";
   banner.classList.remove("hidden");
+  try{
+    window.dispatchEvent(new CustomEvent("digilians:analytics",{detail:{
+      eventType:"update_seen",
+      metadata:{latestVersion,installedVersion:current}
+    }}));
+  }catch{}
   updateBannerForExamState();
 }
 
@@ -255,6 +261,12 @@ async function installLatestUpdate(){
   }
 
   try{
+    try{
+      window.dispatchEvent(new CustomEvent("digilians:analytics",{detail:{
+        eventType:"update_installed",
+        metadata:{latestVersion:latest,installedVersion:currentBuildVersion()}
+      }}));
+    }catch{}
     await clearAppCacheOnly();
   }finally{
     // Intentionally preserves localStorage / Study progress / saved results.

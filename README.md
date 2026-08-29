@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.18.2
+# Digilians E-Learn Platform V0.18.3
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1845,3 +1845,110 @@ Tabs that were opened before V0.18.2 do not contain the update manager yet.
 Those users need one manual refresh after V0.18.2 is deployed.
 
 After that first refresh, later releases can be detected automatically while their tab remains open.
+
+
+## V0.18.3 — Private Platform Analytics V1
+
+### Purpose
+
+V0.18.3 adds anonymous product-usage analytics for the platform owner while keeping the dashboard private.
+
+Learners do not need accounts and do not see the Analytics button.
+
+### Anonymous tracking
+
+Each browser receives:
+- one random `visitor_id` in localStorage
+- one random `session_id` per browser tab session in sessionStorage
+
+Tracked events:
+- session start
+- page view
+- track open
+- Study open
+- Practice start / complete
+- Exam start / complete
+- Official QBank page activity
+- update notice seen
+- update installed
+
+### Privacy
+
+Analytics tracking does not read or send:
+- learner name
+- learner email
+- question answers
+- password
+- IP address from application code
+- exact location
+- browser fingerprint
+
+Event metadata is sanitized again before sending.
+
+`TEST-LOCAL.bat` / localhost does not send analytics events, so local QA never pollutes production numbers.
+
+### Private dashboard
+
+The new Admin Analytics dashboard includes:
+- Unique Visitors
+- Sessions
+- Returning Visitors
+- Page Views
+- Exam Completions
+- Exam Completion Rate
+- Visitors / Sessions trend
+- Study → Practice → Exam funnel
+- Most Used Tracks
+- Version Adoption
+- Official QBank activity
+- Update Seen / Installed
+- recent anonymous event stream
+
+Date filters:
+- Today
+- 7 Days
+- 30 Days
+- All Time
+
+### Security
+
+The Analytics dashboard is protected by:
+- Supabase Auth email/password
+- `analytics_admins` allowlist
+- Row Level Security
+- anonymous INSERT-only policy for analytics events
+- authenticated admin-only SELECT policy
+
+No Supabase secret/service-role key is shipped in the browser.
+
+### Admin UI visibility
+
+`Private Platform Analytics` in the Profile drawer is hidden by default.
+
+It becomes visible only after the current browser has a verified approved Admin session.
+
+First-time admin login is opened with:
+
+`?admin=analytics`
+
+appended to the normal GitHub Pages URL.
+
+The query only opens the login UI. It does not bypass Supabase Auth or RLS.
+
+### Required one-time Supabase setup
+
+Files:
+
+- `supabase/ANALYTICS-SCHEMA.sql`
+- `supabase/ADD-ANALYTICS-ADMIN.sql`
+- `supabase/ANALYTICS-SETUP-GUIDE.md`
+
+Run the schema once, create one Supabase Auth user, then add that email to `analytics_admins`.
+
+### Accuracy
+
+Because learners do not log in, Unique Visitors are approximate browser/device counts.
+
+Clearing browser storage or using another browser/device creates a new anonymous visitor ID.
+
+Anonymous event insertion can also be deliberately spoofed by a technically determined user. These analytics are intended for product-learning insight, not audited financial/security telemetry.
