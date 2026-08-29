@@ -3094,3 +3094,48 @@ button:disabled{
     gap:3px;
   }
 }
+
+
+/* V0.16.2 — Local / Staging environment banner */
+.environment-banner{
+  position:sticky;
+  top:0;
+  z-index:99999;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:12px;
+  min-height:34px;
+  padding:7px 14px;
+  border-bottom:1px solid rgba(255,255,255,.22);
+  background:#5b36d6;
+  color:#fff;
+  box-shadow:0 4px 16px rgba(0,0,0,.12);
+  font-family:inherit;
+}
+.environment-banner.hidden{display:none!important}
+.environment-banner strong{
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.08em;
+}
+.environment-banner span{
+  min-width:0;
+  font-size:8px;
+  font-weight:700;
+  opacity:.9;
+}
+.environment-banner b{
+  font-size:8px;
+  font-weight:950;
+  white-space:nowrap;
+}
+@media(max-width:620px){
+  .environment-banner{
+    grid-template-columns:1fr auto;
+  }
+  .environment-banner span{
+    grid-column:1/-1;
+    grid-row:2;
+  }
+}
