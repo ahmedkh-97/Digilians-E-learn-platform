@@ -1571,7 +1571,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "بايثون لغة عالية المستوى ومفسّرة، وبتعتمد على Syntax بسيط. الـ indentation جزء أساسي من بنية البرنامج لأنه بيحدد الـ code blocks.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Python Language, Syntax & Execution` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الفكرة دي بتبني الأساس اللي باقي كود Python بيعتمد عليه. فهمها يخليك تقرأ الـsyntax وتعرف سبب الـoutput بدل ما تحفظ شكل الكود.",
                       "mentalModel": {
                         "type": "concept",
                         "title": "Python Language, Syntax & Execution",
@@ -1609,7 +1609,8 @@
                         "explanationAr": "Python dynamically typed؛ المتغير يأخذ نوعه من القيمة وقت الإسناد.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 123.pptx — Slides 5, 12–17 — Characteristics and data types"
-                      }
+                      },
+                      "depth": "compact"
                     }
                   },
                   {
@@ -1677,7 +1678,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المتغير بيتكوّن عند أول assignment، وPython dynamically typed؛ النوع يُستنتج من القيمة بدل إعلان type مسبق.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Variables & Primitive Data Types` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "اختيار نوع البيانات وطريقة تخزينها بيحدد إيه العمليات المتاحة وإزاي توصل للقيم أو تغيرها. ده مهم جدًا في Code Tracing وحل الأسئلة.",
                       "mentalModel": {
                         "type": "boxes",
                         "title": "Variable = اسم يشاور على قيمة",
@@ -1743,7 +1744,8 @@
                         "explanationAr": "Platform clarification based on the taught concept. Boolean literals هما True وFalse بحرف أول Capital.",
                         "sourceType": "external-similar",
                         "sourceTrace": "Python Session 123.pptx — Slides 5, 12–17 — Characteristics and data types"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -1816,7 +1818,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "String sequence من characters. الـ indexing يبدأ من 0، والـ negative indexing يبدأ من نهاية النص. slicing تستخدم start:end والـ end غير مشمول.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Strings, Indexing & Slicing` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "اختيار نوع البيانات وطريقة تخزينها بيحدد إيه العمليات المتاحة وإزاي توصل للقيم أو تغيرها. ده مهم جدًا في Code Tracing وحل الأسئلة.",
                       "mentalModel": {
                         "type": "indexed-sequence",
                         "title": "String = صف Characters لكل واحد Position",
@@ -1854,7 +1856,8 @@
                         "explanationAr": "String indexing يبدأ من 0، والـ end في slicing غير مشمول.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 123.pptx — Slides 18–24 — Strings, indexing and slicing"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -1921,7 +1924,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "input() بتقرأ إدخال المستخدم كـ String دائمًا. التحويل لعدد يحتاج built-in مثل int(). والـ operators تشمل arithmetic/comparison/assignment/logical/bitwise.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Input, Printing, Escape Characters & Operators` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الفكرة دي بتبني الأساس اللي باقي كود Python بيعتمد عليه. فهمها يخليك تقرأ الـsyntax وتعرف سبب الـoutput بدل ما تحفظ شكل الكود.",
                       "mentalModel": {
                         "type": "concept",
                         "title": "Input, Printing, Escape Characters & Operators",
@@ -1959,7 +1962,8 @@
                         "explanationAr": "input() ترجع String، والتحويل الصريح مثل int() مطلوب قبل arithmetic numeric.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 123.pptx — Slides 27–31 — User input and printing"
-                      }
+                      },
+                      "depth": "compact"
                     }
                   },
                   {
@@ -2050,7 +2054,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "List collection مرتبة وmutable، تسمح بالتكرار واختلاف الأنواع. تدعم indexing/slicing والإضافة والحذف، والـ list comprehension تبني List جديدة بصيغة مختصرة.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Lists & List Comprehensions` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "اختيار نوع البيانات وطريقة تخزينها بيحدد إيه العمليات المتاحة وإزاي توصل للقيم أو تغيرها. ده مهم جدًا في Code Tracing وحل الأسئلة.",
                       "mentalModel": {
                         "type": "mutable-sequence",
                         "title": "List = صف مرتب قابل للتغيير",
@@ -2058,8 +2062,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "append() تضيف في النهاية وinsert() عند index محدد.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ارسم القيم وترتيبها أو الـkeys قبل التنفيذ، وبعد كل عملية تعديل حدّث الشكل أمامك.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -2116,7 +2120,8 @@
                         "explanationAr": "List ordered وmutable وتدعم indexing؛ append/insert للإضافة وremove/pop للحذف.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 123.pptx — Slides 41–43 — Lists and operations"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -2175,7 +2180,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Tuple مرتبة لكنها immutable. Set غير مرتبة وتركز على uniqueness وmembership وتزيل التكرار تلقائيًا.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Tuples & Sets` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "اختيار نوع البيانات وطريقة تخزينها بيحدد إيه العمليات المتاحة وإزاي توصل للقيم أو تغيرها. ده مهم جدًا في Code Tracing وحل الأسئلة.",
                       "mentalModel": {
                         "type": "comparison",
                         "title": "Tuple ثابتة، Set للـUniqueness",
@@ -2246,7 +2251,8 @@
                         "explanationAr": "Tuple ordered وimmutable ومناسبة للـ fixed sequence.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 123.pptx — Slides 45–47 — Tuples and List vs Tuple"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -2312,7 +2318,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Dictionary تخزن key-value pairs. الـ keys unique وimmutable، والقيم مرنة ويمكن أن تكون Dictionaries أخرى لبناء nested/hierarchical structures.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Dictionaries & Nested Dictionaries` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "اختيار نوع البيانات وطريقة تخزينها بيحدد إيه العمليات المتاحة وإزاي توصل للقيم أو تغيرها. ده مهم جدًا في Code Tracing وحل الأسئلة.",
                       "mentalModel": {
                         "type": "key-value",
                         "title": "Dictionary = أدراج لها أسماء بدل أرقام",
@@ -2320,8 +2326,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "الوصول للقيمة يتم بالـ key.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ارسم القيم وترتيبها أو الـkeys قبل التنفيذ، وبعد كل عملية تعديل حدّث الشكل أمامك.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -2350,7 +2356,8 @@
                         "explanationAr": "Dictionary تعتمد على unique immutable keys للوصول إلى values، وتدعم update/add/remove.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 123.pptx — Slides 51–54 — Dictionaries and methods"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   }
                 ]
@@ -2444,7 +2451,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Control Flow بتحدد أي block يتنفذ حسب condition. المصدر يركز على if وelif وelse لاتخاذ قرارات ديناميكية.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Control Flow Fundamentals` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Control Flow هو اللي يحدد أي جزء من البرنامج هيتنفذ. لو فهمت تقييم الـCondition إلى True أو False، تقدر تتوقع مسار الكود قبل تشغيله.",
                       "mentalModel": {
                         "type": "decision-tree",
                         "title": "Control Flow = بوابات قرار",
@@ -2482,7 +2489,8 @@
                         "explanationAr": "Platform clarification based on the taught concept. Control flow تختار blocks للتنفيذ بناءً على conditions.",
                         "sourceType": "external-similar",
                         "sourceTrace": "Python Session 4.pptx — Slide 5 — Control Flow"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -2539,7 +2547,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "if تنفذ block فقط لو الشرط True. أمثلة المصدر: positive number، string length، وNone check.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `if Statement` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Control Flow هو اللي يحدد أي جزء من البرنامج هيتنفذ. لو فهمت تقييم الـCondition إلى True أو False، تقدر تتوقع مسار الكود قبل تشغيله.",
                       "mentalModel": {
                         "type": "decision-tree",
                         "title": "Control Flow = بوابات قرار",
@@ -2577,7 +2585,8 @@
                         "explanationAr": "المصدر يطبق if على len(string) وعلى التحقق من None.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 4.pptx — Slides 7–8 — String Length and None checks"
-                      }
+                      },
+                      "depth": "compact"
                     }
                   },
                   {
@@ -2632,7 +2641,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "if-else توفر مسارين متبادلين. المصدر يطبقها على even/odd، age verification، empty list، temperature.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `if-else: Two-Way Decisions` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Control Flow هو اللي يحدد أي جزء من البرنامج هيتنفذ. لو فهمت تقييم الـCondition إلى True أو False، تقدر تتوقع مسار الكود قبل تشغيله.",
                       "mentalModel": {
                         "type": "decision-tree",
                         "title": "Control Flow = بوابات قرار",
@@ -2670,7 +2679,8 @@
                         "explanationAr": "الأمثلة توضح False branch في age=17، empty list، وtemperature=15 مع >20.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 4.pptx — Slides 11–13 — Age, Empty List, Temperature"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -2730,7 +2740,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "تستخدم لعدة حالات متبادلة؛ الشروط تُفحص بالترتيب ويتوقف التنفيذ عند أول True.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `if-elif-else: Multi-Branch Decisions` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Control Flow هو اللي يحدد أي جزء من البرنامج هيتنفذ. لو فهمت تقييم الـCondition إلى True أو False، تقدر تتوقع مسار الكود قبل تشغيله.",
                       "mentalModel": {
                         "type": "decision-tree",
                         "title": "Control Flow = بوابات قرار",
@@ -2738,8 +2748,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "ترتيب الشروط مهم.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حوّل كل Condition إلى True/False بالترتيب، وبعدها اتبع الـbranch الوحيد اللي ينطبق.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -2791,7 +2801,8 @@
                         "explanationAr": "Platform clarification based on the taught concept. Score 72 يصل لـ Grade C، والـ yellow traffic light يطبع Slow down.",
                         "sourceType": "external-similar",
                         "sourceTrace": "Python Session 4.pptx — Slides 15–16 — Grading and Traffic Light"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -2851,7 +2862,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Nested if تعني condition داخل branch أخرى، وتستخدم لما القرار الثاني يعتمد على تحقق القرار الأول.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Nested if Statements` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Control Flow هو اللي يحدد أي جزء من البرنامج هيتنفذ. لو فهمت تقييم الـCondition إلى True أو False، تقدر تتوقع مسار الكود قبل تشغيله.",
                       "mentalModel": {
                         "type": "decision-tree",
                         "title": "Control Flow = بوابات قرار",
@@ -2859,8 +2870,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "inner if لا تُفحص لو outer if False.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حوّل كل Condition إلى True/False بالترتيب، وبعدها اتبع الـbranch الوحيد اللي ينطبق.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -2889,7 +2900,8 @@
                         "explanationAr": "Nested if تنفذ inner condition فقط بعد دخول outer block، ومناسبة للقرارات التابعة.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 4.pptx — Slides 19–23 — Nested if examples"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   }
                 ]
@@ -2961,7 +2973,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "for loop للتكرار على sequence مثل List/Tuple/String/range وتنفيذ block لكل item.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `for Loops: Iterating over Sequences` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "iteration",
                         "title": "Loop = نفس الفكرة على State بتتغير",
@@ -2999,7 +3011,8 @@
                         "explanationAr": "for loop تتكرر على sequence مثل list/string/range وتنفذ block لكل item.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 5.pptx — Slides 5–9 — for loop and examples"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -3078,7 +3091,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "for وwhile يمكن أن يكون لهما else تنفذ عند natural completion بدون break.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Loop else` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "iteration",
                         "title": "Loop = نفس الفكرة على State بتتغير",
@@ -3116,7 +3129,8 @@
                         "explanationAr": "Loop else تنفذ عند natural completion بدون break.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 5.pptx — Slides 10, 27 — for else and summary"
-                      }
+                      },
+                      "depth": "compact"
                     }
                   },
                   {
@@ -3178,7 +3192,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "while تكرر block طالما condition True، ومناسبة عندما عدد iterations غير معروف مسبقًا.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `while Loops` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "iteration",
                         "title": "Loop = نفس الفكرة على State بتتغير",
@@ -3216,7 +3230,8 @@
                         "explanationAr": "Platform clarification based on the taught concept. while تكرر block طالما condition=True وتناسب عدد iterations غير المعروف مسبقًا.",
                         "sourceType": "external-similar",
                         "sourceTrace": "Python Session 5.pptx — Slides 13–14 — while loop and basic example"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -3277,7 +3292,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "break تنهي loop فورًا، بينما continue تتخطى بقية current iteration وتكمل التالية.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `break & continue` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الفكرة دي بتبني الأساس اللي باقي كود Python بيعتمد عليه. فهمها يخليك تقرأ الـsyntax وتعرف سبب الـoutput بدل ما تحفظ شكل الكود.",
                       "mentalModel": {
                         "type": "concept",
                         "title": "break & continue",
@@ -3285,8 +3300,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "الفرق بينهما أساسي في code tracing.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اقرأ السطر من اليسار لليمين كتعليمات: Inputs أو Values → Operation → Result.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -3330,7 +3345,8 @@
                         "explanationAr": "break تنهي loop فورًا.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 5.pptx — Slides 15, 17, 27 — break examples"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -3388,7 +3404,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Nested loop هي loop داخل loop؛ inner loop تكتمل لكل outer iteration، والعدد الكلي تقريبًا n×m.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Nested Loops` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "iteration",
                         "title": "Loop = نفس الفكرة على State بتتغير",
@@ -3396,8 +3412,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "مفيدة في matrices/grids/pairwise comparisons/patterns.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "تابع قيمة المتغيرات في كل Iteration بدل محاولة تخمين الناتج النهائي مباشرة.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -3426,7 +3442,8 @@
                         "explanationAr": "Nested loop هي loop داخل loop؛ inner loop تكتمل لكل outer iteration.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 5.pptx — Slides 19–20 — nested loops and time complexity"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -3508,7 +3525,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يحذر من nested loops على datasets كبيرة ويقترح List Comprehensions، built-ins، Vectorization، أو algorithms أفضل.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `When to Avoid or Optimize Nested Loops` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "iteration",
                         "title": "Loop = نفس الفكرة على State بتتغير",
@@ -3516,8 +3533,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "1000×1000 = 1,000,000 iterations.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "تابع قيمة المتغيرات في كل Iteration بدل محاولة تخمين الناتج النهائي مباشرة.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -3546,7 +3563,8 @@
                         "explanationAr": "Nested loops تضاعف work؛ 1000×1000 = 1,000,000 iteration في مثال المصدر.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 5.pptx — Slide 24 — When to Avoid Nested Loops"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   }
                 ]
@@ -3623,7 +3641,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "التطبيقات تستخدم for loop لمسح collections والحفاظ على state مثل running maximum أو العناصر المشتركة.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Scanning Collections: Maximum & Common Elements` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "iteration",
                         "title": "Loop = نفس الفكرة على State بتتغير",
@@ -3661,7 +3679,8 @@
                         "explanationAr": "المثال يفحص كل item في list1 ويضيفه إذا كان موجودًا في list2.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 6.pptx — Slide 10 — Common Elements in Two Lists"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -3720,7 +3739,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يطبق loops على Strings في counting vowels وpalindrome checking.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Text Processing with Loops` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "iteration",
                         "title": "Loop = نفس الفكرة على State بتتغير",
@@ -3758,7 +3777,8 @@
                         "explanationAr": "الـ loop تمر على كل char وتزيد counter فقط إذا char.lower() داخل aeiou.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 6.pptx — Slide 6 — Counting Vowels"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -3823,7 +3843,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Session 4 تستخدم loops لبناء prime detection، factorial، واستخراج digits بالمودولس.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Number Algorithms: Prime, Factorial & Sum of Digits` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "iteration",
                         "title": "Loop = نفس الفكرة على State بتتغير",
@@ -3831,8 +3851,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Prime يستخدم inner loop وbreak/else.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "تابع قيمة المتغيرات في كل Iteration بدل محاولة تخمين الناتج النهائي مباشرة.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -3861,7 +3881,8 @@
                         "explanationAr": "Factorial تراكم ضرب يبدأ من 1، وsum of digits تستخدم modulus لاستخراج digits.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 6.pptx — Slides 11, 13 — Factorial and Sum of Digits"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -3930,7 +3951,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يبني Fibonacci بمتغيرين a وb وList تتزايد حتى الوصول للطول المطلوب.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Fibonacci with while` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "iteration",
                         "title": "Loop = نفس الفكرة على State بتتغير",
@@ -3968,7 +3989,8 @@
                         "explanationAr": "while تبني sequence من seed values 0 و1 وتحدث a,b حتى الوصول للطول المطلوب.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 6.pptx — Slide 8 — Fibonacci Sequence"
-                      }
+                      },
+                      "depth": "compact"
                     }
                   },
                   {
@@ -4047,7 +4069,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "while مناسبة للتفاعل عندما عدد المحاولات غير معروف، مع break عند نجاح أو انتهاء الحالة.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Interactive while Loops: ATM, Validation & Password Attempts` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "iteration",
                         "title": "Loop = نفس الفكرة على State بتتغير",
@@ -4055,8 +4077,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "ATM تحدث balance.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "تابع قيمة المتغيرات في كل Iteration بدل محاولة تخمين الناتج النهائي مباشرة.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -4085,7 +4107,8 @@
                         "explanationAr": "Validation repeats input until condition valid، وpassword loop يحدد 3 attempts ويستخدم break عند النجاح.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 6.pptx — Slides 12, 17 — Input Validation and Password Check"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -4167,7 +4190,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يستخدم loops في pattern printing، multiplication table، وبناء Dictionary من قائمتين متوازيتين.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Patterns, Tables & Building a Dictionary` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "الـLoops بتكرر نفس المنطق على قيم متعددة. أهم مهارة هنا إنك تتابع State المتغيرات في كل Iteration وتعرف إمتى التكرار يكمل أو يتوقف.",
                       "mentalModel": {
                         "type": "key-value",
                         "title": "Dictionary = أدراج لها أسماء بدل أرقام",
@@ -4205,7 +4228,8 @@
                         "explanationAr": "المثال يربط keys[i] مع values[i] عند نفس index لبناء dictionary.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 6.pptx — Slide 16 — Dictionary from Two Lists"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   }
                 ]
@@ -4280,7 +4304,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Function هي block reusable له اسم، ويمكن استدعاؤه أكثر من مرة لتنظيم الكود وتقليل التكرار.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Defining & Calling Functions` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Functions بتقسم الحل إلى وحدات قابلة لإعادة الاستخدام. فهم Parameters وReturn يخليك تعرف البيانات دخلت منين والنتيجة خرجت فين.",
                       "mentalModel": {
                         "type": "machine",
                         "title": "Function = Input → Process → Output",
@@ -4318,7 +4342,8 @@
                         "explanationAr": "The trace follows the taught `Parameters & Return` behavior: Parameters let a function receive values, and `return` sends a result back to the caller.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 7.pptx — Slide 7 — Function with Parameters"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -4380,7 +4405,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Parameters تدخل قيم للدالة، وreturn يرجع نتيجة للـ caller. Default parameters توفر fallback عندما لا يتم تمرير argument.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Parameters, Default Values & Return` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Functions بتقسم الحل إلى وحدات قابلة لإعادة الاستخدام. فهم Parameters وReturn يخليك تعرف البيانات دخلت منين والنتيجة خرجت فين.",
                       "mentalModel": {
                         "type": "machine",
                         "title": "Function = Input → Process → Output",
@@ -4418,7 +4443,8 @@
                         "explanationAr": "`name=\"Guest\"` is the course-aligned choice for this task: provide a fallback argument value.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 7.pptx — Slide 8 — Default Parameter Values"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -4495,7 +4521,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Python تسمح بإرجاع أكثر من قيمة ثم unpacking، والـ docstring توثق وظيفة الدالة ويمكن قراءتها من __doc__.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Multiple Returns & Docstrings` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Functions بتقسم الحل إلى وحدات قابلة لإعادة الاستخدام. فهم Parameters وReturn يخليك تعرف البيانات دخلت منين والنتيجة خرجت فين.",
                       "mentalModel": {
                         "type": "machine",
                         "title": "Function = Input → Process → Output",
@@ -4533,7 +4559,8 @@
                         "explanationAr": "The trace follows the taught `Multiple Return Values` behavior: A function can return multiple values that the caller can unpack into separate variables.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 7.pptx — Slide 9 — Multiple Return Values"
-                      }
+                      },
+                      "depth": "compact"
                     }
                   },
                   {
@@ -4590,7 +4617,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Lambda function صغيرة anonymous. map() تطبق transformation على كل item، وfilter() تحتفظ بالعناصر التي تحقق condition.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Lambda, map() & filter()` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Functions بتقسم الحل إلى وحدات قابلة لإعادة الاستخدام. فهم Parameters وReturn يخليك تعرف البيانات دخلت منين والنتيجة خرجت فين.",
                       "mentalModel": {
                         "type": "machine",
                         "title": "Function = Input → Process → Output",
@@ -4628,7 +4655,8 @@
                         "explanationAr": "`lambda x: ...` is the course-aligned choice for this task: define a short anonymous function.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 7.pptx — Slides 12–14 — Lambda Functions"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -4685,7 +4713,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Recursion هي function تستدعي نفسها لحل subproblem أصغر، وتحتاج base case. Higher-order function تستقبل function أو ترجع function.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Recursion & Higher-Order Functions` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Functions بتقسم الحل إلى وحدات قابلة لإعادة الاستخدام. فهم Parameters وReturn يخليك تعرف البيانات دخلت منين والنتيجة خرجت فين.",
                       "mentalModel": {
                         "type": "machine",
                         "title": "Function = Input → Process → Output",
@@ -4693,8 +4721,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Recursive factorial في المصدر يصل إلى 120 لـ 5!.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد Arguments عند الاستدعاء، اربطها بالـParameters، تتبع body، ثم سجل قيمة return.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -4723,7 +4751,8 @@
                         "explanationAr": "A higher-order function can take another function as an argument or return a function.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 7.pptx — Slides 20–22 — Higher-Order Functions"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   }
                 ]
@@ -4793,7 +4822,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Session 6 تحول مفاهيم functions إلى problem solving: aggregation، scanning، وBoolean checks.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Core Function Practice: Average, Longest Word & Prime` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Functions بتقسم الحل إلى وحدات قابلة لإعادة الاستخدام. فهم Parameters وReturn يخليك تعرف البيانات دخلت منين والنتيجة خرجت فين.",
                       "mentalModel": {
                         "type": "machine",
                         "title": "Function = Input → Process → Output",
@@ -4831,7 +4860,8 @@
                         "explanationAr": "Platform clarification based on the taught concept. `longest-word scan` is the course-aligned choice for this task: find the longest word in a list.",
                         "sourceType": "external-similar",
                         "sourceTrace": "Python Session 8.pptx — Slide 6 — Longest Word"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -4884,7 +4914,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يطبق functions على تحويل درجات الحرارة وعلى بناء Lists جديدة مثل squares وuppercase.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Converters & List-Comprehension Functions` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Functions بتقسم الحل إلى وحدات قابلة لإعادة الاستخدام. فهم Parameters وReturn يخليك تعرف البيانات دخلت منين والنتيجة خرجت فين.",
                       "mentalModel": {
                         "type": "machine",
                         "title": "Function = Input → Process → Output",
@@ -4922,7 +4952,8 @@
                         "explanationAr": "A function can return a new list built with a list comprehension.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 8.pptx — Slides 9–10 — Squares and Uppercase"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -4995,7 +5026,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Tax calculation وmin/max وemail basic validation أمثلة على وظائف صغيرة لها input واضح وoutput واضح.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Business Utility Functions` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Functions بتقسم الحل إلى وحدات قابلة لإعادة الاستخدام. فهم Parameters وReturn يخليك تعرف البيانات دخلت منين والنتيجة خرجت فين.",
                       "mentalModel": {
                         "type": "machine",
                         "title": "Function = Input → Process → Output",
@@ -5033,7 +5064,8 @@
                         "explanationAr": "Built-in `min()` and `max()` can return the smallest and largest values in a list.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 8.pptx — Slide 12 — Min and Max"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -5085,7 +5117,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يستخدم Dictionary لعد characters، function داخل function، وlambda كـ sort key.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Frequency, Function Composition & Lambda Sorting` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Functions بتقسم الحل إلى وحدات قابلة لإعادة الاستخدام. فهم Parameters وReturn يخليك تعرف البيانات دخلت منين والنتيجة خرجت فين.",
                       "mentalModel": {
                         "type": "machine",
                         "title": "Function = Input → Process → Output",
@@ -5123,7 +5155,8 @@
                         "explanationAr": "`key=lambda x: ...` is the course-aligned choice for this task: sort records by a custom field.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 8.pptx — Slides 19–20 — Sorting with Lambda"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -5204,7 +5237,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "آخر الجزء يجمع functions في تطبيقات: Calculator, Number Guessing, Password Generator, Text Analysis, Age Calculator, Currency Converter, Contact Book, Dice Roller.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Mini Applications` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Functions بتقسم الحل إلى وحدات قابلة لإعادة الاستخدام. فهم Parameters وReturn يخليك تعرف البيانات دخلت منين والنتيجة خرجت فين.",
                       "mentalModel": {
                         "type": "machine",
                         "title": "Function = Input → Process → Output",
@@ -5212,8 +5245,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "الهدف هنا composition: تقسيم التطبيق لوظائف صغيرة بدل block واحد كبير.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد Arguments عند الاستدعاء، اربطها بالـParameters، تتبع body، ثم سجل قيمة return.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -5242,7 +5275,8 @@
                         "explanationAr": "`min(numbers), max(numbers)` is the course-aligned choice for this task: find minimum and maximum values.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 8.pptx — Slide 12 — Min and Max"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   }
                 ]
@@ -5323,7 +5357,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "File Handling تسمح بحفظ البيانات واسترجاع ملفات خارجية ومعالجة ملفات كبيرة. open() تحتاج path وmode، وclose() تحرر resources.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Why File Handling + open/close/read` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "File Handling وOS operations بتنقل البيانات من الذاكرة المؤقتة إلى ملفات ومجلدات حقيقية. فهم الـmode والمسار يمنع أخطاء قراءة أو كتابة البيانات.",
                       "mentalModel": {
                         "type": "filesystem",
                         "title": "File System = Tree + Stream",
@@ -5331,8 +5365,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Default mode هو r.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ابدأ من Current Path وFile Mode، ثم تتبع العملية: Open → Read/Write → Close أو انتهاء with block.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -5380,7 +5414,8 @@
                         "explanationAr": "Use `file.close()` for a normal file object; `os.close()` expects a low-level integer descriptor.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 9.pptx — Slide 4 — Closing a File"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -5435,7 +5470,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "with open(...) يدير الإغلاق تلقائيًا. Line-by-line iteration أفضل عندما لا نريد تحميل الملف كله في الذاكرة.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `with Statement & Line-by-Line Reading` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "File Handling وOS operations بتنقل البيانات من الذاكرة المؤقتة إلى ملفات ومجلدات حقيقية. فهم الـmode والمسار يمنع أخطاء قراءة أو كتابة البيانات.",
                       "mentalModel": {
                         "type": "filesystem",
                         "title": "File System = Tree + Stream",
@@ -5443,8 +5478,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "المصدر يحتوي typo بصري withopen؛ النسخة الصحيحة في المنصة with open.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ابدأ من Current Path وFile Mode، ثم تتبع العملية: Open → Read/Write → Close أو انتهاء with block.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -5473,7 +5508,8 @@
                         "explanationAr": "The trace follows the taught `with Statement` behavior: A `with` statement automatically handles closing the file and reduces resource-leak risk.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 9.pptx — Slide 6 — with Statement"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -5542,7 +5578,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "w تمسح المحتوى القديم ثم تكتب، a تضيف في النهاية، x تنشئ ملفًا جديدًا وتفشل لو موجود، b flag للملفات binary.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Write, Append & Creation Modes` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "File Handling وOS operations بتنقل البيانات من الذاكرة المؤقتة إلى ملفات ومجلدات حقيقية. فهم الـmode والمسار يمنع أخطاء قراءة أو كتابة البيانات.",
                       "mentalModel": {
                         "type": "filesystem",
                         "title": "File System = Tree + Stream",
@@ -5550,8 +5586,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "اختيار mode قرار مهم لأنه قد يحذف محتوى موجود.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ابدأ من Current Path وFile Mode، ثم تتبع العملية: Open → Read/Write → Close أو انتهاء with block.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -5598,7 +5634,8 @@
                         "explanationAr": "Choose read mode (`r`) for reading rather than a destructive write mode.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 9.pptx — Slides 2–3, 9 — open and modes"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -5667,7 +5704,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "CWD هي folder التي يعمل منها Python للـ relative paths. os.getcwd() تقرأها وos.chdir() تغيرها. mkdir single directory وmakedirs recursive.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Current Working Directory & Directory Creation` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "File Handling وOS operations بتنقل البيانات من الذاكرة المؤقتة إلى ملفات ومجلدات حقيقية. فهم الـmode والمسار يمنع أخطاء قراءة أو كتابة البيانات.",
                       "mentalModel": {
                         "type": "filesystem",
                         "title": "File System = Tree + Stream",
@@ -5705,7 +5742,8 @@
                         "explanationAr": "`os.getcwd() / os.chdir(path)` is the course-aligned choice for this task: inspect or change the current working directory.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 9.pptx — Slides 12–14 — Current Working Directory"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -5769,7 +5807,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "os.listdir() تسرد محتويات directory. os.remove() للملفات، وos.rmdir() للـ empty directories.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Listing & Deleting Files/Directories` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "File Handling وOS operations بتنقل البيانات من الذاكرة المؤقتة إلى ملفات ومجلدات حقيقية. فهم الـmode والمسار يمنع أخطاء قراءة أو كتابة البيانات.",
                       "mentalModel": {
                         "type": "filesystem",
                         "title": "File System = Tree + Stream",
@@ -5807,7 +5845,8 @@
                         "explanationAr": "`os.listdir(path)` is the course-aligned choice for this task: list files and directories.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 9.pptx — Slide 18 — Listing Files and Directories"
-                      }
+                      },
+                      "depth": "standard"
                     }
                   },
                   {
@@ -5888,7 +5927,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يغطي chmod/chown/stat، os.name/os.error، os.popen/os.close، exists/getsize، rename.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Permissions, Metadata & Common OS Functions` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "File Handling وOS operations بتنقل البيانات من الذاكرة المؤقتة إلى ملفات ومجلدات حقيقية. فهم الـmode والمسار يمنع أخطاء قراءة أو كتابة البيانات.",
                       "mentalModel": {
                         "type": "filesystem",
                         "title": "File System = Tree + Stream",
@@ -5896,8 +5935,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "os.close expects low-level integer descriptor، وليس file object من open().",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ابدأ من Current Path وFile Mode، ثم تتبع العملية: Open → Read/Write → Close أو انتهاء with block.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -5926,7 +5965,8 @@
                         "explanationAr": "The trace follows the taught `File Metadata & Paths` behavior: The source covers permissions/metadata (`chmod`, `chown`, `stat`) plus `exists`, `getsize`, and `rename`.",
                         "sourceType": "course",
                         "sourceTrace": "Python Session 9.pptx — Slides 22–29 — Metadata and Common Functions"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   }
                 ]
@@ -6009,7 +6049,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "NumPy هي أساس numerical computing في Python، وبتوفر N-dimensional arrays أكثر كفاءة للعمليات الرقمية من الاعتماد على Python Lists فقط.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `NumPy Foundations & ndarray` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "NumPy مهمة لأنها تنفذ عمليات عددية على Arrays كاملة بصورة Vectorized. فهم Shape وIndexing هو الأساس قبل Broadcasting أو Aggregation.",
                       "mentalModel": {
                         "type": "array-grid",
                         "title": "NumPy Array = Grid بأبعاد واضحة",
@@ -6017,8 +6057,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "NumPy foundation لكتير من مكتبات Data Science مثل Pandas وScikit-learn.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ابدأ بالـShape، حدد الـindices أو الـaxis، ثم طبق العملية على العناصر وحدد شكل الناتج قبل قيمه.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -6047,7 +6087,8 @@
                         "explanationAr": "NumPy provides efficient N-dimensional arrays for numerical computing and forms the base for many data-science libraries.",
                         "sourceType": "course",
                         "sourceTrace": "Numpy_1.pptx — Slides 5–6 — NumPy Introduction"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -6106,7 +6147,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يغطي np.array() وzeros/ones/arange/linspace/random، مع shape وdtype لفهم بنية البيانات.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Creating Arrays & Understanding Shape` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "NumPy مهمة لأنها تنفذ عمليات عددية على Arrays كاملة بصورة Vectorized. فهم Shape وIndexing هو الأساس قبل Broadcasting أو Aggregation.",
                       "mentalModel": {
                         "type": "array-grid",
                         "title": "NumPy Array = Grid بأبعاد واضحة",
@@ -6114,8 +6155,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "shape tuple فيها حجم كل dimension.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ابدأ بالـShape، حدد الـindices أو الـaxis، ثم طبق العملية على العناصر وحدد شكل الناتج قبل قيمه.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -6171,7 +6212,8 @@
                         "explanationAr": "Pass the intended shape tuple such as `(2, 3)` for a 2D array.",
                         "sourceType": "course",
                         "sourceTrace": "Numpy_1.pptx — Slides 11–12 — Zeros and Ones"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -6247,7 +6289,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "NumPy تدعم indexing/slicing مشابهة لـPython sequences، ومع 2D arrays بنحدد row وcolumn.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Indexing & Slicing 1D/2D` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "NumPy مهمة لأنها تنفذ عمليات عددية على Arrays كاملة بصورة Vectorized. فهم Shape وIndexing هو الأساس قبل Broadcasting أو Aggregation.",
                       "mentalModel": {
                         "type": "array-grid",
                         "title": "NumPy Array = Grid بأبعاد واضحة",
@@ -6255,8 +6297,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "arr[0,2] يعني first row + third column.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ابدأ بالـShape، حدد الـindices أو الـaxis، ثم طبق العملية على العناصر وحدد شكل الناتج قبل قيمه.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": {
@@ -6290,7 +6332,8 @@
                         "explanationAr": "`arr[row, col] / arr[start:end]` is the course-aligned choice for this task: select specific elements or subarrays.",
                         "sourceType": "course",
                         "sourceTrace": "Numpy_1.pptx — Slides 20–23 — Indexing and Slicing"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -6346,7 +6389,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Element-wise arithmetic تطبق على كل عناصر متوافقة، وbroadcasting توسع scalar/smaller shape تلقائيًا لما القواعد تسمح. np.dot() للـdot/matrix multiplication.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Element-wise Operations, Broadcasting & dot()` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "NumPy مهمة لأنها تنفذ عمليات عددية على Arrays كاملة بصورة Vectorized. فهم Shape وIndexing هو الأساس قبل Broadcasting أو Aggregation.",
                       "mentalModel": {
                         "type": "array-grid",
                         "title": "NumPy Array = Grid بأبعاد واضحة",
@@ -6354,8 +6397,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "arr + 10 تضيف 10 لكل عنصر.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ابدأ بالـShape، حدد الـindices أو الـaxis، ثم طبق العملية على العناصر وحدد شكل الناتج قبل قيمه.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": {
@@ -6389,7 +6432,8 @@
                         "explanationAr": "NumPy applies arithmetic element-wise and can broadcast compatible scalars/smaller shapes across larger arrays.",
                         "sourceType": "course",
                         "sourceTrace": "Numpy_1.pptx — Slides 24–25, 32 — Element-wise & Broadcasting"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -6464,7 +6508,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "mean/sum/max/min بتوفر summaries سريعة للarrays، وبتدخل مباشرة في preprocessing والتحليل.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Statistics & Analytical Operations` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "NumPy مهمة لأنها تنفذ عمليات عددية على Arrays كاملة بصورة Vectorized. فهم Shape وIndexing هو الأساس قبل Broadcasting أو Aggregation.",
                       "mentalModel": {
                         "type": "array-grid",
                         "title": "NumPy Array = Grid بأبعاد واضحة",
@@ -6472,8 +6516,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "المصدر يطبقها على student scores وtemperature/sales datasets.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ابدأ بالـShape، حدد الـindices أو الـaxis، ثم طبق العملية على العناصر وحدد شكل الناتج قبل قيمه.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": {
@@ -6507,7 +6551,8 @@
                         "explanationAr": "Create a NumPy array and use NumPy operations when the course concept calls for array computing.",
                         "sourceType": "course",
                         "sourceTrace": "Numpy_1.pptx — Slides 5–6 — NumPy Introduction"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -6575,7 +6620,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "الجزء التطبيقي يجمع array creation، shape/dtype، slicing، broadcasting، growth calculation، dot product، random generation، normalization، reshape.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Practical NumPy Workflows` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "NumPy مهمة لأنها تنفذ عمليات عددية على Arrays كاملة بصورة Vectorized. فهم Shape وIndexing هو الأساس قبل Broadcasting أو Aggregation.",
                       "mentalModel": {
                         "type": "array-grid",
                         "title": "NumPy Array = Grid بأبعاد واضحة",
@@ -6583,8 +6628,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "المصدر يربط NumPy بتحليل درجات الطلاب، sensor temperatures، sales growth، prediction، وتجهيز random data.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "ابدأ بالـShape، حدد الـindices أو الـaxis، ثم طبق العملية على العناصر وحدد شكل الناتج قبل قيمه.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": {
@@ -6618,7 +6663,8 @@
                         "explanationAr": "`np.array(...)` is the course-aligned choice for this task: create an efficient numerical array.",
                         "sourceType": "course",
                         "sourceTrace": "Numpy_1.pptx — Slides 5–6 — NumPy Introduction"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   }
                 ]
@@ -6722,7 +6768,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Pandas مكتبة تحليل ومعالجة بيانات مبنية فوق NumPy، وأهم بنيتين فيها Series 1D وDataFrame 2D.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Pandas, Series & DataFrame` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -6730,8 +6776,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Series شبيهة بعمود spreadsheet.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -6778,7 +6824,8 @@
                         "explanationAr": "Use a Series for one-dimensional labeled data.",
                         "sourceType": "course",
                         "sourceTrace": "Pandas_1.pptx — Slides 5–8 — Pandas and Series"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -6838,7 +6885,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "قبل التحليل نحتاج نفهم شكل البيانات: head للpreview، info للstructure/dtypes/non-null، describe للإحصائيات الرقمية.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Inspecting Data: head(), info(), describe()` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -6846,8 +6893,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "كل method لها سؤال مختلف؛ head مش بديل info، وinfo مش بديل describe.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -6876,7 +6923,8 @@
                         "explanationAr": "Platform clarification based on the taught concept. Use `info()` for structural DataFrame information.",
                         "sourceType": "external-similar",
                         "sourceTrace": "Pandas_1.pptx — Slide 11 — info()"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -6929,7 +6977,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "اختيار column واحد يرجع Series، Boolean filtering ترجع الصفوف المطابقة، وloc[] label-based indexing للrows/columns.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Selecting, Filtering & loc[]` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -6937,8 +6985,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Filtering condition تتكتب على column ثم تستخدم لاختيار rows.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": {
@@ -6972,7 +7020,8 @@
                         "explanationAr": "Platform clarification based on the taught concept. The trace follows the taught `Column Selection & Filtering` behavior: Selecting a column returns a Series; Boolean conditions can filter rows.",
                         "sourceType": "external-similar",
                         "sourceTrace": "Pandas_1.pptx — Slides 13–14 — Selection and Filtering"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -7031,7 +7080,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Pandas تسمح بإضافة calculated/new columns، vectorized column updates، وحذف columns بـdrop(axis=1).",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Adding, Updating & Dropping Data` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -7039,8 +7088,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Vectorized operations تطبق على column كاملة بدون explicit loop.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": {
@@ -7074,7 +7123,8 @@
                         "explanationAr": "The trace follows the taught `Modify DataFrame` behavior: Pandas supports adding columns, vectorized column updates, and dropping columns with `drop(..., axis=1)`.",
                         "sourceType": "course",
                         "sourceTrace": "Pandas_1.pptx — Slides 16–18 — Add, Update, Drop"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -7133,7 +7183,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "isnull() تكشف missing values، fillna() تستبدلها، dropna() تحذف rows بها missing values.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Handling Missing Data` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -7141,8 +7191,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "قرار fill أو drop يعتمد على هدف cleaning؛ المصدر يعرض الأدوات وليس قاعدة واحدة لكل dataset.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -7195,7 +7245,8 @@
                         "explanationAr": "Use `fillna()` when filling is the intended cleaning action.",
                         "sourceType": "course",
                         "sourceTrace": "Pandas_1.pptx — Slides 19–21 — Missing Data"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -7249,7 +7300,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "groupby() تنظم rows في groups ثم aggregation مثل mean، وapply() تطبق custom function.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Grouping, Aggregation & apply()` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -7257,8 +7308,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "مثال المصدر يحسب mean salary per department.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -7311,7 +7362,8 @@
                         "explanationAr": "Platform clarification based on the taught concept. Follow grouping with the needed aggregation such as `mean()` in the taught pattern.",
                         "sourceType": "external-similar",
                         "sourceTrace": "Pandas_1.pptx — Slides 22–23 — Grouping and Apply"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -7373,7 +7425,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "آخر الملف يجمع المفاهيم في Student Performance Analysis وEmployee Performance Dashboard بدل دراسة methods منفصلة.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Student & Employee Case Studies` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -7381,8 +7433,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "الهدف ربط inspection/selection/cleaning/aggregation داخل analysis workflow.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -7411,7 +7463,8 @@
                         "explanationAr": "A Pandas Series is a one-dimensional labeled array that can hold data values.",
                         "sourceType": "course",
                         "sourceTrace": "Pandas_1.pptx — Slides 5–8 — Pandas and Series"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   }
                 ]
@@ -7501,7 +7554,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Session 10 تركز على استخدام Pandas داخل workflow كامل: load → inspect → filter → aggregate → calculate → sort → dates → export.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Applied DataFrame Workflow` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -7509,8 +7562,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "الفرق عن Session 9 إننا هنا نطبق المفاهيم في سياق عملي متسلسل بدل إعادة تعريفها.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -7539,7 +7592,8 @@
                         "explanationAr": "The trace follows the taught `Restaurant Analytics Workflow` behavior: The Restaurant case study applies Pandas manipulation to sales/customer analysis as an integrated applied workflow.",
                         "sourceType": "course",
                         "sourceTrace": "Pandas_2_3.pptx — Slides 28–36 — Restaurant Sales & Customer Analytics"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -7588,7 +7642,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يفلتر IT employees، يحسب average salary by Department، ويضيف 5% raise column.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Filtering, Grouping & Calculated Columns` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -7596,8 +7650,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "5% raise = Salary * 1.05، مش Salary * 0.05 كناتج نهائي.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": {
@@ -7631,7 +7685,8 @@
                         "explanationAr": "A new salary column can be calculated vectorially by multiplying Salary by 1.05.",
                         "sourceType": "course",
                         "sourceTrace": "Pandas_2_3.pptx — Slide 12 — 5% Raise"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -7695,7 +7750,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "sort_values descending للعمر، value_counts للتكرارات، pd.to_datetime لتحويل التاريخ قبل filtering.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Sorting, Counting & Date Filtering` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -7703,8 +7758,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "أقدم/أكبر first يحتاج descending.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": {
@@ -7738,7 +7793,8 @@
                         "explanationAr": "`pd.to_datetime()` converts the date column before filtering rows after a date threshold.",
                         "sourceType": "course",
                         "sourceTrace": "Pandas_2_3.pptx — Slide 15 — Joined After 2020"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -7792,7 +7848,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "to_csv() تحفظ DataFrame لملف CSV، وindex=False تمنع كتابة row index.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Exporting Results` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -7830,7 +7886,8 @@
                         "explanationAr": "The trace follows the taught `CSV Export` behavior: `to_csv()` writes a DataFrame to a CSV; `index=False` excludes the row index.",
                         "sourceType": "course",
                         "sourceTrace": "Pandas_2_3.pptx — Slide 16 — Save Filtered Data"
-                      }
+                      },
+                      "depth": "compact"
                     }
                   },
                   {
@@ -7894,7 +7951,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Case study يربط خطوات Pandas في سياق إدارة وتحليل بيانات مرضى بدل أوامر منفصلة.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Hospital Patient Management System` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -7902,8 +7959,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "المهم هنا reasoning: كل method تخدم سؤال في workflow.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": {
@@ -7937,7 +7994,8 @@
                         "explanationAr": "`multi-step Pandas workflow` is the course-aligned choice for this task: analyze hospital patient data through multiple Pandas steps.",
                         "sourceType": "course",
                         "sourceTrace": "Pandas_2_3.pptx — Slides 18–26 — Hospital Patient Management"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   },
                   {
@@ -7995,7 +8053,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Case study ثانية على sales/customer analytics لاختبار نقل نفس Pandas patterns إلى domain مختلف.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Restaurant Sales & Customer Analytics` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "Pandas بتحول السؤال التحليلي إلى عمليات واضحة على Rows وColumns وGroups. لازم تحدد هل المطلوب Filter أو Transformation أو Summary قبل اختيار الـfunction.",
                       "mentalModel": {
                         "type": "dataframe",
                         "title": "DataFrame = جدول Labels + Rows + Columns",
@@ -8003,8 +8061,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "الهدف إعادة استخدام نفس أدوات manipulation/aggregation في business context جديد.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "حدد شكل الـDataFrame قبل العملية: Rows وColumns. بعد التنفيذ اسأل: هل الصفوف اتفلترت؟ الأعمدة اتغيرت؟ ولا الناتج Summary؟",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": {
@@ -8038,7 +8096,8 @@
                         "explanationAr": "`multi-step sales/customer workflow` is the course-aligned choice for this task: analyze restaurant sales and customer data.",
                         "sourceType": "course",
                         "sourceTrace": "Pandas_2_3.pptx — Slides 28–36 — Restaurant Sales & Customer Analytics"
-                      }
+                      },
+                      "depth": "deep"
                     }
                   }
                 ]
@@ -8053,7 +8112,7 @@
               "study": {
                 "title": "Session 11 · Data Visualization Foundations & Matplotlib Essentials",
                 "description": "شرح تعليمي من الصفر: What / Why / Mental Model / Code / Execution / Try This / Quick Check، مع Source Trace واضح.",
-                "displayMode": "python-code-learning-v2",
+                "displayMode": "python-visual-learning-v3",
                 "sections": [
                   {
                     "id": "viz-foundations",
@@ -8134,7 +8193,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "الـData Visualization هدفها تحويل البيانات لشكل بصري يساعدك تكتشف patterns وtrends وrelationships وoutliers، وتوصل insight بصورة أسهل. اختيار الرسم لازم يبدأ من السؤال ونوع المتغيرات.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Data Visualization Foundations & Choosing a Plot` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -8142,8 +8201,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Univariate = متغير واحد؛ المصدر يذكر Histogram وBox Plot وBar Chart كأمثلة.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -8172,7 +8231,18 @@
                         "explanationAr": "Data visualization represents data graphically to uncover patterns, trends, and insights. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 5–6 — What is Data Visualization? / Objectives"
-                      }
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "line",
+                        "title": "Trend over time",
+                        "businessQuestion": "How did a numerical value change across time?",
+                        "useFor": "Trend over ordered time periods.",
+                        "avoidWhen": "The main goal is comparing unrelated categories.",
+                        "insightAr": "الخط الصاعد يعني إن القيمة بتزيد عبر الزمن. المهم تقرأ الاتجاه، مش شكل الخط فقط.",
+                        "code": "plt.plot(years, values)"
+                      },
+                      "chartDecisionLab": true
                     }
                   },
                   {
@@ -8265,7 +8335,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يفرق بين Matplotlib كـfoundation للـstatic 2D plots، وSeaborn للـstatistical graphics، وPlotly للـinteractive/web-ready، وAltair للـdeclarative exploration. Matplotlib نفسها highly customizable وpyplot بتوفر interface مباشرة للرسم.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Visualization Libraries & Matplotlib Essentials` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -8273,8 +8343,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Matplotlib مش بس رسم خط؛ المصدر يذكر Line, Scatter, Bar, Histogram, Subplots وCustomization.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -8303,6 +8373,16 @@
                         "explanationAr": "The source distinguishes Matplotlib, Seaborn, Plotly, and Altair by their visualization strengths. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_2.pptx — Slide 9 — Plot Libraries"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "line",
+                        "title": "Matplotlib line plot",
+                        "businessQuestion": "How does a metric move from one period to the next?",
+                        "useFor": "Continuous or ordered trends.",
+                        "avoidWhen": "You need to study the distribution of one variable.",
+                        "insightAr": "كل نقطة تمثل قيمة في فترة، والخط يسهّل متابعة الاتجاه العام.",
+                        "code": "plt.plot(x, y)"
                       }
                     }
                   },
@@ -8384,7 +8464,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "الـCanada Immigration dataset في المصدر فيها 195 rows و39 columns بدون null values في النسخة المستخدمة. الأعمدة الأساسية Country, Continent, Region, DevName، سنوات 1980–2013، وTotal. قبل الرسم، الـworkflow بيفحص structure وmissing values وduplicates وdescriptive summaries.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Canada Immigration Dataset: Understand the Data First` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -8392,8 +8472,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "df.info() توضح columns وnon-null counts وdtypes.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -8422,6 +8502,16 @@
                         "explanationAr": "Platform clarification based on the taught concept. السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Country column`.",
                         "sourceType": "external-similar",
                         "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 15–16 — Dataset on Immigration to Canada"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "line",
+                        "title": "Immigration trend preview",
+                        "businessQuestion": "How did immigration totals change across years?",
+                        "useFor": "Year-by-year trend analysis.",
+                        "avoidWhen": "You only need a one-year category comparison.",
+                        "insightAr": "الرسم الزمني يساعدك تلاحظ الارتفاع والانخفاض والسنوات اللي حصل فيها تغيير واضح.",
+                        "code": "df.plot(kind='line')"
                       }
                     }
                   },
@@ -8505,7 +8595,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "بعد فهم البيانات، المصدر ينتقل لأسئلة تحليلية فعلية. الـbar chart المستخدم يوضح إن 2010 هي السنة ذات أعلى عدد إجمالي من المهاجرين في التحليل، وبعدها يتم drill-down لأعلى continents وأعلى countries في نفس السنة.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Peak-Year & Category Comparison: Canada Case Study` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -8513,8 +8603,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "المصدر يحدد 2010 كـpeak year في التحليل.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -8543,6 +8633,16 @@
                         "explanationAr": "حسب المثال/المفهوم في المصدر: The number of immigrants from each country in each year..",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 15–16 — Dataset on Immigration to Canada"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "bar",
+                        "title": "Category comparison",
+                        "businessQuestion": "Which category has the larger value?",
+                        "useFor": "Comparing discrete categories.",
+                        "avoidWhen": "The x-axis is continuous numerical ranges and the goal is distribution.",
+                        "insightAr": "طول كل Bar يمثل قيمة Category؛ الأطول يعني قيمة أكبر.",
+                        "code": "plt.bar(categories, values)"
                       }
                     }
                   },
@@ -8628,7 +8728,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يقارن أعلى الدول عبر 1980–2013 ويذكر إن UK كانت متقدمة في السنوات الأولى، ثم China وIndia ارتفعوا لاحقًا وتجاوزوها. وبعد تحليل المناطق، Southern Asia تظهر كأعلى region ويتم تتبع تطورها عبر السنوات.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Time Trends & Regional Drill-Down` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -8636,8 +8736,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Line Plot مناسبة لما السؤال: كيف تغيرت القيمة عبر الزمن؟",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -8666,6 +8766,16 @@
                         "explanationAr": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Filter the selected region, aggregate yearly values, then plot across years`.",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_2.pptx — Slides 30–32 — Top regions / Southern Asia trend"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "line",
+                        "title": "Regional trend lines",
+                        "businessQuestion": "How do regional trends compare over time?",
+                        "useFor": "Comparing several ordered time-series.",
+                        "avoidWhen": "There are too many series and the chart becomes unreadable.",
+                        "insightAr": "قارن اتجاه كل Series ومتى تتقاطع أو تتباعد، مش نقطة واحدة فقط.",
+                        "code": "plt.plot(years, region_values)"
                       }
                     }
                   }
@@ -8681,7 +8791,7 @@
               "study": {
                 "title": "Session 12 · Applied Matplotlib, Distribution & Exploratory Data Analysis",
                 "description": "شرح تعليمي من الصفر: What / Why / Mental Model / Code / Execution / Try This / Quick Check، مع Source Trace واضح.",
-                "displayMode": "python-code-learning-v2",
+                "displayMode": "python-visual-learning-v3",
                 "sections": [
                   {
                     "id": "matplotlib-plot-family",
@@ -8822,7 +8932,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Session 12 تركز على اختيار وتنفيذ الرسوم الأساسية مباشرة بـMatplotlib. Line للـtrend، Scatter للعلاقة بين رقمين، وBar للمقارنة بين categories.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Matplotlib Plot Family: Line, Scatter & Bar` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -8830,8 +8940,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Line example يقارن sales عبر السنوات ويمكن رسم أكتر من series مع legend.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -8879,6 +8989,16 @@
                         "explanationAr": "Platform clarification based on the taught concept. حسب المثال/المفهوم في المصدر: Point size and transparency..",
                         "sourceType": "external-similar",
                         "sourceTrace": "Data Visualization with Python_session_1.pptx — Slides 12–14 — Scatter Plot"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "subplots",
+                        "title": "Line vs Scatter vs Bar",
+                        "businessQuestion": "Does the question ask for trend, relationship, or category comparison?",
+                        "useFor": "Choosing the plot family that matches the analytical question.",
+                        "avoidWhen": "Picking a chart only because it looks attractive.",
+                        "insightAr": "Line للـtrend، Scatter للعلاقة بين رقمين، وBar لمقارنة categories.",
+                        "code": "plt.plot(...)\nplt.scatter(...)\nplt.bar(...)"
                       }
                     }
                   },
@@ -8957,7 +9077,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Histogram بتقسم numerical range إلى bins وتحسب frequency داخل كل interval. عدد الـbins بيأثر على مستوى التفاصيل اللي تشوفه، لكنه ما يغيرش البيانات نفسها.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Histograms & Reading Distribution` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "distribution",
                         "title": "Distribution = مركز + انتشار + قيم بعيدة",
@@ -8965,8 +9085,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Histogram مش Bar Chart للفئات؛ x-axis هنا ranges رقمية.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -9010,6 +9130,16 @@
                         "explanationAr": "حسب المثال/المفهوم في المصدر: How the numerical range is divided into intervals for counting frequency..",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_1.pptx — Slides 18–20 — Histogram"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "histogram",
+                        "title": "Histogram distribution",
+                        "businessQuestion": "How are numerical observations distributed across ranges?",
+                        "useFor": "Frequency distribution of one numerical variable.",
+                        "avoidWhen": "The x-axis contains named categories.",
+                        "insightAr": "كل عمود يمثل Bin أو Range عددي، وارتفاعه يمثل عدد القيم داخل الـRange.",
+                        "code": "plt.hist(values, bins=5)"
                       }
                     }
                   },
@@ -9082,7 +9212,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Box Plot بتلخص distribution باستخدام Median وQ1 وQ3 وIQR. الـbox هي middle 50%، والخط داخلها median، والwhiskers تمثل typical range، والنقاط خارجها potential outliers.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Box Plot Anatomy & Potential Outliers` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "distribution",
                         "title": "Distribution = مركز + انتشار + قيم بعيدة",
@@ -9090,8 +9220,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "المصدر يوضح إن Outliers مش دايمًا errors؛ ممكن تكون rare but valid cases.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": {
                         "headers": [
@@ -9143,6 +9273,16 @@
                         "explanationAr": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `plt.boxplot(data)`.",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_1.pptx — Slides 21–22 — Box Plot"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "boxplot",
+                        "title": "Box plot anatomy",
+                        "businessQuestion": "Where are the median, spread, and potential outliers?",
+                        "useFor": "Distribution summary and potential outlier detection.",
+                        "avoidWhen": "You need the exact frequency of every range.",
+                        "insightAr": "الـBox يلخص Q1 إلى Q3، والخط الداخلي هو Median، والنقطة البعيدة Potential Outlier.",
+                        "code": "plt.boxplot(values)"
                       }
                     }
                   },
@@ -9237,7 +9377,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Subplots تسمح بأكتر من chart داخل Figure واحدة. المصدر يستخدم plt.subplot(1,2,1) وplt.subplot(1,2,2)، ويؤكد على titles, labels, legends, styles والألوان كجزء من التواصل البصري.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Subplots & Plot Communication` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -9245,8 +9385,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "plt.subplot(1,2,1) = first panel in one row/two columns.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -9275,6 +9415,16 @@
                         "explanationAr": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Use subplot positions such as plt.subplot(1, 2, 1) and plt.subplot(1, 2, 2)`.",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_1.pptx — Slides 23–24 — Subplots"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "subplots",
+                        "title": "Multiple views in one figure",
+                        "businessQuestion": "How can we compare multiple analytical views together?",
+                        "useFor": "Showing related plots in one coordinated figure.",
+                        "avoidWhen": "Combining unrelated visuals that make the figure harder to read.",
+                        "insightAr": "Subplots تسمح بعرض أكثر من زاوية تحليلية داخل Figure واحدة مع الحفاظ على فصل كل Plot.",
+                        "code": "fig, axes = plt.subplots(1, 2)"
                       }
                     }
                   },
@@ -9359,7 +9509,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "المصدر يذكر Box Plot وScatter Plot وHistogram وDensity Plot كطرق بصرية لاكتشاف observations غير المعتادة. الاختيار يعتمد على شكل البيانات والسؤال.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Visual Methods for Detecting Outliers` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "distribution",
                         "title": "Distribution = مركز + انتشار + قيم بعيدة",
@@ -9367,8 +9517,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Box: outlier كنقطة خارج whiskers.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -9397,6 +9547,16 @@
                         "explanationAr": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Scatter plot`.",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_1.pptx — Slide 27 — Identifying Outliers"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "boxplot",
+                        "title": "Visual outlier check",
+                        "businessQuestion": "Is there an observation far from the main cluster?",
+                        "useFor": "Flagging values that deserve investigation.",
+                        "avoidWhen": "Treating every visually distant point as an error that must be deleted.",
+                        "insightAr": "النقطة البعيدة إشارة للتحقيق؛ القرار النهائي يحتاج Context من البيانات.",
+                        "code": "plt.boxplot(data)"
                       }
                     }
                   }
@@ -9412,7 +9572,7 @@
               "study": {
                 "title": "Session 13 · Advanced Visualization, Seaborn & Geospatial Analytics",
                 "description": "شرح تعليمي من الصفر: What / Why / Mental Model / Code / Execution / Try This / Quick Check، مع Source Trace واضح.",
-                "displayMode": "python-code-learning-v2",
+                "displayMode": "python-visual-learning-v3",
                 "sections": [
                   {
                     "id": "waffle-parts-whole",
@@ -9493,7 +9653,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Waffle Chart شبكة cells لعرض proportions. المصدر يشرح نموذج 100-square بحيث كل square تمثل تقريبًا 1%/unit، ويستخدمها كبديل واضح للـPie Chart لما categories قليلة.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Waffle Charts: Parts-to-Whole` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -9501,8 +9661,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Use cases المذكورة: population distribution, budget allocation, survey results.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -9531,6 +9691,16 @@
                         "explanationAr": "A Waffle Chart is a grid visualization used to show parts-to-whole relationships; the source describes a 100-square percentage-style grid. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 5–8 — Waffle Charts"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "waffle",
+                        "title": "Parts-to-whole with a Waffle chart",
+                        "businessQuestion": "What share of the whole belongs to each category?",
+                        "useFor": "Simple part-to-whole communication.",
+                        "avoidWhen": "There are too many tiny categories.",
+                        "insightAr": "عدد المربعات المملوءة لكل Category يمثل حصتها من الإجمالي.",
+                        "code": "Waffle(rows=5, values=values)"
                       }
                     }
                   },
@@ -9617,7 +9787,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Word Cloud بتخلي حجم الكلمة مرتبط بتكرارها في النص. المصدر يؤكد إن preprocessing مهم قبل التوليد، مثل إزالة stop words وعمليات stemming/lemmatization، لأن garbage text هينتج visual مضلل.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Word Clouds & Text Preprocessing` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -9625,8 +9795,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "الاستخدامات: customer reviews، social media، transcripts، open-ended survey responses.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -9655,6 +9825,16 @@
                         "explanationAr": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Generate a WordCloud from cleaned text`.",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 11–14 — Word Clouds"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "wordcloud",
+                        "title": "Word Cloud",
+                        "businessQuestion": "Which words appear more prominently in a text collection?",
+                        "useFor": "High-level visual prominence of words after preprocessing.",
+                        "avoidWhen": "You need precise quantitative comparison.",
+                        "insightAr": "الكلمة الأكبر تظهر بشكل أوضح في الـWord Cloud، لكن الرسم لا يدي مقارنة رقمية دقيقة.",
+                        "code": "WordCloud().generate(text)"
                       }
                     }
                   },
@@ -9738,7 +9918,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Seaborn مبنية على Matplotlib وبتوفر high-level statistical graphics. Regression plots مثل regplot/lmplot تعرض relationship بين متغيرين وتضيف fitted regression line، وغالبًا confidence interval يوضح uncertainty.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Seaborn Regression: Trend, Correlation & Uncertainty` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -9746,8 +9926,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "وضوح واتجاه trend line يساعد في قراءة strength/direction بصريًا.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -9776,6 +9956,16 @@
                         "explanationAr": "Platform clarification based on the taught concept. السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Use Seaborn regression plotting such as regplot/lmplot`.",
                         "sourceType": "external-similar",
                         "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 15–16 — Seaborn / Regression Plots"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "regression",
+                        "title": "Regression relationship",
+                        "businessQuestion": "Is there a visible relationship between two numerical variables?",
+                        "useFor": "Trend/correlation exploration between numeric variables.",
+                        "avoidWhen": "Interpreting correlation alone as proof of causation.",
+                        "insightAr": "تجمع النقاط واتجاه خط الـRegression يساعدك تقرأ اتجاه العلاقة وقوتها بصريًا.",
+                        "code": "sns.regplot(x='Spend', y='Sales', data=df)"
                       }
                     }
                   },
@@ -9853,7 +10043,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Business example في المصدر بيسأل هل زيادة الإعلان تستمر في رفع المبيعات بنفس المعدل. الملاحظة إن Sales ترتفع مع spend لكن growth rate يبطؤ بعد مستوى معين، وده يوحي بـdiminishing returns ويفتح سؤال optimization بدل الزيادة العمياء.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Advertising Spend & Diminishing Returns` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "visual-question",
                         "title": "ابدأ بالسؤال قبل الرسم",
@@ -9861,8 +10051,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Insight المصدر: sales increase as spend increases.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -9891,6 +10081,16 @@
                         "explanationAr": "السيناريو يطابق الاستخدام المعروض في المصدر؛ الأداة/النمط المناسب هو `Inspect the regression/scatter pattern for flattening at higher spend`.",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 17–18 — Advertising Spend vs Sales"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "regression",
+                        "title": "Advertising and diminishing returns",
+                        "businessQuestion": "Does additional spend keep producing the same incremental gain?",
+                        "useFor": "Studying how the relationship changes as spend increases.",
+                        "avoidWhen": "Assuming every positive trend grows at a constant rate.",
+                        "insightAr": "القيمة قد تستمر في الزيادة، لكن مقدار الزيادة الإضافية ممكن يقل مع الوقت.",
+                        "code": "sns.regplot(x='Ad_Spend', y='Sales', data=df)"
                       }
                     }
                   },
@@ -9973,7 +10173,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Folium مكتبة Python لعمل interactive Leaflet maps. الخريطة الأساسية تبدأ latitude/longitude وzoom، والـMarkers تمثل مواقع محددة مثل branches أو cities مع معلومات مرتبطة.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Folium Maps, Coordinates & Markers` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "map",
                         "title": "Map = Geography + Metric",
@@ -9981,8 +10181,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "المصدر يذكر zoom/pan/click كـinteractive features.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -10011,6 +10211,16 @@
                         "explanationAr": "The source uses markers/CircleMarker concepts to place business locations and encode branch information on an interactive map. ده هو الاستخدام/التعريف المدعوم في الجزء المشار له من المصدر.",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 20–22 — Markers / Branch Performance"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "map-markers",
+                        "title": "Map with markers",
+                        "businessQuestion": "Where are observations located geographically?",
+                        "useFor": "Point locations using latitude and longitude.",
+                        "avoidWhen": "You need region-level color intensity instead of point markers.",
+                        "insightAr": "كل Marker يربط إحداثيات بمعلومة، وده يخلي المكان جزء من التحليل.",
+                        "code": "folium.Marker([lat, lon]).add_to(map)"
                       }
                     }
                   },
@@ -10100,7 +10310,7 @@
                       "version": "2.0",
                       "sourcePolicy": "Source-derived concept + clearly labeled platform clarification where used.",
                       "whatIsItAr": "Choropleth تستخدم color gradients لتمثيل metric عبر geographic regions. في Market Opportunity example، اللون الأغمق = فرصة أعلى. المصدر يختم Workflow: Data Collection → Pandas Wrangling → Seaborn Exploration → Folium Spatial Visualization.",
-                      "whyItMattersAr": "المهم هنا إنك ما تحفظش `Choropleth Maps & End-to-End Geospatial Workflow` كتعريف فقط. افهم إزاي الفكرة تغيّر طريقة كتابة أو قراءة الكود، وإمتى تختارها في سؤال أو سيناريو.",
+                      "whyItMattersAr": "في Data Visualization الرسم مش هدف لوحده. الاختيار الصح يبدأ بالسؤال ونوع المتغيرات، وبعدها تقرأ الرسم وتستخرج Insight بدون تفسير مضلل.",
                       "mentalModel": {
                         "type": "map",
                         "title": "Map = Geography + Metric",
@@ -10108,8 +10318,8 @@
                       },
                       "conceptWalkthroughAr": [
                         "Population وحدها لا تضمن market opportunity عالية؛ المصدر يذكر التوازن بين economic strength وdigital readiness.",
-                        "ابدأ من الـInput أو الحالة الحالية، وبعدها تتبع العملية خطوة بخطوة، وفي النهاية راجع الـOutput أو التغيير اللي حصل.",
-                        "لو ظهر Technical Term جديد، اربطه مباشرة بجزء من الكود أو البيانات بدل حفظ الاسم منفصل."
+                        "اكتب Business Question أولًا، حدد المتغيرات، اختر الرسم، ثم اقرأ الاتجاه/المقارنة/التوزيع قبل كتابة الـInsight.",
+                        "قبل ما تكمل، توقع الـOutput أو شكل البيانات ثم قارن توقعك بالمثال أو الـQuick Check."
                       ],
                       "comparison": null,
                       "dataFlow": null,
@@ -10138,6 +10348,16 @@
                         "explanationAr": "حسب المثال/المفهوم في المصدر: The data value associated with each geographic region..",
                         "sourceType": "course",
                         "sourceTrace": "Data Visualization with Python_session_3.pptx — Slides 22–24 — Choropleth / Market Opportunity / workflow"
+                      },
+                      "depth": "deep",
+                      "chartVisual": {
+                        "type": "choropleth",
+                        "title": "Choropleth map",
+                        "businessQuestion": "How does a metric vary across geographic regions?",
+                        "useFor": "Comparing a metric by region using color intensity.",
+                        "avoidWhen": "The data is point-based without matching region boundaries/keys.",
+                        "insightAr": "اختلاف شدة اللون يمثل اختلاف قيمة الـMetric بين المناطق، بشرط وجود Region Key صحيح.",
+                        "code": "folium.Choropleth(...).add_to(map)"
                       }
                     }
                   }
@@ -10154,8 +10374,9 @@
             "questionBanks": 13,
             "questions": 520,
             "status": "FINAL READY",
-            "studyVersion": "2.0",
-            "quickChecks": 75
+            "studyVersion": "2.1",
+            "quickChecks": 75,
+            "visualLearning": "SVG charts + Chart Decision Lab + adaptive depth"
           }
         },
         {

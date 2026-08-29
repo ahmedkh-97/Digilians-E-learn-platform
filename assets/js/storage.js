@@ -7,7 +7,8 @@ const KEYS = {
   lastCourse: "digilians.lastCourse",
   pendingAttempts: "digilians.pendingAttempts",
   officialQbank: "digilians.officialQbank",
-  studyProgress: "digilians.studyProgress"
+  studyProgress: "digilians.studyProgress",
+  quickChecks: "digilians.quickChecks"
 };
 
 export function getStudentName(){ return localStorage.getItem(KEYS.studentName) || ""; }
@@ -98,6 +99,45 @@ export function clearStudyProgress(studentName,moduleId){
     delete state.users[studentName][moduleId];
     if(!Object.keys(state.users[studentName]).length)delete state.users[studentName];
     saveStudyProgressState(state);
+  }
+}
+
+function getQuickCheckStateStore(){
+  try{return JSON.parse(localStorage.getItem(KEYS.quickChecks)) || {users:{}}}
+  catch{return {users:{}}}
+}
+function saveQuickCheckStateStore(state){
+  localStorage.setItem(KEYS.quickChecks,JSON.stringify(state));
+}
+export function getQuickCheckState(studentName,moduleId,sectionId){
+  if(!studentName || !moduleId || !sectionId)return null;
+  const store=getQuickCheckStateStore();
+  return store.users?.[studentName]?.[moduleId]?.[sectionId] || null;
+}
+export function saveQuickCheckState(studentName,moduleId,sectionId,record){
+  if(!studentName || !moduleId || !sectionId)return null;
+  const store=getQuickCheckStateStore();
+  store.users ||= {};
+  store.users[studentName] ||= {};
+  store.users[studentName][moduleId] ||= {};
+  const next={
+    selected:record?.selected ?? null,
+    correct:Boolean(record?.correct),
+    answeredAt:record?.answeredAt || new Date().toISOString()
+  };
+  store.users[studentName][moduleId][sectionId]=next;
+  saveQuickCheckStateStore(store);
+  return next;
+}
+export function clearQuickCheckState(studentName,moduleId,sectionId){
+  if(!studentName || !moduleId || !sectionId)return;
+  const store=getQuickCheckStateStore();
+  const moduleState=store.users?.[studentName]?.[moduleId];
+  if(moduleState?.[sectionId]){
+    delete moduleState[sectionId];
+    if(!Object.keys(moduleState).length)delete store.users[studentName][moduleId];
+    if(store.users?.[studentName] && !Object.keys(store.users[studentName]).length)delete store.users[studentName];
+    saveQuickCheckStateStore(store);
   }
 }
 

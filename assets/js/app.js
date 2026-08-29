@@ -2,6 +2,7 @@ import {
   getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,
   markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
   getStudyProgress,updateStudyProgress,clearStudyProgress,
+  getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
   getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes
 } from "./storage.js";
@@ -15,6 +16,9 @@ import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
 import {evaluateTrackReadiness,finalStatusFromTracks} from "./readiness.js";
 import {evaluateCoverageReadiness,topicPerformance} from "./coverage-engine.js";
 import {loadOfficialTrack,loadOfficialSection,buildOfficialSectionExam,buildOfficialTrackExam,buildOfficialFinal,officialSectionExamId,officialTrackRandomExamId} from "./official-qbank.js";
+import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
+import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
+import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js";
 
 const state={
   studentName:"",
@@ -606,7 +610,7 @@ async function openOfficialStudyScope(sectionId=null){
   if(!section)$("officialExamBtn").textContent="Random Exam 50 →";
 
   const topicSelect=$("officialTopicFilter");topicSelect.innerHTML='<option value="all">All topics</option>';
-  const topics=[...new Set(state.officialQuestions.map(q=>q.topic))].sort();
+  const topics=[...new Set(state.officialQuestions.map(q=>displayTopicForQuestion(q)))].sort();
   for(const topic of topics){const o=document.createElement('option');o.value=topic;o.textContent=topic;topicSelect.appendChild(o)}
   $("officialSearch").value='';$("officialStateFilter").value='all';
   applyOfficialFilters();routeTo('officialStudyView');
@@ -617,7 +621,7 @@ function applyOfficialFilters(){
   const reviewed=new Set(st.reviewed||[]),bookmarks=new Set(st.bookmarks||[]),mistakes=new Set(st.mistakes||[]);
   state.officialFiltered=state.officialQuestions.filter(q=>{
     if(query && !(`${q.question} ${q.options.map(o=>o.text).join(' ')}`).toLowerCase().includes(query))return false;
-    if(topic!=='all' && q.topic!==topic)return false;
+    if(topic!=='all' && displayTopicForQuestion(q)!==topic)return false;
     if(kind==='unseen' && reviewed.has(q.id))return false;
     if(kind==='reviewed'&&!reviewed.has(q.id))return false;
     if(kind==='bookmarks'&&!bookmarks.has(q.id))return false;
@@ -665,24 +669,28 @@ function renderOfficialAnswerBox(q,selected=null,revealOnly=false){
     statusClass=isCorrect?"official-answer-correct":"official-answer-wrong";
     const exactReason=deep?.options?.[selected];
     if(isCorrect){
-      verdict=`<div class="official-arabic-verdict correct-note"><strong>ليه إجابتك صح؟</strong><p>${escapeHtml(exactReason || "اختيارك يطابق الإجابة الرسمية المنشورة.")}</p></div>`;
+      verdict=`<div class="official-arabic-verdict correct-note"><strong>ليه إجابتك صح؟</strong><p>${renderTechnicalRichText(exactReason || "اختيارك يطابق الإجابة الرسمية المنشورة.",q)}</p></div>`;
     }else{
-      verdict=`<div class="official-arabic-verdict wrong-note"><strong>ليه إجابتك غلط؟</strong><p><b>اختيارك ${escapeHtml(selected)}:</b> ${escapeHtml(exactReason || selectedOption?.text || "")}</p></div>`;
+      verdict=`<div class="official-arabic-verdict wrong-note"><strong>ليه إجابتك غلط؟</strong><p><b>اختيارك ${escapeHtml(selected)}:</b> ${renderTechnicalRichText(exactReason || selectedOption?.text || "",q)}</p></div>`;
     }
   }
   let explanationHtml="";
   if(deep){
-    explanationHtml=`<div class="official-ai-explanation deep"><span class="official-ai-label">DETAILED EXPLANATION — ARABIC</span><p dir="rtl">${escapeHtml(deep.summary)}</p>
+    explanationHtml=`<div class="official-ai-explanation deep"><span class="official-ai-label">DETAILED EXPLANATION — ARABIC</span><p dir="rtl">${renderTechnicalRichText(deep.summary,q)}</p>
       <details class="official-option-analysis" open><summary>تحليل كل الاختيارات A / B / C / D</summary><div class="official-option-analysis-grid">
-      ${q.options.map(o=>{const isCorrect=o.id===q.correctAnswer;return `<div class="official-option-reason ${isCorrect?"is-correct":"is-wrong"}"><div class="reason-head"><span>${o.id}</span><strong>${isCorrect?"✓ صح":"✕ غلط"}</strong></div><p dir="rtl">${escapeHtml(deep.options?.[o.id] || "")}</p></div>`}).join("")}
+      ${q.options.map(o=>{const isCorrect=o.id===q.correctAnswer;return `<div class="official-option-reason ${isCorrect?"is-correct":"is-wrong"}"><div class="reason-head"><span>${o.id}</span><strong>${isCorrect?"✓ صح":"✕ غلط"}</strong></div><p dir="rtl">${renderTechnicalRichText(deep.options?.[o.id] || "",q)}</p></div>`}).join("")}
       </div></details></div>`;
   }else{
     const aiAr=q.aiExplanation?.ar || "الشرح التفصيلي لهذا السؤال لم يتم إضافته بعد.";
-    explanationHtml=`<div class="official-ai-explanation"><span class="official-ai-label">AI EXPLANATION — ARABIC</span><p dir="rtl">${escapeHtml(aiAr)}</p><small class="deep-pilot-note">الشرح Option-by-Option قيد الإضافة لهذا الجزء من البنك.</small></div>`;
+    explanationHtml=`<div class="official-ai-explanation"><span class="official-ai-label">AI EXPLANATION — ARABIC</span><p dir="rtl">${renderTechnicalRichText(aiAr,q)}</p><small class="deep-pilot-note">الشرح Option-by-Option قيد الإضافة لهذا الجزء من البنك.</small></div>`;
   }
   box.className=`official-answer-box ${statusClass}`;
-  box.innerHTML=`<strong>${heading}</strong><div class="official-answer-text">${escapeHtml(correct?.text||"")}</div>${verdict}${explanationHtml}<small>الإجابة أعلاه من المصدر الرسمي. الشرح التفصيلي العربي إضافة تعليمية من Digilians E-Learn وليس جزءًا من ملف الوزارة.</small>`;
+  box.innerHTML=`<strong>${heading}</strong>
+    <div class="official-answer-text">${renderTechnicalOption(correct?.text||"",q)}</div>
+    ${verdict}${explanationHtml}
+    <small>الإجابة أعلاه من المصدر الرسمي. الشرح التفصيلي العربي إضافة تعليمية من Digilians E-Learn وليس جزءًا من ملف الوزارة.</small>`;
 }
+
 function answerOfficialQuestion(q,optionId){
   const st=getOfficialTrackState(state.officialTrackId,state.officialLevelId,officialTrackRevision(state.officialTrackId));
   const answers={...(st.answers||{})};if(answers[q.id])return;
@@ -696,9 +704,17 @@ function renderOfficialStudyQuestion(){
   const q=state.officialQuestions[state.officialIndex];if(!q)return renderOfficialEmpty();
   const st=getOfficialTrackState(state.officialTrackId,state.officialLevelId,officialTrackRevision(state.officialTrackId));
   const bm=new Set(st.bookmarks||[]),selected=st.answers?.[q.id]||null;
-  $("officialQuestionTopic").textContent=q.topic;
+  {
+    const displayTopic=displayTopicForQuestion(q);
+    $("officialQuestionTopic").textContent=displayTopic;
+    const inferred=displayTopic!==(q.topic||"");
+    $("officialQuestionTopic").dataset.topicInferred=inferred?"true":"false";
+    $("officialQuestionTopic").title=inferred?`Display classification: ${displayTopic} • stored metadata: ${q.topic||"General"}`:"";
+  }
   $("officialSourceLine").textContent=`Source: ${q.officialSource.file} • Page ${q.officialSource.page}${q.originalQuestionNumber?` • Original Q${q.originalQuestionNumber}`:''} • Set ${q.officialSet}`;
-  $("officialQuestionText").textContent=q.question;
+  const officialTechnical=analyzeTechnicalContent(q.question,q);
+  $("officialQuestionText").innerHTML=renderTechnicalQuestion(q.question,q);
+  $("officialQuestionText").classList.toggle("has-code-question",officialTechnical.hasCode);
   const opts=$("officialOptions");opts.innerHTML="";
   if(q.integrityStatus==="source-parse-review-required"){
     const warn=document.createElement("div");
@@ -709,7 +725,7 @@ function renderOfficialStudyQuestion(){
   for(const o of q.options){
     const btn=document.createElement("button");btn.type="button";btn.className="official-option";
     const letter=document.createElement("span");letter.className="option-letter";letter.textContent=o.id;
-    const text=document.createElement("span");text.textContent=o.text;btn.append(letter,text);
+    const text=document.createElement("span");text.className="option-content";text.innerHTML=renderTechnicalOption(o.text,q);btn.append(letter,text);
     if(selected){btn.classList.add("locked");if(o.id===selected)btn.classList.add("selected");if(o.id===q.correctAnswer)btn.classList.add("correct");if(o.id===selected&&selected!==q.correctAnswer)btn.classList.add("wrong")}
     btn.addEventListener("click",()=>answerOfficialQuestion(q,o.id));opts.appendChild(btn);
   }
@@ -1286,13 +1302,6 @@ $("openStudyBtn").addEventListener("click",()=>openStudy());
 $("openPracticeBtn").addEventListener("click",()=>openModuleExam("instant"));
 $("openModuleExamBtn").addEventListener("click",()=>openModuleExam(null));
 
-function formatStudyMixedText(value){
-  const escaped=escapeHtml(value ?? "");
-  return escaped.replace(
-    /([A-Za-z][A-Za-z0-9_.'()+\-/*=<>]*(?:[ \t]+[A-Za-z][A-Za-z0-9_.'()+\-/*=<>]*){0,5})/g,
-    '<bdi dir="ltr" class="study-inline-term">$1</bdi>'
-  );
-}
 function renderSqlStudySection(s,i,id){
   const article=document.createElement("section");
   article.className="study-section sql-study-section";
@@ -1316,7 +1325,7 @@ function renderSqlStudySection(s,i,id){
     ?`<div class="study-keyterms" dir="ltr">
         <span class="study-block-label">KEY TERMS</span>
         <div class="study-term-list">
-          ${(s.keyTerms||[]).map(term=>`<span class="study-term-chip"><bdi dir="ltr">${escapeHtml(term)}</bdi></span>`).join("")}
+          ${(s.keyTerms||[]).map(term=>`<span class="study-term-chip"><bdi dir="ltr">${escapeHtml(normalizeStudyText(term))}</bdi></span>`).join("")}
         </div>
       </div>`
     :"";
@@ -1365,94 +1374,60 @@ function renderPythonCodeLines(code){
       <span class="python-code-text">${escapeHtml(line) || " "}</span>
     </span>`).join("");
 }
-function renderPythonLessonV2(lesson,sectionId){
-  if(!lesson)return "";
-  const model=lesson.mentalModel||{};
-  const comparison=lesson.comparison;
-  const flow=lesson.dataFlow;
-  const quick=lesson.quickCheck;
 
-  const comparisonHtml=comparison?.headers?.length
-    ?`<div class="python-v2-block python-comparison-block" dir="ltr">
-        <div class="python-v2-block-head">
-          <span>COMPARE</span>
-          <strong>شوف الفرق بدل ما تحفظه</strong>
-        </div>
-        <div class="python-comparison-wrap">
-          <table>
-            <thead><tr>${comparison.headers.map(h=>`<th>${escapeHtml(h)}</th>`).join("")}</tr></thead>
-            <tbody>${comparison.rows.map(row=>`<tr>${row.map(cell=>`<td>${formatStudyMixedText(String(cell))}</td>`).join("")}</tr>`).join("")}</tbody>
-          </table>
-        </div>
-      </div>`
-    :"";
-
-  const flowHtml=flow
-    ?`<div class="python-v2-block python-dataflow-block">
-        <div class="python-v2-block-head" dir="ltr">
-          <span>BEFORE → OPERATION → AFTER</span>
-          <strong>شوف البيانات وهي بتتغير</strong>
-        </div>
-        <div class="python-dataflow-grid" dir="ltr">
-          <div><span>BEFORE</span><pre>${escapeHtml(flow.before||"")}</pre></div>
-          <div class="operation"><span>OPERATION</span><pre>${escapeHtml(flow.operation||"")}</pre></div>
-          <div><span>AFTER</span><pre>${escapeHtml(flow.after||"")}</pre></div>
-        </div>
-        <p class="python-dataflow-meaning" dir="rtl">${formatStudyMixedText(flow.meaningAr||"")}</p>
-      </div>`
-    :"";
-
-  const quickHtml=quick?.options?.length
-    ?`<div class="python-v2-block python-quick-check" data-quick-check="${escapeHtml(sectionId)}">
-        <div class="python-v2-block-head" dir="ltr">
-          <span>QUICK CHECK</span>
-          <strong>اختبر فهمك قبل ما تكمل</strong>
-        </div>
-        <p class="python-quick-question" dir="ltr">${escapeHtml(quick.question)}</p>
-        <div class="python-quick-options">
-          ${quick.options.map(o=>`<button type="button" data-quick-option="${escapeHtml(o.id)}">
-            <b>${escapeHtml(o.id)}</b><span>${escapeHtml(o.text)}</span>
-          </button>`).join("")}
-        </div>
-        <div class="python-quick-feedback hidden" dir="rtl"></div>
-        <div class="python-quick-source" dir="ltr">Source: ${escapeHtml(quick.sourceTrace||"")}</div>
-      </div>`
-    :"";
-
+function quickOptionText(quick,id){
+  return quick?.options?.find(o=>o.id===id)?.text || "";
+}
+function quickCheckExtraExplanation(quick){
+  const q=String(quick?.question||"");
+  if(/for\s+ch\s+in\s+["']Python["']/i.test(q)){
+    return `في المثال <bdi dir="ltr">for ch in "Python"</bdi>، قيمة <bdi dir="ltr">ch</bdi> بتكون <bdi dir="ltr">"P"</bdi> ثم <bdi dir="ltr">"y"</bdi> ثم <bdi dir="ltr">"t"</bdi> ثم <bdi dir="ltr">"h"</bdi> ثم <bdi dir="ltr">"o"</bdi> ثم <bdi dir="ltr">"n"</bdi>.`;
+  }
+  return "";
+}
+function quickCheckFeedbackHtml(quick,selected){
+  const correctId=quick?.correctAnswer || "";
+  const correct=selected===correctId;
+  const selectedText=quickOptionText(quick,selected);
+  const correctText=quickOptionText(quick,correctId);
+  const extra=quickCheckExtraExplanation(quick);
   return `
-    <div class="python-v2-stack">
-      <section class="python-v2-intro-grid">
-        <div class="python-v2-block">
-          <div class="python-v2-block-head" dir="ltr"><span>WHAT IS IT?</span><strong>يعني إيه؟</strong></div>
-          <p dir="rtl">${formatStudyMixedText(lesson.whatIsItAr||"")}</p>
-        </div>
-        <div class="python-v2-block">
-          <div class="python-v2-block-head" dir="ltr"><span>WHY DO WE NEED IT?</span><strong>ليه مهم؟</strong></div>
-          <p dir="rtl">${formatStudyMixedText(lesson.whyItMattersAr||"")}</p>
-        </div>
-      </section>
-
-      <div class="python-v2-block python-mental-model ${escapeHtml(model.type||"concept")}">
-        <div class="python-v2-block-head" dir="ltr"><span>MENTAL MODEL</span><strong>كوّن صورة ذهنية</strong></div>
-        <h4 dir="rtl">${formatStudyMixedText(model.title||"")}</h4>
-        <p dir="rtl">${formatStudyMixedText(model.body||"")}</p>
-      </div>
-
-      ${(lesson.conceptWalkthroughAr||[]).length?`
-        <div class="python-v2-block python-concept-walkthrough">
-          <div class="python-v2-block-head" dir="ltr"><span>STEP-BY-STEP</span><strong>افهم الفكرة بالترتيب</strong></div>
-          <ol dir="rtl">${lesson.conceptWalkthroughAr.map(x=>`<li>${formatStudyMixedText(x)}</li>`).join("")}</ol>
-        </div>`:""}
-
-      ${comparisonHtml}
-      ${flowHtml}
-
-      <div class="python-v2-block python-try-this">
-        <div class="python-v2-block-head" dir="ltr"><span>TRY CHANGING THIS</span><strong>جرّب بنفسك</strong></div>
-        <p dir="rtl">${formatStudyMixedText(lesson.tryThisAr||"")}</p>
-      </div>
-      ${quickHtml}
-    </div>`;
+    <div class="python-quick-answer-summary" dir="ltr">
+      <div><span>YOUR ANSWER</span><strong>${escapeHtml(selected)}${selectedText?` — ${escapeHtml(normalizeStudyText(selectedText))}`:""}</strong></div>
+      <div><span>CORRECT ANSWER</span><strong>${escapeHtml(correctId)}${correctText?` — ${escapeHtml(normalizeStudyText(correctText))}`:""}</strong></div>
+    </div>
+    <strong class="python-quick-verdict">${correct?"صح ✓":"مش صح ✕"}</strong>
+    <p>${formatStudyMixedText(quick?.explanationAr||"")}</p>
+    ${extra?`<p class="python-quick-extra">${extra}</p>`:""}`;
+}
+function applyQuickCheckUI(check,quick,selected){
+  const feedback=check.querySelector(".python-quick-feedback");
+  const reset=check.querySelector(".python-quick-reset");
+  const correct=selected===quick.correctAnswer;
+  check.dataset.answered="true";
+  check.querySelectorAll("[data-quick-option]").forEach(option=>{
+    option.disabled=true;
+    option.classList.remove("correct","wrong");
+    if(option.dataset.quickOption===quick.correctAnswer)option.classList.add("correct");
+    else if(option.dataset.quickOption===selected && !correct)option.classList.add("wrong");
+  });
+  feedback?.classList.remove("hidden");
+  feedback?.classList.toggle("correct",correct);
+  feedback?.classList.toggle("wrong",!correct);
+  if(feedback)feedback.innerHTML=quickCheckFeedbackHtml(quick,selected);
+  reset?.classList.remove("hidden");
+}
+function resetQuickCheckUI(check){
+  delete check.dataset.answered;
+  check.querySelectorAll("[data-quick-option]").forEach(option=>{
+    option.disabled=false;
+    option.classList.remove("correct","wrong");
+  });
+  const feedback=check.querySelector(".python-quick-feedback");
+  feedback?.classList.add("hidden");
+  feedback?.classList.remove("correct","wrong");
+  if(feedback)feedback.innerHTML="";
+  check.querySelector(".python-quick-reset")?.classList.add("hidden");
 }
 
 function renderPythonStudySection(s,i,id){
@@ -1554,7 +1529,7 @@ function renderPythonStudySection(s,i,id){
 
     const source=ex.sourceTrace
       ?`<div class="python-example-source" dir="ltr">
-          <span>SOURCE TRACE</span><p>${escapeHtml(ex.sourceTrace)}</p>
+          <span>SOURCE TRACE</span><p>${escapeHtml(normalizeStudyText(ex.sourceTrace))}</p>
         </div>`
       :"";
 
@@ -1582,9 +1557,20 @@ function renderPythonStudySection(s,i,id){
         <p dir="auto">${formatStudyMixedText(ex.explanationAr)}</p>
       </div>`:""}
 
-      <div class="python-details-grid">
-        ${lineByLine}${trace}${output}${why}${mistakes}${tips}
+      <div class="python-details-grid python-core-details">
+        ${trace}${output}
       </div>
+
+      ${(lineByLine||why)?`<details class="python-code-details">
+        <summary><span>Deep Dive</span><strong>Line-by-Line & Why It Works</strong></summary>
+        <div class="python-details-grid python-details-expanded">${lineByLine}${why}</div>
+      </details>`:""}
+
+      ${(mistakes||tips)?`<details class="python-code-details python-code-review-details">
+        <summary><span>Review</span><strong>Common Mistakes & Exam Tips</strong></summary>
+        <div class="python-details-grid python-details-expanded">${mistakes}${tips}</div>
+      </details>`:""}
+
       ${source}
     </article>`;
   }).join("");
@@ -1592,7 +1578,7 @@ function renderPythonStudySection(s,i,id){
   const sectionTrace=s.sourceTrace
     ?`<div class="study-source-trace python-section-source" dir="ltr">
         <span class="study-block-label">TOPIC SOURCE TRACE</span>
-        <p>${escapeHtml(s.sourceTrace)}</p>
+        <p>${escapeHtml(normalizeStudyText(s.sourceTrace))}</p>
       </div>`
     :"";
 
@@ -1631,21 +1617,63 @@ function renderPythonStudySection(s,i,id){
   article.querySelectorAll(".python-quick-check").forEach(check=>{
     const quick=s.lessonV2?.quickCheck;
     if(!quick)return;
-    const feedback=check.querySelector(".python-quick-feedback");
+
+    const moduleId=state.selectedModule?.id || "";
+    const sectionId=s.id || id;
+    const saved=getQuickCheckState(state.studentName,moduleId,sectionId);
+    if(saved?.selected){
+      applyQuickCheckUI(check,quick,saved.selected);
+    }
+
     check.querySelectorAll("[data-quick-option]").forEach(btn=>btn.addEventListener("click",()=>{
       if(check.dataset.answered==="true")return;
-      check.dataset.answered="true";
       const selected=btn.dataset.quickOption;
       const correct=selected===quick.correctAnswer;
-      check.querySelectorAll("[data-quick-option]").forEach(option=>{
-        option.disabled=true;
-        if(option.dataset.quickOption===quick.correctAnswer)option.classList.add("correct");
-        else if(option===btn && !correct)option.classList.add("wrong");
+      applyQuickCheckUI(check,quick,selected);
+      saveQuickCheckState(state.studentName,moduleId,sectionId,{
+        selected,correct,answeredAt:new Date().toISOString()
       });
-      feedback.classList.remove("hidden");
-      feedback.classList.toggle("correct",correct);
-      feedback.classList.toggle("wrong",!correct);
-      feedback.innerHTML=`<strong>${correct?"صح ✓":"مش صح — الإجابة الصحيحة "+escapeHtml(quick.correctAnswer)}</strong><p>${formatStudyMixedText(quick.explanationAr||"")}</p>`;
+    }));
+
+    check.querySelector(".python-quick-reset")?.addEventListener("click",()=>{
+      clearQuickCheckState(state.studentName,moduleId,sectionId);
+      resetQuickCheckUI(check);
+    });
+  });
+
+  article.querySelectorAll("[data-chart-lab]").forEach(lab=>{
+    const stage=lab.querySelector(".python-chart-stage");
+    const showBtn=lab.querySelector(".python-show-chart");
+    const anatomyBtn=lab.querySelector(".python-show-anatomy");
+    showBtn?.addEventListener("click",()=>{
+      const hidden=stage?.classList.contains("chart-preview-hidden");
+      stage?.classList.toggle("chart-preview-hidden",!hidden);
+      if(showBtn)showBtn.textContent=hidden?"Hide Chart":"Show Chart";
+      if(anatomyBtn)anatomyBtn.disabled=!hidden;
+      if(!hidden){
+        stage?.classList.remove("show-anatomy");
+        if(anatomyBtn)anatomyBtn.textContent="Show Anatomy";
+      }
+    });
+    anatomyBtn?.addEventListener("click",()=>{
+      const active=stage?.classList.toggle("show-anatomy");
+      if(anatomyBtn)anatomyBtn.textContent=active?"Hide Anatomy":"Show Anatomy";
+    });
+  });
+
+  article.querySelectorAll(".python-chart-decision-lab").forEach(lab=>{
+    const result=lab.querySelector("[data-chart-decision-result]");
+    lab.querySelectorAll("[data-chart-choice]").forEach(btn=>btn.addEventListener("click",()=>{
+      const choice=chartDecisionOptions[btn.dataset.chartChoice];
+      if(!choice||!result)return;
+      lab.querySelectorAll("[data-chart-choice]").forEach(x=>x.classList.toggle("active",x===btn));
+      result.innerHTML=`
+        <div>
+          <span>RECOMMENDED</span>
+          <strong>${escapeHtml(choice.chart)}</strong>
+          <p>${escapeHtml(choice.why)}</p>
+        </div>
+        <div class="chart-decision-preview">${chartSvg(choice.type)}</div>`;
     }));
   });
 
@@ -1872,7 +1900,9 @@ function openStudy(){
   const studyView=$("studyView");
   studyView?.classList.toggle("sql-readable-study",isSqlStudy);
   studyView?.classList.toggle("python-code-study",isPythonStudy);
-  studyView?.classList.toggle("python-study-v2",isPythonStudy && m.study?.displayMode==="python-code-learning-v2");
+  const pythonStudyMode=String(m.study?.displayMode||"");
+  studyView?.classList.toggle("python-study-v2",isPythonStudy && pythonStudyMode.startsWith("python-"));
+  studyView?.classList.toggle("python-visual-study",isPythonStudy && pythonStudyMode==="python-visual-learning-v3");
 
   const toc=$("studyTocList"),sections=$("studySections");
   toc.innerHTML="";sections.innerHTML="";
@@ -2371,9 +2401,17 @@ function renderQuestion(){
   const qs=state.currentExam.questions,q=qs[state.currentIndex];
   $("questionCounter").textContent=`Question ${state.currentIndex+1} / ${qs.length}`;
   $("progressFill").style.width=`${((state.currentIndex+1)/qs.length)*100}%`;
-  $("questionTopic").textContent=q.topic || "General";
+  {
+    const displayTopic=displayTopicForQuestion(q);
+    $("questionTopic").textContent=displayTopic;
+    const inferred=displayTopic!==(q.topic||"General");
+    $("questionTopic").dataset.topicInferred=inferred?"true":"false";
+    $("questionTopic").title=inferred?`Display classification: ${displayTopic} • stored metadata: ${q.topic||"General"}`:"";
+  }
   $("questionDifficulty").textContent=q.difficulty || "Medium";
-  $("questionText").textContent=q.question;
+  const technicalInfo=analyzeTechnicalContent(q.question,q);
+  $("questionText").innerHTML=renderTechnicalQuestion(q.question,q);
+  $("questionText").classList.toggle("has-code-question",technicalInfo.hasCode);
 
   const marked=state.markedQuestions.includes(q.id);
   if($("markReviewBtn")){
@@ -2385,7 +2423,7 @@ function renderQuestion(){
   const list=$("optionsList");list.innerHTML="";
   q.options.forEach(option=>{
     const btn=document.createElement("button");btn.className="option-btn";
-    btn.innerHTML=`<span class="option-letter">${escapeHtml(option.id)}</span><span>${escapeHtml(option.text)}</span>`;
+    btn.innerHTML=`<span class="option-letter">${escapeHtml(option.id)}</span><span class="option-content">${renderTechnicalOption(option.text,q)}</span>`;
     const selected=state.answers[q.id];
     if(selected===option.id)btn.classList.add("selected");
     if(state.feedbackMode==="instant" && selected){
@@ -2426,18 +2464,29 @@ function renderInstantFeedback(q){
   const selected=state.answers[q.id];
   if(state.feedbackMode!=="instant" || !selected)return;
   const correct=selected===q.correctAnswer;
+  const selectedOption=q.options.find(o=>o.id===selected);
+  const correctOption=q.options.find(o=>o.id===q.correctAnswer);
   box.className=`feedback-box ${correct?"success":"error"}`;
+
+  const answerStrip=`<div class="technical-feedback-answer">
+    <div><span>YOUR ANSWER</span><strong>${escapeHtml(selected)}</strong><div>${renderTechnicalOption(selectedOption?.text||"",q)}</div></div>
+    <div><span>CORRECT ANSWER</span><strong>${escapeHtml(q.correctAnswer)}</strong><div>${renderTechnicalOption(correctOption?.text||"",q)}</div></div>
+  </div>`;
+
   if(q.deepExplanation){
     const selectedReason=q.deepExplanation.options?.[selected]||"";
     box.innerHTML=`
       <strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${escapeHtml(q.correctAnswer)}`}</strong>
+      ${answerStrip}
       <div class="ranked-official-feedback" dir="rtl">
-        <p><b>${correct?"ليه اختيارك صح؟":"ليه اختيارك غلط؟"}</b> ${escapeHtml(selectedReason)}</p>
-        <p><b>شرح المفهوم:</b> ${escapeHtml(q.deepExplanation.summary||"")}</p>
+        <p><b>${correct?"ليه اختيارك صح؟":"ليه اختيارك غلط؟"}</b> ${renderTechnicalRichText(selectedReason,q)}</p>
+        <p><b>شرح المفهوم:</b> ${renderTechnicalRichText(q.deepExplanation.summary||"",q)}</p>
       </div>`;
   }else{
     const explanation=q.aiExplanation?.ar || q.explanation?.ar || q.explanation?.en || "No explanation provided.";
-    box.innerHTML=`<strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${escapeHtml(q.correctAnswer)}`}</strong><div dir="rtl">${escapeHtml(explanation)}</div>`;
+    box.innerHTML=`<strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${escapeHtml(q.correctAnswer)}`}</strong>
+      ${answerStrip}
+      <div dir="rtl">${renderTechnicalRichText(explanation,q)}</div>`;
   }
 }
 
@@ -2880,18 +2929,23 @@ function renderReview(){
     const item=document.createElement("article");item.className="review-item";
     item.innerHTML=`
       <span class="eyebrow">QUESTION ${String(index+1).padStart(2,"0")}</span>
-      <h3>${escapeHtml(q.question)}</h3>
-      <div class="review-answer ${isCorrect?"correct":"wrong"}"><strong>Your answer:</strong> ${selected?`${escapeHtml(selected)}. ${escapeHtml(selectedOption?.text || "")}`:"Unanswered"}</div>
-      <div class="review-answer correct"><strong>Correct answer:</strong> ${escapeHtml(q.correctAnswer)}. ${escapeHtml(correctOption?.text || "")}</div>
+      <div class="review-question-content">${renderTechnicalQuestion(q.question,q)}</div>
+      <div class="review-answer ${isCorrect?"correct":"wrong"}"><strong>Your answer:</strong>
+        ${selected?`<span class="review-answer-id">${escapeHtml(selected)}.</span> ${renderTechnicalOption(selectedOption?.text || "",q)}`:"Unanswered"}
+      </div>
+      <div class="review-answer correct"><strong>Correct answer:</strong>
+        <span class="review-answer-id">${escapeHtml(q.correctAnswer)}.</span> ${renderTechnicalOption(correctOption?.text || "",q)}
+      </div>
       <div class="review-explanation">
         <strong>Explanation:</strong><br>
-        <div dir="rtl">${escapeHtml(q.deepExplanation?.summary || q.aiExplanation?.ar || q.explanation?.ar || q.explanation?.en || "No explanation provided.")}</div>
-        ${q.deepExplanation?`<div class="review-option-reasons" dir="rtl">${q.options.map(o=>`<p><b>${escapeHtml(o.id)} ${o.id===q.correctAnswer?"✓":"✕"}:</b> ${escapeHtml(q.deepExplanation.options?.[o.id]||"")}</p>`).join("")}</div>`:""}
+        <div dir="rtl">${renderTechnicalRichText(q.deepExplanation?.summary || q.aiExplanation?.ar || q.explanation?.ar || q.explanation?.en || "No explanation provided.",q)}</div>
+        ${q.deepExplanation?`<div class="review-option-reasons" dir="rtl">${q.options.map(o=>`<p><b>${escapeHtml(o.id)} ${o.id===q.correctAnswer?"✓":"✕"}:</b> ${renderTechnicalRichText(q.deepExplanation.options?.[o.id]||"",q)}</p>`).join("")}</div>`:""}
       </div>`;
     list.appendChild(item);
   });
   routeTo("reviewView");
 }
+
 $("reviewHomeBtn").addEventListener("click",()=>{
   const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
   if(ctx?.kind==="section"||ctx?.kind==="track-random"){
@@ -3496,11 +3550,22 @@ function showToast(message){
 async function init(){
   applyTheme(getTheme());
   state.playerId=getPlayerId();
-  try{await loadData()}catch(e){
+
+  let dataLoaded=false;
+  try{
+    await loadData();
+    dataLoaded=true;
+  }catch(e){
     console.error(e);
     $("examLoadError").textContent="Could not load platform data. Open this project through GitHub Pages or a local web server.";
     $("examLoadError").classList.remove("hidden");
   }
+
+  if(!dataLoaded){
+    window.__DIGILIANS_SHOW_FATAL__?.("Platform data could not be loaded.");
+    return;
+  }
+
   state.studentName=getStudentName();syncUserUI();
   retryPendingAttempts();
   if(state.studentName){
@@ -3508,5 +3573,11 @@ async function init(){
     $("returningUserName").textContent=state.studentName;
     routeTo("welcomeView");
   }else routeTo("welcomeView");
+
+  window.__DIGILIANS_APP_READY__=true;
+  window.__DIGILIANS_CLEAR_FATAL__?.();
 }
-init();
+init().catch(error=>{
+  console.error("Fatal application startup error:",error);
+  window.__DIGILIANS_SHOW_FATAL__?.("The application could not start correctly.");
+});
