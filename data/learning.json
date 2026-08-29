@@ -92,8 +92,8 @@
               "examId": "data-analysis-sql-session01-practice-v1",
               "sourceFile": "Session1 (1).pptx",
               "study": {
-                "title": "Session 1 — Study Map",
-                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session1 (1).pptx.",
+                "title": "Session 1 · Relational Databases & Data Modeling for Data Engineers — Study Notes",
+                "description": "شرح منظم للمذاكرة، مع فصل واضح بين الشرح العربي والمصطلحات الإنجليزية ومراجع المصدر.",
                 "sections": [
                   {
                     "id": "database-fundamentals",
@@ -109,6 +109,27 @@
                     "callout": {
                       "label": "Focus",
                       "text": "Know the difference between a database and a DBMS, and remember the advantages and disadvantages listed in the session."
+                    },
+                    "explanationParagraphs": [
+                      "A DBMS supports efficient, reliable, convenient and safe multi-user storage and access to persistent data."
+                    ],
+                    "studySummary": "A database is an organized collection of data that is stored and accessed electronically.",
+                    "takeaways": [
+                      "Advantages include reduced redundancy, improved consistency, integrity, access and security.",
+                      "Disadvantages listed in the session include complexity, cost, security and compatibility."
+                    ],
+                    "keyTerms": [
+                      "Database definition and purpose",
+                      "DBMS purpose and characteristics",
+                      "Advantages of databases",
+                      "Disadvantages of databases",
+                      "Examples of DBMS products",
+                      "DDL vs DML overview"
+                    ],
+                    "sourceTrace": "Know the difference between a database and a DBMS, and remember the advantages and disadvantages listed in the session.",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Know the difference between a database and a DBMS, and remember the advantages and disadvantages listed in the session."
                     }
                   },
                   {
@@ -123,7 +144,31 @@
                       "Network: supports many-to-many relationships.",
                       "Document: flexible semi-structured documents such as JSON and XML.",
                       "Relational: data is stored in inter-related tables."
-                    ]
+                    ],
+                    "explanationParagraphs": [
+                      "The session covers Hierarchical, Network, Object-Oriented, Document, Relational and Entity-Relationship models."
+                    ],
+                    "studySummary": "A data model defines the structure, relationships and constraints of data.",
+                    "takeaways": [
+                      "Hierarchical: tree-like structure.",
+                      "Network: supports many-to-many relationships.",
+                      "Document: flexible semi-structured documents such as JSON and XML.",
+                      "Relational: data is stored in inter-related tables."
+                    ],
+                    "keyTerms": [
+                      "Data model definition and components",
+                      "Hierarchical model",
+                      "Network model",
+                      "Object-oriented model",
+                      "Document model",
+                      "Relational model",
+                      "Entity-Relationship model"
+                    ],
+                    "sourceTrace": "Session1 (1).pptx",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session1 (1).pptx"
+                    }
                   },
                   {
                     "id": "er-modeling",
@@ -137,7 +182,32 @@
                       "Attributes are shown as ellipses.",
                       "Relationships are shown as diamonds.",
                       "Double line means total participation; single line means partial participation."
-                    ]
+                    ],
+                    "explanationParagraphs": [
+                      "Relationship degree can be unary, binary or ternary, while cardinality can be 1:1, 1:N or M:N."
+                    ],
+                    "studySummary": "ER modeling visually represents entities, attributes and relationships before creating the database.",
+                    "takeaways": [
+                      "Entities are shown as rectangles.",
+                      "Attributes are shown as ellipses.",
+                      "Relationships are shown as diamonds.",
+                      "Double line means total participation; single line means partial participation."
+                    ],
+                    "keyTerms": [
+                      "ER modeling purpose and benefits",
+                      "ER notation: entities, attributes, relationships",
+                      "Strong and weak entities",
+                      "Simple, composite, derived, multivalued attributes",
+                      "Unary, binary, ternary relationship degree",
+                      "1:1, 1:N, M:N cardinality ratios",
+                      "Total and partial participation",
+                      "Primary keys and foreign keys"
+                    ],
+                    "sourceTrace": "Session1 (1).pptx",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session1 (1).pptx"
+                    }
                   },
                   {
                     "id": "er-relational-mapping",
@@ -150,7 +220,31 @@
                       "M:N relationships require a new relation containing the keys of both entities.",
                       "In 1:N, the primary key from the 1 side becomes a foreign key on the N side.",
                       "Weak entities include the parent entity key."
-                    ]
+                    ],
+                    "explanationParagraphs": [
+                      "Composite attributes are decomposed into atomic values, while multivalued attributes are mapped to a separate relation."
+                    ],
+                    "studySummary": "Entities become tables and attributes become columns.",
+                    "takeaways": [
+                      "M:N relationships require a new relation containing the keys of both entities.",
+                      "In 1:N, the primary key from the 1 side becomes a foreign key on the N side.",
+                      "Weak entities include the parent entity key."
+                    ],
+                    "keyTerms": [
+                      "Entities to tables; attributes to columns",
+                      "Mapping strong entities, composite and multivalued attributes",
+                      "Mapping weak entities and composite keys",
+                      "Mapping binary M:N relationships",
+                      "Mapping binary 1:N relationships",
+                      "Mapping binary 1:1 relationships with participation cases",
+                      "Mapping unary 1:1 relationships",
+                      "Mapping unary 1:N relationships"
+                    ],
+                    "sourceTrace": "Session1 (1).pptx",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session1 (1).pptx"
+                    }
                   },
                   {
                     "id": "data-modeling-process",
@@ -164,6 +258,17 @@
                     ],
                     "callout": {
                       "label": "Source trace",
+                      "text": "Session1 (1).pptx — Slides 46–47 — Data Modeling Process • Session1 (1).pptx — Slide 46 — Data Modeling Process diagram"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ process في المادة يبدأ Conceptual ثم Logical ثم Physical؛ بعد high-level business view الخطوة التالية هي Logical design.",
+                    "takeaways": [],
+                    "keyTerms": [
+                      "Conceptual, logical, and physical data models"
+                    ],
+                    "sourceTrace": "Session1 (1).pptx — Slides 46–47 — Data Modeling Process • Session1 (1).pptx — Slide 46 — Data Modeling Process diagram",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx — Slides 46–47 — Data Modeling Process • Session1 (1).pptx — Slide 46 — Data Modeling Process diagram"
                     }
                   },
@@ -181,6 +286,20 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session1 (1).pptx — Slide 48 — Schema Vs. Data"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ schema هو التصميم الثابت نسبيًا، أما actual values في لحظة معينة فهي database instance؛ لذلك ممكن instances تختلف مع نفس schema.",
+                    "takeaways": [
+                      "المادة بتوضح إن schema بيشمل structural constraints زي table names وfields وdata types والعلاقات، مش القيم الحالية نفسها."
+                    ],
+                    "keyTerms": [
+                      "Schema blueprint vs database instance snapshot",
+                      "Schema constraints, tables, fields, data types, relationships"
+                    ],
+                    "sourceTrace": "Session1 (1).pptx — Slide 48 — Schema Vs. Data",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session1 (1).pptx — Slide 48 — Schema Vs. Data"
                     }
                   },
                   {
@@ -193,7 +312,30 @@
                     "bullets": [
                       "2NF removes partial functional dependencies.",
                       "3NF removes transitive dependencies."
-                    ]
+                    ],
+                    "explanationParagraphs": [
+                      "The session covers functional dependency and the progression through 1NF, 2NF and 3NF."
+                    ],
+                    "studySummary": "Normalization organizes tables and attributes to reduce redundancy and dependency.",
+                    "takeaways": [
+                      "2NF removes partial functional dependencies.",
+                      "3NF removes transitive dependencies."
+                    ],
+                    "keyTerms": [
+                      "Purpose of normalization",
+                      "Functional dependency",
+                      "Full functional dependency",
+                      "Partial functional dependency",
+                      "Transitive functional dependency",
+                      "First Normal Form (1NF)",
+                      "Second Normal Form (2NF)",
+                      "Third Normal Form (3NF)"
+                    ],
+                    "sourceTrace": "Session1 (1).pptx",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session1 (1).pptx"
+                    }
                   },
                   {
                     "id": "warehouse-schema-design",
@@ -205,7 +347,25 @@
                     "bullets": [
                       "Star: simpler, faster joins, more redundancy.",
                       "Snowflake: more complex, less redundancy, better suited to complex analytics and storage efficiency."
-                    ]
+                    ],
+                    "explanationParagraphs": [
+                      "A Snowflake Schema uses normalized dimensions and may include sub-dimensions."
+                    ],
+                    "studySummary": "A Star Schema uses a simple structure with one fact table and multiple denormalized dimension tables.",
+                    "takeaways": [
+                      "Star: simpler, faster joins, more redundancy.",
+                      "Snowflake: more complex, less redundancy, better suited to complex analytics and storage efficiency."
+                    ],
+                    "keyTerms": [
+                      "Star Schema",
+                      "Snowflake Schema",
+                      "Star vs Snowflake comparison"
+                    ],
+                    "sourceTrace": "Session1 (1).pptx",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session1 (1).pptx"
+                    }
                   },
                   {
                     "id": "database-constraints",
@@ -220,6 +380,25 @@
                     ],
                     "callout": {
                       "label": "Source trace",
+                      "text": "Session1 (1).pptx — Slide 64 — Create and Enforce Data Constraints • Session1 (1).pptx — Slide 64 — CHECK constraint requirement"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ lab note بيطلب تطبيق PRIMARY KEY وFOREIGN KEY وUNIQUE، وكمان CHECK constraint على السعر.",
+                    "takeaways": [
+                      "المادة بتحدد CHECK constraint للتأكد إن prices في Products أكبر من zero."
+                    ],
+                    "keyTerms": [
+                      "PRIMARY KEY, FOREIGN KEY, UNIQUE constraints",
+                      "CHECK constraint for positive prices",
+                      "Unique Constraint",
+                      "Primary Key",
+                      "Not Null Constraint",
+                      "Foreign Key",
+                      "Composite Unique"
+                    ],
+                    "sourceTrace": "Session1 (1).pptx — Slide 64 — Create and Enforce Data Constraints • Session1 (1).pptx — Slide 64 — CHECK constraint requirement",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
                       "text": "Session1 (1).pptx — Slide 64 — Create and Enforce Data Constraints • Session1 (1).pptx — Slide 64 — CHECK constraint requirement"
                     }
                   },
@@ -240,9 +419,33 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session1 (1).pptx — Slide 64 — Implement a Star Schema for an E-commerce Sales Database • Session1 (1).pptx — Slide 64 — Star Schema lab"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ lab بيطلب fact table باسم Sales، مع dimensions مرتبطة زي Customers وProducts وTime.",
+                    "takeaways": [
+                      "الـ Snowflake lab بيطلب normalize Products table عن طريق فصل Category وSupplier في جداول مختلفة.",
+                      "الـ assignment بيطلب أولًا Star Schema، وبعدها تحويله إلى Snowflake عن طريق normalizing 2 dimensions.",
+                      "الـ library lab بيربط بين ER modeling والتنفيذ العلاقي: بعد رسم ERD لازم يتم mapping لجداول relational مع Primary Keys وForeign Keys.",
+                      "الـ assignment في نهاية الجلسة بيطلب تصميم ERD لنظام student-course registration ثم mapping إلى relational tables مع constraints."
+                    ],
+                    "keyTerms": [
+                      "E-commerce ERD and relational mapping",
+                      "E-commerce Star Schema implementation",
+                      "Product Catalog Snowflake implementation",
+                      "Retail Star/Snowflake comparison assignment",
+                      "Library ERD mapping lab",
+                      "Student-course ERD with constraints",
+                      "University Project Scope",
+                      "University Relationships"
+                    ],
+                    "sourceTrace": "Session1 (1).pptx — Slide 64 — Implement a Star Schema for an E-commerce Sales Database • Session1 (1).pptx — Slide 64 — Star Schema lab",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session1 (1).pptx — Slide 64 — Implement a Star Schema for an E-commerce Sales Database • Session1 (1).pptx — Slide 64 — Star Schema lab"
                     }
                   }
-                ]
+                ],
+                "displayMode": "readable-mixed-rtl-v1"
               }
             },
             {
@@ -253,8 +456,8 @@
               "sourceFile": "Session2.pptx",
               "scopeNote": "Only DDL, DML, and DQL were approved for assessment; Data Types, Constraints, DCL, and TCL from this file are excluded.",
               "study": {
-                "title": "Session 2 — Study Map",
-                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session2.pptx.",
+                "title": "Session 2 · SQL Command Languages (DDL, DML, DQL) — Study Notes",
+                "description": "شرح منظم للمذاكرة، مع فصل واضح بين الشرح العربي والمصطلحات الإنجليزية ومراجع المصدر.",
                 "sections": [
                   {
                     "id": "sql-command-languages",
@@ -273,9 +476,33 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session2.pptx — Slide 6 — What is SQL? • Session2.pptx — Slide 5 — How to communicate with the DBMS?"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "المادة بتعرّف SQL كـ Structured Query Language لتنفيذ عمليات على البيانات والجداول، وبتؤكد إنها مش Database System بحد ذاتها.",
+                    "takeaways": [
+                      "CREATE موجودة تحت DDL لأنها بتعرّف أو تنشئ structure جديد في قاعدة البيانات.",
+                      "INSERT مصنفة في المادة تحت DML لأنها بتضيف data rows داخل جدول موجود.",
+                      "الـ diagram في Slide 8 بيضع SELECT تحت DQL تحديدًا، بينما ALTER تحت DDL وDELETE تحت DML.",
+                      "CREATE هي الأمر المخصص لإنشاء Table جديد؛ DROP للحذف وDELETE للصفوف وSELECT تحت DQL."
+                    ],
+                    "keyTerms": [
+                      "SQL overview",
+                      "DDL overview",
+                      "DML overview",
+                      "DQL — SELECT",
+                      "DDL — CREATE",
+                      "DDL — DROP",
+                      "DDL — ALTER",
+                      "DDL — TRUNCATE"
+                    ],
+                    "sourceTrace": "Session2.pptx — Slide 6 — What is SQL? • Session2.pptx — Slide 5 — How to communicate with the DBMS?",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session2.pptx — Slide 6 — What is SQL? • Session2.pptx — Slide 5 — How to communicate with the DBMS?"
                     }
                   }
-                ]
+                ],
+                "displayMode": "readable-mixed-rtl-v1"
               }
             },
             {
@@ -285,8 +512,8 @@
               "examId": "data-analysis-sql-session03-practice-v1",
               "sourceFile": "Session3.pptx",
               "study": {
-                "title": "Session 3 — Study Map",
-                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session3.pptx.",
+                "title": "Session 3 · SQL Query Fundamentals — Study Notes",
+                "description": "شرح منظم للمذاكرة، مع فصل واضح بين الشرح العربي والمصطلحات الإنجليزية ومراجع المصدر.",
                 "sections": [
                   {
                     "id": "database-constraints",
@@ -304,6 +531,27 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session3.pptx — Slide 21 — Hands-On: Create the Table • Session3.pptx — Slide 21 — CHECK (age BETWEEN 0 AND 120)"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "UNIQUE على email هو القيد المخصص لمنع تكرار نفس القيمة في هذا العمود.",
+                    "takeaways": [
+                      "BETWEEN 0 AND 120 بيحدد المجال المقبول؛ 125 خارجه وبالتالي يخرق CHECK.",
+                      "الكود في Slide 21 بيعرّف customer_id كـ INT IDENTITY(1,1) PRIMARY KEY.",
+                      "name معرف بـ VARCHAR(100) NOT NULL، وبالتالي NULL غير مسموح في العمود."
+                    ],
+                    "keyTerms": [
+                      "PRIMARY KEY, FOREIGN KEY, UNIQUE constraints",
+                      "CHECK constraint for positive prices",
+                      "Unique Constraint",
+                      "Primary Key",
+                      "Not Null Constraint",
+                      "Foreign Key",
+                      "Composite Unique"
+                    ],
+                    "sourceTrace": "Session3.pptx — Slide 21 — Hands-On: Create the Table • Session3.pptx — Slide 21 — CHECK (age BETWEEN 0 AND 120)",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session3.pptx — Slide 21 — Hands-On: Create the Table • Session3.pptx — Slide 21 — CHECK (age BETWEEN 0 AND 120)"
                     }
                   },
                   {
@@ -320,6 +568,27 @@
                     ],
                     "callout": {
                       "label": "Source trace",
+                      "text": "Session3.pptx"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "Session 3 بتذكر CREATE INDEX صراحة كـ DDL لإنشاء index أو search key.",
+                    "takeaways": [
+                      "DROP TABLE من أوامر DDL وبيحذف الجدول نفسه، مش مجرد صف واحد.",
+                      "CREATE TABLE من DDL لإنشاء structure، بينما INSERT INTO من DML لإضافة بيانات."
+                    ],
+                    "keyTerms": [
+                      "SQL overview",
+                      "DDL overview",
+                      "DML overview",
+                      "DQL — SELECT",
+                      "DDL — CREATE",
+                      "DDL — DROP",
+                      "DDL — ALTER",
+                      "DDL — TRUNCATE"
+                    ],
+                    "sourceTrace": "Session3.pptx",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
                       "text": "Session3.pptx"
                     }
                   },
@@ -340,9 +609,33 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session3.pptx — Slide 6 — SQL Syntax • Session3.pptx — Slide 7 — Semicolon after SQL Statements?"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "المادة بتوضح إن SQL keywords نفسها case insensitive، فـ SELECT وselect ليهم نفس المعنى كأوامر SQL.",
+                    "takeaways": [
+                      "الـ semicolon هو الفاصل القياسي بين SQL statements، خصوصًا لما النظام يسمح بتنفيذ أكتر من statement في نفس الطلب.",
+                      "النجمة * مع SELECT معناها اختيار كل الأعمدة من الجدول المحدد في FROM.",
+                      "DISTINCT بتأثر على نتيجة الاستعلام فقط وبتشيل التكرار من الـ output، مش من البيانات المخزنة.",
+                      "DESC اختصار descending وبيخلي الترتيب من الأكبر للأصغر أو من Z لـ A حسب نوع البيانات."
+                    ],
+                    "keyTerms": [
+                      "SQL syntax basics",
+                      "Statement termination / semicolons",
+                      "SELECT / FROM basics",
+                      "SELECT DISTINCT",
+                      "ORDER BY",
+                      "CRUD — UPDATE",
+                      "CRUD safety",
+                      "Selecting specific columns"
+                    ],
+                    "sourceTrace": "Session3.pptx — Slide 6 — SQL Syntax • Session3.pptx — Slide 7 — Semicolon after SQL Statements?",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session3.pptx — Slide 6 — SQL Syntax • Session3.pptx — Slide 7 — Semicolon after SQL Statements?"
                     }
                   }
-                ]
+                ],
+                "displayMode": "readable-mixed-rtl-v1"
               }
             },
             {
@@ -353,8 +646,8 @@
               "sourceFile": "Session4.pptx",
               "scopeNote": "Version-control/GitHub deliverable instructions are not treated as SQL assessment content.",
               "study": {
-                "title": "Session 4 — Study Map",
-                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session4.pptx.",
+                "title": "Session 4 · Project 1: University Database Design & Implementation — Study Notes",
+                "description": "شرح منظم للمذاكرة، مع فصل واضح بين الشرح العربي والمصطلحات الإنجليزية ومراجع المصدر.",
                 "sections": [
                   {
                     "id": "normalization",
@@ -368,6 +661,24 @@
                     ],
                     "callout": {
                       "label": "Source trace",
+                      "text": "Session4.pptx"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "Slide 4 بتذكر صراحة Normalization: Aim for 3NF.",
+                    "takeaways": [],
+                    "keyTerms": [
+                      "Purpose of normalization",
+                      "Functional dependency",
+                      "Full functional dependency",
+                      "Partial functional dependency",
+                      "Transitive functional dependency",
+                      "First Normal Form (1NF)",
+                      "Second Normal Form (2NF)",
+                      "Third Normal Form (3NF)"
+                    ],
+                    "sourceTrace": "Session4.pptx",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
                       "text": "Session4.pptx"
                     }
                   },
@@ -388,6 +699,28 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session4.pptx — Slide 5 — ERD Conceptual Guide • Session4.pptx — Slides 5 and 7 — course_code UNIQUE"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ conceptual guide يحدد email كـ UNIQUE في Students.",
+                    "takeaways": [
+                      "CHECK rule في المشروع: credits من 1 إلى 6.",
+                      "Slide 7 يربط FK بالـ referential integrity، وEnrollments فيها student_id FK وcourse_id FK.",
+                      "الـ composite UNIQUE بيمنع تكرار نفس الثلاثي فقط، لكنه يسمح للطالب بكورسات مختلفة أو terms مختلفة.",
+                      "الكود يعرّف email VARCHAR(100) UNIQUE NOT NULL، فـ NULL غير مسموح."
+                    ],
+                    "keyTerms": [
+                      "PRIMARY KEY, FOREIGN KEY, UNIQUE constraints",
+                      "CHECK constraint for positive prices",
+                      "Unique Constraint",
+                      "Primary Key",
+                      "Not Null Constraint",
+                      "Foreign Key",
+                      "Composite Unique"
+                    ],
+                    "sourceTrace": "Session4.pptx — Slide 5 — ERD Conceptual Guide • Session4.pptx — Slides 5 and 7 — course_code UNIQUE",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session4.pptx — Slide 5 — ERD Conceptual Guide • Session4.pptx — Slides 5 and 7 — course_code UNIQUE"
                     }
                   },
                   {
@@ -407,9 +740,33 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session4.pptx — Slide 4 — Scope & Entities • Session4.pptx — Slide 4 — Naming convention"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "Slide 4 بيحدد الـ core entities: Students, Courses, Instructors, Enrollments.",
+                    "takeaways": [
+                      "المادة بتسمي Enrollments junction وبتربط Students 1—M Enrollments وCourses 1—M Enrollments.",
+                      "المشروع بيوصي بـ snake_case ويدي student_id وcourse_code كأمثلة.",
+                      "الـ conceptual guide يعرّف PK(instructor_id, course_id, term) في Teaches.",
+                      "لأن Enrollments هي junction بين Courses وStudents، فالاستعلام المنطقي يمر من Course إلى Enrollments ثم Student."
+                    ],
+                    "keyTerms": [
+                      "E-commerce ERD and relational mapping",
+                      "E-commerce Star Schema implementation",
+                      "Product Catalog Snowflake implementation",
+                      "Retail Star/Snowflake comparison assignment",
+                      "Library ERD mapping lab",
+                      "Student-course ERD with constraints",
+                      "University Project Scope",
+                      "University Relationships"
+                    ],
+                    "sourceTrace": "Session4.pptx — Slide 4 — Scope & Entities • Session4.pptx — Slide 4 — Naming convention",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session4.pptx — Slide 4 — Scope & Entities • Session4.pptx — Slide 4 — Naming convention"
                     }
                   }
-                ]
+                ],
+                "displayMode": "readable-mixed-rtl-v1"
               }
             },
             {
@@ -419,8 +776,8 @@
               "examId": "data-analysis-sql-session05-practice-v1",
               "sourceFile": "Session5.pptx",
               "study": {
-                "title": "Session 5 — Study Map",
-                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session5.pptx.",
+                "title": "Session 5 · Advanced Filtering & Aggregations in SQL — Study Notes",
+                "description": "شرح منظم للمذاكرة، مع فصل واضح بين الشرح العربي والمصطلحات الإنجليزية ومراجع المصدر.",
                 "sections": [
                   {
                     "id": "sql-filtering",
@@ -438,6 +795,29 @@
                     ],
                     "callout": {
                       "label": "Source trace",
+                      "text": "Session5.pptx — Slide 2 — Query execution order • Session5.pptx — Slides 2 and 4 — WHERE filtering"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الرسم في Slide 2 بيبدأ بـ FROM، وبعدها WHERE ثم GROUP BY ثم HAVING ثم SELECT ثم ORDER BY ثم LIMIT.",
+                    "takeaways": [
+                      "WHERE هي filtering clause للـ base rows وبتتنفذ قبل GROUP BY حسب ترتيب التنفيذ المعروض.",
+                      "جدول comparison operators في المادة بيحدد >= بمعنى greater than or equal to.",
+                      "المادة بتوضح إن string literals في الفلترة بتتحط بين single quotes.",
+                      "Slide 10 بتقول صراحة استخدم AND لو لازم كل الشروط تتحقق."
+                    ],
+                    "keyTerms": [
+                      "Query execution order",
+                      "WHERE with comparison operators",
+                      "Comparison operators",
+                      "WHERE with strings",
+                      "AND / OR logical operators",
+                      "BETWEEN",
+                      "LIKE / NOT LIKE patterns",
+                      "IN operator"
+                    ],
+                    "sourceTrace": "Session5.pptx — Slide 2 — Query execution order • Session5.pptx — Slides 2 and 4 — WHERE filtering",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
                       "text": "Session5.pptx — Slide 2 — Query execution order • Session5.pptx — Slides 2 and 4 — WHERE filtering"
                     }
                   },
@@ -458,6 +838,29 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session5.pptx — Slide 16 — Missing values and COUNT • Session5.pptx — Slide 16 — COUNT(field) vs COUNT(*)"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "المادة بتفرق بين COUNT(field_name) اللي بيعد القيم غير المفقودة وبين COUNT(*) اللي بيعد الصفوف.",
+                    "takeaways": [
+                      "المادة بتشرح DISTINCT كإزالة للتكرار من الـ output، بينما حذف duplicates فعليًا له method منفصلة بـ ROW_NUMBER وDELETE.",
+                      "لإيجاد duplicates، المادة تستخدم GROUP BY على القيمة ثم HAVING COUNT(*) > 1.",
+                      "Slide 25 بيفصل AVG وSUM كوظائف للحقول العددية، بينما COUNT/MIN/MAX مذكورة تحت various data types.",
+                      "DESC مع ORDER BY بيعمل sorting تنازلي في النتيجة، مش filtering ولا update للبيانات."
+                    ],
+                    "keyTerms": [
+                      "COUNT and NULL behavior",
+                      "Duplicates and DISTINCT",
+                      "Finding duplicates with GROUP BY / HAVING",
+                      "Aggregate function types",
+                      "ORDER BY",
+                      "GROUP BY",
+                      "HAVING",
+                      "HAVING vs WHERE"
+                    ],
+                    "sourceTrace": "Session5.pptx — Slide 16 — Missing values and COUNT • Session5.pptx — Slide 16 — COUNT(field) vs COUNT(*)",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session5.pptx — Slide 16 — Missing values and COUNT • Session5.pptx — Slide 16 — COUNT(field) vs COUNT(*)"
                     }
                   },
                   {
@@ -477,9 +880,33 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session5.pptx — Slide 23 — Deleting Duplicates (Keeping One Copy) • Session5.pptx — Slide 23 — ROW_NUMBER duplicate deletion"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "EXISTS في المادة وظيفته التحقق هل الـ subquery رجّع أي rows ولا لأ.",
+                    "takeaways": [
+                      "ANY/SOME معناها إن المقارنة تنجح مع أي قيمة مناسبة من نتيجة الـ subquery.",
+                      "UPPER هي الـ string function المستخدمة لتحويل النص لحروف كبيرة.",
+                      "NOW() مذكورة كـ current date/time function.",
+                      "CASE بتنفذ conditional logic: كل WHEN بيتفحص وبيرجع THEN المناسب، وإلا ELSE."
+                    ],
+                    "keyTerms": [
+                      "ROW_NUMBER for duplicates",
+                      "EXISTS",
+                      "ANY / ALL",
+                      "String functions",
+                      "Date / time functions",
+                      "CASE expressions",
+                      "Intermediate SQL lab",
+                      "E-commerce assignment patterns"
+                    ],
+                    "sourceTrace": "Session5.pptx — Slide 23 — Deleting Duplicates (Keeping One Copy) • Session5.pptx — Slide 23 — ROW_NUMBER duplicate deletion",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session5.pptx — Slide 23 — Deleting Duplicates (Keeping One Copy) • Session5.pptx — Slide 23 — ROW_NUMBER duplicate deletion"
                     }
                   }
-                ]
+                ],
+                "displayMode": "readable-mixed-rtl-v1"
               }
             },
             {
@@ -489,8 +916,8 @@
               "examId": "data-analysis-sql-session06-practice-v1",
               "sourceFile": "Session6.pptx",
               "study": {
-                "title": "Session 6 — Study Map",
-                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session6.pptx.",
+                "title": "Session 6 · Relational Joins & Query Composition — Study Notes",
+                "description": "شرح منظم للمذاكرة، مع فصل واضح بين الشرح العربي والمصطلحات الإنجليزية ومراجع المصدر.",
                 "sections": [
                   {
                     "id": "joins",
@@ -508,6 +935,29 @@
                     ],
                     "callout": {
                       "label": "Source trace",
+                      "text": "Session6.pptx — Slides 3–4 — Equi JOIN / Equijoins and Non-Equijoins • Session6.pptx — Slides 4 and 15 — Non-Equijoin definition and example"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ Equijoin في المحاضرة قائم على equality condition بين الأعمدة المرتبطة، وغالبًا بيكون الربط بين PK وFK.",
+                    "takeaways": [
+                      "الـ Non-Equijoin بيستخدم شرط ربط غير =، زي BETWEEN في مثال salary grades.",
+                      "INNER JOIN بيرجع الصفوف اللي لها match بين الجدولين، ومش بيحافظ تلقائيًا على الصفوف غير المتطابقة.",
+                      "Outer JOIN هدفه الاحتفاظ بصفوف حتى لو مفيش match في الطرف الآخر، حسب نوع LEFT/RIGHT/FULL.",
+                      "Self Join بيستخدم نفس الجدول مرتين بأسماء/aliases مختلفة علشان نقارن صفوف من الجدول بنفسه، زي employee مع supervisor."
+                    ],
+                    "keyTerms": [
+                      "Equi Join",
+                      "Non-Equi Join",
+                      "INNER JOIN",
+                      "LEFT / RIGHT / FULL OUTER JOIN",
+                      "Self Join",
+                      "Cartesian Product",
+                      "Ambiguous column names",
+                      "Table aliases"
+                    ],
+                    "sourceTrace": "Session6.pptx — Slides 3–4 — Equi JOIN / Equijoins and Non-Equijoins • Session6.pptx — Slides 4 and 15 — Non-Equijoin definition and example",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
                       "text": "Session6.pptx — Slides 3–4 — Equi JOIN / Equijoins and Non-Equijoins • Session6.pptx — Slides 4 and 15 — Non-Equijoin definition and example"
                     }
                   },
@@ -528,6 +978,29 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session6.pptx — Slide 16 — Sub-Queries • Session6.pptx — Slides 16 and 26 — Inline View"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ Subquery أو Nested Query هو SELECT كامل جوه query تاني.",
+                    "takeaways": [
+                      "السلايد بيذكر إن الـ inner query غالبًا يكون في WHERE أو HAVING، وممكن كمان يظهر في FROM كـ inline view.",
+                      "Session 6 بتسمي الـ subquery الموجود في FROM باسم inline view.",
+                      "الـ inner query بيجيب `Dnumber` من dept حيث location='giza'، وبعدها الـ outer query يفلتر Employee بـ `Dno IN (...)`.",
+                      "Correlated Subquery مربوط بالـ outer query لأنه بيرجع يستخدم column منها، زي `e.DepartmentID` في مثال متوسط راتب القسم."
+                    ],
+                    "keyTerms": [
+                      "Nested query basics",
+                      "Subqueries in WHERE / HAVING",
+                      "Subquery in FROM (inline view)",
+                      "Subqueries in WHERE",
+                      "Correlated subqueries",
+                      "Subqueries in SELECT",
+                      "Nested subqueries",
+                      "ANY / ALL / EXISTS with subqueries"
+                    ],
+                    "sourceTrace": "Session6.pptx — Slide 16 — Sub-Queries • Session6.pptx — Slides 16 and 26 — Inline View",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session6.pptx — Slide 16 — Sub-Queries • Session6.pptx — Slides 16 and 26 — Inline View"
                     }
                   },
                   {
@@ -544,9 +1017,24 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session6.pptx — Slide 21 — Union Operator • Session6.pptx — Slide 21 — Union Operator conditions"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "UNION بيجمع ناتج SELECT مع ناتج SELECT تاني، والصف المتكرر في الناتجين بيظهر مرة واحدة.",
+                    "takeaways": [
+                      "الفرق الأساسي هنا إن UNION بيزيل التكرار، لكن UNION ALL يحتفظ بالصفوف المتكررة."
+                    ],
+                    "keyTerms": [
+                      "UNION",
+                      "UNION ALL"
+                    ],
+                    "sourceTrace": "Session6.pptx — Slide 21 — Union Operator • Session6.pptx — Slide 21 — Union Operator conditions",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session6.pptx — Slide 21 — Union Operator • Session6.pptx — Slide 21 — Union Operator conditions"
                     }
                   }
-                ]
+                ],
+                "displayMode": "readable-mixed-rtl-v1"
               }
             },
             {
@@ -556,8 +1044,8 @@
               "examId": "data-analysis-sql-session08-practice-v1",
               "sourceFile": "Session8.pptx",
               "study": {
-                "title": "Session 8 — Study Map",
-                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session8.pptx.",
+                "title": "Session 8 · Analytical SQL: Window Functions, CTEs & Pivoting — Study Notes",
+                "description": "شرح منظم للمذاكرة، مع فصل واضح بين الشرح العربي والمصطلحات الإنجليزية ومراجع المصدر.",
                 "sections": [
                   {
                     "id": "sql-query-fundamentals",
@@ -571,6 +1059,24 @@
                     ],
                     "callout": {
                       "label": "Source trace",
+                      "text": "Session8.pptx"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "Session 8 بتعرّف الـ Index كـ data structure لتحسين سرعة الوصول للـ rows، والمثال بيعمل index على department.",
+                    "takeaways": [],
+                    "keyTerms": [
+                      "SQL syntax basics",
+                      "Statement termination / semicolons",
+                      "SELECT / FROM basics",
+                      "SELECT DISTINCT",
+                      "ORDER BY",
+                      "CRUD — UPDATE",
+                      "CRUD safety",
+                      "Selecting specific columns"
+                    ],
+                    "sourceTrace": "Session8.pptx",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
                       "text": "Session8.pptx"
                     }
                   },
@@ -589,6 +1095,28 @@
                     ],
                     "callout": {
                       "label": "Source trace",
+                      "text": "Session8.pptx"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ Single-Row Subquery بيرجع قيمة واحدة فقط، يعني row واحدة وcolumn واحدة.",
+                    "takeaways": [
+                      "الـ Multi-Row Subquery بيرجع list، والمحاضرة بتربطه بـ `IN`, `ANY`, و`ALL`.",
+                      "السلايد بيقول لو الـ subquery ممكن يرجع NULLs، الأفضل استخدام `NOT EXISTS` بدل `NOT IN` للموثوقية.",
+                      "الـ Summary بتقول: use Subqueries for simple filtering in WHERE clause."
+                    ],
+                    "keyTerms": [
+                      "Nested query basics",
+                      "Subqueries in WHERE / HAVING",
+                      "Subquery in FROM (inline view)",
+                      "Subqueries in WHERE",
+                      "Correlated subqueries",
+                      "Subqueries in SELECT",
+                      "Nested subqueries",
+                      "ANY / ALL / EXISTS with subqueries"
+                    ],
+                    "sourceTrace": "Session8.pptx",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
                       "text": "Session8.pptx"
                     }
                   },
@@ -609,6 +1137,29 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session8.pptx — Slides 3–4 — Window Function Definition • Session8.pptx — Slide 8 — Aggregate Window Functions"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ Window Function بتعمل calculation على مجموعة rows مرتبطة بالـ current row، وبتحافظ على الصفوف بدل ما تختصرهم زي GROUP BY.",
+                    "takeaways": [
+                      "في مثال AVG كـ window function، `PARTITION BY department_id` بيقسم الصفوف لمجموعات داخل الـ window من غير ما يلغي تفاصيل كل row.",
+                      "`LAG()` بيرجع قيمة من row سابق للـ current row، بينما `LEAD()` بيبص لقدّام.",
+                      "المطلوب نحافظ على كل employee row ونضيف متوسط القسم؛ ده بالضبط استخدام `AVG(...) OVER(PARTITION BY ...)` الموجود في السلايد.",
+                      "`RANK()` بيدي نفس الرتبة للـ ties وبعدها بيسيب gap في أرقام الرتب، وده الفرق الأساسي عن DENSE_RANK."
+                    ],
+                    "keyTerms": [
+                      "Window function purpose",
+                      "PARTITION BY",
+                      "LAG / LEAD",
+                      "Aggregate window functions",
+                      "RANK / DENSE_RANK / ROW_NUMBER",
+                      "NTILE",
+                      "LAG / LEAD edge values",
+                      "Window functions vs GROUP BY"
+                    ],
+                    "sourceTrace": "Session8.pptx — Slides 3–4 — Window Function Definition • Session8.pptx — Slide 8 — Aggregate Window Functions",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session8.pptx — Slides 3–4 — Window Function Definition • Session8.pptx — Slide 8 — Aggregate Window Functions"
                     }
                   },
                   {
@@ -627,6 +1178,27 @@
                     ],
                     "callout": {
                       "label": "Source trace",
+                      "text": "Session8.pptx — Slides 11–13 — CTE Purpose and Comparison • Session8.pptx — Slide 14 — CTE Practice Case"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "المحاضرة بتقدم CTE كـ named temporary result set يحسن readability وممكن يت referenced أكتر من مرة في نفس الـ main query.",
+                    "takeaways": [
+                      "الجدول في Slide 13 بيذكر إن CTE supports Recursive CTEs بينما subquery لا.",
+                      "الـ CTE بيتعرّف باستخدام `WITH CTE_Name AS (` وبعدها SELECT الداخلي.",
+                      "الـ CTE نفسه مبني على filter `Salary > 7000`، فالناتج المؤقت فيه الـ Staff rows اللي عدت الشرط فقط.",
+                      "المثال بيربط الـ filtered staff بالـ department table على `DeptID` عشان يرجع StaffName مع DeptName."
+                    ],
+                    "keyTerms": [
+                      "CTE purpose",
+                      "CTEs with joins",
+                      "CTE syntax",
+                      "CTE filtering",
+                      "CTE vs subquery",
+                      "CTE best practices"
+                    ],
+                    "sourceTrace": "Session8.pptx — Slides 11–13 — CTE Purpose and Comparison • Session8.pptx — Slide 14 — CTE Practice Case",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
                       "text": "Session8.pptx — Slides 11–13 — CTE Purpose and Comparison • Session8.pptx — Slide 14 — CTE Practice Case"
                     }
                   },
@@ -647,6 +1219,26 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session8.pptx — Slide 16 — Introduction to PIVOT • Session8.pptx — Slide 16 — PIVOT Core Components"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "PIVOT هدفه تحويل unique values من column إلى headers/columns، وده مناسب لتقارير cross-tab.",
+                    "takeaways": [
+                      "من Core Components للـ PIVOT وجود aggregation زي SUM أو AVG، مع column to pivot وقائمة القيم.",
+                      "الـ `FOR Category IN ([Electronics], [Furniture], [Clothing])` هو اللي بيحدد الـ headers الناتجة.",
+                      "Dynamic Pivot بيتستخدم لما أسماء الـ columns المطلوبة مش معروفة مسبقًا.",
+                      "المحاضرة بتوصي باستخدام Pivot لما الـ output نفسه محتاج cross-tab format للتقرير."
+                    ],
+                    "keyTerms": [
+                      "PIVOT purpose",
+                      "PIVOT components",
+                      "Static PIVOT",
+                      "Dynamic PIVOT",
+                      "PIVOT best practices"
+                    ],
+                    "sourceTrace": "Session8.pptx — Slide 16 — Introduction to PIVOT • Session8.pptx — Slide 16 — PIVOT Core Components",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session8.pptx — Slide 16 — Introduction to PIVOT • Session8.pptx — Slide 16 — PIVOT Core Components"
                     }
                   },
                   {
@@ -666,6 +1258,26 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session8.pptx — Slides 20–21 — IF...ELSE • Session8.pptx — Slide 22 — CASE Expression"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "`IF...ELSE` هو control-flow construct لتشغيل blocks مختلفة حسب Boolean condition.",
+                    "takeaways": [
+                      "لإرجاع conditional value داخل SELECT، الـ standard والأوسع دعمًا هو `CASE`.",
+                      "Session 8 بتعرض `IIF(Boolean_expression, value_if_true, value_if_false)` كـ shorthand لـ simple CASE.",
+                      "Session 8 بيفرق بين IF...ELSE للتحكم في flow وبين CASE/IIF لإرجاع conditional values داخل SELECT/UPDATE/WHERE.",
+                      "IIF مناسب للـ binary true/false. لما الحالات متعددة، CASE أوضح ومصمم لـ multiple conditions."
+                    ],
+                    "keyTerms": [
+                      "IF...ELSE",
+                      "CASE expression",
+                      "IIF()",
+                      "CASE vs IF...ELSE",
+                      "CASE vs IIF()"
+                    ],
+                    "sourceTrace": "Session8.pptx — Slides 20–21 — IF...ELSE • Session8.pptx — Slide 22 — CASE Expression",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session8.pptx — Slides 20–21 — IF...ELSE • Session8.pptx — Slide 22 — CASE Expression"
                     }
                   },
                   {
@@ -684,9 +1296,28 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session8.pptx — Slide 24 — TRY...CATCH • Session8.pptx — Slide 24 — TRY...CATCH Example"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "Divide-by-zero مثال مباشر على runtime error؛ لما يحصل جوه TRY التنفيذ ينتقل للـ CATCH.",
+                    "takeaways": [
+                      "Session 8 بتذكر `ERROR_MESSAGE()` ضمن diagnostic functions داخل CATCH.",
+                      "الـ pattern في Slide 25 بيعمل rollback داخل CATCH لو لسه فيه active transaction، للحفاظ على integrity.",
+                      "السلايد بيذكر `THROW` كـ preferred modern method، و`RAISERROR` كـ legacy method."
+                    ],
+                    "keyTerms": [
+                      "TRY...CATCH",
+                      "Error functions",
+                      "Transaction error handling",
+                      "THROW / RAISERROR"
+                    ],
+                    "sourceTrace": "Session8.pptx — Slide 24 — TRY...CATCH • Session8.pptx — Slide 24 — TRY...CATCH Example",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session8.pptx — Slide 24 — TRY...CATCH • Session8.pptx — Slide 24 — TRY...CATCH Example"
                     }
                   }
-                ]
+                ],
+                "displayMode": "readable-mixed-rtl-v1"
               }
             },
             {
@@ -696,8 +1327,8 @@
               "examId": "data-analysis-sql-session09-practice-v1",
               "sourceFile": "Session9.pptx",
               "study": {
-                "title": "Session 9 — Study Map",
-                "description": "Source-grounded study map built from the validated SQL production syllabus and question explanations for Session9.pptx.",
+                "title": "Session 9 · Reusable SQL Logic: Views & Functions — Study Notes",
+                "description": "شرح منظم للمذاكرة، مع فصل واضح بين الشرح العربي والمصطلحات الإنجليزية ومراجع المصدر.",
                 "sections": [
                   {
                     "id": "sql-advanced-query-expressions",
@@ -716,6 +1347,29 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session9.pptx"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ Scalar Function بتاخد قيمة واحدة وتطلع قيمة واحدة، زي UPPER(name).",
+                    "takeaways": [
+                      "مثال الـ Scalar Functions في Slide 13 هو SELECT UPPER(name) FROM employees;.",
+                      "Slide 14 تستخدم SELECT COUNT(*) FROM orders; لحساب إجمالي عدد الطلبات.",
+                      "AVG بتحسب المتوسط وROUND(..., 2) بتقرب الناتج لرقمين عشريين.",
+                      "Slide 22 تعرض CURRENT_DATE وCURRENT_TIME كـ special registers."
+                    ],
+                    "keyTerms": [
+                      "ROW_NUMBER for duplicates",
+                      "EXISTS",
+                      "ANY / ALL",
+                      "String functions",
+                      "Date / time functions",
+                      "CASE expressions",
+                      "Intermediate SQL lab",
+                      "E-commerce assignment patterns"
+                    ],
+                    "sourceTrace": "Session9.pptx",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session9.pptx"
                     }
                   },
                   {
@@ -730,6 +1384,21 @@
                     ],
                     "callout": {
                       "label": "Source trace",
+                      "text": "Session9.pptx — Slides 17–18 — CASE in Views"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "CASE expression بتختار قيمة output حسب الشروط، زي VIP/Premium/Standard/Basic في الـ View.",
+                    "takeaways": [],
+                    "keyTerms": [
+                      "IF...ELSE",
+                      "CASE expression",
+                      "IIF()",
+                      "CASE vs IF...ELSE",
+                      "CASE vs IIF()"
+                    ],
+                    "sourceTrace": "Session9.pptx — Slides 17–18 — CASE in Views",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
                       "text": "Session9.pptx — Slides 17–18 — CASE in Views"
                     }
                   },
@@ -750,6 +1419,29 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session9.pptx — Slide 3 — Views • Session9.pptx — Slides 3 and 6 — Views / Creating Views"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ View في المادة عبارة عن logical table مبني على table أو view تاني، وبيمثل نافذة لعرض البيانات بدل ما يكون نسخة مادية مستقلة منها.",
+                    "takeaways": [
+                      "الـ View لا يملك بيانات مستقلة؛ البيانات المعروضة جاية من الـ base tables، والـ View نفسه محفوظ كتعريف SELECT.",
+                      "الـ View definition بيتخزن كـ SELECT statement في الـ data dictionary حسب شرح Session 9.",
+                      "الأمر المستخدم لإنشاء View جديد هو CREATE VIEW.",
+                      "من مزايا الـ Views المذكورة: restrict data access، تبسيط complex queries، data independence، وتقديم رؤى مختلفة لنفس البيانات."
+                    ],
+                    "keyTerms": [
+                      "View definition",
+                      "View base tables",
+                      "View storage / logical behavior",
+                      "CREATE VIEW",
+                      "Advantages of views",
+                      "Querying a view",
+                      "DROP VIEW",
+                      "Simple vs complex views"
+                    ],
+                    "sourceTrace": "Session9.pptx — Slide 3 — Views • Session9.pptx — Slides 3 and 6 — Views / Creating Views",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session9.pptx — Slide 3 — Views • Session9.pptx — Slides 3 and 6 — Views / Creating Views"
                     }
                   },
                   {
@@ -769,9 +1461,30 @@
                     "callout": {
                       "label": "Source trace",
                       "text": "Session9.pptx — Slide 23 — What is a Stored Procedure? • Session9.pptx — Slide 24 — Benefits of Stored Procedures"
+                    },
+                    "explanationParagraphs": [],
+                    "studySummary": "الـ Stored Procedure هي مجموعة SQL statements محفوظة وتتنفذ على database server.",
+                    "takeaways": [
+                      "المادة بتذكر إن Stored Procedures تقبل parameters وترجع results للـ client.",
+                      "من المزايا المذكورة: reduction in network traffic، performance، reuse of code، وزيادة security.",
+                      "القيمة 101 بتدخل للـ parameter ثم WHERE تستخدمها لفلترة الموظفين على نفس DepartmentID.",
+                      "المثال في Slides 25–26 يوضح إن rating = 1 ينفذ UPDATE salary = salary * 1.10 للموظف المحدد."
+                    ],
+                    "keyTerms": [
+                      "Stored procedure definition",
+                      "Stored procedure parameters",
+                      "Stored procedure benefits",
+                      "Executing stored procedures",
+                      "Conditional DML in stored procedures"
+                    ],
+                    "sourceTrace": "Session9.pptx — Slide 23 — What is a Stored Procedure? • Session9.pptx — Slide 24 — Benefits of Stored Procedures",
+                    "sourceDisplay": {
+                      "label": "SOURCE TRACE",
+                      "text": "Session9.pptx — Slide 23 — What is a Stored Procedure? • Session9.pptx — Slide 24 — Benefits of Stored Procedures"
                     }
                   }
-                ]
+                ],
+                "displayMode": "readable-mixed-rtl-v1"
               }
             }
           ],
