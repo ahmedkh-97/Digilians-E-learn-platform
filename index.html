@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.14.1" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.14.2" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -274,7 +274,16 @@
             <button class="ghost-btn" id="closeModulePanel">Close</button>
           </div>
 
-          <div class="learning-flow">
+          <div id="selectedModuleNotice" class="selected-module-notice" aria-live="polite">
+            <div class="selected-module-check">✓</div>
+            <div>
+              <span>SELECTED SESSION</span>
+              <strong id="selectedModuleName">Choose a session</strong>
+              <small id="selectedModuleHint">Your Study → Practice → Exam path will appear here.</small>
+            </div>
+          </div>
+
+          <div class="learning-flow" id="moduleLearningFlow" tabindex="-1">
             <article class="flow-card">
               <span class="flow-number">01</span>
               <div class="flow-icon">▤</div>
@@ -926,6 +935,6 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/app.js?v=0.14.1"></script>
+  <script type="module" src="assets/js/app.js?v=0.14.2"></script>
 </body>
 </html>

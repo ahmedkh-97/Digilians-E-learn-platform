@@ -1029,25 +1029,59 @@ function renderModulePanel(course,track=null){
     panel.querySelector(".module-panel-head").insertAdjacentElement("afterend",list);
   }
 
+  function updateSelectedModuleUI(module,row,{scrollToPath=false}={}){
+    state.selectedModule=module;
+
+    list.querySelectorAll(".module-row:not(.track-exam-row)").forEach(item=>{
+      const selected=item===row;
+      item.classList.toggle("selected",selected);
+      item.setAttribute("aria-pressed",selected?"true":"false");
+    });
+
+    $("modulePanelTitle").textContent=module.title;
+    $("modulePanelDescription").textContent=module.description || "";
+
+    const moduleName=$("selectedModuleName");
+    const moduleHint=$("selectedModuleHint");
+    if(moduleName)moduleName.textContent=module.title;
+    if(moduleHint)moduleHint.textContent="Next: Study the material, practice with feedback, then take the session exam.";
+
+    const flow=$("moduleLearningFlow");
+    if(flow)flow.classList.remove("hidden");
+
+    if(scrollToPath && flow){
+      const reduceMotion=window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+      window.requestAnimationFrame(()=>{
+        flow.scrollIntoView({behavior:reduceMotion?"auto":"smooth",block:"start"});
+        flow.classList.remove("selection-focus");
+        void flow.offsetWidth;
+        flow.classList.add("selection-focus");
+        window.setTimeout(()=>flow.classList.remove("selection-focus"),1400);
+      });
+    }
+  }
+
   list.innerHTML="";
+  let firstModuleRow=null;
   modules.forEach((module,index)=>{
     const row=document.createElement("button");
     row.className="module-row";
+    row.type="button";
+    row.setAttribute("aria-pressed","false");
+    row.dataset.moduleId=module.id||String(index);
     row.innerHTML=`
       <div class="course-icon">${String(index+1).padStart(2,"0")}</div>
       <div class="module-row-copy">
         <strong>${module.title}</strong>
         <small>${module.description || ""}</small>
       </div>
+      <span class="module-row-state">Selected</span>
       <span class="module-row-arrow">→</span>
     `;
     row.addEventListener("click",()=>{
-      state.selectedModule=module;
-      $("modulePanelTitle").textContent=module.title;
-      $("modulePanelDescription").textContent=module.description || "";
-      panel.querySelector(".learning-flow").classList.remove("hidden");
-      panel.scrollIntoView({behavior:"smooth",block:"start"});
+      updateSelectedModuleUI(module,row,{scrollToPath:true});
     });
+    if(!firstModuleRow)firstModuleRow=row;
     list.appendChild(row);
   });
 
@@ -1070,9 +1104,7 @@ function renderModulePanel(course,track=null){
     list.appendChild(row);
   }
 
-  state.selectedModule=modules[0];
-  $("modulePanelTitle").textContent=modules[0].title;
-  $("modulePanelDescription").textContent=modules[0].description || "";
+  updateSelectedModuleUI(modules[0],firstModuleRow,{scrollToPath:false});
 
   panel.classList.remove("hidden");
   panel.scrollIntoView({behavior:"smooth",block:"start"});

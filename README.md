@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.14.1
+# Digilians E-Learn Platform V0.14.2
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1130,3 +1130,16 @@ Reworked the student-facing SQL study presentation across all 8 integrated SQL s
 - Important points are displayed as individual RTL study cards instead of long mixed-direction bullet paragraphs.
 - Source Trace is preserved in a dedicated LTR block.
 - Existing source-grounded study content, validated explanations, questions, answers and traceability were not changed.
+
+
+## V0.14.2 — Module Selection Flow Fix
+
+Improved the Learn module/session selection UX.
+
+- The selected session now has a clear visual selected state.
+- A confirmation strip shows the selected session directly above the learning path.
+- Clicking any session now scrolls to `Study → Practice → Exam`, instead of scrolling back to the module panel.
+- The learning path receives a short visual focus animation after selection.
+- The default first module is selected without forcing an unwanted scroll when the track first opens.
+- Smooth scrolling respects `prefers-reduced-motion`.
+- SQL V0.14.1 readability improvements remain unchanged.
