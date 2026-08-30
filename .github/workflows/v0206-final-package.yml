@@ -55,9 +55,12 @@ jobs:
             test "$code" = "200" || { echo "$p -> $code"; exit 1; }
             echo "$p -> 200"
           done
-      - name: Build local-test ZIP
+      - name: Build local-test ZIP inside workspace
         run: |
-          cat > TEST-LOCAL.bat <<'BAT'
+          rm -rf _package
+          mkdir -p _package/Digilians-E-learn-platform
+          rsync -a --exclude '.git' --exclude '_package' --exclude '.github/workflows/v0206-final-package.yml' ./ _package/Digilians-E-learn-platform/
+          cat > _package/Digilians-E-learn-platform/TEST-LOCAL.bat <<'BAT'
           @echo off
           setlocal
           cd /d "%~dp0"
@@ -78,16 +81,14 @@ jobs:
           echo Python was not found. Open a terminal in this folder and run a local static server.
           pause
           BAT
-          rm -rf .git
-          rm -f .github/workflows/v0206-final-package.yml
-          cd ..
+          cd _package
           zip -qr digilians-e-learn-platform-v0.20.6-excel-week3-study.zip Digilians-E-learn-platform
           sha256sum digilians-e-learn-platform-v0.20.6-excel-week3-study.zip > digilians-e-learn-platform-v0.20.6-excel-week3-study.sha256
       - uses: actions/upload-artifact@v4
         with:
           name: digilians-e-learn-v0.20.6-local-test
           path: |
-            ../digilians-e-learn-platform-v0.20.6-excel-week3-study.zip
-            ../digilians-e-learn-platform-v0.20.6-excel-week3-study.sha256
+            _package/digilians-e-learn-platform-v0.20.6-excel-week3-study.zip
+            _package/digilians-e-learn-platform-v0.20.6-excel-week3-study.sha256
           if-no-files-found: error
           retention-days: 7
