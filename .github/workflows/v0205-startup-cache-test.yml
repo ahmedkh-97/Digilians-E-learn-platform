@@ -1,0 +1,17 @@
+name: V0.20.5 Startup Cache Regression
+
+on:
+  push:
+    branches:
+      - hotfix/v0.20.5-startup-cache
+
+permissions:
+  contents: read
+
+jobs:
+  startup-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run startup cache regression
+        run: node --test tests/startup-cache.test.mjs tests/reset-mistakes.test.mjs
