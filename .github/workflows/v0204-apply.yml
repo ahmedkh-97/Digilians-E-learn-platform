@@ -1,0 +1,147 @@
+name: Apply V0.20.4 Reset My Mistakes
+
+on:
+  push:
+    branches:
+      - feature/v0.20.4-reset-my-mistakes
+    paths:
+      - '.github/workflows/v0204-apply.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-test-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/v0.20.4-reset-my-mistakes
+          fetch-depth: 0
+
+      - name: Apply bounded reset feature
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          def replace_once(path, old, new):
+              p=Path(path); s=p.read_text()
+              if old not in s:
+                  raise SystemExit(f'Anchor missing in {path}: {old[:80]!r}')
+              p.write_text(s.replace(old,new,1))
+
+          # 1) Owner-scoped My Mistakes reset.
+          replace_once('assets/js/mistakes.js',
+          '''export function questionFromMistake(item){''',
+          '''export function clearMistakesForOwner(ownerId,{storage=globalThis.localStorage}={}){\n  const store=readStore(storage);\n  const key=normalizeOwnerId(ownerId);\n  const owner=store.owners?.[key];\n  if(!owner)return 0;\n  const cleared=Object.keys(owner.items||{}).length;\n  owner.items={};\n  owner.updatedAt=new Date().toISOString();\n  writeStore(store,storage);\n  return cleared;\n}\n\nexport function questionFromMistake(item){''')
+
+          # 2) Clear only Official QBank mistake flags; preserve reviewed/bookmarks/answers/lastIndex.
+          p=Path('assets/js/storage.js'); s=p.read_text()
+          anchor='''export function saveOfficialMistakes(trackId,questionIds,levelId="junior-data-analysis",sourceRevision="source-r1"){\n  const current=getOfficialTrackState(trackId,levelId,sourceRevision);const set=new Set(current.mistakes||[]);\n  questionIds.forEach(x=>set.add(x));\n  return updateOfficialTrackState(trackId,{mistakes:[...set]},levelId,sourceRevision);\n}\n'''
+          if anchor not in s: raise SystemExit('saveOfficialMistakes anchor missing')
+          addition=anchor+'''export function clearOfficialMistakeFlags(){\n  const state=getOfficialQbankState();\n  let cleared=0;\n  Object.values(state.tracks||{}).forEach(record=>{\n    if(!record || typeof record!=="object")return;\n    cleared+=Array.isArray(record.mistakes)?record.mistakes.length:0;\n    record.mistakes=[];\n  });\n  saveOfficialState(state);\n  return cleared;\n}\n'''
+          p.write_text(s.replace(anchor,addition,1))
+
+          # 3) Wire imports and handler.
+          p=Path('assets/js/app.js'); s=p.read_text()
+          s=s.replace('getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes',
+                      'getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags',1)
+          s=s.replace('recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,MASTERY_STREAK',
+                      'recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,clearMistakesForOwner,MASTERY_STREAK',1)
+          anchor='''$("practiceMistakesBtn")?.addEventListener("click",()=>startMistakesPractice(selectedMistakePracticeItems()));'''
+          if anchor not in s: raise SystemExit('practiceMistakesBtn anchor missing')
+          handler='''$("practiceMistakesBtn")?.addEventListener("click",()=>startMistakesPractice(selectedMistakePracticeItems()));\n$("resetMistakesBtn")?.addEventListener("click",async()=>{\n  const summary=getMistakeSummary(mistakeOwnerId());\n  if(!summary.total){showToast("No saved mistakes to clear.");return}\n  const profile=state.studentName?` for ${state.studentName}`:"";\n  if(!confirm(`Clear all ${summary.total} saved mistakes${profile}? Needs Review, Improving and Mastered history will be removed. Exam results, Ranking, bookmarks, reviewed questions and saved answers will stay.`))return;\n  if(!confirm("Final confirmation: permanently reset My Mistakes on this device? This cannot be undone unless you restore an older backup."))return;\n\n  const cleared=clearMistakesForOwner(mistakeOwnerId());\n  const officialFlagsCleared=clearOfficialMistakeFlags();\n  const saved=getExamProgress();\n  if(String(saved?.examId||"").startsWith("my-mistakes-"))clearExamProgress();\n  state.mistakesOfficialSeeded=true;\n  state.mistakesPracticeSummary=null;\n  state.mistakesPracticeKeys=[];\n  state.mistakesStatusFilter="active";\n  if($("mistakesStatusFilter"))$("mistakesStatusFilter").value="active";\n  emitAnalytics("mistakes_reset",{metadata:{mistakesCleared:cleared,officialFlagsCleared}});\n  await renderMistakes();\n  showToast(`${cleared} saved mistake${cleared===1?"":"s"} cleared. Results and Ranking were kept.`);\n});'''
+          s=s.replace(anchor,handler,1)
+          # Disable reset when empty and expose count when populated.
+          anchor2='''  $("mistakesMasteredCount").textContent=summary.mastered;\n  renderMistakeWeakTopics();renderMistakesPracticeSummary();renderMistakesList();'''
+          repl2='''  $("mistakesMasteredCount").textContent=summary.mastered;\n  const resetBtn=$("resetMistakesBtn");\n  if(resetBtn){resetBtn.disabled=summary.total===0;resetBtn.textContent=summary.total?`Reset My Mistakes (${summary.total})`:"Reset My Mistakes";}\n  renderMistakeWeakTopics();renderMistakesPracticeSummary();renderMistakesList();'''
+          if anchor2 not in s: raise SystemExit('renderMistakes anchor missing')
+          s=s.replace(anchor2,repl2,1)
+          s=s.replace('0.20.3','0.20.4')
+          p.write_text(s)
+
+          # 4) Button in existing heading actions + cache/version bump.
+          p=Path('index.html'); s=p.read_text()
+          anchor='''          <div class="mistakes-heading-actions">\n            <label class="mistakes-count-select">'''
+          repl='''          <div class="mistakes-heading-actions">\n            <button type="button" class="danger-btn mistakes-reset-btn" id="resetMistakesBtn">Reset My Mistakes</button>\n            <label class="mistakes-count-select">'''
+          if anchor not in s: raise SystemExit('mistakes heading anchor missing')
+          s=s.replace(anchor,repl,1).replace('0.20.3','0.20.4')
+          p.write_text(s)
+
+          # 5) Minimal styling using existing danger tokens.
+          p=Path('assets/css/style.css'); s=p.read_text()
+          css='''\n\n/* V0.20.4 — My Mistakes reset control */\n.danger-btn{\n  border:1px solid color-mix(in srgb,var(--danger) 42%,var(--line));\n  color:var(--danger);\n  background:color-mix(in srgb,var(--danger-soft) 78%,var(--surface-solid));\n  padding:11px 14px;border-radius:12px;font-weight:850;transition:.2s var(--ease);\n}\n.danger-btn:hover{transform:translateY(-1px);border-color:var(--danger);box-shadow:0 10px 26px color-mix(in srgb,var(--danger) 16%,transparent)}\n.danger-btn:disabled{transform:none;box-shadow:none}\n@media(max-width:520px){.mistakes-heading-actions .danger-btn{width:100%}}\n'''
+          if 'V0.20.4 — My Mistakes reset control' not in s:s+=css
+          p.write_text(s)
+
+          # 6) Runtime metadata/version files.
+          for file in ['assets/js/update-manager.js','assets/js/analytics.js','assets/js/backup-restore.js']:
+              p=Path(file); p.write_text(p.read_text().replace('0.20.3','0.20.4'))
+
+          p=Path('assets/js/update-manager.js'); s=p.read_text()
+          start=s.index('const FALLBACK_RELEASE={')
+          end=s.index('\n};',start)+3
+          fallback='''const FALLBACK_RELEASE={\n  version:"0.20.4",\n  title:"Reset My Mistakes",\n  date:"2026-08-30",\n  summary:"Learners can safely clear their local My Mistakes history without deleting results, Ranking or QBank study progress.",\n  highlights:[\n    "Added Reset My Mistakes with two-step confirmation and the current saved-mistake count.",\n    "Reset clears Needs Review, Improving and Mastered history plus Official QBank mistake flags so old test mistakes do not re-import.",\n    "Exam results, Ranking, reviewed questions, bookmarks, answers, Study progress, learner name and avatar remain untouched."\n  ],\n  type:"feature"\n};'''
+          p.write_text(s[:start]+fallback+s[end:])
+
+          # Changelog prepend.
+          p=Path('data/changelog.json'); data=json.loads(p.read_text())
+          release={
+            'version':'0.20.4','title':'Reset My Mistakes','date':'2026-08-30','type':'feature',
+            'summary':'My Mistakes can now be reset safely after testing without deleting learner results or Ranking history.',
+            'highlights':[
+              'Added a Reset My Mistakes button with the current mistake count and two-step confirmation.',
+              'Clears Needs Review, Improving and Mastered history for the current local learner profile.',
+              'Clears only Official QBank mistake flags to prevent previously imported test mistakes from returning after refresh.',
+              'Preserves Exam results, Ranking, QBank reviewed questions, bookmarks, saved answers, Study progress, name and avatar.',
+              'Any unfinished My Mistakes recovery attempt is cleared so the reset starts from a clean recovery state.'
+            ]
+          }
+          data['latest']='0.20.4'
+          data['releases']=[r for r in data.get('releases',[]) if r.get('version')!='0.20.4']
+          data['releases'].insert(0,release)
+          p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+
+          Path('VERSION.txt').write_text('0.20.4\nRelease: Reset My Mistakes\nDate: 2026-08-30\n')
+
+          # README current-version line if present, without rewriting history labels.
+          p=Path('README.md'); s=p.read_text();
+          s=s.replace('V0.20.3','V0.20.4',1).replace('v0.20.3','v0.20.4',1)
+          p.write_text(s)
+          PY
+
+      - name: Run reset tests and scope guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test tests/reset-mistakes.test.mjs
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          assert Path('VERSION.txt').read_text().splitlines()[0]=='0.20.4'
+          data=json.loads(Path('data/changelog.json').read_text())
+          assert data['latest']=='0.20.4' and data['releases'][0]['version']=='0.20.4'
+          app=Path('assets/js/app.js').read_text()
+          assert 'clearMistakesForOwner' in app and 'clearOfficialMistakeFlags' in app and 'resetMistakesBtn' in app
+          html=Path('index.html').read_text()
+          assert 'id="resetMistakesBtn"' in html
+          changed=set(__import__('subprocess').check_output(['git','diff','--name-only'],text=True).splitlines())
+          forbidden=[p for p in changed if p.startswith(('question-banks/','official-qbank/','exams/'))]
+          assert not forbidden, forbidden
+          print('Scope guard passed:', sorted(changed))
+          PY
+
+      - name: Commit V0.20.4 implementation
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/v0204-apply.yml
+          git config user.name 'Ahmed Khaled'
+          git config user.email 'ahmedkph97@gmail.com'
+          git add -A
+          git status --short
+          git commit -m 'Feature V0.20.4 Reset My Mistakes'
+          git push origin HEAD:feature/v0.20.4-reset-my-mistakes
