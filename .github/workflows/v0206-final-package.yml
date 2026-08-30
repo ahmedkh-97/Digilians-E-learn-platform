@@ -1,0 +1,93 @@
+name: V0.20.6 Final Verification Package
+
+on:
+  push:
+    branches:
+      - feature/v0.20.6-excel-week3-study
+    paths:
+      - .github/workflows/v0206-final-package.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/v0.20.6-excel-week3-study
+      - name: Final regression verification
+        run: |
+          node --test tests/excel-week3-study.test.mjs tests/reset-mistakes.test.mjs tests/startup-cache.test.mjs
+          node --check assets/js/app.js
+          node --check assets/js/excel-study-render.js
+          node --check assets/js/storage.js
+          python - <<'PY'
+          import json
+          from collections import Counter
+          learning=json.load(open('data/learning.json',encoding='utf-8'))
+          excel=learning['courses'][3]['tracks'][0]
+          w3=next(x for x in excel['modules'] if x['id']=='excel-week-03')
+          sy=json.load(open('data/syllabus-maps/excel.json',encoding='utf-8'))
+          topics=[x for x in sy['topics'] if x.get('week')==3]
+          assert len(excel['modules'])==3
+          assert len(excel['studyGroups'])==24
+          assert len(w3['study']['learningGroups'])==8
+          assert len(w3['study']['sections'])==34
+          assert len(topics)==123
+          assert Counter(x.get('role') for x in topics)==Counter({'excel-core':86,'supporting':30,'bridge':7})
+          assert excel['productionStats']=={'sessions':3,'topics':294,'questions':0,'status':'STUDY COMPLETE — QA / ASSESSMENT PENDING','studySections':96,'sourceFiles':29,'sourceSlides':610}
+          for p in ['data/curriculum/excel.json','data/excel-intake/source-manifest.json','data/excel-intake/week-status.json','data/changelog.json']:
+              json.load(open(p,encoding='utf-8'))
+          print('FINAL COUNTS PASS: 24 groups / 96 lessons / 294 topics / Week3 123 concepts')
+          PY
+          test "$(head -n1 VERSION.txt)" = "0.20.6"
+          grep -q 'storage.js?v=0.20.6' assets/js/app.js
+      - name: HTTP smoke test
+        run: |
+          python -m http.server 8765 >/tmp/v0206-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
+          sleep 2
+          for p in index.html VERSION.txt data/learning.json data/syllabus-maps/excel.json assets/js/app.js assets/js/excel-study-render.js; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:8765/$p")
+            test "$code" = "200" || { echo "$p -> $code"; exit 1; }
+            echo "$p -> 200"
+          done
+      - name: Build local-test ZIP
+        run: |
+          cat > TEST-LOCAL.bat <<'BAT'
+          @echo off
+          setlocal
+          cd /d "%~dp0"
+          echo Digilians E-Learn V0.20.6 Local Test
+          echo.
+          where py >nul 2>nul
+          if %errorlevel%==0 (
+            start "" http://localhost:8000
+            py -m http.server 8000
+            goto :eof
+          )
+          where python >nul 2>nul
+          if %errorlevel%==0 (
+            start "" http://localhost:8000
+            python -m http.server 8000
+            goto :eof
+          )
+          echo Python was not found. Open a terminal in this folder and run a local static server.
+          pause
+          BAT
+          rm -rf .git
+          rm -f .github/workflows/v0206-final-package.yml
+          cd ..
+          zip -qr digilians-e-learn-platform-v0.20.6-excel-week3-study.zip Digilians-E-learn-platform
+          sha256sum digilians-e-learn-platform-v0.20.6-excel-week3-study.zip > digilians-e-learn-platform-v0.20.6-excel-week3-study.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: digilians-e-learn-v0.20.6-local-test
+          path: |
+            ../digilians-e-learn-platform-v0.20.6-excel-week3-study.zip
+            ../digilians-e-learn-platform-v0.20.6-excel-week3-study.sha256
+          if-no-files-found: error
+          retention-days: 7
