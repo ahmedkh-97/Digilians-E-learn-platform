@@ -9588,3 +9588,14 @@ body.avatar-picker-open{
     line-height:1.15;
   }
 }
+
+/* Excel Week 2 — source-supported technical labs */
+.excel-technical-lab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.excel-technical-lab-grid>article{min-width:0;padding:16px;border:1px solid var(--line);border-radius:18px;background:color-mix(in srgb,var(--surface) 92%,var(--accent,#1f9d63) 8%)}
+.excel-technical-lab-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.excel-technical-lab-head span{font-size:.72rem;font-weight:800;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+.excel-technical-lab-head h4{margin:0;font-size:.98rem;line-height:1.45;text-align:right}
+.excel-technical-lab-grid .technical-code-block{margin:0 0 12px;max-width:100%;overflow:hidden}
+.excel-technical-lab-grid .technical-code-pre{max-width:100%;overflow:auto}
+.excel-technical-lab-grid p{margin:0;font-size:.91rem;line-height:1.85}
+@media (max-width:640px){.excel-technical-lab-grid{grid-template-columns:1fr}.excel-technical-lab-head{display:block}.excel-technical-lab-head span{display:inline-block;margin-bottom:6px}}

@@ -3,7 +3,7 @@
   "trackId": "excel",
   "track": "Excel",
   "curriculumStatus": "in-progress",
-  "curriculumVersion": "1.0",
+  "curriculumVersion": "2.0",
   "expectedStructure": {
     "weeks": 3,
     "lecturesPerWeek": "source-dependent",
@@ -11,7 +11,7 @@
       "min": null,
       "max": null
     },
-    "note": "Excel course scope is 3 weeks. Week 1 has been received; exact topic structure is derived from uploaded source content."
+    "note": "Excel course scope is 3 weeks. Weeks 1–2 are audited and Study-produced; Week 3 is still required before Excel assessment weighting/question-bank production."
   },
   "processedSources": [
     {
@@ -85,6 +85,86 @@
       "slides": 23,
       "role": "excel-core",
       "status": "audited"
+    },
+    {
+      "id": "excel-w2-s01",
+      "week": 2,
+      "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+      "slides": 12,
+      "role": "excel-week2-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w2-s02",
+      "week": 2,
+      "file": "Lecture 20 Chart Types in Excel.pptx",
+      "slides": 32,
+      "role": "excel-week2-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w2-s03",
+      "week": 2,
+      "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+      "slides": 10,
+      "role": "excel-week2-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w2-s04",
+      "week": 2,
+      "file": "Lecture 22 Table Visualization using Excel.pptx",
+      "slides": 15,
+      "role": "excel-week2-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w2-s05",
+      "week": 2,
+      "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+      "slides": 12,
+      "role": "excel-week2-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w2-s06",
+      "week": 2,
+      "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+      "slides": 30,
+      "role": "excel-week2-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w2-s07",
+      "week": 2,
+      "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+      "slides": 17,
+      "role": "excel-week2-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w2-s08",
+      "week": 2,
+      "file": "Lecture 26 Introduction to Power Query  M.pptx",
+      "slides": 40,
+      "role": "excel-week2-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w2-s09",
+      "week": 2,
+      "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+      "slides": 14,
+      "role": "excel-week2-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w2-s10",
+      "week": 2,
+      "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+      "slides": 12,
+      "role": "excel-week2-source",
+      "status": "audited-study-produced"
     }
   ],
   "topics": [
@@ -1067,14 +1147,1432 @@
         "weekExamEligible": true,
         "excelFinalCandidate": true
       }
+    },
+    {
+      "id": "w2-vstack-consolidation",
+      "title": "VSTACK as a Dynamic Stacking Option",
+      "week": 2,
+      "sourceId": "excel-w2-s01",
+      "slides": "5",
+      "role": "excel-core",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-3d-reference",
+      "title": "3D References Across Consecutive Sheets",
+      "week": 2,
+      "sourceId": "excel-w2-s01",
+      "slides": "5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-activex-linked-search",
+      "title": "ActiveX Text Box LinkedCell Search",
+      "week": 2,
+      "sourceId": "excel-w2-s01",
+      "slides": "9",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-vba-search-filter",
+      "title": "VBA TextBox_Change AutoFilter Search",
+      "week": 2,
+      "sourceId": "excel-w2-s01",
+      "slides": "10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-data-visualization-purpose",
+      "title": "Data Visualization — Trends, Outliers, Patterns & Non-Technical Communication",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "2",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-chart-creation-workflow",
+      "title": "Select Data → Insert → Choose Chart",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-chart-design-format-controls",
+      "title": "Chart Design, Format, Style, Elements & Filter Controls",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "5-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-bar-chart",
+      "title": "Bar Chart — Category Comparison / Y Categories / X Values",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-column-chart",
+      "title": "Column Chart — Category Comparison / X Categories / Y Values",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "5,9",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-stacked-clustered",
+      "title": "Stacked vs Clustered Bar/Column Variants",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "10-11",
+      "role": "excel-core",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-line-chart",
+      "title": "Line Chart — Trends Over Time",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "12-14",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pie-chart",
+      "title": "Pie Chart — Proportions of a Whole",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "15-16",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-sunburst",
+      "title": "Sunburst Chart Recognition",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "17",
+      "role": "excel-core",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-scatter",
+      "title": "Scatter Plot — Relationship Between Two Variables",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "18-20",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-waterfall",
+      "title": "Waterfall Chart — Positive/Negative Contributions to Total",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "21-22",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-histogram",
+      "title": "Histogram — Bins / Distribution",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "23",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-treemap",
+      "title": "Treemap Chart Recognition",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "24",
+      "role": "excel-core",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-funnel",
+      "title": "Funnel Chart Recognition",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "25",
+      "role": "excel-core",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-radar",
+      "title": "Radar Chart Recognition",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "26",
+      "role": "excel-core",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-combo",
+      "title": "Combo Chart Recognition",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "27",
+      "role": "excel-core",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-chart-practice",
+      "title": "Chart Selection Practice — Column/Bar/Pie/Line",
+      "week": 2,
+      "sourceId": "excel-w2-s02",
+      "slides": "28-30",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-sort-spot-outliers",
+      "title": "Sorting to Spot Extreme Values",
+      "week": 2,
+      "sourceId": "excel-w2-s03",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-quartile-inc",
+      "title": "QUARTILE.INC for Q1/Q3",
+      "week": 2,
+      "sourceId": "excel-w2-s03",
+      "slides": "4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-iqr-fences-excel",
+      "title": "IQR Lower/Upper Limits in Excel",
+      "week": 2,
+      "sourceId": "excel-w2-s03",
+      "slides": "4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-if-or-outlier-flag",
+      "title": "IF + OR Outlier Flag Workflow",
+      "week": 2,
+      "sourceId": "excel-w2-s03",
+      "slides": "4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-box-whisker-excel",
+      "title": "Box & Whisker Chart for Outlier Visualization",
+      "week": 2,
+      "sourceId": "excel-w2-s03",
+      "slides": "5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-standardize-zscore",
+      "title": "STANDARDIZE / Z-Score Outlier Workflow",
+      "week": 2,
+      "sourceId": "excel-w2-s03",
+      "slides": "6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-goal-seek",
+      "title": "Goal Seek — Find Input for Target Outcome",
+      "week": 2,
+      "sourceId": "excel-w2-s03",
+      "slides": "7-9",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-table-data-ink",
+      "title": "Table Data-Ink Ratio",
+      "week": 2,
+      "sourceId": "excel-w2-s04",
+      "slides": "3-5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-table-grids-rules",
+      "title": "Use Minimal Grids & Rules",
+      "week": 2,
+      "sourceId": "excel-w2-s04",
+      "slides": "6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-table-white-space",
+      "title": "White Space for Grouping Rows/Columns",
+      "week": 2,
+      "sourceId": "excel-w2-s04",
+      "slides": "7-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-table-fill-colors",
+      "title": "Delicate Fill Colors for Section Grouping",
+      "week": 2,
+      "sourceId": "excel-w2-s04",
+      "slides": "9",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-table-highlighting",
+      "title": "Highlighting Important Table Content",
+      "week": 2,
+      "sourceId": "excel-w2-s04",
+      "slides": "10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-table-number-alignment",
+      "title": "Right-Align Numbers / Decimal Alignment",
+      "week": 2,
+      "sourceId": "excel-w2-s04",
+      "slides": "11",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-table-text-alignment",
+      "title": "Left-Align Text",
+      "week": 2,
+      "sourceId": "excel-w2-s04",
+      "slides": "12",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-table-date-consistency",
+      "title": "Consistent Date Display",
+      "week": 2,
+      "sourceId": "excel-w2-s04",
+      "slides": "13",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-solver-purpose",
+      "title": "Solver — Optimization Purpose & Use Cases",
+      "week": 2,
+      "sourceId": "excel-w2-s05",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-enable-solver",
+      "title": "Enable Solver Add-In",
+      "week": 2,
+      "sourceId": "excel-w2-s05",
+      "slides": "4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-goalseek-vs-solver",
+      "title": "Goal Seek vs Solver",
+      "week": 2,
+      "sourceId": "excel-w2-s05",
+      "slides": "5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-solver-parameters",
+      "title": "Solver Objective, Variable Cells & Constraints",
+      "week": 2,
+      "sourceId": "excel-w2-s05",
+      "slides": "6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-solver-methods",
+      "title": "Simplex LP vs GRG Nonlinear vs Evolutionary",
+      "week": 2,
+      "sourceId": "excel-w2-s05",
+      "slides": "7-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-python-in-excel",
+      "title": "Built-In Python in Excel (=PY)",
+      "week": 2,
+      "sourceId": "excel-w2-s05",
+      "slides": "9",
+      "role": "cross-track-bridge",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-xl-function",
+      "title": "Python in Excel xl() Range/Table Access",
+      "week": 2,
+      "sourceId": "excel-w2-s05",
+      "slides": "9",
+      "role": "cross-track-bridge",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-pandas-external",
+      "title": "External Pandas Excel Processing Workflow",
+      "week": 2,
+      "sourceId": "excel-w2-s05",
+      "slides": "10",
+      "role": "cross-track-bridge",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-dashboard-purpose",
+      "title": "Dynamic Excel Dashboard — Purpose, KPIs & Decision Support",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-data-prep",
+      "title": "Dashboard Data Preparation with Excel Table",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "4-5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-pivottables",
+      "title": "PivotTables as Dashboard Summary Layer",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "4,6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-pivotcharts",
+      "title": "Pivot Charts as Visualization Layer",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "4,7",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-slicers",
+      "title": "Slicers for Interactive Filtering",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "8-10,13-14",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-report-connections",
+      "title": "Report Connections — One Slicer Controls Multiple PivotTables",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "8,13",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-timeline",
+      "title": "Timeline for Date Filtering",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "8-10,13",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-format-layout",
+      "title": "Dashboard Layout, Important Metrics, Colors, Labels & Titles",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "8-10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-infographic-tools",
+      "title": "Infographics with Shapes, Icons, SmartArt & Charts",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "11-12",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-dynamic-titles",
+      "title": "Dynamic Chart Titles Linked to Cells",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "13-14",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-storytelling",
+      "title": "Dashboard Storytelling — What / Why / What Next",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "15-18",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-structural-flow",
+      "title": "Overview → Analysis → Action Structure",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "17-18",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-mistakes-10",
+      "title": "Top 10 Dashboard Mistakes — Visual Audit Set",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "19-28",
+      "role": "excel-core",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w2-dashboard-build-assessment",
+      "title": "Dashboard Build Assessment — Sales/Region/Top Reps/HVO-LVO/Years/Price/Product",
+      "week": 2,
+      "sourceId": "excel-w2-s06",
+      "slides": "29",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-poor-good-hierarchy",
+      "title": "Poor vs Good Design — Visual Hierarchy, Redundancy & Visual Aids",
+      "week": 2,
+      "sourceId": "excel-w2-s07",
+      "slides": "2-3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-poor-good-chart-labels",
+      "title": "Poor vs Good Chart Design — Labels, Colors, Values & Pie Limitations",
+      "week": 2,
+      "sourceId": "excel-w2-s07",
+      "slides": "4-5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-poor-good-table",
+      "title": "Poor vs Good Table Design — Formatting, Clutter, Separation & Readability",
+      "week": 2,
+      "sourceId": "excel-w2-s07",
+      "slides": "6-7",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-focus",
+      "title": "Dashboard Primary Focus — Specific vs Broad",
+      "week": 2,
+      "sourceId": "excel-w2-s07",
+      "slides": "8-9",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-audience",
+      "title": "Dashboard Audience — Executives vs Business Users",
+      "week": 2,
+      "sourceId": "excel-w2-s07",
+      "slides": "10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-detail",
+      "title": "Dashboard Detail — Static Summary vs Granular Drill-Down",
+      "week": 2,
+      "sourceId": "excel-w2-s07",
+      "slides": "11",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-dashboard-types",
+      "title": "Strategic vs Operational vs Analytical Dashboards",
+      "week": 2,
+      "sourceId": "excel-w2-s07",
+      "slides": "12",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-kpi-actionability",
+      "title": "KPI Actionability Rule — What Action Will This KPI Drive?",
+      "week": 2,
+      "sourceId": "excel-w2-s07",
+      "slides": "13",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-design-practice",
+      "title": "Design Practice — Compare Regions / Trendline / Histogram Bin Size",
+      "week": 2,
+      "sourceId": "excel-w2-s07",
+      "slides": "14-15",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-etl",
+      "title": "Power Query ETL — Connect, Transform, Combine, Load",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-applied-steps",
+      "title": "Power Query Applied Steps & No-Code Interface",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "4-6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-refresh",
+      "title": "Power Query One-Click Refresh",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-purpose",
+      "title": "M Language — Functional, Case-Sensitive Transformation Language",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "7-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-csv-cleaning",
+      "title": "CSV Cleaning Workflow — Collect, Promote Headers, Change Type",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "9-12",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-number-fromtext",
+      "title": "M: Number.FromText",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "13-14",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-number-round",
+      "title": "M: Number.Round",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "15-16",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-if",
+      "title": "M: if ... then ... else",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "17-18",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-text-end",
+      "title": "M: Text.End",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "19-20",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-text-replace",
+      "title": "M: Text.Replace",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "21-22",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-text-trim",
+      "title": "M: Text.Trim",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "23-24",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-text-proper",
+      "title": "M: Text.Proper",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "25-26",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-text-length",
+      "title": "M: Text.Length",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "27-28",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-list-sum",
+      "title": "M: List.Sum",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "29-30",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-date-adddays",
+      "title": "M: Date.AddDays",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "31-32",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-date-year",
+      "title": "M: Date.Year",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "33-34",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-let-in",
+      "title": "M: let ... in Structure",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "35",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-characteristics",
+      "title": "M: Functional/Lazy/Case-Sensitive Characteristics",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "35",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-m-vs-dax",
+      "title": "M vs DAX — ETL vs Analytics",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "35",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-merge",
+      "title": "Power Query Merge Queries — SQL Join / VLOOKUP Analogy",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "36",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-relationship-columns",
+      "title": "Relational Database Relationship Columns & Expand",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "37",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-vs-data-model",
+      "title": "Power Query Flattening vs Data Model Relationships",
+      "week": 2,
+      "sourceId": "excel-w2-s08",
+      "slides": "38-39",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-transform-ops",
+      "title": "Power Query Transform Ops — Remove, Types, Filter, Pivot/Unpivot, Custom Columns",
+      "week": 2,
+      "sourceId": "excel-w2-s09",
+      "slides": "4-7",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-combine-merge",
+      "title": "Combine, Merge & Append Data Sources",
+      "week": 2,
+      "sourceId": "excel-w2-s09",
+      "slides": "4,8-9",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-load",
+      "title": "Load Clean Data to Worksheet / Data Model",
+      "week": 2,
+      "sourceId": "excel-w2-s09",
+      "slides": "8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-refresh-integrity",
+      "title": "Refresh Automation + Preserve Original Source",
+      "week": 2,
+      "sourceId": "excel-w2-s09",
+      "slides": "10-11",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-pq-data-model-scale",
+      "title": "Data Model for Large Data / PivotTable Analysis",
+      "week": 2,
+      "sourceId": "excel-w2-s09",
+      "slides": "12-13",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-relational-tables-excel",
+      "title": "Relational Tables in Excel — Normalized Data, Keys & Reduced Duplication",
+      "week": 2,
+      "sourceId": "excel-w2-s10",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-external-connections",
+      "title": "External Connections — SQL Server, Access & Online Services",
+      "week": 2,
+      "sourceId": "excel-w2-s10",
+      "slides": "3,9",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-external-refresh",
+      "title": "Dynamic Refresh / Managed Connections",
+      "week": 2,
+      "sourceId": "excel-w2-s10",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-import-csv-xml-json",
+      "title": "Import CSV, XML & JSON",
+      "week": 2,
+      "sourceId": "excel-w2-s10",
+      "slides": "4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-sqlite-connect",
+      "title": "Connect Excel to SQLite via ODBC/Add-Ins",
+      "week": 2,
+      "sourceId": "excel-w2-s10",
+      "slides": "5-6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-access-powerquery-workflow",
+      "title": "Access → Navigator → Transform Data → Power Query Editor Workflow",
+      "week": 2,
+      "sourceId": "excel-w2-s10",
+      "slides": "8-11",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w2-copilot-conclusion",
+      "title": "Excel 365 Copilot / Refresh / Dashboard Conclusion",
+      "week": 2,
+      "sourceId": "excel-w2-s10",
+      "slides": "7",
+      "role": "excel-core",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
     }
   ],
   "completion": {
-    "confirmedByUser": false,
-    "confirmedAt": null
+    "expectedWeeks": 3,
+    "auditedWeeks": 2,
+    "studyProducedWeeks": 2,
+    "assessmentReadyWeeks": 0,
+    "topicCount": 171,
+    "sourceCount": 19
   },
   "lastUpdated": "2026-08-30",
-  "intakeStatus": "week-1-audited",
+  "intakeStatus": "week-2-study-produced-awaiting-approval",
   "productionPolicy": {
     "sourceOfTruth": "uploaded-course-material-only",
     "sequenceRule": "content-based-not-filename-based",
@@ -1094,5 +2592,16 @@
     "coverageAudited": true,
     "coverageMap": "data/excel-intake/week-1-coverage-map.json",
     "sourceQaIssueCount": 8
+  },
+  "week2Audit": {
+    "status": "audit-complete-study-produced",
+    "sourceFiles": 10,
+    "slides": 194,
+    "conceptClusters": 108,
+    "productionConcepts": 101,
+    "reuseOnlyClusters": 7,
+    "learningGroups": 8,
+    "studyLessons": 35,
+    "assessmentGate": "locked-until-study-approval"
   }
 }

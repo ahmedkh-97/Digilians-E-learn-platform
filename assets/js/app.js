@@ -21,8 +21,8 @@ import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
 import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,MASTERY_STREAK} from "./mistakes.js?v=0.20.1";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.1";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,MASTERY_STREAK} from "./mistakes.js?v=0.20.2";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.2";
 
 const state={
   studentName:"",
