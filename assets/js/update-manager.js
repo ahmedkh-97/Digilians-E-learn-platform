@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.20.2";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.3";
 
 
 const UPDATE_KEYS={
@@ -10,18 +10,16 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.20.2",
-  title:"Excel Week 2 Study Production",
+  version:"0.20.3",
+  title:"Learn Coverage Optional-Metadata Hotfix",
   date:"2026-08-30",
-  summary:"Excel Week 2 is now available as 8 connected Deep Learning V3.2 groups and 35 source-traced lessons.",
+  summary:"Learn coverage now handles syllabus topics that intentionally omit optional importance metadata.",
   highlights:[
-    "Added Week 2 Excel Study: 8 Learning Groups / 35 lessons / 101 non-reuse production concepts.",
-    "Preserved Week 1 overlap rules instead of duplicating FILTER, Consolidation, Data Entry Form and Sparklines.",
-    "Added source-supported technical labs for VBA, Python in Excel and Power Query M.",
-    "Text.End contradiction, environment-dependent ActiveX/VBA, visual-only chart limits and missing companion files are explicitly labeled.",
-    "Excel Practice and Exam remain locked until Study/source-trace and local visual QA are approved."
+    "Fixed the Learn TypeError caused by calling toUpperCase() on missing topic importance metadata.",
+    "Excel syllabus topics without importance now show the neutral platform label MAPPED.",
+    "No Excel lesson, source trace, assessment, ranking or learner progress data changed."
   ],
-  type:"feature"
+  type:"fix"
 };
 
 export function normalizeVersion(value){

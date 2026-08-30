@@ -1,6 +1,18 @@
 {
-  "latest": "0.20.2",
+  "latest": "0.20.3",
   "releases": [
+    {
+      "version": "0.20.3",
+      "title": "Learn Coverage Optional-Metadata Hotfix",
+      "date": "2026-08-30",
+      "type": "fix",
+      "summary": "Learn coverage no longer crashes when a syllabus topic intentionally omits optional importance metadata.",
+      "highlights": [
+        "Fixed the Learn TypeError: Cannot read properties of undefined (reading toUpperCase).",
+        "Excel syllabus topics without importance now render the neutral MAPPED status instead of throwing.",
+        "The fix is renderer-only; Excel educational content, source traces, Practice/Exam gates and all assessment banks remain unchanged."
+      ]
+    },
     {
       "version": "0.20.2",
       "title": "Excel Week 2 Study Production",

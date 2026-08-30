@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.20.2
+# Digilians E-Learn Platform V0.20.3
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -2556,6 +2556,12 @@ Desktop navbar refinement only:
 - mobile bottom navigation is unchanged
 - no content, assessment, ranking or learner-state data changed
 
+
+## V0.20.3 — Learn Coverage Optional-Metadata Hotfix
+
+- Fixed the Learn coverage crash caused by an unsafe `topic.importance.toUpperCase()` assumption.
+- Excel syllabus topics intentionally omit `importance`; they now render the neutral platform status `MAPPED`.
+- No educational payloads, assessment banks, ranking data, or learner progress schemas changed.
 
 ## V0.20.2 — Excel Week 2 Study Production
 
