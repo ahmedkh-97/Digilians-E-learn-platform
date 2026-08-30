@@ -17,48 +17,28 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: feature/v0.20.6-excel-week3-study
-      - name: Extract focused Week 2 schema snapshot
+      - name: Extract exact Week 2 examples
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-
           data=json.loads(Path('data/learning.json').read_text())
           excel=data['courses'][3]['tracks'][0]
-          module=excel['modules'][1]
-          study=module['study']
-          section=study['sections'][0]
-          group=study['learningGroups'][0]
-
-          def shape(v,depth=0):
-              if depth>3:
-                  return '<depth-limit>'
-              if isinstance(v,dict):
-                  return {k:shape(x,depth+1) for k,x in v.items()}
-              if isinstance(v,list):
-                  if len(v)<=6:
-                      return [shape(x,depth+1) for x in v]
-                  return [shape(x,depth+1) for x in v[:2]]+[f'<... {len(v)-4} omitted ...>']+[shape(x,depth+1) for x in v[-2:]]
-              return v
-
+          w2=excel['modules'][1]['study']
           snapshot={
-            'excelKeys':list(excel.keys()),
-            'description':excel.get('description'),
-            'productionStats':excel.get('productionStats'),
-            'moduleCount':len(excel.get('modules',[])),
-            'studyGroupCount':len(excel.get('studyGroups',[])),
-            'week2Module':shape(module),
-            'week2FirstSection':shape(section),
-            'week2FirstLearningGroup':shape(group),
-            'trackStudyGroupsTail':shape(excel.get('studyGroups',[])[-3:])
+            'productionStats':excel['productionStats'],
+            'moduleShell':{k:v for k,v in excel['modules'][1].items() if k!='study'},
+            'studyShell':{k:v for k,v in w2.items() if k not in ('sections','learningGroups')},
+            'firstGroup':w2['learningGroups'][0],
+            'firstSection':w2['sections'][0],
+            'trackStudyGroupsTail':excel['studyGroups'][-2:]
           }
-          Path('docs/excel-production/V0206-STRUCTURE-SNAPSHOT.json').write_text(json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n')
-          print(json.dumps(snapshot,ensure_ascii=False,indent=2)[:30000])
+          Path('docs/excel-production/V0206-EXACT-EXAMPLE.json').write_text(json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n')
           PY
-      - name: Commit snapshot
+      - name: Commit exact example
         run: |
           git config user.name "Ahmed Khaled"
           git config user.email "ahmedkph97@gmail.com"
-          git add docs/excel-production/V0206-STRUCTURE-SNAPSHOT.json
-          git commit -m "chore: focus Excel Week 3 production schema"
+          git add docs/excel-production/V0206-EXACT-EXAMPLE.json
+          git commit -m "chore: capture exact Excel Week 2 production example"
           git push origin feature/v0.20.6-excel-week3-study
