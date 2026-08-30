@@ -204,3 +204,14 @@ export function saveOfficialMistakes(trackId,questionIds,levelId="junior-data-an
   questionIds.forEach(x=>set.add(x));
   return updateOfficialTrackState(trackId,{mistakes:[...set]},levelId,sourceRevision);
 }
+export function clearOfficialMistakeFlags(){
+  const state=getOfficialQbankState();
+  let cleared=0;
+  Object.values(state.tracks||{}).forEach(record=>{
+    if(!record || typeof record!=="object")return;
+    cleared+=Array.isArray(record.mistakes)?record.mistakes.length:0;
+    record.mistakes=[];
+  });
+  saveOfficialState(state);
+  return cleared;
+}

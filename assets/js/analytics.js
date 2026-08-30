@@ -1,4 +1,4 @@
-import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.20.3";
+import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.20.4";
 
 
 const SUPABASE_URL="https://gbyxpwcjfzxpxxbbwnzf.supabase.co";

@@ -9599,3 +9599,15 @@ body.avatar-picker-open{
 .excel-technical-lab-grid .technical-code-pre{max-width:100%;overflow:auto}
 .excel-technical-lab-grid p{margin:0;font-size:.91rem;line-height:1.85}
 @media (max-width:640px){.excel-technical-lab-grid{grid-template-columns:1fr}.excel-technical-lab-head{display:block}.excel-technical-lab-head span{display:inline-block;margin-bottom:6px}}
+
+
+/* V0.20.4 — My Mistakes reset control */
+.danger-btn{
+  border:1px solid color-mix(in srgb,var(--danger) 42%,var(--line));
+  color:var(--danger);
+  background:color-mix(in srgb,var(--danger-soft) 78%,var(--surface-solid));
+  padding:11px 14px;border-radius:12px;font-weight:850;transition:.2s var(--ease);
+}
+.danger-btn:hover{transform:translateY(-1px);border-color:var(--danger);box-shadow:0 10px 26px color-mix(in srgb,var(--danger) 16%,transparent)}
+.danger-btn:disabled{transform:none;box-shadow:none}
+@media(max-width:520px){.mistakes-heading-actions .danger-btn{width:100%}}

@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.20.3";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.4";
 
 
 const UPDATE_KEYS={
@@ -10,16 +10,16 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.20.3",
-  title:"Learn Coverage Optional-Metadata Hotfix",
+  version:"0.20.4",
+  title:"Reset My Mistakes",
   date:"2026-08-30",
-  summary:"Learn coverage now handles syllabus topics that intentionally omit optional importance metadata.",
+  summary:"Learners can safely clear their local My Mistakes history without deleting results, Ranking or QBank study progress.",
   highlights:[
-    "Fixed the Learn TypeError caused by calling toUpperCase() on missing topic importance metadata.",
-    "Excel syllabus topics without importance now show the neutral platform label MAPPED.",
-    "No Excel lesson, source trace, assessment, ranking or learner progress data changed."
+    "Added Reset My Mistakes with two-step confirmation and the current saved-mistake count.",
+    "Reset clears Needs Review, Improving and Mastered history plus Official QBank mistake flags so old test mistakes do not re-import.",
+    "Exam results, Ranking, reviewed questions, bookmarks, answers, Study progress, learner name and avatar remain untouched."
   ],
-  type:"fix"
+  type:"feature"
 };
 
 export function normalizeVersion(value){
