@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.20.5";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.6";
 
 
 const UPDATE_KEYS={
@@ -10,7 +10,7 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.20.5",
+  version:"0.20.6",
   title:"Reset My Mistakes",
   date:"2026-08-30",
   summary:"Learners can safely clear their local My Mistakes history without deleting results, Ranking or QBank study progress.",

@@ -2,8 +2,8 @@
   "schemaVersion": "1.0",
   "trackId": "excel",
   "track": "Excel",
-  "curriculumStatus": "in-progress",
-  "curriculumVersion": "2.0",
+  "curriculumStatus": "study-complete-assessment-pending",
+  "curriculumVersion": "3.0",
   "expectedStructure": {
     "weeks": 3,
     "lecturesPerWeek": "source-dependent",
@@ -11,7 +11,7 @@
       "min": null,
       "max": null
     },
-    "note": "Excel course scope is 3 weeks. Weeks 1–2 are audited and Study-produced; Week 3 is still required before Excel assessment weighting/question-bank production."
+    "note": "Excel course scope is 3 weeks. Weeks 1–3 are audited and Study-produced; assessment weighting/question-bank production remains gated by final Study/source-trace QA approval."
   },
   "processedSources": [
     {
@@ -164,6 +164,86 @@
       "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
       "slides": 12,
       "role": "excel-week2-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w3-s01",
+      "week": 3,
+      "file": "Lecture 29 PivotTables and Power View.pptx",
+      "slides": 23,
+      "role": "excel-week3-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w3-s02",
+      "week": 3,
+      "file": "Lecture 30 Data Visualization with Power Pivot and Excel.pptx",
+      "slides": 8,
+      "role": "excel-week3-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w3-s03",
+      "week": 3,
+      "file": "Lecture 31 Power Pivot and Advanced Analytics in Excel.pptx",
+      "slides": 10,
+      "role": "excel-week3-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w3-s04",
+      "week": 3,
+      "file": "Lecture 32 Advanced Charts and Data Visualization in Excel - Part 1.pptx",
+      "slides": 21,
+      "role": "excel-week3-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w3-s05",
+      "week": 3,
+      "file": "Lecture 33 Advanced Charts and Data Visualization in Excel - Part 2.pptx",
+      "slides": 17,
+      "role": "excel-week3-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w3-s06",
+      "week": 3,
+      "file": "Lecture 34 Managing and Exploring Data Models in Power Pivot.pptx",
+      "slides": 15,
+      "role": "excel-week3-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w3-s07",
+      "week": 3,
+      "file": "Lecture 35 Pivot in Excel (Office 365).pptx",
+      "slides": 15,
+      "role": "excel-week3-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w3-s08",
+      "week": 3,
+      "file": "Lecture 36 Excel Macros.pptx",
+      "slides": 19,
+      "role": "excel-week3-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w3-s09",
+      "week": 3,
+      "file": "Lecture 37 Artificial Intelligence Integration in Excel.pptx",
+      "slides": 17,
+      "role": "excel-week3-source",
+      "status": "audited-study-produced"
+    },
+    {
+      "id": "excel-w3-s10",
+      "week": 3,
+      "file": "Lecture 38 Excel Shortcuts.pptx",
+      "slides": 9,
+      "role": "excel-week3-source",
       "status": "audited-study-produced"
     }
   ],
@@ -2555,6 +2635,1728 @@
       "sourceId": "excel-w2-s10",
       "slides": "7",
       "role": "excel-core",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-pivot-core-layout-c01",
+      "title": "PivotTable field areas",
+      "week": 3,
+      "sourceId": "excel-w3-s07",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-pivot-core-layout-c02",
+      "title": "Rows vs Columns placement",
+      "week": 3,
+      "sourceId": "excel-w3-s07",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-pivot-core-layout-c03",
+      "title": "Values aggregation role",
+      "week": 3,
+      "sourceId": "excel-w3-s07",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-pivot-core-layout-c04",
+      "title": "Filters analysis role",
+      "week": 3,
+      "sourceId": "excel-w3-s07",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-pivot-manage-output-c01",
+      "title": "Date grouping",
+      "week": 3,
+      "sourceId": "excel-w3-s07",
+      "slides": "5,7-10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-pivot-manage-output-c02",
+      "title": "Custom item grouping",
+      "week": 3,
+      "sourceId": "excel-w3-s07",
+      "slides": "5,7-10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-pivot-manage-output-c03",
+      "title": "Pivot sorting",
+      "week": 3,
+      "sourceId": "excel-w3-s07",
+      "slides": "5,7-10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-pivot-manage-output-c04",
+      "title": "Flatten to values",
+      "week": 3,
+      "sourceId": "excel-w3-s07",
+      "slides": "5,7-10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-powerpivot-enable-load-c01",
+      "title": "Power Pivot COM add-in",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "4,7",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-powerpivot-enable-load-c02",
+      "title": "Add Excel Table to Data Model",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "4,7",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-powerpivot-enable-load-c03",
+      "title": "External source loading",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "4,7",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-powerpivot-enable-load-c04",
+      "title": "Environment-dependent availability",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "4,7",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-powerpivot-table-c01",
+      "title": "Data Model PivotTable",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "9,11",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-powerpivot-table-c02",
+      "title": "Multi-table Field List",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "9,11",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-powerpivot-table-c03",
+      "title": "Cross-table Pivot analysis",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "9,11",
+      "role": "excel-bridge",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-data-model-foundations-c01",
+      "title": "Relational Data Model",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "3-5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-data-model-foundations-c02",
+      "title": "Named Excel Tables",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "3-5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-data-model-foundations-c03",
+      "title": "Primary/foreign key design",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "3-5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-data-model-foundations-c04",
+      "title": "Data integrity checks",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "3-5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-relationships-c01",
+      "title": "Diagram View relationship creation",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "6,8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-relationships-c02",
+      "title": "One-to-many relationship",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "6,8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-relationships-c03",
+      "title": "One-to-one and many-to-many mentions",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "6,8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-relationships-c04",
+      "title": "Relationship pitfalls",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "6,8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-dax-model-calculations-c01",
+      "title": "DAX calculation language",
+      "week": 3,
+      "sourceId": "excel-w3-s03",
+      "slides": "3,6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-dax-model-calculations-c02",
+      "title": "Calculated columns",
+      "week": 3,
+      "sourceId": "excel-w3-s03",
+      "slides": "3,6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-dax-model-calculations-c03",
+      "title": "Measures and custom metrics",
+      "week": 3,
+      "sourceId": "excel-w3-s03",
+      "slides": "3,6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-dax-model-calculations-c04",
+      "title": "Time intelligence supporting mention",
+      "week": 3,
+      "sourceId": "excel-w3-s03",
+      "slides": "3,6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-dax-sumx-related-c01",
+      "title": "SUMX iterator",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "13",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-dax-sumx-related-c02",
+      "title": "RELATED across relationship",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "13",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-dax-sumx-related-c03",
+      "title": "Row expression",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "13",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-dax-distinct-kpi-c01",
+      "title": "DISTINCTCOUNT measure",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "9,14",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-dax-distinct-kpi-c02",
+      "title": "KPI performance indicator",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "9,14",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-dax-distinct-kpi-c03",
+      "title": "Hierarchy drill-down",
+      "week": 3,
+      "sourceId": "excel-w3-s06",
+      "slides": "9,14",
+      "role": "excel-bridge",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-model-dashboard-c01",
+      "title": "Model-linked dashboard",
+      "week": 3,
+      "sourceId": "excel-w3-s02",
+      "slides": "3-4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-model-dashboard-c02",
+      "title": "Dynamic Pivot Charts",
+      "week": 3,
+      "sourceId": "excel-w3-s02",
+      "slides": "3-4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-model-dashboard-c03",
+      "title": "Interactive model filtering",
+      "week": 3,
+      "sourceId": "excel-w3-s02",
+      "slides": "3-4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-model-dashboard-c04",
+      "title": "DAX-backed aggregation",
+      "week": 3,
+      "sourceId": "excel-w3-s02",
+      "slides": "3-4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-power-view-setup-c01",
+      "title": "Power View add-in setup",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "13,15,17",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-power-view-setup-c02",
+      "title": "Ribbon customization",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "13,15,17",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-power-view-setup-c03",
+      "title": "Power View report canvas",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "13,15,17",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-power-view-setup-c04",
+      "title": "Environment/version dependency",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "13,15,17",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-power-view-tabular-c01",
+      "title": "Power View Table",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "18",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-power-view-tabular-c02",
+      "title": "Power View Matrix",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "18",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-power-view-tabular-c03",
+      "title": "Power View Cards",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "18",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-power-view-interactive-c01",
+      "title": "Play Axis animation",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "19-22",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-power-view-interactive-c02",
+      "title": "Power View map layer",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "19-22",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-power-view-interactive-c03",
+      "title": "Trellis small multiples",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "19-22",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-power-view-interactive-c04",
+      "title": "Standard chart reuse context",
+      "week": 3,
+      "sourceId": "excel-w3-s01",
+      "slides": "19-22",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-forest-plot-c01",
+      "title": "Forest Plot data layout",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "3-6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-forest-plot-c02",
+      "title": "Bar+Scatter construction",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "3-6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-forest-plot-c03",
+      "title": "Custom CI error bars",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "3-6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-forest-plot-c04",
+      "title": "Null line interpretation",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "3-6",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-bland-altman-c01",
+      "title": "Mean coordinate",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "8-11",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-bland-altman-c02",
+      "title": "Difference coordinate",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "8-11",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-bland-altman-c03",
+      "title": "Bias calculation",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "8-11",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-bland-altman-c04",
+      "title": "Limits of Agreement",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "8-11",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-survival-curve-c01",
+      "title": "At-risk/event counts",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "13-15",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-survival-curve-c02",
+      "title": "Interval survival probability",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "13-15",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-survival-curve-c03",
+      "title": "Cumulative survival",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "13-15",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-survival-curve-c04",
+      "title": "Step-data reshaping",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "13-15",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-correlation-scatter-c01",
+      "title": "Correlation scatter construction",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "17",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-correlation-scatter-c02",
+      "title": "Trendline equation",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "17",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-correlation-scatter-c03",
+      "title": "R-squared display",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "17",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-correlation-scatter-c04",
+      "title": "Statistics-theory reuse",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "17",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-correlation-matrix-c01",
+      "title": "ToolPak correlation matrix",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "18",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-correlation-matrix-c02",
+      "title": "Coefficient table",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "18",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-correlation-matrix-c03",
+      "title": "Conditional Formatting heatmap",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "18",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-correlation-matrix-c04",
+      "title": "Color-scale interpretation support",
+      "week": 3,
+      "sourceId": "excel-w3-s04",
+      "slides": "18",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-ogive-c01",
+      "title": "Cumulative-frequency preparation",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "3-4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-ogive-c02",
+      "title": "Ogive zero start",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "3-4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-ogive-c03",
+      "title": "Scatter-line construction",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "3-4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-ogive-c04",
+      "title": "Axis boundary setup",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "3-4",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-filled-map-c01",
+      "title": "Filled Map workflow",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "6-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-filled-map-c02",
+      "title": "Geography recognition",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "6-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-filled-map-c03",
+      "title": "Map customization",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "6-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-filled-map-c04",
+      "title": "Online/high-level limitation",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "6-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-surface-bubble-c01",
+      "title": "3-D Surface matrix",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "10-11",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-surface-bubble-c02",
+      "title": "Bubble third-variable encoding",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "10-11",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-surface-bubble-c03",
+      "title": "Surface vs Bubble choice",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "10-11",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-triple-axis-c01",
+      "title": "Triple-axis overlay workaround",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "12,16",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-triple-axis-c02",
+      "title": "Secondary-axis setup",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "12,16",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-triple-axis-c03",
+      "title": "Stem-and-leaf supporting mention",
+      "week": 3,
+      "sourceId": "excel-w3-s05",
+      "slides": "12,16",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-macro-recording-c01",
+      "title": "Macro purpose",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "3,5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-recording-c02",
+      "title": "Recording workflow",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "3,5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-recording-c03",
+      "title": "Recorded VBA",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "3,5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-recording-c04",
+      "title": "Shortcut assignment",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "3,5",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-security-c01",
+      "title": "Macro threat awareness",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "4,6,10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-security-c02",
+      "title": "Trust Center configuration",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "4,6,10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-security-c03",
+      "title": "Trusted documents/locations",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "4,6,10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-security-c04",
+      "title": "Enable-all risk",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "4,6,10",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-personal-macro-run-c01",
+      "title": "Personal Macro Workbook",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "7-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-personal-macro-run-c02",
+      "title": "Manual macro selection",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "7-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-personal-macro-run-c03",
+      "title": "Shortcut/QAT execution",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "7-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-events-references-c01",
+      "title": "Event-triggered macros",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "9,11-12",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-events-references-c02",
+      "title": "Absolute reference behavior",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "9,11-12",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-events-references-c03",
+      "title": "Relative reference behavior",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "9,11-12",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-macro-events-references-c04",
+      "title": "Macro object assignment",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "9,11-12",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-macro-debug-userforms-c01",
+      "title": "VBA debugging tools",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "13,16,18",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-macro-debug-userforms-c02",
+      "title": "Control-structure mention",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "13,16,18",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-macro-debug-userforms-c03",
+      "title": "UserForm controls",
+      "week": 3,
+      "sourceId": "excel-w3-s08",
+      "slides": "13,16,18",
+      "role": "excel-bridge",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-ai-landscape-c01",
+      "title": "AI capability categories",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "3-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-ai-landscape-c02",
+      "title": "AI tool landscape snapshot",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "3-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-ai-landscape-c03",
+      "title": "Formula-assistant examples",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "3-8",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-ai-landscape-c04",
+      "title": "Finance/dashboard AI examples",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "3-8",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-ai-text-patterns-c01",
+      "title": "AI text-analysis use cases",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "9-10",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-ai-text-patterns-c02",
+      "title": "Pattern/anomaly use cases",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "9-10",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-ai-text-patterns-c03",
+      "title": "Forecasting capability mention",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "9-10",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-ai-text-patterns-c04",
+      "title": "Cloud-update collaboration mention",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "9-10",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-ai-analysis-bridge-c01",
+      "title": "Formula reuse bridge",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "12-14,16",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-ai-analysis-bridge-c02",
+      "title": "Statistics prerequisite bridge",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "12-14,16",
+      "role": "excel-bridge",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-ai-analysis-bridge-c03",
+      "title": "DAX integration bridge",
+      "week": 3,
+      "sourceId": "excel-w3-s09",
+      "slides": "12-14,16",
+      "role": "excel-bridge",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-shortcuts-workbook-c01",
+      "title": "Workbook lifecycle shortcuts",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-shortcuts-workbook-c02",
+      "title": "Ribbon navigation shortcuts",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-shortcuts-workbook-c03",
+      "title": "Cross-workbook navigation",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "3",
+      "role": "excel-core",
+      "importance": "core",
+      "assessment": {
+        "practiceEligible": true,
+        "weekExamEligible": true,
+        "excelFinalCandidate": true
+      }
+    },
+    {
+      "id": "w3-shortcuts-edit-format-c01",
+      "title": "Cell edit/format shortcuts",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "4-6",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-shortcuts-edit-format-c02",
+      "title": "Text-style shortcuts",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "4-6",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-shortcuts-edit-format-c03",
+      "title": "Selection/navigation shortcuts",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "4-6",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-shortcuts-rows-columns-c01",
+      "title": "Row/column selection shortcuts",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "7-8",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-shortcuts-rows-columns-c02",
+      "title": "Hide/unhide shortcuts",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "7-8",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-shortcuts-rows-columns-c03",
+      "title": "Group/ungroup shortcuts",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "7-8",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-shortcuts-pivot-qa-c01",
+      "title": "Pivot creation shortcuts",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "6-8",
+      "role": "excel-supporting",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-shortcuts-pivot-qa-c02",
+      "title": "Pivot item grouping/filtering",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "6-8",
+      "role": "excel-bridge",
+      "importance": "supporting",
+      "assessment": {
+        "practiceEligible": false,
+        "weekExamEligible": false,
+        "excelFinalCandidate": false
+      }
+    },
+    {
+      "id": "w3-shortcuts-pivot-qa-c03",
+      "title": "Shortcut-list inconsistency",
+      "week": 3,
+      "sourceId": "excel-w3-s10",
+      "slides": "6-8",
+      "role": "excel-bridge",
       "importance": "supporting",
       "assessment": {
         "practiceEligible": false,

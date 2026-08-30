@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.20.5
+# Digilians E-Learn Platform V0.20.6
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -2570,3 +2570,10 @@ Desktop navbar refinement only:
 - Source-supported VBA / Python in Excel / Power Query M Technical Labs render through the technical content system.
 - Source QA warnings remain visible: Text.End correction, ActiveX/VBA environment dependency, visual-only limits, cross-track Python boundary and missing companion files.
 - Excel Practice/Exam remain locked pending Study/source-trace and local visual QA approval.
+
+
+## V0.20.6 — Excel Week 3 Study Production
+- Final Excel Week 3 source batch (Lectures 29–38): 10 files / 154 slides.
+- 8 approved Learning Groups / 34 Deep Learning V3.2 lessons / 123 non-reuse production concepts.
+- Full Excel Study is now 24 Groups / 96 lessons / 294 production topics across 29 source files and 610 slides.
+- Practice and Exam remain locked pending final Study/source-trace/local visual QA approval.
