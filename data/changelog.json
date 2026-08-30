@@ -1,6 +1,18 @@
 {
-  "latest": "0.20.4",
+  "latest": "0.20.5",
   "releases": [
+    {
+      "version": "0.20.5",
+      "title": "Startup Cache Compatibility Hotfix",
+      "date": "2026-08-30",
+      "type": "fix",
+      "summary": "Prevents browsers from mixing a new app module with a stale cached storage module during startup.",
+      "highlights": [
+        "Versioned the startup-critical storage.js import so V0.20.5 always loads the matching storage API.",
+        "Prevents the V0.20.4 startup failure when a cached V0.20.3 storage module lacks clearOfficialMistakeFlags.",
+        "Reset My Mistakes behavior and all learner results, Ranking, Study progress and assessment content remain unchanged."
+      ]
+    },
     {
       "version": "0.20.4",
       "title": "Reset My Mistakes",
