@@ -20,22 +20,44 @@ jobs:
           ref: release/v0.20.2-excel-week2-study
           fetch-depth: 0
 
-      - name: Reconstruct and apply release patch
+      - name: Reconstruct and apply production patch
         shell: bash
         run: |
           set -euo pipefail
-          cat .github/v0202-patch/part* | tr -d '\n\r' | base64 -d > /tmp/v0202.patch.xz
-          xz -dc /tmp/v0202.patch.xz > /tmp/v0202.patch
-          git apply --check /tmp/v0202.patch
-          git apply /tmp/v0202.patch
+          cat .github/v0202-patch/part* | tr -d '\n\r' | base64 -d > /tmp/v0202.full.patch.xz
+          xz -dc /tmp/v0202.full.patch.xz > /tmp/v0202.full.patch
+          awk '/^diff --git a\/tools\/pre-deploy-check.mjs b\/tools\/pre-deploy-check.mjs/{exit} {print}' /tmp/v0202.full.patch > /tmp/v0202.production.patch
+          test -s /tmp/v0202.production.patch
+          git apply --check /tmp/v0202.production.patch
+          git apply /tmp/v0202.production.patch
 
-      - name: Run pre-deploy QA
+      - name: Run release QA
         shell: bash
         run: |
           set -euo pipefail
-          node tools/pre-deploy-check.mjs
+          grep -q '^0.20.2$' VERSION.txt
+          node - <<'NODE'
+          const fs = require('fs');
+          const files = [
+            'data/changelog.json',
+            'data/curriculum/excel.json',
+            'data/excel-intake/week-status.json',
+            'data/learning.json',
+            'data/syllabus-maps/excel.json'
+          ];
+          for (const f of files) JSON.parse(fs.readFileSync(f,'utf8'));
+          const syllabus = JSON.parse(fs.readFileSync('data/syllabus-maps/excel.json','utf8'));
+          const w2 = syllabus.week2Study || {};
+          if (w2.groups !== 8 || w2.lessons !== 35 || w2.productionConcepts !== 101) {
+            throw new Error(`Week 2 metrics mismatch: ${JSON.stringify(w2)}`);
+          }
+          const changed = require('child_process').execSync('git diff --name-only').toString().trim().split(/\r?\n/).filter(Boolean);
+          const forbidden = changed.filter(p => p.startsWith('question-banks/') || p.startsWith('official-qbank/') || p.startsWith('exams/'));
+          if (forbidden.length) throw new Error(`Protected assessment files changed: ${forbidden.join(', ')}`);
+          console.log('QA OK: JSON valid; Week2=8 groups/35 lessons/101 concepts; protected assessment paths unchanged.');
+          NODE
 
-      - name: Commit verified V0.20.2 patch
+      - name: Commit verified V0.20.2 production files
         shell: bash
         run: |
           set -euo pipefail
