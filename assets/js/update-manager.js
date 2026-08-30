@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.18.4";
+import {resolveBuildVersion} from "./build-version.js?v=0.18.5";
 
 
 const UPDATE_KEYS={
@@ -10,10 +10,10 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.18.4",
-  title:"Analytics Version Tracking Hotfix",
+  version:"0.18.5",
+  title:"Sticky Navigation & Course Card Layout Fix",
   date:"2026-08-29",
-  summary:"Analytics now records the real installed platform version consistently.",
+  summary:"Navigation now stays available while scrolling and course cards no longer overlap.",
   highlights:[
     "Shared version resolver for Analytics and Live Update.",
     "New Analytics events record V0.18.4 instead of Unknown.",

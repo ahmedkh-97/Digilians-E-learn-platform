@@ -6287,3 +6287,101 @@ body.modal-open{overflow:hidden}
   .analytics-login-card{padding:23px 17px}
   .analytics-kpi-grid strong{font-size:20px}
 }
+
+
+/* =========================================================
+   V0.18.5 — Sticky Top Navigation + Course Card Layout Fix
+   ========================================================= */
+
+/* Keep the primary navigation available while scrolling. */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:120;
+  padding:10px 12px;
+  margin-inline:-12px;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  border-bottom:1px solid color-mix(in srgb,var(--line) 82%,transparent);
+  box-shadow:0 10px 30px rgba(18,32,62,.06);
+  backdrop-filter:blur(22px) saturate(140%);
+  -webkit-backdrop-filter:blur(22px) saturate(140%);
+}
+
+/* In local test mode, keep the sticky topbar below the test banner. */
+.test-environment .topbar{
+  top:34px;
+}
+
+/* Course cards use normal-flow layout; long descriptions can never collide
+   with the footer/count/arrow area. */
+.course-card{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  min-height:215px;
+  height:auto;
+}
+
+.course-card .course-icon{
+  flex:0 0 auto;
+}
+
+.course-card h4,
+.course-card p{
+  position:relative;
+  z-index:1;
+}
+
+.course-card p{
+  flex:0 0 auto;
+  padding-right:4px;
+}
+
+.course-footer{
+  position:relative;
+  left:auto;
+  right:auto;
+  bottom:auto;
+  width:100%;
+  margin-top:auto;
+  padding-top:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.course-footer>span:first-child{
+  min-width:0;
+  line-height:1.35;
+}
+
+.course-arrow{
+  flex:0 0 29px;
+}
+
+/* The pseudo decoration must remain behind real card content. */
+.course-card:after{
+  pointer-events:none;
+  z-index:0;
+}
+
+@media(max-width:790px){
+  .topbar{
+    top:0;
+    padding:8px 10px;
+    margin-inline:-10px;
+  }
+  .test-environment .topbar{
+    top:34px;
+  }
+  .course-card{
+    min-height:205px;
+  }
+}
+
+@media(max-width:620px){
+  .test-environment .topbar{
+    top:52px;
+  }
+}
