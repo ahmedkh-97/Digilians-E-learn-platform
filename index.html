@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" data-build-version="0.19.6">
+<html lang="en" data-theme="light" data-build-version="0.20.1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -10,13 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.19.6" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.20.1" />
 </head>
 <body>
-  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.19.6">
+  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.20.1">
     <strong>DIGILIANS TEST MODE</strong>
     <span>This is a LOCAL TEST build — not the live GitHub site.</span>
-    <b>V0.19.6</b>
+    <b>V0.20.1</b>
   </div>
   <script>
     (function () {
@@ -33,7 +33,7 @@
   <!-- STARTUP / CRASH RECOVERY — independent from app.js -->
   <div id="fatalRecovery" class="fatal-recovery hidden" role="alertdialog" aria-modal="true" aria-labelledby="fatalRecoveryTitle">
     <article class="fatal-recovery-card">
-      <span class="fatal-recovery-badge">RECOVERY MODE · V0.19.6</span>
+      <span class="fatal-recovery-badge">RECOVERY MODE · V0.20.1</span>
       <div class="fatal-recovery-icon">!</div>
       <h2 id="fatalRecoveryTitle">The platform could not start correctly.</h2>
       <p id="fatalRecoveryMessage">A startup error prevented the application from loading.</p>
@@ -121,7 +121,7 @@
         <span class="whats-new-badge">DIGILIANS E-LEARN UPDATE</span>
         <div class="whats-new-version-row">
           <h2 id="whatsNewTitle">What’s New</h2>
-          <span id="whatsNewVersion">V0.19.6</span>
+          <span id="whatsNewVersion">V0.20.1</span>
         </div>
         <p id="whatsNewSubtitle">Latest improvements, fixes and learning upgrades.</p>
       </div>
@@ -163,6 +163,7 @@
         <button data-route="learnView" class="nav-link">Learn</button>
         <button data-route="officialQbankView" class="nav-link">Official QBank</button>
         <button data-route="examsView" class="nav-link">Exams</button>
+        <button data-route="mistakesView" class="nav-link">My Mistakes</button>
         <button data-route="rankingView" class="nav-link">Ranking</button>
       </nav>
 
@@ -459,6 +460,82 @@
         </section>
       </section>
 
+
+      <!-- EXCEL MODULE EXPLORER -->
+      <section id="excelModuleExplorerView" class="view">
+        <div class="context-bar">
+          <button class="back-btn" id="excelModuleExplorerBackBtn">← Excel</button>
+          <div class="breadcrumb" id="excelModuleExplorerBreadcrumb">Learn / Data Analysis / Excel</div>
+          <span class="pill subtle desktop-only">CONTENT MAP</span>
+        </div>
+
+        <section class="excel-explorer-hero">
+          <div>
+            <span class="eyebrow">EXCEL LEARNING PATH</span>
+            <h2 id="excelModuleExplorerTitle">Excel Foundations & Data Handling</h2>
+            <p id="excelModuleExplorerDescription">Explore the connected learning groups before opening a lesson.</p>
+          </div>
+          <div class="excel-explorer-progress-card">
+            <span>MODULE PROGRESS</span>
+            <strong id="excelModuleExplorerProgress">0%</strong>
+            <div class="progress-track"><div class="progress-fill" id="excelModuleExplorerProgressFill"></div></div>
+            <small id="excelModuleExplorerProgressMeta">0 / 0 lessons completed</small>
+          </div>
+        </section>
+
+        <section class="excel-explorer-intro">
+          <div>
+            <span class="eyebrow">HOW TO USE THIS MAP</span>
+            <h3>Choose the idea you want to understand first</h3>
+            <p>Each Group contains lessons that solve related Excel problems. Open a Group to see the relationship, then choose the exact lesson you want to study.</p>
+          </div>
+          <div class="excel-explorer-source">
+            <span>SOURCE BATCH</span>
+            <strong id="excelModuleExplorerSource">Week 1 • 9 files • 262 slides</strong>
+          </div>
+        </section>
+
+        <div id="excelModuleGroupGrid" class="excel-module-group-grid"></div>
+      </section>
+
+      <!-- EXCEL GROUP EXPLORER -->
+      <section id="excelGroupExplorerView" class="view">
+        <div class="context-bar">
+          <button class="back-btn" id="excelGroupExplorerBackBtn">← Content Map</button>
+          <div class="breadcrumb" id="excelGroupExplorerBreadcrumb">Excel / Learning Group</div>
+          <span class="pill subtle desktop-only" id="excelGroupExplorerBadge">GROUP 01</span>
+        </div>
+
+        <section class="excel-group-explorer-hero">
+          <div class="excel-group-explorer-main">
+            <span class="eyebrow" id="excelGroupExplorerEyebrow">LEARNING GROUP 01</span>
+            <h2 id="excelGroupExplorerTitle">Visual Formatting & Rule Logic</h2>
+            <p id="excelGroupExplorerSubtitle"></p>
+            <div class="excel-group-explorer-relationship">
+              <span>HOW THIS GROUP FITS TOGETHER</span>
+              <p id="excelGroupExplorerRelationship"></p>
+            </div>
+            <div id="excelGroupExplorerFlow" class="excel-group-explorer-flow"></div>
+          </div>
+
+          <aside class="excel-group-explorer-progress">
+            <span>GROUP PROGRESS</span>
+            <strong id="excelGroupExplorerProgress">0%</strong>
+            <div class="progress-track"><div class="progress-fill" id="excelGroupExplorerProgressFill"></div></div>
+            <small id="excelGroupExplorerProgressMeta">0 / 0 lessons completed</small>
+          </aside>
+        </section>
+
+        <div class="section-title-row excel-lessons-heading">
+          <div>
+            <span class="eyebrow">LESSONS</span>
+            <h3>Choose what you want to study</h3>
+            <p>Open one lesson at a time. Your progress is saved locally.</p>
+          </div>
+        </div>
+        <div id="excelGroupLessonGrid" class="excel-group-lesson-grid"></div>
+      </section>
+
       <!-- STUDY -->
       <section id="studyView" class="view">
         <div class="context-bar">
@@ -665,6 +742,94 @@
         <p id="examLoadError" class="status-card danger hidden"></p>
       </section>
 
+      <!-- MY MISTAKES -->
+      <section id="mistakesView" class="view">
+        <div class="page-heading mistakes-heading">
+          <div>
+            <span class="eyebrow">PERSONAL LEARNING LOOP</span>
+            <h2>My Mistakes</h2>
+            <p dir="rtl">راجع الأسئلة اللي وقعت فيها، افهم سبب الخطأ، وجربها تاني لحد ما حالتها تبقى <bdi dir="ltr">Mastered</bdi>.</p>
+          </div>
+          <div class="mistakes-heading-actions">
+            <label class="mistakes-count-select">
+              <span>Practice</span>
+              <select id="mistakesPracticeCount" aria-label="Number of mistakes to practice">
+                <option value="10">10 questions</option>
+                <option value="20" selected>20 questions</option>
+                <option value="30">30 questions</option>
+                <option value="all">All filtered</option>
+              </select>
+            </label>
+            <button class="primary-btn" id="practiceMistakesBtn">Practice My Mistakes →</button>
+          </div>
+        </div>
+
+        <section id="mistakesMigrationNote" class="status-card info mistakes-migration-note">
+          <div class="status-icon">↺</div>
+          <div>
+            <strong>Unified mistake history</strong>
+            <p>Existing Official QBank mistakes are imported automatically. Course Practice/Exam mistakes are tracked question-by-question from this release because older result records did not store the exact wrong-question history.</p>
+          </div>
+        </section>
+
+        <section id="mistakesPracticeSummary" class="mistakes-practice-summary hidden" aria-live="polite"></section>
+
+        <div class="mistakes-summary-grid">
+          <button type="button" class="mistakes-summary-card active" data-mistake-status="active">
+            <span>ACTIVE MISTAKES</span><strong id="mistakesActiveCount">0</strong><small>Needs Review + Improving</small>
+          </button>
+          <button type="button" class="mistakes-summary-card danger" data-mistake-status="needs-review">
+            <span>NEEDS REVIEW</span><strong id="mistakesNeedsReviewCount">0</strong><small>Last recovery streak: 0</small>
+          </button>
+          <button type="button" class="mistakes-summary-card warning" data-mistake-status="improving">
+            <span>IMPROVING</span><strong id="mistakesImprovingCount">0</strong><small>1 correct recovery</small>
+          </button>
+          <button type="button" class="mistakes-summary-card success" data-mistake-status="mastered">
+            <span>MASTERED</span><strong id="mistakesMasteredCount">0</strong><small>2 correct recoveries in a row</small>
+          </button>
+        </div>
+
+        <section id="mistakesWeakTopicsSection" class="mistakes-weak-topics hidden">
+          <div class="section-title-row">
+            <div><span class="eyebrow">WEAK TOPICS</span><h3>Where to focus first</h3><p dir="rtl">الأولوية للمواضيع اللي فيها أخطاء غير محسومة وتكرار أعلى للغلط.</p></div>
+          </div>
+          <div id="mistakesWeakTopics" class="mistakes-weak-topic-row"></div>
+        </section>
+
+        <div class="mistakes-toolbar">
+          <div class="search-shell mistakes-search">
+            <span>⌕</span>
+            <input id="mistakesSearch" type="search" aria-label="Search mistakes" placeholder="Search question, topic or track..." />
+          </div>
+          <select id="mistakesSourceFilter" class="official-select" aria-label="Filter mistakes by source">
+            <option value="all">All sources</option>
+            <option value="official-qbank">Official QBank</option>
+            <option value="course">Course Practice / Exam</option>
+          </select>
+          <select id="mistakesTrackFilter" class="official-select" aria-label="Filter mistakes by track"><option value="all">All tracks</option></select>
+          <select id="mistakesTopicFilter" class="official-select" aria-label="Filter mistakes by topic"><option value="all">All topics</option></select>
+          <select id="mistakesStatusFilter" class="official-select" aria-label="Filter mistakes by mastery status">
+            <option value="active">Active mistakes</option>
+            <option value="needs-review">Needs Review</option>
+            <option value="improving">Improving</option>
+            <option value="mastered">Mastered</option>
+            <option value="all">All history</option>
+          </select>
+        </div>
+
+        <div class="mistakes-results-meta">
+          <span id="mistakesVisibleCount">0 questions</span>
+          <small>Mastered = 2 correct recoveries in a row after your latest wrong answer.</small>
+        </div>
+
+        <div id="mistakesEmpty" class="mistakes-empty hidden">
+          <span>✓</span>
+          <h3>No mistakes in this view</h3>
+          <p id="mistakesEmptyText">Complete Practice or Exams and your wrong answers will appear here automatically.</p>
+        </div>
+        <div id="mistakesList" class="mistakes-list"></div>
+      </section>
+
       <!-- SETUP -->
       <section id="setupView" class="view">
         <div class="context-bar">
@@ -809,6 +974,7 @@
 
             <div class="result-actions">
               <button class="primary-btn" id="reviewBtn">Review Answers <span>→</span></button>
+              <button class="secondary-btn" id="viewMistakesBtn">My Mistakes ↺</button>
               <button class="secondary-btn" id="retakeBtn">Retake</button>
               <button class="secondary-btn" id="viewResultRankingBtn">View Ranking ↗</button>
               <button class="secondary-btn" id="nextExamBtn">Next Exam →</button>
@@ -1175,6 +1341,7 @@
       <button data-route="learnView" class="bottom-nav-item"><span>▤</span><small>Learn</small></button>
       <button data-route="officialQbankView" class="bottom-nav-item"><span>▦</span><small>QBank</small></button>
       <button data-route="examsView" class="bottom-nav-item"><span>◉</span><small>Exams</small></button>
+      <button data-route="mistakesView" class="bottom-nav-item"><span>!</span><small>Mistakes</small></button>
       <button data-route="rankingView" class="bottom-nav-item"><span>↗</span><small>Ranking</small></button>
     </nav>
 
@@ -1185,7 +1352,7 @@
       </div>
       <div class="footer-credit">
         <button type="button" class="footer-version-btn" id="footerWhatsNewBtn">
-          <span id="footerVersionText">V0.19.6</span>
+          <span id="footerVersionText">V0.20.1</span>
           <i id="footerUpdateDot" class="footer-update-dot hidden" aria-label="Update available"></i>
           What’s New
         </button>
@@ -1219,13 +1386,17 @@
     </div>
 
     <div class="drawer-actions profile-user-actions">
+      <button class="secondary-btn wide" id="openMyMistakesBtn">
+        <span>My Mistakes</span>
+        <b id="profileMistakesCount">0 ACTIVE</b>
+      </button>
       <button class="secondary-btn wide backup-restore-drawer-btn" id="openBackupRestoreBtn">
         <span>Backup & Restore Progress</span>
         <b>LOCAL</b>
       </button>
       <button class="secondary-btn wide update-drawer-btn" id="openWhatsNewBtn">
         <span>What’s New & Updates</span>
-        <b id="profileVersionBadge">V0.19.6</b>
+        <b id="profileVersionBadge">V0.20.1</b>
       </button>
       <button class="secondary-btn wide" id="changeNameBtn">Change saved name</button>
     </div>
@@ -1404,9 +1575,9 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/analytics.js?v=0.19.6"></script>
-  <script type="module" src="assets/js/update-manager.js?v=0.19.6"></script>
-  <script type="module" src="assets/js/backup-restore.js?v=0.19.6"></script>
-  <script type="module" src="assets/js/app.js?v=0.19.6"></script>
+  <script type="module" src="assets/js/analytics.js?v=0.20.1"></script>
+  <script type="module" src="assets/js/update-manager.js?v=0.20.1"></script>
+  <script type="module" src="assets/js/backup-restore.js?v=0.20.1"></script>
+  <script type="module" src="assets/js/app.js?v=0.20.1"></script>
 </body>
 </html>

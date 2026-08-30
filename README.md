@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.19.6
+# Digilians E-Learn Platform V0.20.1
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -2436,3 +2436,122 @@ Before uploading V0.19.6 to LIVE, run:
 once in Supabase SQL Editor.
 
 Without that migration, Rankings continue to work but shared avatar requests fall back to initials.
+
+
+## Excel Week 1 Study V1
+
+Study is now implemented for Week 1:
+
+- 27 learner-facing Study sections
+- 20 Excel Core
+- 7 Statistics Prerequisite
+- 70/70 audited concepts
+- 45 source formula cards
+- Source Trace on every section
+- Excel Visual Learning renderer
+- Practice / Exam locked until Study QA approval
+
+Run `TEST-LOCAL.bat`, then open:
+
+`Learn → Data Analysis → Excel → Week 1 → Study`
+
+
+## Excel Study V2 — Group 02 Prototype
+
+Excel Study is now organized into 8 relationship-based Learning Groups.
+
+The source batch is still Week 1 internally, but the learner-facing module is:
+
+`Excel Foundations & Data Handling`
+
+Only Group 02 is rewritten in full Deep Learning V2 for approval.
+
+Run:
+
+`TEST-LOCAL.bat`
+
+Then open:
+
+`Learn → Data Analysis → Excel → Excel Foundations & Data Handling → Study`
+
+
+## Excel Module Explorer V1
+
+Excel navigation now uses:
+
+`Module → Content Map → Learning Group → Lesson → Study`
+
+The learner no longer opens the 27-lesson Study wall directly.
+
+Run:
+
+`TEST-LOCAL.bat`
+
+Then:
+
+`Learn → Data Analysis → Excel → Excel Foundations & Data Handling`
+
+## Excel Typography Readability V3.1
+
+Excel Study typography was enlarged for comfortable reading. The change is scoped to Excel Study and preserves the existing Learning Groups / Module Explorer architecture.
+
+
+## Excel Deep Learning V3.2 — Full Rollout
+
+The learner-first Deep Learning standard is now active for all current Excel lessons:
+
+- 8/8 Learning Groups
+- 27/27 lessons
+- 27 Quick Checks
+- 27 Try It activities
+- 70/70 audited concepts preserved
+- Statistics remains prerequisite-only
+- Practice/Exam remain locked
+
+Run `TEST-LOCAL.bat`, then:
+
+`Learn → Data Analysis → Excel → Excel Foundations & Data Handling → Content Map`
+
+## V0.20.0 — My Mistakes V1
+
+My Mistakes is now a universal local recovery system across Official QBank, Practice and Exams.
+
+Learner flow:
+
+`Wrong Answer → Needs Review → 1 Correct Recovery = Improving → 2 Correct Recoveries = Mastered`
+
+A new wrong answer resets the question to Needs Review.
+
+Key behavior:
+
+- existing Official QBank mistakes migrate automatically
+- new course Practice/Exam wrong questions are saved question-by-question
+- filters by source, track, topic and mastery state
+- Weak Topics prioritizes unresolved repeated mistakes
+- Retry Question and Practice My Mistakes use Instant Feedback
+- My Mistakes practice never enters Ranking
+- mistake history is included in local Backup/Restore
+
+Important migration note:
+
+Exact question-level mistakes from old non-Official attempts before V0.20.0 cannot be reconstructed because those historical result records did not store per-question answer details. Tracking starts safely from V0.20.0 without guessing.
+
+Run:
+
+`TEST-LOCAL.bat`
+
+Then verify:
+
+`My Mistakes → Retry Question → correct twice → Mastered`
+
+
+## V0.20.1 — Navbar Readability Polish
+
+Desktop navbar refinement only:
+
+- wider center navigation on large screens
+- `Official QBank` stays on one line
+- `My Mistakes` stays on one line
+- labels keep their current readable font size
+- mobile bottom navigation is unchanged
+- no content, assessment, ranking or learner-state data changed
