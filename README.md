@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.20.4
+# Digilians E-Learn Platform V0.20.5
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
