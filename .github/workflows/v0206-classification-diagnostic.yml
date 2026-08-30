@@ -1,0 +1,46 @@
+name: Diagnose Week 3 Classification
+
+on:
+  push:
+    branches:
+      - feature/v0.20.6-excel-week3-study
+    paths:
+      - .github/workflows/v0206-classification-diagnostic.yml
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/v0.20.6-excel-week3-study
+      - name: Run current generator in disposable workspace and print roles
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          y=Path('.github/workflows/v0206-week3-production.yml').read_text()
+          m=re.search(r"cat > /tmp/produce_week3\.py <<'PY'\n(.*?)\n          PY\n          python /tmp/produce_week3\.py",y,re.S)
+          if not m: raise SystemExit('generator block not found')
+          lines=[]
+          for line in m.group(1).splitlines():
+              lines.append(line[10:] if line.startswith('          ') else line)
+          Path('/tmp/produce_week3.py').write_text('\n'.join(lines)+'\n')
+          PY
+          python /tmp/produce_week3.py
+          python - <<'PY'
+          import json
+          from collections import Counter
+          sy=json.load(open('data/syllabus-maps/excel.json',encoding='utf-8'))
+          cur=json.load(open('data/curriculum/excel.json',encoding='utf-8'))
+          st=[x for x in sy['topics'] if x.get('week')==3]
+          ct=[x for x in cur['topics'] if x.get('week')==3]
+          print('SYLLABUS ROLE COUNTS',Counter(x.get('role') for x in st))
+          print('SYLLABUS ASSESSMENT',Counter(x.get('assessmentEligible') for x in st))
+          print('CURRICULUM ROLE COUNTS',Counter(x.get('role') for x in ct))
+          print('CURRICULUM IMPORTANCE',Counter(x.get('importance') for x in ct))
+          print('SAMPLE NON-ELIGIBLE',[(x.get('id'),x.get('role'),x.get('assessmentEligible')) for x in st if not x.get('assessmentEligible')][:8])
+          PY
