@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
+// Regression coverage for V0.20.4 Reset My Mistakes.
 class MemoryStorage {
   constructor(seed={}){this.map=new Map(Object.entries(seed));}
   getItem(key){return this.map.has(key)?this.map.get(key):null;}
