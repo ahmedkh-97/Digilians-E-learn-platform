@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.18.4
+# Digilians E-Learn Platform V0.18.5
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -2022,3 +2022,13 @@ Pre-Deploy now verifies:
 - valid build version never becomes `unknown`
 - `Unknown` is never rendered as `Vunknown`
 - historical backfill SQL remains present
+
+
+## V0.18.5 — Sticky Navigation & Course Card Layout Fix
+
+- Desktop top navigation now remains visible while scrolling.
+- Sticky navigation uses a light glass treatment without changing the primary navigation structure.
+- Local TEST banner receives a safe top offset.
+- Course cards now use flex-column normal flow.
+- Course footers are no longer absolutely positioned.
+- Long descriptions can never overlap module/track counts or the arrow.

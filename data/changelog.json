@@ -1,6 +1,20 @@
 {
-  "latest": "0.18.4",
+  "latest": "0.18.5",
   "releases": [
+    {
+      "version": "0.18.5",
+      "title": "Sticky Navigation & Course Card Layout Fix",
+      "date": "2026-08-30",
+      "summary": "The main navigation now follows scrolling, and course-card text can no longer overlap its footer controls.",
+      "highlights": [
+        "Desktop top navigation is now sticky with a light glass background while scrolling.",
+        "Local TEST banner and sticky navigation no longer cover each other.",
+        "Course cards now use normal-flow flex layout instead of an absolutely positioned footer.",
+        "Long course descriptions can grow naturally without colliding with module/track counts or arrows.",
+        "Desktop and mobile layout regressions added."
+      ],
+      "type": "fix"
+    },
     {
       "version": "0.18.4",
       "title": "Analytics Version Tracking Hotfix",
@@ -67,18 +81,6 @@
         "Syllabus Coverage retained inside collapsed Platform Diagnostics."
       ],
       "type": "learning"
-    },
-    {
-      "version": "0.17.3",
-      "title": "Code Parser Hardening",
-      "date": "2026-08-29",
-      "summary": "Improved Python code-block parsing for loops, list literals, lambda and Pandas answer choices.",
-      "highlights": [
-        "755 Python questions audited with zero fragmented code programs.",
-        "Improved code-only answer detection and task labels.",
-        "Display-only Bidi cleanup without changing official source text."
-      ],
-      "type": "fix"
     }
   ]
 }
