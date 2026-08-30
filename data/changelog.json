@@ -1,6 +1,20 @@
 {
-  "latest": "0.20.3",
+  "latest": "0.20.4",
   "releases": [
+    {
+      "version": "0.20.4",
+      "title": "Reset My Mistakes",
+      "date": "2026-08-30",
+      "type": "feature",
+      "summary": "My Mistakes can now be reset safely after testing without deleting learner results or Ranking history.",
+      "highlights": [
+        "Added a Reset My Mistakes button with the current mistake count and two-step confirmation.",
+        "Clears Needs Review, Improving and Mastered history for the current local learner profile.",
+        "Clears only Official QBank mistake flags to prevent previously imported test mistakes from returning after refresh.",
+        "Preserves Exam results, Ranking, QBank reviewed questions, bookmarks, saved answers, Study progress, name and avatar.",
+        "Any unfinished My Mistakes recovery attempt is cleared so the reset starts from a clean recovery state."
+      ]
+    },
     {
       "version": "0.20.3",
       "title": "Learn Coverage Optional-Metadata Hotfix",

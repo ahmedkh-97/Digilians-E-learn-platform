@@ -207,6 +207,18 @@ export function removeMistake(ownerId,key,{storage=globalThis.localStorage}={}){
   return true;
 }
 
+export function clearMistakesForOwner(ownerId,{storage=globalThis.localStorage}={}){
+  const store=readStore(storage);
+  const key=normalizeOwnerId(ownerId);
+  const owner=store.owners?.[key];
+  if(!owner)return 0;
+  const cleared=Object.keys(owner.items||{}).length;
+  owner.items={};
+  owner.updatedAt=new Date().toISOString();
+  writeStore(store,storage);
+  return cleared;
+}
+
 export function questionFromMistake(item){
   const q=item?.question||{};
   return {

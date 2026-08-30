@@ -4,7 +4,7 @@ import {
   getStudyProgress,updateStudyProgress,clearStudyProgress,
   getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
-  getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes
+  getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
 } from "./storage.js";
 
 import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
@@ -21,8 +21,8 @@ import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
 import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,MASTERY_STREAK} from "./mistakes.js?v=0.20.3";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.3";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,clearMistakesForOwner,MASTERY_STREAK} from "./mistakes.js?v=0.20.4";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.4";
 
 const state={
   studentName:"",
@@ -542,6 +542,8 @@ async function renderMistakes(){
   $("mistakesNeedsReviewCount").textContent=summary["needs-review"];
   $("mistakesImprovingCount").textContent=summary.improving;
   $("mistakesMasteredCount").textContent=summary.mastered;
+  const resetBtn=$("resetMistakesBtn");
+  if(resetBtn){resetBtn.disabled=summary.total===0;resetBtn.textContent=summary.total?`Reset My Mistakes (${summary.total})`:"Reset My Mistakes";}
   renderMistakeWeakTopics();renderMistakesPracticeSummary();renderMistakesList();
 }
 function selectedMistakePracticeItems(){
@@ -591,6 +593,26 @@ document.querySelectorAll("[data-mistake-status]").forEach(btn=>btn.addEventList
   renderMistakesList();
 }));
 $("practiceMistakesBtn")?.addEventListener("click",()=>startMistakesPractice(selectedMistakePracticeItems()));
+$("resetMistakesBtn")?.addEventListener("click",async()=>{
+  const summary=getMistakeSummary(mistakeOwnerId());
+  if(!summary.total){showToast("No saved mistakes to clear.");return}
+  const profile=state.studentName?` for ${state.studentName}`:"";
+  if(!confirm(`Clear all ${summary.total} saved mistakes${profile}? Needs Review, Improving and Mastered history will be removed. Exam results, Ranking, bookmarks, reviewed questions and saved answers will stay.`))return;
+  if(!confirm("Final confirmation: permanently reset My Mistakes on this device? This cannot be undone unless you restore an older backup."))return;
+
+  const cleared=clearMistakesForOwner(mistakeOwnerId());
+  const officialFlagsCleared=clearOfficialMistakeFlags();
+  const saved=getExamProgress();
+  if(String(saved?.examId||"").startsWith("my-mistakes-"))clearExamProgress();
+  state.mistakesOfficialSeeded=true;
+  state.mistakesPracticeSummary=null;
+  state.mistakesPracticeKeys=[];
+  state.mistakesStatusFilter="active";
+  if($("mistakesStatusFilter"))$("mistakesStatusFilter").value="active";
+  emitAnalytics("mistakes_reset",{metadata:{mistakesCleared:cleared,officialFlagsCleared}});
+  await renderMistakes();
+  showToast(`${cleared} saved mistake${cleared===1?"":"s"} cleared. Results and Ranking were kept.`);
+});
 
 const achievementDefs=[
   {id:"first-step",icon:"✦",title:"First Step",desc:"Complete your first exam.",test:r=>r.length>=1},
