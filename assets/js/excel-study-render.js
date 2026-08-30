@@ -4,6 +4,18 @@ function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&l
 function roleLabel(s){return s.role==="statistics-prerequisite"?"PREREQUISITE • STATISTICS":"EXCEL CORE";}
 function renderFormulas(items=[]){if(!items.length)return "";return `<section class="excel-study-block excel-formula-lab"><div class="excel-block-head"><span>FORMULA LAB</span><strong>نفهم الصيغة ونستخدمها صح</strong></div><div class="excel-formula-grid">${items.map(x=>`<article><h4>${esc(x.title)}</h4>${String(x.formula||"").startsWith("=")?renderTechnicalCodeBlock(x.formula,"excel"):`<pre class="excel-stat-formula" dir="ltr">${esc(x.formula)}</pre>`}<p dir="rtl">${formatStudyMixedText(x.explanationAr||"")}</p></article>`).join("")}</div></section>`;}
 function renderSteps(items=[]){if(!items.length)return "";return `<section class="excel-study-block"><div class="excel-block-head"><span>WORKFLOW</span><strong>نمشي خطوة بخطوة</strong></div><div class="excel-step-list" dir="ltr">${items.map((x,i)=>`<div><span>${String(i+1).padStart(2,"0")}</span><p>${esc(x)}</p></div>`).join("")}</div></section>`;}
+function renderTechnicalLabs(items=[]){
+  if(!items.length)return "";
+  return `<section class="excel-study-block excel-technical-labs">
+    <div class="excel-block-head"><span>TECHNICAL LAB</span><strong>اقرأ الـsyntax في سياقه</strong></div>
+    <div class="excel-technical-lab-grid">${items.map(x=>`<article>
+      <div class="excel-technical-lab-head"><span>${esc(x.label||x.language||"CODE")}</span><h4>${esc(x.title||"")}</h4></div>
+      ${renderTechnicalCodeBlock(x.code||"",x.language||"generic")}
+      <p dir="rtl">${formatStudyMixedText(x.explanationAr||"")}</p>
+    </article>`).join("")}</div>
+    <small class="excel-visual-label">SOURCE-SUPPORTED TECHNICAL CONTENT — no invented syntax</small>
+  </section>`;
+}
 function chips(items=[]){return `<div class="excel-visual-chips" dir="ltr">${items.map(x=>`<span>${esc(x)}</span>`).join("")}</div>`;}
 function visual(v){if(!v)return "";const head=`<div class="excel-block-head"><span>VISUAL MODEL</span><strong>${esc(v.title||"")}</strong></div>`;
  if(v.kind==="conditional-grid"){const avg=(v.values||[]).reduce((a,b)=>a+b,0)/(v.values?.length||1);return `<section class="excel-study-block excel-visual-card">${head}<div class="excel-sheet-grid">${(v.values||[]).map((x,i)=>`<div class="${x<avg?"match":""}"><small>A${i+1}</small><strong>${x}</strong></div>`).join("")}</div><small class="excel-visual-label">PLATFORM VISUAL CLARIFICATION — ${esc(v.rule||"")}</small></section>`;}
@@ -263,6 +275,7 @@ function renderExcelDeepSectionHtml(s,index){
     ${renderComparisonTable(d.decisionTable,"DECISION TABLE")}
     ${d.useSourceFormulaCards!==false?renderFormulas(l.formulas||[]):""}
     ${d.useSourceSteps!==false?renderSteps(l.steps||[]):""}
+    ${renderTechnicalLabs(d.technicalLabs||[])}
     ${renderMistakes(d.commonMistakes||[])}
     ${renderTryIt(d.tryIt)}
     ${renderQuickCheck(d.quickCheck,s.id)}

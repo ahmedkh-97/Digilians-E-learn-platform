@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.20.1";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.2";
 
 
 const UPDATE_KEYS={
@@ -10,18 +10,18 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.20.1",
-  title:"Navbar Readability Polish",
+  version:"0.20.2",
+  title:"Excel Week 2 Study Production",
   date:"2026-08-30",
-  summary:"The desktop navigation now gives long labels enough room to stay on one line.",
+  summary:"Excel Week 2 is now available as 8 connected Deep Learning V3.2 groups and 35 source-traced lessons.",
   highlights:[
-    "Wider desktop navigation for the six main destinations.",
-    "Official QBank and My Mistakes stay on one line instead of wrapping.",
-    "Navigation labels keep their current readable font size instead of being shrunk.",
-    "Responsive behavior and mobile bottom navigation remain unchanged.",
-    "No learning, assessment, ranking or My Mistakes data was changed."
+    "Added Week 2 Excel Study: 8 Learning Groups / 35 lessons / 101 non-reuse production concepts.",
+    "Preserved Week 1 overlap rules instead of duplicating FILTER, Consolidation, Data Entry Form and Sparklines.",
+    "Added source-supported technical labs for VBA, Python in Excel and Power Query M.",
+    "Text.End contradiction, environment-dependent ActiveX/VBA, visual-only chart limits and missing companion files are explicitly labeled.",
+    "Excel Practice and Exam remain locked until Study/source-trace and local visual QA are approved."
   ],
-  type:"fix"
+  type:"feature"
 };
 
 export function normalizeVersion(value){

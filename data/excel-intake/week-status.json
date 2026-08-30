@@ -39,14 +39,39 @@
     },
     {
       "week": 2,
-      "status": "not-started",
-      "sourceCount": 0,
-      "sourceIds": [],
-      "sequenceConfirmed": false,
-      "coverageAudited": false,
+      "status": "study-production",
+      "sourceCount": 10,
+      "sourceIds": [
+        "excel-w2-s01",
+        "excel-w2-s02",
+        "excel-w2-s03",
+        "excel-w2-s04",
+        "excel-w2-s05",
+        "excel-w2-s06",
+        "excel-w2-s07",
+        "excel-w2-s08",
+        "excel-w2-s09",
+        "excel-w2-s10"
+      ],
+      "sequenceConfirmed": true,
+      "coverageAudited": true,
       "studyReady": false,
       "assessmentReady": false,
-      "notes": []
+      "notes": [
+        "Week 2 full audit complete: Lectures 19–28 / 10 PPTX / 194 slides.",
+        "108 source clusters audited; 7 reuse-only clusters are not duplicated in Study.",
+        "101 non-reuse production concepts mapped exactly once into 35 Study lessons.",
+        "8 learner-facing Groups approved and implemented using Excel Deep Learning V3.2.",
+        "QA boundaries preserved: Text.End correction, ActiveX/VBA environment dependency, visual-only chart/dashboard limits, Python/Pandas bridge, missing companion files.",
+        "Practice and Exam remain blocked until Study/source-trace/local visual QA approval."
+      ],
+      "studyProduction": {
+        "sections": 35,
+        "learningGroups": 8,
+        "productionConceptCoverage": "101/101",
+        "sourceConceptReference": "108 audited / 7 reuse-only",
+        "status": "implemented-awaiting-local-approval"
+      }
     },
     {
       "week": 3,

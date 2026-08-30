@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.20.1
+# Digilians E-Learn Platform V0.20.2
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -2555,3 +2555,12 @@ Desktop navbar refinement only:
 - labels keep their current readable font size
 - mobile bottom navigation is unchanged
 - no content, assessment, ranking or learner-state data changed
+
+
+## V0.20.2 — Excel Week 2 Study Production
+
+- Excel Week 2 added as 8 relationship-based Learning Groups and 35 Deep Learning V3.2 lessons.
+- 101 non-reuse Week 2 concepts are mapped exactly once; 7 reuse-only clusters remain linked to Week 1 instead of duplicated.
+- Source-supported VBA / Python in Excel / Power Query M Technical Labs render through the technical content system.
+- Source QA warnings remain visible: Text.End correction, ActiveX/VBA environment dependency, visual-only limits, cross-track Python boundary and missing companion files.
+- Excel Practice/Exam remain locked pending Study/source-trace and local visual QA approval.
