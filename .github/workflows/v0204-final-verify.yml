@@ -1,0 +1,53 @@
+name: V0.20.4 Final Verification
+
+on:
+  push:
+    branches:
+      - feature/v0.20.4-reset-my-mistakes
+    paths:
+      - '.github/workflows/v0204-final-verify.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  verify-cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/v0.20.4-reset-my-mistakes
+          fetch-depth: 0
+      - name: Run regression and final scope verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test tests/reset-mistakes.test.mjs
+          test "$(head -n1 VERSION.txt)" = "0.20.4"
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          data=json.loads(Path('data/changelog.json').read_text())
+          assert data['latest']=='0.20.4'
+          files=subprocess.check_output(['git','diff','--name-only','origin/main...HEAD'],text=True).splitlines()
+          forbidden=[f for f in files if f.startswith(('question-banks/','official-qbank/','exams/'))]
+          assert not forbidden, forbidden
+          expected={
+            'README.md','VERSION.txt','assets/css/style.css','assets/js/analytics.js','assets/js/app.js',
+            'assets/js/backup-restore.js','assets/js/mistakes.js','assets/js/storage.js','assets/js/update-manager.js',
+            'data/changelog.json','index.html','tests/reset-mistakes.test.mjs',
+            '.github/workflows/v0204-final-verify.yml'
+          }
+          assert set(files)==expected,(set(files)-expected,expected-set(files))
+          print('Final scope verified:', len(files)-1, 'production/test files + temporary verifier')
+          PY
+      - name: Remove temporary verifier after success
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/v0204-final-verify.yml
+          git config user.name 'Ahmed Khaled'
+          git config user.email 'ahmedkph97@gmail.com'
+          git add -A
+          git commit -m 'Remove temporary V0.20.4 verifier'
+          git push origin HEAD:feature/v0.20.4-reset-my-mistakes
