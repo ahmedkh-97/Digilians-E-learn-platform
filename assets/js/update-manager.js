@@ -1,3 +1,5 @@
+import {resolveBuildVersion} from "./build-version.js?v=0.18.4";
+
 
 const UPDATE_KEYS={
   seenVersion:"digilians.whatsNew.seenVersion",
@@ -8,15 +10,15 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.18.3",
-  title:"Private Platform Analytics V1",
+  version:"0.18.4",
+  title:"Analytics Version Tracking Hotfix",
   date:"2026-08-29",
-  summary:"Private anonymous product analytics are now available for the approved admin.",
+  summary:"Analytics now records the real installed platform version consistently.",
   highlights:[
-    "Private Analytics dashboard protected by Supabase Auth + RLS.",
-    "Anonymous visitors, sessions, learning activity and version adoption.",
-    "No learner names or question answers collected by analytics.",
-    "Existing Live Update and What’s New behavior remains active."
+    "Shared version resolver for Analytics and Live Update.",
+    "New Analytics events record V0.18.4 instead of Unknown.",
+    "Historical V0.18.3 Unknown events can be backfilled with the included SQL.",
+    "Existing privacy, RLS and exam-safety behavior remains unchanged."
   ],
   type:"feature"
 };
@@ -56,7 +58,7 @@ export function buildUpdateUrl(locationLike,latestVersion,now=Date.now()){
 }
 
 function currentBuildVersion(){
-  return normalizeVersion(document.documentElement.dataset.buildVersion)?.raw || FALLBACK_RELEASE.version;
+  return normalizeVersion(resolveBuildVersion(document,FALLBACK_RELEASE.version))?.raw || FALLBACK_RELEASE.version;
 }
 
 function isExamActive(){

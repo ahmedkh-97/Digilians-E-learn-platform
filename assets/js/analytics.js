@@ -1,3 +1,5 @@
+import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.18.4";
+
 
 const SUPABASE_URL="https://gbyxpwcjfzxpxxbbwnzf.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_tb1vaMv8eB98FcaaqLLl3A_k1nXSdgJ";
@@ -89,7 +91,7 @@ function normalizeId(value,max=160){
 }
 
 function currentVersion(){
-  return String(document.documentElement.dataset.buildVersion||"unknown").replace(/^v/i,"");
+  return resolveBuildVersion(document,"unknown");
 }
 
 function isLocalTestEnvironment(){
@@ -612,7 +614,7 @@ function renderVersions(summary){
     <div class="analytics-version-row">
       <div>
         <span class="analytics-version-dot ${index===0?"current":""}"></span>
-        <strong>V${escapeHtml(version)}</strong>
+        <strong>${escapeHtml(displayBuildVersion(version))}</strong>
       </div>
       <span>${count} visitor${count===1?"":"s"}</span>
       <b>${Math.round(count/total*100)}%</b>
@@ -646,7 +648,7 @@ function renderRecent(events){
       <span>${escapeHtml(fmtTime(e.created_at))}</span>
       <strong>${escapeHtml(EVENT_LABELS[e.event_type]||e.event_type||"Event")}</strong>
       <span>${escapeHtml(recentContext(e))}</span>
-      <span>V${escapeHtml(e.platform_version||"—")}</span>
+      <span>${escapeHtml(displayBuildVersion(e.platform_version))}</span>
     </div>`).join("");
 }
 
@@ -893,5 +895,7 @@ export const analyticsTestApi={
   TRACK_LABELS,
   ROUTE_LABELS,
   EVENT_LABELS,
-  isLocalTestEnvironment
+  isLocalTestEnvironment,
+  currentVersion,
+  displayBuildVersion
 };

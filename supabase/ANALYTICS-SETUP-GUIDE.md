@@ -109,3 +109,20 @@ Unique Visitors are browser/device approximations because students do not have a
 Clearing browser storage or using another browser/device creates a new anonymous visitor ID.
 
 Anonymous public analytics can also be intentionally spoofed by a technically determined user. The dashboard is intended for practical product-usage insight, not audited billing/security telemetry.
+
+
+## V0.18.4 — one-time historical version backfill
+
+If Analytics was already collecting data on V0.18.3 and the dashboard showed `Unknown` under Version:
+
+1. Deploy V0.18.4 first.
+2. Open Supabase → SQL Editor.
+3. Run:
+
+`supabase/BACKFILL-ANALYTICS-VERSION-V0.18.4.sql`
+
+This changes only Analytics rows whose `platform_version` is exactly `unknown`.
+
+They are assigned `0.18.3` because Analytics did not exist before V0.18.3.
+
+Future V0.18.4+ events use the corrected shared build-version resolver automatically.

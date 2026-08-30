@@ -1,6 +1,20 @@
 {
-  "latest": "0.18.3",
+  "latest": "0.18.4",
   "releases": [
+    {
+      "version": "0.18.4",
+      "title": "Analytics Version Tracking Hotfix",
+      "date": "2026-08-30",
+      "summary": "Fixed Analytics version detection so new events record the real platform version instead of Unknown.",
+      "highlights": [
+        "Analytics and Live Update now share one build-version resolver.",
+        "The canonical build version is also stored directly on the HTML root element.",
+        "Analytics event/version displays no longer render Vunknown.",
+        "A one-time Supabase backfill script is included for V0.18.3 Unknown events.",
+        "Regression tests now fail if an Analytics event becomes Unknown while a valid build version exists."
+      ],
+      "type": "fix"
+    },
     {
       "version": "0.18.3",
       "title": "Private Platform Analytics V1",
@@ -65,18 +79,6 @@
         "Display-only Bidi cleanup without changing official source text."
       ],
       "type": "fix"
-    },
-    {
-      "version": "0.17.2",
-      "title": "Universal Code Readability",
-      "date": "2026-08-29",
-      "summary": "Unified code rendering across Python, SQL, DAX, Excel formulas and Power Query M.",
-      "highlights": [
-        "Language badges, syntax highlighting and line numbers.",
-        "Code-aware question options, feedback and review.",
-        "Responsive LTR code blocks across the platform."
-      ],
-      "type": "feature"
     }
   ]
 }

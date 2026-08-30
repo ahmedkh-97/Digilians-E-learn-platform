@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.18.3
+# Digilians E-Learn Platform V0.18.4
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -1952,3 +1952,73 @@ Because learners do not log in, Unique Visitors are approximate browser/device c
 Clearing browser storage or using another browser/device creates a new anonymous visitor ID.
 
 Anonymous event insertion can also be deliberately spoofed by a technically determined user. These analytics are intended for product-learning insight, not audited financial/security telemetry.
+
+
+## V0.18.4 — Analytics Version Tracking Hotfix
+
+### Root cause
+V0.18.3 stored the build version on the local environment banner:
+
+`[data-build-version="0.18.3"]`
+
+but `analytics.js` tried to read:
+
+`document.documentElement.dataset.buildVersion`
+
+The HTML root did not have that attribute, so Analytics stored:
+
+`platform_version = "unknown"`
+
+The dashboard then rendered that as `Vunknown`.
+
+### Fix
+V0.18.4 adds one shared module:
+
+`assets/js/build-version.js`
+
+Both:
+- `analytics.js`
+- `update-manager.js`
+
+now use the same build-version resolver.
+
+The canonical build version is also written directly on the `<html>` root.
+
+Resolver order:
+1. HTML root `data-build-version`
+2. first `[data-build-version]` fallback
+3. Environment Banner fallback
+4. explicit fallback only if no valid version exists
+
+### Display hardening
+Unknown/invalid version values display as:
+
+`Unknown`
+
+never:
+
+`Vunknown`
+
+### Historical V0.18.3 repair
+V0.18.3 was the first Analytics release, so existing `unknown` Analytics events belong to V0.18.3.
+
+Run once in Supabase SQL Editor:
+
+`supabase/BACKFILL-ANALYTICS-VERSION-V0.18.4.sql`
+
+The script updates only rows where:
+
+`platform_version = 'unknown'`
+
+to:
+
+`0.18.3`
+
+### Regression protection
+Pre-Deploy now verifies:
+- HTML root version = VERSION.txt
+- Environment Banner version = VERSION.txt
+- Analytics + Update Manager import the same versioned resolver
+- valid build version never becomes `unknown`
+- `Unknown` is never rendered as `Vunknown`
+- historical backfill SQL remains present
