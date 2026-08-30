@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.19.4
+# Digilians E-Learn Platform V0.19.6
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -2357,3 +2357,82 @@ New-user onboarding remains different: new learners can still choose an avatar o
 ### Safety
 
 The rollout occurs on startup/welcome, not in the middle of an active exam. Existing Exam Resume state is untouched. Avatar/category remains local-only and is not sent to Analytics or ranking.
+
+
+## V0.19.5 — Ranking Avatar Integration
+
+The learner's selected Soft 3D avatar now follows them into Ranking.
+
+Current-user rendering:
+- exam leaderboard row
+- aggregate / Official Total Grades row
+- Top-3 podium when applicable
+
+Privacy behavior is intentionally unchanged:
+- the local avatar is rendered only for the row whose `player_id` matches the current browser learner
+- avatar ID/category is not uploaded to Supabase
+- other users therefore remain initials on this browser
+
+This fixes the previous UX where Navbar/Profile showed a Soft 3D avatar but the same learner still appeared as initials in Ranking.
+
+No ranking score, percentage, timing, tie-break, assessment or Supabase schema logic changed.
+
+
+## V0.19.6 — Shared Ranking Avatars
+
+V0.19.5 displayed a learner's own avatar locally in Ranking.
+
+V0.19.6 makes avatars shared across all leaderboard viewers.
+
+### Architecture
+
+New Supabase table:
+
+`public.ranking_profiles`
+
+Columns:
+- `player_id`
+- `avatar_id`
+- `updated_at`
+
+No gender/category is uploaded.
+
+No learner answers are uploaded.
+
+No ranking-attempt schema is changed.
+
+### Sync behavior
+
+When a learner with a valid Soft 3D avatar:
+- opens V0.19.6
+- chooses an avatar
+- changes an avatar
+- completes returning-user rollout
+
+the browser upserts:
+
+`player_id → avatar_id`
+
+into `ranking_profiles`.
+
+### Ranking behavior
+
+When a Ranking is loaded:
+
+1. attempts are fetched normally
+2. unique `player_id` values are collected
+3. matching `ranking_profiles` are fetched
+4. every row/podium avatar is resolved from the shared profile map
+5. initials remain the fallback if a learner has not synced an avatar yet
+
+This works for historical ranking attempts because the avatar is stored separately from attempts.
+
+### Required Supabase migration
+
+Before uploading V0.19.6 to LIVE, run:
+
+`supabase/RANKING-AVATARS-V0.19.6.sql`
+
+once in Supabase SQL Editor.
+
+Without that migration, Rankings continue to work but shared avatar requests fall back to initials.
