@@ -15,12 +15,14 @@ import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
 import {evaluateTrackReadiness,finalStatusFromTracks} from "./readiness.js";
 import {evaluateCoverageReadiness,topicPerformance} from "./coverage-engine.js";
-import {loadOfficialTrack,loadOfficialSection,buildOfficialSectionExam,buildOfficialTrackExam,buildOfficialFinal,officialSectionExamId,officialTrackRandomExamId} from "./official-qbank.js";
+import {loadOfficialTrack,loadOfficialSection,buildOfficialSectionExam,buildOfficialTrackExam,buildOfficialFinal,officialSectionExamId,officialTrackRandomExamId,getOfficialTrack} from "./official-qbank.js";
 import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
 import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
+import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
 import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.19.6";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,MASTERY_STREAK} from "./mistakes.js?v=0.20.1";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.1";
 
 const state={
   studentName:"",
@@ -37,6 +39,9 @@ const state={
   selectedCourse:null,
   selectedTrack:null,
   selectedModule:null,
+  excelExplorerGroupId:null,
+  excelStudyGroupId:null,
+  excelStudyStartSectionId:null,
   currentExam:null,
   currentRegistryItem:null,
   answers:{},
@@ -65,11 +70,15 @@ const state={
   validatorRegistryEntry:null,
   officialRegistry:{tracks:[],levels:[]},officialFinalBlueprints:[],
   officialLevelId:"junior-data-analysis",officialTrackId:null,officialSectionId:null,officialQuestions:[],officialFiltered:[],officialIndex:0,
-  currentRankedActivity:false,identityContinuation:null
+  currentRankedActivity:false,identityContinuation:null,
+  mistakesOfficialSeeded:false,
+  mistakesStatusFilter:"active",
+  mistakesPracticeSummary:null,
+  mistakesPracticeKeys:[]
 };
 
 const $=id=>document.getElementById(id);
-const views=["welcomeView","dashboardView","learnView","studyView","officialQbankView","officialJuniorView","officialTrackView","officialStudyView","examsView","setupView","examView","resultView","reviewView","rankingView","analyticsView","validatorView"];
+const views=["welcomeView","dashboardView","learnView","excelModuleExplorerView","excelGroupExplorerView","studyView","officialQbankView","officialJuniorView","officialTrackView","officialStudyView","examsView","mistakesView","setupView","examView","resultView","reviewView","rankingView","analyticsView","validatorView"];
 
 function emitAnalytics(eventType,detail={}){
   try{
@@ -102,15 +111,18 @@ function routeTo(id){
   window.scrollTo({top:0,behavior:"smooth"});
   if(id==="dashboardView") renderDashboard();
   if(id==="learnView") renderLearn();
+  if(id==="excelModuleExplorerView") renderExcelModuleExplorer();
+  if(id==="excelGroupExplorerView") renderExcelGroupExplorer();
   if(id==="officialQbankView") renderOfficialHub();
   if(id==="officialJuniorView") renderOfficialJuniorHub();
   if(id==="officialTrackView") renderOfficialTrackHub();
   if(id==="examsView") renderExamLibrary($("examSearch")?.value || "");
+  if(id==="mistakesView") void renderMistakes();
   if(id==="rankingView"){renderRankedResumeBanner();renderRanking()}
 }
 
 function updateNav(viewId){
-  const map={dashboardView:"dashboardView",learnView:"learnView",officialQbankView:"officialQbankView",officialJuniorView:"officialQbankView",officialTrackView:"officialQbankView",officialStudyView:"officialQbankView",examsView:"examsView",rankingView:"rankingView"};
+  const map={dashboardView:"dashboardView",learnView:"learnView",excelModuleExplorerView:"learnView",excelGroupExplorerView:"learnView",studyView:"learnView",officialQbankView:"officialQbankView",officialJuniorView:"officialQbankView",officialTrackView:"officialQbankView",officialStudyView:"officialQbankView",examsView:"examsView",mistakesView:"mistakesView",rankingView:"rankingView"};
   document.querySelectorAll("[data-route]").forEach(btn=>{
     btn.classList.toggle("active",btn.dataset.route===map[viewId]);
   });
@@ -320,6 +332,265 @@ function getStats(){
   const badges=getAchievements(results);
   return {results,completed,best,attempts:results.length,badges};
 }
+
+function mistakeOwnerId(){return state.playerId || getPlayerId()}
+function mistakeTrackMeta(levelId,trackId){
+  return getOfficialTrack(state.officialRegistry,levelId,trackId) || null;
+}
+function parseOfficialMistakeTrackKey(key){
+  const parts=String(key||"").split("::");
+  if(parts.length>=3)return {levelId:parts[0],sourceRevision:parts[1],trackId:parts.slice(2).join("::")};
+  if(parts.length===2)return {levelId:parts[0],sourceRevision:"source-r1",trackId:parts[1]};
+  return {levelId:"junior-data-analysis",sourceRevision:"source-r1",trackId:parts[0]||""};
+}
+function mistakeContextForQuestion(q,exam=state.currentExam?.exam,override={}){
+  const official=exam?.generatedFromOfficialQbank || null;
+  const trackId=override.trackId || official?.trackId || q?.trackId || state.selectedTrack?.id || state.currentRegistryItem?.trackId || "";
+  const levelId=override.levelId || official?.levelId || "";
+  const officialMeta=levelId && trackId?mistakeTrackMeta(levelId,trackId):null;
+  const sourceType=override.sourceType || (official || q?.sourceType==="official-qbank"?"official-qbank":"course");
+  return {
+    sourceType,
+    official:sourceType==="official-qbank",
+    courseId:override.courseId || state.selectedCourse?.id || "",
+    course:override.course || exam?.course || state.selectedCourse?.title || (sourceType==="official-qbank"?"Data Analysis":""),
+    trackId,
+    track:override.track || q?.track || officialMeta?.track || state.selectedTrack?.title || exam?.module || trackId || "General",
+    moduleId:override.moduleId || state.selectedModule?.id || "",
+    module:override.module || exam?.module || state.selectedModule?.title || "",
+    levelId,
+    examId:override.examId || exam?.id || "",
+    examTitle:override.examTitle || exam?.title || "",
+    topic:override.topic || displayTopicForQuestion(q)
+  };
+}
+function recordAttemptMistakeOutcomes(questions,answers,exam=state.currentExam?.exam){
+  for(const q of questions||[]){
+    const selected=answers?.[q.id] ?? null;
+    if(selected===null || selected===undefined || selected==="")continue;
+    recordMistakeOutcome({
+      ownerId:mistakeOwnerId(),studentName:state.studentName,question:q,selected,
+      context:q.mistakeContext?{...mistakeContextForQuestion(q,exam),...q.mistakeContext}:mistakeContextForQuestion(q,exam)
+    });
+  }
+}
+async function ensureOfficialMistakesImported(){
+  if(state.mistakesOfficialSeeded)return;
+  const officialState=getOfficialQbankState();
+  const existingOfficial=new Set(getMistakes(mistakeOwnerId(),{includeMastered:true})
+    .filter(item=>item.context?.sourceType==="official-qbank")
+    .map(item=>`${item.context?.levelId||"junior-data-analysis"}::${item.context?.trackId||item.question?.trackId||""}::${item.question?.id||""}`));
+  const entries=Object.entries(officialState?.tracks||{}).filter(([,record])=>(record?.mistakes||[]).length);
+  for(const [trackKey,record] of entries){
+    const parsed=parseOfficialMistakeTrackKey(trackKey);
+    if(!parsed.trackId)continue;
+    const missingIds=(record.mistakes||[]).filter(questionId=>!existingOfficial.has(`${parsed.levelId}::${parsed.trackId}::${questionId}`));
+    if(!missingIds.length)continue;
+    try{
+      const questions=await loadOfficialTrack(state.officialRegistry,parsed.trackId,loadJson,parsed.levelId);
+      const byId=new Map(questions.map(q=>[q.id,q]));
+      const meta=mistakeTrackMeta(parsed.levelId,parsed.trackId);
+      for(const questionId of missingIds){
+        const q=byId.get(questionId);if(!q)continue;
+        seedMistake({
+          ownerId:mistakeOwnerId(),studentName:state.studentName,question:q,
+          selected:record.answers?.[questionId]||null,
+          context:{
+            sourceType:"official-qbank",official:true,course:"Data Analysis",
+            trackId:parsed.trackId,track:meta?.track||q.track||parsed.trackId,
+            levelId:parsed.levelId,module:meta?.track||q.track||"Official QBank",
+            topic:displayTopicForQuestion(q)
+          }
+        });
+      }
+    }catch(error){
+      console.warn("Could not import Official QBank mistakes",trackKey,error);
+    }
+  }
+  state.mistakesOfficialSeeded=true;
+}
+function mistakeStatusLabel(status){
+  if(status==="mastered")return "Mastered";
+  if(status==="improving")return "Improving";
+  return "Needs Review";
+}
+function mistakeSourceLabel(item){
+  if(item?.context?.sourceType==="official-qbank"){
+    const level=item.context.levelId==="professional-data-analysis"?"Professional":"Junior";
+    return `${level} Official QBank`;
+  }
+  return item?.context?.examTitle || item?.context?.module || "Course Practice / Exam";
+}
+function mistakeExplanation(item){
+  return item?.question?.explanationAr || "No detailed explanation is stored for this question yet.";
+}
+function selectedMistakeOption(item){
+  return item?.question?.options?.find(o=>String(o.id)===String(item.lastWrongSelected||item.lastSelected)) || null;
+}
+function correctMistakeOption(item){
+  return item?.question?.options?.find(o=>String(o.id)===String(item.question?.correctAnswer)) || null;
+}
+function relativeMistakeDate(value){
+  const time=Date.parse(value||"");
+  if(!time)return "—";
+  return new Intl.DateTimeFormat(undefined,{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"}).format(new Date(time));
+}
+function currentMistakeFilters(){
+  return {
+    search:($("mistakesSearch")?.value||"").trim().toLowerCase(),
+    source:$("mistakesSourceFilter")?.value||"all",
+    track:$("mistakesTrackFilter")?.value||"all",
+    topic:$("mistakesTopicFilter")?.value||"all",
+    status:$("mistakesStatusFilter")?.value||state.mistakesStatusFilter||"active"
+  };
+}
+function filterMistakeItems(items,filters=currentMistakeFilters()){
+  return (items||[]).filter(item=>{
+    const q=item.question||{},ctx=item.context||{};
+    if(filters.source!=="all" && (ctx.sourceType||q.sourceType)!==filters.source)return false;
+    if(filters.track!=="all" && String(ctx.trackId||q.trackId||ctx.track||q.track)!==filters.track)return false;
+    if(filters.topic!=="all" && String(q.topic||"General")!==filters.topic)return false;
+    if(filters.status==="active" && item.status==="mastered")return false;
+    if(!["all","active"].includes(filters.status) && item.status!==filters.status)return false;
+    if(filters.search){
+      const hay=[q.question,q.topic,q.track,ctx.track,ctx.examTitle,ctx.module,mistakeSourceLabel(item)].join(" ").toLowerCase();
+      if(!hay.includes(filters.search))return false;
+    }
+    return true;
+  });
+}
+function syncMistakeFilterOptions(items){
+  const trackSelect=$("mistakesTrackFilter"),topicSelect=$("mistakesTopicFilter");
+  if(!trackSelect||!topicSelect)return;
+  const previousTrack=trackSelect.value||"all",previousTopic=topicSelect.value||"all";
+  const tracks=new Map(),topics=new Set();
+  for(const item of items){
+    const ctx=item.context||{},q=item.question||{};
+    const value=String(ctx.trackId||q.trackId||ctx.track||q.track||"General");
+    const label=String(ctx.track||q.track||value||"General");
+    tracks.set(value,label);
+    topics.add(String(q.topic||"General"));
+  }
+  trackSelect.innerHTML='<option value="all">All tracks</option>'+[...tracks.entries()].sort((a,b)=>a[1].localeCompare(b[1])).map(([value,label])=>`<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`).join("");
+  topicSelect.innerHTML='<option value="all">All topics</option>'+[...topics].sort((a,b)=>a.localeCompare(b)).map(topic=>`<option value="${escapeHtml(topic)}">${escapeHtml(topic)}</option>`).join("");
+  if([...tracks.keys()].includes(previousTrack))trackSelect.value=previousTrack;
+  if(topics.has(previousTopic))topicSelect.value=previousTopic;
+}
+function renderMistakeWeakTopics(){
+  const section=$("mistakesWeakTopicsSection"),row=$("mistakesWeakTopics");if(!section||!row)return;
+  const weak=topicWeakness(mistakeOwnerId(),{limit:8});
+  if(!weak.length){section.classList.add("hidden");row.innerHTML="";return}
+  row.innerHTML=weak.map(x=>`<button type="button" data-weak-topic="${escapeHtml(x.topic)}"><strong>${escapeHtml(x.topic)}</strong><span>${x.needsReview} need review • ${x.wrongAttempts} wrong attempts</span></button>`).join("");
+  row.querySelectorAll("[data-weak-topic]").forEach(btn=>btn.addEventListener("click",()=>{
+    $("mistakesTopicFilter").value=btn.dataset.weakTopic;
+    renderMistakesList();
+  }));
+  section.classList.remove("hidden");
+}
+function renderMistakesPracticeSummary(){
+  const box=$("mistakesPracticeSummary");if(!box)return;
+  const summary=state.mistakesPracticeSummary;
+  if(!summary){box.classList.add("hidden");box.innerHTML="";return}
+  box.classList.remove("hidden");
+  box.innerHTML=`<div><span class="eyebrow">PRACTICE COMPLETE</span><h3>${summary.correct}/${summary.total} correct</h3><p>${summary.masteredGained} question${summary.masteredGained===1?"":"s"} reached Mastered • ${summary.improving} now Improving • no Ranking entry was created.</p></div><button type="button" class="ghost-btn" data-dismiss-mistakes-summary>Dismiss</button>`;
+  box.querySelector("[data-dismiss-mistakes-summary]")?.addEventListener("click",()=>{state.mistakesPracticeSummary=null;renderMistakesPracticeSummary()});
+}
+function renderMistakesList(){
+  const activeStatus=$("mistakesStatusFilter")?.value||state.mistakesStatusFilter||"active";
+  document.querySelectorAll("[data-mistake-status]").forEach(btn=>btn.classList.toggle("active",btn.dataset.mistakeStatus===activeStatus));
+  const all=getMistakes(mistakeOwnerId(),{includeMastered:true});
+  syncMistakeFilterOptions(all);
+  const filtered=filterMistakeItems(all);
+  const list=$("mistakesList"),empty=$("mistakesEmpty"),count=$("mistakesVisibleCount");
+  if(count)count.textContent=`${filtered.length} question${filtered.length===1?"":"s"}`;
+  if(!list||!empty)return;
+  if(!filtered.length){
+    list.innerHTML="";empty.classList.remove("hidden");
+    $("mistakesEmptyText").textContent=all.length?"No questions match the current filters.":"Complete Practice, Exams or Official QBank questions and your wrong answers will appear here automatically.";
+    return;
+  }
+  empty.classList.add("hidden");
+  list.innerHTML=filtered.map((item,index)=>{
+    const q=item.question||{},selected=selectedMistakeOption(item),correct=correctMistakeOption(item);
+    const source=mistakeSourceLabel(item),status=mistakeStatusLabel(item.status),mastered=item.status==="mastered";
+    const qLike={...q,deepExplanation:q.optionReasons?{summary:q.explanationAr||"",options:q.optionReasons}:undefined};
+    return `<article class="mistake-card status-${escapeHtml(item.status)}" data-mistake-key="${escapeHtml(item.key)}">
+      <div class="mistake-card-top">
+        <div class="mistake-card-meta"><span class="mistake-status-chip ${escapeHtml(item.status)}">${escapeHtml(status)}</span><span>${escapeHtml(source)}</span><span>${escapeHtml(q.track||item.context?.track||"General")}</span><span>${escapeHtml(q.topic||"General")}</span></div>
+        <div class="mistake-count-badge"><strong>${Number(item.wrongCount)||0}×</strong><small>wrong</small></div>
+      </div>
+      <div class="mistake-question-number">QUESTION ${String(index+1).padStart(2,"0")}</div>
+      <div class="mistake-question-text">${renderTechnicalQuestion(q.question||"",qLike)}</div>
+      <div class="mistake-answer-grid">
+        <div class="mistake-answer wrong-answer"><span>YOUR LAST WRONG ANSWER</span><strong>${escapeHtml(item.lastWrongSelected||item.lastSelected||"—")}</strong><div>${selected?renderTechnicalOption(selected.text,qLike):"—"}</div></div>
+        <div class="mistake-answer correct-answer"><span>CORRECT ANSWER</span><strong>${escapeHtml(q.correctAnswer||"—")}</strong><div>${correct?renderTechnicalOption(correct.text,qLike):"—"}</div></div>
+      </div>
+      <details class="mistake-explanation"><summary>Review explanation</summary><div dir="rtl">${renderTechnicalRichText(mistakeExplanation(item),qLike)}</div></details>
+      <div class="mistake-card-footer">
+        <div class="mistake-recovery-meta"><span>Recovery streak <strong>${Number(item.recoveryStreak)||0}/${MASTERY_STREAK}</strong></span><span>Last wrong ${escapeHtml(relativeMistakeDate(item.lastWrongAt||item.updatedAt))}</span>${mastered?'<span class="mastered-note">Mastered ✓</span>':""}</div>
+        <button type="button" class="${mastered?"secondary-btn":"primary-btn"}" data-retry-mistake="${escapeHtml(item.key)}">${mastered?"Review Again":"Retry Question"} →</button>
+      </div>
+    </article>`;
+  }).join("");
+  list.querySelectorAll("[data-retry-mistake]").forEach(btn=>btn.addEventListener("click",()=>startMistakesPracticeByKeys([btn.dataset.retryMistake])));
+}
+async function renderMistakes(){
+  await ensureOfficialMistakesImported();
+  const summary=getMistakeSummary(mistakeOwnerId());
+  const active=summary["needs-review"]+summary.improving;
+  $("mistakesActiveCount").textContent=active;
+  $("mistakesNeedsReviewCount").textContent=summary["needs-review"];
+  $("mistakesImprovingCount").textContent=summary.improving;
+  $("mistakesMasteredCount").textContent=summary.mastered;
+  renderMistakeWeakTopics();renderMistakesPracticeSummary();renderMistakesList();
+}
+function selectedMistakePracticeItems(){
+  const all=getMistakes(mistakeOwnerId(),{includeMastered:true});
+  let items=filterMistakeItems(all);
+  if(!items.length && currentMistakeFilters().status==="mastered")return items;
+  if(!items.length)items=all.filter(x=>x.status!=="mastered");
+  const requested=$("mistakesPracticeCount")?.value||"20";
+  const max=requested==="all"?items.length:Math.max(1,Number(requested)||20);
+  return items.slice(0,max);
+}
+function startMistakesPracticeByKeys(keys){
+  const items=(keys||[]).map(key=>getMistake(mistakeOwnerId(),key)).filter(Boolean);
+  startMistakesPractice(items);
+}
+function startMistakesPractice(items){
+  if(!items?.length){showToast("No mistakes are available for this practice view.");return}
+  const questions=items.map(questionFromMistake).filter(q=>q.id && q.options?.length>=2 && q.correctAnswer);
+  if(!questions.length){showToast("These saved mistakes cannot be practiced yet.");return}
+  const id=`my-mistakes-${Date.now()}`;
+  state.mistakesPracticeKeys=items.map(x=>x.key);
+  state.currentExam={schemaVersion:"1.0",exam:{
+    id,title:`My Mistakes Practice — ${questions.length} Question${questions.length===1?"":"s"}`,
+    description:"Personal recovery practice generated only from your saved mistakes. This practice never enters Ranking.",
+    course:"My Mistakes",module:"Personal Recovery",category:"My Mistakes",uploadedBy:"Digilians E-Learn",
+    createdAt:new Date().toISOString().slice(0,10),version:"1.0",difficulty:"Mixed",
+    settings:{timer:{enabled:false,durationMinutes:null},allowRetake:true,feedbackModes:["instant"],shuffleQuestions:false,shuffleOptions:false,passingScore:60},
+    generatedFromMistakes:{ranked:false,kind:"mistake-recovery",keys:state.mistakesPracticeKeys}
+  },questions};
+  state.currentRegistryItem={id,title:state.currentExam.exam.title,course:"My Mistakes",module:"Personal Recovery",questionCount:questions.length,generator:"mistakes",ranked:false};
+  state.currentRankedActivity=false;
+  state.feedbackMode="instant";
+  state.previousBest=null;
+  startExam();
+}
+
+$("mistakesSearch")?.addEventListener("input",renderMistakesList);
+["mistakesSourceFilter","mistakesTrackFilter","mistakesTopicFilter","mistakesStatusFilter"].forEach(id=>$(id)?.addEventListener("change",()=>{
+  if(id==="mistakesStatusFilter")state.mistakesStatusFilter=$(id).value;
+  renderMistakesList();
+}));
+document.querySelectorAll("[data-mistake-status]").forEach(btn=>btn.addEventListener("click",()=>{
+  const status=btn.dataset.mistakeStatus||"active";
+  state.mistakesStatusFilter=status;
+  if($("mistakesStatusFilter"))$("mistakesStatusFilter").value=status;
+  document.querySelectorAll("[data-mistake-status]").forEach(x=>x.classList.toggle("active",x===btn));
+  renderMistakesList();
+}));
+$("practiceMistakesBtn")?.addEventListener("click",()=>startMistakesPractice(selectedMistakePracticeItems()));
 
 const achievementDefs=[
   {id:"first-step",icon:"✦",title:"First Step",desc:"Complete your first exam.",test:r=>r.length>=1},
@@ -683,13 +954,20 @@ function applyOfficialFilters(){
   const query=($("officialSearch")?.value||'').trim().toLowerCase(),topic=$("officialTopicFilter")?.value||'all',kind=$("officialStateFilter")?.value||'all';
   const st=getOfficialTrackState(state.officialTrackId,state.officialLevelId,officialTrackRevision(state.officialTrackId));
   const reviewed=new Set(st.reviewed||[]),bookmarks=new Set(st.bookmarks||[]),mistakes=new Set(st.mistakes||[]);
+  const unifiedMistakes=new Map(getMistakes(mistakeOwnerId(),{includeMastered:true})
+    .filter(item=>item.context?.sourceType==="official-qbank" && item.context?.levelId===state.officialLevelId && item.context?.trackId===state.officialTrackId)
+    .map(item=>[item.question?.id,item]));
   state.officialFiltered=state.officialQuestions.filter(q=>{
     if(query && !(`${q.question} ${q.options.map(o=>o.text).join(' ')}`).toLowerCase().includes(query))return false;
     if(topic!=='all' && displayTopicForQuestion(q)!==topic)return false;
     if(kind==='unseen' && reviewed.has(q.id))return false;
     if(kind==='reviewed'&&!reviewed.has(q.id))return false;
     if(kind==='bookmarks'&&!bookmarks.has(q.id))return false;
-    if(kind==='mistakes'&&!mistakes.has(q.id))return false;
+    if(kind==='mistakes'){
+      const unified=unifiedMistakes.get(q.id);
+      if(unified?.status==="mastered")return false;
+      if(!mistakes.has(q.id) && !unified)return false;
+    }
     return true;
   });
   if(!state.officialFiltered.length){state.officialIndex=0;renderOfficialQuestionList();renderOfficialEmpty();return}
@@ -762,6 +1040,14 @@ function answerOfficialQuestion(q,optionId){
   const reviewed=new Set(st.reviewed||[]),mistakes=new Set(st.mistakes||[]);
   reviewed.add(q.id);if(optionId!==q.correctAnswer)mistakes.add(q.id);
   updateOfficialTrackState(state.officialTrackId,{answers,reviewed:[...reviewed],mistakes:[...mistakes],lastIndex:state.officialIndex,lastQuestionId:q.id},state.officialLevelId,officialTrackRevision());
+  recordMistakeOutcome({
+    ownerId:mistakeOwnerId(),studentName:state.studentName,question:q,selected:optionId,
+    context:mistakeContextForQuestion(q,null,{
+      sourceType:"official-qbank",levelId:state.officialLevelId,trackId:state.officialTrackId,
+      track:mistakeTrackMeta(state.officialLevelId,state.officialTrackId)?.track||q.track||state.officialTrackId,
+      course:"Data Analysis",module:"Official QBank",topic:displayTopicForQuestion(q)
+    })
+  });
   renderOfficialQuestionList();renderOfficialStudyQuestion();
 }
 function renderOfficialStudyQuestion(){
@@ -1231,7 +1517,8 @@ function renderTrackLearningMap(track){
 
   const learningItems=track.id==="sql"
     ?sqlGroups
-    :topics.slice(0,12).map(t=>t.title);
+    :(track.studyGroups?.length?track.studyGroups:topics.slice(0,12).map(t=>t.title));
+  const sessionLabel=track.id==="excel"?"MODULES":"SESSIONS";
 
   panel.innerHTML=`
     <div class="track-learning-map-head">
@@ -1244,7 +1531,7 @@ function renderTrackLearningMap(track){
     </div>
 
     <div class="track-learning-stats">
-      <div><span>SESSIONS</span><strong>${sessions}</strong></div>
+      <div><span>${sessionLabel}</span><strong>${sessions}</strong></div>
       <div><span>TOPICS</span><strong>${topicCount}</strong></div>
       <div><span>PRACTICE QUESTIONS</span><strong>${questions||"—"}</strong></div>
       <div><span>STATUS</span><strong>${ready?"Ready":"Building"}</strong></div>
@@ -1256,6 +1543,201 @@ function renderTrackLearningMap(track){
     </div>
   `;
   panel.classList.remove("hidden");
+}
+
+
+function isExcelLearningGroupsModule(module=state.selectedModule){
+  return Boolean(
+    module?.study?.displayMode==="excel-learning-groups-v3-full" &&
+    Array.isArray(module?.study?.learningGroups) &&
+    module.study.learningGroups.length
+  );
+}
+
+function moduleStudyProgressSnapshot(module=state.selectedModule){
+  const sections=module?.study?.sections||[];
+  const total=sections.length;
+  if(!total || !state.studentName)return {completed:0,total,percent:0};
+  const saved=getStudyProgress(state.studentName,module.id);
+  const valid=new Set(sections.map((s,i)=>studySectionKey(s,i)));
+  const completed=(saved.completedSections||[]).filter(id=>valid.has(id)).length;
+  return {completed,total,percent:Math.round(completed/total*100)};
+}
+
+function groupStudyProgressSnapshot(group,module=state.selectedModule){
+  const ids=(group?.sectionIds||[]).filter(Boolean);
+  if(!ids.length || !state.studentName)return {completed:0,total:ids.length,percent:0};
+  const saved=getStudyProgress(state.studentName,module?.id);
+  const completed=(saved.completedSections||[]).filter(id=>ids.includes(id)).length;
+  return {completed,total:ids.length,percent:Math.round(completed/ids.length*100)};
+}
+
+function excelGroupById(groupId,module=state.selectedModule){
+  return (module?.study?.learningGroups||[]).find(g=>g.id===groupId)||null;
+}
+
+function excelSectionById(sectionId,module=state.selectedModule){
+  return (module?.study?.sections||[]).find(s=>s.id===sectionId)||null;
+}
+
+function openExcelModuleExplorer(module=state.selectedModule){
+  if(!isExcelLearningGroupsModule(module)){
+    openStudy();
+    return;
+  }
+  state.selectedModule=module;
+  state.excelExplorerGroupId=null;
+  state.excelStudyGroupId=null;
+  state.excelStudyStartSectionId=null;
+  renderExcelModuleExplorer();
+  emitAnalytics("excel_module_explorer_open",{
+    courseId:state.selectedCourse?.id||null,
+    trackId:state.selectedTrack?.id||null,
+    moduleId:module?.id||null
+  });
+  routeTo("excelModuleExplorerView");
+}
+
+function openExcelGroupExplorer(groupId){
+  const group=excelGroupById(groupId);
+  if(!group)return;
+  state.excelExplorerGroupId=group.id;
+  renderExcelGroupExplorer();
+  emitAnalytics("excel_group_explorer_open",{
+    courseId:state.selectedCourse?.id||null,
+    trackId:state.selectedTrack?.id||null,
+    moduleId:state.selectedModule?.id||null,
+    groupId:group.id
+  });
+  routeTo("excelGroupExplorerView");
+}
+
+function renderExcelModuleExplorer(){
+  const module=state.selectedModule;
+  if(!isExcelLearningGroupsModule(module))return;
+
+  const groups=module.study.learningGroups||[];
+  const snapshot=moduleStudyProgressSnapshot(module);
+
+  $("excelModuleExplorerBreadcrumb").textContent=`Learn / ${state.selectedCourse?.title||"Data Analysis"} / ${state.selectedTrack?.title||"Excel"}`;
+  $("excelModuleExplorerTitle").textContent=module.title||"Excel";
+  $("excelModuleExplorerDescription").textContent=module.study?.description||module.description||"";
+  $("excelModuleExplorerProgress").textContent=`${snapshot.percent}%`;
+  $("excelModuleExplorerProgressFill").style.width=`${snapshot.percent}%`;
+  $("excelModuleExplorerProgressMeta").textContent=`${snapshot.completed} / ${snapshot.total} lessons completed`;
+
+  const source=module.sourceBatch||{};
+  $("excelModuleExplorerSource").textContent=`${module.displaySourceBatch||`Week ${source.week||1}`} • ${source.files||9} files • ${source.slides||262} slides`;
+
+  const grid=$("excelModuleGroupGrid");
+  grid.innerHTML=groups.map(group=>{
+    const progress=groupStudyProgressSnapshot(group,module);
+    const lessons=(group.sectionIds||[]).map(id=>excelSectionById(id,module)).filter(Boolean);
+    const prereq=lessons.length>0 && lessons.every(s=>s.role==="statistics-prerequisite");
+    const deep=group.status==="deep-learning-full";
+    const firstTerms=[...new Set(lessons.flatMap(s=>s.keyTerms||[]))].slice(0,5);
+
+    return `<article class="excel-explorer-group-card ${prereq?"prerequisite":""} ${deep?"deep-v2":""}" data-open-excel-group="${escapeHtml(group.id)}" tabindex="0" role="button">
+      <div class="excel-explorer-group-top">
+        <span class="excel-explorer-group-number">${escapeHtml(group.number)}</span>
+        <div class="excel-explorer-group-badges">
+          ${prereq?'<span class="excel-explorer-chip prereq">PREREQUISITE • STATISTICS</span>':''}
+          ${deep?'<span class="excel-explorer-chip deep">DEEP LEARNING</span>':''}
+        </div>
+      </div>
+      <h3>${escapeHtml(group.title)}</h3>
+      <p>${escapeHtml(group.subtitle||"")}</p>
+      <div class="excel-explorer-relationship-mini">
+        <span>WHY THESE LESSONS BELONG TOGETHER</span>
+        <p>${escapeHtml(group.relationship||"")}</p>
+      </div>
+      ${firstTerms.length?`<div class="excel-explorer-term-row">${firstTerms.map(x=>`<span>${escapeHtml(x)}</span>`).join("")}</div>`:""}
+      <div class="excel-explorer-group-footer">
+        <div>
+          <strong>${lessons.length} lesson${lessons.length===1?"":"s"}</strong>
+          <small>${progress.completed}/${progress.total} completed • ${progress.percent}%</small>
+        </div>
+        <button type="button" class="secondary-btn" data-open-excel-group-button="${escapeHtml(group.id)}">Explore Group →</button>
+      </div>
+      <div class="excel-explorer-mini-progress"><i style="width:${progress.percent}%"></i></div>
+    </article>`;
+  }).join("");
+
+  grid.querySelectorAll("[data-open-excel-group]").forEach(card=>{
+    const open=()=>openExcelGroupExplorer(card.dataset.openExcelGroup);
+    card.addEventListener("click",e=>{
+      if(e.target.closest("button"))return;
+      open();
+    });
+    card.addEventListener("keydown",e=>{
+      if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}
+    });
+  });
+  grid.querySelectorAll("[data-open-excel-group-button]").forEach(btn=>{
+    btn.addEventListener("click",e=>{
+      e.stopPropagation();
+      openExcelGroupExplorer(btn.dataset.openExcelGroupButton);
+    });
+  });
+}
+
+function renderExcelGroupExplorer(){
+  const module=state.selectedModule;
+  const group=excelGroupById(state.excelExplorerGroupId,module);
+  if(!module || !group)return;
+
+  const sections=(group.sectionIds||[]).map(id=>excelSectionById(id,module)).filter(Boolean);
+  const progress=groupStudyProgressSnapshot(group,module);
+  const prereq=sections.length>0 && sections.every(s=>s.role==="statistics-prerequisite");
+
+  $("excelGroupExplorerBreadcrumb").textContent=`Excel / ${module.title} / ${group.title}`;
+  $("excelGroupExplorerBadge").textContent=`GROUP ${group.number}`;
+  $("excelGroupExplorerEyebrow").textContent=`LEARNING GROUP ${group.number}${prereq?" • PREREQUISITE":""}`;
+  $("excelGroupExplorerTitle").textContent=group.title;
+  $("excelGroupExplorerSubtitle").textContent=group.subtitle||"";
+  $("excelGroupExplorerRelationship").textContent=group.relationship||"";
+  $("excelGroupExplorerProgress").textContent=`${progress.percent}%`;
+  $("excelGroupExplorerProgressFill").style.width=`${progress.percent}%`;
+  $("excelGroupExplorerProgressMeta").textContent=`${progress.completed} / ${progress.total} lessons completed`;
+
+  $("excelGroupExplorerFlow").innerHTML=sections.map((s,i)=>`
+    <span>${escapeHtml(s.title)}</span>${i<sections.length-1?'<b>→</b>':""}
+  `).join("");
+
+  const saved=getStudyProgress(state.studentName,module.id);
+  const completed=new Set(saved.completedSections||[]);
+  const grid=$("excelGroupLessonGrid");
+  grid.innerHTML=sections.map((section,i)=>{
+    const done=completed.has(section.id);
+    const deep=Boolean(section.deepLearningV2?.version?.startsWith("2."));
+    const terms=(section.keyTerms||[]).slice(0,7);
+    const description=section.deepLearningV2?.opening?.goalAr || section.summaryAr || section.lessonV2?.whatIsItAr || "";
+    return `<article class="excel-lesson-explorer-card ${done?"completed":""} ${deep?"deep-v2":""}" data-excel-lesson="${escapeHtml(section.id)}">
+      <div class="excel-lesson-explorer-index">${String(i+1).padStart(2,"0")}</div>
+      <div class="excel-lesson-explorer-copy">
+        <div class="excel-lesson-explorer-meta">
+          <span>${prereq?"PREREQUISITE • STATISTICS":"EXCEL CORE"}</span>
+          ${deep?'<span class="deep-label">DEEP LEARNING V2</span>':""}
+          ${done?'<span class="done-label">COMPLETED ✓</span>':""}
+        </div>
+        <h3>${escapeHtml(section.title)}</h3>
+        <p dir="rtl">${formatStudyMixedText(description)}</p>
+        ${terms.length?`<div class="excel-lesson-term-row">${terms.map(x=>`<span>${escapeHtml(x)}</span>`).join("")}</div>`:""}
+        <div class="excel-lesson-source-line"><span>SOURCE</span><small>${escapeHtml(section.sourceTrace||"")}</small></div>
+      </div>
+      <div class="excel-lesson-explorer-action">
+        <button type="button" class="${done?"secondary-btn":"primary-btn"}" data-start-excel-lesson="${escapeHtml(section.id)}">
+          ${done?"Review Lesson":"Start Lesson"} →
+        </button>
+      </div>
+    </article>`;
+  }).join("");
+
+  grid.querySelectorAll("[data-start-excel-lesson]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      openStudy({groupId:group.id,startSectionId:btn.dataset.startExcelLesson});
+    });
+  });
 }
 
 function renderModulePanel(course,track=null){
@@ -1315,20 +1797,24 @@ function renderModulePanel(course,track=null){
       $("studyFlowStatus").classList.toggle("complete",studyPct>=100);
     }
     if($("practiceFlowStatus")){
-      $("practiceFlowStatus").textContent=practice?`Best ${practice.percentage}%`:"Not attempted";
+      $("practiceFlowStatus").textContent=!assessmentReady?"Building after Study QA":practice?`Best ${practice.percentage}%`:"Not attempted";
       $("practiceFlowStatus").classList.toggle("complete",Boolean(practice));
     }
     if($("examFlowStatus")){
-      $("examFlowStatus").textContent=exam?`Best ${exam.percentage}%`:"Not attempted";
+      $("examFlowStatus").textContent=!assessmentReady?"Building after Study QA":exam?`Best ${exam.percentage}%`:"Not attempted";
       $("examFlowStatus").classList.toggle("complete",Boolean(exam));
     }
 
     if($("openStudyBtn")){
-      $("openStudyBtn").innerHTML=studyPct>=100
-        ?'Review Study <span>→</span>'
-        :studyPct
-          ?`Continue Study · ${studyPct}% <span>→</span>`
-          :'Start Study <span>→</span>';
+      if(isExcelLearningGroupsModule(module)){
+        $("openStudyBtn").innerHTML=`Explore Content${studyPct?` · ${studyPct}%`:""} <span>→</span>`;
+      }else{
+        $("openStudyBtn").innerHTML=studyPct>=100
+          ?'Review Study <span>→</span>'
+          :studyPct
+            ?`Continue Study · ${studyPct}% <span>→</span>`
+            :'Start Study <span>→</span>';
+      }
     }
   }
 
@@ -1346,11 +1832,39 @@ function renderModulePanel(course,track=null){
 
     const moduleName=$("selectedModuleName");
     const moduleHint=$("selectedModuleHint");
+    const selectedNoticeLabel=$("selectedModuleNotice")?.querySelector("span");
+    if(selectedNoticeLabel)selectedNoticeLabel.textContent=isExcelLearningGroupsModule(module)?"SELECTED MODULE":"SELECTED SESSION";
     if(moduleName)moduleName.textContent=module.title;
-    if(moduleHint)moduleHint.textContent="Next: Study the material, practice with feedback, then take the session exam.";
+    if(moduleHint)moduleHint.textContent=isExcelLearningGroupsModule(module)
+      ?"Open the content map, choose a Learning Group, then choose the exact lesson you want to study."
+      :module.assessmentStatus==="building-after-study-qa"
+        ?"Study is ready. Practice and Exam will unlock after Study/source-trace QA."
+        :"Next: Study the material, practice with feedback, then take the session exam.";
+
+    const selectedNotice=$("selectedModuleNotice");
+    if(selectedNotice){
+      const explorerReady=isExcelLearningGroupsModule(module);
+      selectedNotice.classList.toggle("explorer-ready",explorerReady);
+      selectedNotice.setAttribute("role",explorerReady?"button":"status");
+      selectedNotice.setAttribute("tabindex",explorerReady?"0":"-1");
+      selectedNotice.setAttribute("aria-label",explorerReady?`Explore ${module.title} content`:"Selected session");
+      selectedNotice.dataset.explorerReady=explorerReady?"true":"false";
+    }
     syncLearningFlowStats(module);
 
     const flow=$("moduleLearningFlow");
+    const studyFlowCard=flow?.querySelector(".flow-card:first-child");
+    if(studyFlowCard){
+      const title=studyFlowCard.querySelector("h4");
+      const desc=studyFlowCard.querySelector("p");
+      if(isExcelLearningGroupsModule(module)){
+        if(title)title.textContent="Explore the learning map";
+        if(desc)desc.textContent="Open 8 connected Groups, understand how the topics relate, then choose the exact lesson you want to study.";
+      }else{
+        if(title)title.textContent="Understand the material";
+        if(desc)desc.textContent="Read clear sections, key points, examples and visual notes.";
+      }
+    }
     if(flow)flow.classList.remove("hidden");
 
     if(scrollToPath && flow){
@@ -1383,7 +1897,8 @@ function renderModulePanel(course,track=null){
       <span class="module-row-arrow">→</span>
     `;
     row.addEventListener("click",()=>{
-      updateSelectedModuleUI(module,row,{scrollToPath:true});
+      updateSelectedModuleUI(module,row,{scrollToPath:!isExcelLearningGroupsModule(module)});
+      if(isExcelLearningGroupsModule(module))openExcelModuleExplorer(module);
     });
     if(!firstModuleRow)firstModuleRow=row;
     list.appendChild(row);
@@ -1423,9 +1938,23 @@ $("closeModulePanel").addEventListener("click",()=>{
   if(state.selectedCourse?.tracks?.length) $("trackPanel").classList.remove("hidden");
 });
 
-$("openStudyBtn").addEventListener("click",()=>openStudy());
+$("openStudyBtn").addEventListener("click",()=>{
+  if(isExcelLearningGroupsModule())openExcelModuleExplorer();
+  else openStudy();
+});
 $("openPracticeBtn").addEventListener("click",()=>openModuleExam("instant"));
 $("openModuleExamBtn").addEventListener("click",()=>openModuleExam(null));
+
+
+$("selectedModuleNotice")?.addEventListener("click",()=>{
+  if($("selectedModuleNotice")?.dataset.explorerReady==="true")openExcelModuleExplorer();
+});
+$("selectedModuleNotice")?.addEventListener("keydown",e=>{
+  if($("selectedModuleNotice")?.dataset.explorerReady!=="true")return;
+  if(e.key==="Enter"||e.key===" "){e.preventDefault();openExcelModuleExplorer()}
+});
+$("excelModuleExplorerBackBtn")?.addEventListener("click",()=>routeTo("learnView"));
+$("excelGroupExplorerBackBtn")?.addEventListener("click",()=>routeTo("excelModuleExplorerView"));
 
 function sqlQuickOptionText(quick,id){
   return quick?.options?.find(o=>o.id===id)?.text || "";
@@ -1839,8 +2368,9 @@ function globalStudyPercentForModule(module){
 function syncLearningFlowStats(module){
   if(!module)return;
   const studyPct=globalStudyPercentForModule(module);
-  const practice=globalBestResultForFeedbackMode(module?.examId,"instant");
-  const exam=globalBestResultForFeedbackMode(module?.examId,"exam");
+  const assessmentReady=Boolean(module?.examId) && module?.assessmentStatus!=="building-after-study-qa";
+  const practice=assessmentReady?globalBestResultForFeedbackMode(module?.examId,"instant"):null;
+  const exam=assessmentReady?globalBestResultForFeedbackMode(module?.examId,"exam"):null;
   if($("studyFlowStatus")){
     $("studyFlowStatus").textContent=studyPct>=100?"Completed 100%":studyPct?`${studyPct}% completed`:"Not started";
     $("studyFlowStatus").classList.toggle("complete",studyPct>=100);
@@ -1853,20 +2383,42 @@ function syncLearningFlowStats(module){
     $("examFlowStatus").textContent=exam?`Best ${exam.percentage}%`:"Not attempted";
     $("examFlowStatus").classList.toggle("complete",Boolean(exam));
   }
+  if($("openPracticeBtn")){
+    $("openPracticeBtn").disabled=!assessmentReady;
+    $("openPracticeBtn").innerHTML=assessmentReady?'Start Practice <span>→</span>':'Practice Building';
+  }
+  if($("openModuleExamBtn")){
+    $("openModuleExamBtn").disabled=!assessmentReady;
+    $("openModuleExamBtn").innerHTML=assessmentReady?'Start Exam <span>→</span>':'Exam Building';
+  }
   if($("openStudyBtn")){
-    $("openStudyBtn").innerHTML=studyPct>=100
-      ?'Review Study <span>→</span>'
-      :studyPct
-        ?`Continue Study · ${studyPct}% <span>→</span>`
-        :'Start Study <span>→</span>';
+    if(isExcelLearningGroupsModule(module)){
+      $("openStudyBtn").innerHTML=`Explore Content${studyPct?` · ${studyPct}%`:""} <span>→</span>`;
+    }else{
+      $("openStudyBtn").innerHTML=studyPct>=100
+        ?'Review Study <span>→</span>'
+        :studyPct
+          ?`Continue Study · ${studyPct}% <span>→</span>`
+          :'Start Study <span>→</span>';
+    }
   }
 }
 
 function studySectionKey(section,index){
   return section?.id || `section-${index}`;
 }
-function currentStudySectionIds(){
+function allStudySectionIds(){
   return (state.selectedModule?.study?.sections||[]).map((s,i)=>studySectionKey(s,i));
+}
+function currentStudySections(){
+  const all=state.selectedModule?.study?.sections||[];
+  if(!state.excelStudyGroupId)return all;
+  const group=excelGroupById(state.excelStudyGroupId);
+  const ids=new Set(group?.sectionIds||[]);
+  return all.filter(s=>ids.has(s.id));
+}
+function currentStudySectionIds(){
+  return currentStudySections().map((s,i)=>studySectionKey(s,i));
 }
 function refreshStudyProgressUI(){
   const module=state.selectedModule;
@@ -1880,7 +2432,9 @@ function refreshStudyProgressUI(){
   const count=completed.size;
   const percent=total?Math.round(count/total*100):0;
 
-  if($("studyProgressText"))$("studyProgressText").textContent=`${count} / ${total} topics completed · ${percent}%`;
+  if($("studyProgressText"))$("studyProgressText").textContent=state.excelStudyGroupId
+    ?`${count} / ${total} lessons in this group completed · ${percent}%`
+    :`${count} / ${total} topics completed · ${percent}%`;
   if($("studyProgressFill"))$("studyProgressFill").style.width=`${percent}%`;
 
   document.querySelectorAll("[data-study-section-progress]").forEach(btn=>{
@@ -1901,8 +2455,13 @@ function refreshStudyProgressUI(){
   });
 
   if($("studyMarkAllCompleteBtn")){
-    $("studyMarkAllCompleteBtn").textContent=percent===100?"Study Completed ✓":"Mark Study as Completed ✓";
+    $("studyMarkAllCompleteBtn").textContent=percent===100
+      ?(state.excelStudyGroupId?"Group Completed ✓":"Study Completed ✓")
+      :(state.excelStudyGroupId?"Mark Group as Completed ✓":"Mark Study as Completed ✓");
     $("studyMarkAllCompleteBtn").disabled=percent===100;
+  }
+  if($("studyResetProgressBtn")){
+    $("studyResetProgressBtn").textContent=state.excelStudyGroupId?"Reset Group Progress":"Reset Study Progress";
   }
   if($("studyResetProgressBtn"))$("studyResetProgressBtn").disabled=count===0 && !saved.lastSectionId;
 
@@ -1920,21 +2479,21 @@ function refreshStudyProgressUI(){
 function toggleStudySectionComplete(sectionId){
   const module=state.selectedModule;
   if(!module?.study || !state.studentName)return;
-  const ids=currentStudySectionIds();
+  const allIds=allStudySectionIds();
   const saved=getStudyProgress(state.studentName,module.id);
   const set=new Set(saved.completedSections||[]);
   set.has(sectionId)?set.delete(sectionId):set.add(sectionId);
-  const validCompleted=ids.filter(id=>set.has(id));
+  const validCompleted=allIds.filter(id=>set.has(id));
   updateStudyProgress(state.studentName,module.id,{
     completedSections:validCompleted,
-    completed:validCompleted.length===ids.length,
+    completed:validCompleted.length===allIds.length,
     lastSectionId:sectionId
   });
   refreshStudyProgressUI();
 }
 function attachStudySectionProgress(article,section,index,tocBtn){
   const key=studySectionKey(section,index);
-  const moduleSections=state.selectedModule?.study?.sections || [];
+  const moduleSections=currentStudySections();
   article.dataset.studySectionId=key;
   tocBtn.dataset.studyTocSection=key;
 
@@ -2031,17 +2590,49 @@ function setupStudySectionObserver(){
     :articles[0].dataset.studySectionId;
   setActiveStudySection(initialId,{save:false});
 }
-function openStudy(){
+function openStudy({groupId=null,startSectionId=null}={}){
   const c=state.selectedCourse,m=state.selectedModule;
   if(!c||!m?.study)return;
+
+  const requestedGroup=groupId && isExcelLearningGroupsModule(m)?excelGroupById(groupId,m):null;
+  state.excelStudyGroupId=requestedGroup?.id||null;
+  state.excelStudyStartSectionId=startSectionId||null;
   const isSqlStudy=state.selectedTrack?.id==="sql" || String(m.id||"").startsWith("sql-session-");
   const isPythonStudy=state.selectedTrack?.id==="python" || String(m.id||"").startsWith("python-session-");
+  const isExcelStudy=state.selectedTrack?.id==="excel" || String(m.id||"").startsWith("excel-week-");
 
-  $("studyBreadcrumb").textContent=`${c.title} / ${m.title} / Study`;
-  $("studyTitle").textContent=m.study.title;
-  $("studyDescription").textContent=m.study.description || "";
+  const activeExcelGroup=state.excelStudyGroupId?excelGroupById(state.excelStudyGroupId,m):null;
+  $("studyBreadcrumb").textContent=activeExcelGroup
+    ?`${c.title} / ${m.title} / ${activeExcelGroup.title}`
+    :`${c.title} / ${m.title} / Study`;
+  $("studyTitle").textContent=activeExcelGroup?activeExcelGroup.title:m.study.title;
+  $("studyDescription").textContent=activeExcelGroup
+    ?`${activeExcelGroup.subtitle||""} ${activeExcelGroup.relationship||""}`.trim()
+    :(m.study.description || "");
 
   const studyView=$("studyView");
+
+  const scopedExcelStudy=Boolean(activeExcelGroup);
+  if($("studyBackBtn"))$("studyBackBtn").textContent=scopedExcelStudy?"← Group":"← Module";
+
+  const nextStep=studyView?.querySelector(".next-step-card");
+  const nextTitle=nextStep?.querySelector("h3");
+  const nextCopy=nextStep?.querySelector("p");
+  if(scopedExcelStudy && m.assessmentStatus==="building-after-study-qa"){
+    if($("studyToPracticeTop")){
+      $("studyToPracticeTop").textContent="Group Overview ←";
+      $("studyToPracticeTop").classList.remove("hidden");
+    }
+    if(nextTitle)nextTitle.textContent="Choose your next lesson";
+    if(nextCopy)nextCopy.textContent="Return to the Group Overview to pick another lesson and see your Group progress.";
+    if($("studyToPracticeBtn"))$("studyToPracticeBtn").innerHTML='Back to Group <span>←</span>';
+  }else{
+    if($("studyToPracticeTop"))$("studyToPracticeTop").textContent="Practice →";
+    if(nextTitle)nextTitle.textContent="Ready to practice?";
+    if(nextCopy)nextCopy.textContent="Use instant feedback to strengthen what you just reviewed.";
+    if($("studyToPracticeBtn"))$("studyToPracticeBtn").innerHTML='Start Practice <span>→</span>';
+  }
+
   studyView?.classList.toggle("sql-readable-study",isSqlStudy);
   const sqlStudyMode=String(m.study?.displayMode||"");
   studyView?.classList.toggle("sql-study-v2",isSqlStudy && sqlStudyMode==="sql-visual-learning-v2");
@@ -2049,17 +2640,58 @@ function openStudy(){
   const pythonStudyMode=String(m.study?.displayMode||"");
   studyView?.classList.toggle("python-study-v2",isPythonStudy && pythonStudyMode.startsWith("python-"));
   studyView?.classList.toggle("python-visual-study",isPythonStudy && pythonStudyMode==="python-visual-learning-v3");
+  const excelStudyMode=String(m.study?.displayMode||"");
+  studyView?.classList.toggle("excel-study-v1",isExcelStudy && (excelStudyMode==="excel-visual-learning-v1" || excelStudyMode==="excel-learning-groups-v3-full"));
+  studyView?.classList.toggle("excel-study-v2-groups",isExcelStudy && excelStudyMode==="excel-learning-groups-v3-full");
 
   const toc=$("studyTocList"),sections=$("studySections");
   toc.innerHTML="";sections.innerHTML="";
-  m.study.sections.forEach((s,i)=>{
+
+  const excelGroups=isExcelStudy && Array.isArray(m.study?.learningGroups)?m.study.learningGroups:[];
+  const excelGroupBySection=new Map();
+  excelGroups.forEach(group=>(group.sectionIds||[]).forEach(id=>excelGroupBySection.set(id,group)));
+  const studySectionsToRender=currentStudySections();
+
+  if(excelGroups.length && !activeExcelGroup){
+    const overview=document.createElement("div");
+    overview.className="excel-group-overview-shell";
+    overview.innerHTML=renderExcelGroupOverview(excelGroups,m.study.sections);
+    sections.appendChild(overview);
+  }
+  if(activeExcelGroup){
+    const groupHeader=document.createElement("div");
+    groupHeader.className="excel-group-header-shell";
+    groupHeader.innerHTML=renderExcelGroupHeader(activeExcelGroup,m.study.sections);
+    sections.appendChild(groupHeader);
+  }
+
+  let lastExcelGroupId=activeExcelGroup?.id||null;
+
+  studySectionsToRender.forEach((s,i)=>{
     const key=studySectionKey(s,i);
     const id=`study-section-${key}`;
+    const excelGroup=excelGroups.length?excelGroupBySection.get(s.id):null;
+
+    if(!activeExcelGroup && excelGroup && excelGroup.id!==lastExcelGroupId){
+      const tocGroup=document.createElement("div");
+      tocGroup.className=`excel-toc-group ${excelGroup.status==="deep-learning-full"?"prototype":""}`;
+      tocGroup.innerHTML=`<span>GROUP ${escapeHtml(excelGroup.number)}</span><strong>${escapeHtml(excelGroup.title)}</strong>`;
+      toc.appendChild(tocGroup);
+
+      const groupHeader=document.createElement("div");
+      groupHeader.className="excel-group-header-shell";
+      groupHeader.innerHTML=renderExcelGroupHeader(excelGroup,m.study.sections);
+      sections.appendChild(groupHeader);
+      lastExcelGroupId=excelGroup.id;
+    }
+
     const tocBtn=document.createElement("button");
     tocBtn.dir="ltr";
+    const excelPrereq=isExcelStudy && s.role==="statistics-prerequisite";
+    if(excelPrereq)tocBtn.classList.add("excel-prereq-toc");
     tocBtn.innerHTML=`
       <span class="study-toc-item-number">${String(i+1).padStart(2,"0")}</span>
-      <span class="study-toc-item-title">${escapeHtml(s.title)}</span>
+      <span class="study-toc-item-title">${escapeHtml(s.title)}${excelPrereq?'<small class="excel-toc-role">PREREQUISITE • STATISTICS</small>':""}</span>
       <span class="study-toc-item-state"></span>`;
     tocBtn.addEventListener("click",()=>{
       setActiveStudySection(key);
@@ -2073,6 +2705,11 @@ function openStudy(){
       article=renderSqlStudySection(s,i,id);
     }else if(isPythonStudy){
       article=renderPythonStudySection(s,i,id);
+    }else if(isExcelStudy){
+      article=document.createElement("section");
+      article.className=`study-section excel-study-section ${s.role==="statistics-prerequisite"?"statistics-prerequisite":"excel-core"}`;
+      article.id=id;
+      article.innerHTML=renderExcelStudySectionHtmlV2(s,i);
     }else{
       article=document.createElement("section");
       article.className="study-section";article.id=id;
@@ -2086,31 +2723,108 @@ function openStudy(){
     sections.appendChild(article);
   });
 
+  if(isExcelStudy){
+    sections.querySelectorAll("[data-excel-deep-qc]").forEach(card=>{
+      const answerIndex=Number(card.dataset.answerIndex);
+      const feedback=card.querySelector(".excel-qc-feedback");
+      card.querySelectorAll("[data-excel-qc-option]").forEach(btn=>{
+        btn.addEventListener("click",()=>{
+          const selected=Number(btn.dataset.excelQcOption);
+          card.querySelectorAll("[data-excel-qc-option]").forEach((option,i)=>{
+            option.classList.toggle("correct",i===answerIndex);
+            option.classList.toggle("wrong",i===selected && selected!==answerIndex);
+            option.disabled=true;
+          });
+          const section=m.study.sections.find(x=>x.id===card.dataset.excelDeepQc);
+          const explanation=section?.deepLearningV2?.quickCheck?.explanationAr||"";
+          feedback.hidden=false;
+          feedback.className=`excel-qc-feedback ${selected===answerIndex?"correct":"wrong"}`;
+          feedback.innerHTML=`<strong>${selected===answerIndex?"Correct ✓":"Not quite"}</strong><p dir="rtl">${formatStudyMixedText(explanation)}</p>`;
+        });
+      });
+    });
+
+    sections.querySelectorAll("[data-excel-group]").forEach(card=>{
+      card.addEventListener("click",()=>{
+        const groupId=card.dataset.excelGroup;
+        document.querySelector(`[data-excel-group-header="${groupId}"]`)?.scrollIntoView({behavior:"smooth",block:"start"});
+      });
+    });
+  }
+
   refreshStudyProgressUI();
   emitAnalytics("study_open",{
     courseId:c?.id||null,
     trackId:state.selectedTrack?.id||null,
-    moduleId:m?.id||null
+    moduleId:m?.id||null,
+    groupId:activeExcelGroup?.id||null,
+    sectionId:startSectionId||null
   });
   routeTo("studyView");
-  window.requestAnimationFrame(()=>setupStudySectionObserver());
+  window.requestAnimationFrame(()=>{
+    setupStudySectionObserver();
+    if(startSectionId){
+      const target=document.getElementById(`study-section-${startSectionId}`);
+      if(target){
+        setActiveStudySection(startSectionId,{save:true});
+        target.scrollIntoView({behavior:"auto",block:"start"});
+      }
+    }
+  });
 }
-$("studyBackBtn").addEventListener("click",()=>routeTo("learnView"));
-$("studyToPracticeBtn").addEventListener("click",()=>openModuleExam("instant"));
-$("studyToPracticeTop").addEventListener("click",()=>openModuleExam("instant"));
+$("studyBackBtn").addEventListener("click",()=>{
+  if(state.excelStudyGroupId && isExcelLearningGroupsModule()){
+    state.excelExplorerGroupId=state.excelStudyGroupId;
+    routeTo("excelGroupExplorerView");
+  }else{
+    routeTo("learnView");
+  }
+});
+function handleStudyNextAction(){
+  if(state.excelStudyGroupId && isExcelLearningGroupsModule() && state.selectedModule?.assessmentStatus==="building-after-study-qa"){
+    state.excelExplorerGroupId=state.excelStudyGroupId;
+    routeTo("excelGroupExplorerView");
+    return;
+  }
+  openModuleExam("instant");
+}
+$("studyToPracticeBtn").addEventListener("click",handleStudyNextAction);
+$("studyToPracticeTop").addEventListener("click",handleStudyNextAction);
 $("studyMarkAllCompleteBtn").addEventListener("click",()=>{
   const module=state.selectedModule;if(!module?.study || !state.studentName)return;
-  const ids=currentStudySectionIds();
+  const scopedIds=currentStudySectionIds();
+  const allIds=allStudySectionIds();
+  const saved=getStudyProgress(state.studentName,module.id);
+  const set=new Set(saved.completedSections||[]);
+  scopedIds.forEach(id=>set.add(id));
+  const completedSections=allIds.filter(id=>set.has(id));
   updateStudyProgress(state.studentName,module.id,{
-    completedSections:ids,
-    completed:true,
-    lastSectionId:ids[ids.length-1]||null
+    completedSections,
+    completed:completedSections.length===allIds.length,
+    lastSectionId:scopedIds[scopedIds.length-1]||saved.lastSectionId||null
   });
   refreshStudyProgressUI();
-  showToast("Study progress saved as completed.");
+  showToast(state.excelStudyGroupId?"Group progress saved as completed.":"Study progress saved as completed.");
 });
 $("studyResetProgressBtn").addEventListener("click",()=>{
   const module=state.selectedModule;if(!module?.study || !state.studentName)return;
+
+  if(state.excelStudyGroupId){
+    if(!confirm("Reset saved progress for this Excel Group? Other Groups and exam results will not be deleted."))return;
+    const scoped=new Set(currentStudySectionIds());
+    const allIds=allStudySectionIds();
+    const saved=getStudyProgress(state.studentName,module.id);
+    const completedSections=allIds.filter(id=>(saved.completedSections||[]).includes(id) && !scoped.has(id));
+    updateStudyProgress(state.studentName,module.id,{
+      completedSections,
+      completed:false,
+      lastSectionId:scoped.has(saved.lastSectionId)?null:saved.lastSectionId
+    });
+    refreshStudyProgressUI();
+    showToast("Group progress reset. Other Groups were kept.");
+    return;
+  }
+
   if(!confirm("Reset saved Study progress for this session? Practice scores, Exam results and Rankings will not be deleted."))return;
   clearStudyProgress(state.studentName,module.id);
   refreshStudyProgressUI();
@@ -2118,6 +2832,10 @@ $("studyResetProgressBtn").addEventListener("click",()=>{
 });
 
 function openModuleExam(forcedMode){
+  if(state.selectedModule?.assessmentStatus==="building-after-study-qa"){
+    showToast("Excel Week 1 Practice/Exam is still building after Study QA.");
+    return;
+  }
   const examId=state.selectedModule?.examId;
   const item=state.registry.find(x=>x.id===examId);
   if(!item){showToast("No exam is connected to this module yet.");return}
@@ -2446,7 +3164,7 @@ function startExam(restored=null){
   buildQuestionNavigator();
   renderQuestion();
   routeTo("examView");
-  emitAnalytics(state.feedbackMode==="instant"?"practice_start":"exam_start",{
+  emitAnalytics(state.currentExam?.exam?.generatedFromMistakes?"mistakes_practice_start":state.feedbackMode==="instant"?"practice_start":"exam_start",{
     courseId:state.selectedCourse?.id||null,
     trackId:state.selectedTrack?.id||state.currentExam?.exam?.generatedFromOfficialQbank?.trackId||state.currentRegistryItem?.trackId||null,
     moduleId:state.selectedModule?.id||null,
@@ -2476,8 +3194,8 @@ async function resumeProgress(progress){
       course:progress.generatedExam.exam?.course||"Data Analysis",
       module:progress.generatedExam.exam?.module||"",
       questionCount:progress.generatedExam.questions?.length||0,
-      generator:progress.generatedExam.exam?.generatedFromOfficialQbank?"official-qbank":"question-bank",
-      ranked:progress.rankedActivity ?? true
+      generator:progress.generatedExam.exam?.generatedFromMistakes?"mistakes":progress.generatedExam.exam?.generatedFromOfficialQbank?"official-qbank":"question-bank",
+      ranked:progress.generatedExam.exam?.generatedFromMistakes?false:(progress.rankedActivity ?? true)
     };
   }
   if(!item){clearExamProgress();routeTo("examsView");return}
@@ -2536,7 +3254,7 @@ function persistProgress(){
     timerPolicy:state.timerPolicy,
     rankedActivity:state.currentRankedActivity,
     savedAtEpoch:Date.now(),
-    generatedExam:["question-bank","official-qbank"].includes(state.currentRegistryItem?.generator)?state.currentExam:null
+    generatedExam:["question-bank","official-qbank","mistakes"].includes(state.currentRegistryItem?.generator)?state.currentExam:null
   });
 }
 
@@ -2599,7 +3317,8 @@ function renderQuestion(){
   $("nextQuestionBtn").classList.toggle("hidden",state.currentIndex===qs.length-1);
   $("submitExamBtn").classList.toggle("hidden",state.currentIndex!==qs.length-1);
   const officialKind=state.currentExam?.exam?.generatedFromOfficialQbank?.kind;
-  $("submitExamBtn").innerHTML=officialKind==="section"?'Finish Section <span>✓</span>':'Submit Exam <span>✓</span>';
+  const mistakePractice=Boolean(state.currentExam?.exam?.generatedFromMistakes);
+  $("submitExamBtn").innerHTML=mistakePractice?'Finish Practice <span>✓</span>':officialKind==="section"?'Finish Section <span>✓</span>':'Submit Exam <span>✓</span>';
 }
 function selectAnswer(q,optionId){
   if(state.feedbackMode==="instant" && state.answers[q.id])return;
@@ -2695,14 +3414,17 @@ function updateTimerPolicyHint(){
   display.classList.toggle("ranked-continuous",state.timerPolicy==="continuous-ranked");
 }
 $("exitExamBtn").addEventListener("click",()=>{
-  const message=state.timerPolicy==="continuous-ranked"
-    ?"Exit this ranked exam? Your answers and current question will be saved, but ranked elapsed time (and the countdown, when enabled) will CONTINUE while you are away. The attempt is not added to Ranking until it is submitted."
-    :"Exit the exam? Your answers, question position and remaining time will be saved. The timer will pause until you resume.";
+  const mistakePractice=Boolean(state.currentExam?.exam?.generatedFromMistakes);
+  const message=mistakePractice
+    ?"Exit My Mistakes practice? Your answers and current question will be saved so you can resume later. This practice never enters Ranking."
+    :state.timerPolicy==="continuous-ranked"
+      ?"Exit this ranked exam? Your answers and current question will be saved, but ranked elapsed time (and the countdown, when enabled) will CONTINUE while you are away. The attempt is not added to Ranking until it is submitted."
+      :"Exit the exam? Your answers, question position and remaining time will be saved. The timer will pause until you resume.";
   if(!confirm(message))return;
   stopTimer();
   persistProgress();
   state.timerSuspendedAt=null;
-  routeTo("dashboardView");
+  routeTo(mistakePractice?"mistakesView":"dashboardView");
 });
 
 function startTimerIfNeeded(){
@@ -2774,7 +3496,32 @@ window.addEventListener("beforeunload",()=>{
   }
 });
 
+function finishMistakesPractice(autoSubmitted=false){
+  stopTimer();
+  const questions=state.currentExam?.questions||[];
+  const before=new Map((state.mistakesPracticeKeys||[]).map(key=>[key,getMistake(mistakeOwnerId(),key)?.status||null]));
+  const result=calculateResult(questions,state.answers);
+  recordAttemptMistakeOutcomes(questions,state.answers,state.currentExam?.exam);
+  const after=(state.mistakesPracticeKeys||[]).map(key=>getMistake(mistakeOwnerId(),key)).filter(Boolean);
+  const masteredGained=after.filter(item=>before.get(item.key)!=="mastered" && item.status==="mastered").length;
+  const improving=after.filter(item=>item.status==="improving").length;
+  state.mistakesPracticeSummary={
+    total:questions.length,correct:result.correct,wrong:result.wrong,unanswered:result.unanswered,
+    masteredGained,improving,autoSubmitted:Boolean(autoSubmitted),completedAt:new Date().toISOString()
+  };
+  clearExamProgress();
+  emitAnalytics("mistakes_practice_complete",{
+    courseId:null,trackId:null,moduleId:null,examId:state.currentExam?.exam?.id||null,feedbackMode:"instant",
+    metadata:{questions:questions.length,correct:result.correct,masteredGained,ranked:false}
+  });
+  state.currentExam=null;state.currentRegistryItem=null;state.currentRankedActivity=false;
+  state.answers={};state.markedQuestions=[];state.currentIndex=0;state.mistakesPracticeKeys=[];
+  showToast(`${result.correct}/${questions.length} correct • My Mistakes updated`);
+  routeTo("mistakesView");
+}
+
 function finishExam(autoSubmitted){
+  if(state.currentExam?.exam?.generatedFromMistakes){finishMistakesPractice(autoSubmitted);return}
   stopTimer();
   const beforeAchievements=getAchievements(getUserResults()).filter(a=>a.unlocked).map(a=>a.id);
   const result=calculateResult(state.currentExam.questions,state.answers);
@@ -2791,6 +3538,8 @@ function finishExam(autoSubmitted){
     clientAttemptId,onlineSynced:false,subjectBreakdown,topicBreakdown,officialContext,
     feedbackMode:state.feedbackMode,examCategory:state.currentExam.exam.category || "Exam"
   };
+
+  recordAttemptMistakeOutcomes(state.currentExam.questions,state.answers,state.currentExam.exam);
 
   const onlineAttempt={
     player_id:state.playerId,
@@ -3046,6 +3795,7 @@ function renderResult(){
   }else badge.classList.add("hidden");
 }
 $("reviewBtn").addEventListener("click",renderReview);
+$("viewMistakesBtn")?.addEventListener("click",()=>routeTo("mistakesView"));
 $("retakeBtn").addEventListener("click",()=>routeTo("setupView"));
 $("reviewRetakeBtn").addEventListener("click",()=>routeTo("setupView"));
 $("viewResultRankingBtn").addEventListener("click",()=>{
@@ -3740,6 +4490,9 @@ $("copyRegistryBtn").addEventListener("click",async()=>{
 
 function renderProfile(){
   const stats=getStats();
+  const mistakeStats=getMistakeSummary(mistakeOwnerId());
+  const activeMistakes=mistakeStats["needs-review"]+mistakeStats.improving;
+  if($("profileMistakesCount"))$("profileMistakesCount").textContent=`${activeMistakes} ACTIVE`;
   $("profileBest").textContent=stats.best===null?"—":`${stats.best}%`;
   $("profileAttempts").textContent=stats.attempts;
   $("profileCompleted").textContent=stats.completed;
@@ -3780,6 +4533,7 @@ function closeProfile(){
 }
 
 $("profileButton").addEventListener("click",openProfile);
+$("openMyMistakesBtn")?.addEventListener("click",()=>{closeProfile();routeTo("mistakesView")});
 $("profileClose").addEventListener("click",closeProfile);
 $("drawerBackdrop").addEventListener("click",closeProfile);
 document.addEventListener("keydown",event=>{
@@ -3791,7 +4545,7 @@ document.addEventListener("keydown",event=>{
 
 // Opening a higher-level modal/route from Profile closes the drawer first,
 // preventing modal-on-drawer stacking and keeping one clear active layer.
-["openBackupRestoreBtn","openWhatsNewBtn","openAnalyticsBtn","openValidatorBtn","changeAvatarBtn"].forEach(id=>{
+["openMyMistakesBtn","openBackupRestoreBtn","openWhatsNewBtn","openAnalyticsBtn","openValidatorBtn","changeAvatarBtn"].forEach(id=>{
   $(id)?.addEventListener("click",closeProfile,{capture:true});
 });
 

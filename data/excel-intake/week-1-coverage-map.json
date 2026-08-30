@@ -1,1098 +1,1437 @@
 {
   "schemaVersion": "1.0",
   "trackId": "excel",
-  "track": "Excel",
-  "curriculumStatus": "in-progress",
-  "curriculumVersion": "1.0",
-  "expectedStructure": {
-    "weeks": 3,
-    "lecturesPerWeek": "source-dependent",
-    "estimatedLectureRange": {
-      "min": null,
-      "max": null
-    },
-    "note": "Excel course scope is 3 weeks. Week 1 has been received; exact topic structure is derived from uploaded source content."
+  "week": 1,
+  "auditStatus": "complete",
+  "auditDate": "2026-08-30",
+  "sourceBatch": {
+    "files": 9,
+    "slides": 262,
+    "excelCoreFiles": 6,
+    "excelCoreSlides": 176,
+    "statisticsPrerequisiteFiles": 3,
+    "statisticsPrerequisiteSlides": 86,
+    "decision": "B"
   },
-  "processedSources": [
+  "contentBasedSequence": [
     {
-      "id": "excel-w1-s01",
-      "week": 1,
-      "file": "10-Excel Formatting - Advance(1).pptx",
-      "slides": 16,
+      "order": 1,
+      "sourceId": "excel-w1-s01",
+      "displayTitle": "Advanced Conditional Formatting",
       "role": "excel-core",
-      "status": "audited"
+      "reason": "Visual Excel feature set; formula-based rules are an advanced subsection."
     },
     {
-      "id": "excel-w1-s02",
-      "week": 1,
-      "file": "11- Introduction to Statistics 1(1).pptx",
-      "slides": 31,
+      "order": 2,
+      "sourceId": "excel-w1-s05",
+      "displayTitle": "Formula Fundamentals, References & Text Operations",
+      "role": "excel-core",
+      "reason": "Establishes syntax, references, ranges, operators, percentages, averages and text operations."
+    },
+    {
+      "order": 3,
+      "sourceId": "excel-w1-s06",
+      "displayTitle": "Logic, Lookup, Named Ranges & Date Functions",
+      "role": "excel-core",
+      "reason": "Builds on formulas with IF, lookup/reference patterns, dynamic ranges and dates."
+    },
+    {
+      "order": 4,
+      "sourceId": "excel-w1-s02",
+      "displayTitle": "Statistics Prerequisite I — Data Types & Central Tendency",
       "role": "statistics-prerequisite",
-      "status": "audited"
+      "reason": "Placed next to statistical functions because Decision B makes it prerequisite context."
     },
     {
-      "id": "excel-w1-s03",
-      "week": 1,
-      "file": "12- Introduction to Statistics 2(1).pptx",
-      "slides": 34,
+      "order": 5,
+      "sourceId": "excel-w1-s03",
+      "displayTitle": "Statistics Prerequisite II — Dispersion, Sampling & Percentiles",
       "role": "statistics-prerequisite",
-      "status": "audited"
+      "reason": "Provides variance, standard deviation, percentiles and population/sample context."
     },
     {
-      "id": "excel-w1-s04",
-      "week": 1,
-      "file": "13- Introduction to Statistics 3(1).pptx",
-      "slides": 21,
+      "order": 6,
+      "sourceId": "excel-w1-s04",
+      "displayTitle": "Statistics Prerequisite III — Skewness, Correlation & Distributions",
       "role": "statistics-prerequisite",
-      "status": "audited"
+      "reason": "Completes prerequisite context before distribution/statistical Excel functions."
     },
     {
-      "id": "excel-w1-s05",
-      "week": 1,
-      "file": "Lecture 14 Excel Formulas and Functions - A to Z Part 1(1).pptx",
-      "slides": 29,
+      "order": 7,
+      "sourceId": "excel-w1-s07",
+      "displayTitle": "Statistical, Criteria & Dynamic Array Functions",
       "role": "excel-core",
-      "status": "audited"
+      "reason": "Uses formula foundations and Statistics prerequisites; introduces FILTER before applied filtering."
     },
     {
-      "id": "excel-w1-s06",
-      "week": 1,
-      "file": "Lecture 15 Excel Formulas and Functions - A to Z Part 2(1).pptx",
-      "slides": 37,
+      "order": 8,
+      "sourceId": "excel-w1-s08",
+      "displayTitle": "Filtering, Dynamic Search, Consolidation & Data Entry",
       "role": "excel-core",
-      "status": "audited"
+      "reason": "Applies FILTER/SEARCH and expands into practical data workflows."
     },
     {
-      "id": "excel-w1-s07",
-      "week": 1,
-      "file": "Lecture 16 Excel Formulas and Functions - A to Z Part 3(1).pptx",
-      "slides": 46,
+      "order": 9,
+      "sourceId": "excel-w1-s09",
+      "displayTitle": "Data Preparation, Sparklines & Analysis Tools",
       "role": "excel-core",
-      "status": "audited"
-    },
-    {
-      "id": "excel-w1-s08",
-      "week": 1,
-      "file": "Lecture 17 Filtering Data - Part 1(1).pptx",
-      "slides": 25,
-      "role": "excel-core",
-      "status": "audited"
-    },
-    {
-      "id": "excel-w1-s09",
-      "week": 1,
-      "file": "Lecture 18 Filtering Data - Part 2(1).pptx",
-      "slides": 23,
-      "role": "excel-core",
-      "status": "audited"
+      "reason": "Finishes with preparation, quick visuals, ToolPak and subtotal workflows."
     }
   ],
+  "coverageSummary": {
+    "conceptClusters": 70,
+    "excelCoreConceptClusters": 53,
+    "statisticsPrerequisiteConceptClusters": 17,
+    "practiceEligibleClusters": 53,
+    "weekExamEligibleClusters": 53,
+    "excelFinalCandidateClusters": 46,
+    "sourceQaIssues": 8,
+    "crossSourceOverlaps": 5
+  },
   "topics": [
     {
       "id": "conditional-formatting-purpose",
       "title": "Conditional Formatting — Purpose & Criteria",
-      "week": 1,
       "sourceId": "excel-w1-s01",
       "slides": "4-6",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "conditional-formatting-rules",
       "title": "Conditional Formatting Rule Types & Below-Average Example",
-      "week": 1,
       "sourceId": "excel-w1-s01",
       "slides": "5-6",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "conditional-formatting-data-bars",
       "title": "Data Bars",
-      "week": 1,
       "sourceId": "excel-w1-s01",
       "slides": "7",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "conditional-formatting-color-scales",
       "title": "Color Scales",
-      "week": 1,
       "sourceId": "excel-w1-s01",
       "slides": "8",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "conditional-formatting-rule-management",
       "title": "Rule Priority, Manage Rules & Clear Rules",
-      "week": 1,
       "sourceId": "excel-w1-s01",
       "slides": "10-13",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "conditional-formatting-formula-rule",
       "title": "Formula-Based Conditional Formatting",
-      "week": 1,
       "sourceId": "excel-w1-s01",
       "slides": "14-15",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "formula-fundamentals",
+        "if-logic"
+      ],
+      "notes": [
+        "Source uses a logical formula with AND."
+      ]
     },
     {
       "id": "formula-fundamentals",
       "title": "Formula vs Function, Equal Sign, Formula Bar & Function Arguments",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "4-7",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "cell-ranges-named-ranges",
       "title": "Cell References, Ranges & Named Ranges in Formulas",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "5-7",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "formula-fundamentals"
+      ],
+      "notes": []
     },
     {
       "id": "operator-precedence",
       "title": "Operators, Calculation Order & Parentheses",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "8-9",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "formula-fundamentals"
+      ],
+      "notes": []
     },
     {
       "id": "text-concatenation",
       "title": "CONCAT, TEXTJOIN & Ampersand Concatenation",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "10,25-27",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "percentage-formulas",
       "title": "Percentage of Total, Percentage Change & Absolute Reference Example",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "11-12",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "average-functions",
       "title": "AVERAGE, Weighted Average, AVERAGEIF & AVERAGEA",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "13-14",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "text-to-date",
       "title": "Text-to-Date Conversion: Text to Columns, DATEVALUE & DATE with Text Extraction",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "15-18",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "text-extraction",
       "title": "LEFT, RIGHT, MID, TEXTBEFORE & TEXTAFTER",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "19-22",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "text-cleaning-formatting",
       "title": "TRIM, CLEAN, PROPER, UPPER, LOWER, TEXT & SUBSTITUTE",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "23-24",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "text-splitting-search",
       "title": "TEXTSPLIT, LEN, FIND & SEARCH",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "25-27",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "autosum-assessment-family",
       "title": "SUM / Total, Average, Maximum, Minimum & Count — Source Assessment Family",
-      "week": 1,
       "sourceId": "excel-w1-s05",
       "slides": "28",
       "role": "excel-core",
       "importance": "important",
+      "evidence": "assessment-referenced",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "if-logic",
       "title": "IF Function — Logical Test and True/False Outputs",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "4-5",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "formula-fundamentals"
+      ],
+      "notes": []
     },
     {
       "id": "index-match",
       "title": "INDEX + MATCH — Retrieval, Nesting & Flexible Lookup",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "6-8",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "formula-fundamentals"
+      ],
+      "notes": []
     },
     {
       "id": "index-match-vlookup-comparison",
       "title": "INDEX-MATCH vs VLOOKUP, Two-Way Lookup & Multiple Criteria",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "9-10",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "index-match"
+      ],
+      "notes": []
     },
     {
       "id": "choose-function",
       "title": "CHOOSE Function",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "11-12",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "vlookup",
       "title": "VLOOKUP — Syntax, Exact & Approximate Match",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "13-14",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "xlookup",
       "title": "XLOOKUP — Syntax, if_not_found, Match Mode & Search Mode",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "15-17",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "dynamic-named-ranges",
       "title": "Dynamic Named Ranges with Tables, OFFSET+COUNTA & INDEX+COUNTA",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "18-23",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "cell-ranges-named-ranges"
+      ],
+      "notes": []
     },
     {
       "id": "date-functions-core",
       "title": "DATE, TODAY, NOW, YEAR, MONTH & DAY",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "24-26",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "working-day-functions",
       "title": "NETWORKDAYS, WORKDAY and INTL Variants",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "27-29",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "date-functions-core"
+      ],
+      "notes": []
     },
     {
       "id": "advanced-date-logic",
       "title": "EDATE, EOMONTH, WEEKDAY & DATEDIF",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "30-32",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "date-functions-core"
+      ],
+      "notes": []
     },
     {
       "id": "rows-columns-functions",
       "title": "ROWS & COLUMNS — Range Size and Dynamic Use Cases",
-      "week": 1,
       "sourceId": "excel-w1-s06",
       "slides": "33-35",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-definition",
       "title": "What Is Statistics?",
-      "week": 1,
       "sourceId": "excel-w1-s02",
       "slides": "3-4",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-data-types",
       "title": "Quantitative vs Qualitative; Continuous, Discrete, Ordinal & Nominal",
-      "week": 1,
       "sourceId": "excel-w1-s02",
       "slides": "5-12",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-descriptive-inferential",
       "title": "Descriptive vs Inferential Statistics",
-      "week": 1,
       "sourceId": "excel-w1-s02",
       "slides": "13-17",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-frequency-table",
       "title": "Frequency Tables / Frequency Distributions",
-      "week": 1,
       "sourceId": "excel-w1-s02",
       "slides": "17-18",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-central-tendency",
       "title": "Mean, Median & Mode",
-      "week": 1,
       "sourceId": "excel-w1-s02",
       "slides": "19-27",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-outliers-central-tendency",
       "title": "Effect of Outliers on Descriptive Statistics",
-      "week": 1,
       "sourceId": "excel-w1-s02",
       "slides": "28-29",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-dispersion-overview",
       "title": "Central Tendency vs Dispersion",
-      "week": 1,
       "sourceId": "excel-w1-s03",
       "slides": "3-6",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-variance",
       "title": "Variance and Manual Calculation Steps",
-      "week": 1,
       "sourceId": "excel-w1-s03",
       "slides": "7-10",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-standard-deviation",
       "title": "Standard Deviation",
-      "week": 1,
       "sourceId": "excel-w1-s03",
       "slides": "10-13",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-population-sampling",
       "title": "Population, Sample, Sampling Types & When to Use Samples",
-      "week": 1,
       "sourceId": "excel-w1-s03",
       "slides": "14-17",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-range-iqr",
       "title": "Range, Quartiles, IQR, Box Plot & Outlier Fences",
-      "week": 1,
       "sourceId": "excel-w1-s03",
       "slides": "18-29",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-percentile",
       "title": "Percentiles and Source Calculation Examples",
-      "week": 1,
       "sourceId": "excel-w1-s03",
       "slides": "30-32",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-skewness",
       "title": "Skewness & Mean/Median/Mode Relationship",
-      "week": 1,
       "sourceId": "excel-w1-s04",
       "slides": "3-4",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": [
+        "Internal source contradiction exists."
+      ]
     },
     {
       "id": "stats-correlation",
       "title": "Correlation, Correlation Coefficient & Scatter Plot Interpretation",
-      "week": 1,
       "sourceId": "excel-w1-s04",
       "slides": "5-10",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-worked-descriptive-task",
       "title": "Worked Mean/Median/Mode/Variance/Standard-Deviation Task",
-      "week": 1,
       "sourceId": "excel-w1-s04",
       "slides": "11-13",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-distributions",
       "title": "Data Distribution & Probability Distribution Concepts",
-      "week": 1,
       "sourceId": "excel-w1-s04",
       "slides": "14-16",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stats-normal-distribution",
       "title": "Normal Distribution — Definition, Importance & Applications",
-      "week": 1,
       "sourceId": "excel-w1-s04",
       "slides": "16-19",
       "role": "statistics-prerequisite",
       "importance": "prerequisite",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": false,
         "weekExamEligible": false,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "stdev-p",
       "title": "STDEV.P — Population Standard Deviation in Excel",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "4-5",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "stats-standard-deviation",
+        "formula-fundamentals"
+      ],
+      "notes": []
     },
     {
       "id": "ranking-percentile-functions",
       "title": "RANK.EQ, PERCENTILE.INC, LARGE & SMALL",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "6-8",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "stats-percentile"
+      ],
+      "notes": []
     },
     {
       "id": "distribution-functions",
       "title": "NORM.DIST & BINOM.DIST",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "9-13",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "stats-distributions",
+        "stats-normal-distribution"
+      ],
+      "notes": []
     },
     {
       "id": "array-formulas-spill",
       "title": "Array Formulas, Spill Ranges, #SPILL! & # Reference",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "14-16",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "filter-function",
       "title": "FILTER Dynamic Array Function",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "17-19",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "array-formulas-spill"
+      ],
+      "notes": []
     },
     {
       "id": "unique-function",
       "title": "UNIQUE Dynamic Array Function",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "17,20-21",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "array-formulas-spill"
+      ],
+      "notes": []
     },
     {
       "id": "sort-functions",
       "title": "SORT & SORTBY Dynamic Array Functions",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "17,22-25",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "array-formulas-spill"
+      ],
+      "notes": []
     },
     {
       "id": "sequence-function",
       "title": "SEQUENCE Dynamic Array Function",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "17,26-27",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "array-formulas-spill"
+      ],
+      "notes": []
     },
     {
       "id": "descriptive-excel-functions",
       "title": "AVERAGE, MEDIAN, MODE.SNGL, MIN & MAX",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "28-30",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "stats-central-tendency"
+      ],
+      "notes": []
     },
     {
       "id": "counting-criteria-functions",
       "title": "COUNT, COUNTA, COUNTIFS & AVERAGEIFS",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "31-34",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "conditional-aggregation",
       "title": "SUMIF, SUMIFS, MAXIFS & MINIFS",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "35-39",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "ifs-function",
       "title": "IFS Function and First-TRUE Logic",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "40-41",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "if-logic"
+      ],
+      "notes": []
     },
     {
       "id": "formula-protection",
       "title": "Locking Formula Cells, Hidden Formulas & Protect Sheet",
-      "week": 1,
       "sourceId": "excel-w1-s07",
       "slides": "42-43",
       "role": "excel-core",
       "importance": "important",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "autofilter",
       "title": "Enable and Use Excel Filter Buttons",
-      "week": 1,
       "sourceId": "excel-w1-s08",
       "slides": "4-5",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "delete-rows",
       "title": "Deleting Rows in Ranges and Excel Tables",
-      "week": 1,
       "sourceId": "excel-w1-s08",
       "slides": "6-7",
       "role": "excel-core",
       "importance": "important",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "dynamic-filter-search",
       "title": "Dynamic Search Box with FILTER + ISNUMBER + SEARCH",
-      "week": 1,
       "sourceId": "excel-w1-s08",
       "slides": "8-14",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "filter-function",
+        "text-splitting-search"
+      ],
+      "notes": [
+        "ISNUMBER is embedded but not independently taught."
+      ]
     },
     {
       "id": "data-consolidation",
       "title": "Data Consolidation — By Position and By Category",
-      "week": 1,
       "sourceId": "excel-w1-s08",
       "slides": "15-16",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "data-entry-form",
       "title": "Built-In Data Entry Form — Setup and Record Operations",
-      "week": 1,
       "sourceId": "excel-w1-s08",
       "slides": "17-21",
       "role": "excel-core",
       "importance": "important",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "move-columns",
       "title": "Swap/Move Columns with Shift+Drag or Cut/Insert",
-      "week": 1,
       "sourceId": "excel-w1-s08",
       "slides": "22-23",
       "role": "excel-core",
       "importance": "supporting",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "text-to-columns-splitting",
       "title": "Split Cell Content with Text to Columns",
-      "week": 1,
       "sourceId": "excel-w1-s09",
       "slides": "4-6",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [
+        "text-to-date"
+      ],
+      "notes": []
     },
     {
       "id": "flash-fill",
       "title": "Flash Fill for Pattern-Based Text Extraction",
-      "week": 1,
       "sourceId": "excel-w1-s09",
       "slides": "7-8",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "unmerge-cells",
       "title": "Unmerge Previously Merged Cells",
-      "week": 1,
       "sourceId": "excel-w1-s09",
       "slides": "9-10",
       "role": "excel-core",
       "importance": "supporting",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "sparklines",
       "title": "Sparklines — Line, Column, Win/Loss and Insertion Workflow",
-      "week": 1,
       "sourceId": "excel-w1-s09",
       "slides": "11-14",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "analysis-toolpak",
       "title": "Enable the Data Analysis ToolPak",
-      "week": 1,
       "sourceId": "excel-w1-s09",
       "slides": "15-17",
       "role": "excel-core",
       "importance": "important",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": false
-      }
+      },
+      "dependencies": [],
+      "notes": []
     },
     {
       "id": "subtotal-sorting",
       "title": "Sorting Subtotals with Outline Levels",
-      "week": 1,
       "sourceId": "excel-w1-s09",
       "slides": "18-21",
       "role": "excel-core",
       "importance": "core",
+      "evidence": "taught",
       "assessment": {
         "practiceEligible": true,
         "weekExamEligible": true,
         "excelFinalCandidate": true
-      }
+      },
+      "dependencies": [],
+      "notes": []
     }
   ],
-  "completion": {
-    "confirmedByUser": false,
-    "confirmedAt": null
-  },
-  "lastUpdated": "2026-08-30",
-  "intakeStatus": "week-1-audited",
-  "productionPolicy": {
-    "sourceOfTruth": "uploaded-course-material-only",
-    "sequenceRule": "content-based-not-filename-based",
-    "batchRule": "process-one-week-at-a-time-unless-a-smaller-batch-is-needed-for-quality",
-    "noInventedTopics": true,
-    "noInventedExamplesUnlessLabeledPlatformClarification": true,
-    "finalReadyOnlyAfterAllWeeksAudited": true,
-    "statisticsBoundary": {
-      "decision": "B",
-      "week1StatisticsRole": "prerequisite-learning-only",
-      "includeInExcelAssessment": false,
-      "includeInExcelFinal": false
+  "sourceQaIssues": [
+    {
+      "id": "qa-stats3-skewness-contradiction",
+      "severity": "high",
+      "sourceId": "excel-w1-s04",
+      "slides": "3-4",
+      "type": "internal-contradiction",
+      "finding": "Slide 3 says right-tail skewness is positive and left-tail negative; slide 4 says right-skewed is less than zero and also left-skewed is less than zero.",
+      "productionAction": "No silent reconciliation; any clarification must be PRESENTATION CORRECTION."
+    },
+    {
+      "id": "qa-stats3-math-label",
+      "severity": "medium",
+      "sourceId": "excel-w1-s04",
+      "slides": "12",
+      "type": "worked-example-arithmetic-label",
+      "finding": "Math solution writes '88 - 86.6 = 1.96' while 1.96 is also used as the squared deviation.",
+      "productionAction": "Preserve trace; label corrected walkthrough as PRESENTATION CORRECTION."
+    },
+    {
+      "id": "qa-stats3-correlation-wording",
+      "severity": "medium",
+      "sourceId": "excel-w1-s04",
+      "slides": "8",
+      "type": "unclear-wording",
+      "finding": "Regression-line explanation includes unclear wording ('line separate the 2 classes').",
+      "productionAction": "Do not use the unclear sentence as a standalone assessment fact."
+    },
+    {
+      "id": "qa-l15-assessment-hlookup-gap",
+      "severity": "medium",
+      "sourceId": "excel-w1-s06",
+      "slides": "36",
+      "type": "assessment-instruction-gap",
+      "finding": "Assessment requests HLOOKUP, but instructional slides explicitly teach VLOOKUP and XLOOKUP, not a standalone HLOOKUP lesson.",
+      "productionAction": "Do not invent HLOOKUP teaching unless another uploaded source teaches it."
+    },
+    {
+      "id": "qa-l15-assessment-nested-if-gap",
+      "severity": "medium",
+      "sourceId": "excel-w1-s06",
+      "slides": "36",
+      "type": "assessment-sequence-gap",
+      "finding": "Assessment references Nested IF and IFS. IF is taught in Lecture 15; IFS is taught later in Lecture 16. Standalone Nested IF teaching is not explicit.",
+      "productionAction": "Sequence IFS after IF; do not fabricate Nested IF material."
+    },
+    {
+      "id": "qa-text-to-columns-overlap",
+      "severity": "low",
+      "sourceIds": [
+        "excel-w1-s05",
+        "excel-w1-s09"
+      ],
+      "slides": [
+        "15-18",
+        "4-6"
+      ],
+      "type": "cross-source-overlap",
+      "finding": "Text to Columns appears for date conversion and later for splitting content.",
+      "productionAction": "One reusable explanation + two source-specific use cases."
+    },
+    {
+      "id": "qa-filter-search-isnumber",
+      "severity": "low",
+      "sourceId": "excel-w1-s08",
+      "slides": "8-14",
+      "type": "embedded-function-without-standalone-teaching",
+      "finding": "Dynamic search uses FILTER + ISNUMBER + SEARCH; ISNUMBER is not independently explained in Week 1.",
+      "productionAction": "Explain only inside the source workflow, not as a new curriculum unit."
+    },
+    {
+      "id": "qa-l18-title-scope-mismatch",
+      "severity": "low",
+      "sourceId": "excel-w1-s09",
+      "slides": "4-21",
+      "type": "source-title-vs-content",
+      "finding": "Title says Filtering Data Part 2, while most content covers Text to Columns, Flash Fill, Unmerge, Sparklines, ToolPak and Subtotals.",
+      "productionAction": "Use professional display title while preserving original source filename."
     }
-  },
-  "week1Audit": {
-    "sequenceConfirmed": true,
-    "coverageAudited": true,
-    "coverageMap": "data/excel-intake/week-1-coverage-map.json",
-    "sourceQaIssueCount": 8
+  ],
+  "overlaps": [
+    {
+      "concept": "Text to Columns",
+      "sources": [
+        {
+          "sourceId": "excel-w1-s05",
+          "slides": "15-18",
+          "context": "convert text dates"
+        },
+        {
+          "sourceId": "excel-w1-s09",
+          "slides": "4-6",
+          "context": "split cell content"
+        }
+      ],
+      "resolution": "One reusable explanation; separate use cases."
+    },
+    {
+      "concept": "LEFT / RIGHT / MID",
+      "sources": [
+        {
+          "sourceId": "excel-w1-s05",
+          "slides": "17,19-22",
+          "context": "text extraction/date parsing"
+        },
+        {
+          "sourceId": "excel-w1-s06",
+          "slides": "36",
+          "context": "assessment task"
+        }
+      ],
+      "resolution": "Teach once; later assessment can reference prior knowledge."
+    },
+    {
+      "concept": "FILTER",
+      "sources": [
+        {
+          "sourceId": "excel-w1-s07",
+          "slides": "17-19",
+          "context": "dynamic array function"
+        },
+        {
+          "sourceId": "excel-w1-s08",
+          "slides": "8-14",
+          "context": "dynamic search workflow"
+        }
+      ],
+      "resolution": "Lecture 16 is prerequisite; Lecture 17 is applied workflow."
+    },
+    {
+      "concept": "Descriptive statistics functions",
+      "sources": [
+        {
+          "sourceId": "excel-w1-s02",
+          "slides": "19-29",
+          "context": "statistics theory"
+        },
+        {
+          "sourceId": "excel-w1-s07",
+          "slides": "28-34",
+          "context": "Excel functions"
+        }
+      ],
+      "resolution": "Theory prerequisite-only; Excel function behavior is assessment-eligible."
+    },
+    {
+      "concept": "Standard deviation / percentiles / distributions",
+      "sources": [
+        {
+          "sourceId": "excel-w1-s03",
+          "slides": "7-13,30-32",
+          "context": "statistics theory"
+        },
+        {
+          "sourceId": "excel-w1-s04",
+          "slides": "14-19",
+          "context": "distribution theory"
+        },
+        {
+          "sourceId": "excel-w1-s07",
+          "slides": "4-13",
+          "context": "Excel functions"
+        }
+      ],
+      "resolution": "Theory excluded from Excel scoring; Excel functions remain eligible."
+    }
+  ],
+  "assessmentBoundary": {
+    "statisticsDecision": "B",
+    "rule": "Standalone Statistics theory is excluded from Excel assessment. Excel functions implementing statistical concepts remain eligible only when explicitly taught in Excel-core sources.",
+    "excelFinalStatus": "candidate-map-only",
+    "finalWeightsLocked": false,
+    "reasonFinalWeightsUnlocked": "Weeks 2 and 3 have not been audited yet."
   }
 }

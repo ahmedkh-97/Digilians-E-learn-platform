@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.19.6";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.1";
 
 
 const UPDATE_KEYS={
@@ -10,17 +10,18 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.19.6",
-  title:"Shared Ranking Avatars",
+  version:"0.20.1",
+  title:"Navbar Readability Polish",
   date:"2026-08-30",
-  summary:"Returning learners without a current avatar now receive a one-time avatar setup automatically.",
+  summary:"The desktop navigation now gives long labels enough room to stay on one line.",
   highlights:[
-    "Export checksum-protected learner progress backups.",
-    "Restore with Merge or Replace plus an automatic safety snapshot.",
-    "Private Platform Health monitors sanitized client errors.",
-    "Analytics/Admin identity remains excluded from learner backups."
+    "Wider desktop navigation for the six main destinations.",
+    "Official QBank and My Mistakes stay on one line instead of wrapping.",
+    "Navigation labels keep their current readable font size instead of being shrunk.",
+    "Responsive behavior and mobile bottom navigation remain unchanged.",
+    "No learning, assessment, ranking or My Mistakes data was changed."
   ],
-  type:"feature"
+  type:"fix"
 };
 
 export function normalizeVersion(value){

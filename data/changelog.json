@@ -1,6 +1,35 @@
 {
-  "latest": "0.19.6",
+  "latest": "0.20.1",
   "releases": [
+    {
+      "version": "0.20.1",
+      "title": "Navbar Readability Polish",
+      "date": "2026-08-30",
+      "type": "fix",
+      "summary": "Desktop navigation is wider so long destinations such as Official QBank stay on one line.",
+      "highlights": [
+        "Widened the desktop navigation without shrinking label text.",
+        "Official QBank and My Mistakes now use no-wrap labels.",
+        "Navigation items use natural flexible widths instead of forcing every item into the same width.",
+        "Responsive tablet/mobile navigation behavior is preserved.",
+        "No educational, assessment, ranking, analytics or My Mistakes data changed."
+      ]
+    },
+    {
+      "version": "0.20.0",
+      "title": "My Mistakes V1",
+      "date": "2026-08-30",
+      "type": "feature",
+      "summary": "Wrong answers now feed one local recovery notebook across Official QBank, Practice and Exams.",
+      "highlights": [
+        "Unified My Mistakes page with source, track, topic and mastery filters.",
+        "Needs Review → Improving → Mastered uses a two-correct recovery streak after the latest wrong answer.",
+        "Existing Official QBank mistakes are imported automatically without changing official source data.",
+        "New course Practice/Exam attempts save exact wrong-question snapshots and also count later correct recoveries.",
+        "Practice My Mistakes and single-question Retry are local-only and never enter Ranking.",
+        "My Mistakes is included in learner Backup/Restore while Analytics/Admin data stays excluded."
+      ]
+    },
     {
       "version": "0.19.6",
       "title": "Shared Ranking Avatars",

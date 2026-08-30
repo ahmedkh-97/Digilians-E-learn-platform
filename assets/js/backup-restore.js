@@ -1,5 +1,5 @@
 
-import {resolveBuildVersion} from "./build-version.js?v=0.19.6";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.1";
 
 const BACKUP_FORMAT="digilians-progress-backup";
 const BACKUP_SCHEMA_VERSION=1;
@@ -17,6 +17,7 @@ export const BACKUP_KEYS=[
   "digilians.officialQbank",
   "digilians.studyProgress",
   "digilians.quickChecks",
+  "digilians.mistakes",
   "digilians_ranking_mode",
   "digilians_ranking_track_level",
   "digilians_ranking_track",
@@ -30,7 +31,8 @@ const JSON_KEYS=new Set([
   "digilians.pendingAttempts",
   "digilians.officialQbank",
   "digilians.studyProgress",
-  "digilians.quickChecks"
+  "digilians.quickChecks",
+  "digilians.mistakes"
 ]);
 
 const ARRAY_KEYS=new Set([
@@ -112,6 +114,7 @@ export function summarizeBackupData(data={}){
   const results=parse("digilians.results",[]);
   const study=parse("digilians.studyProgress",{users:{}});
   const quick=parse("digilians.quickChecks",{users:{}});
+  const mistakes=parse("digilians.mistakes",{schemaVersion:1,owners:{}});
   const official=parse("digilians.officialQbank",{tracks:{}});
   const examProgress=parse("digilians.examProgress",null);
 
@@ -128,6 +131,7 @@ export function summarizeBackupData(data={}){
     results:Array.isArray(results)?results.length:0,
     studyModules,
     quickChecks,
+    mistakes:Object.values(mistakes?.owners||{}).reduce((sum,owner)=>sum+Object.keys(owner?.items||{}).length,0),
     officialTracks:Object.keys(official?.tracks||{}).length,
     hasExamProgress:Boolean(examProgress),
     keyCount:Object.keys(data).length
@@ -284,6 +288,36 @@ function mergeOfficialQbank(current,incoming){
   return out;
 }
 
+function mergeMistakes(current,incoming){
+  const out=structuredClone(current||{schemaVersion:1,owners:{}});
+  out.schemaVersion=1;
+  out.owners ||= {};
+  for(const [ownerId,record] of Object.entries(incoming?.owners||{})){
+    out.owners[ownerId] ||= {studentName:record?.studentName||"",items:{},updatedAt:null};
+    const target=out.owners[ownerId];
+    target.items ||= {};
+    if(record?.studentName)target.studentName=record.studentName;
+    for(const [key,item] of Object.entries(record?.items||{})){
+      const cur=target.items[key];
+      if(!cur){target.items[key]=item;continue}
+      const curTime=Date.parse(cur.updatedAt||cur.lastAnsweredAt||0)||0;
+      const inTime=Date.parse(item?.updatedAt||item?.lastAnsweredAt||0)||0;
+      if(inTime>=curTime){
+        target.items[key]={
+          ...cur,
+          ...item,
+          wrongCount:Math.max(Number(cur.wrongCount)||0,Number(item?.wrongCount)||0),
+          recoveryCorrectCount:Math.max(Number(cur.recoveryCorrectCount)||0,Number(item?.recoveryCorrectCount)||0)
+        };
+      }
+    }
+    const curOwnerTime=Date.parse(target.updatedAt||0)||0;
+    const incomingTime=Date.parse(record?.updatedAt||0)||0;
+    if(incomingTime>=curOwnerTime)target.updatedAt=record?.updatedAt||target.updatedAt;
+  }
+  return out;
+}
+
 function parsed(storage,key,fallback){
   try{
     const raw=safeGet(storage,key);
@@ -326,6 +360,12 @@ export function mergeBackupIntoStorageData(currentData,incomingData){
     if(key==="digilians.officialQbank"){
       const current=(()=>{try{return JSON.parse(currentData[key]||'{"tracks":{}}')}catch{return {tracks:{}}}})();
       out[key]=JSON.stringify(mergeOfficialQbank(current,JSON.parse(incomingData[key])));
+      continue;
+    }
+
+    if(key==="digilians.mistakes"){
+      const current=(()=>{try{return JSON.parse(currentData[key]||'{"schemaVersion":1,"owners":{}}')}catch{return {schemaVersion:1,owners:{}}}})();
+      out[key]=JSON.stringify(mergeMistakes(current,JSON.parse(incomingData[key])));
       continue;
     }
 
@@ -390,6 +430,7 @@ function renderSummary(summary){
     <div><span>Results</span><strong>${summary.results}</strong></div>
     <div><span>Study Modules</span><strong>${summary.studyModules}</strong></div>
     <div><span>Quick Checks</span><strong>${summary.quickChecks}</strong></div>
+    <div><span>My Mistakes</span><strong>${summary.mistakes}</strong></div>
     <div><span>QBank Tracks</span><strong>${summary.officialTracks}</strong></div>
     <div><span>Exam Resume</span><strong>${summary.hasExamProgress?"Yes":"No"}</strong></div>
     <div><span>Saved Keys</span><strong>${summary.keyCount}</strong></div>`;
@@ -487,7 +528,7 @@ async function restoreSelected(){
 
     const summary=applyBackupData(localStorage,selectedImport.data,mode);
     safeSet(sessionStorage,"digilians.backup.restoreNotice",
-      `Progress restored successfully: ${summary.results} results, ${summary.studyModules} study modules.`);
+      `Progress restored successfully: ${summary.results} results, ${summary.studyModules} study modules, ${summary.mistakes} saved mistakes.`);
 
     window.dispatchEvent(new CustomEvent("digilians:analytics",{detail:{
       eventType:"progress_backup_restore",
