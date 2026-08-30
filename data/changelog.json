@@ -1,86 +1,89 @@
 {
-  "latest": "0.18.5",
+  "latest": "0.19.4",
   "releases": [
     {
-      "version": "0.18.5",
-      "title": "Sticky Navigation & Course Card Layout Fix",
+      "version": "0.19.4",
+      "title": "Returning User Avatar Rollout",
       "date": "2026-08-30",
-      "summary": "The main navigation now follows scrolling, and course-card text can no longer overlap its footer controls.",
+      "type": "fix",
+      "summary": "Existing learners without a current Soft 3D avatar now receive a one-time required avatar picker automatically when they return.",
       "highlights": [
-        "Desktop top navigation is now sticky with a light glass background while scrolling.",
-        "Local TEST banner and sticky navigation no longer cover each other.",
-        "Course cards now use normal-flow flex layout instead of an absolutely positioned footer.",
-        "Long course descriptions can grow naturally without colliding with module/track counts or arrows.",
-        "Desktop and mobile layout regressions added."
+        "Returning users with a saved name and no current avatar see the picker automatically on platform load.",
+        "The one-time rollout cannot be dismissed with Escape, backdrop click, close or initials fallback.",
+        "Saving an avatar continues directly to Home and the rollout does not appear again.",
+        "Existing valid V0.19.3 avatars are preserved and never prompted again.",
+        "New learner onboarding keeps its existing optional initials fallback."
+      ]
+    },
+    {
+      "version": "0.19.3",
+      "title": "Soft 3D Avatar Pack",
+      "date": "2026-08-30",
+      "summary": "The avatar system now uses the requested polished Soft 3D cartoon characters as real local image assets.",
+      "highlights": [
+        "16 Soft 3D avatars: 4 Boys, 4 Girls and 8 Animals.",
+        "Local WebP avatar assets replace the previous approximate SVG characters.",
+        "All/Boys/Girls/Animals filters and Surprise Me remain available.",
+        "Navbar and Profile render the selected Soft 3D character.",
+        "Avatar choice remains local-only and is included only in learner-controlled Backup/Restore."
       ],
       "type": "fix"
     },
     {
-      "version": "0.18.4",
-      "title": "Analytics Version Tracking Hotfix",
+      "version": "0.19.2",
+      "title": "Funny Avatar Profiles V1",
       "date": "2026-08-30",
-      "summary": "Fixed Analytics version detection so new events record the real platform version instead of Unknown.",
+      "summary": "Learners can now choose a playful Modern 3D / Soft avatar by Male, Female or Neutral category and keep it locally with their profile.",
       "highlights": [
-        "Analytics and Live Update now share one build-version resolver.",
-        "The canonical build version is also stored directly on the HTML root element.",
-        "Analytics event/version displays no longer render Vunknown.",
-        "A one-time Supabase backfill script is included for V0.18.3 Unknown events.",
-        "Regression tests now fail if an Analytics event becomes Unknown while a valid build version exists."
-      ],
-      "type": "fix"
-    },
-    {
-      "version": "0.18.3",
-      "title": "Private Platform Analytics V1",
-      "date": "2026-08-29",
-      "summary": "Private anonymous usage analytics with Supabase Auth + Row Level Security for the admin dashboard.",
-      "highlights": [
-        "Anonymous Unique Visitors, Sessions, Returning Visitors and Page Views.",
-        "Track usage, Study/Practice/Exam activity and Official QBank activity.",
-        "Platform version adoption and update-notice/install activity.",
-        "Private date-filtered dashboard protected by Supabase Auth + admin allowlist RLS.",
-        "No learner names, question answers, application-level IP collection or secret Supabase keys."
+        "14 built-in Modern 3D / Soft avatars: 5 Male, 5 Female and 4 Neutral.",
+        "First-time avatar picker after saving a learner name, plus Change Avatar from Profile.",
+        "Surprise Me randomizer and initials fallback.",
+        "Avatar appears in Navbar and Profile while preserving initials if no avatar is selected.",
+        "Gender/category and avatar choice stay local, are excluded from Analytics, and are included only in the learner-controlled backup file."
       ],
       "type": "feature"
     },
     {
-      "version": "0.18.2",
-      "title": "Live Update & What’s New System",
-      "date": "2026-08-29",
-      "summary": "The platform can now detect newer GitHub releases, notify learners safely, and explain what changed.",
+      "version": "0.19.1",
+      "title": "Profile Access & Layering Fix",
+      "date": "2026-08-30",
+      "summary": "The Profile drawer now behaves as a true modal layer over navigation, and administrative tools are visible only after verified Admin access.",
       "highlights": [
-        "Automatic update check every 5 minutes with no-cache version lookup.",
-        "Safe Update Now flow that preserves local Study progress and saved results.",
-        "Updates are deferred while an exam is active — never forced mid-attempt.",
-        "What’s New appears once per installed version and remains available from Profile and Footer.",
-        "Recent update history is available inside the platform."
-      ],
-      "type": "feature"
-    },
-    {
-      "version": "0.18.1",
-      "title": "Technical Feedback CSS Hotfix",
-      "date": "2026-08-29",
-      "summary": "Fixed SQL and other technical answers breaking into one token per line inside feedback cards.",
-      "highlights": [
-        "SQL feedback code blocks render at normal height again.",
-        "Syntax-highlight tokens stay inline in feedback, review and Official QBank surfaces.",
-        "Exact four-line SQL regression added to Pre-Deploy QA."
+        "Profile backdrop now covers the sticky navbar and update notice correctly.",
+        "Opening Profile locks page scrolling and makes the underlying app inert.",
+        "Escape, backdrop click and close button all dismiss the Profile drawer.",
+        "Backup, What's New, Analytics and Validator close Profile before opening the next layer.",
+        "Exam / Bank JSON Validator moved into an Admin Tools group and requires verified Supabase Admin access."
       ],
       "type": "fix"
     },
     {
-      "version": "0.18.0",
-      "title": "SQL Study V2",
-      "date": "2026-08-29",
-      "summary": "SQL Study became a full teaching experience and internal syllabus diagnostics moved out of the learner path.",
+      "version": "0.19.0",
+      "title": "Progress Backup/Restore & Private Error Monitoring",
+      "date": "2026-08-30",
+      "summary": "Learners can now export/restore local progress safely, while the private Admin dashboard monitors sanitized client errors.",
       "highlights": [
-        "34 SQL Study sections with visual teaching models.",
-        "34 unique course-derived SQL Quick Checks.",
-        "Learner-friendly SQL Course Map.",
-        "Syllabus Coverage retained inside collapsed Platform Diagnostics."
+        "Export a checksum-protected JSON backup of Study progress, Quick Checks, QBank state, results and exam resume.",
+        "Restore with Merge or Replace modes and an automatic pre-restore safety snapshot.",
+        "Analytics/Admin credentials and anonymous visitor IDs are excluded from backups.",
+        "Private Platform Health shows error events, affected sessions, error-free rate and safe recent errors.",
+        "Client error reporting is deduplicated, rate-limited, redacted and disabled on localhost."
       ],
-      "type": "learning"
+      "type": "feature"
+    },
+    {
+      "version": "0.18.8",
+      "title": "Proportional Navbar Scale",
+      "date": "2026-08-30",
+      "summary": "The wide sticky navbar now scales its logo, labels and profile controls proportionally to the larger header footprint.",
+      "highlights": [
+        "Larger navigation labels and active state for better visual balance.",
+        "Brand logo/title and subtitle scaled up proportionally.",
+        "Theme and profile controls increased to match the wider navbar.",
+        "Large-screen navigation width increased slightly to 650px with evenly distributed tabs.",
+        "Tablet/mobile keep a more compact responsive scale."
+      ],
+      "type": "fix"
     }
   ]
 }
