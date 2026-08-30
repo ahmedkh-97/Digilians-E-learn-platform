@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.19.4";
+import {resolveBuildVersion} from "./build-version.js?v=0.19.6";
 
 
 const UPDATE_KEYS={
@@ -10,8 +10,8 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.19.4",
-  title:"Returning User Avatar Rollout",
+  version:"0.19.6",
+  title:"Shared Ranking Avatars",
   date:"2026-08-30",
   summary:"Returning learners without a current avatar now receive a one-time avatar setup automatically.",
   highlights:[

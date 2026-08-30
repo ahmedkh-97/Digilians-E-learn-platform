@@ -1,6 +1,14 @@
 const SUPABASE_URL = "https://gbyxpwcjfzxpxxbbwnzf.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_tb1vaMv8eB98FcaaqLLl3A_k1nXSdgJ";
 const ATTEMPTS_ENDPOINT = `${SUPABASE_URL}/rest/v1/exam_attempts`;
+const RANKING_PROFILES_ENDPOINT = `${SUPABASE_URL}/rest/v1/ranking_profiles`;
+
+const SHARED_AVATAR_IDS = new Set([
+  "boy-3d-1","boy-3d-2","boy-3d-3","boy-3d-4",
+  "girl-3d-1","girl-3d-2","girl-3d-3","girl-3d-4",
+  "cat-3d","bear-3d","penguin-3d","otter-3d",
+  "koala-3d","rabbit-3d","lion-3d","sloth-3d"
+]);
 
 async function apiFetch(url, options = {}) {
   const response = await fetch(url, {
@@ -31,6 +39,47 @@ export async function submitAttemptOnline(attempt) {
     body: JSON.stringify(attempt)
   });
   return true;
+}
+
+
+export async function syncRankingAvatarProfile(playerId,avatarId){
+  if(!playerId || !SHARED_AVATAR_IDS.has(String(avatarId||"")))return false;
+
+  const url=`${RANKING_PROFILES_ENDPOINT}?on_conflict=player_id`;
+  await apiFetch(url,{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      Prefer:"resolution=merge-duplicates,return=minimal"
+    },
+    body:JSON.stringify({
+      player_id:playerId,
+      avatar_id:avatarId,
+      updated_at:new Date().toISOString()
+    })
+  });
+  return true;
+}
+
+export async function fetchRankingProfiles(playerIds,{chunkSize=100}={}){
+  const unique=[...new Set((playerIds||[]).filter(Boolean))];
+  if(!unique.length)return new Map();
+
+  const out=new Map();
+  for(let start=0;start<unique.length;start+=chunkSize){
+    const chunk=unique.slice(start,start+chunkSize);
+    const filter=encodeURIComponent(`in.(${chunk.join(",")})`);
+    const url=
+      `${RANKING_PROFILES_ENDPOINT}?select=player_id,avatar_id,updated_at`+
+      `&player_id=${filter}&limit=${chunk.length}`;
+    const rows=(await apiFetch(url))||[];
+    for(const row of rows){
+      if(row?.player_id && SHARED_AVATAR_IDS.has(row.avatar_id)){
+        out.set(row.player_id,row.avatar_id);
+      }
+    }
+  }
+  return out;
 }
 
 export async function fetchExamAttempts(examId) {

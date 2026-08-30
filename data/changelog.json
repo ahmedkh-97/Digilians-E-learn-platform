@@ -1,6 +1,34 @@
 {
-  "latest": "0.19.4",
+  "latest": "0.19.6",
   "releases": [
+    {
+      "version": "0.19.6",
+      "title": "Shared Ranking Avatars",
+      "date": "2026-08-30",
+      "summary": "Everyone can now see each learner's selected Soft 3D avatar across shared leaderboards after a one-time profile sync.",
+      "highlights": [
+        "New Supabase ranking_profiles table stores player_id + avatar_id only.",
+        "All Ranking rows and Top-3 podium positions can render other learners' avatars.",
+        "Changing an avatar updates the shared profile instead of waiting for a new exam attempt.",
+        "Historical leaderboard attempts gain avatars automatically once that learner opens V0.19.6.",
+        "Gender/category is never uploaded; ranking attempts and scoring schemas remain unchanged."
+      ],
+      "type": "feature"
+    },
+    {
+      "version": "0.19.5",
+      "title": "Ranking Avatar Integration",
+      "date": "2026-08-30",
+      "summary": "Your selected Soft 3D avatar now appears on your own leaderboard row and podium position instead of falling back to initials.",
+      "highlights": [
+        "Local learner avatar renders on the current user's exam leaderboard row.",
+        "Local learner avatar renders on aggregate/Official Total Grades ranking rows.",
+        "If the learner reaches Top 3, the same avatar appears on the podium.",
+        "Other users remain initials because avatar/category data is still not uploaded to Supabase.",
+        "No ranking score, identity, privacy or assessment schema changes."
+      ],
+      "type": "fix"
+    },
     {
       "version": "0.19.4",
       "title": "Returning User Avatar Rollout",
@@ -54,34 +82,6 @@
         "Escape, backdrop click and close button all dismiss the Profile drawer.",
         "Backup, What's New, Analytics and Validator close Profile before opening the next layer.",
         "Exam / Bank JSON Validator moved into an Admin Tools group and requires verified Supabase Admin access."
-      ],
-      "type": "fix"
-    },
-    {
-      "version": "0.19.0",
-      "title": "Progress Backup/Restore & Private Error Monitoring",
-      "date": "2026-08-30",
-      "summary": "Learners can now export/restore local progress safely, while the private Admin dashboard monitors sanitized client errors.",
-      "highlights": [
-        "Export a checksum-protected JSON backup of Study progress, Quick Checks, QBank state, results and exam resume.",
-        "Restore with Merge or Replace modes and an automatic pre-restore safety snapshot.",
-        "Analytics/Admin credentials and anonymous visitor IDs are excluded from backups.",
-        "Private Platform Health shows error events, affected sessions, error-free rate and safe recent errors.",
-        "Client error reporting is deduplicated, rate-limited, redacted and disabled on localhost."
-      ],
-      "type": "feature"
-    },
-    {
-      "version": "0.18.8",
-      "title": "Proportional Navbar Scale",
-      "date": "2026-08-30",
-      "summary": "The wide sticky navbar now scales its logo, labels and profile controls proportionally to the larger header footprint.",
-      "highlights": [
-        "Larger navigation labels and active state for better visual balance.",
-        "Brand logo/title and subtitle scaled up proportionally.",
-        "Theme and profile controls increased to match the wider navbar.",
-        "Large-screen navigation width increased slightly to 650px with evenly distributed tabs.",
-        "Tablet/mobile keep a more compact responsive scale."
       ],
       "type": "fix"
     }

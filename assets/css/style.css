@@ -8000,3 +8000,51 @@ body.avatar-picker-open{
   opacity:.52;
   cursor:not-allowed;
 }
+
+
+/* =========================================================
+   V0.19.5 — Ranking Avatar Integration
+   ========================================================= */
+
+.ranking-avatar{
+  flex:0 0 auto;
+}
+
+.leaderboard-student .ranking-avatar.has-profile-avatar{
+  width:32px;
+  height:32px;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 5px 12px rgba(27,52,105,.12);
+}
+
+.podium-place .ranking-avatar.has-profile-avatar{
+  width:54px;
+  height:54px;
+  margin-inline:auto;
+  border-radius:17px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(27,52,105,.16);
+}
+
+.ranking-avatar.has-profile-avatar img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:inherit;
+}
+
+.leaderboard-row.you .ranking-avatar.has-profile-avatar{
+  box-shadow:
+    0 0 0 2px color-mix(in srgb,var(--primary) 32%,transparent),
+    0 5px 12px rgba(27,52,105,.12);
+}
+
+@media(max-width:620px){
+  .leaderboard-student .ranking-avatar.has-profile-avatar{
+    width:29px;
+    height:29px;
+    border-radius:9px;
+  }
+}

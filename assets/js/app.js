@@ -8,7 +8,7 @@ import {
 } from "./storage.js";
 
 import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
-import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds} from "./online.js";
+import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles} from "./online.js";
 import {buildAggregateLeaderboard} from "./ranking-engine.js";
 import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
 import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
@@ -20,7 +20,7 @@ import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
 import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker} from "./avatar-profile.js?v=0.19.4";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.19.6";
 
 const state={
   studentName:"",
@@ -59,6 +59,7 @@ const state={
   rankingTrackLevelId:"junior-data-analysis",
   rankingTrackId:"excel",
   rankingRequestId:0,
+  rankingAvatarMap:new Map(),
   lastValidatorRoute:"dashboardView",
   validatorPayload:null,
   validatorRegistryEntry:null,
@@ -182,8 +183,9 @@ function saveRankedIdentity(){
   $("rankedIdentityError").textContent="";
   state.identityContinuation=null;
 
-  const continueRanked=()=>{
+  const continueRanked=async()=>{
     syncUserUI();
+    await syncCurrentAvatarToRanking();
     showToast(`Ranked profile saved: ${name}`);
     continuation?.();
   };
@@ -210,8 +212,9 @@ function handleNameSubmit(){
   state.studentName=name;
   syncUserUI();
 
-  const enterPlatform=()=>{
+  const enterPlatform=async()=>{
     syncUserUI();
+    await syncCurrentAvatarToRanking();
     showToast(`Welcome, ${name}`);
     routeTo("dashboardView");
   };
@@ -230,7 +233,7 @@ $("continueUserBtn").addEventListener("click",()=>{
       mode:"rollout",
       required:true,
       name:state.studentName,
-      onDone:()=>{syncUserUI();routeTo("dashboardView")}
+      onDone:async()=>{syncUserUI();await syncCurrentAvatarToRanking();routeTo("dashboardView")}
     });
     return;
   }
@@ -243,8 +246,9 @@ function openReturningUserAvatarRollout(){
     mode:"rollout",
     required:true,
     name:state.studentName,
-    onDone:()=>{
+    onDone:async()=>{
       syncUserUI();
+      await syncCurrentAvatarToRanking();
       showToast("Avatar saved — welcome back!");
       routeTo("dashboardView");
     }
@@ -3320,6 +3324,47 @@ function showRankingContent(){
   $("leaderboardStatus").classList.add("hidden");
   $("leaderboardContent").classList.remove("hidden");
 }
+
+function rankingAvatarHtml(entry,isMe=false){
+  const sharedAvatarId=state.rankingAvatarMap.get(entry?.player_id)||null;
+  const localProfile=isMe?getAvatarProfile():null;
+  const avatarRef=sharedAvatarId || localProfile?.avatarId || null;
+
+  if(avatarRef){
+    const image=avatarMarkup(avatarRef,{lazy:false});
+    if(image){
+      return `<span class="avatar ranking-avatar has-profile-avatar" data-ranking-shared-avatar="${sharedAvatarId?"true":"local"}">${image}</span>`;
+    }
+  }
+  return `<span class="avatar ranking-avatar">${escapeHtml(initials(entry?.student_name))}</span>`;
+}
+
+async function refreshSharedRankingAvatars(entries=[]){
+  const ids=[...new Set((entries||[]).map(x=>x?.player_id).filter(Boolean))];
+  if(!ids.length){
+    state.rankingAvatarMap=new Map();
+    return state.rankingAvatarMap;
+  }
+  try{
+    state.rankingAvatarMap=await fetchRankingProfiles(ids);
+  }catch(error){
+    console.warn("Shared ranking avatars unavailable:",error);
+    state.rankingAvatarMap=new Map();
+  }
+  return state.rankingAvatarMap;
+}
+
+async function syncCurrentAvatarToRanking(){
+  const profile=getAvatarProfile();
+  if(!state.playerId || !profile?.avatarId)return false;
+  try{
+    return await syncRankingAvatarProfile(state.playerId,profile.avatarId);
+  }catch(error){
+    console.warn("Could not sync ranking avatar profile:",error);
+    return false;
+  }
+}
+
 function renderPodium(board,{aggregate=false,maxScore=0}={}){
   const podium=$("leaderboardPodium");podium.innerHTML="";
   if(!board.length){
@@ -3336,7 +3381,7 @@ function renderPodium(board,{aggregate=false,maxScore=0}={}){
     const sub=aggregate?`${entry.completedSections}/${entry.totalSections} sections • ${entry.percentage}%`:"Best attempt";
     place.innerHTML=`
       <span>${entry.rank}</span>
-      <div class="avatar">${escapeHtml(initials(entry.student_name))}</div>
+      ${rankingAvatarHtml(entry,entry.player_id===state.playerId)}
       <strong class="podium-name">${escapeHtml(entry.student_name)}</strong>
       <div class="podium-score">${main}</div>
       <div class="podium-sub">${sub}</div>`;
@@ -3358,7 +3403,7 @@ function renderOnlineLeaderboard(board){
       row.innerHTML=`
         <span class="leaderboard-rank">#${entry.rank}</span>
         <span class="leaderboard-student">
-          <span class="avatar">${escapeHtml(initials(entry.student_name))}</span>
+          ${rankingAvatarHtml(entry,isMe)}
           <span class="leaderboard-name">${escapeHtml(entry.student_name)}${isMe?'<span class="you-tag">YOU</span>':""}</span>
         </span>
         <span class="leaderboard-score">${entry.percentage}%</span>
@@ -3402,7 +3447,7 @@ function renderAggregateLeaderboard(result,scope){
       row.innerHTML=`
         <span class="leaderboard-rank">#${entry.rank}</span>
         <span class="leaderboard-student">
-          <span class="avatar">${escapeHtml(initials(entry.student_name))}</span>
+          ${rankingAvatarHtml(entry,isMe)}
           <span class="leaderboard-name">${escapeHtml(entry.student_name)}${isMe?'<span class="you-tag">YOU</span>':""}</span>
         </span>
         <span class="leaderboard-progress">${entry.completedSections}/${totalSections}</span>
@@ -3472,6 +3517,8 @@ async function renderRanking(){
     try{
       const board=await getLeaderboard(examId);
       if(requestId!==state.rankingRequestId)return;
+      await refreshSharedRankingAvatars(board);
+      if(requestId!==state.rankingRequestId)return;
       renderOnlineLeaderboard(board);
       showRankingContent();
     }catch(error){
@@ -3487,6 +3534,8 @@ async function renderRanking(){
     const rows=await fetchAttemptsForExamIds(scope.sections.map(s=>s.examId));
     if(requestId!==state.rankingRequestId)return;
     const result=buildAggregateLeaderboard(rows,scope.sections);
+    await refreshSharedRankingAvatars(result.board);
+    if(requestId!==state.rankingRequestId)return;
     renderAggregateLeaderboard(result,scope);
     showRankingContent();
   }catch(error){
@@ -3750,7 +3799,12 @@ $("changeAvatarBtn")?.addEventListener("click",()=>{
   openAvatarPicker({
     mode:"change",
     name:state.studentName,
-    onDone:()=>{syncUserUI();showToast("Profile avatar updated.")}
+    onDone:async()=>{
+      syncUserUI();
+      await syncCurrentAvatarToRanking();
+      showToast("Profile avatar updated for shared Ranking.");
+      if(document.querySelector(".view.active")?.id==="rankingView")renderRanking();
+    }
   });
 });
 $("changeNameBtn").addEventListener("click",()=>{
@@ -3788,6 +3842,7 @@ async function init(){
   }
 
   state.studentName=getStudentName();syncUserUI();
+  if(state.studentName && hasAvatarProfile())void syncCurrentAvatarToRanking();
   retryPendingAttempts();
   if(state.studentName){
     $("returningUserEntry").classList.remove("hidden");$("newUserEntry").classList.add("hidden");
