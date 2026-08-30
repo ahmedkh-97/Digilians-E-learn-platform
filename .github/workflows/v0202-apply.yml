@@ -1,0 +1,49 @@
+name: Apply V0.20.2 Excel Week 2 Study
+
+on:
+  push:
+    branches:
+      - release/v0.20.2-excel-week2-study
+    paths:
+      - '.github/workflows/v0202-apply.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release branch
+        uses: actions/checkout@v4
+        with:
+          ref: release/v0.20.2-excel-week2-study
+          fetch-depth: 0
+
+      - name: Reconstruct and apply release patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .github/v0202-patch/part* | tr -d '\n\r' | base64 -d > /tmp/v0202.patch.xz
+          xz -dc /tmp/v0202.patch.xz > /tmp/v0202.patch
+          git apply --check /tmp/v0202.patch
+          git apply /tmp/v0202.patch
+
+      - name: Run pre-deploy QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/pre-deploy-check.mjs
+
+      - name: Commit verified V0.20.2 patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .github/v0202-patch
+          rm -f .github/workflows/v0202-apply.yml
+          git config user.name 'Ahmed Khaled'
+          git config user.email 'ahmedkph97@gmail.com'
+          git add -A
+          git status --short
+          git commit -m 'Release V0.20.2 Excel Week 2 Study Production'
+          git push origin HEAD:release/v0.20.2-excel-week2-study
