@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.18.5";
+import {resolveBuildVersion} from "./build-version.js?v=0.19.4";
 
 
 const UPDATE_KEYS={
@@ -10,15 +10,15 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.18.5",
-  title:"Sticky Navigation & Course Card Layout Fix",
-  date:"2026-08-29",
-  summary:"Navigation now stays available while scrolling and course cards no longer overlap.",
+  version:"0.19.4",
+  title:"Returning User Avatar Rollout",
+  date:"2026-08-30",
+  summary:"Returning learners without a current avatar now receive a one-time avatar setup automatically.",
   highlights:[
-    "Shared version resolver for Analytics and Live Update.",
-    "New Analytics events record V0.18.4 instead of Unknown.",
-    "Historical V0.18.3 Unknown events can be backfilled with the included SQL.",
-    "Existing privacy, RLS and exam-safety behavior remains unchanged."
+    "Export checksum-protected learner progress backups.",
+    "Restore with Merge or Replace plus an automatic safety snapshot.",
+    "Private Platform Health monitors sanitized client errors.",
+    "Analytics/Admin identity remains excluded from learner backups."
   ],
   type:"feature"
 };

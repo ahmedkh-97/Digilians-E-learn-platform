@@ -126,3 +126,20 @@ This changes only Analytics rows whose `platform_version` is exactly `unknown`.
 They are assigned `0.18.3` because Analytics did not exist before V0.18.3.
 
 Future V0.18.4+ events use the corrected shared build-version resolver automatically.
+
+
+## V0.19.0 — Private Error Monitor
+
+No new Supabase table or migration is required if `ANALYTICS-SCHEMA.sql` was already installed.
+
+V0.19.0 stores sanitized client-health events in the existing:
+
+`public.analytics_events`
+
+table using:
+
+`event_type = app_error`
+
+The same Admin Auth + RLS rules protect dashboard reading.
+
+Local TEST builds do not send error events.

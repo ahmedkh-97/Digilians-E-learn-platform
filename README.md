@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.18.5
+# Digilians E-Learn Platform V0.19.4
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -2032,3 +2032,328 @@ Pre-Deploy now verifies:
 - Course cards now use flex-column normal flow.
 - Course footers are no longer absolutely positioned.
 - Long descriptions can never overlap module/track counts or the arrow.
+
+
+## V0.18.6 — Modern Minimal UI Polish
+
+This release is a presentation-only refinement focused on the areas that felt visually sharp or busy.
+
+### Header
+- Sticky behavior is preserved.
+- The header now floats with 10px breathing room instead of forming a hard full-width strip.
+- Glass background, border and shadow are lighter.
+- Navigation pills, profile and theme controls are more compact.
+- Active navigation uses a soft accent instead of a heavy selected block.
+
+### Official Track
+- Hero card uses a quieter surface and softer border.
+- `Study All Questions` is the single primary action.
+- Practice and Exam are secondary.
+- Track Ranking is a quiet ghost action.
+- Summary metrics are lighter and less box-heavy.
+
+### Official Section Cards
+- Softer border and shadow.
+- Smaller section number badge.
+- Score strip no longer looks like three nested cards.
+- `Solve & Rank` remains the primary action.
+- Study is secondary and Ranking is visually quiet.
+- Hover interaction is subtle.
+
+No learning content, questions, answers, exam logic, ranking logic or Analytics schema is changed.
+
+
+## V0.18.7 — Wide Floating Navbar
+
+V0.18.6 made the navigation visually lighter, but the center navigation became too compact on wide screens.
+
+V0.18.7 keeps the same modern floating/sticky style while restoring a stronger usable width:
+
+- topbar spans essentially the full content container
+- desktop navigation expands to 620px on large screens
+- all five navigation tabs share that width evenly
+- logo / brand area is slightly larger
+- profile / theme controls are slightly larger
+- sticky 10px floating offset is preserved
+- tablet/mobile behavior remains responsive
+
+No learning, exam, ranking or Analytics logic changed.
+
+
+## V0.18.8 — Proportional Navbar Scale
+
+V0.18.7 restored the wide navbar footprint, but its internal labels and controls were still visually too small for that larger surface.
+
+V0.18.8 keeps the same wide sticky layout and scales the contents proportionally on large screens:
+
+- center navigation: 650px
+- navigation labels: 10.3px with stronger active weight
+- brand title: 13px
+- logo: 44px
+- profile name: 9.2px
+- theme control: 42px
+- profile control: 46px minimum height
+- tablet and mobile keep their own smaller responsive scale
+
+No learning, exam, ranking, Analytics or update logic changed.
+
+
+## V0.19.0 — Progress Backup/Restore & Private Error Monitoring
+
+### Progress Backup
+Profile now includes:
+
+`Backup & Restore Progress`
+
+Export creates a local JSON containing only approved learner-state keys:
+- learner name / player ID
+- theme and learning preference state
+- results
+- resumable exam progress
+- Study progress
+- Quick Checks
+- Official QBank progress/bookmarks/mistakes/answers
+- pending attempt queue
+- ranking-view preferences
+
+The backup includes:
+- format/schema version
+- platform version
+- export timestamp
+- SHA-256 checksum
+
+Not exported:
+- Analytics Admin auth session
+- anonymous Analytics visitor/session IDs
+- What's New / update state
+- Supabase secrets (none are stored in learner state)
+
+### Restore
+Two modes:
+- Merge Progress — recommended
+- Replace Learner Data
+
+Merge deduplicates results/pending attempts and combines Study/QBank/Quick Check state.
+
+Before any restore is applied, the browser downloads an automatic current-state safety file:
+
+`digilians-before-restore-YYYY-MM-DD.json`
+
+Restore changes only the learner-state allowlist. Analytics/Admin/Update local state remains untouched.
+
+### Private Error Monitoring
+The existing private Analytics dashboard now includes:
+
+`Platform Health`
+
+Metrics:
+- Error Events
+- Affected Sessions
+- Error-Free Sessions
+- Recent safe client errors
+
+Tracking covers:
+- JavaScript runtime errors
+- unhandled promise rejections
+- failed browser resources
+- handled startup/data-load errors explicitly reported by the app
+
+Privacy/safety:
+- no stack traces
+- email/URL/UUID/long-number redaction
+- metadata sanitizer also blocks stack fields
+- 20 reports maximum per session
+- duplicate signature cooldown: 60 seconds
+- localhost / TEST-LOCAL reporting disabled
+- learning/exams never depend on error telemetry
+
+### Core Freeze
+See:
+
+`docs/V0.19.0-CORE-FREEZE.md`
+
+After V0.19.0 live verification, core UI/infrastructure should be treated as frozen while Excel production begins.
+
+
+## V0.19.1 — Profile Access & Layering Fix
+
+### Profile modal behavior
+The Profile drawer now behaves as a true modal layer.
+
+Layer order:
+- Navbar: 120
+- Update notice: 150000
+- Profile backdrop: 155000
+- Profile drawer: 155100
+- What's New: 160000
+- Admin Login: 170000
+- Backup / Restore: 175000
+- LOCAL TEST indicator: 180000
+
+When Profile opens:
+- the navbar/content are visually covered
+- the underlying `.app-shell` becomes inert
+- body scrolling is locked
+- focus moves to Profile close
+- Escape closes Profile
+- clicking the backdrop closes Profile
+- closing restores prior focus
+
+Opening Backup, What's New, Analytics or Validator closes Profile first so modal layers do not stack awkwardly.
+
+### Admin-only tools
+Profile is cleaner for learners.
+
+Normal learner actions:
+- Backup & Restore Progress
+- What's New & Updates
+- Change saved name
+
+Admin-only group:
+- Private Platform Analytics
+- Exam / Bank JSON Validator
+
+The Admin Tools group is hidden until Supabase Admin Auth + allowlist verification succeeds.
+
+The Validator also has an application-level guard and refuses to open unless:
+
+`window.__DIGILIANS_ADMIN_VERIFIED__ === true`
+
+Admin verification failures fail closed and hide the Admin Tools group.
+
+
+## V0.19.2 — Funny Avatar Profiles V1
+
+Learners can personalize their local profile with lightweight built-in Modern 3D / Soft avatars.
+
+Catalog:
+- 5 Male
+- 5 Female
+- 4 Neutral
+- 14 total
+
+Features:
+- first-time picker after saving a learner name
+- existing learners from earlier versions are invited to choose an avatar when they continue
+- All / Male / Female / Neutral filters
+- Surprise Me randomizer
+- Change Avatar from Profile
+- initials fallback
+- Navbar avatar
+- large Profile avatar
+- responsive Light/Dark UI
+
+Privacy:
+- avatar and category are stored only in `digilians.avatarProfile`
+- no Avatar/Gender Analytics event exists
+- avatar module performs no network request
+- avatar/category are not sent to ranking or Supabase
+- learner-controlled Backup/Restore includes the avatar profile so it can move with the learner's local progress
+
+Implementation:
+- no external avatar images
+- no image CDN
+- avatars render as local SVG
+- no change to question/exam/QBank content
+
+
+## V0.19.3 — Soft 3D Avatar Pack
+
+The approximate SVG avatar catalog from V0.19.2 has been replaced with the requested polished Soft 3D cartoon look.
+
+### Catalog
+
+Boys — 4:
+- Boy 3D 1
+- Boy 3D 2
+- Boy 3D 3
+- Boy 3D 4
+
+Girls — 4:
+- Girl 3D 1
+- Girl 3D 2
+- Girl 3D 3
+- Girl 3D 4
+
+Animals — 8:
+- Cat 3D
+- Bear 3D
+- Penguin 3D
+- Otter 3D
+- Koala 3D
+- Rabbit 3D
+- Lion 3D
+- Sloth 3D
+
+Total: 16.
+
+### Asset strategy
+
+All 16 avatars are shipped directly inside:
+
+`assets/avatars/*.webp`
+
+No image CDN or runtime generation is required.
+
+The picker renders the real image assets rather than approximate SVG drawings.
+
+### UX
+
+Filters:
+- All 16
+- Boys 4
+- Girls 4
+- Animals 8
+
+Existing:
+- Surprise Me
+- first-time picker
+- Change Avatar
+- initials fallback
+- Navbar avatar
+- Profile avatar
+- local persistence
+- Backup/Restore
+
+### Migration
+
+The V0.19.2 SVG avatar catalog is intentionally considered a previous schema.
+
+If a browser had selected a V0.19.2 SVG avatar, V0.19.3 treats it as unselected and shows the new picker once so the learner can choose from the correct Soft 3D pack.
+
+### Privacy
+
+Avatar category/choice remains local-only.
+
+No category/avatar Analytics event is sent and no avatar data is added to ranked-attempt records.
+
+
+## V0.19.4 — Returning User Avatar Rollout
+
+Existing learners now receive the Soft 3D Avatar Picker automatically when the platform opens if:
+
+- a saved learner name exists, and
+- no valid current Soft 3D avatar is saved.
+
+### One-time rollout behavior
+
+Returning-user flow:
+
+`Open platform → Avatar Rollout → Save Avatar → Home`
+
+The rollout is intentionally required once:
+- no close button
+- no Escape dismissal
+- no backdrop dismissal
+- no initials fallback
+- Save remains disabled until one avatar is selected
+
+After saving, `digilians.avatarProfile` is valid and the rollout does not appear again on later visits.
+
+A learner who already has a valid V0.19.3 Soft 3D avatar is not interrupted.
+
+New-user onboarding remains different: new learners can still choose an avatar or use initials for now.
+
+### Safety
+
+The rollout occurs on startup/welcome, not in the middle of an active exam. Existing Exam Resume state is untouched. Avatar/category remains local-only and is not sent to Analytics or ranking.

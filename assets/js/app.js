@@ -20,6 +20,7 @@ import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
 import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker} from "./avatar-profile.js?v=0.19.4";
 
 const state={
   studentName:"",
@@ -134,8 +135,8 @@ $("brandHome").addEventListener("click",e=>{
 
 function syncUserUI(){
   const name=state.studentName || "Guest";
-  const ini=initials(name);
-  ["profileAvatar","drawerAvatar"].forEach(id=>$(id).textContent=ini);
+  const avatarProfile=getAvatarProfile();
+  ["profileAvatar","drawerAvatar"].forEach(id=>renderAvatarInto($(id),avatarProfile,name));
   $("profileName").textContent=name;
   $("drawerName").textContent=name;
   $("rankingLocalName").textContent=name;
@@ -180,8 +181,18 @@ function saveRankedIdentity(){
   $("rankedIdentityModal").setAttribute("aria-hidden","true");
   $("rankedIdentityError").textContent="";
   state.identityContinuation=null;
-  showToast(`Ranked profile saved: ${name}`);
-  continuation?.();
+
+  const continueRanked=()=>{
+    syncUserUI();
+    showToast(`Ranked profile saved: ${name}`);
+    continuation?.();
+  };
+
+  if(!hasAvatarProfile()){
+    openAvatarPicker({mode:"onboarding",name,onDone:continueRanked});
+  }else{
+    continueRanked();
+  }
 }
 $("rankedIdentitySaveBtn")?.addEventListener("click",saveRankedIdentity);
 $("rankedIdentityCancelBtn")?.addEventListener("click",closeRankedIdentity);
@@ -198,12 +209,48 @@ function handleNameSubmit(){
   setStudentName(name);
   state.studentName=name;
   syncUserUI();
-  showToast(`Welcome, ${name}`);
-  routeTo("dashboardView");
+
+  const enterPlatform=()=>{
+    syncUserUI();
+    showToast(`Welcome, ${name}`);
+    routeTo("dashboardView");
+  };
+
+  if(!hasAvatarProfile()){
+    openAvatarPicker({mode:"onboarding",name,onDone:enterPlatform});
+  }else{
+    enterPlatform();
+  }
 }
 $("startBtn").addEventListener("click",handleNameSubmit);
 $("studentName").addEventListener("keydown",e=>{if(e.key==="Enter")handleNameSubmit()});
-$("continueUserBtn").addEventListener("click",()=>routeTo("dashboardView"));
+$("continueUserBtn").addEventListener("click",()=>{
+  if(state.studentName && !hasAvatarProfile()){
+    openAvatarPicker({
+      mode:"rollout",
+      required:true,
+      name:state.studentName,
+      onDone:()=>{syncUserUI();routeTo("dashboardView")}
+    });
+    return;
+  }
+  routeTo("dashboardView");
+});
+
+function openReturningUserAvatarRollout(){
+  if(!state.studentName || hasAvatarProfile())return false;
+  openAvatarPicker({
+    mode:"rollout",
+    required:true,
+    name:state.studentName,
+    onDone:()=>{
+      syncUserUI();
+      showToast("Avatar saved — welcome back!");
+      routeTo("dashboardView");
+    }
+  });
+  return true;
+}
 
 async function loadJson(path){
   const res=await fetch(path,{cache:"no-store"});
@@ -579,9 +626,9 @@ function renderOfficialTrackHub(){
         <div><span>Status</span><strong>${best?"Completed":"New"}</strong></div>
       </div>
       <div class="section-card-actions">
-        <button class="ghost-btn section-study-btn">Study</button>
+        <button class="secondary-btn section-study-btn">Study</button>
         <button class="primary-btn section-solve-btn">Solve & Rank →</button>
-        <button class="secondary-btn section-rank-btn">Ranking ↗</button>
+        <button class="ghost-btn section-rank-btn">Ranking ↗</button>
       </div>`;
     card.querySelector(".section-study-btn").addEventListener("click",()=>openOfficialStudyScope(section.sectionId));
     card.querySelector(".section-solve-btn").addEventListener("click",()=>requireRankedIdentity(()=>prepareOfficialSection(section.sectionId),"Enter your name before solving a ranked Official QBank section."));
@@ -3477,6 +3524,11 @@ $("rankingExamSelect").addEventListener("change",e=>{
 $("refreshLeaderboardBtn").addEventListener("click",()=>renderRanking());
 
 function openValidator(){
+  if(window.__DIGILIANS_ADMIN_VERIFIED__!==true){
+    closeProfile();
+    showToast("Admin access is required for the JSON Validator.");
+    return;
+  }
   state.lastValidatorRoute = document.querySelector(".view.active")?.id || "dashboardView";
   closeProfile();
   resetValidator();
@@ -3650,9 +3702,57 @@ function renderProfile(){
     target.appendChild(card);
   });
 }
-function openProfile(){renderProfile();$("drawerBackdrop").classList.remove("hidden");$("profileDrawer").classList.add("open");$("profileDrawer").setAttribute("aria-hidden","false")}
-function closeProfile(){$("drawerBackdrop").classList.add("hidden");$("profileDrawer").classList.remove("open");$("profileDrawer").setAttribute("aria-hidden","true")}
-$("profileButton").addEventListener("click",openProfile);$("profileClose").addEventListener("click",closeProfile);$("drawerBackdrop").addEventListener("click",closeProfile);
+let profileReturnFocus=null;
+
+function openProfile(){
+  renderProfile();
+  profileReturnFocus=document.activeElement;
+  $("drawerBackdrop").classList.remove("hidden");
+  $("drawerBackdrop").setAttribute("aria-hidden","false");
+  $("profileDrawer").classList.add("open");
+  $("profileDrawer").setAttribute("aria-hidden","false");
+  document.body.classList.add("profile-drawer-open");
+  document.querySelector(".app-shell")?.setAttribute("inert","");
+  window.requestAnimationFrame(()=>$("profileClose")?.focus());
+}
+
+function closeProfile(){
+  const wasOpen=$("profileDrawer").classList.contains("open");
+  $("drawerBackdrop").classList.add("hidden");
+  $("drawerBackdrop").setAttribute("aria-hidden","true");
+  $("profileDrawer").classList.remove("open");
+  $("profileDrawer").setAttribute("aria-hidden","true");
+  document.body.classList.remove("profile-drawer-open");
+  document.querySelector(".app-shell")?.removeAttribute("inert");
+  if(wasOpen && profileReturnFocus instanceof HTMLElement){
+    window.requestAnimationFrame(()=>profileReturnFocus?.focus());
+  }
+  profileReturnFocus=null;
+}
+
+$("profileButton").addEventListener("click",openProfile);
+$("profileClose").addEventListener("click",closeProfile);
+$("drawerBackdrop").addEventListener("click",closeProfile);
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape" && $("profileDrawer").classList.contains("open")){
+    event.preventDefault();
+    closeProfile();
+  }
+});
+
+// Opening a higher-level modal/route from Profile closes the drawer first,
+// preventing modal-on-drawer stacking and keeping one clear active layer.
+["openBackupRestoreBtn","openWhatsNewBtn","openAnalyticsBtn","openValidatorBtn","changeAvatarBtn"].forEach(id=>{
+  $(id)?.addEventListener("click",closeProfile,{capture:true});
+});
+
+$("changeAvatarBtn")?.addEventListener("click",()=>{
+  openAvatarPicker({
+    mode:"change",
+    name:state.studentName,
+    onDone:()=>{syncUserUI();showToast("Profile avatar updated.")}
+  });
+});
 $("changeNameBtn").addEventListener("click",()=>{
   closeProfile();closeRankedIdentity();clearStudentName();state.studentName="";syncUserUI();
   $("studentName").value="";$("returningUserEntry").classList.add("hidden");$("newUserEntry").classList.remove("hidden");routeTo("welcomeView");
@@ -3673,6 +3773,11 @@ async function init(){
     dataLoaded=true;
   }catch(e){
     console.error(e);
+    window.dispatchEvent(new CustomEvent("digilians:client-error",{detail:{
+      kind:e?.name||"data_load_error",
+      message:e?.message||"Platform data could not be loaded.",
+      phase:"startup"
+    }}));
     $("examLoadError").textContent="Could not load platform data. Open this project through GitHub Pages or a local web server.";
     $("examLoadError").classList.remove("hidden");
   }
@@ -3688,6 +3793,7 @@ async function init(){
     $("returningUserEntry").classList.remove("hidden");$("newUserEntry").classList.add("hidden");
     $("returningUserName").textContent=state.studentName;
     routeTo("welcomeView");
+    openReturningUserAvatarRollout();
   }else routeTo("welcomeView");
 
   window.__DIGILIANS_APP_READY__=true;
@@ -3695,5 +3801,10 @@ async function init(){
 }
 init().catch(error=>{
   console.error("Fatal application startup error:",error);
+  window.dispatchEvent(new CustomEvent("digilians:client-error",{detail:{
+    kind:error?.name||"fatal_startup_error",
+    message:error?.message||"The application could not start correctly.",
+    phase:"startup"
+  }}));
   window.__DIGILIANS_SHOW_FATAL__?.("The application could not start correctly.");
 });

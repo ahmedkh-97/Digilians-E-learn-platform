@@ -1,4 +1,4 @@
-import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.18.5";
+import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.19.4";
 
 
 const SUPABASE_URL="https://gbyxpwcjfzxpxxbbwnzf.supabase.co";
@@ -53,7 +53,10 @@ const EVENT_LABELS={
   exam_start:"Exam Start",
   exam_complete:"Exam Complete",
   update_seen:"Update Seen",
-  update_installed:"Update Installed"
+  update_installed:"Update Installed",
+  progress_backup_export:"Progress Backup Export",
+  progress_backup_restore:"Progress Backup Restore",
+  app_error:"App Error"
 };
 
 let trackingFailureLogged=false;
@@ -63,6 +66,11 @@ let adminVerified=false;
 let activeRange="today";
 let lastFetchedEvents=[];
 let renderingDashboard=false;
+
+const ERROR_LIMIT_PER_SESSION=20;
+const ERROR_DEDUPE_MS=60_000;
+let reportedErrorCount=0;
+const recentErrorSignatures=new Map();
 
 function byId(id){return document.getElementById(id)}
 
@@ -123,7 +131,8 @@ function sanitizeMetadata(detail={}){
     const blocked=new Set([
       "studentname","student_name","learnername","learner_name",
       "name","email","studentemail","student_email","learneremail","learner_email",
-      "answer","answers","response","responses","ip","ipaddress","ip_address","password"
+      "answer","answers","response","responses","ip","ipaddress","ip_address","password",
+      "stack","stacktrace","stack_trace"
     ]);
     for(const [k,v] of Object.entries(detail.metadata)){
       const normalizedKey=String(k).replace(/[\s-]+/g,"").toLowerCase();
@@ -138,6 +147,79 @@ function sanitizeMetadata(detail={}){
     if(v!==undefined && v!==null)out[key]=String(v).slice(0,64);
   }
   return out;
+}
+
+
+export function sanitizeErrorMessage(value){
+  let text=String(value??"").trim();
+  if(!text)return "Unknown client error";
+
+  text=text
+    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi,"[email]")
+    .replace(/\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/gi,"[id]")
+    .replace(/https?:\/\/[^\s)]+/gi,"[url]")
+    .replace(/\b\d{7,}\b/g,"[number]")
+    .replace(/(["'`])([^"'`]{48,})\1/g,'$1[redacted]$1')
+    .replace(/\s+/g," ")
+    .slice(0,180);
+
+  return text||"Unknown client error";
+}
+
+function safeSourceFile(value){
+  if(!value)return "";
+  try{
+    const url=new URL(String(value),location.href);
+    return (url.pathname.split("/").filter(Boolean).pop()||"resource").slice(0,100);
+  }catch{
+    return String(value).split(/[\\/]/).pop().split("?")[0].slice(0,100);
+  }
+}
+
+function activeRouteId(){
+  return document.querySelector(".view.active")?.id || "unknown";
+}
+
+function errorSignature(kind,message,source,line){
+  return [kind,message,source,line||0].join("|");
+}
+
+function shouldReportError(signature){
+  if(reportedErrorCount>=ERROR_LIMIT_PER_SESSION)return false;
+  const now=Date.now();
+  const prior=recentErrorSignatures.get(signature)||0;
+  if(now-prior<ERROR_DEDUPE_MS)return false;
+
+  recentErrorSignatures.set(signature,now);
+  for(const [key,time] of recentErrorSignatures){
+    if(now-time>ERROR_DEDUPE_MS*2)recentErrorSignatures.delete(key);
+  }
+  reportedErrorCount++;
+  return true;
+}
+
+function reportClientError(kind,message,details={}){
+  if(isLocalTestEnvironment())return false;
+
+  const safeMessage=sanitizeErrorMessage(message);
+  const source=safeSourceFile(details.source||"");
+  const line=Number(details.line)||0;
+  const column=Number(details.column)||0;
+  const signature=errorSignature(kind,safeMessage,source,line);
+  if(!shouldReportError(signature))return false;
+
+  sendAnalyticsEvent("app_error",{
+    route:details.route||activeRouteId(),
+    metadata:{
+      kind:String(kind||"error").slice(0,50),
+      message:safeMessage,
+      source,
+      line,
+      column,
+      phase:String(details.phase||"runtime").slice(0,40)
+    }
+  });
+  return true;
 }
 
 export function buildAnalyticsEvent(eventType,detail={},env={}){
@@ -295,6 +377,14 @@ export function aggregateAnalytics(events){
   const officialPractice=clean.filter(e=>e.event_type==="practice_start" && e.metadata?.official===true).length;
   const officialExams=clean.filter(e=>e.event_type==="exam_start" && e.metadata?.official===true).length;
 
+  const errorEvents=clean.filter(e=>e.event_type==="app_error");
+  const errorSessions=distinct(errorEvents.map(e=>e.session_id));
+  const totalSessions=distinct(sessionIds);
+  const errorFreeRate=totalSessions
+    ?Math.max(0,Math.round(((totalSessions-errorSessions)/totalSessions)*100))
+    :100;
+  const errorKinds=countBy(errorEvents,e=>e.metadata?.kind||"error");
+
   return {
     visitors:distinct(visitorIds),
     sessions:distinct(sessionIds),
@@ -317,6 +407,13 @@ export function aggregateAnalytics(events){
     updates:{
       seen:eventCount("update_seen"),
       installed:eventCount("update_installed")
+    },
+    health:{
+      errors:errorEvents.length,
+      affectedSessions:errorSessions,
+      errorFreeRate,
+      errorKinds,
+      recent:[...errorEvents].sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).slice(0,12)
     },
     trend:buildTrendSeries(clean)
   };
@@ -365,7 +462,9 @@ function clearAdminSession(){
   adminSession=null;
   adminVerified=false;
   safeRemove(localStorage,KEYS.adminSession);
-  byId("openAnalyticsBtn")?.classList.add("hidden");
+  byId("adminProfileTools")?.classList.add("hidden");
+  byId("adminProfileTools")?.setAttribute("aria-hidden","true");
+  window.__DIGILIANS_ADMIN_VERIFIED__=false;
 }
 
 function loadAdminSession(){
@@ -445,7 +544,9 @@ async function verifyAdminAccess(){
     const rows=await response.json();
     adminVerified=Array.isArray(rows)&&rows.length>0;
     if(adminVerified){
-      byId("openAnalyticsBtn")?.classList.remove("hidden");
+      byId("adminProfileTools")?.classList.remove("hidden");
+      byId("adminProfileTools")?.setAttribute("aria-hidden","false");
+      window.__DIGILIANS_ADMIN_VERIFIED__=true;
       const identity=byId("analyticsAdminIdentity");
       if(identity)identity.textContent=session.user?.email||"Approved Admin";
     }
@@ -453,6 +554,9 @@ async function verifyAdminAccess(){
   }catch(error){
     console.warn("Analytics admin verification failed.",error);
     adminVerified=false;
+    byId("adminProfileTools")?.classList.add("hidden");
+    byId("adminProfileTools")?.setAttribute("aria-hidden","true");
+    window.__DIGILIANS_ADMIN_VERIFIED__=false;
     return false;
   }
 }
@@ -628,6 +732,49 @@ function renderMiniStats(id,items){
     <div><span>${escapeHtml(label)}</span><strong>${value}</strong></div>`).join("");
 }
 
+
+function renderHealth(summary){
+  const health=summary.health||{errors:0,affectedSessions:0,errorFreeRate:100,recent:[]};
+
+  const pairs={
+    analyticsErrorEvents:health.errors,
+    analyticsAffectedSessions:health.affectedSessions,
+    analyticsErrorFreeRate:`${health.errorFreeRate}%`
+  };
+  for(const [id,value] of Object.entries(pairs)){
+    const el=byId(id);
+    if(el)el.textContent=String(value);
+  }
+
+  const list=byId("analyticsRecentErrors");
+  if(!list)return;
+
+  if(!health.recent.length){
+    list.innerHTML=`
+      <div class="analytics-health-empty">
+        <span>✓</span>
+        <div><strong>No tracked client errors</strong><p>No app errors were reported in the selected range.</p></div>
+      </div>`;
+    return;
+  }
+
+  list.innerHTML=health.recent.map(e=>{
+    const meta=e.metadata||{};
+    return `
+      <div class="analytics-error-row">
+        <span class="analytics-error-mark">!</span>
+        <div class="analytics-error-main">
+          <div>
+            <strong>${escapeHtml(meta.kind||"error")}</strong>
+            <span>${escapeHtml(fmtTime(e.created_at))}</span>
+          </div>
+          <p>${escapeHtml(meta.message||"Unknown client error")}</p>
+          <small>${escapeHtml(ROUTE_LABELS[e.route]||e.route||"Unknown route")}${meta.source?` • ${escapeHtml(meta.source)}`:""}${meta.line?`:${Number(meta.line)}`:""} • ${escapeHtml(displayBuildVersion(e.platform_version))}</small>
+        </div>
+      </div>`;
+  }).join("");
+}
+
 function recentContext(e){
   if(e.track_id)return TRACK_LABELS[e.track_id]||e.track_id;
   if(e.route)return ROUTE_LABELS[e.route]||e.route;
@@ -698,6 +845,7 @@ async function renderAnalyticsDashboard(range=activeRange){
       ["Update Notices Seen",summary.updates.seen],
       ["Update Installs",summary.updates.installed]
     ]);
+    renderHealth(summary);
     renderRecent(events);
 
     byId("analyticsLastUpdated").textContent=new Intl.DateTimeFormat(undefined,{
@@ -759,7 +907,9 @@ async function handleAdminLogin(){
   try{
     await signInAdmin(email,password);
     closeLoginModal();
-    byId("openAnalyticsBtn")?.classList.remove("hidden");
+    byId("adminProfileTools")?.classList.remove("hidden");
+    byId("adminProfileTools")?.setAttribute("aria-hidden","false");
+    window.__DIGILIANS_ADMIN_VERIFIED__=true;
     await openAnalyticsRouteWhenReady();
   }catch(err){
     error.textContent=err.message||"Admin login failed.";
@@ -773,7 +923,9 @@ async function openAnalyticsRouteWhenReady(){
   for(let i=0;i<40;i++){
     const btn=byId("openAnalyticsBtn");
     if(window.__DIGILIANS_APP_READY__ && btn){
-      btn.classList.remove("hidden");
+      byId("adminProfileTools")?.classList.remove("hidden");
+      byId("adminProfileTools")?.setAttribute("aria-hidden","false");
+      window.__DIGILIANS_ADMIN_VERIFIED__=true;
       btn.click();
       return;
     }
@@ -849,6 +1001,46 @@ function bindAdminUi(){
 }
 
 function bindTracking(){
+  window.addEventListener("error",event=>{
+    const target=event.target;
+    if(target && target!==window && !event.error){
+      const tag=String(target.tagName||"resource").toLowerCase();
+      const source=target.src||target.href||"";
+      reportClientError("resource_error",`Failed to load ${tag}`,{
+        source,
+        phase:window.__DIGILIANS_APP_READY__?"runtime":"startup"
+      });
+      return;
+    }
+
+    if(event.error || event.message){
+      reportClientError(event.error?.name||"javascript_error",event.message||event.error?.message,{
+        source:event.filename,
+        line:event.lineno,
+        column:event.colno,
+        phase:window.__DIGILIANS_APP_READY__?"runtime":"startup"
+      });
+    }
+  },true);
+
+  window.addEventListener("unhandledrejection",event=>{
+    const reason=event.reason;
+    reportClientError(reason?.name||"unhandled_rejection",reason?.message||String(reason||"Unhandled promise rejection"),{
+      phase:window.__DIGILIANS_APP_READY__?"runtime":"startup"
+    });
+  });
+
+  window.addEventListener("digilians:client-error",event=>{
+    const d=event.detail||{};
+    reportClientError(d.kind||"handled_error",d.message||"Handled application error",{
+      source:d.source,
+      line:d.line,
+      column:d.column,
+      route:d.route,
+      phase:d.phase||"runtime"
+    });
+  });
+
   window.addEventListener("digilians:routechange",e=>{
     const viewId=e.detail?.viewId;
     if(!viewId || viewId==="analyticsView")return;
@@ -897,5 +1089,7 @@ export const analyticsTestApi={
   EVENT_LABELS,
   isLocalTestEnvironment,
   currentVersion,
-  displayBuildVersion
+  displayBuildVersion,
+  sanitizeErrorMessage,
+  reportClientError
 };

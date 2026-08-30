@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" data-build-version="0.18.5">
+<html lang="en" data-theme="light" data-build-version="0.19.4">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -10,13 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.18.5" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.19.4" />
 </head>
 <body>
-  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.18.5">
+  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.19.4">
     <strong>DIGILIANS TEST MODE</strong>
     <span>This is a LOCAL TEST build — not the live GitHub site.</span>
-    <b>V0.18.5</b>
+    <b>V0.19.4</b>
   </div>
   <script>
     (function () {
@@ -33,7 +33,7 @@
   <!-- STARTUP / CRASH RECOVERY — independent from app.js -->
   <div id="fatalRecovery" class="fatal-recovery hidden" role="alertdialog" aria-modal="true" aria-labelledby="fatalRecoveryTitle">
     <article class="fatal-recovery-card">
-      <span class="fatal-recovery-badge">RECOVERY MODE · V0.18.5</span>
+      <span class="fatal-recovery-badge">RECOVERY MODE · V0.19.4</span>
       <div class="fatal-recovery-icon">!</div>
       <h2 id="fatalRecoveryTitle">The platform could not start correctly.</h2>
       <p id="fatalRecoveryMessage">A startup error prevented the application from loading.</p>
@@ -121,7 +121,7 @@
         <span class="whats-new-badge">DIGILIANS E-LEARN UPDATE</span>
         <div class="whats-new-version-row">
           <h2 id="whatsNewTitle">What’s New</h2>
-          <span id="whatsNewVersion">V0.18.5</span>
+          <span id="whatsNewVersion">V0.19.4</span>
         </div>
         <p id="whatsNewSubtitle">Latest improvements, fixes and learning upgrades.</p>
       </div>
@@ -580,10 +580,10 @@
             <p id="officialTrackMeta">230 questions • 5 sections</p>
           </div>
           <div class="official-track-hero-actions">
-            <button class="secondary-btn" id="officialStudyAllBtn">Study All Questions</button>
-            <button class="ghost-btn" id="officialRandomPracticeBtn">Random Practice 40</button>
-            <button class="ghost-btn" id="officialRandomExamBtn">Random Exam 50</button>
-            <button class="secondary-btn" id="officialTrackOverallRankingBtn">Track Overall Ranking ↗</button>
+            <button class="primary-btn" id="officialStudyAllBtn">Study All Questions</button>
+            <button class="secondary-btn" id="officialRandomPracticeBtn">Random Practice 40</button>
+            <button class="secondary-btn" id="officialRandomExamBtn">Random Exam 50</button>
+            <button class="ghost-btn" id="officialTrackOverallRankingBtn">Track Ranking ↗</button>
           </div>
         </div>
 
@@ -1041,6 +1041,21 @@
             </article>
           </section>
 
+          <section class="analytics-panel analytics-health-panel">
+            <div class="analytics-panel-head">
+              <div><span class="eyebrow">PLATFORM HEALTH</span><h3>Private Error Monitor</h3></div>
+              <span class="analytics-panel-note">Safe messages only • no stack traces • no learner answers</span>
+            </div>
+
+            <div class="analytics-health-summary">
+              <div><span>ERROR EVENTS</span><strong id="analyticsErrorEvents">0</strong><small>Selected range</small></div>
+              <div><span>AFFECTED SESSIONS</span><strong id="analyticsAffectedSessions">0</strong><small>Anonymous sessions</small></div>
+              <div><span>ERROR-FREE SESSIONS</span><strong id="analyticsErrorFreeRate">100%</strong><small>Based on tracked sessions</small></div>
+            </div>
+
+            <div id="analyticsRecentErrors" class="analytics-error-list"></div>
+          </section>
+
           <section class="analytics-panel">
             <div class="analytics-panel-head">
               <div><span class="eyebrow">RECENT ACTIVITY</span><h3>Anonymous Event Stream</h3></div>
@@ -1170,7 +1185,7 @@
       </div>
       <div class="footer-credit">
         <button type="button" class="footer-version-btn" id="footerWhatsNewBtn">
-          <span id="footerVersionText">V0.18.5</span>
+          <span id="footerVersionText">V0.19.4</span>
           <i id="footerUpdateDot" class="footer-update-dot hidden" aria-label="Update available"></i>
           What’s New
         </button>
@@ -1182,13 +1197,14 @@
   </div>
 
   <!-- PROFILE DRAWER -->
-  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
-  <aside class="profile-drawer" id="profileDrawer" aria-hidden="true">
+  <div class="drawer-backdrop hidden" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="profile-drawer" id="profileDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerName" aria-hidden="true">
     <button class="drawer-close" id="profileClose" aria-label="Close profile">×</button>
     <div class="profile-hero">
       <span class="avatar large" id="drawerAvatar">G</span>
       <h3 id="drawerName">Guest</h3>
       <p>Your profile lives on this device — no password required. Ranked activities use your saved name.</p>
+      <button type="button" class="avatar-change-inline" id="changeAvatarBtn">Change Avatar ✦</button>
     </div>
 
     <div class="profile-stats">
@@ -1202,21 +1218,147 @@
       <div id="profileAchievements" class="achievement-grid"></div>
     </div>
 
-    <div class="drawer-actions">
-      <button class="secondary-btn wide admin-analytics-btn hidden" id="openAnalyticsBtn" data-route="analyticsView">
-        <span>Private Platform Analytics</span>
-        <b>ADMIN</b>
+    <div class="drawer-actions profile-user-actions">
+      <button class="secondary-btn wide backup-restore-drawer-btn" id="openBackupRestoreBtn">
+        <span>Backup & Restore Progress</span>
+        <b>LOCAL</b>
       </button>
       <button class="secondary-btn wide update-drawer-btn" id="openWhatsNewBtn">
         <span>What’s New & Updates</span>
-        <b id="profileVersionBadge">V0.18.5</b>
+        <b id="profileVersionBadge">V0.19.4</b>
       </button>
-      <button class="primary-btn wide" id="openValidatorBtn">Exam / Bank JSON Validator →</button>
       <button class="secondary-btn wide" id="changeNameBtn">Change saved name</button>
+    </div>
+
+    <div class="drawer-section admin-profile-tools hidden" id="adminProfileTools" aria-hidden="true">
+      <span class="eyebrow">ADMIN TOOLS</span>
+      <div class="drawer-actions admin-profile-actions">
+        <button class="secondary-btn wide admin-analytics-btn" id="openAnalyticsBtn" data-route="analyticsView">
+          <span>Private Platform Analytics</span>
+          <b>ADMIN</b>
+        </button>
+        <button class="secondary-btn wide admin-validator-btn" id="openValidatorBtn">
+          <span>Exam / Bank JSON Validator</span>
+          <b>ADMIN</b>
+        </button>
+      </div>
     </div>
   </aside>
 
 
+
+
+
+  <!-- FUNNY AVATAR PICKER -->
+  <div id="avatarPickerModal" class="avatar-picker-backdrop hidden" aria-hidden="true">
+    <article class="avatar-picker-card" role="dialog" aria-modal="true" aria-labelledby="avatarPickerTitle">
+      <button type="button" class="avatar-picker-close" id="avatarPickerCloseBtn" aria-label="Close">×</button>
+
+      <div class="avatar-picker-head">
+        <span class="eyebrow">SOFT 3D AVATAR PACK</span>
+        <span id="avatarRolloutBadge" class="avatar-rollout-badge hidden">ONE-TIME PROFILE UPDATE</span>
+        <div>
+          <h3 id="avatarPickerTitle">Pick your Soft 3D avatar</h3>
+          <p id="avatarPickerSubtitle">Choose the character that makes you smile.</p>
+        </div>
+        <button type="button" class="secondary-btn avatar-random-btn" id="avatarRandomBtn">Surprise Me 🎲</button>
+      </div>
+
+      <div class="avatar-filter-tabs" role="tablist" aria-label="Avatar category">
+        <button type="button" class="avatar-filter active" data-avatar-filter="all" role="tab" aria-selected="true">All <b>16</b></button>
+        <button type="button" class="avatar-filter" data-avatar-filter="male" role="tab" aria-selected="false"><span>👦</span> Boys <b>4</b></button>
+        <button type="button" class="avatar-filter" data-avatar-filter="female" role="tab" aria-selected="false"><span>👧</span> Girls <b>4</b></button>
+        <button type="button" class="avatar-filter" data-avatar-filter="neutral" role="tab" aria-selected="false"><span>🐻</span> Animals <b>8</b></button>
+      </div>
+
+      <div id="avatarPickerGrid" class="avatar-picker-grid" aria-live="polite"></div>
+
+      <div class="avatar-picker-footer">
+        <div class="avatar-privacy-note">
+          <span>🔒</span>
+          <p><strong>Private by design.</strong> Avatar category and character choice stay on this browser and are never sent to Analytics.</p>
+        </div>
+        <div class="avatar-picker-actions">
+          <button type="button" class="ghost-btn" id="avatarUseInitialsBtn">Use Initials for Now</button>
+          <button type="button" class="primary-btn" id="saveAvatarBtn" disabled>Save Avatar →</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- PROGRESS BACKUP / RESTORE -->
+  <div id="backupRestoreModal" class="backup-restore-backdrop hidden" aria-hidden="true">
+    <article class="backup-restore-card" role="dialog" aria-modal="true" aria-labelledby="backupRestoreTitle">
+      <button type="button" class="backup-restore-close" id="backupRestoreCloseBtn" aria-label="Close">×</button>
+
+      <div class="backup-restore-head">
+        <span class="eyebrow">LOCAL PROGRESS SAFETY</span>
+        <div class="backup-restore-icon">↕</div>
+        <h3 id="backupRestoreTitle">Backup & Restore Progress</h3>
+        <p>Move your saved learning progress between browsers/devices or keep a safety copy before clearing browser data.</p>
+      </div>
+
+      <div id="backupRestoreStatus" class="backup-restore-status info">
+        Your admin login and anonymous Analytics identity are excluded from backups.
+      </div>
+
+      <div class="backup-restore-grid">
+        <section class="backup-action-card">
+          <span class="backup-action-kicker">EXPORT</span>
+          <h4>Save a Progress Backup</h4>
+          <p>Downloads your profile, Study progress, Quick Checks, Official QBank progress, results and resumable exam state.</p>
+          <button type="button" class="primary-btn wide" id="exportProgressBackupBtn">Export Progress Backup ↓</button>
+          <small>Private Admin credentials, Analytics visitor IDs and update state are never exported.</small>
+        </section>
+
+        <section class="backup-action-card">
+          <span class="backup-action-kicker">RESTORE</span>
+          <h4>Restore from Backup</h4>
+          <p>Select a Digilians backup JSON. Validation and checksum verification happen locally before anything is changed.</p>
+          <input id="backupFileInput" type="file" accept=".json,application/json" hidden />
+          <button type="button" class="secondary-btn wide" id="chooseBackupFileBtn">Choose Backup File</button>
+          <small>Maximum file size: 5 MB.</small>
+        </section>
+      </div>
+
+      <section id="backupImportPreview" class="backup-import-preview hidden">
+        <div class="backup-import-title">
+          <div>
+            <span class="eyebrow">VALID BACKUP</span>
+            <h4>Restore Preview</h4>
+            <p id="backupImportMeta"></p>
+          </div>
+          <span class="backup-valid-badge">CHECKED ✓</span>
+        </div>
+
+        <div id="backupImportSummary" class="backup-import-summary"></div>
+
+        <div class="backup-restore-modes">
+          <label>
+            <input type="radio" name="backupRestoreMode" value="merge" checked />
+            <span>
+              <strong>Merge Progress — Recommended</strong>
+              <small>Combines results, Study completion, Quick Checks and QBank progress. Existing active exam resume is kept if one already exists.</small>
+            </span>
+          </label>
+          <label>
+            <input type="radio" name="backupRestoreMode" value="replace" />
+            <span>
+              <strong>Replace Learner Data</strong>
+              <small>Replaces only supported learner-progress keys with the backup. Analytics/Admin/Update settings remain untouched.</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="backup-safety-note">
+          <strong>Safety snapshot included</strong>
+          <p>Before restore, the platform automatically downloads your current progress as <code>digilians-before-restore-*.json</code>.</p>
+        </div>
+
+        <button type="button" class="primary-btn wide large-btn" id="confirmRestoreBackupBtn">Restore Progress & Reload</button>
+      </section>
+    </article>
+  </div>
 
   <!-- PRIVATE ANALYTICS ADMIN LOGIN -->
   <div id="analyticsLoginModal" class="analytics-login-backdrop hidden" aria-hidden="true">
@@ -1262,8 +1404,9 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/analytics.js?v=0.18.5"></script>
-  <script type="module" src="assets/js/update-manager.js?v=0.18.5"></script>
-  <script type="module" src="assets/js/app.js?v=0.18.5"></script>
+  <script type="module" src="assets/js/analytics.js?v=0.19.4"></script>
+  <script type="module" src="assets/js/update-manager.js?v=0.19.4"></script>
+  <script type="module" src="assets/js/backup-restore.js?v=0.19.4"></script>
+  <script type="module" src="assets/js/app.js?v=0.19.4"></script>
 </body>
 </html>
