@@ -1,0 +1,58 @@
+name: Inspect Excel Learning Structure
+
+on:
+  push:
+    branches:
+      - feature/v0.20.6-excel-week3-study
+    paths:
+      - .github/workflows/v0206-inspect-excel.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/v0.20.6-excel-week3-study
+      - name: Extract Excel structure snapshot
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('data/learning.json').read_text())
+          courses=data.get('courses',[])
+          excel=next((c for c in courses if str(c.get('id','')).lower()=='excel' or str(c.get('title','')).lower().startswith('excel')),None)
+          if excel is None:
+              raise SystemExit('Excel course not found')
+          groups=excel.get('groups') or excel.get('sections') or excel.get('modules') or []
+          def slim_lesson(x):
+              if not isinstance(x,dict): return x
+              return {k:x.get(k) for k in x.keys() if k not in ('content','html')}
+          snapshot={
+            'courseKeys':list(excel.keys()),
+            'courseId':excel.get('id'),
+            'courseTitle':excel.get('title'),
+            'groupCount':len(groups),
+            'groups':[],
+          }
+          for g in groups:
+              lessons=g.get('lessons') or g.get('topics') or g.get('items') or []
+              snapshot['groups'].append({
+                'keys':list(g.keys()),
+                'id':g.get('id'),'title':g.get('title'),'week':g.get('week'),
+                'lessonCount':len(lessons),
+                'lessonIds':[x.get('id') for x in lessons if isinstance(x,dict)],
+                'sampleLesson':lessons[0] if lessons else None
+              })
+          Path('docs/excel-production/V0206-STRUCTURE-SNAPSHOT.json').write_text(json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n')
+          PY
+      - name: Commit snapshot
+        run: |
+          git config user.name "Ahmed Khaled"
+          git config user.email "ahmedkph97@gmail.com"
+          git add docs/excel-production/V0206-STRUCTURE-SNAPSHOT.json
+          git commit -m "chore: inspect Excel Week 3 production structure"
+          git push origin feature/v0.20.6-excel-week3-study
