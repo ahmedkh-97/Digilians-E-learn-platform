@@ -21,8 +21,8 @@ import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
 import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,MASTERY_STREAK} from "./mistakes.js?v=0.20.2";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.2";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,MASTERY_STREAK} from "./mistakes.js?v=0.20.3";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.3";
 
 const state={
   studentName:"",
@@ -1258,7 +1258,7 @@ async function renderCoverageStatus(course){
         const ratio=target?Math.min(100,Math.round(available/target*100)):0;
         return `<article class="coverage-topic-card">
           <strong>${topic.title}</strong>
-          <span>${topic.importance.toUpperCase()}</span>
+          <span>${topic.importance ? String(topic.importance).toUpperCase() : "MAPPED"}</span>
           <small>${topic.subtopics?.length||0} subtopics • ${available} eligible questions${target?` • target ${target}`:""}</small>
           <div class="coverage-bar"><i style="width:${ratio}%"></i></div>
         </article>`;
