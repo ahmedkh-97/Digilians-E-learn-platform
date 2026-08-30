@@ -12,3 +12,5 @@ test('startup-critical storage import is cache-busted with the current release',
 test('storage module exposes the reset API required by app startup',()=>{
   assert.match(storage,/export\s+function\s+clearOfficialMistakeFlags\s*\(/);
 });
+
+// Final V0.20.5 verification trigger.
