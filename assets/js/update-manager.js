@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.20.14";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.17";
 
 
 const UPDATE_KEYS={
@@ -10,16 +10,16 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.20.14",
-  title:"Excel Full Track Exam Flow Fix",
+  version:"0.20.17",
+  title:"Legacy Word Bullet Rendering Fix",
   date:"2026-08-31",
-  summary:"Replaces the misleading locked Excel Week Exam card with the ready ranked Full Track Exam while preserving Week Practice and intentionally locked Week Exams.",
+  summary:"Normalizes legacy Word/Wingdings bullet glyphs at display time so imported multi-line questions render cleanly without changing source question data or technical code formatting.",
   highlights:[
-    "Excel Study → Practice → Exam flow now exposes the ready 50-question / 60-minute ranked Full Track Exam directly from every Excel week.",
-    "The card clearly states that Study and Practice are week-scoped while the Full Track Exam covers all 3 Excel weeks.",
-    "Saved Excel Full Track attempts show In progress and Resume Full Track Exam instead of starting a second attempt.",
-    "The duplicate standalone Excel track-exam row is removed so there is one clear exam call to action.",
-    "No Excel Study, Practice, Exam bank, Ranking rule, result logic, or learner data changed."
+    "Legacy U+F0B7 Word/Wingdings bullets now display as standard bullets in questions.",
+    "Five affected Looker Studio Official QBank questions render readable KPI/list lines.",
+    "The repair is presentation-only; Official QBank source JSON remains unchanged.",
+    "SQL, Python, DAX, Excel and Power Query M code newlines and technical rendering remain protected.",
+    "Exam logic, answers, Ranking, My Mistakes and learner state are unchanged."
   ],
   type:"fix"
 };

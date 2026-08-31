@@ -52,6 +52,74 @@ function mistakeTopic(q,visibleTopic){
   return clean(visibleTopic || q?.topic || q?.topicId || "General");
 }
 
+function navigatorTrackForQuestion(q){
+  return clean(
+    q?.mistakeContext?.track ||
+    q?.track ||
+    q?.module ||
+    q?.mistakeContext?.module ||
+    q?.trackId
+  );
+}
+function navigatorTopicForQuestion(q){
+  return clean(
+    q?.topic ||
+    q?.sectionTitle ||
+    q?.section ||
+    q?.topicId ||
+    "General"
+  );
+}
+function navigatorGroupLabel(track,topic){
+  const t=clean(track);
+  const section=clean(topic);
+  if(t && section && normalizeContextText(t)!==normalizeContextText(section) && normalizeContextText(section)!=="general"){
+    return `${t} · ${section}`;
+  }
+  if(section && normalizeContextText(section)!=="general")return section;
+  return t || "Questions";
+}
+export function buildNavigatorGroups(items=[]){
+  const groups=[];
+  for(const raw of items||[]){
+    const index=Number(raw?.index);
+    if(!Number.isInteger(index) || index<0)continue;
+    const track=clean(raw?.track);
+    const topic=clean(raw?.topic || "General");
+    const key=`${normalizeContextText(track)}::${normalizeContextText(topic)}`;
+    const last=groups[groups.length-1];
+    if(last?.key===key){
+      last.indexes.push(index);
+      continue;
+    }
+    groups.push({
+      id:`group-${index}-${key.replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,80) || "questions"}`,
+      key,
+      track,
+      topic,
+      label:navigatorGroupLabel(track,topic),
+      indexes:[index]
+    });
+  }
+  return groups;
+}
+function navigatorItemsFromProgress(progress,nav=null){
+  const buttons=nav?[...nav.querySelectorAll(".nav-number")]:[];
+  if(buttons.length && buttons.some(btn=>btn.dataset.navTrack || btn.dataset.navTopic)){
+    return buttons.map((btn,index)=>({
+      index,
+      track:clean(btn.dataset.navTrack),
+      topic:clean(btn.dataset.navTopic || "General")
+    }));
+  }
+  const questions=progress?.generatedExam?.questions||[];
+  return questions.map((q,index)=>({
+    index,
+    track:navigatorTrackForQuestion(q),
+    topic:navigatorTopicForQuestion(q)
+  }));
+}
+
 export function buildExamContextModel({
   progress=null,
   setupTitle="",
@@ -116,6 +184,7 @@ function safeJson(value){
 function readProgress(storage=globalThis.localStorage){
   try{return safeJson(storage?.getItem?.(PROGRESS_KEY))}catch{return null}
 }
+const navigatorCollapsedGroups=new Map();
 function byId(id){return globalThis.document?.getElementById?.(id)||null}
 function escapeHtml(value){
   return String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch]));
@@ -169,20 +238,128 @@ function ensureExamContextUi(){
       .current-question-source::before{content:"THIS QUESTION:";font-size:8px;font-weight:900;letter-spacing:.12em;color:var(--primary)}
       .current-question-source strong{color:var(--text);font-size:10px}
       .question-navigator-context{display:block;margin-top:4px;max-width:170px;color:var(--muted);font-size:9px;line-height:1.35}
+      .question-navigator.navigator-grouped{display:block}
+      .question-nav-group{padding:9px 0 11px;border-top:1px solid var(--line)}
+      .question-nav-group:first-child{padding-top:0;border-top:0}
+      .question-nav-group.current-group{margin-left:-7px;margin-right:-7px;padding-left:7px;padding-right:7px;border-radius:12px;background:color-mix(in srgb,var(--primary) 7%,transparent)}
+      .question-nav-group-toggle{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:6px;padding:0 1px 8px;border:0;background:transparent;color:var(--text);text-align:left}
+      .question-nav-group-copy{min-width:0}
+      .question-nav-group-copy small,.question-nav-group-copy strong{display:block}
+      .question-nav-group-copy small{margin-bottom:3px;color:var(--primary);font-size:7px;font-weight:900;letter-spacing:.13em}
+      .question-nav-group-copy strong{font-size:9px;line-height:1.35;overflow-wrap:anywhere}
+      .question-nav-group-count{min-width:20px;padding:3px 5px;border:1px solid var(--line);border-radius:999px;background:var(--surface-soft);color:var(--muted);font-size:7px;font-weight:900;text-align:center}
+      .question-nav-group-chevron{color:var(--muted);font-size:11px;transition:transform .18s var(--ease)}
+      .question-nav-group.collapsed .question-nav-group-chevron{transform:rotate(-90deg)}
+      .question-nav-group-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+      .question-nav-group.collapsed .question-nav-group-grid{display:none}
+      @media(max-width:1050px){.question-nav-group-grid{grid-template-columns:repeat(8,1fr)}}
+      @media(max-width:560px){.question-nav-group-grid{grid-template-columns:repeat(6,1fr)}}
       @media(max-width:760px){.exam-activity-context{margin:10px 0 12px;padding:10px 12px}.current-question-source{width:100%;margin:8px 0 0}.exam-activity-context strong{font-size:11px}}
     `;
     doc.head?.appendChild(style);
   }
   return {activity,source,navHead,navSubtitle};
 }
+
+function currentNavigatorIndex(nav,progress){
+  const buttons=[...nav.querySelectorAll(".nav-number")];
+  const current=buttons.findIndex(btn=>btn.classList.contains("current"));
+  if(current>=0)return current;
+  return Math.max(0,Number(progress?.currentIndex)||0);
+}
+function syncNavigatorGroupState(nav,progress){
+  const currentIndex=currentNavigatorIndex(nav,progress);
+  nav.querySelectorAll(".question-nav-group").forEach(group=>{
+    const indexes=String(group.dataset.indexes||"").split(",").map(Number).filter(Number.isInteger);
+    const current=indexes.includes(currentIndex);
+    group.classList.toggle("current-group",current);
+    if(current && group.classList.contains("collapsed")){
+      group.classList.remove("collapsed");
+      group.querySelector(".question-nav-group-toggle")?.setAttribute("aria-expanded","true");
+      navigatorCollapsedGroups.set(group.dataset.groupStoreKey||group.dataset.groupId,false);
+    }
+  });
+}
+function refreshQuestionNavigatorGroups(progress){
+  const nav=byId("questionNavigator");
+  if(!nav)return false;
+
+  const buttons=[...nav.querySelectorAll(".nav-number")];
+  if(!buttons.length)return false;
+  const items=navigatorItemsFromProgress(progress,nav);
+  if(items.length!==buttons.length)return false;
+
+  const groups=buildNavigatorGroups(items);
+  if(!groups.length)return false;
+  const signature=groups.map(g=>`${g.id}:${g.indexes.join(",")}`).join("|");
+  const alreadyBuilt=nav.classList.contains("navigator-grouped") &&
+    nav.dataset.groupSignature===signature &&
+    nav.querySelectorAll(".question-nav-group").length===groups.length;
+
+  if(alreadyBuilt){
+    syncNavigatorGroupState(nav,progress);
+    return true;
+  }
+
+  const examKey=clean(progress?.examId || progress?.generatedExam?.exam?.id || "exam");
+  nav.innerHTML="";
+  nav.classList.add("navigator-grouped");
+  nav.dataset.groupSignature=signature;
+
+  for(const group of groups){
+    const section=document.createElement("section");
+    section.className="question-nav-group";
+    section.dataset.groupId=group.id;
+    section.dataset.indexes=group.indexes.join(",");
+    const storeKey=`${examKey}::${group.id}`;
+    section.dataset.groupStoreKey=storeKey;
+
+    const toggle=document.createElement("button");
+    toggle.type="button";
+    toggle.className="question-nav-group-toggle";
+    const collapsed=Boolean(navigatorCollapsedGroups.get(storeKey));
+    toggle.setAttribute("aria-expanded",String(!collapsed));
+    toggle.setAttribute("aria-label",`${collapsed?"Expand":"Collapse"} section ${group.label}`);
+    toggle.innerHTML=`
+      <span class="question-nav-group-copy">
+        <small>SECTION</small>
+        <strong>${escapeHtml(group.label)}</strong>
+      </span>
+      <span class="question-nav-group-count">${group.indexes.length}</span>
+      <span class="question-nav-group-chevron" aria-hidden="true">⌄</span>`;
+    section.classList.toggle("collapsed",collapsed);
+
+    const grid=document.createElement("div");
+    grid.className="question-nav-group-grid";
+    group.indexes.forEach(index=>{
+      const button=buttons[index];
+      if(button)grid.appendChild(button);
+    });
+
+    toggle.addEventListener("click",()=>{
+      const nextCollapsed=!section.classList.contains("collapsed");
+      section.classList.toggle("collapsed",nextCollapsed);
+      toggle.setAttribute("aria-expanded",String(!nextCollapsed));
+      toggle.setAttribute("aria-label",`${nextCollapsed?"Expand":"Collapse"} section ${group.label}`);
+      navigatorCollapsedGroups.set(storeKey,nextCollapsed);
+    });
+
+    section.append(toggle,grid);
+    nav.appendChild(section);
+  }
+  syncNavigatorGroupState(nav,progress);
+  return true;
+}
+
 export function refreshExamContextUi(){
   const view=byId("examView");
   if(!view?.classList.contains("active"))return null;
   const ui=ensureExamContextUi();
   if(!ui)return null;
 
+  const progress=readProgress();
   const model=buildExamContextModel({
-    progress:readProgress(),
+    progress,
     setupTitle:byId("setupTitle")?.textContent||"",
     setupBreadcrumb:byId("setupBreadcrumb")?.textContent||"",
     setupCategory:byId("setupCategory")?.textContent||"",
@@ -195,6 +372,7 @@ export function refreshExamContextUi(){
   const heading=ui.navHead?.querySelector("h4");
   if(heading)heading.textContent=model.navigatorTitle;
   if(ui.navSubtitle)ui.navSubtitle.textContent=model.navigatorSubtitle||"";
+  refreshQuestionNavigatorGroups(progress);
   return model;
 }
 function scheduleRefresh(){

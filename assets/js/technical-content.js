@@ -36,8 +36,11 @@ function escapeHtml(value){
 }
 
 const BIDI_DISPLAY_CONTROLS=/[\u061C\u200E\u200F\u202A-\u202E\u2066-\u2069]/g;
+const LEGACY_WORD_BULLET=/\uF0B7/g;
 export function sanitizeDisplayText(value){
-  return String(value??"").replace(BIDI_DISPLAY_CONTROLS,"");
+  return String(value??"")
+    .replace(BIDI_DISPLAY_CONTROLS,"")
+    .replace(LEGACY_WORD_BULLET,"•");
 }
 
 function normalizedContext(context={}){

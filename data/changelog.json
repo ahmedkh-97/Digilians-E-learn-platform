@@ -1,6 +1,48 @@
 {
-  "latest": "0.20.14",
+  "latest": "0.20.17",
   "releases": [
+    {
+      "version": "0.20.17",
+      "title": "Legacy Word Bullet Rendering Fix",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Normalizes legacy Word/Wingdings bullet glyphs at display time so imported multi-line questions render cleanly without changing source question data or technical code formatting.",
+      "highlights": [
+        "Legacy U+F0B7 Word/Wingdings bullets now display as standard bullets in questions.",
+        "Five affected Looker Studio Official QBank questions render readable KPI/list lines.",
+        "The repair is presentation-only; Official QBank source JSON remains unchanged.",
+        "SQL, Python, DAX, Excel and Power Query M code newlines and technical rendering remain protected.",
+        "Exam logic, answers, Ranking, My Mistakes and learner state are unchanged."
+      ]
+    },
+    {
+      "version": "0.20.16",
+      "title": "Section-Aware Exam Navigator",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Groups exam question numbers under clear Track and Section/Topic headings while preserving the exact question order and existing exam behavior.",
+      "highlights": [
+        "Navigator numbers are grouped by contiguous Track + Section/Topic metadata without reordering questions.",
+        "The group containing the current question is highlighted for faster orientation.",
+        "Section headings show question counts and can be collapsed or expanded.",
+        "Responsive layouts keep 5-column desktop, 8-column tablet and 6-column mobile question grids inside each section.",
+        "No QBank, Practice/Exam bank, Ranking, timer, results, answers or learner-storage behavior changed."
+      ]
+    },
+    {
+      "version": "0.20.15",
+      "title": "Exam Activity & Question Context",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Adds clear activity-level and current-question provenance inside Official QBank and My Mistakes exam flows.",
+      "highlights": [
+        "Exam activity bar identifies Official QBank/My Mistakes scope, level, track and activity.",
+        "Each current question identifies its source family, track and topic.",
+        "Navigator heading reflects the current activity instead of the generic Questions label.",
+        "My Mistakes mixed-track practice shows exact provenance for the question being solved.",
+        "No question text, answer keys, Ranking rules, result calculations or learner data changed."
+      ]
+    },
     {
       "version": "0.20.14",
       "title": "Excel Full Track Exam Flow Fix",
