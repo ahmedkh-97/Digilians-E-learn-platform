@@ -106,41 +106,37 @@ test("normalization makes rendered question matching stable",()=>{
 });
 
 
-test("navigator groups contiguous questions by track and topic without reordering",()=>{
+test("navigator groups all questions by track regardless of topic",()=>{
   const groups=buildNavigatorGroups([
     {index:0,track:"Excel",topic:"Conditional Aggregation"},
-    {index:1,track:"Excel",topic:"Conditional Aggregation"},
-    {index:2,track:"Excel",topic:"Power Pivot & DAX"},
-    {index:3,track:"Tableau",topic:"Parameters, Sets, Groups & Hierarchies"},
-    {index:4,track:"Tableau",topic:"Parameters, Sets, Groups & Hierarchies"}
+    {index:1,track:"Excel",topic:"Power Pivot & DAX"},
+    {index:2,track:"Tableau",topic:"Parameters, Sets, Groups & Hierarchies"},
+    {index:3,track:"Excel",topic:"Power Query"},
+    {index:4,track:"Tableau",topic:"Filters"}
   ]);
-  assert.deepEqual(groups.map(g=>({
-    label:g.label,
-    indexes:g.indexes
-  })),[
-    {label:"Excel · Conditional Aggregation",indexes:[0,1]},
-    {label:"Excel · Power Pivot & DAX",indexes:[2]},
-    {label:"Tableau · Parameters, Sets, Groups & Hierarchies",indexes:[3,4]}
+  assert.deepEqual(groups.map(g=>({label:g.label,indexes:g.indexes})),[
+    {label:"Excel",indexes:[0,1,3]},
+    {label:"Tableau",indexes:[2,4]}
   ]);
 });
 
-test("navigator starts a new visual group when the same section appears later",()=>{
+test("navigator creates one group when every question belongs to one track",()=>{
   const groups=buildNavigatorGroups([
     {index:0,track:"SQL",topic:"Joins"},
     {index:1,track:"SQL",topic:"Subqueries"},
     {index:2,track:"SQL",topic:"Joins"}
   ]);
-  assert.deepEqual(groups.map(g=>g.indexes),[[0],[1],[2]]);
-  assert.equal(groups[0].label,"SQL · Joins");
-  assert.equal(groups[2].label,"SQL · Joins");
+  assert.equal(groups.length,1);
+  assert.equal(groups[0].label,"SQL");
+  assert.deepEqual(groups[0].indexes,[0,1,2]);
 });
 
-test("navigator grouping has readable fallbacks for missing topic metadata",()=>{
+test("navigator grouping has readable fallback for missing track metadata",()=>{
   const groups=buildNavigatorGroups([
-    {index:0,track:"Python",topic:""},
-    {index:1,track:"Python",topic:""}
+    {index:0,track:"",topic:"General"},
+    {index:1,track:"",topic:"Another Topic"}
   ]);
   assert.equal(groups.length,1);
-  assert.equal(groups[0].label,"Python");
+  assert.equal(groups[0].label,"Questions");
   assert.deepEqual(groups[0].indexes,[0,1]);
 });

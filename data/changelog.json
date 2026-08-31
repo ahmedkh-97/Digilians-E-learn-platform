@@ -1,6 +1,48 @@
 {
-  "latest": "0.20.17",
+  "latest": "0.20.20",
   "releases": [
+    {
+      "version": "0.20.20",
+      "title": "Track-Grouped Exam Navigator",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Simplifies the exam navigator by grouping every question under its Data Analysis track instead of repeating topic/section groups.",
+      "highlights": [
+        "Navigator now creates one group per track such as Excel, SQL, Python, Power BI, Tableau, or Looker Studio.",
+        "All question numbers for the same track are collected under that track even when their topics differ or appear later in the exam.",
+        "Stable original question indexes preserve Current, Answered, Correct/Wrong, and Marked states after visual regrouping.",
+        "Current-question source and topic context remain visible above the question while the navigator stays compact.",
+        "No question order, question text, answers, scoring, timer, Ranking, My Mistakes data, or assessment-bank content changed."
+      ]
+    },
+    {
+      "version": "0.20.19",
+      "title": "Workspace Cleanup",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Removes redundant documentation mirrors and stale development artifacts while adding a permanent workspace-cleanliness regression gate.",
+      "highlights": [
+        "Removed 90 redundant HTML documentation mirrors where the Markdown source is retained.",
+        "Removed stale Excel intake/final-clean root markers and temporary superpowers planning/spec artifacts.",
+        "Replaced the oversized release-history README with a concise current-state operating guide.",
+        "Added a workspace-cleanliness regression test to prevent redundant documentation and stale artifacts from returning.",
+        "No Official QBank, course Question Bank, Exam payload, scoring rule, learner state, Ranking behavior, or protected curriculum data changed."
+      ]
+    },
+    {
+      "version": "0.20.18",
+      "title": "Local QA Toolkit",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Restores self-contained local pre-deploy tooling and adds a fast safety check that must pass before localhost starts, with no learner-facing assessment or data changes.",
+      "highlights": [
+        "START-LOCAL.bat runs Quick Check first and refuses to start localhost when a gate fails.",
+        "FULL-QA.bat runs the complete pre-deploy suite without starting a server.",
+        "TEST-LOCAL.bat runs full QA first and starts localhost only after every automated gate passes.",
+        "Restored local pre-deploy, Excel intake, path portability and local server tooling inside the ZIP.",
+        "No question, answer, scoring, Ranking, My Mistakes, learner storage or assessment-bank content changed."
+      ]
+    },
     {
       "version": "0.20.17",
       "title": "Legacy Word Bullet Rendering Fix",
