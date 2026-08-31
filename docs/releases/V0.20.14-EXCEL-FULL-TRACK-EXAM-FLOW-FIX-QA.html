@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V0.20.14 — Excel Full Track Exam Flow Fix QA | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V0.20.14 — Excel Full Track Exam Flow Fix QA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/releases/V0.20.14-EXCEL-FULL-TRACK-EXAM-FLOW-FIX-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/releases/V0.20.14-EXCEL-FULL-TRACK-EXAM-FLOW-FIX-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V0.20.14 — Excel Full Track Exam Flow Fix QA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V0.20.14 — Excel Full Track Exam Flow Fix QA","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/releases/V0.20.14-EXCEL-FULL-TRACK-EXAM-FLOW-FIX-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="v02014--excel-full-track-exam-flow-fix-qa">V0.20.14 — Excel Full Track Exam Flow Fix QA</h1>
+
+<h2 id="scope">Scope</h2>
+
+<p>Bounded UX/logic correction for the third card in the Excel Study → Practice → Exam learning flow.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<ul>
+  <li>Excel Week modules no longer show a misleading disabled <code class="language-plaintext highlighter-rouge">Exam Building</code> card when the ready Full Track Exam exists.</li>
+  <li>The third card resolves to <code class="language-plaintext highlighter-rouge">data-analysis-excel-track-v1</code> for Excel only.</li>
+  <li>Card copy is explicit: <code class="language-plaintext highlighter-rouge">FULL TRACK EXAM</code>, <code class="language-plaintext highlighter-rouge">50 Questions · 60 Minutes · Ranked</code>, and <code class="language-plaintext highlighter-rouge">Covers all 3 Excel weeks</code>.</li>
+  <li>Status uses the real Full Track state: <code class="language-plaintext highlighter-rouge">Not attempted</code>, <code class="language-plaintext highlighter-rouge">Best N%</code>, or <code class="language-plaintext highlighter-rouge">In progress</code>.</li>
+  <li>Saved Full Track attempts use <code class="language-plaintext highlighter-rouge">Resume Full Track Exam</code>; otherwise the card uses <code class="language-plaintext highlighter-rouge">Start Full Track Exam</code>.</li>
+  <li>Selected-module copy distinguishes week-scoped Study/Practice from the all-weeks Full Track Exam.</li>
+  <li>The duplicate standalone Excel track-exam row is removed; the flow card is the single primary CTA.</li>
+  <li>Removed stale unused module-flow assessment code that referenced an undefined <code class="language-plaintext highlighter-rouge">assessmentReady</code> variable.</li>
+  <li>Non-Excel module-exam behavior remains unchanged.</li>
+</ul>
+
+<h2 id="regression-protection">Regression Protection</h2>
+
+<p><code class="language-plaintext highlighter-rouge">tests/excel-module-full-track-card.test.mjs</code> protects:</p>
+
+<ol>
+  <li>Excel module → Full Track Exam resolution.</li>
+  <li>Full Track scope/copy.</li>
+  <li>Start vs Resume status behavior.</li>
+  <li>Non-Excel module behavior.</li>
+  <li>Selected-module scope explanation.</li>
+  <li>Duplicate track-exam-row prevention.</li>
+</ol>
+
+<p>The test is included in the Excel Full Track Exam Pre-Deploy gate.</p>
+
+<h2 id="verification">Verification</h2>
+
+<ul>
+  <li>Full Node test suite: 102/102 PASS.</li>
+  <li>Pre-Deploy: PASS.</li>
+  <li>Excel Intake / Study / Practice / Full Track Exam: PASS.</li>
+  <li>Protected assessment content unchanged:
+    <ul>
+      <li>Official QBank: 47/47 byte-identical.</li>
+      <li>Question Banks: 28/28 byte-identical.</li>
+      <li>Exams: 26/26 byte-identical.</li>
+      <li><code class="language-plaintext highlighter-rouge">data/</code> excluding release changelog: 41/41 byte-identical.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="runtime-boundary">Runtime boundary</h2>
+
+<p>No Study content, Practice questions, Exam questions, Ranking rules, result calculations, or learner-state schema changed.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

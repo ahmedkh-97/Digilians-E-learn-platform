@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V0.20.8 Runtime Compatibility Hotfix — QA | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V0.20.8 Runtime Compatibility Hotfix — QA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/releases/V0.20.8-RUNTIME-COMPATIBILITY-HOTFIX-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/releases/V0.20.8-RUNTIME-COMPATIBILITY-HOTFIX-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V0.20.8 Runtime Compatibility Hotfix — QA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V0.20.8 Runtime Compatibility Hotfix — QA","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/releases/V0.20.8-RUNTIME-COMPATIBILITY-HOTFIX-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="v0208-runtime-compatibility-hotfix--qa">V0.20.8 Runtime Compatibility Hotfix — QA</h1>
+
+<p><strong>Date:</strong> 2026-08-31<br />
+<strong>Base:</strong> V0.20.7 Excel Practice Production V1<br />
+<strong>Scope:</strong> Browser/runtime compatibility only. No educational or assessment-content changes.</p>
+
+<h2 id="root-causes-fixed">Root causes fixed</h2>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">storage.js</code> and <code class="language-plaintext highlighter-rouge">app.js</code> called <code class="language-plaintext highlighter-rouge">crypto.randomUUID()</code> directly. Browsers/WebViews without that method could fail while creating a learner <code class="language-plaintext highlighter-rouge">playerId</code> or exam <code class="language-plaintext highlighter-rouge">clientAttemptId</code>.</li>
+  <li>The Private Error Monitor counted the known benign browser messages <code class="language-plaintext highlighter-rouge">ResizeObserver loop completed with undelivered notifications</code> / <code class="language-plaintext highlighter-rouge">ResizeObserver loop limit exceeded</code> as application failures.</li>
+</ol>
+
+<h2 id="fix">Fix</h2>
+
+<ul>
+  <li>Added <code class="language-plaintext highlighter-rouge">assets/js/runtime-compat.js</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">createUuid()</code> uses <code class="language-plaintext highlighter-rouge">crypto.randomUUID()</code> when available, then <code class="language-plaintext highlighter-rouge">crypto.getRandomValues()</code>, then a final RFC-4122-shaped local fallback.</li>
+  <li>Startup/player ID, exam attempt ID, and anonymous analytics IDs use the shared helper.</li>
+  <li><code class="language-plaintext highlighter-rouge">isBenignClientError()</code> filters only the two known ResizeObserver loop-noise messages before error rate-limit/counting.</li>
+  <li>V0.20.8 cache-busts startup modules so browsers do not mix V0.20.7/V0.20.8 code.</li>
+</ul>
+
+<h2 id="verification-gates">Verification gates</h2>
+
+<ul>
+  <li>Runtime compatibility regression: PASS.</li>
+  <li>Full Node test suite: 42/42 PASS.</li>
+  <li>Full Pre-Deploy: PASS.</li>
+  <li>Excel Intake / Study / Practice gate: PASS.</li>
+  <li>JSON parse: 156/156 PASS.</li>
+  <li>JS/MJS syntax: 27/27 PASS before packaging.</li>
+  <li>Protected-content comparison to V0.20.7: 0 changed files in <code class="language-plaintext highlighter-rouge">official-qbank/</code>, <code class="language-plaintext highlighter-rouge">question-banks/</code>, <code class="language-plaintext highlighter-rouge">exams/</code>, Excel learning/curriculum/syllabus/week-status, or registry data.</li>
+  <li>Existing Excel Practice JSON files: byte-identical to V0.20.7.</li>
+  <li>Excel Exam remains locked.</li>
+</ul>
+
+<h2 id="expected-platform-health-behavior">Expected Platform Health behavior</h2>
+
+<p>The hotfix prevents <strong>new</strong> benign ResizeObserver loop notifications from being recorded and prevents <strong>new</strong> <code class="language-plaintext highlighter-rouge">crypto.randomUUID is not a function</code> failures from the fixed startup/exam paths. Historical analytics events already stored in the selected dashboard range are not deleted by this release.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
