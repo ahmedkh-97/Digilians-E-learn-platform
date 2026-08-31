@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V0.18.5 — Sticky Navigation &amp; Course Card Layout Fix | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V0.18.5 — Sticky Navigation &amp; Course Card Layout Fix" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.5-STICKY-NAV-COURSE-CARD-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.5-STICKY-NAV-COURSE-CARD-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V0.18.5 — Sticky Navigation &amp; Course Card Layout Fix" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V0.18.5 — Sticky Navigation &amp; Course Card Layout Fix","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.5-STICKY-NAV-COURSE-CARD-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="v0185--sticky-navigation--course-card-layout-fix">V0.18.5 — Sticky Navigation &amp; Course Card Layout Fix</h1>
+
+<h2 id="reported-issues">Reported issues</h2>
+
+<ol>
+  <li>The desktop primary navigation was only at the top of the page and disappeared while scrolling.</li>
+  <li>Long course descriptions could visually collide with the absolute-positioned course footer/count/arrow.</li>
+</ol>
+
+<h2 id="fix-1--sticky-primary-navigation">Fix 1 — Sticky primary navigation</h2>
+
+<p><code class="language-plaintext highlighter-rouge">.topbar</code> now uses:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">position: sticky</code></li>
+  <li><code class="language-plaintext highlighter-rouge">top: 0</code></li>
+  <li>higher z-index</li>
+  <li>light translucent background</li>
+  <li>backdrop blur</li>
+  <li>subtle bottom border/shadow</li>
+</ul>
+
+<p>The navigation remains available while the learner scrolls.</p>
+
+<p>Local TEST mode has an offset so the sticky navigation does not cover the purple TEST banner.</p>
+
+<h2 id="fix-2--course-card-layout">Fix 2 — Course card layout</h2>
+
+<p>Course cards now use a flex-column normal-flow layout.</p>
+
+<p>The footer is no longer absolutely positioned.</p>
+
+<p>New structure behavior:</p>
+
+<ul>
+  <li>icon / title / description stay in normal document flow</li>
+  <li>footer uses <code class="language-plaintext highlighter-rouge">margin-top: auto</code></li>
+  <li>footer has protected top padding</li>
+  <li>long descriptions can increase card height naturally</li>
+  <li>count and arrow cannot sit on top of description text</li>
+</ul>
+
+<h2 id="chromium-component-qa">Chromium component QA</h2>
+
+<p>Production CSS + actual course titles/descriptions from <code class="language-plaintext highlighter-rouge">data/learning.json</code> were rendered.</p>
+
+<p>Desktop:</p>
+<ul>
+  <li>topbar computed position = sticky</li>
+  <li>after 900px scroll, topbar top = 0</li>
+  <li>minimum visible paragraph → footer gap:
+    <ul>
+      <li>English: 39.5px</li>
+      <li>Soft Skills: 39.5px</li>
+      <li>Leadership: 39.5px</li>
+      <li>Data Analysis: 22.4px</li>
+    </ul>
+  </li>
+  <li>horizontal page overflow = 0</li>
+</ul>
+
+<p>390px mobile:</p>
+<ul>
+  <li>sticky top = 0</li>
+  <li>minimum visible paragraph → footer gap = 22.4px</li>
+  <li>horizontal page overflow = 0</li>
+</ul>
+
+<p>Result: PASS.</p>
+
+<h2 id="data-protection">Data protection</h2>
+
+<p>No learning/question/exam payload changes are intended.</p>
+
+<p>Only <code class="language-plaintext highlighter-rouge">data/changelog.json</code> changes among JSON files for the release note.</p>
+
+<h2 id="deployment">Deployment</h2>
+
+<p><code class="language-plaintext highlighter-rouge">RUN-PREFLIGHT.bat → TEST-LOCAL.bat → GitHub LIVE</code></p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

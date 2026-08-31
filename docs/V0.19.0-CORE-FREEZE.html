@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Digilians E-Learn — Core Freeze after V0.19.6 | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Digilians E-Learn — Core Freeze after V0.19.6" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.0-CORE-FREEZE.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.0-CORE-FREEZE.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Digilians E-Learn — Core Freeze after V0.19.6" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Digilians E-Learn — Core Freeze after V0.19.6","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.0-CORE-FREEZE.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="digilians-e-learn--core-freeze-after-v0196">Digilians E-Learn — Core Freeze after V0.19.6</h1>
+
+<h2 id="status">Status</h2>
+
+<p>After V0.19.6 local/live verification, the platform core should be treated as <strong>frozen for content production</strong>.</p>
+
+<p>The next major workstream is Excel curriculum intake and production.</p>
+
+<h2 id="core-systems-now-considered-established">Core systems now considered established</h2>
+
+<ul>
+  <li>responsive Home / Learn / Exams / Official QBank / Ranking navigation</li>
+  <li>sticky proportional navbar</li>
+  <li>local learner identity</li>
+  <li>Study progress persistence</li>
+  <li>Quick Check persistence</li>
+  <li>Exam Resume</li>
+  <li>timer fairness rules</li>
+  <li>Exam Navigator / Mark for Review</li>
+  <li>SQL Study V2</li>
+  <li>Python Study V2</li>
+  <li>universal technical code rendering</li>
+  <li>Official Junior / Professional QBank</li>
+  <li>Ranking V2</li>
+  <li>Supabase ranked-attempt sync</li>
+  <li>Live Update + What’s New</li>
+  <li>Private Platform Analytics</li>
+  <li>Analytics version tracking</li>
+  <li>Progress Backup / Restore</li>
+  <li>Private Error Monitoring / Platform Health</li>
+  <li>startup recovery and local pre-deploy workflow</li>
+</ul>
+
+<h2 id="freeze-rule">Freeze rule</h2>
+
+<p>During Excel intake / production, do not redesign or restructure the core unless one of these is true:</p>
+
+<ol>
+  <li>a reproducible production bug blocks learning or exams</li>
+  <li>data/content integrity is at risk</li>
+  <li>security/privacy requires a change</li>
+  <li>Excel exposes a genuinely reusable platform capability that cannot be implemented safely inside the existing architecture</li>
+</ol>
+
+<p>Cosmetic preferences should be batched rather than interrupting curriculum production.</p>
+
+<h2 id="release-workflow-after-freeze">Release workflow after freeze</h2>
+
+<p>For normal content releases:</p>
+
+<ol>
+  <li>work from the latest stable ZIP</li>
+  <li>preserve existing assessment/QBank payloads unless the release explicitly targets them</li>
+  <li>run shipped Pre-Deploy</li>
+  <li>run TEST-LOCAL.bat</li>
+  <li>verify changed content/renderer areas</li>
+  <li>upload directly to GitHub LIVE after local approval</li>
+  <li>use Live Update / What’s New for open users</li>
+</ol>
+
+<h2 id="v0196-exit-criteria">V0.19.6 exit criteria</h2>
+
+<p>Before beginning Excel Week 1:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />V0.19.6 local browser test passes</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />V0.19.6 uploaded to GitHub LIVE</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backup Export creates a valid JSON</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Restore Merge works on a test browser/profile</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Private Analytics still opens for approved Admin</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Platform Health renders</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />a controlled test error can be observed only on LIVE/non-local tracking if intentionally tested</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Profile drawer covers the navbar and locks the underlying app</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validator is hidden for Guest and visible only after verified Admin access</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Avatar Picker works for first-time and returning learners</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Avatar remains local-only and survives Backup/Restore</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Returning users without avatars receive the one-time rollout and cannot bypass it</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />existing SQL/Python/Official QBank flows remain healthy</li>
+</ul>
+
+<p>Once these are confirmed, start:</p>
+
+<p><strong>Excel Intake Week 1 → Master Curriculum Registry</strong></p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

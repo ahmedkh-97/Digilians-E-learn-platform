@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Ranking V2 QA — Digilians E-Learn V0.13.0 | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Ranking V2 QA — Digilians E-Learn V0.13.0" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/RANKING-V2-QA-V0.13.0.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/RANKING-V2-QA-V0.13.0.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Ranking V2 QA — Digilians E-Learn V0.13.0" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Ranking V2 QA — Digilians E-Learn V0.13.0","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/RANKING-V2-QA-V0.13.0.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="ranking-v2-qa--digilians-e-learn-v0130">Ranking V2 QA — Digilians E-Learn V0.13.0</h1>
+
+<h2 id="implemented-ranking-layers">Implemented ranking layers</h2>
+
+<h3 id="exam-ranking">Exam Ranking</h3>
+<p>Every ranked exam/activity keeps its own leaderboard. Best attempt only.</p>
+
+<h3 id="track-overall-ranking">Track Overall Ranking</h3>
+<p>Uses only the fixed Official Section exams inside the selected track.
+Best attempt from every fixed section is counted once, then raw correct answers are summed as Total Grade.</p>
+
+<h3 id="full-bank-overall-ranking">Full Bank Overall Ranking</h3>
+<ul>
+  <li>Junior Overall: 930 total marks across 21 fixed sections.</li>
+  <li>Professional Overall: 1189 total marks across 26 fixed sections.</li>
+</ul>
+
+<h2 id="aggregate-ranking-order">Aggregate ranking order</h2>
+<ol>
+  <li>More fixed sections completed.</li>
+  <li>Higher Total Grade.</li>
+  <li>Higher overall percentage.</li>
+  <li>Faster combined time across the counted best attempts.</li>
+  <li>Earlier submission as final tie-breaker.</li>
+</ol>
+
+<h2 id="fairness-rule">Fairness rule</h2>
+<p>Random Practice 40, Random Exam 50 and Final simulations remain separately ranked activities, but they do not add marks to Track Overall or Full Bank Overall. Their questions are randomized and overlap with the fixed source sections.</p>
+
+<h2 id="ranking-center">Ranking Center</h2>
+<ul>
+  <li>Junior Overall</li>
+  <li>Professional Overall</li>
+  <li>Track Overall</li>
+  <li>Exam Ranking</li>
+</ul>
+
+<p>Shortcuts also exist from each Official level, each Official track, and each fixed section.</p>
+
+<h2 id="supabase">Supabase</h2>
+<p>No database migration is required. Ranking V2 reads the existing <code class="language-plaintext highlighter-rouge">exam_attempts</code> rows and aggregates best section attempts in the client.</p>
+
+<h2 id="qa">QA</h2>
+<ul>
+  <li>Junior section total: 930 / 21 sections — PASS</li>
+  <li>Professional section total: 1189 / 26 sections — PASS</li>
+  <li>Track section totals equal source-bank track counts — PASS</li>
+  <li>Aggregate best-attempt selection — PASS</li>
+  <li>Completion-first ordering — PASS</li>
+  <li>Random / Final exclusion from Total Grades — PASS</li>
+  <li>Multi-exam Supabase chunking and pagination logic — PASS</li>
+  <li>Direct section/result ranking opens Exam Ranking — PASS</li>
+  <li>HTML IDs unique — PASS</li>
+  <li>JavaScript DOM references valid — PASS</li>
+  <li>All JSON files parse — PASS</li>
+  <li>All JavaScript files pass <code class="language-plaintext highlighter-rouge">node --check</code> — PASS</li>
+</ul>
+
+<h2 id="browser-note">Browser note</h2>
+<p>A full visual Chromium click-through is not claimed for this milestone because the execution environment did not complete the local-page Chromium run reliably. The ranking engine, production modules, registry structure and DOM bindings were validated directly.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V0.18.0 — SQL Study V2 &amp; Learner/Admin Information Architecture | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V0.18.0 — SQL Study V2 &amp; Learner/Admin Information Architecture" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.0-SQL-STUDY-V2-IA-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.0-SQL-STUDY-V2-IA-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V0.18.0 — SQL Study V2 &amp; Learner/Admin Information Architecture" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V0.18.0 — SQL Study V2 &amp; Learner/Admin Information Architecture","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.0-SQL-STUDY-V2-IA-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="v0180--sql-study-v2--learneradmin-information-architecture">V0.18.0 — SQL Study V2 &amp; Learner/Admin Information Architecture</h1>
+
+<h2 id="purpose">Purpose</h2>
+
+<p>Two issues were addressed together:</p>
+
+<ol>
+  <li>SQL Study was visually clean but too compressed for first-time learning.</li>
+  <li>Curriculum/exam-production diagnostics were occupying learner-facing space.</li>
+</ol>
+
+<h2 id="sql-study-v2">SQL Study V2</h2>
+
+<p>The SQL track contains:</p>
+<ul>
+  <li>8 sessions</li>
+  <li>34 Study sections</li>
+  <li>25 syllabus topics</li>
+  <li>520 production questions</li>
+</ul>
+
+<p>Every Study section now contains:</p>
+
+<ol>
+  <li>What Is It?</li>
+  <li>Why Does It Matter?</li>
+  <li>Visual / mental model</li>
+  <li>Key Terms</li>
+  <li>Key Takeaways</li>
+  <li>Quick Check</li>
+  <li>Source Trace</li>
+</ol>
+
+<h2 id="grounding">Grounding</h2>
+
+<p><code class="language-plaintext highlighter-rouge">What Is It</code>, <code class="language-plaintext highlighter-rouge">Key Terms</code>, <code class="language-plaintext highlighter-rouge">Key Takeaways</code>, and Source Trace come from the existing SQL course production material.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">Why</code> and visual teaching layer is explicitly labeled as a platform clarification based on the course concept.</p>
+
+<p>Illustrative table values are not presented as source facts.</p>
+
+<h2 id="visual-coverage">Visual coverage</h2>
+
+<p>34/34 SQL Study sections contain a visual clarification.</p>
+
+<p>Visual families include:</p>
+<ul>
+  <li>concept flows</li>
+  <li>comparison cards</li>
+  <li>ER diagrams</li>
+  <li>relational mapping</li>
+  <li>normalization before/after</li>
+  <li>Star Schema</li>
+  <li>constraint checks</li>
+  <li>DDL/DML/DQL groups</li>
+  <li>SQL code blocks</li>
+  <li>before/query/result tables</li>
+  <li>aggregate transformation</li>
+  <li>join visualization</li>
+  <li>nested query flow</li>
+  <li>set operation flow</li>
+  <li>window calculation</li>
+  <li>CTE</li>
+  <li>pivot</li>
+  <li>SQL control flow</li>
+  <li>TRY/CATCH</li>
+  <li>Views</li>
+  <li>Stored Procedures</li>
+</ul>
+
+<h2 id="quick-checks">Quick Checks</h2>
+
+<p>34/34 Study sections contain a Quick Check.</p>
+
+<p>All 34 use unique question IDs from the existing course-derived SQL production banks.</p>
+
+<p>The Quick Check source trace is retained.</p>
+
+<p>Local save uses the existing Quick Check persistence system.</p>
+
+<h2 id="learneradmin-information-architecture">Learner/Admin information architecture</h2>
+
+<h3 id="learner-view">Learner view</h3>
+<p>The SQL module panel now shows:</p>
+<ul>
+  <li>8 Sessions</li>
+  <li>25 Topics</li>
+  <li>520 Practice Questions</li>
+  <li>Final Ready</li>
+  <li>learner-oriented <code class="language-plaintext highlighter-rouge">What You'll Learn</code></li>
+</ul>
+
+<h3 id="internal-qa-view">Internal QA view</h3>
+<p>The existing:</p>
+<ul>
+  <li>Curriculum Readiness</li>
+  <li>Syllabus Map &amp; Coverage</li>
+  <li>eligible-question counts</li>
+  <li>coverage targets</li>
+  <li>hard/external pool checks</li>
+</ul>
+
+<p>are retained inside a collapsed <code class="language-plaintext highlighter-rouge">Platform Diagnostics</code> panel.</p>
+
+<p>They are not removed from the exam engine.</p>
+
+<h2 id="final-exam-learner-card">Final Exam learner card</h2>
+
+<p>The main learner card no longer displays implementation-level shortages.</p>
+
+<p>It now reports:</p>
+<ul>
+  <li>Questions</li>
+  <li>Time</li>
+  <li>Tracks Ready</li>
+  <li>Ready / Coming Soon</li>
+</ul>
+
+<p>The underlying readiness engine is unchanged.</p>
+
+<h2 id="automated-renderer-qa">Automated renderer QA</h2>
+
+<p>Shipped Pre-Deploy verifies:</p>
+<ul>
+  <li>8 SQL sessions</li>
+  <li>34 SQL Study sections</li>
+  <li>34 visual lessons</li>
+  <li>34 unique Quick Checks</li>
+  <li>runtime HTML render of 34/34 sections</li>
+  <li>Course Map / collapsed diagnostics wiring</li>
+</ul>
+
+<h2 id="chromium-component-qa">Chromium component QA</h2>
+
+<p>Real production CSS and the actual shipped SQL Study renderer were rendered in headless Chromium for:</p>
+<ul>
+  <li>DDL / DML / DQL</li>
+  <li>SQL Filtering</li>
+  <li>Relational Joins</li>
+</ul>
+
+<p>Results:</p>
+<ul>
+  <li>visual cards rendered correctly</li>
+  <li>Quick Check rendered correctly</li>
+  <li>no desktop page-level horizontal overflow</li>
+</ul>
+
+<p>A 390px mobile component render was also checked.</p>
+
+<p>Results:</p>
+<ul>
+  <li>no page-level horizontal overflow</li>
+  <li>the SQL code block remained inside its container</li>
+  <li>the tested code block required no extra horizontal scroll at that width</li>
+</ul>
+
+<p>This is component-level rendering, not a full application click-through.</p>
+
+<h2 id="assessment-protection">Assessment protection</h2>
+
+<p>V0.18.0 intentionally changes <code class="language-plaintext highlighter-rouge">data/learning.json</code>.</p>
+
+<p>All other JSON payloads must remain byte-identical to V0.17.3 during final packaging.</p>
+
+<p>That protects:</p>
+<ul>
+  <li>SQL 520 question banks</li>
+  <li>Python 520 question banks</li>
+  <li>Official Junior 930</li>
+  <li>Official Professional 1189</li>
+  <li>exam blueprints</li>
+  <li>production exams</li>
+  <li>ranking configuration</li>
+</ul>
+
+<h2 id="deployment">Deployment</h2>
+
+<p>Required final step:</p>
+
+<p><code class="language-plaintext highlighter-rouge">TEST-LOCAL.bat → manual browser checklist → GitHub LIVE</code></p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

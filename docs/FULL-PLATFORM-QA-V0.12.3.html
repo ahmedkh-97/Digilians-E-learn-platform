@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Digilians E-Learn — Full Platform QA &amp; UX Review V0.12.3 | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Digilians E-Learn — Full Platform QA &amp; UX Review V0.12.3" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/FULL-PLATFORM-QA-V0.12.3.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/FULL-PLATFORM-QA-V0.12.3.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Digilians E-Learn — Full Platform QA &amp; UX Review V0.12.3" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Digilians E-Learn — Full Platform QA &amp; UX Review V0.12.3","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/FULL-PLATFORM-QA-V0.12.3.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="digilians-e-learn--full-platform-qa--ux-review-v0123">Digilians E-Learn — Full Platform QA &amp; UX Review V0.12.3</h1>
+
+<h2 id="scope">Scope</h2>
+<p>Junior and Professional Official QBank, generated finals, section exams, random track challenges,
+rankings, resume/progress, result navigation, data integrity, accessibility labels and asset references.</p>
+
+<h2 id="fixed-during-this-qa-pass">Fixed during this QA pass</h2>
+<ol>
+  <li>Professional resume context could fall back to Junior state.</li>
+  <li>Official mistake persistence could use the wrong source revision after a resumed Professional exam.</li>
+  <li>Final result CTA was hard-coded as <code class="language-plaintext highlighter-rouge">Back to Junior QBank</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">View Ranking</code> could lose the leaderboard explicitly requested by the result screen.</li>
+  <li>Ranked Random Practice/Exam activities were not exposed in the Ranking selector.</li>
+  <li>Dashboard Official QBank count still displayed the legacy Junior-only 930 total.</li>
+  <li>Generated Official exam title was lost in the Continue card.</li>
+  <li>Completed Official activities could not be relaunched intelligently from the Continue card.</li>
+  <li>Generic navigation paths did not always rehydrate the level/track context from the exam payload.</li>
+  <li>Several search/filter/file controls did not have explicit accessible labels.</li>
+</ol>
+
+<h2 id="automated-qa-results">Automated QA results</h2>
+<ul>
+  <li>Junior Official QBank: 930/930 source records and explanations validated.</li>
+  <li>Professional Official QBank: 1189/1189 source records and explanations validated.</li>
+  <li>Both Final blueprints generated repeatedly with exact track quotas.</li>
+  <li>No duplicate question fingerprint appeared inside generated final attempts.</li>
+  <li>All generated final questions contained deep explanations.</li>
+  <li>Random Practice/Exam leaderboard IDs match their generated exam IDs for both levels.</li>
+  <li>All JSON files parsed successfully.</li>
+  <li>All JavaScript files passed <code class="language-plaintext highlighter-rouge">node --check</code>.</li>
+  <li>HTML IDs are unique and every direct <code class="language-plaintext highlighter-rouge">$("&lt;id&gt;")</code> JS reference exists.</li>
+  <li>All form controls are labeled/wrapped for accessibility.</li>
+  <li>All local asset references resolve after cache-query normalization.</li>
+</ul>
+
+<h2 id="browser-note">Browser note</h2>
+<p>A real Chromium binary is available in the execution environment, but local-page navigation is blocked
+by the environment’s organization policy (<code class="language-plaintext highlighter-rouge">Your organization doesn’t allow you to view this site</code>).
+Therefore this QA pass does not claim a visual click-through browser test. Runtime exam-generation and
+ID logic were exercised directly through the production JavaScript modules instead.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V0.18.4 — Analytics Version Tracking Hotfix QA | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V0.18.4 — Analytics Version Tracking Hotfix QA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.4-ANALYTICS-VERSION-HOTFIX-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.4-ANALYTICS-VERSION-HOTFIX-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V0.18.4 — Analytics Version Tracking Hotfix QA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V0.18.4 — Analytics Version Tracking Hotfix QA","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.4-ANALYTICS-VERSION-HOTFIX-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="v0184--analytics-version-tracking-hotfix-qa">V0.18.4 — Analytics Version Tracking Hotfix QA</h1>
+
+<h2 id="reported-defect">Reported defect</h2>
+<p>Private Analytics → Recent Activity displayed:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Vunknown</code></p>
+
+<p>for every event.</p>
+
+<h2 id="root-cause">Root cause</h2>
+<p>V0.18.3 stored <code class="language-plaintext highlighter-rouge">data-build-version</code> on <code class="language-plaintext highlighter-rouge">#environmentBanner</code>.</p>
+
+<p>Analytics read only:</p>
+
+<p><code class="language-plaintext highlighter-rouge">document.documentElement.dataset.buildVersion</code></p>
+
+<p>The HTML root had no build-version dataset, so <code class="language-plaintext highlighter-rouge">currentVersion()</code> returned <code class="language-plaintext highlighter-rouge">unknown</code>.</p>
+
+<p>The same mismatch also existed in the Live Update installed-version reader, although its fallback release masked the issue in normal use.</p>
+
+<h2 id="fix">Fix</h2>
+<p>New shared module:</p>
+
+<p><code class="language-plaintext highlighter-rouge">assets/js/build-version.js</code></p>
+
+<p>Exports:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">normalizeBuildVersion</code></li>
+  <li><code class="language-plaintext highlighter-rouge">resolveBuildVersion</code></li>
+  <li><code class="language-plaintext highlighter-rouge">displayBuildVersion</code></li>
+</ul>
+
+<p>Analytics and Live Update import the same versioned module.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> root now also contains:</p>
+
+<p><code class="language-plaintext highlighter-rouge">data-build-version="0.18.4"</code></p>
+
+<h2 id="resolver-rules">Resolver rules</h2>
+<ol>
+  <li>HTML root</li>
+  <li>generic <code class="language-plaintext highlighter-rouge">[data-build-version]</code></li>
+  <li>environment banner</li>
+  <li>explicit fallback</li>
+</ol>
+
+<p>Only valid semantic <code class="language-plaintext highlighter-rouge">major.minor.patch</code> values are accepted.</p>
+
+<h2 id="analytics-display">Analytics display</h2>
+<p>Valid:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">0.18.4</code> → <code class="language-plaintext highlighter-rouge">V0.18.4</code></li>
+</ul>
+
+<p>Invalid / missing:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">unknown</code> → <code class="language-plaintext highlighter-rouge">Unknown</code></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Vunknown</code> is no longer produced.</p>
+
+<h2 id="historical-data">Historical data</h2>
+<p>Analytics started in V0.18.3.</p>
+
+<p>Included SQL:</p>
+
+<p><code class="language-plaintext highlighter-rouge">supabase/BACKFILL-ANALYTICS-VERSION-V0.18.4.sql</code></p>
+
+<p>It updates only:</p>
+
+<p><code class="language-plaintext highlighter-rouge">platform_version = 'unknown'</code></p>
+
+<p>to:</p>
+
+<p><code class="language-plaintext highlighter-rouge">0.18.3</code></p>
+
+<p>No educational or ranking data is touched.</p>
+
+<h2 id="automated-qa">Automated QA</h2>
+<p>Pre-Deploy verifies:</p>
+<ul>
+  <li>HTML root version equals VERSION.txt</li>
+  <li>Environment Banner version equals VERSION.txt</li>
+  <li>Analytics cache version equals VERSION.txt</li>
+  <li>Update Manager cache version equals VERSION.txt</li>
+  <li>both systems import the shared resolver with the current cache version</li>
+  <li>resolver prefers HTML root</li>
+  <li>resolver can recover through fallback</li>
+  <li>Analytics event build version equals current release</li>
+  <li>Analytics event version is not <code class="language-plaintext highlighter-rouge">unknown</code></li>
+  <li>unknown display label is <code class="language-plaintext highlighter-rouge">Unknown</code></li>
+  <li>backfill SQL targets only historical unknown version rows</li>
+</ul>
+
+<h2 id="existing-protection">Existing protection</h2>
+<ul>
+  <li>SQL: 520 questions</li>
+  <li>Python: 520 questions</li>
+  <li>Junior Official QBank: 930</li>
+  <li>Professional Official QBank: 1189</li>
+  <li>SQL Study V2: 34/34 sections</li>
+  <li>Analytics Auth/RLS/privacy checks remain active</li>
+  <li>Live Update exam-safety checks remain active</li>
+</ul>
+
+<h2 id="deployment-sequence">Deployment sequence</h2>
+<ol>
+  <li>TEST-LOCAL.bat</li>
+  <li>GitHub LIVE V0.18.4</li>
+  <li>Open LIVE and generate a few new events</li>
+  <li>Verify they show V0.18.4</li>
+  <li>Run historical backfill SQL once</li>
+  <li>Refresh Analytics</li>
+</ol>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

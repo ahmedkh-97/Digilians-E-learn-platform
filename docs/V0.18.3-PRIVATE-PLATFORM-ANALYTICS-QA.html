@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V0.18.3 — Private Platform Analytics V1 QA | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V0.18.3 — Private Platform Analytics V1 QA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.3-PRIVATE-PLATFORM-ANALYTICS-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.3-PRIVATE-PLATFORM-ANALYTICS-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V0.18.3 — Private Platform Analytics V1 QA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V0.18.3 — Private Platform Analytics V1 QA","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.18.3-PRIVATE-PLATFORM-ANALYTICS-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="v0183--private-platform-analytics-v1-qa">V0.18.3 — Private Platform Analytics V1 QA</h1>
+
+<h2 id="scope">Scope</h2>
+
+<p>This release adds anonymous product analytics plus a private Admin dashboard.</p>
+
+<p>It does not change educational curriculum, question banks, answers, exam blueprints or ranking calculations.</p>
+
+<h2 id="new-files">New files</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">assets/js/analytics.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">supabase/ANALYTICS-SCHEMA.sql</code></li>
+  <li><code class="language-plaintext highlighter-rouge">supabase/ADD-ANALYTICS-ADMIN.sql</code></li>
+  <li><code class="language-plaintext highlighter-rouge">supabase/ANALYTICS-SETUP-GUIDE.md</code></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">data/changelog.json</code> is updated for the new release.</p>
+
+<h2 id="tracking-identity-model">Tracking identity model</h2>
+
+<p><code class="language-plaintext highlighter-rouge">visitor_id</code></p>
+<ul>
+  <li>random UUID</li>
+  <li>stored in localStorage</li>
+  <li>persists across normal returns on the same browser</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">session_id</code></p>
+<ul>
+  <li>random UUID</li>
+  <li>stored in sessionStorage</li>
+  <li>new for a new tab/browser session</li>
+  <li>survives a normal page refresh in that same tab</li>
+</ul>
+
+<p>This gives practical approximate Visitors / Sessions without student accounts.</p>
+
+<h2 id="events">Events</h2>
+
+<p>V1 tracks:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">session_start</code></li>
+  <li><code class="language-plaintext highlighter-rouge">page_view</code></li>
+  <li><code class="language-plaintext highlighter-rouge">track_open</code></li>
+  <li><code class="language-plaintext highlighter-rouge">study_open</code></li>
+  <li><code class="language-plaintext highlighter-rouge">practice_start</code></li>
+  <li><code class="language-plaintext highlighter-rouge">practice_complete</code></li>
+  <li><code class="language-plaintext highlighter-rouge">exam_start</code></li>
+  <li><code class="language-plaintext highlighter-rouge">exam_complete</code></li>
+  <li><code class="language-plaintext highlighter-rouge">update_seen</code></li>
+  <li><code class="language-plaintext highlighter-rouge">update_installed</code></li>
+</ul>
+
+<p>No question answer values are included.</p>
+
+<h2 id="fail-safe-behavior">Fail-safe behavior</h2>
+
+<p>Analytics is non-blocking.</p>
+
+<p>If the Supabase analytics table is unavailable:</p>
+<ul>
+  <li>event submission fails silently after one console warning</li>
+  <li>tracking pauses briefly</li>
+  <li>Study / Practice / Exams / Ranking continue normally</li>
+</ul>
+
+<p>Localhost / TEST-LOCAL never submits analytics events.</p>
+
+<h2 id="privacy-sanitizer">Privacy sanitizer</h2>
+
+<p>The event metadata sanitizer blocks variants of:</p>
+<ul>
+  <li>student name</li>
+  <li>learner name</li>
+  <li>email</li>
+  <li>answer / answers</li>
+  <li>response / responses</li>
+  <li>IP / IP address</li>
+  <li>password</li>
+</ul>
+
+<p>Only short primitive metadata fields are accepted.</p>
+
+<p>Automated payload regression confirms blocked fields do not survive.</p>
+
+<h2 id="supabase-security">Supabase security</h2>
+
+<h3 id="analytics_events">analytics_events</h3>
+
+<p>Anonymous and authenticated browser roles:</p>
+<ul>
+  <li>INSERT allowed</li>
+</ul>
+
+<p>Anonymous:</p>
+<ul>
+  <li>SELECT not granted</li>
+</ul>
+
+<p>Authenticated:</p>
+<ul>
+  <li>SELECT privilege exists but RLS returns rows only when:
+<code class="language-plaintext highlighter-rouge">public.is_analytics_admin()</code> is true</li>
+</ul>
+
+<p>No browser UPDATE / DELETE policy exists.</p>
+
+<h3 id="analytics_admins">analytics_admins</h3>
+
+<p>Contains the approved Admin email allowlist.</p>
+
+<p>Authenticated SELECT is also protected by the same admin helper.</p>
+
+<h3 id="is_analytics_admin">is_analytics_admin()</h3>
+
+<p>SECURITY DEFINER helper compares the authenticated JWT email against the allowlist.</p>
+
+<p>No service-role key is shipped to the client.</p>
+
+<h2 id="admin-auth-flow">Admin Auth flow</h2>
+
+<p>The client uses the Supabase Auth password token endpoint with the public publishable key.</p>
+
+<p>After login:</p>
+<ol>
+  <li>access/refresh token is saved in the Admin session storage key</li>
+  <li>the app queries the protected <code class="language-plaintext highlighter-rouge">analytics_admins</code> endpoint</li>
+  <li>RLS must return the approved email row</li>
+  <li>only then does the Profile Analytics button become visible</li>
+</ol>
+
+<p>A signed-in but non-allowlisted Supabase user is rejected.</p>
+
+<h2 id="first-time-admin-entry">First-time Admin entry</h2>
+
+<p>Append:</p>
+
+<p><code class="language-plaintext highlighter-rouge">?admin=analytics</code></p>
+
+<p>to the GitHub Pages URL.</p>
+
+<p>This only opens the login modal.</p>
+
+<p>It is not an authentication bypass.</p>
+
+<h2 id="dashboard-metrics">Dashboard metrics</h2>
+
+<p>Date filters:</p>
+<ul>
+  <li>Today</li>
+  <li>Last 7 Days</li>
+  <li>Last 30 Days</li>
+  <li>All Time</li>
+</ul>
+
+<p>KPI:</p>
+<ul>
+  <li>Unique Visitors</li>
+  <li>Sessions</li>
+  <li>Returning Visitors</li>
+  <li>Page Views</li>
+  <li>Exam Completions</li>
+  <li>Completion Rate</li>
+</ul>
+
+<p>Panels:</p>
+<ul>
+  <li>Visitors / Sessions trend</li>
+  <li>Study → Practice → Exam funnel</li>
+  <li>Track Usage</li>
+  <li>Version Adoption</li>
+  <li>Official QBank activity</li>
+  <li>Update activity</li>
+  <li>recent anonymous events</li>
+</ul>
+
+<h2 id="chromium-component-qa">Chromium component QA</h2>
+
+<p>Production CSS + real <code class="language-plaintext highlighter-rouge">analytics.js</code> were executed in Chromium with mocked Supabase responses.</p>
+
+<p>Verified:</p>
+<ul>
+  <li>anonymous <code class="language-plaintext highlighter-rouge">session_start</code> event sent</li>
+  <li>anonymous payload contains no name/email fields</li>
+  <li>Admin Profile entry hidden before login</li>
+  <li>Supabase Auth login succeeds in the mocked approved-admin case</li>
+  <li>allowlist verification makes the Profile entry visible</li>
+  <li>private dashboard opens</li>
+  <li>metrics rendered from controlled event data:
+    <ul>
+      <li>Visitors = 2</li>
+      <li>Sessions = 3</li>
+      <li>Returning = 1</li>
+      <li>Exam Completions = 1</li>
+      <li>Completion Rate = 100%</li>
+    </ul>
+  </li>
+  <li>desktop page horizontal overflow = 0</li>
+  <li>390px page horizontal overflow = 0</li>
+</ul>
+
+<p>Result: PASS.</p>
+
+<p>This is component-level browser QA. It does not claim a real Supabase database login because the one-time SQL migration has not been executed from this build environment.</p>
+
+<h2 id="automated-pre-deploy">Automated Pre-Deploy</h2>
+
+<p>The shipped checker validates:</p>
+<ul>
+  <li>all Analytics files exist</li>
+  <li>Analytics JS cache version matches VERSION.txt</li>
+  <li>Analytics DOM IDs exist</li>
+  <li>JS module syntax</li>
+  <li>event privacy sanitizer</li>
+  <li>visitor/session aggregation</li>
+  <li>exam funnel aggregation</li>
+  <li>Official QBank aggregation</li>
+  <li>app/update event instrumentation</li>
+  <li>hidden Admin entry</li>
+  <li>absence of service-role/secret-key use</li>
+  <li>RLS schema statements</li>
+  <li>anonymous INSERT / admin SELECT policy shape</li>
+  <li>localhost tracking guard</li>
+  <li>dashboard CSS</li>
+</ul>
+
+<h2 id="datacontent-protection">Data/content protection</h2>
+
+<p>V0.18.2 had 146 JSON files.</p>
+
+<p>V0.18.3:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">data/changelog.json</code> intentionally changes for release notes</li>
+  <li>every other existing JSON file must remain byte-identical to V0.18.2</li>
+</ul>
+
+<p>Question banks and Official QBank are therefore protected byte-for-byte.</p>
+
+<h2 id="deployment">Deployment</h2>
+
+<ol>
+  <li>Run Supabase analytics schema.</li>
+  <li>Create private Auth Admin.</li>
+  <li>Add its email to the allowlist.</li>
+  <li><code class="language-plaintext highlighter-rouge">RUN-PREFLIGHT.bat</code></li>
+  <li><code class="language-plaintext highlighter-rouge">TEST-LOCAL.bat</code></li>
+  <li>Upload V0.18.3 to GitHub LIVE.</li>
+  <li>Open LIVE <code class="language-plaintext highlighter-rouge">?admin=analytics</code> and verify the real dashboard.</li>
+</ol>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

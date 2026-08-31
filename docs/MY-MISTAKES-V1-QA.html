@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>My Mistakes V1 — QA Report | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="My Mistakes V1 — QA Report" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/MY-MISTAKES-V1-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/MY-MISTAKES-V1-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="My Mistakes V1 — QA Report" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"My Mistakes V1 — QA Report","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/MY-MISTAKES-V1-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="my-mistakes-v1--qa-report">My Mistakes V1 — QA Report</h1>
+
+<h2 id="release">Release</h2>
+
+<p><strong>V0.20.0 — My Mistakes V1</strong></p>
+
+<p>Date: 2026-08-30</p>
+
+<h2 id="automated-engine-qa">Automated engine QA</h2>
+
+<p>PASS:</p>
+
+<ul>
+  <li>wrong answer creates <code class="language-plaintext highlighter-rouge">Needs Review</code></li>
+  <li>first correct recovery creates <code class="language-plaintext highlighter-rouge">Improving</code></li>
+  <li>second consecutive correct recovery creates <code class="language-plaintext highlighter-rouge">Mastered</code></li>
+  <li>a new wrong answer resets Mastered to <code class="language-plaintext highlighter-rouge">Needs Review</code></li>
+  <li>wrong-count history is preserved</li>
+  <li>last wrong choice is preserved independently from later correct recoveries</li>
+  <li>practice-question snapshot reconstructs question/options/correct answer</li>
+  <li>Weak Topics aggregation ranks unresolved topics</li>
+  <li>non-Official sources normalize into the Course Practice/Exam family</li>
+</ul>
+
+<h2 id="platform-wiring-qa">Platform wiring QA</h2>
+
+<p>PASS:</p>
+
+<ul>
+  <li>Desktop <code class="language-plaintext highlighter-rouge">My Mistakes</code> navigation</li>
+  <li>Mobile <code class="language-plaintext highlighter-rouge">Mistakes</code> navigation</li>
+  <li>Profile quick access</li>
+  <li>My Mistakes route/view</li>
+  <li>summary state cards</li>
+  <li>source / track / topic / status filters</li>
+  <li>Weak Topics</li>
+  <li>Retry Question</li>
+  <li>filtered Practice My Mistakes</li>
+  <li>Official mistake migration</li>
+  <li>normal Practice/Exam result tracking</li>
+  <li>correct-recovery tracking on later attempts</li>
+  <li>Official Study wrong-answer tracking</li>
+  <li>Official Mistakes filter hides Mastered questions</li>
+  <li>saved mistake practice can be resumed</li>
+</ul>
+
+<h2 id="ranking-isolation-qa">Ranking isolation QA</h2>
+
+<p>PASS:</p>
+
+<p><code class="language-plaintext highlighter-rouge">finishMistakesPractice()</code> contains no:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">saveResult()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">queuePendingAttempt()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">submitAttemptOnline()</code></li>
+</ul>
+
+<p>My Mistakes practice never enters Ranking.</p>
+
+<h2 id="backup--restore-qa">Backup / Restore QA</h2>
+
+<p>PASS:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">digilians.mistakes</code> is an allowed backup key</li>
+  <li>JSON validation includes the mistakes store</li>
+  <li>Merge Restore is mistake-key aware</li>
+  <li>Backup preview includes My Mistakes count</li>
+  <li>restore summary includes saved mistake count</li>
+  <li>Admin/Analytics sensitive keys remain excluded</li>
+</ul>
+
+<h2 id="existing-official-qbank-migration">Existing Official QBank migration</h2>
+
+<p>Existing Official mistake IDs are imported automatically when My Mistakes is opened.</p>
+
+<p>To avoid unnecessary repeated file loading, tracks whose Official mistakes already exist in the universal notebook are skipped on later page visits in the same/current saved state.</p>
+
+<p>No Official question text, option, answer or source JSON is modified.</p>
+
+<h2 id="legacy-general-results-limitation">Legacy general-results limitation</h2>
+
+<p>This is intentional and disclosed in the UI:</p>
+
+<p>Old non-Official result records created before V0.20.0 do not contain the exact question-level answer history, so those old wrong questions cannot be recreated safely without guessing.</p>
+
+<p>V0.20.0 starts exact question-level tracking for new Practice/Exam attempts.</p>
+
+<h2 id="visual-qa">Visual QA</h2>
+
+<p>Production CSS component render:</p>
+
+<p>Desktop 1440px:</p>
+
+<ul>
+  <li>4 summary cards in one row</li>
+  <li>Weak Topics row</li>
+  <li>five-filter toolbar</li>
+  <li>mistake question cards</li>
+  <li>answer comparison</li>
+  <li>explanation area</li>
+  <li>Retry action</li>
+  <li>horizontal page overflow = <strong>0</strong></li>
+</ul>
+
+<p>Mobile 390px:</p>
+
+<ul>
+  <li>6-item bottom navigation fits one row</li>
+  <li>summary cards collapse to one column</li>
+  <li>toolbar collapses responsively</li>
+  <li>answer comparison collapses to one column</li>
+  <li>page-level horizontal overflow = <strong>0</strong></li>
+</ul>
+
+<p>Result: <strong>PASS</strong></p>
+
+<h2 id="automated-pre-deploy">Automated Pre-Deploy</h2>
+
+<p><code class="language-plaintext highlighter-rouge">tools/pre-deploy-check.mjs</code></p>
+
+<p>Result: <strong>PASSED</strong></p>
+
+<p>Includes explicit My Mistakes regression tests for:</p>
+
+<ul>
+  <li>mastery state machine</li>
+  <li>UI/wiring</li>
+  <li>Official migration</li>
+  <li>Ranking isolation</li>
+  <li>Backup/Restore</li>
+  <li>local-only privacy guard</li>
+</ul>
+
+<h2 id="local-server-smoke">Local server smoke</h2>
+
+<p>Node local HTTP server starts and serves the build correctly.</p>
+
+<p>Full Chromium localhost click-through cannot be claimed in this execution environment because browser navigation to <code class="language-plaintext highlighter-rouge">127.0.0.1</code> is blocked with:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ERR_BLOCKED_BY_ADMINISTRATOR</code></p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">TEST-LOCAL.bat</code> on the learner/admin machine before GitHub LIVE.</p>
+
+<h2 id="manual-acceptance-path">Manual acceptance path</h2>
+
+<ol>
+  <li>Open My Mistakes.</li>
+  <li>Confirm existing Official QBank mistakes appear.</li>
+  <li>Open a Needs Review item.</li>
+  <li>Retry it and answer correctly.</li>
+  <li>Finish Practice.</li>
+  <li>Confirm status becomes Improving.</li>
+  <li>Retry and answer correctly again.</li>
+  <li>Confirm status becomes Mastered.</li>
+  <li>Open the matching Official track and choose the Mistakes filter.</li>
+  <li>Confirm the Mastered question no longer appears.</li>
+  <li>Get the same question wrong in a later official attempt.</li>
+  <li>Confirm it returns to Needs Review.</li>
+  <li>Export Progress Backup and verify My Mistakes is counted.</li>
+  <li>Restore with Merge and confirm mistake history remains.</li>
+</ol>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V0.17.2 — Universal Code Readability System | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V0.17.2 — Universal Code Readability System" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.17.2-UNIVERSAL-CODE-READABILITY-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.17.2-UNIVERSAL-CODE-READABILITY-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V0.17.2 — Universal Code Readability System" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V0.17.2 — Universal Code Readability System","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.17.2-UNIVERSAL-CODE-READABILITY-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="v0172--universal-code-readability-system">V0.17.2 — Universal Code Readability System</h1>
+
+<h2 id="goal">Goal</h2>
+
+<p>Code-like questions must not be presented as oversized paragraph text.</p>
+
+<p>The platform now uses one technical-content presentation layer for Python, SQL, DAX, Excel formulas and Power Query M.</p>
+
+<h2 id="architecture">Architecture</h2>
+
+<p>New module:</p>
+
+<p><code class="language-plaintext highlighter-rouge">assets/js/technical-content.js</code></p>
+
+<p>Responsibilities:</p>
+<ul>
+  <li>infer language from question metadata and code signatures;</li>
+  <li>separate prose from multi-line code without editing source JSON;</li>
+  <li>distinguish inline technical expressions from code blocks;</li>
+  <li>render code-safe HTML;</li>
+  <li>syntax-highlight locally with no third-party dependency;</li>
+  <li>preserve code indentation;</li>
+  <li>add line numbers only to multi-line blocks;</li>
+  <li>format code answer options;</li>
+  <li>format inline technical expressions in feedback.</li>
+</ul>
+
+<h2 id="learner-surfaces">Learner surfaces</h2>
+
+<p>The renderer is wired into:</p>
+<ol>
+  <li>Official QBank Study question</li>
+  <li>Official QBank answer options</li>
+  <li>Official QBank answer/explanation</li>
+  <li>Practice / Exam question</li>
+  <li>Practice / Exam answer options</li>
+  <li>Instant Feedback</li>
+  <li>Result Review</li>
+  <li>Python Study Quick Checks</li>
+</ol>
+
+<h2 id="python-regression">Python regression</h2>
+
+<p>Official question:</p>
+
+<p><code class="language-plaintext highlighter-rouge">official-python-q0016</code></p>
+
+<p>Expected segmentation:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Text → Python code block → Text</code></p>
+
+<p>The NumPy array is isolated from the question heading.</p>
+
+<p>Options such as:</p>
+
+<p><code class="language-plaintext highlighter-rouge">data[1, 1]</code></p>
+
+<p>use code typography.</p>
+
+<h2 id="sql-regression">SQL regression</h2>
+
+<p>Official question:</p>
+
+<p><code class="language-plaintext highlighter-rouge">official-sql-q0001</code></p>
+
+<p>All four multi-line SQL options render as SQL blocks with:</p>
+<ul>
+  <li>line numbers</li>
+  <li>syntax highlighting</li>
+  <li>LTR</li>
+  <li>indentation preservation</li>
+</ul>
+
+<h2 id="dax-regression">DAX regression</h2>
+
+<p>Official question:</p>
+
+<p><code class="language-plaintext highlighter-rouge">official-excel-q0179</code></p>
+
+<p>DAX formula options such as <code class="language-plaintext highlighter-rouge">SUMX(...)</code> render as code and preserve <code class="language-plaintext highlighter-rouge">Table[Column]</code> references.</p>
+
+<h2 id="excel-regression">Excel regression</h2>
+
+<p>Official question:</p>
+
+<p><code class="language-plaintext highlighter-rouge">official-excel-q0024</code></p>
+
+<p>COUNTIFS formula options render using Excel formula styling.</p>
+
+<h2 id="power-query-m-regression">Power Query M regression</h2>
+
+<p>Official question:</p>
+
+<p><code class="language-plaintext highlighter-rouge">official-power-bi-q0064</code></p>
+
+<p>The prose prompt and <code class="language-plaintext highlighter-rouge">Table.SelectRows(...)</code> expression are separated correctly.</p>
+
+<h2 id="corpus-runtime-validation">Corpus runtime validation</h2>
+
+<p>The V0.17.2 Pre-Deploy check runs the renderer over every question-like object found in the current JSON payload set.</p>
+
+<p>Current validation:</p>
+<ul>
+  <li>4,422 question objects rendered</li>
+  <li>144 questions detected with dedicated code/table content</li>
+  <li>1,615 answer options detected and rendered as code</li>
+  <li>explicit Python / SQL / DAX / Excel / Power Query M regressions</li>
+</ul>
+
+<p>The count includes repeated question objects contained in production/sample/document JSON; it is a rendering-stress count, not the number of unique learner questions.</p>
+
+<h2 id="visual-component-qa">Visual component QA</h2>
+
+<p>A headless Chromium component render was performed using the real production CSS and real official question payloads.</p>
+
+<h3 id="python-numpy">Python NumPy</h3>
+<p>Official Python Q0016:</p>
+<ul>
+  <li>code block rendered at normal code scale rather than heading scale;</li>
+  <li>4 source lines rendered as 4 visual code lines;</li>
+  <li>no phantom blank lines;</li>
+  <li>question prompt rendered below the code block;</li>
+  <li>options remained readable.</li>
+</ul>
+
+<p>A phantom-line issue was discovered during this visual check because inherited <code class="language-plaintext highlighter-rouge">white-space: pre-wrap</code> was creating visual whitespace around block children. It was fixed before packaging by:</p>
+<ul>
+  <li>removing newline text nodes between rendered code-line spans;</li>
+  <li>explicitly neutralizing inherited white-space on technical containers.</li>
+</ul>
+
+<h3 id="sql">SQL</h3>
+<p>Official SQL Q0001:</p>
+<ul>
+  <li>four multi-line query options rendered correctly;</li>
+  <li>query blocks fit inside option cards;</li>
+  <li>no horizontal page overflow at desktop size.</li>
+</ul>
+
+<h3 id="dax--power-query-m">DAX / Power Query M</h3>
+<p>Dark-theme component rendering was checked:</p>
+<ul>
+  <li>DAX formula options remained readable;</li>
+  <li>function and reference highlighting remained visible;</li>
+  <li>Power Query M code block rendered correctly.</li>
+</ul>
+
+<h3 id="mobile">Mobile</h3>
+<p>A 390px component viewport was checked:</p>
+<ul>
+  <li>answer cards stayed inside the viewport;</li>
+  <li>long technical content stayed within its code/option container;</li>
+  <li>no meaningful page-level horizontal overflow was introduced.</li>
+</ul>
+
+<h2 id="source-protection">Source protection</h2>
+
+<p>V0.17.2 does not intentionally modify:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">data/learning.json</code></li>
+  <li>production SQL banks/exams</li>
+  <li>production Python banks/exams</li>
+  <li>Official QBank JSON</li>
+  <li>exam blueprints/registries</li>
+</ul>
+
+<p>The final package QA compares protected content against V0.17.1 byte-for-byte.</p>
+
+<h2 id="full-browser-note">Full-browser note</h2>
+
+<p>Component-level Chromium rendering was performed successfully.</p>
+
+<p>The artifact environment does not permit navigating Chromium to the local development server, so a full end-to-end click-through of the complete application is not claimed here.</p>
+
+<p>The required final step remains:</p>
+
+<p><code class="language-plaintext highlighter-rouge">TEST-LOCAL.bat → manual browser smoke → GitHub LIVE</code></p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

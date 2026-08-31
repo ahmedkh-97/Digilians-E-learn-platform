@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V0.19.1 — Profile Access &amp; Layering Fix QA | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V0.19.1 — Profile Access &amp; Layering Fix QA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.1-PROFILE-ACCESS-LAYERING-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.1-PROFILE-ACCESS-LAYERING-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V0.19.1 — Profile Access &amp; Layering Fix QA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V0.19.1 — Profile Access &amp; Layering Fix QA","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.1-PROFILE-ACCESS-LAYERING-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="v0191--profile-access--layering-fix-qa">V0.19.1 — Profile Access &amp; Layering Fix QA</h1>
+
+<h2 id="reported-issues">Reported issues</h2>
+
+<ol>
+  <li>Sticky Navbar remained visually above the Profile backdrop.</li>
+  <li>Exam / Bank JSON Validator was visible to Guest users.</li>
+  <li>Profile actions were becoming cluttered after Backup/Analytics additions.</li>
+</ol>
+
+<h2 id="layer-contract">Layer contract</h2>
+
+<ul>
+  <li>Navbar = 120</li>
+  <li>Update notice = 150000</li>
+  <li>Profile backdrop = 155000</li>
+  <li>Profile drawer = 155100</li>
+  <li>What’s New = 160000</li>
+  <li>Admin Login = 170000</li>
+  <li>Backup / Restore = 175000</li>
+  <li>LOCAL TEST banner = 180000</li>
+</ul>
+
+<p>Therefore, Profile covers normal navigation/update UI, while higher-level modals can still open above it.</p>
+
+<h2 id="interaction-lock">Interaction lock</h2>
+
+<p>While Profile is open:</p>
+<ul>
+  <li>body overflow = hidden</li>
+  <li><code class="language-plaintext highlighter-rouge">.app-shell</code> has <code class="language-plaintext highlighter-rouge">inert</code></li>
+  <li>Profile close receives focus</li>
+  <li>backdrop click closes</li>
+  <li>Escape closes</li>
+  <li>close button closes</li>
+  <li>prior focus is restored</li>
+</ul>
+
+<p>Buttons that open another modal/private route close Profile first.</p>
+
+<h2 id="admin-tools">Admin Tools</h2>
+
+<p>Guest/default:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">adminProfileTools</code> = hidden</li>
+  <li>Analytics = hidden</li>
+  <li>JSON Validator = hidden</li>
+</ul>
+
+<p>Verified Supabase Admin:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">adminProfileTools</code> becomes visible</li>
+  <li>Analytics becomes visible</li>
+  <li>JSON Validator becomes visible</li>
+  <li><code class="language-plaintext highlighter-rouge">window.__DIGILIANS_ADMIN_VERIFIED__ = true</code></li>
+</ul>
+
+<p>Logout/session failure:</p>
+<ul>
+  <li>Admin Tools are hidden</li>
+  <li>verification flag returns false</li>
+</ul>
+
+<p>Validator also has a hard app-side guard.</p>
+
+<h2 id="chromium-static-production-dom-qa">Chromium static production-DOM QA</h2>
+
+<p>Production <code class="language-plaintext highlighter-rouge">index.html</code> DOM + production CSS were rendered.</p>
+
+<p>Guest:</p>
+<ul>
+  <li>Admin Tools hidden = true</li>
+  <li>Validator visible = false</li>
+</ul>
+
+<p>Profile-open:</p>
+<ul>
+  <li>Navbar z-index = 120</li>
+  <li>Update = 150000</li>
+  <li>Backdrop = 155000</li>
+  <li>Drawer = 155100</li>
+  <li>What’s New = 160000</li>
+  <li>Admin Login = 170000</li>
+  <li>Backup = 175000</li>
+  <li>body overflow = hidden</li>
+  <li>underlying app inert = true</li>
+  <li><code class="language-plaintext highlighter-rouge">elementFromPoint()</code> at Navbar center returns <code class="language-plaintext highlighter-rouge">drawerBackdrop</code></li>
+</ul>
+
+<p>Verified-Admin simulated state:</p>
+<ul>
+  <li>Analytics visible = true</li>
+  <li>Validator visible = true</li>
+</ul>
+
+<p>390px:</p>
+<ul>
+  <li>drawer width ≈ 370.2px</li>
+  <li>backdrop = 390 × 844</li>
+  <li>page-level horizontal overflow = 0</li>
+</ul>
+
+<p>Result: PASS.</p>
+
+<h2 id="automated-pre-deploy">Automated Pre-Deploy</h2>
+
+<p>The shipped checker validates:</p>
+<ul>
+  <li>layer CSS contract</li>
+  <li>modal semantics</li>
+  <li>body scroll lock</li>
+  <li>app inert state</li>
+  <li>Escape handling</li>
+  <li>close-before-next-modal behavior</li>
+  <li>Admin Tools hidden-default structure</li>
+  <li>Admin verified visibility wiring</li>
+  <li>Validator hard guard</li>
+  <li>all prior platform regressions</li>
+</ul>
+
+<h2 id="data-protection">Data protection</h2>
+
+<p>Only <code class="language-plaintext highlighter-rouge">data/changelog.json</code> changes among JSON files.</p>
+
+<p>Educational, exam, SQL, Python, Official QBank and ranking payloads remain unchanged.</p>
+
+<h2 id="deployment">Deployment</h2>
+
+<p><code class="language-plaintext highlighter-rouge">RUN-PREFLIGHT.bat → TEST-LOCAL.bat → GitHub LIVE</code></p>
+
+<p>After V0.19.1 live verification, apply the Core Freeze and begin Excel Intake Week 1.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

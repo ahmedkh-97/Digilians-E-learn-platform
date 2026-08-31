@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V0.19.4 — Returning User Avatar Rollout QA | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V0.19.4 — Returning User Avatar Rollout QA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.4-RETURNING-USER-AVATAR-ROLLOUT-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.4-RETURNING-USER-AVATAR-ROLLOUT-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V0.19.4 — Returning User Avatar Rollout QA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V0.19.4 — Returning User Avatar Rollout QA","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.4-RETURNING-USER-AVATAR-ROLLOUT-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="v0194--returning-user-avatar-rollout-qa">V0.19.4 — Returning User Avatar Rollout QA</h1>
+
+<h2 id="goal">Goal</h2>
+
+<p>Make the new Soft 3D avatar feature visible to all existing learners automatically instead of relying on them to press Continue or discover Change Avatar manually.</p>
+
+<h2 id="eligibility">Eligibility</h2>
+
+<p>The rollout opens automatically only when both are true:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">digilians.studentName</code> already exists</li>
+  <li><code class="language-plaintext highlighter-rouge">getAvatarProfile()</code> returns no valid current V2 avatar</li>
+</ol>
+
+<p>A valid V0.19.3/V0.19.4 avatar skips the rollout entirely.</p>
+
+<h2 id="returning-user-flow">Returning-user flow</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Open platform → Welcome loads → required Avatar Picker opens → choose → Save Avatar → Home</code></p>
+
+<p>No Study, Exam, QBank or Ranking state is reset.</p>
+
+<h2 id="required-mode-behavior">Required-mode behavior</h2>
+
+<p>During rollout:</p>
+<ul>
+  <li>close button hidden</li>
+  <li>initials fallback hidden</li>
+  <li>backdrop click ignored</li>
+  <li>Escape ignored</li>
+  <li>Save disabled until one avatar selected</li>
+  <li>underlying app remains inert</li>
+  <li>body scroll remains locked</li>
+  <li>one-time profile update badge visible</li>
+</ul>
+
+<p>After Save:</p>
+<ul>
+  <li>avatar stored as schema V2</li>
+  <li>modal closes</li>
+  <li>app becomes interactive again</li>
+  <li>learner is routed to Home</li>
+  <li>future reloads skip the rollout</li>
+</ul>
+
+<h2 id="new-learners">New learners</h2>
+
+<p>Normal onboarding is intentionally unchanged. New learners may still choose <code class="language-plaintext highlighter-rouge">Use Initials for Now</code>. The required flow applies only to returning saved-name learners without a valid current avatar.</p>
+
+<h2 id="interactive-chromium-component-qa">Interactive Chromium component QA</h2>
+
+<p>Production modal markup, CSS and <code class="language-plaintext highlighter-rouge">avatar-profile.js</code> were executed in Chromium with isolated localStorage.</p>
+
+<p>Verified:</p>
+<ul>
+  <li>required class applied</li>
+  <li>close hidden</li>
+  <li>initials fallback hidden</li>
+  <li>ONE-TIME PROFILE UPDATE visible</li>
+  <li>app-shell inert</li>
+  <li>backdrop click cannot dismiss</li>
+  <li>Escape cannot dismiss</li>
+  <li>even programmatic close-button click cannot dismiss while required</li>
+  <li>selecting Penguin 3D + Save stores schema V2 profile</li>
+  <li>modal closes after successful Save</li>
+  <li>app-shell inert state is removed</li>
+</ul>
+
+<p>Result: PASS.</p>
+
+<h2 id="full-localhost-browser-note">Full localhost browser note</h2>
+
+<p>The environment’s Chromium blocks direct localhost navigation with <code class="language-plaintext highlighter-rouge">ERR_BLOCKED_BY_ADMINISTRATOR</code>. Therefore no claim is made for a full localhost click-through from this runtime. The shipped local HTTP server is separately smoke-tested, and user verification remains <code class="language-plaintext highlighter-rouge">TEST-LOCAL.bat</code>.</p>
+
+<h2 id="automated-pre-deploy">Automated Pre-Deploy</h2>
+
+<p>The shipped checker now validates:</p>
+<ul>
+  <li>automatic returning-user rollout call in app startup</li>
+  <li>required rollout mode</li>
+  <li>hidden skip/close controls</li>
+  <li>backdrop/Escape guards</li>
+  <li>rollout badge/CSS</li>
+  <li>valid current avatars preserve normal flow</li>
+  <li>all prior SQL/Python/QBank/Analytics/Backup/Profile regressions</li>
+</ul>
+
+<h2 id="data-protection">Data protection</h2>
+
+<p>Only <code class="language-plaintext highlighter-rouge">data/changelog.json</code> changes among JSON files. Learning, exam, SQL, Python and Official QBank payloads remain byte-identical to V0.19.3.</p>
+
+<h2 id="deployment">Deployment</h2>
+
+<p><code class="language-plaintext highlighter-rouge">RUN-PREFLIGHT.bat → TEST-LOCAL.bat → GitHub LIVE</code></p>
+
+<p>Manual local test should use two browser states:</p>
+
+<p>A. saved name + no avatar → required popup must appear immediately
+B. saved name + valid avatar → popup must not appear</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

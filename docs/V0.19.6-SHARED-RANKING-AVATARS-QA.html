@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V0.19.6 — Shared Ranking Avatars QA | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V0.19.6 — Shared Ranking Avatars QA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.6-SHARED-RANKING-AVATARS-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.6-SHARED-RANKING-AVATARS-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V0.19.6 — Shared Ranking Avatars QA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V0.19.6 — Shared Ranking Avatars QA","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/V0.19.6-SHARED-RANKING-AVATARS-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="v0196--shared-ranking-avatars-qa">V0.19.6 — Shared Ranking Avatars QA</h1>
+
+<h2 id="requirement">Requirement</h2>
+
+<p>All users viewing Ranking should see each other’s selected Soft 3D avatars.</p>
+
+<h2 id="design-decision">Design decision</h2>
+
+<p>Avatar data is not copied into <code class="language-plaintext highlighter-rouge">exam_attempts</code>.</p>
+
+<p>A separate public profile table is used:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ranking_profiles(player_id, avatar_id, updated_at)</code></p>
+
+<p>Reason:</p>
+<ul>
+  <li>avatar changes do not require another exam attempt</li>
+  <li>historical attempts immediately inherit the current avatar</li>
+  <li>attempt/ranking scoring schemas remain clean</li>
+  <li>no category/gender field is needed</li>
+</ul>
+
+<h2 id="client-sync">Client sync</h2>
+
+<p><code class="language-plaintext highlighter-rouge">online.js</code> adds:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">syncRankingAvatarProfile(playerId, avatarId)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">fetchRankingProfiles(playerIds)</code></li>
+</ul>
+
+<p>The client allowlists all 16 production avatar IDs.</p>
+
+<p>Invalid avatar IDs are rejected before a network request.</p>
+
+<h2 id="ranking-rendering">Ranking rendering</h2>
+
+<p><code class="language-plaintext highlighter-rouge">app.js</code> maintains:</p>
+
+<p><code class="language-plaintext highlighter-rouge">state.rankingAvatarMap</code></p>
+
+<p>Before rendering:</p>
+<ul>
+  <li>exam ranking fetches profile mappings for board player IDs</li>
+  <li>aggregate ranking fetches profile mappings for result-board player IDs</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">rankingAvatarHtml()</code> then resolves:</p>
+<ol>
+  <li>shared Supabase avatar</li>
+  <li>own local avatar as immediate fallback</li>
+  <li>initials</li>
+</ol>
+
+<p>This applies to:</p>
+<ul>
+  <li>regular leaderboard rows</li>
+  <li>aggregate/Official Total Grades rows</li>
+  <li>Top-3 podium</li>
+</ul>
+
+<h2 id="automatic-profile-sync">Automatic profile sync</h2>
+
+<p>Current avatar is synced:</p>
+<ul>
+  <li>on app startup for existing avatar users</li>
+  <li>after first avatar selection</li>
+  <li>after returning-user required rollout</li>
+  <li>after ranked identity onboarding</li>
+  <li>after Change Avatar</li>
+</ul>
+
+<p>Sync failures are non-blocking.</p>
+
+<h2 id="privacy">Privacy</h2>
+
+<p>Shared table stores only:</p>
+<ul>
+  <li>player_id</li>
+  <li>avatar_id</li>
+  <li>updated_at</li>
+</ul>
+
+<p>Not stored:</p>
+<ul>
+  <li>gender/category</li>
+  <li>email</li>
+  <li>answers</li>
+  <li>Analytics visitor ID</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">exam_attempts</code> remains unchanged.</p>
+
+<h2 id="automated-tests">Automated tests</h2>
+
+<p>Pre-Deploy PASS verifies:</p>
+<ul>
+  <li>every row can resolve avatar by player_id</li>
+  <li>separate profile fetch/upsert implementation exists</li>
+  <li>SQL migration exists and enables RLS</li>
+  <li>avatar allowlist exists in client and database</li>
+  <li>no gender/category in ranking profile schema/API block</li>
+  <li>existing attempt payload has no avatar field</li>
+  <li>all prior platform regression suites pass</li>
+</ul>
+
+<p>Direct online module QA:</p>
+<ul>
+  <li>UPSERT payload — PASS</li>
+  <li>profile fetch/map — PASS</li>
+  <li>invalid avatar allowlist rejection — PASS</li>
+</ul>
+
+<h2 id="deployment-dependency">Deployment dependency</h2>
+
+<p>The code package alone is not enough.</p>
+
+<p>Run:</p>
+
+<p><code class="language-plaintext highlighter-rouge">supabase/RANKING-AVATARS-V0.19.6.sql</code></p>
+
+<p>before V0.19.6 goes LIVE.</p>
+
+<h2 id="live-acceptance-test">LIVE acceptance test</h2>
+
+<p>Use two different browsers/devices.</p>
+
+<p>Each user chooses an avatar and opens the updated platform.</p>
+
+<p>Then verify each browser can see the other learner’s avatar in Ranking.</p>
+
+<p>This LIVE two-user test cannot be fully completed offline because it depends on the real Supabase table.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

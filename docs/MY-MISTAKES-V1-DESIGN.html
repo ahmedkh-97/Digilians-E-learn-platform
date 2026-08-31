@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>My Mistakes V1 — Product Design | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="My Mistakes V1 — Product Design" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/MY-MISTAKES-V1-DESIGN.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/MY-MISTAKES-V1-DESIGN.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="My Mistakes V1 — Product Design" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"My Mistakes V1 — Product Design","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/MY-MISTAKES-V1-DESIGN.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="my-mistakes-v1--product-design">My Mistakes V1 — Product Design</h1>
+
+<h2 id="purpose">Purpose</h2>
+
+<p><code class="language-plaintext highlighter-rouge">My Mistakes</code> turns wrong answers into a recovery loop instead of leaving them inside isolated exam results.</p>
+
+<p>The system is local-first and learner-specific on the current browser/player profile.</p>
+
+<h2 id="unified-sources">Unified sources</h2>
+
+<p>V1 combines:</p>
+
+<ul>
+  <li>Official Ministry QBank wrong answers</li>
+  <li>Course Practice wrong answers</li>
+  <li>Course Exam wrong answers</li>
+  <li>Future Excel Practice/Exam questions automatically once those banks are built</li>
+</ul>
+
+<p>Existing Official QBank mistake IDs are imported automatically into the universal notebook.</p>
+
+<p>Older non-Official exam results created before V0.20.0 cannot be reconstructed question-by-question because the old result schema stored aggregate scores/topic breakdowns, not the exact wrong questions. From V0.20.0 onward, exact question snapshots are saved locally when an answered question is wrong.</p>
+
+<h2 id="mastery-state-machine">Mastery state machine</h2>
+
+<p>A unique question moves through:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Needs Review → Improving → Mastered</code></p>
+
+<p>Rules:</p>
+
+<ul>
+  <li>Wrong answer → <code class="language-plaintext highlighter-rouge">Needs Review</code></li>
+  <li>First correct recovery after the latest wrong → <code class="language-plaintext highlighter-rouge">Improving</code></li>
+  <li>Second consecutive correct recovery → <code class="language-plaintext highlighter-rouge">Mastered</code></li>
+  <li>Any new wrong answer resets the question to <code class="language-plaintext highlighter-rouge">Needs Review</code></li>
+</ul>
+
+<p>Mastery threshold: <strong>2 consecutive correct recoveries</strong> after the latest wrong answer.</p>
+
+<p>The historical wrong count is preserved even after Mastery.</p>
+
+<h2 id="my-mistakes-page">My Mistakes page</h2>
+
+<p>The page includes:</p>
+
+<ul>
+  <li>Active Mistakes</li>
+  <li>Needs Review</li>
+  <li>Improving</li>
+  <li>Mastered</li>
+  <li>Weak Topics</li>
+  <li>Search</li>
+  <li>Source filter</li>
+  <li>Track filter</li>
+  <li>Topic filter</li>
+  <li>Mastery-state filter</li>
+  <li>Wrong-attempt count</li>
+  <li>Last wrong answer</li>
+  <li>Correct answer</li>
+  <li>Explanation</li>
+  <li>Retry Question</li>
+  <li>Practice My Mistakes</li>
+</ul>
+
+<h2 id="weak-topics">Weak Topics</h2>
+
+<p>Weak Topics ranks unresolved topics using:</p>
+
+<ol>
+  <li>number of <code class="language-plaintext highlighter-rouge">Needs Review</code> questions</li>
+  <li>repeated wrong attempts</li>
+  <li>number of unresolved questions</li>
+</ol>
+
+<p>This is intentionally a learner-priority signal, not a ranked score.</p>
+
+<h2 id="practice-my-mistakes">Practice My Mistakes</h2>
+
+<p>Learners can practice:</p>
+
+<ul>
+  <li>one question via <code class="language-plaintext highlighter-rouge">Retry Question</code></li>
+  <li>the current filtered mistake set using 10 / 20 / 30 / All</li>
+</ul>
+
+<p>Practice uses the existing interactive question UI and Instant Feedback.</p>
+
+<h3 id="ranking-isolation">Ranking isolation</h3>
+
+<p>My Mistakes Practice:</p>
+
+<ul>
+  <li>does <strong>not</strong> call <code class="language-plaintext highlighter-rouge">saveResult()</code></li>
+  <li>does <strong>not</strong> create Pending Attempts</li>
+  <li>does <strong>not</strong> submit to Supabase</li>
+  <li>does <strong>not</strong> appear in Ranking</li>
+  <li>does <strong>not</strong> change leaderboard scoring</li>
+</ul>
+
+<p>It only updates local mistake mastery states.</p>
+
+<h2 id="official-qbank-integration">Official QBank integration</h2>
+
+<p>The legacy Official QBank mistake list remains as a source history for safe migration.</p>
+
+<p>The Official <code class="language-plaintext highlighter-rouge">Mistakes</code> filter is now mastery-aware:</p>
+
+<ul>
+  <li>unresolved universal mistakes remain visible</li>
+  <li>a question hidden as <code class="language-plaintext highlighter-rouge">Mastered</code> in My Mistakes is also hidden from the Official Mistakes filter</li>
+  <li>if the learner gets that question wrong again, it returns to Needs Review and appears again</li>
+</ul>
+
+<p>Official source text/options/answers are never modified.</p>
+
+<h2 id="storage">Storage</h2>
+
+<p>New local key:</p>
+
+<p><code class="language-plaintext highlighter-rouge">digilians.mistakes</code></p>
+
+<p>Schema:</p>
+
+<ul>
+  <li>schemaVersion</li>
+  <li>owners keyed by player ID</li>
+  <li>question snapshot</li>
+  <li>source/context metadata</li>
+  <li>first/last wrong timestamps</li>
+  <li>wrong count</li>
+  <li>correct recovery count</li>
+  <li>current recovery streak</li>
+  <li>current mastery status</li>
+</ul>
+
+<p>The question snapshot stores enough data to review/retry without depending on a past dynamic exam selection.</p>
+
+<h2 id="backup--restore">Backup &amp; Restore</h2>
+
+<p><code class="language-plaintext highlighter-rouge">digilians.mistakes</code> is included in learner-controlled Backup/Restore.</p>
+
+<p>Merge behavior is question-key aware and keeps the newer state while preserving the highest recorded historical counters.</p>
+
+<p>Analytics/Admin identities remain excluded from learner backups.</p>
+
+<h2 id="privacy">Privacy</h2>
+
+<p><code class="language-plaintext highlighter-rouge">assets/js/mistakes.js</code> has no network calls.</p>
+
+<p>Question text, selected answers and mistake history remain local and are not sent to Analytics or Supabase by the My Mistakes engine.</p>
+
+<p>Only aggregate custom analytics events for starting/completing mistake practice are emitted; they contain counts, not question text or answers.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

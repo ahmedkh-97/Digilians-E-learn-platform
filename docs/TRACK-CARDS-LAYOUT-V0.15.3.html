@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Track Cards Layout Fix — V0.15.3 | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Track Cards Layout Fix — V0.15.3" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/TRACK-CARDS-LAYOUT-V0.15.3.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/TRACK-CARDS-LAYOUT-V0.15.3.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Track Cards Layout Fix — V0.15.3" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Track Cards Layout Fix — V0.15.3","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/TRACK-CARDS-LAYOUT-V0.15.3.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="track-cards-layout-fix--v0153">Track Cards Layout Fix — V0.15.3</h1>
+
+<h2 id="problem">Problem</h2>
+
+<p>The Data Analysis track cards used an absolutely positioned footer while SQL and Python had longer descriptions than the placeholder tracks. The description text could therefore run underneath the footer metadata and arrow.</p>
+
+<h2 id="fix">Fix</h2>
+
+<p>The card layout now uses:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Header → Body → Flexible space → Footer</code></p>
+
+<p>Implementation details:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.track-card</code> uses <code class="language-plaintext highlighter-rouge">display:flex; flex-direction:column</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">.track-card-body</code> uses <code class="language-plaintext highlighter-rouge">flex:1</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">.track-footer</code> is no longer absolutely positioned.</li>
+  <li>Footer has a separator and its own minimum height.</li>
+  <li>Track grid uses equal-height rows where possible.</li>
+  <li>Cards can still grow vertically if content requires more room.</li>
+  <li>Mobile cards revert to natural minimum height.</li>
+</ul>
+
+<h2 id="content-presentation">Content presentation</h2>
+
+<p>The chooser intentionally uses concise summaries:</p>
+
+<ul>
+  <li>SQL: SQL querying, relational databases, joins, subqueries and analytical workflows.</li>
+  <li>Python: Python foundations, NumPy, Pandas and data visualization.</li>
+</ul>
+
+<p>The detailed curriculum descriptions stored in <code class="language-plaintext highlighter-rouge">learning.json</code> were not removed or shortened.</p>
+
+<p>Production-ready cards expose useful footer stats:</p>
+
+<ul>
+  <li>SQL: 8 Sessions • 520 Questions</li>
+  <li>Python: 13 Sessions • 520 Questions</li>
+</ul>
+
+<p>Incomplete tracks display <code class="language-plaintext highlighter-rouge">Coming Soon</code>.</p>
+
+<h2 id="regression-qa">Regression QA</h2>
+
+<ul>
+  <li>All JSON files parse.</li>
+  <li>All JavaScript files pass <code class="language-plaintext highlighter-rouge">node --check</code>.</li>
+  <li>Direct JavaScript DOM references resolve.</li>
+  <li>SQL remains 8 sessions / 520 production questions.</li>
+  <li>Python remains 13 sessions / 520 production questions.</li>
+  <li>Junior Official QBank remains 930.</li>
+  <li>Professional Official QBank remains 1189.</li>
+  <li>Ranking V2 controls remain present.</li>
+</ul>
+
+<h2 id="browser-note">Browser note</h2>
+
+<p>No automated Chromium visual-pass claim is made in this environment. The overlap cause was removed structurally by eliminating the absolute footer and using normal flex flow.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

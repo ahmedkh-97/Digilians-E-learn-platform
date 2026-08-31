@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SQL Learn Readability &amp; Study UX — V0.14.1 | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="SQL Learn Readability &amp; Study UX — V0.14.1" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/SQL-STUDY-UX-V0.14.1.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/SQL-STUDY-UX-V0.14.1.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SQL Learn Readability &amp; Study UX — V0.14.1" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"SQL Learn Readability &amp; Study UX — V0.14.1","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/SQL-STUDY-UX-V0.14.1.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="sql-learn-readability--study-ux--v0141">SQL Learn Readability &amp; Study UX — V0.14.1</h1>
+
+<h2 id="problem-fixed">Problem fixed</h2>
+
+<p>The first SQL integration exposed production metadata and mixed Arabic/English strings in the same text flow. Browser bidirectional text rendering made some sentences difficult to read.</p>
+
+<h2 id="new-student-facing-structure">New student-facing structure</h2>
+
+<p>Each SQL study topic now renders as:</p>
+
+<ol>
+  <li>English topic title in an isolated LTR header.</li>
+  <li><code class="language-plaintext highlighter-rouge">الفكرة الأساسية</code> in an RTL Arabic explanation card.</li>
+  <li>Optional additional Arabic explanation paragraphs.</li>
+  <li><code class="language-plaintext highlighter-rouge">KEY TERMS</code> as isolated LTR chips sourced from the finalized SQL syllabus map.</li>
+  <li><code class="language-plaintext highlighter-rouge">نقط مهمة للمذاكرة</code> as separate RTL takeaway cards.</li>
+  <li><code class="language-plaintext highlighter-rouge">SOURCE TRACE</code> as a dedicated LTR source-reference block.</li>
+</ol>
+
+<h2 id="scope">Scope</h2>
+
+<p>Applied to all 8 SQL modules and all 34 SQL study sections.</p>
+
+<h2 id="content-integrity">Content integrity</h2>
+
+<p>This release changes presentation, not educational source facts.</p>
+
+<ul>
+  <li>Existing validated Arabic explanation text is reused.</li>
+  <li>Existing richer Session 1 prose is preserved.</li>
+  <li>Key terms come from the production syllabus map.</li>
+  <li>Source references remain visible.</li>
+  <li>Production/admin metadata is retained in data for traceability but hidden from the lesson body.</li>
+  <li>SQL Question Banks remain 13 / 520.</li>
+  <li>Junior Official QBank remains 930.</li>
+  <li>Professional Official QBank remains 1189.</li>
+  <li>Ranking V2 remains unchanged.</li>
+</ul>
+
+<h2 id="qa">QA</h2>
+
+<ul>
+  <li>8/8 SQL modules use the readable study mode.</li>
+  <li>34/34 SQL study sections have a visible summary.</li>
+  <li>34/34 SQL study sections retain Source Trace.</li>
+  <li>No <code class="language-plaintext highlighter-rouge">SQL production map</code> or <code class="language-plaintext highlighter-rouge">Assessment scope</code> metadata remains in the student-facing explanation/takeaway fields.</li>
+  <li>All JSON files parse.</li>
+  <li>All JavaScript files pass <code class="language-plaintext highlighter-rouge">node --check</code>.</li>
+  <li>HTML IDs and JavaScript DOM references remain valid.</li>
+</ul>
+
+<h2 id="browser-note">Browser note</h2>
+
+<p>A full automated Chromium screenshot/click-through could not be completed reliably in this execution environment, so no browser visual-pass claim is made. The bidi layout was corrected through explicit RTL/LTR isolation and validated structurally in the production markup/CSS.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

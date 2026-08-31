@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Exam Navigator &amp; Smart Study Navigation — V0.15.2 | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Exam Navigator &amp; Smart Study Navigation — V0.15.2" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/EXAM-STUDY-NAVIGATION-V0.15.2.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/EXAM-STUDY-NAVIGATION-V0.15.2.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Exam Navigator &amp; Smart Study Navigation — V0.15.2" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Exam Navigator &amp; Smart Study Navigation — V0.15.2","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/EXAM-STUDY-NAVIGATION-V0.15.2.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="exam-navigator--smart-study-navigation--v0152">Exam Navigator &amp; Smart Study Navigation — V0.15.2</h1>
+
+<h2 id="1-question-navigator">1. Question Navigator</h2>
+
+<h3 id="instant-feedback-mode">Instant Feedback Mode</h3>
+
+<p>Question-number states:</p>
+<ul>
+  <li>Blue outline: current question</li>
+  <li>Green: answered correctly</li>
+  <li>Red: answered incorrectly</li>
+  <li>Neutral: unanswered</li>
+  <li>Gold star: Marked for Review</li>
+</ul>
+
+<p>Correct/wrong state is derived only after an answer exists and only when <code class="language-plaintext highlighter-rouge">feedbackMode === "instant"</code>.</p>
+
+<h3 id="exam-mode-privacy">Exam Mode privacy</h3>
+
+<p>During Exam Mode the navigator does <strong>not</strong> expose whether an answer is correct.</p>
+
+<p>Answered questions receive a neutral answered style until submission.</p>
+
+<p>This prevents the navigator from leaking result information before the exam is finished.</p>
+
+<h2 id="2-mark-for-review">2. Mark for Review</h2>
+
+<p>Every question now has:</p>
+
+<p><code class="language-plaintext highlighter-rouge">☆ Mark for Review</code></p>
+
+<p>After marking:</p>
+
+<p><code class="language-plaintext highlighter-rouge">★ Marked for Review</code></p>
+
+<p>The mark:</p>
+<ul>
+  <li>can be toggled at any time;</li>
+  <li>appears as a gold star on the question number;</li>
+  <li>is included in the in-progress Resume payload;</li>
+  <li>survives leaving the exam and resuming later.</li>
+</ul>
+
+<p>It is a review/navigation aid only and does not change scoring.</p>
+
+<h2 id="3-smart-study-navigator">3. Smart Study Navigator</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">ON THIS PAGE</code> panel now tracks the reader’s real position.</p>
+
+<p>Features:</p>
+<ul>
+  <li>active section highlighting;</li>
+  <li><code class="language-plaintext highlighter-rouge">YOU ARE HERE</code> label;</li>
+  <li>completed-topic indicator;</li>
+  <li><code class="language-plaintext highlighter-rouge">Section X of Y</code>;</li>
+  <li>reading-position percentage;</li>
+  <li>mini position progress bar;</li>
+  <li>automatic TOC scrolling;</li>
+  <li>Previous Topic / Next Topic controls.</li>
+</ul>
+
+<p>The implementation uses <code class="language-plaintext highlighter-rouge">IntersectionObserver</code> rather than repeatedly polling scroll position.</p>
+
+<p>The active Study section is also stored as <code class="language-plaintext highlighter-rouge">lastSectionId</code>, so the existing Resume Study action can return to the latest topic.</p>
+
+<h2 id="4-python-line-by-line-readability">4. Python line-by-line readability</h2>
+
+<p>The Python explanation rows now use:</p>
+<ul>
+  <li>explicit LTR structure for line-number badges;</li>
+  <li>isolated line numbers;</li>
+  <li>RTL explanation paragraphs;</li>
+  <li>bidi isolation for embedded Python/English technical terms.</li>
+</ul>
+
+<p>This targets the mixed-direction wrapping issue visible in the Python Study screenshot.</p>
+
+<h2 id="qa">QA</h2>
+
+<ul>
+  <li>All JavaScript files pass <code class="language-plaintext highlighter-rouge">node --check</code>.</li>
+  <li>All JSON files parse.</li>
+  <li>All direct JavaScript DOM references resolve.</li>
+  <li>Marked-question state is present in save and restore paths.</li>
+  <li>Correct/wrong navigator state is guarded by Instant Feedback Mode.</li>
+  <li>Exam Mode uses neutral answered state.</li>
+  <li>Study active tracking uses <code class="language-plaintext highlighter-rouge">IntersectionObserver</code>.</li>
+  <li>Previous/Next Topic controls are present.</li>
+  <li>47 Python code examples continue to parse as valid Python.</li>
+  <li>SQL Production remains 13 banks / 520 questions.</li>
+  <li>Python Production remains 13 banks / 520 questions.</li>
+  <li>Junior Official QBank remains 930.</li>
+  <li>Professional Official QBank remains 1189.</li>
+  <li>Dynamic SQL/Python Track and Final-share regression tests pass.</li>
+</ul>
+
+<h2 id="browser-note">Browser note</h2>
+
+<p>No full Chromium click-through is claimed in this environment. Feature logic, runtime bank generation, data integrity, JavaScript syntax and DOM bindings were tested directly.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
