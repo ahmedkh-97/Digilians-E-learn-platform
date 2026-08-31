@@ -1,0 +1,3012 @@
+{
+  "schemaVersion": "1.0",
+  "exam": {
+    "id": "da-excel-track-exam-001",
+    "courseId": "data-analysis",
+    "course": "Data Analysis",
+    "trackId": "excel",
+    "track": "Excel",
+    "title": "Excel Full Track Exam — Validated Form 001",
+    "questionCount": 50,
+    "status": "validated-sample",
+    "source": "Independent Excel Track Assessment Bank V1",
+    "curriculumVersion": "excel-study-v3"
+  },
+  "selectionProfile": {
+    "weekQuotas": {
+      "1": 12,
+      "2": 20,
+      "3": 18
+    },
+    "difficulty": {
+      "Easy": 13,
+      "Hard": 12,
+      "Medium": 25
+    },
+    "sourceType": {
+      "course": 50
+    },
+    "questionFamilies": {
+      "direct": 13,
+      "scenario": 20,
+      "tracing": 10,
+      "troubleshooting": 7
+    },
+    "groupQuotas": {
+      "excel-g01-visual-rules": 1,
+      "excel-g02-formula-language": 1,
+      "excel-g03-text-transformation": 2,
+      "excel-g04-logic-lookup": 2,
+      "excel-g05-dates": 1,
+      "excel-g06-statistics": 1,
+      "excel-g07-dynamic-calculations": 2,
+      "excel-g08-data-workflows": 2,
+      "excel-g09-advanced-data": 1,
+      "excel-g10-charts": 3,
+      "excel-g11-table-design": 2,
+      "excel-g12-outliers-optimization": 3,
+      "excel-g13-dashboards": 4,
+      "excel-g15-power-query-foundations": 4,
+      "excel-g16-power-query-integration": 3,
+      "excel-g17-pivot-powerpivot": 3,
+      "excel-g18-models-dax": 3,
+      "excel-g19-model-dashboards": 2,
+      "excel-g20-statistical-visuals": 3,
+      "excel-g21-geo-multidimensional": 2,
+      "excel-g22-macros": 3,
+      "excel-g23-ai-excel": 1,
+      "excel-g24-shortcuts": 1
+    },
+    "sectionQuotas": {
+      "excel-w1-array-spill": 1,
+      "excel-w1-conditional-formatting-basics": 1,
+      "excel-w1-consolidation-entry": 1,
+      "excel-w1-criteria-functions": 1,
+      "excel-w1-date-functions": 1,
+      "excel-w1-excel-statistical-functions": 1,
+      "excel-w1-filtering-search": 1,
+      "excel-w1-formulas-functions-references": 1,
+      "excel-w1-lookups": 2,
+      "excel-w1-text-extract-split-date": 1,
+      "excel-w1-text-join-clean": 1,
+      "excel-w2-chart-foundations": 3,
+      "excel-w2-dashboard-interactivity": 2,
+      "excel-w2-dashboard-purpose-prep-pivot": 2,
+      "excel-w2-data-ink-grids": 2,
+      "excel-w2-external-data-connections": 1,
+      "excel-w2-m-language-core": 1,
+      "excel-w2-multisheet-consolidation": 1,
+      "excel-w2-outlier-iqr-excel": 3,
+      "excel-w2-pq-combine-load-refresh": 1,
+      "excel-w2-pq-etl-applied-steps": 3,
+      "excel-w2-pq-transform-ops": 1,
+      "excel-w3-ai-landscape": 1,
+      "excel-w3-bland-altman": 1,
+      "excel-w3-data-model-foundations": 2,
+      "excel-w3-forest-plot": 2,
+      "excel-w3-macro-recording": 1,
+      "excel-w3-macro-security": 2,
+      "excel-w3-model-dashboard": 2,
+      "excel-w3-ogive": 2,
+      "excel-w3-pivot-core-layout": 3,
+      "excel-w3-relationships": 1,
+      "excel-w3-shortcuts-workbook": 1
+    },
+    "answerPositions": {
+      "A": 13,
+      "B": 13,
+      "C": 12,
+      "D": 12
+    },
+    "avoidDuplicateConceptKeys": true
+  },
+  "questions": [
+    {
+      "id": "da-excel-track-q001",
+      "question": "An analyst wants Excel to change only the displayed appearance of cells when a data rule is satisfied, without changing the stored values. Which concept provides that behavior?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Conditional Formatting — Purpose & Criteria"
+        },
+        {
+          "id": "B",
+          "text": "Conditional Formatting Rule Types & Below-Average Example"
+        },
+        {
+          "id": "C",
+          "text": "Formula-Based Conditional Formatting"
+        },
+        {
+          "id": "D",
+          "text": "Data Bars"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Conditional Formatting يعني Excel يغيّر شكل الخلية تلقائيًا بناءً على شرط. بدل ما تدور بعينك على الأرقام المهمة، تقدر تخلي القيم اللي تحقق شرط معيّن تظهر بلون أو شكل مختلف. الفكرة الأساسية بسيطة: أنت تحدد Range، ثم تقول لـExcel «لو القيمة تحقق الشرط ده، طبّق التنسيق ده».",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Conditional Formatting يعني Excel يغيّر شكل الخلية تلقائيًا بناءً على شرط. بدل ما تدور بعينك على الأرقام المهمة، تقدر تخلي القيم اللي تحقق شرط معيّن تظهر بلون أو شكل مختلف. الفكرة الأساسية بسيطة: أنت تحدد Range، ثم تقول لـExcel «لو القيمة تحقق الشرط ده، طبّق التنسيق ده».",
+        "options": {
+          "A": "صح: «Conditional Formatting — Purpose & Criteria» يطابق المفهوم المطلوب هنا. Conditional Formatting يعني Excel يغيّر شكل الخلية تلقائيًا بناءً على شرط. بدل ما تدور بعينك على الأرقام المهمة، تقدر تخلي القيم اللي تحقق شرط معيّن تظهر بلون أو شكل مختلف. الفكرة الأساسية بسيطة: أنت تحدد Range، ثم تقول لـExcel «لو القيمة تحقق الشرط ده، طبّق التنسيق ده».",
+          "B": "غلط: «Conditional Formatting Rule Types & Below-Average Example» لا يطابق المهمة المحددة في السؤال. Conditional Formatting يعني Excel يغيّر شكل الخلية تلقائيًا بناءً على شرط. بدل ما تدور بعينك على الأرقام المهمة، تقدر تخلي القيم اللي تحقق شرط معيّن تظهر بلون أو شكل مختلف. الفكرة الأساسية بسيطة: أنت تحدد Range، ثم تقول لـExcel «لو القيمة تحقق الشرط ده، طبّق التنسيق ده».",
+          "C": "غلط: «Formula-Based Conditional Formatting» لا يطابق المهمة المحددة في السؤال. Conditional Formatting يعني Excel يغيّر شكل الخلية تلقائيًا بناءً على شرط. بدل ما تدور بعينك على الأرقام المهمة، تقدر تخلي القيم اللي تحقق شرط معيّن تظهر بلون أو شكل مختلف. الفكرة الأساسية بسيطة: أنت تحدد Range، ثم تقول لـExcel «لو القيمة تحقق الشرط ده، طبّق التنسيق ده».",
+          "D": "غلط: «Data Bars» لا يطابق المهمة المحددة في السؤال. Conditional Formatting يعني Excel يغيّر شكل الخلية تلقائيًا بناءً على شرط. بدل ما تدور بعينك على الأرقام المهمة، تقدر تخلي القيم اللي تحقق شرط معيّن تظهر بلون أو شكل مختلف. الفكرة الأساسية بسيطة: أنت تحدد Range، ثم تقول لـExcel «لو القيمة تحقق الشرط ده، طبّق التنسيق ده»."
+        }
+      },
+      "topic": "Conditional Formatting — Rules & Criteria",
+      "topicId": "excel-w1-conditional-formatting-basics",
+      "subtopicId": "conditional-formatting-purpose",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "conditional-formatting-purpose",
+      "source": {
+        "file": "10-Excel Formatting - Advance(1).pptx",
+        "reference": "Slides 4–6"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g01-visual-rules",
+      "groupNumber": "01",
+      "groupTitle": "Visual Formatting & Rule Logic",
+      "sectionId": "excel-w1-conditional-formatting-basics",
+      "sectionTitle": "Conditional Formatting — Rules & Criteria"
+    },
+    {
+      "id": "da-excel-track-q008",
+      "question": "For Cell References, Ranges & Named Ranges in Formulas, which formula correctly performs the task \"Cell References\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=2*4+1"
+        },
+        {
+          "id": "B",
+          "text": "=21+21+21+15+12"
+        },
+        {
+          "id": "C",
+          "text": "=IFS(test1, value1, [test2, value2], ...)"
+        },
+        {
+          "id": "D",
+          "text": "=B3+B4+B5+B6+B7"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "الـFormula هي أي معادلة تكتبها في Excel وتبدأ بعلامة =. ممكن تحتوي أرقام، Operators مثل + و*، أو Cell References مثل B3. أما الـFunction فهي Formula جاهزة لها اسم مثل SUM وتستقبل Arguments. الـRange مثل B3:B7 يعني كل الخلايا من B3 إلى B7.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "الـFormula هي أي معادلة تكتبها في Excel وتبدأ بعلامة =. ممكن تحتوي أرقام، Operators مثل + و*، أو Cell References مثل B3. أما الـFunction فهي Formula جاهزة لها اسم مثل SUM وتستقبل Arguments. الـRange مثل B3:B7 يعني كل الخلايا من B3 إلى B7.",
+        "options": {
+          "A": "غلط: «=2*4+1» لا يطابق المهمة المحددة في السؤال. الـFormula هي أي معادلة تكتبها في Excel وتبدأ بعلامة =. ممكن تحتوي أرقام، Operators مثل + و*، أو Cell References مثل B3. أما الـFunction فهي Formula جاهزة لها اسم مثل SUM وتستقبل Arguments. الـRange مثل B3:B7 يعني كل الخلايا من B3 إلى B7.",
+          "B": "غلط: «=21+21+21+15+12» لا يطابق المهمة المحددة في السؤال. الـFormula هي أي معادلة تكتبها في Excel وتبدأ بعلامة =. ممكن تحتوي أرقام، Operators مثل + و*، أو Cell References مثل B3. أما الـFunction فهي Formula جاهزة لها اسم مثل SUM وتستقبل Arguments. الـRange مثل B3:B7 يعني كل الخلايا من B3 إلى B7.",
+          "C": "غلط: «=IFS(test1, value1, [test2, value2], ...)» لا يطابق المهمة المحددة في السؤال. الـFormula هي أي معادلة تكتبها في Excel وتبدأ بعلامة =. ممكن تحتوي أرقام، Operators مثل + و*، أو Cell References مثل B3. أما الـFunction فهي Formula جاهزة لها اسم مثل SUM وتستقبل Arguments. الـRange مثل B3:B7 يعني كل الخلايا من B3 إلى B7.",
+          "D": "صح: «=B3+B4+B5+B6+B7» يطابق المفهوم المطلوب هنا. الـFormula هي أي معادلة تكتبها في Excel وتبدأ بعلامة =. ممكن تحتوي أرقام، Operators مثل + و*، أو Cell References مثل B3. أما الـFunction فهي Formula جاهزة لها اسم مثل SUM وتستقبل Arguments. الـRange مثل B3:B7 يعني كل الخلايا من B3 إلى B7."
+        }
+      },
+      "topic": "Formula vs Function, References & Calculation Order",
+      "topicId": "excel-w1-formulas-functions-references",
+      "subtopicId": "cell-ranges-named-ranges",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "calculation-tracing",
+      "questionFamily": "tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "cell-ranges-named-ranges",
+      "source": {
+        "file": "Lecture 14 Excel Formulas and Functions - A to Z Part 1(1).pptx",
+        "reference": "Slides 4–9"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g02-formula-language",
+      "groupNumber": "02",
+      "groupTitle": "Formula Language & Core Calculations",
+      "sectionId": "excel-w1-formulas-functions-references",
+      "sectionTitle": "Formula vs Function, References & Calculation Order"
+    },
+    {
+      "id": "da-excel-track-q010",
+      "question": "Several text values must be joined into one result using a function or the ampersand operator. Which Excel concept best fits this task?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TRIM, CLEAN, PROPER, UPPER, LOWER, TEXT & SUBSTITUTE"
+        },
+        {
+          "id": "B",
+          "text": "CONCAT, TEXTJOIN & Ampersand Concatenation"
+        },
+        {
+          "id": "C",
+          "text": "Text-to-Date Conversion: Text to Columns, DATEVALUE & DATE with Text Extraction"
+        },
+        {
+          "id": "D",
+          "text": "LEFT, RIGHT, MID, TEXTBEFORE & TEXTAFTER"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "بيانات النصوص غالبًا تحتاج تجهيز قبل التحليل. أحيانًا عندك First Name وLast Name وتريد دمجهم، وأحيانًا النص فيه مسافات زائدة أو حروف غير مطبوعة أو شكل الكتابة غير موحد. Excel يوفر Functions للدمج، التنظيف، تغيير حالة الأحرف، والاستبدال.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "بيانات النصوص غالبًا تحتاج تجهيز قبل التحليل. أحيانًا عندك First Name وLast Name وتريد دمجهم، وأحيانًا النص فيه مسافات زائدة أو حروف غير مطبوعة أو شكل الكتابة غير موحد. Excel يوفر Functions للدمج، التنظيف، تغيير حالة الأحرف، والاستبدال.",
+        "options": {
+          "A": "غلط: «TRIM, CLEAN, PROPER, UPPER, LOWER, TEXT & SUBSTITUTE» لا يطابق المهمة المحددة في السؤال. بيانات النصوص غالبًا تحتاج تجهيز قبل التحليل. أحيانًا عندك First Name وLast Name وتريد دمجهم، وأحيانًا النص فيه مسافات زائدة أو حروف غير مطبوعة أو شكل الكتابة غير موحد. Excel يوفر Functions للدمج، التنظيف، تغيير حالة الأحرف، والاستبدال.",
+          "B": "صح: «CONCAT, TEXTJOIN & Ampersand Concatenation» يطابق المفهوم المطلوب هنا. بيانات النصوص غالبًا تحتاج تجهيز قبل التحليل. أحيانًا عندك First Name وLast Name وتريد دمجهم، وأحيانًا النص فيه مسافات زائدة أو حروف غير مطبوعة أو شكل الكتابة غير موحد. Excel يوفر Functions للدمج، التنظيف، تغيير حالة الأحرف، والاستبدال.",
+          "C": "غلط: «Text-to-Date Conversion: Text to Columns, DATEVALUE & DATE with Text Extraction» لا يطابق المهمة المحددة في السؤال. بيانات النصوص غالبًا تحتاج تجهيز قبل التحليل. أحيانًا عندك First Name وLast Name وتريد دمجهم، وأحيانًا النص فيه مسافات زائدة أو حروف غير مطبوعة أو شكل الكتابة غير موحد. Excel يوفر Functions للدمج، التنظيف، تغيير حالة الأحرف، والاستبدال.",
+          "D": "غلط: «LEFT, RIGHT, MID, TEXTBEFORE & TEXTAFTER» لا يطابق المهمة المحددة في السؤال. بيانات النصوص غالبًا تحتاج تجهيز قبل التحليل. أحيانًا عندك First Name وLast Name وتريد دمجهم، وأحيانًا النص فيه مسافات زائدة أو حروف غير مطبوعة أو شكل الكتابة غير موحد. Excel يوفر Functions للدمج، التنظيف، تغيير حالة الأحرف، والاستبدال."
+        }
+      },
+      "topic": "Joining, Cleaning & Formatting Text",
+      "topicId": "excel-w1-text-join-clean",
+      "subtopicId": "text-concatenation",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "text-concatenation",
+      "source": {
+        "file": "Lecture 14 Excel Formulas and Functions - A to Z Part 1(1).pptx",
+        "reference": "Slides 10, 23–27"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g03-text-transformation",
+      "groupNumber": "03",
+      "groupTitle": "Text Cleaning & Transformation",
+      "sectionId": "excel-w1-text-join-clean",
+      "sectionTitle": "Joining, Cleaning & Formatting Text"
+    },
+    {
+      "id": "da-excel-track-q013",
+      "question": "While applying Text-to-Date Conversion: Text to Columns, DATEVALUE & DATE with Text Extraction, what should come immediately after \"Text to Columns: select the source column.\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data → Text to Columns."
+        },
+        {
+          "id": "B",
+          "text": "For text dates, choose Date format in Step 3 when appropriate."
+        },
+        {
+          "id": "C",
+          "text": "Text to Columns: select the source column."
+        },
+        {
+          "id": "D",
+          "text": "Choose Delimited when the text is separated by characters such as spaces or commas."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "أحيانًا المعلومة التي تحتاجها تكون داخل Text طويل. LEFT وRIGHT وMID تسحب جزءًا من النص حسب المكان، وTEXTBEFORE/TEXTAFTER تعتمد على Delimiter، وTEXTSPLIT تقسم النص لأجزاء. FIND وSEARCH يساعدوك تحدد مكان نص داخل نص. ونفس الأدوات ممكن تساعد في تحويل Text إلى Date صحيح.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "أحيانًا المعلومة التي تحتاجها تكون داخل Text طويل. LEFT وRIGHT وMID تسحب جزءًا من النص حسب المكان، وTEXTBEFORE/TEXTAFTER تعتمد على Delimiter، وTEXTSPLIT تقسم النص لأجزاء. FIND وSEARCH يساعدوك تحدد مكان نص داخل نص. ونفس الأدوات ممكن تساعد في تحويل Text إلى Date صحيح.",
+        "options": {
+          "A": "صح: «Data → Text to Columns.» يطابق المفهوم المطلوب هنا. أحيانًا المعلومة التي تحتاجها تكون داخل Text طويل. LEFT وRIGHT وMID تسحب جزءًا من النص حسب المكان، وTEXTBEFORE/TEXTAFTER تعتمد على Delimiter، وTEXTSPLIT تقسم النص لأجزاء. FIND وSEARCH يساعدوك تحدد مكان نص داخل نص. ونفس الأدوات ممكن تساعد في تحويل Text إلى Date صحيح.",
+          "B": "غلط: «For text dates, choose Date format in Step 3 when appropriate.» لا يطابق المهمة المحددة في السؤال. أحيانًا المعلومة التي تحتاجها تكون داخل Text طويل. LEFT وRIGHT وMID تسحب جزءًا من النص حسب المكان، وTEXTBEFORE/TEXTAFTER تعتمد على Delimiter، وTEXTSPLIT تقسم النص لأجزاء. FIND وSEARCH يساعدوك تحدد مكان نص داخل نص. ونفس الأدوات ممكن تساعد في تحويل Text إلى Date صحيح.",
+          "C": "غلط: «Text to Columns: select the source column.» لا يطابق المهمة المحددة في السؤال. أحيانًا المعلومة التي تحتاجها تكون داخل Text طويل. LEFT وRIGHT وMID تسحب جزءًا من النص حسب المكان، وTEXTBEFORE/TEXTAFTER تعتمد على Delimiter، وTEXTSPLIT تقسم النص لأجزاء. FIND وSEARCH يساعدوك تحدد مكان نص داخل نص. ونفس الأدوات ممكن تساعد في تحويل Text إلى Date صحيح.",
+          "D": "غلط: «Choose Delimited when the text is separated by characters such as spaces or commas.» لا يطابق المهمة المحددة في السؤال. أحيانًا المعلومة التي تحتاجها تكون داخل Text طويل. LEFT وRIGHT وMID تسحب جزءًا من النص حسب المكان، وTEXTBEFORE/TEXTAFTER تعتمد على Delimiter، وTEXTSPLIT تقسم النص لأجزاء. FIND وSEARCH يساعدوك تحدد مكان نص داخل نص. ونفس الأدوات ممكن تساعد في تحويل Text إلى Date صحيح."
+        }
+      },
+      "topic": "Extracting & Splitting Text + Converting Text to Date",
+      "topicId": "excel-w1-text-extract-split-date",
+      "subtopicId": "text-to-date",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "calculation-tracing",
+      "questionFamily": "tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "text-to-date",
+      "source": {
+        "file": "Lecture 14 Excel Formulas and Functions - A to Z Part 1(1).pptx",
+        "reference": "Slides 15–27"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g03-text-transformation",
+      "groupNumber": "03",
+      "groupTitle": "Text Cleaning & Transformation",
+      "sectionId": "excel-w1-text-extract-split-date",
+      "sectionTitle": "Extracting & Splitting Text + Converting Text to Date"
+    },
+    {
+      "id": "da-excel-track-q017",
+      "question": "A worksheet needs quick calculations for total, average, maximum, minimum, and count from the same basic calculation family. Which Excel concept is being assessed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SUM / Total, Average, Maximum, Minimum & Count — Source Assessment Family"
+        },
+        {
+          "id": "B",
+          "text": "AVERAGE, MEDIAN, MODE.SNGL, MIN & MAX"
+        },
+        {
+          "id": "C",
+          "text": "COUNT, COUNTA, COUNTIFS & AVERAGEIFS"
+        },
+        {
+          "id": "D",
+          "text": "SUMIF, SUMIFS, MAXIFS & MINIFS"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Criteria Functions تعمل حسابًا لكن فقط على القيم التي تحقق شرطًا. COUNT تعد أرقام، COUNTA تعد الخلايا غير الفارغة. COUNTIFS وAVERAGEIFS تسمح بأكثر من شرط. SUMIF/SUMIFS تجمع حسب Criteria، وMAXIFS/MINIFS تبحث عن أعلى أو أقل قيمة داخل البيانات المطابقة. IFS تختبر عدة Conditions وترجع نتيجة أول Condition تكون TRUE.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Criteria Functions تعمل حسابًا لكن فقط على القيم التي تحقق شرطًا. COUNT تعد أرقام، COUNTA تعد الخلايا غير الفارغة. COUNTIFS وAVERAGEIFS تسمح بأكثر من شرط. SUMIF/SUMIFS تجمع حسب Criteria، وMAXIFS/MINIFS تبحث عن أعلى أو أقل قيمة داخل البيانات المطابقة. IFS تختبر عدة Conditions وترجع نتيجة أول Condition تكون TRUE.",
+        "options": {
+          "A": "صح: «SUM / Total, Average, Maximum, Minimum & Count — Source Assessment Family» يطابق المفهوم المطلوب هنا. Criteria Functions تعمل حسابًا لكن فقط على القيم التي تحقق شرطًا. COUNT تعد أرقام، COUNTA تعد الخلايا غير الفارغة. COUNTIFS وAVERAGEIFS تسمح بأكثر من شرط. SUMIF/SUMIFS تجمع حسب Criteria، وMAXIFS/MINIFS تبحث عن أعلى أو أقل قيمة داخل البيانات المطابقة. IFS تختبر عدة Conditions وترجع نتيجة أول Condition تكون TRUE.",
+          "B": "غلط: «AVERAGE, MEDIAN, MODE.SNGL, MIN & MAX» لا يطابق المهمة المحددة في السؤال. Criteria Functions تعمل حسابًا لكن فقط على القيم التي تحقق شرطًا. COUNT تعد أرقام، COUNTA تعد الخلايا غير الفارغة. COUNTIFS وAVERAGEIFS تسمح بأكثر من شرط. SUMIF/SUMIFS تجمع حسب Criteria، وMAXIFS/MINIFS تبحث عن أعلى أو أقل قيمة داخل البيانات المطابقة. IFS تختبر عدة Conditions وترجع نتيجة أول Condition تكون TRUE.",
+          "C": "غلط: «COUNT, COUNTA, COUNTIFS & AVERAGEIFS» لا يطابق المهمة المحددة في السؤال. Criteria Functions تعمل حسابًا لكن فقط على القيم التي تحقق شرطًا. COUNT تعد أرقام، COUNTA تعد الخلايا غير الفارغة. COUNTIFS وAVERAGEIFS تسمح بأكثر من شرط. SUMIF/SUMIFS تجمع حسب Criteria، وMAXIFS/MINIFS تبحث عن أعلى أو أقل قيمة داخل البيانات المطابقة. IFS تختبر عدة Conditions وترجع نتيجة أول Condition تكون TRUE.",
+          "D": "غلط: «SUMIF, SUMIFS, MAXIFS & MINIFS» لا يطابق المهمة المحددة في السؤال. Criteria Functions تعمل حسابًا لكن فقط على القيم التي تحقق شرطًا. COUNT تعد أرقام، COUNTA تعد الخلايا غير الفارغة. COUNTIFS وAVERAGEIFS تسمح بأكثر من شرط. SUMIF/SUMIFS تجمع حسب Criteria، وMAXIFS/MINIFS تبحث عن أعلى أو أقل قيمة داخل البيانات المطابقة. IFS تختبر عدة Conditions وترجع نتيجة أول Condition تكون TRUE."
+        }
+      },
+      "topic": "Descriptive, Counting & Criteria Functions + IFS",
+      "topicId": "excel-w1-criteria-functions",
+      "subtopicId": "autosum-assessment-family",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "autosum-assessment-family",
+      "source": {
+        "file": "Lecture 16 Excel Formulas and Functions - A to Z Part 3(1).pptx",
+        "reference": "Slides 28–41",
+        "secondarySources": [
+          {
+            "file": "Lecture 14 Excel Formulas and Functions - A to Z Part 1(1).pptx",
+            "reference": "Slides 28"
+          }
+        ],
+        "mappingNote": "Primary source follows the approved Study/Practice trace; curriculum also maps this concept to the listed secondary source."
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g07-dynamic-calculations",
+      "groupNumber": "07",
+      "groupTitle": "Dynamic Arrays & Conditional Calculations",
+      "sectionId": "excel-w1-criteria-functions",
+      "sectionTitle": "Descriptive, Counting & Criteria Functions + IFS"
+    },
+    {
+      "id": "da-excel-track-q019",
+      "question": "For INDEX + MATCH — Retrieval, Nesting & Flexible Lookup, which formula correctly performs the task \"INDEX + MATCH\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=INDEX(B:B, MATCH(\"Apple\", A:A, 0))"
+        },
+        {
+          "id": "B",
+          "text": "=INDEX(table_range, MATCH(row_value, row_range, 0), MATCH(col_value, col_range, 0))"
+        },
+        {
+          "id": "C",
+          "text": "=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))"
+        },
+        {
+          "id": "D",
+          "text": "=AVERAGEIF(A1:A10, \">50\")"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع.",
+        "options": {
+          "A": "غلط: «=INDEX(B:B, MATCH(\"Apple\", A:A, 0))» لا يطابق المهمة المحددة في السؤال. Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع.",
+          "B": "غلط: «=INDEX(table_range, MATCH(row_value, row_range, 0), MATCH(col_value, col_range, 0))» لا يطابق المهمة المحددة في السؤال. Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع.",
+          "C": "صح: «=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))» يطابق المفهوم المطلوب هنا. Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع.",
+          "D": "غلط: «=AVERAGEIF(A1:A10, \">50\")» لا يطابق المهمة المحددة في السؤال. Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع."
+        }
+      },
+      "topic": "INDEX/MATCH, VLOOKUP & XLOOKUP",
+      "topicId": "excel-w1-lookups",
+      "subtopicId": "index-match",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "calculation-tracing",
+      "questionFamily": "tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "index-match",
+      "source": {
+        "file": "Lecture 15 Excel Formulas and Functions - A to Z Part 2(1).pptx",
+        "reference": "Slides 6–17"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g04-logic-lookup",
+      "groupNumber": "04",
+      "groupTitle": "Logic, Lookup & Dynamic References",
+      "sectionId": "excel-w1-lookups",
+      "sectionTitle": "INDEX/MATCH, VLOOKUP & XLOOKUP"
+    },
+    {
+      "id": "da-excel-track-q020",
+      "question": "For INDEX-MATCH vs VLOOKUP, Two-Way Lookup & Multiple Criteria, which formula correctly performs the task \"Two-Way Lookup\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])"
+        },
+        {
+          "id": "B",
+          "text": "=INDEX(return_range, row_num, [column_num])"
+        },
+        {
+          "id": "C",
+          "text": "=IF(B2>=70, \"Pass\", \"Fail\")"
+        },
+        {
+          "id": "D",
+          "text": "=INDEX(table_range, MATCH(row_value, row_range, 0), MATCH(col_value, col_range, 0))"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع.",
+        "options": {
+          "A": "غلط: «=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])» لا يطابق المهمة المحددة في السؤال. Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع.",
+          "B": "غلط: «=INDEX(return_range, row_num, [column_num])» لا يطابق المهمة المحددة في السؤال. Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع.",
+          "C": "غلط: «=IF(B2>=70, \"Pass\", \"Fail\")» لا يطابق المهمة المحددة في السؤال. Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع.",
+          "D": "صح: «=INDEX(table_range, MATCH(row_value, row_range, 0), MATCH(col_value, col_range, 0))» يطابق المفهوم المطلوب هنا. Lookup معناها عندك قيمة تعرفها وتريد الوصول إلى معلومة مرتبطة بها. مثل: عندك Product Name وتريد Price. VLOOKUP يبحث في أول عمود من جدول ويرجع من عمود ناحية اليمين. XLOOKUP يفصل بين Lookup Array وReturn Array فيكون أكثر مرونة. INDEX + MATCH تقسم المهمة: MATCH تحدد موقع العنصر، وINDEX ترجع القيمة الموجودة في هذا الموقع."
+        }
+      },
+      "topic": "INDEX/MATCH, VLOOKUP & XLOOKUP",
+      "topicId": "excel-w1-lookups",
+      "subtopicId": "index-match-vlookup-comparison",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "calculation-tracing",
+      "questionFamily": "tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "index-match-vlookup-comparison",
+      "source": {
+        "file": "Lecture 15 Excel Formulas and Functions - A to Z Part 2(1).pptx",
+        "reference": "Slides 6–17"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g04-logic-lookup",
+      "groupNumber": "04",
+      "groupTitle": "Logic, Lookup & Dynamic References",
+      "sectionId": "excel-w1-lookups",
+      "sectionTitle": "INDEX/MATCH, VLOOKUP & XLOOKUP"
+    },
+    {
+      "id": "da-excel-track-q025",
+      "question": "A worksheet must construct dates, return the current date or time, and extract year, month, or day components. Which Excel function family fits this requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DATE, TODAY, NOW, YEAR, MONTH & DAY"
+        },
+        {
+          "id": "B",
+          "text": "NETWORKDAYS, WORKDAY and INTL Variants"
+        },
+        {
+          "id": "C",
+          "text": "EDATE, EOMONTH, WEEKDAY & DATEDIF"
+        },
+        {
+          "id": "D",
+          "text": "Array Formulas, Spill Ranges, #SPILL! & # Reference"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "التاريخ في Excel قيمة يمكن بناؤها واستخراج أجزاء منها والتحرك بينها. DATE تنشئ تاريخًا من سنة وشهر ويوم. TODAY وNOW يرجعوا الوقت الحالي. YEAR/MONTH/DAY تسحب جزءًا من التاريخ. NETWORKDAYS وWORKDAY تتعامل مع أيام العمل، وEDATE/EOMONTH/WEEKDAY/DATEDIF تساعد في حسابات تاريخ أكثر تقدمًا.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "التاريخ في Excel قيمة يمكن بناؤها واستخراج أجزاء منها والتحرك بينها. DATE تنشئ تاريخًا من سنة وشهر ويوم. TODAY وNOW يرجعوا الوقت الحالي. YEAR/MONTH/DAY تسحب جزءًا من التاريخ. NETWORKDAYS وWORKDAY تتعامل مع أيام العمل، وEDATE/EOMONTH/WEEKDAY/DATEDIF تساعد في حسابات تاريخ أكثر تقدمًا.",
+        "options": {
+          "A": "صح: «DATE, TODAY, NOW, YEAR, MONTH & DAY» يطابق المفهوم المطلوب هنا. التاريخ في Excel قيمة يمكن بناؤها واستخراج أجزاء منها والتحرك بينها. DATE تنشئ تاريخًا من سنة وشهر ويوم. TODAY وNOW يرجعوا الوقت الحالي. YEAR/MONTH/DAY تسحب جزءًا من التاريخ. NETWORKDAYS وWORKDAY تتعامل مع أيام العمل، وEDATE/EOMONTH/WEEKDAY/DATEDIF تساعد في حسابات تاريخ أكثر تقدمًا.",
+          "B": "غلط: «NETWORKDAYS, WORKDAY and INTL Variants» لا يطابق المهمة المحددة في السؤال. التاريخ في Excel قيمة يمكن بناؤها واستخراج أجزاء منها والتحرك بينها. DATE تنشئ تاريخًا من سنة وشهر ويوم. TODAY وNOW يرجعوا الوقت الحالي. YEAR/MONTH/DAY تسحب جزءًا من التاريخ. NETWORKDAYS وWORKDAY تتعامل مع أيام العمل، وEDATE/EOMONTH/WEEKDAY/DATEDIF تساعد في حسابات تاريخ أكثر تقدمًا.",
+          "C": "غلط: «EDATE, EOMONTH, WEEKDAY & DATEDIF» لا يطابق المهمة المحددة في السؤال. التاريخ في Excel قيمة يمكن بناؤها واستخراج أجزاء منها والتحرك بينها. DATE تنشئ تاريخًا من سنة وشهر ويوم. TODAY وNOW يرجعوا الوقت الحالي. YEAR/MONTH/DAY تسحب جزءًا من التاريخ. NETWORKDAYS وWORKDAY تتعامل مع أيام العمل، وEDATE/EOMONTH/WEEKDAY/DATEDIF تساعد في حسابات تاريخ أكثر تقدمًا.",
+          "D": "غلط: «Array Formulas, Spill Ranges, #SPILL! & # Reference» لا يطابق المهمة المحددة في السؤال. التاريخ في Excel قيمة يمكن بناؤها واستخراج أجزاء منها والتحرك بينها. DATE تنشئ تاريخًا من سنة وشهر ويوم. TODAY وNOW يرجعوا الوقت الحالي. YEAR/MONTH/DAY تسحب جزءًا من التاريخ. NETWORKDAYS وWORKDAY تتعامل مع أيام العمل، وEDATE/EOMONTH/WEEKDAY/DATEDIF تساعد في حسابات تاريخ أكثر تقدمًا."
+        }
+      },
+      "topic": "Date & Working-Day Functions",
+      "topicId": "excel-w1-date-functions",
+      "subtopicId": "date-functions-core",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "date-functions-core",
+      "source": {
+        "file": "Lecture 15 Excel Formulas and Functions - A to Z Part 2(1).pptx",
+        "reference": "Slides 24–32"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g05-dates",
+      "groupNumber": "05",
+      "groupTitle": "Dates & Working-Day Calculations",
+      "sectionId": "excel-w1-date-functions",
+      "sectionTitle": "Date & Working-Day Functions"
+    },
+    {
+      "id": "da-excel-track-q029",
+      "question": "For STDEV.P — Population Standard Deviation in Excel, which formula correctly performs the task \"STDEV.P Syntax\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=STDEV.P(number1, [number2], ...)"
+        },
+        {
+          "id": "B",
+          "text": "IQR = Q3 - Q1"
+        },
+        {
+          "id": "C",
+          "text": "P = (n / N) × 100"
+        },
+        {
+          "id": "D",
+          "text": "=CHOOSE(index_num, value1, [value2], ...)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "بعد فهم المفاهيم الإحصائية، نستخدم Excel Functions لتنفيذ الحسابات. STDEV.P تحسب Population Standard Deviation. RANK.EQ تحدد ترتيب رقم داخل مجموعة. PERCENTILE.INC تبحث عن قيمة عند Percentile محدد. LARGE وSMALL ترجع n-th largest أو n-th smallest. NORM.DIST وBINOM.DIST مرتبطة بتوزيعات احتمالية.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "بعد فهم المفاهيم الإحصائية، نستخدم Excel Functions لتنفيذ الحسابات. STDEV.P تحسب Population Standard Deviation. RANK.EQ تحدد ترتيب رقم داخل مجموعة. PERCENTILE.INC تبحث عن قيمة عند Percentile محدد. LARGE وSMALL ترجع n-th largest أو n-th smallest. NORM.DIST وBINOM.DIST مرتبطة بتوزيعات احتمالية.",
+        "options": {
+          "A": "صح: «=STDEV.P(number1, [number2], ...)» يطابق المفهوم المطلوب هنا. بعد فهم المفاهيم الإحصائية، نستخدم Excel Functions لتنفيذ الحسابات. STDEV.P تحسب Population Standard Deviation. RANK.EQ تحدد ترتيب رقم داخل مجموعة. PERCENTILE.INC تبحث عن قيمة عند Percentile محدد. LARGE وSMALL ترجع n-th largest أو n-th smallest. NORM.DIST وBINOM.DIST مرتبطة بتوزيعات احتمالية.",
+          "B": "غلط: «IQR = Q3 - Q1» لا يطابق المهمة المحددة في السؤال. بعد فهم المفاهيم الإحصائية، نستخدم Excel Functions لتنفيذ الحسابات. STDEV.P تحسب Population Standard Deviation. RANK.EQ تحدد ترتيب رقم داخل مجموعة. PERCENTILE.INC تبحث عن قيمة عند Percentile محدد. LARGE وSMALL ترجع n-th largest أو n-th smallest. NORM.DIST وBINOM.DIST مرتبطة بتوزيعات احتمالية.",
+          "C": "غلط: «P = (n / N) × 100» لا يطابق المهمة المحددة في السؤال. بعد فهم المفاهيم الإحصائية، نستخدم Excel Functions لتنفيذ الحسابات. STDEV.P تحسب Population Standard Deviation. RANK.EQ تحدد ترتيب رقم داخل مجموعة. PERCENTILE.INC تبحث عن قيمة عند Percentile محدد. LARGE وSMALL ترجع n-th largest أو n-th smallest. NORM.DIST وBINOM.DIST مرتبطة بتوزيعات احتمالية.",
+          "D": "غلط: «=CHOOSE(index_num, value1, [value2], ...)» لا يطابق المهمة المحددة في السؤال. بعد فهم المفاهيم الإحصائية، نستخدم Excel Functions لتنفيذ الحسابات. STDEV.P تحسب Population Standard Deviation. RANK.EQ تحدد ترتيب رقم داخل مجموعة. PERCENTILE.INC تبحث عن قيمة عند Percentile محدد. LARGE وSMALL ترجع n-th largest أو n-th smallest. NORM.DIST وBINOM.DIST مرتبطة بتوزيعات احتمالية."
+        }
+      },
+      "topic": "Excel Statistical Functions",
+      "topicId": "excel-w1-excel-statistical-functions",
+      "subtopicId": "stdev-p",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "calculation-tracing",
+      "questionFamily": "tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "stdev-p",
+      "source": {
+        "file": "Lecture 16 Excel Formulas and Functions - A to Z Part 3(1).pptx",
+        "reference": "Slides 4–13"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g06-statistics",
+      "groupNumber": "06",
+      "groupTitle": "Statistics for Excel",
+      "sectionId": "excel-w1-excel-statistical-functions",
+      "sectionTitle": "Excel Statistical Functions"
+    },
+    {
+      "id": "da-excel-track-q032",
+      "question": "A dynamic-array formula cannot spill because the intended output area is blocked or otherwise unavailable. Which Excel concept should be checked first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COUNT, COUNTA, COUNTIFS & AVERAGEIFS"
+        },
+        {
+          "id": "B",
+          "text": "SUMIF, SUMIFS, MAXIFS & MINIFS"
+        },
+        {
+          "id": "C",
+          "text": "IFS Function and First-TRUE Logic"
+        },
+        {
+          "id": "D",
+          "text": "Array Formulas, Spill Ranges, #SPILL! & # Reference"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Array Formula تتعامل مع مجموعة قيم بدل قيمة واحدة فقط. في Dynamic Arrays الحديثة، Formula واحدة ممكن ترجع أكثر من نتيجة، وExcel يضع النتائج تلقائيًا في الخلايا المجاورة. العملية دي اسمها Spill. لو مساحة النتائج مش فاضية، ممكن يظهر #SPILL!.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Array Formula تتعامل مع مجموعة قيم بدل قيمة واحدة فقط. في Dynamic Arrays الحديثة، Formula واحدة ممكن ترجع أكثر من نتيجة، وExcel يضع النتائج تلقائيًا في الخلايا المجاورة. العملية دي اسمها Spill. لو مساحة النتائج مش فاضية، ممكن يظهر #SPILL!.",
+        "options": {
+          "A": "غلط: «COUNT, COUNTA, COUNTIFS & AVERAGEIFS» لا يطابق المهمة المحددة في السؤال. Array Formula تتعامل مع مجموعة قيم بدل قيمة واحدة فقط. في Dynamic Arrays الحديثة، Formula واحدة ممكن ترجع أكثر من نتيجة، وExcel يضع النتائج تلقائيًا في الخلايا المجاورة. العملية دي اسمها Spill. لو مساحة النتائج مش فاضية، ممكن يظهر #SPILL!.",
+          "B": "غلط: «SUMIF, SUMIFS, MAXIFS & MINIFS» لا يطابق المهمة المحددة في السؤال. Array Formula تتعامل مع مجموعة قيم بدل قيمة واحدة فقط. في Dynamic Arrays الحديثة، Formula واحدة ممكن ترجع أكثر من نتيجة، وExcel يضع النتائج تلقائيًا في الخلايا المجاورة. العملية دي اسمها Spill. لو مساحة النتائج مش فاضية، ممكن يظهر #SPILL!.",
+          "C": "غلط: «IFS Function and First-TRUE Logic» لا يطابق المهمة المحددة في السؤال. Array Formula تتعامل مع مجموعة قيم بدل قيمة واحدة فقط. في Dynamic Arrays الحديثة، Formula واحدة ممكن ترجع أكثر من نتيجة، وExcel يضع النتائج تلقائيًا في الخلايا المجاورة. العملية دي اسمها Spill. لو مساحة النتائج مش فاضية، ممكن يظهر #SPILL!.",
+          "D": "صح: «Array Formulas, Spill Ranges, #SPILL! & # Reference» يطابق المفهوم المطلوب هنا. Array Formula تتعامل مع مجموعة قيم بدل قيمة واحدة فقط. في Dynamic Arrays الحديثة، Formula واحدة ممكن ترجع أكثر من نتيجة، وExcel يضع النتائج تلقائيًا في الخلايا المجاورة. العملية دي اسمها Spill. لو مساحة النتائج مش فاضية، ممكن يظهر #SPILL!."
+        }
+      },
+      "topic": "Array Formulas, Dynamic Arrays & Spill Behavior",
+      "topicId": "excel-w1-array-spill",
+      "subtopicId": "array-formulas-spill",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "troubleshooting",
+      "questionFamily": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "array-formulas-spill",
+      "source": {
+        "file": "Lecture 16 Excel Formulas and Functions - A to Z Part 3(1).pptx",
+        "reference": "Slides 14–16"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g07-dynamic-calculations",
+      "groupNumber": "07",
+      "groupTitle": "Dynamic Arrays & Conditional Calculations",
+      "sectionId": "excel-w1-array-spill",
+      "sectionTitle": "Array Formulas, Dynamic Arrays & Spill Behavior"
+    },
+    {
+      "id": "da-excel-track-q042",
+      "question": "A table needs drop-down controls in its headers so users can display only records that meet selected criteria. Which Excel feature should be enabled?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dynamic Search Box with FILTER + ISNUMBER + SEARCH"
+        },
+        {
+          "id": "B",
+          "text": "Enable and Use Excel Filter Buttons"
+        },
+        {
+          "id": "C",
+          "text": "Deleting Rows in Ranges and Excel Tables"
+        },
+        {
+          "id": "D",
+          "text": "Swap/Move Columns with Shift+Drag or Cut/Insert"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Filter يخفي الصفوف غير المطابقة ويظهر فقط البيانات التي تريدها. بعد كده نقدر نعمل Search ديناميكي باستخدام FILTER مع SEARCH وISNUMBER بحيث كتابة كلمة بحث تنتج List بالصفوف المطابقة. الفكرة هنا الانتقال من Filter يدوي إلى نتائج تتحدث مع Search Input.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Filter يخفي الصفوف غير المطابقة ويظهر فقط البيانات التي تريدها. بعد كده نقدر نعمل Search ديناميكي باستخدام FILTER مع SEARCH وISNUMBER بحيث كتابة كلمة بحث تنتج List بالصفوف المطابقة. الفكرة هنا الانتقال من Filter يدوي إلى نتائج تتحدث مع Search Input.",
+        "options": {
+          "A": "غلط: «Dynamic Search Box with FILTER + ISNUMBER + SEARCH» لا يطابق المهمة المحددة في السؤال. Filter يخفي الصفوف غير المطابقة ويظهر فقط البيانات التي تريدها. بعد كده نقدر نعمل Search ديناميكي باستخدام FILTER مع SEARCH وISNUMBER بحيث كتابة كلمة بحث تنتج List بالصفوف المطابقة. الفكرة هنا الانتقال من Filter يدوي إلى نتائج تتحدث مع Search Input.",
+          "B": "صح: «Enable and Use Excel Filter Buttons» يطابق المفهوم المطلوب هنا. Filter يخفي الصفوف غير المطابقة ويظهر فقط البيانات التي تريدها. بعد كده نقدر نعمل Search ديناميكي باستخدام FILTER مع SEARCH وISNUMBER بحيث كتابة كلمة بحث تنتج List بالصفوف المطابقة. الفكرة هنا الانتقال من Filter يدوي إلى نتائج تتحدث مع Search Input.",
+          "C": "غلط: «Deleting Rows in Ranges and Excel Tables» لا يطابق المهمة المحددة في السؤال. Filter يخفي الصفوف غير المطابقة ويظهر فقط البيانات التي تريدها. بعد كده نقدر نعمل Search ديناميكي باستخدام FILTER مع SEARCH وISNUMBER بحيث كتابة كلمة بحث تنتج List بالصفوف المطابقة. الفكرة هنا الانتقال من Filter يدوي إلى نتائج تتحدث مع Search Input.",
+          "D": "غلط: «Swap/Move Columns with Shift+Drag or Cut/Insert» لا يطابق المهمة المحددة في السؤال. Filter يخفي الصفوف غير المطابقة ويظهر فقط البيانات التي تريدها. بعد كده نقدر نعمل Search ديناميكي باستخدام FILTER مع SEARCH وISNUMBER بحيث كتابة كلمة بحث تنتج List بالصفوف المطابقة. الفكرة هنا الانتقال من Filter يدوي إلى نتائج تتحدث مع Search Input."
+        }
+      },
+      "topic": "Filtering + Dynamic Search Workflow",
+      "topicId": "excel-w1-filtering-search",
+      "subtopicId": "autofilter",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "autofilter",
+      "source": {
+        "file": "Lecture 17 Filtering Data - Part 1(1).pptx",
+        "reference": "Slides 4–14"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g08-data-workflows",
+      "groupNumber": "08",
+      "groupTitle": "Data Handling & Analysis Tools",
+      "sectionId": "excel-w1-filtering-search",
+      "sectionTitle": "Filtering + Dynamic Search Workflow"
+    },
+    {
+      "id": "da-excel-track-q046",
+      "question": "A user needs Excel's built-in record form to add, find, edit, and delete rows without working directly across a wide table. Which feature fits this workflow?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Swap/Move Columns with Shift+Drag or Cut/Insert"
+        },
+        {
+          "id": "B",
+          "text": "Built-In Data Entry Form — Setup and Record Operations"
+        },
+        {
+          "id": "C",
+          "text": "Data Consolidation — By Position and By Category"
+        },
+        {
+          "id": "D",
+          "text": "Sparklines — Line, Column, Win/Loss and Insertion Workflow"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Data Consolidation تجمع بيانات من أكثر من Sheet أو Workbook في Summary واحد. By Position مناسبة عندما الـRanges لها نفس الترتيب والمكان، وBy Category تعتمد على Labels عندما الترتيب مختلف. Data Entry Form واجهة جاهزة لإضافة وتعديل والبحث عن Records داخل Table. ونقل الأعمدة يساعدك تعيد ترتيب البيانات بدون إعادة كتابتها.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Data Consolidation تجمع بيانات من أكثر من Sheet أو Workbook في Summary واحد. By Position مناسبة عندما الـRanges لها نفس الترتيب والمكان، وBy Category تعتمد على Labels عندما الترتيب مختلف. Data Entry Form واجهة جاهزة لإضافة وتعديل والبحث عن Records داخل Table. ونقل الأعمدة يساعدك تعيد ترتيب البيانات بدون إعادة كتابتها.",
+        "options": {
+          "A": "غلط: «Swap/Move Columns with Shift+Drag or Cut/Insert» لا يطابق المهمة المحددة في السؤال. Data Consolidation تجمع بيانات من أكثر من Sheet أو Workbook في Summary واحد. By Position مناسبة عندما الـRanges لها نفس الترتيب والمكان، وBy Category تعتمد على Labels عندما الترتيب مختلف. Data Entry Form واجهة جاهزة لإضافة وتعديل والبحث عن Records داخل Table. ونقل الأعمدة يساعدك تعيد ترتيب البيانات بدون إعادة كتابتها.",
+          "B": "صح: «Built-In Data Entry Form — Setup and Record Operations» يطابق المفهوم المطلوب هنا. Data Consolidation تجمع بيانات من أكثر من Sheet أو Workbook في Summary واحد. By Position مناسبة عندما الـRanges لها نفس الترتيب والمكان، وBy Category تعتمد على Labels عندما الترتيب مختلف. Data Entry Form واجهة جاهزة لإضافة وتعديل والبحث عن Records داخل Table. ونقل الأعمدة يساعدك تعيد ترتيب البيانات بدون إعادة كتابتها.",
+          "C": "غلط: «Data Consolidation — By Position and By Category» لا يطابق المهمة المحددة في السؤال. Data Consolidation تجمع بيانات من أكثر من Sheet أو Workbook في Summary واحد. By Position مناسبة عندما الـRanges لها نفس الترتيب والمكان، وBy Category تعتمد على Labels عندما الترتيب مختلف. Data Entry Form واجهة جاهزة لإضافة وتعديل والبحث عن Records داخل Table. ونقل الأعمدة يساعدك تعيد ترتيب البيانات بدون إعادة كتابتها.",
+          "D": "غلط: «Sparklines — Line, Column, Win/Loss and Insertion Workflow» لا يطابق المهمة المحددة في السؤال. Data Consolidation تجمع بيانات من أكثر من Sheet أو Workbook في Summary واحد. By Position مناسبة عندما الـRanges لها نفس الترتيب والمكان، وBy Category تعتمد على Labels عندما الترتيب مختلف. Data Entry Form واجهة جاهزة لإضافة وتعديل والبحث عن Records داخل Table. ونقل الأعمدة يساعدك تعيد ترتيب البيانات بدون إعادة كتابتها."
+        }
+      },
+      "topic": "Data Consolidation, Data Entry Form & Moving Columns",
+      "topicId": "excel-w1-consolidation-entry",
+      "subtopicId": "data-entry-form",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "data-entry-form",
+      "source": {
+        "file": "Lecture 17 Filtering Data - Part 1(1).pptx",
+        "reference": "Slides 15–23"
+      },
+      "weekNumber": 1,
+      "groupId": "excel-g08-data-workflows",
+      "groupNumber": "08",
+      "groupTitle": "Data Handling & Analysis Tools",
+      "sectionId": "excel-w1-consolidation-entry",
+      "sectionTitle": "Data Consolidation, Data Entry Form & Moving Columns"
+    },
+    {
+      "id": "da-excel-track-q054",
+      "question": "For 3D References Across Consecutive Sheets, which formula correctly performs the task \"3D Reference from the lecture\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=IF(OR(A2 < LowerLimit, A2 > UpperLimit), \"Outlier\", \"Normal\")"
+        },
+        {
+          "id": "B",
+          "text": "=SUM(Sheet1:Sheet3!A1)"
+        },
+        {
+          "id": "C",
+          "text": "=STANDARDIZE(value, mean, standard_deviation)"
+        },
+        {
+          "id": "D",
+          "text": "=\"Sales for \" & F2"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "في Week 1 اتعلمت فكرة Data Consolidation نفسها. هنا بنضيف طريقتين جديدتين في سياق تجميع البيانات: 3D Reference لتلخيص نفس الخلية عبر Sheets متتالية، وVSTACK كخيار مذكور لتكديس البيانات ديناميكيًا. VSTACK هنا Supporting Mention فقط لأن المادة لا تعرض له صيغة عملية كاملة.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "في Week 1 اتعلمت فكرة Data Consolidation نفسها. هنا بنضيف طريقتين جديدتين في سياق تجميع البيانات: 3D Reference لتلخيص نفس الخلية عبر Sheets متتالية، وVSTACK كخيار مذكور لتكديس البيانات ديناميكيًا. VSTACK هنا Supporting Mention فقط لأن المادة لا تعرض له صيغة عملية كاملة.",
+        "options": {
+          "A": "غلط: «=IF(OR(A2 < LowerLimit, A2 > UpperLimit), \"Outlier\", \"Normal\")» لا يطابق المهمة المحددة في السؤال. في Week 1 اتعلمت فكرة Data Consolidation نفسها. هنا بنضيف طريقتين جديدتين في سياق تجميع البيانات: 3D Reference لتلخيص نفس الخلية عبر Sheets متتالية، وVSTACK كخيار مذكور لتكديس البيانات ديناميكيًا. VSTACK هنا Supporting Mention فقط لأن المادة لا تعرض له صيغة عملية كاملة.",
+          "B": "صح: «=SUM(Sheet1:Sheet3!A1)» يطابق المفهوم المطلوب هنا. في Week 1 اتعلمت فكرة Data Consolidation نفسها. هنا بنضيف طريقتين جديدتين في سياق تجميع البيانات: 3D Reference لتلخيص نفس الخلية عبر Sheets متتالية، وVSTACK كخيار مذكور لتكديس البيانات ديناميكيًا. VSTACK هنا Supporting Mention فقط لأن المادة لا تعرض له صيغة عملية كاملة.",
+          "C": "غلط: «=STANDARDIZE(value, mean, standard_deviation)» لا يطابق المهمة المحددة في السؤال. في Week 1 اتعلمت فكرة Data Consolidation نفسها. هنا بنضيف طريقتين جديدتين في سياق تجميع البيانات: 3D Reference لتلخيص نفس الخلية عبر Sheets متتالية، وVSTACK كخيار مذكور لتكديس البيانات ديناميكيًا. VSTACK هنا Supporting Mention فقط لأن المادة لا تعرض له صيغة عملية كاملة.",
+          "D": "غلط: «=\"Sales for \" & F2» لا يطابق المهمة المحددة في السؤال. في Week 1 اتعلمت فكرة Data Consolidation نفسها. هنا بنضيف طريقتين جديدتين في سياق تجميع البيانات: 3D Reference لتلخيص نفس الخلية عبر Sheets متتالية، وVSTACK كخيار مذكور لتكديس البيانات ديناميكيًا. VSTACK هنا Supporting Mention فقط لأن المادة لا تعرض له صيغة عملية كاملة."
+        }
+      },
+      "topic": "Multi-Sheet Consolidation — 3D References & VSTACK Context",
+      "topicId": "excel-w2-multisheet-consolidation",
+      "subtopicId": "w2-3d-reference",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "calculation-tracing",
+      "questionFamily": "tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-3d-reference",
+      "source": {
+        "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+        "reference": "Slides 5"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g09-advanced-data",
+      "groupNumber": "09",
+      "groupTitle": "Advanced Data Management & Search Automation",
+      "sectionId": "excel-w2-multisheet-consolidation",
+      "sectionTitle": "Multi-Sheet Consolidation — 3D References & VSTACK Context"
+    },
+    {
+      "id": "da-excel-track-q057",
+      "question": "An analyst wants charts to reveal trends, outliers, and patterns and to communicate findings to non-technical stakeholders. Which Excel concept describes this purpose?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data Visualization — Trends, Outliers, Patterns & Non-Technical Communication"
+        },
+        {
+          "id": "B",
+          "text": "Select Data → Insert → Choose Chart"
+        },
+        {
+          "id": "C",
+          "text": "Chart Design, Format, Style, Elements & Filter Controls"
+        },
+        {
+          "id": "D",
+          "text": "Bar Chart — Category Comparison / Y Categories / X Values"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+        "options": {
+          "A": "صح: «Data Visualization — Trends, Outliers, Patterns & Non-Technical Communication» يطابق المفهوم المطلوب هنا. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+          "B": "غلط: «Select Data → Insert → Choose Chart» لا يطابق المهمة المحددة في السؤال. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+          "C": "غلط: «Chart Design, Format, Style, Elements & Filter Controls» لا يطابق المهمة المحددة في السؤال. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+          "D": "غلط: «Bar Chart — Category Comparison / Y Categories / X Values» لا يطابق المهمة المحددة في السؤال. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter."
+        }
+      },
+      "topic": "Data Visualization — Purpose, Creation & Chart Controls",
+      "topicId": "excel-w2-chart-foundations",
+      "subtopicId": "w2-data-visualization-purpose",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-data-visualization-purpose",
+      "source": {
+        "file": "Lecture 20 Chart Types in Excel.pptx",
+        "reference": "Slides 2–8"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g10-charts",
+      "groupNumber": "10",
+      "groupTitle": "Chart Selection & Visual Analysis",
+      "sectionId": "excel-w2-chart-foundations",
+      "sectionTitle": "Data Visualization — Purpose, Creation & Chart Controls"
+    },
+    {
+      "id": "da-excel-track-q058",
+      "question": "The analyst first selects the data, opens Insert, and then chooses an appropriate chart type. Which chart-building workflow is being followed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data Visualization — Trends, Outliers, Patterns & Non-Technical Communication"
+        },
+        {
+          "id": "B",
+          "text": "Select Data → Insert → Choose Chart"
+        },
+        {
+          "id": "C",
+          "text": "Chart Design, Format, Style, Elements & Filter Controls"
+        },
+        {
+          "id": "D",
+          "text": "Histogram — Bins / Distribution"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+        "options": {
+          "A": "غلط: «Data Visualization — Trends, Outliers, Patterns & Non-Technical Communication» لا يطابق المهمة المحددة في السؤال. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+          "B": "صح: «Select Data → Insert → Choose Chart» يطابق المفهوم المطلوب هنا. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+          "C": "غلط: «Chart Design, Format, Style, Elements & Filter Controls» لا يطابق المهمة المحددة في السؤال. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+          "D": "غلط: «Histogram — Bins / Distribution» لا يطابق المهمة المحددة في السؤال. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter."
+        }
+      },
+      "topic": "Data Visualization — Purpose, Creation & Chart Controls",
+      "topicId": "excel-w2-chart-foundations",
+      "subtopicId": "w2-chart-creation-workflow",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-chart-creation-workflow",
+      "source": {
+        "file": "Lecture 20 Chart Types in Excel.pptx",
+        "reference": "Slides 2–8"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g10-charts",
+      "groupNumber": "10",
+      "groupTitle": "Chart Selection & Visual Analysis",
+      "sectionId": "excel-w2-chart-foundations",
+      "sectionTitle": "Data Visualization — Purpose, Creation & Chart Controls"
+    },
+    {
+      "id": "da-excel-track-q059",
+      "question": "An existing chart needs changes to style, elements, formatting, and displayed data without rebuilding it. Which group of Excel chart controls should be used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Select Data → Insert → Choose Chart"
+        },
+        {
+          "id": "B",
+          "text": "Data Visualization — Trends, Outliers, Patterns & Non-Technical Communication"
+        },
+        {
+          "id": "C",
+          "text": "Chart Design, Format, Style, Elements & Filter Controls"
+        },
+        {
+          "id": "D",
+          "text": "Chart Selection Practice — Column/Bar/Pie/Line"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+        "options": {
+          "A": "غلط: «Select Data → Insert → Choose Chart» لا يطابق المهمة المحددة في السؤال. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+          "B": "غلط: «Data Visualization — Trends, Outliers, Patterns & Non-Technical Communication» لا يطابق المهمة المحددة في السؤال. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+          "C": "صح: «Chart Design, Format, Style, Elements & Filter Controls» يطابق المفهوم المطلوب هنا. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter.",
+          "D": "غلط: «Chart Selection Practice — Column/Bar/Pie/Line» لا يطابق المهمة المحددة في السؤال. Data Visualization هي تمثيل البيانات بشكل رسومي علشان تشوف Trends وOutliers وPatterns بشكل أوضح وتشرح البيانات لجمهور غير تقني. البداية في Excel بسيطة: Select Data → Insert → اختر الرسم الأنسب، وبعد إنشاء الرسم تظهر أدوات Design وFormat وStyle وChart Elements وFilter."
+        }
+      },
+      "topic": "Data Visualization — Purpose, Creation & Chart Controls",
+      "topicId": "excel-w2-chart-foundations",
+      "subtopicId": "w2-chart-design-format-controls",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-chart-design-format-controls",
+      "source": {
+        "file": "Lecture 20 Chart Types in Excel.pptx",
+        "reference": "Slides 2–8"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g10-charts",
+      "groupNumber": "10",
+      "groupTitle": "Chart Selection & Visual Analysis",
+      "sectionId": "excel-w2-chart-foundations",
+      "sectionTitle": "Data Visualization — Purpose, Creation & Chart Controls"
+    },
+    {
+      "id": "da-excel-track-q068",
+      "question": "Before using statistical formulas, an analyst sorts a numeric field to make unusually small or large values easier to notice. Which outlier-screening technique is being used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "QUARTILE.INC for Q1/Q3"
+        },
+        {
+          "id": "B",
+          "text": "IQR Lower/Upper Limits in Excel"
+        },
+        {
+          "id": "C",
+          "text": "IF + OR Outlier Flag Workflow"
+        },
+        {
+          "id": "D",
+          "text": "Sorting to Spot Extreme Values"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+        "options": {
+          "A": "غلط: «QUARTILE.INC for Q1/Q3» لا يطابق المهمة المحددة في السؤال. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+          "B": "غلط: «IQR Lower/Upper Limits in Excel» لا يطابق المهمة المحددة في السؤال. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+          "C": "غلط: «IF + OR Outlier Flag Workflow» لا يطابق المهمة المحددة في السؤال. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+          "D": "صح: «Sorting to Spot Extreme Values» يطابق المفهوم المطلوب هنا. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal."
+        }
+      },
+      "topic": "Outlier Detection in Excel — Sort, QUARTILE.INC, IQR Fences & IF/OR",
+      "topicId": "excel-w2-outlier-iqr-excel",
+      "subtopicId": "w2-sort-spot-outliers",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-sort-spot-outliers",
+      "source": {
+        "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+        "reference": "Slides 3–4"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g12-outliers-optimization",
+      "groupNumber": "12",
+      "groupTitle": "Outliers, Goal Seek & Optimization",
+      "sectionId": "excel-w2-outlier-iqr-excel",
+      "sectionTitle": "Outlier Detection in Excel — Sort, QUARTILE.INC, IQR Fences & IF/OR"
+    },
+    {
+      "id": "da-excel-track-q069",
+      "question": "For QUARTILE.INC for Q1/Q3, which formula correctly performs the task \"Q1\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=QUARTILE.INC(range, 1)"
+        },
+        {
+          "id": "B",
+          "text": "=QUARTILE.INC(range, 3)"
+        },
+        {
+          "id": "C",
+          "text": "=IF(OR(A2 < LowerLimit, A2 > UpperLimit), \"Outlier\", \"Normal\")"
+        },
+        {
+          "id": "D",
+          "text": "=STANDARDIZE(value, mean, standard_deviation)"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+        "options": {
+          "A": "صح: «=QUARTILE.INC(range, 1)» يطابق المفهوم المطلوب هنا. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+          "B": "غلط: «=QUARTILE.INC(range, 3)» لا يطابق المهمة المحددة في السؤال. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+          "C": "غلط: «=IF(OR(A2 < LowerLimit, A2 > UpperLimit), \"Outlier\", \"Normal\")» لا يطابق المهمة المحددة في السؤال. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+          "D": "غلط: «=STANDARDIZE(value, mean, standard_deviation)» لا يطابق المهمة المحددة في السؤال. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal."
+        }
+      },
+      "topic": "Outlier Detection in Excel — Sort, QUARTILE.INC, IQR Fences & IF/OR",
+      "topicId": "excel-w2-outlier-iqr-excel",
+      "subtopicId": "w2-quartile-inc",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "calculation-tracing",
+      "questionFamily": "tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-quartile-inc",
+      "source": {
+        "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+        "reference": "Slides 3–4"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g12-outliers-optimization",
+      "groupNumber": "12",
+      "groupTitle": "Outliers, Goal Seek & Optimization",
+      "sectionId": "excel-w2-outlier-iqr-excel",
+      "sectionTitle": "Outlier Detection in Excel — Sort, QUARTILE.INC, IQR Fences & IF/OR"
+    },
+    {
+      "id": "da-excel-track-q070",
+      "question": "While applying IQR Lower/Upper Limits in Excel, what should come immediately after \"Calculate IQR = Q3 - Q1.\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Calculate Q1 and Q3 with QUARTILE.INC."
+        },
+        {
+          "id": "B",
+          "text": "Calculate Lower Limit = Q1 - (1.5 * IQR)."
+        },
+        {
+          "id": "C",
+          "text": "Calculate IQR = Q3 - Q1."
+        },
+        {
+          "id": "D",
+          "text": "Calculate Upper Limit = Q3 + (1.5 * IQR)."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+        "options": {
+          "A": "غلط: «Calculate Q1 and Q3 with QUARTILE.INC.» لا يطابق المهمة المحددة في السؤال. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+          "B": "صح: «Calculate Lower Limit = Q1 - (1.5 * IQR).» يطابق المفهوم المطلوب هنا. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+          "C": "غلط: «Calculate IQR = Q3 - Q1.» لا يطابق المهمة المحددة في السؤال. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal.",
+          "D": "غلط: «Calculate Upper Limit = Q3 + (1.5 * IQR).» لا يطابق المهمة المحددة في السؤال. Week 1 شرح IQR كـStatistics prerequisite. هنا بنطبقه داخل Excel: ابدأ بالSort لرؤية extremes، احسب Q1 وQ3 بـQUARTILE.INC، احسب IQR = Q3−Q1، ثم Lower/Upper limits، وبعدها IF + OR لتسمية كل قيمة Outlier أو Normal."
+        }
+      },
+      "topic": "Outlier Detection in Excel — Sort, QUARTILE.INC, IQR Fences & IF/OR",
+      "topicId": "excel-w2-outlier-iqr-excel",
+      "subtopicId": "w2-iqr-fences-excel",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "calculation-tracing",
+      "questionFamily": "tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-iqr-fences-excel",
+      "source": {
+        "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+        "reference": "Slides 3–4"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g12-outliers-optimization",
+      "groupNumber": "12",
+      "groupTitle": "Outliers, Goal Seek & Optimization",
+      "sectionId": "excel-w2-outlier-iqr-excel",
+      "sectionTitle": "Outlier Detection in Excel — Sort, QUARTILE.INC, IQR Fences & IF/OR"
+    },
+    {
+      "id": "da-excel-track-q075",
+      "question": "A table should devote most of its visible marks to the actual data rather than decorative borders and nonessential formatting. Which design principle is being applied?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use Minimal Grids & Rules"
+        },
+        {
+          "id": "B",
+          "text": "Highlighting Important Table Content"
+        },
+        {
+          "id": "C",
+          "text": "Table Data-Ink Ratio"
+        },
+        {
+          "id": "D",
+          "text": "Right-Align Numbers / Decimal Alignment"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه.",
+        "options": {
+          "A": "غلط: «Use Minimal Grids & Rules» لا يطابق المهمة المحددة في السؤال. فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه.",
+          "B": "غلط: «Highlighting Important Table Content» لا يطابق المهمة المحددة في السؤال. فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه.",
+          "C": "صح: «Table Data-Ink Ratio» يطابق المفهوم المطلوب هنا. فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه.",
+          "D": "غلط: «Right-Align Numbers / Decimal Alignment» لا يطابق المهمة المحددة في السؤال. فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه."
+        }
+      },
+      "topic": "Table Data-Ink Ratio & Minimal Grids",
+      "topicId": "excel-w2-data-ink-grids",
+      "subtopicId": "w2-table-data-ink",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-table-data-ink",
+      "source": {
+        "file": "Lecture 22 Table Visualization using Excel.pptx",
+        "reference": "Slides 3–6"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g11-table-design",
+      "groupNumber": "11",
+      "groupTitle": "Table Design & Readability",
+      "sectionId": "excel-w2-data-ink-grids",
+      "sectionTitle": "Table Data-Ink Ratio & Minimal Grids"
+    },
+    {
+      "id": "da-excel-track-q076",
+      "question": "A table looks cluttered because every cell has a heavy border. Which table-design principle recommends reducing unnecessary grid lines and rules?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Table Data-Ink Ratio"
+        },
+        {
+          "id": "B",
+          "text": "Left-Align Text"
+        },
+        {
+          "id": "C",
+          "text": "Consistent Date Display"
+        },
+        {
+          "id": "D",
+          "text": "Use Minimal Grids & Rules"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه.",
+        "options": {
+          "A": "غلط: «Table Data-Ink Ratio» لا يطابق المهمة المحددة في السؤال. فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه.",
+          "B": "غلط: «Left-Align Text» لا يطابق المهمة المحددة في السؤال. فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه.",
+          "C": "غلط: «Consistent Date Display» لا يطابق المهمة المحددة في السؤال. فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه.",
+          "D": "صح: «Use Minimal Grids & Rules» يطابق المفهوم المطلوب هنا. فكرة Data-Ink Ratio هنا بسيطة: قلّل الحبر أو العناصر التي لا تعرض data نفسها إلى الحد الأدنى. Grids and Rules وظيفتها تدعم قراءة الجدول، لذلك استخدم أقل وسيلة مرئية تحقق الوظيفة بدل ما تنافس البيانات على الانتباه."
+        }
+      },
+      "topic": "Table Data-Ink Ratio & Minimal Grids",
+      "topicId": "excel-w2-data-ink-grids",
+      "subtopicId": "w2-table-grids-rules",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-table-grids-rules",
+      "source": {
+        "file": "Lecture 22 Table Visualization using Excel.pptx",
+        "reference": "Slides 3–6"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g11-table-design",
+      "groupNumber": "11",
+      "groupTitle": "Table Design & Readability",
+      "sectionId": "excel-w2-data-ink-grids",
+      "sectionTitle": "Table Data-Ink Ratio & Minimal Grids"
+    },
+    {
+      "id": "da-excel-track-q088",
+      "question": "A single interactive view should bring together KPIs and summaries so users can monitor performance and support decisions. Which Excel deliverable best matches this goal?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dashboard Data Preparation with Excel Table"
+        },
+        {
+          "id": "B",
+          "text": "PivotTables as Dashboard Summary Layer"
+        },
+        {
+          "id": "C",
+          "text": "Design Practice — Compare Regions / Trendline / Histogram Bin Size"
+        },
+        {
+          "id": "D",
+          "text": "Dynamic Excel Dashboard — Purpose, KPIs & Decision Support"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف.",
+        "options": {
+          "A": "غلط: «Dashboard Data Preparation with Excel Table» لا يطابق المهمة المحددة في السؤال. Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف.",
+          "B": "غلط: «PivotTables as Dashboard Summary Layer» لا يطابق المهمة المحددة في السؤال. Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف.",
+          "C": "غلط: «Design Practice — Compare Regions / Trendline / Histogram Bin Size» لا يطابق المهمة المحددة في السؤال. Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف.",
+          "D": "صح: «Dynamic Excel Dashboard — Purpose, KPIs & Decision Support» يطابق المفهوم المطلوب هنا. Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف."
+        }
+      },
+      "topic": "Dynamic Dashboard Foundation — Data Prep, Excel Table & PivotTables",
+      "topicId": "excel-w2-dashboard-purpose-prep-pivot",
+      "subtopicId": "w2-dashboard-purpose",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-dashboard-purpose",
+      "source": {
+        "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+        "reference": "Slides 3–4"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g13-dashboards",
+      "groupNumber": "13",
+      "groupTitle": "Dashboard Design, Interactivity & Storytelling",
+      "sectionId": "excel-w2-dashboard-purpose-prep-pivot",
+      "sectionTitle": "Dynamic Dashboard Foundation — Data Prep, Excel Table & PivotTables"
+    },
+    {
+      "id": "da-excel-track-q090",
+      "question": "A dashboard needs a flexible summary layer that can aggregate and rearrange source data before visualization. Which Excel component should provide that layer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dynamic Excel Dashboard — Purpose, KPIs & Decision Support"
+        },
+        {
+          "id": "B",
+          "text": "PivotTables as Dashboard Summary Layer"
+        },
+        {
+          "id": "C",
+          "text": "Dashboard Data Preparation with Excel Table"
+        },
+        {
+          "id": "D",
+          "text": "Report Connections — One Slicer Controls Multiple PivotTables"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف.",
+        "options": {
+          "A": "غلط: «Dynamic Excel Dashboard — Purpose, KPIs & Decision Support» لا يطابق المهمة المحددة في السؤال. Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف.",
+          "B": "صح: «PivotTables as Dashboard Summary Layer» يطابق المفهوم المطلوب هنا. Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف.",
+          "C": "غلط: «Dashboard Data Preparation with Excel Table» لا يطابق المهمة المحددة في السؤال. Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف.",
+          "D": "غلط: «Report Connections — One Slicer Controls Multiple PivotTables» لا يطابق المهمة المحددة في السؤال. Dynamic Excel Dashboard يجمع summaries وcharts وinteractive filters علشان يعرض trends/exceptions/KPIs ويدعم القرار. البداية: clean tabular data بheaders واضحة، وتحويل raw data إلى Excel Table بـCtrl+T، ثم PivotTables كطبقة summary. المادة تقترح auxiliary worksheet للPivotTables حتى يبقى dashboard sheet أنظف."
+        }
+      },
+      "topic": "Dynamic Dashboard Foundation — Data Prep, Excel Table & PivotTables",
+      "topicId": "excel-w2-dashboard-purpose-prep-pivot",
+      "subtopicId": "w2-dashboard-pivottables",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-dashboard-pivottables",
+      "source": {
+        "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+        "reference": "Slides 3–4"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g13-dashboards",
+      "groupNumber": "13",
+      "groupTitle": "Dashboard Design, Interactivity & Storytelling",
+      "sectionId": "excel-w2-dashboard-purpose-prep-pivot",
+      "sectionTitle": "Dynamic Dashboard Foundation — Data Prep, Excel Table & PivotTables"
+    },
+    {
+      "id": "da-excel-track-q091",
+      "question": "A dashboard needs charts that stay connected to PivotTable summaries and respond to interactive filtering. Which visualization layer fits this requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Slicers for Interactive Filtering"
+        },
+        {
+          "id": "B",
+          "text": "Report Connections — One Slicer Controls Multiple PivotTables"
+        },
+        {
+          "id": "C",
+          "text": "Pivot Charts as Visualization Layer"
+        },
+        {
+          "id": "D",
+          "text": "Timeline for Date Filtering"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days.",
+        "options": {
+          "A": "غلط: «Slicers for Interactive Filtering» لا يطابق المهمة المحددة في السؤال. Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days.",
+          "B": "غلط: «Report Connections — One Slicer Controls Multiple PivotTables» لا يطابق المهمة المحددة في السؤال. Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days.",
+          "C": "صح: «Pivot Charts as Visualization Layer» يطابق المفهوم المطلوب هنا. Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days.",
+          "D": "غلط: «Timeline for Date Filtering» لا يطابق المهمة المحددة في السؤال. Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days."
+        }
+      },
+      "topic": "Dashboard Interactivity — Pivot Charts, Slicers, Report Connections & Timelines",
+      "topicId": "excel-w2-dashboard-interactivity",
+      "subtopicId": "w2-dashboard-pivotcharts",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-dashboard-pivotcharts",
+      "source": {
+        "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+        "reference": "Slides 4, 8–10, 13–14"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g13-dashboards",
+      "groupNumber": "13",
+      "groupTitle": "Dashboard Design, Interactivity & Storytelling",
+      "sectionId": "excel-w2-dashboard-interactivity",
+      "sectionTitle": "Dashboard Interactivity — Pivot Charts, Slicers, Report Connections & Timelines"
+    },
+    {
+      "id": "da-excel-track-q092",
+      "question": "Dashboard users need button-like controls to filter Pivot-based summaries interactively by categories. Which feature should be added?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Timeline for Date Filtering"
+        },
+        {
+          "id": "B",
+          "text": "Pivot Charts as Visualization Layer"
+        },
+        {
+          "id": "C",
+          "text": "Report Connections — One Slicer Controls Multiple PivotTables"
+        },
+        {
+          "id": "D",
+          "text": "Slicers for Interactive Filtering"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days.",
+        "options": {
+          "A": "غلط: «Timeline for Date Filtering» لا يطابق المهمة المحددة في السؤال. Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days.",
+          "B": "غلط: «Pivot Charts as Visualization Layer» لا يطابق المهمة المحددة في السؤال. Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days.",
+          "C": "غلط: «Report Connections — One Slicer Controls Multiple PivotTables» لا يطابق المهمة المحددة في السؤال. Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days.",
+          "D": "صح: «Slicers for Interactive Filtering» يطابق المفهوم المطلوب هنا. Pivot Charts تحول PivotTable summaries إلى visuals. Slicers تعمل كvisual filter buttons، وReport Connections تجعل slicer واحد يتحكم في أكثر من PivotTable، بينما Timeline هي slicer متخصصة للdate fields تسمح بالفلترة حسب years/quarters/months/days."
+        }
+      },
+      "topic": "Dashboard Interactivity — Pivot Charts, Slicers, Report Connections & Timelines",
+      "topicId": "excel-w2-dashboard-interactivity",
+      "subtopicId": "w2-dashboard-slicers",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-dashboard-slicers",
+      "source": {
+        "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+        "reference": "Slides 4, 8–10, 13–14"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g13-dashboards",
+      "groupNumber": "13",
+      "groupTitle": "Dashboard Design, Interactivity & Storytelling",
+      "sectionId": "excel-w2-dashboard-interactivity",
+      "sectionTitle": "Dashboard Interactivity — Pivot Charts, Slicers, Report Connections & Timelines"
+    },
+    {
+      "id": "da-excel-track-q110",
+      "question": "While applying Power Query ETL — Connect, Transform, Combine, Load, what should come immediately after \"Connect to the source.\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use Refresh when source data changes."
+        },
+        {
+          "id": "B",
+          "text": "Transform/clean the data."
+        },
+        {
+          "id": "C",
+          "text": "Connect to the source."
+        },
+        {
+          "id": "D",
+          "text": "Combine sources when needed."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+        "options": {
+          "A": "غلط: «Use Refresh when source data changes.» لا يطابق المهمة المحددة في السؤال. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+          "B": "صح: «Transform/clean the data.» يطابق المفهوم المطلوب هنا. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+          "C": "غلط: «Connect to the source.» لا يطابق المهمة المحددة في السؤال. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+          "D": "غلط: «Combine sources when needed.» لا يطابق المهمة المحددة في السؤال. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces."
+        }
+      },
+      "topic": "Power Query Foundations — ETL, Applied Steps, Refresh & CSV Cleaning",
+      "topicId": "excel-w2-pq-etl-applied-steps",
+      "subtopicId": "w2-pq-etl",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "calculation-tracing",
+      "questionFamily": "tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-pq-etl",
+      "source": {
+        "file": "Lecture 26 Introduction to Power Query  M.pptx",
+        "reference": "Slides 3–6, 9–12"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g15-power-query-foundations",
+      "groupNumber": "15",
+      "groupTitle": "Power Query Foundations & M",
+      "sectionId": "excel-w2-pq-etl-applied-steps",
+      "sectionTitle": "Power Query Foundations — ETL, Applied Steps, Refresh & CSV Cleaning"
+    },
+    {
+      "id": "da-excel-track-q111",
+      "question": "Transformations performed through the Power Query interface are recorded sequentially so the workflow can be reviewed and repeated. Which Power Query concept describes this behavior?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Power Query One-Click Refresh"
+        },
+        {
+          "id": "B",
+          "text": "CSV Cleaning Workflow — Collect, Promote Headers, Change Type"
+        },
+        {
+          "id": "C",
+          "text": "Power Query Applied Steps & No-Code Interface"
+        },
+        {
+          "id": "D",
+          "text": "Power Query ETL — Connect, Transform, Combine, Load"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+        "options": {
+          "A": "غلط: «Power Query One-Click Refresh» لا يطابق المهمة المحددة في السؤال. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+          "B": "غلط: «CSV Cleaning Workflow — Collect, Promote Headers, Change Type» لا يطابق المهمة المحددة في السؤال. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+          "C": "صح: «Power Query Applied Steps & No-Code Interface» يطابق المفهوم المطلوب هنا. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+          "D": "غلط: «Power Query ETL — Connect, Transform, Combine, Load» لا يطابق المهمة المحددة في السؤال. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces."
+        }
+      },
+      "topic": "Power Query Foundations — ETL, Applied Steps, Refresh & CSV Cleaning",
+      "topicId": "excel-w2-pq-etl-applied-steps",
+      "subtopicId": "w2-pq-applied-steps",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-pq-applied-steps",
+      "source": {
+        "file": "Lecture 26 Introduction to Power Query  M.pptx",
+        "reference": "Slides 3–6, 9–12"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g15-power-query-foundations",
+      "groupNumber": "15",
+      "groupTitle": "Power Query Foundations & M",
+      "sectionId": "excel-w2-pq-etl-applied-steps",
+      "sectionTitle": "Power Query Foundations — ETL, Applied Steps, Refresh & CSV Cleaning"
+    },
+    {
+      "id": "da-excel-track-q112",
+      "question": "A Power Query result is stale even though the transformation steps are already defined. Which refresh concept should the analyst review first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Power Query Applied Steps & No-Code Interface"
+        },
+        {
+          "id": "B",
+          "text": "CSV Cleaning Workflow — Collect, Promote Headers, Change Type"
+        },
+        {
+          "id": "C",
+          "text": "Power Query ETL — Connect, Transform, Combine, Load"
+        },
+        {
+          "id": "D",
+          "text": "Power Query One-Click Refresh"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+        "options": {
+          "A": "غلط: «Power Query Applied Steps & No-Code Interface» لا يطابق المهمة المحددة في السؤال. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+          "B": "غلط: «CSV Cleaning Workflow — Collect, Promote Headers, Change Type» لا يطابق المهمة المحددة في السؤال. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+          "C": "غلط: «Power Query ETL — Connect, Transform, Combine, Load» لا يطابق المهمة المحددة في السؤال. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces.",
+          "D": "صح: «Power Query One-Click Refresh» يطابق المفهوم المطلوب هنا. Power Query هو data preparation technology لتنفيذ ETL داخل Excel/Power BI: Connect → Transform → Combine → Load. معظم العمليات تتم من واجهة no-code، وكل action يُسجل في Applied Steps ويمكن تعديله أو حذفه أو إعادة ترتيبه. بعد إعداد query، One-Click Refresh يعيد تطبيق الخطوات. مثال CSV يبدأ بجمع البيانات ثم Promote Headers ثم Change Data Type لمعالجة مشاكل مثل numbers stored as text وleading spaces."
+        }
+      },
+      "topic": "Power Query Foundations — ETL, Applied Steps, Refresh & CSV Cleaning",
+      "topicId": "excel-w2-pq-etl-applied-steps",
+      "subtopicId": "w2-pq-refresh",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "troubleshooting",
+      "questionFamily": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-pq-refresh",
+      "source": {
+        "file": "Lecture 26 Introduction to Power Query  M.pptx",
+        "reference": "Slides 3–6, 9–12"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g15-power-query-foundations",
+      "groupNumber": "15",
+      "groupTitle": "Power Query Foundations & M",
+      "sectionId": "excel-w2-pq-etl-applied-steps",
+      "sectionTitle": "Power Query Foundations — ETL, Applied Steps, Refresh & CSV Cleaning"
+    },
+    {
+      "id": "da-excel-track-q113",
+      "question": "Power Query needs a functional, case-sensitive language for defining transformation logic behind the interface. Which language concept is being tested?",
+      "options": [
+        {
+          "id": "A",
+          "text": "M Language — Functional, Case-Sensitive Transformation Language"
+        },
+        {
+          "id": "B",
+          "text": "M: Functional/Lazy/Case-Sensitive Characteristics"
+        },
+        {
+          "id": "C",
+          "text": "M vs DAX — ETL vs Analytics"
+        },
+        {
+          "id": "D",
+          "text": "M: let ... in Structure"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "M هي Power Query formula language: functional وcase-sensitive وتستخدم للتحويل والـETL. الواجهة تولد M code تلقائيًا، ويمكن كتابة M يدويًا للمنطق الأكثر تعقيدًا. structure الأساسية المعروضة هي let…in: داخل let تُعرّف steps/variables، وin يحدد final output. المادة تفرق بين M للgetting/cleaning data وDAX للmetrics/KPIs في analytics phase.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "M هي Power Query formula language: functional وcase-sensitive وتستخدم للتحويل والـETL. الواجهة تولد M code تلقائيًا، ويمكن كتابة M يدويًا للمنطق الأكثر تعقيدًا. structure الأساسية المعروضة هي let…in: داخل let تُعرّف steps/variables، وin يحدد final output. المادة تفرق بين M للgetting/cleaning data وDAX للmetrics/KPIs في analytics phase.",
+        "options": {
+          "A": "صح: «M Language — Functional, Case-Sensitive Transformation Language» يطابق المفهوم المطلوب هنا. M هي Power Query formula language: functional وcase-sensitive وتستخدم للتحويل والـETL. الواجهة تولد M code تلقائيًا، ويمكن كتابة M يدويًا للمنطق الأكثر تعقيدًا. structure الأساسية المعروضة هي let…in: داخل let تُعرّف steps/variables، وin يحدد final output. المادة تفرق بين M للgetting/cleaning data وDAX للmetrics/KPIs في analytics phase.",
+          "B": "غلط: «M: Functional/Lazy/Case-Sensitive Characteristics» لا يطابق المهمة المحددة في السؤال. M هي Power Query formula language: functional وcase-sensitive وتستخدم للتحويل والـETL. الواجهة تولد M code تلقائيًا، ويمكن كتابة M يدويًا للمنطق الأكثر تعقيدًا. structure الأساسية المعروضة هي let…in: داخل let تُعرّف steps/variables، وin يحدد final output. المادة تفرق بين M للgetting/cleaning data وDAX للmetrics/KPIs في analytics phase.",
+          "C": "غلط: «M vs DAX — ETL vs Analytics» لا يطابق المهمة المحددة في السؤال. M هي Power Query formula language: functional وcase-sensitive وتستخدم للتحويل والـETL. الواجهة تولد M code تلقائيًا، ويمكن كتابة M يدويًا للمنطق الأكثر تعقيدًا. structure الأساسية المعروضة هي let…in: داخل let تُعرّف steps/variables، وin يحدد final output. المادة تفرق بين M للgetting/cleaning data وDAX للmetrics/KPIs في analytics phase.",
+          "D": "غلط: «M: let ... in Structure» لا يطابق المهمة المحددة في السؤال. M هي Power Query formula language: functional وcase-sensitive وتستخدم للتحويل والـETL. الواجهة تولد M code تلقائيًا، ويمكن كتابة M يدويًا للمنطق الأكثر تعقيدًا. structure الأساسية المعروضة هي let…in: داخل let تُعرّف steps/variables، وin يحدد final output. المادة تفرق بين M للgetting/cleaning data وDAX للmetrics/KPIs في analytics phase."
+        }
+      },
+      "topic": "M Language — Purpose, let…in, Characteristics & M vs DAX",
+      "topicId": "excel-w2-m-language-core",
+      "subtopicId": "w2-m-purpose",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-m-purpose",
+      "source": {
+        "file": "Lecture 26 Introduction to Power Query  M.pptx",
+        "reference": "Slides 7–8, 35"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g15-power-query-foundations",
+      "groupNumber": "15",
+      "groupTitle": "Power Query Foundations & M",
+      "sectionId": "excel-w2-m-language-core",
+      "sectionTitle": "M Language — Purpose, let…in, Characteristics & M vs DAX"
+    },
+    {
+      "id": "da-excel-track-q132",
+      "question": "A cleaning workflow removes columns, changes types, filters rows, pivots or unpivots data, and creates custom columns. Which Power Query concept groups these operations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "External Connections — SQL Server, Access & Online Services"
+        },
+        {
+          "id": "B",
+          "text": "Dynamic Refresh / Managed Connections"
+        },
+        {
+          "id": "C",
+          "text": "Import CSV, XML & JSON"
+        },
+        {
+          "id": "D",
+          "text": "Power Query Transform Ops — Remove, Types, Filter, Pivot/Unpivot, Custom Columns"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Lecture 27 توسع Transform phase: إزالة columns، تغيير data types، filtering rows، وعمليات أكثر تقدمًا مثل merging/appending، pivoting/unpivoting، وإنشاء custom calculated columns. الفكرة المشتركة: كل transformation جزء من repeatable preparation pipeline.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Lecture 27 توسع Transform phase: إزالة columns، تغيير data types، filtering rows، وعمليات أكثر تقدمًا مثل merging/appending، pivoting/unpivoting، وإنشاء custom calculated columns. الفكرة المشتركة: كل transformation جزء من repeatable preparation pipeline.",
+        "options": {
+          "A": "غلط: «External Connections — SQL Server, Access & Online Services» لا يطابق المهمة المحددة في السؤال. Lecture 27 توسع Transform phase: إزالة columns، تغيير data types، filtering rows، وعمليات أكثر تقدمًا مثل merging/appending، pivoting/unpivoting، وإنشاء custom calculated columns. الفكرة المشتركة: كل transformation جزء من repeatable preparation pipeline.",
+          "B": "غلط: «Dynamic Refresh / Managed Connections» لا يطابق المهمة المحددة في السؤال. Lecture 27 توسع Transform phase: إزالة columns، تغيير data types، filtering rows، وعمليات أكثر تقدمًا مثل merging/appending، pivoting/unpivoting، وإنشاء custom calculated columns. الفكرة المشتركة: كل transformation جزء من repeatable preparation pipeline.",
+          "C": "غلط: «Import CSV, XML & JSON» لا يطابق المهمة المحددة في السؤال. Lecture 27 توسع Transform phase: إزالة columns، تغيير data types، filtering rows، وعمليات أكثر تقدمًا مثل merging/appending، pivoting/unpivoting، وإنشاء custom calculated columns. الفكرة المشتركة: كل transformation جزء من repeatable preparation pipeline.",
+          "D": "صح: «Power Query Transform Ops — Remove, Types, Filter, Pivot/Unpivot, Custom Columns» يطابق المفهوم المطلوب هنا. Lecture 27 توسع Transform phase: إزالة columns، تغيير data types، filtering rows، وعمليات أكثر تقدمًا مثل merging/appending، pivoting/unpivoting، وإنشاء custom calculated columns. الفكرة المشتركة: كل transformation جزء من repeatable preparation pipeline."
+        }
+      },
+      "topic": "Power Query Transform Operations — Remove, Types, Filter, Pivot/Unpivot & Custom Columns",
+      "topicId": "excel-w2-pq-transform-ops",
+      "subtopicId": "w2-pq-transform-ops",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-pq-transform-ops",
+      "source": {
+        "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+        "reference": "Slides 4–7"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g16-power-query-integration",
+      "groupNumber": "16",
+      "groupTitle": "Power Query Integration & External Data",
+      "sectionId": "excel-w2-pq-transform-ops",
+      "sectionTitle": "Power Query Transform Operations — Remove, Types, Filter, Pivot/Unpivot & Custom Columns"
+    },
+    {
+      "id": "da-excel-track-q135",
+      "question": "A refresh workflow must update transformed results while leaving the original source data preserved. Which Power Query reliability concept should be reviewed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Load Clean Data to Worksheet / Data Model"
+        },
+        {
+          "id": "B",
+          "text": "Combine, Merge & Append Data Sources"
+        },
+        {
+          "id": "C",
+          "text": "Refresh Automation + Preserve Original Source"
+        },
+        {
+          "id": "D",
+          "text": "Access → Navigator → Transform Data → Power Query Editor Workflow"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Combine phase يوحّد data من multiple sources. Lecture 27 يكرر Merge/Append كخيارات دمج، ثم Load يرسل cleaned data إلى Excel worksheet أو Data Model. بعد تعريف transformations، Refresh All يعيد تطبيق الخطوات عند تحديث source، مع الحفاظ على original source وعدم تعديله.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Combine phase يوحّد data من multiple sources. Lecture 27 يكرر Merge/Append كخيارات دمج، ثم Load يرسل cleaned data إلى Excel worksheet أو Data Model. بعد تعريف transformations، Refresh All يعيد تطبيق الخطوات عند تحديث source، مع الحفاظ على original source وعدم تعديله.",
+        "options": {
+          "A": "غلط: «Load Clean Data to Worksheet / Data Model» لا يطابق المهمة المحددة في السؤال. Combine phase يوحّد data من multiple sources. Lecture 27 يكرر Merge/Append كخيارات دمج، ثم Load يرسل cleaned data إلى Excel worksheet أو Data Model. بعد تعريف transformations، Refresh All يعيد تطبيق الخطوات عند تحديث source، مع الحفاظ على original source وعدم تعديله.",
+          "B": "غلط: «Combine, Merge & Append Data Sources» لا يطابق المهمة المحددة في السؤال. Combine phase يوحّد data من multiple sources. Lecture 27 يكرر Merge/Append كخيارات دمج، ثم Load يرسل cleaned data إلى Excel worksheet أو Data Model. بعد تعريف transformations، Refresh All يعيد تطبيق الخطوات عند تحديث source، مع الحفاظ على original source وعدم تعديله.",
+          "C": "صح: «Refresh Automation + Preserve Original Source» يطابق المفهوم المطلوب هنا. Combine phase يوحّد data من multiple sources. Lecture 27 يكرر Merge/Append كخيارات دمج، ثم Load يرسل cleaned data إلى Excel worksheet أو Data Model. بعد تعريف transformations، Refresh All يعيد تطبيق الخطوات عند تحديث source، مع الحفاظ على original source وعدم تعديله.",
+          "D": "غلط: «Access → Navigator → Transform Data → Power Query Editor Workflow» لا يطابق المهمة المحددة في السؤال. Combine phase يوحّد data من multiple sources. Lecture 27 يكرر Merge/Append كخيارات دمج، ثم Load يرسل cleaned data إلى Excel worksheet أو Data Model. بعد تعريف transformations، Refresh All يعيد تطبيق الخطوات عند تحديث source، مع الحفاظ على original source وعدم تعديله."
+        }
+      },
+      "topic": "Combine, Merge, Append, Load & Refresh Integrity",
+      "topicId": "excel-w2-pq-combine-load-refresh",
+      "subtopicId": "w2-pq-refresh-integrity",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "troubleshooting",
+      "questionFamily": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-pq-refresh-integrity",
+      "source": {
+        "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+        "reference": "Slides 8–11"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g16-power-query-integration",
+      "groupNumber": "16",
+      "groupTitle": "Power Query Integration & External Data",
+      "sectionId": "excel-w2-pq-combine-load-refresh",
+      "sectionTitle": "Combine, Merge, Append, Load & Refresh Integrity"
+    },
+    {
+      "id": "da-excel-track-q139",
+      "question": "A workbook depends on managed external connections and the displayed data is no longer current. Which connection-management concept should be checked first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Access → Navigator → Transform Data → Power Query Editor Workflow"
+        },
+        {
+          "id": "B",
+          "text": "External Connections — SQL Server, Access & Online Services"
+        },
+        {
+          "id": "C",
+          "text": "Dynamic Refresh / Managed Connections"
+        },
+        {
+          "id": "D",
+          "text": "Import CSV, XML & JSON"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Excel يمكنه الاتصال بمصادر خارجية مثل SQL Server وAccess وonline services واستيراد CSV/XML/JSON. المادة تعرض SQLite عبر ODBC drivers أو add-ins كمفهوم اتصال، بدون driver-installation procedure تفصيلي. Assessment الخاص بـAccess يعرض workflow على مستوى الأسماء: Access → Navigator → Transform Data → Power Query Editor. Managed connections تسمح بالتحديث on-demand أو scheduled في سياق المصدر، والختام يذكر Copilot/refresh/dashboard كاتجاهات استخدام.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Excel يمكنه الاتصال بمصادر خارجية مثل SQL Server وAccess وonline services واستيراد CSV/XML/JSON. المادة تعرض SQLite عبر ODBC drivers أو add-ins كمفهوم اتصال، بدون driver-installation procedure تفصيلي. Assessment الخاص بـAccess يعرض workflow على مستوى الأسماء: Access → Navigator → Transform Data → Power Query Editor. Managed connections تسمح بالتحديث on-demand أو scheduled في سياق المصدر، والختام يذكر Copilot/refresh/dashboard كاتجاهات استخدام.",
+        "options": {
+          "A": "غلط: «Access → Navigator → Transform Data → Power Query Editor Workflow» لا يطابق المهمة المحددة في السؤال. Excel يمكنه الاتصال بمصادر خارجية مثل SQL Server وAccess وonline services واستيراد CSV/XML/JSON. المادة تعرض SQLite عبر ODBC drivers أو add-ins كمفهوم اتصال، بدون driver-installation procedure تفصيلي. Assessment الخاص بـAccess يعرض workflow على مستوى الأسماء: Access → Navigator → Transform Data → Power Query Editor. Managed connections تسمح بالتحديث on-demand أو scheduled في سياق المصدر، والختام يذكر Copilot/refresh/dashboard كاتجاهات استخدام.",
+          "B": "غلط: «External Connections — SQL Server, Access & Online Services» لا يطابق المهمة المحددة في السؤال. Excel يمكنه الاتصال بمصادر خارجية مثل SQL Server وAccess وonline services واستيراد CSV/XML/JSON. المادة تعرض SQLite عبر ODBC drivers أو add-ins كمفهوم اتصال، بدون driver-installation procedure تفصيلي. Assessment الخاص بـAccess يعرض workflow على مستوى الأسماء: Access → Navigator → Transform Data → Power Query Editor. Managed connections تسمح بالتحديث on-demand أو scheduled في سياق المصدر، والختام يذكر Copilot/refresh/dashboard كاتجاهات استخدام.",
+          "C": "صح: «Dynamic Refresh / Managed Connections» يطابق المفهوم المطلوب هنا. Excel يمكنه الاتصال بمصادر خارجية مثل SQL Server وAccess وonline services واستيراد CSV/XML/JSON. المادة تعرض SQLite عبر ODBC drivers أو add-ins كمفهوم اتصال، بدون driver-installation procedure تفصيلي. Assessment الخاص بـAccess يعرض workflow على مستوى الأسماء: Access → Navigator → Transform Data → Power Query Editor. Managed connections تسمح بالتحديث on-demand أو scheduled في سياق المصدر، والختام يذكر Copilot/refresh/dashboard كاتجاهات استخدام.",
+          "D": "غلط: «Import CSV, XML & JSON» لا يطابق المهمة المحددة في السؤال. Excel يمكنه الاتصال بمصادر خارجية مثل SQL Server وAccess وonline services واستيراد CSV/XML/JSON. المادة تعرض SQLite عبر ODBC drivers أو add-ins كمفهوم اتصال، بدون driver-installation procedure تفصيلي. Assessment الخاص بـAccess يعرض workflow على مستوى الأسماء: Access → Navigator → Transform Data → Power Query Editor. Managed connections تسمح بالتحديث on-demand أو scheduled في سياق المصدر، والختام يذكر Copilot/refresh/dashboard كاتجاهات استخدام."
+        }
+      },
+      "topic": "External Data Sources — SQL Server, Access, CSV/XML/JSON, SQLite & Managed Refresh",
+      "topicId": "excel-w2-external-data-connections",
+      "subtopicId": "w2-external-refresh",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "troubleshooting",
+      "questionFamily": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w2-external-refresh",
+      "source": {
+        "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+        "reference": "Slides 3–11"
+      },
+      "weekNumber": 2,
+      "groupId": "excel-g16-power-query-integration",
+      "groupNumber": "16",
+      "groupTitle": "Power Query Integration & External Data",
+      "sectionId": "excel-w2-external-data-connections",
+      "sectionTitle": "External Data Sources — SQL Server, Access, CSV/XML/JSON, SQLite & Managed Refresh"
+    },
+    {
+      "id": "da-excel-track-q143",
+      "question": "A PivotTable is being built by dragging fields into four distinct analysis zones for categories, headings, calculations, and report-level filtering. Which layout concept is being tested?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Values aggregation role"
+        },
+        {
+          "id": "B",
+          "text": "Filters analysis role"
+        },
+        {
+          "id": "C",
+          "text": "PivotTable field areas"
+        },
+        {
+          "id": "D",
+          "text": "Rows vs Columns placement"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+        "options": {
+          "A": "غلط: «Values aggregation role» لا يطابق المهمة المحددة في السؤال. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+          "B": "غلط: «Filters analysis role» لا يطابق المهمة المحددة في السؤال. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+          "C": "صح: «PivotTable field areas» يطابق المفهوم المطلوب هنا. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+          "D": "غلط: «Rows vs Columns placement» لا يطابق المهمة المحددة في السؤال. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة."
+        }
+      },
+      "topic": "PivotTable Field Layout — Rows, Columns, Values & Filters",
+      "topicId": "excel-w3-pivot-core-layout",
+      "subtopicId": "w3-pivot-core-layout-c01",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-pivot-core-layout-c01",
+      "source": {
+        "file": "Lecture 35 Pivot in Excel (Office 365).pptx",
+        "reference": "Slides 3"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g17-pivot-powerpivot",
+      "groupNumber": "17",
+      "groupTitle": "PivotTable Mechanics & Power Pivot Entry",
+      "sectionId": "excel-w3-pivot-core-layout",
+      "sectionTitle": "PivotTable Field Layout — Rows, Columns, Values & Filters"
+    },
+    {
+      "id": "da-excel-track-q144",
+      "question": "A PivotTable needs one field to create vertical category labels and another field to create horizontal category headings. Which placement concept is being tested?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PivotTable field areas"
+        },
+        {
+          "id": "B",
+          "text": "Values aggregation role"
+        },
+        {
+          "id": "C",
+          "text": "Filters analysis role"
+        },
+        {
+          "id": "D",
+          "text": "Rows vs Columns placement"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+        "options": {
+          "A": "غلط: «PivotTable field areas» لا يطابق المهمة المحددة في السؤال. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+          "B": "غلط: «Values aggregation role» لا يطابق المهمة المحددة في السؤال. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+          "C": "غلط: «Filters analysis role» لا يطابق المهمة المحددة في السؤال. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+          "D": "صح: «Rows vs Columns placement» يطابق المفهوم المطلوب هنا. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة."
+        }
+      },
+      "topic": "PivotTable Field Layout — Rows, Columns, Values & Filters",
+      "topicId": "excel-w3-pivot-core-layout",
+      "subtopicId": "w3-pivot-core-layout-c02",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-pivot-core-layout-c02",
+      "source": {
+        "file": "Lecture 35 Pivot in Excel (Office 365).pptx",
+        "reference": "Slides 3"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g17-pivot-powerpivot",
+      "groupNumber": "17",
+      "groupTitle": "PivotTable Mechanics & Power Pivot Entry",
+      "sectionId": "excel-w3-pivot-core-layout",
+      "sectionTitle": "PivotTable Field Layout — Rows, Columns, Values & Filters"
+    },
+    {
+      "id": "da-excel-track-q145",
+      "question": "A numeric field must be summarized inside a PivotTable using an aggregation such as Sum or Count. Which PivotTable area role is responsible for that result?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Values aggregation role"
+        },
+        {
+          "id": "B",
+          "text": "Filters analysis role"
+        },
+        {
+          "id": "C",
+          "text": "PivotTable field areas"
+        },
+        {
+          "id": "D",
+          "text": "Rows vs Columns placement"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+        "options": {
+          "A": "صح: «Values aggregation role» يطابق المفهوم المطلوب هنا. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+          "B": "غلط: «Filters analysis role» لا يطابق المهمة المحددة في السؤال. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+          "C": "غلط: «PivotTable field areas» لا يطابق المهمة المحددة في السؤال. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة.",
+          "D": "غلط: «Rows vs Columns placement» لا يطابق المهمة المحددة في السؤال. PivotTable يلخّص البيانات بسرعة عن طريق توزيع الحقول على Rows وColumns وValues وFilters. في Week 3 لا نعيد أساس فكرة PivotTable؛ نركز على قراءة الـlayout كأداة تحليل منظمة."
+        }
+      },
+      "topic": "PivotTable Field Layout — Rows, Columns, Values & Filters",
+      "topicId": "excel-w3-pivot-core-layout",
+      "subtopicId": "w3-pivot-core-layout-c03",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-pivot-core-layout-c03",
+      "source": {
+        "file": "Lecture 35 Pivot in Excel (Office 365).pptx",
+        "reference": "Slides 3"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g17-pivot-powerpivot",
+      "groupNumber": "17",
+      "groupTitle": "PivotTable Mechanics & Power Pivot Entry",
+      "sectionId": "excel-w3-pivot-core-layout",
+      "sectionTitle": "PivotTable Field Layout — Rows, Columns, Values & Filters"
+    },
+    {
+      "id": "da-excel-track-q155",
+      "question": "Several related tables must be analyzed together through keys and relationships rather than as one flat worksheet range. Which model foundation concept is being used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data integrity checks"
+        },
+        {
+          "id": "B",
+          "text": "Named Excel Tables"
+        },
+        {
+          "id": "C",
+          "text": "Relational Data Model"
+        },
+        {
+          "id": "D",
+          "text": "Primary/foreign key design"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة.",
+        "options": {
+          "A": "غلط: «Data integrity checks» لا يطابق المهمة المحددة في السؤال. Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة.",
+          "B": "غلط: «Named Excel Tables» لا يطابق المهمة المحددة في السؤال. Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة.",
+          "C": "صح: «Relational Data Model» يطابق المفهوم المطلوب هنا. Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة.",
+          "D": "غلط: «Primary/foreign key design» لا يطابق المهمة المحددة في السؤال. Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة."
+        }
+      },
+      "topic": "Data Model Foundations — Tables, Keys & Integrity",
+      "topicId": "excel-w3-data-model-foundations",
+      "subtopicId": "w3-data-model-foundations-c01",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-data-model-foundations-c01",
+      "source": {
+        "file": "Lecture 34 Managing and Exploring Data Models in Power Pivot.pptx",
+        "reference": "Slides 3-5"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g18-models-dax",
+      "groupNumber": "18",
+      "groupTitle": "Data Models, Relationships & DAX",
+      "sectionId": "excel-w3-data-model-foundations",
+      "sectionTitle": "Data Model Foundations — Tables, Keys & Integrity"
+    },
+    {
+      "id": "da-excel-track-q157",
+      "question": "Two model tables must be linked using a unique identifier on one side and matching identifiers on the other. Which design concept is being applied?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Primary/foreign key design"
+        },
+        {
+          "id": "B",
+          "text": "Named Excel Tables"
+        },
+        {
+          "id": "C",
+          "text": "Data integrity checks"
+        },
+        {
+          "id": "D",
+          "text": "Relational Data Model"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة.",
+        "options": {
+          "A": "صح: «Primary/foreign key design» يطابق المفهوم المطلوب هنا. Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة.",
+          "B": "غلط: «Named Excel Tables» لا يطابق المهمة المحددة في السؤال. Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة.",
+          "C": "غلط: «Data integrity checks» لا يطابق المهمة المحددة في السؤال. Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة.",
+          "D": "غلط: «Relational Data Model» لا يطابق المهمة المحددة في السؤال. Data Model هو بنية relational داخل Excel توحّد جداول متعددة للتحليل. المصدر يبدأ بتحويل datasets إلى Excel Tables بأسماء واضحة، ثم تحميلها إلى Data Model مع الاهتمام بالأنواع والمفاتيح وعدم تكرار القيم التي يفترض أن تكون فريدة."
+        }
+      },
+      "topic": "Data Model Foundations — Tables, Keys & Integrity",
+      "topicId": "excel-w3-data-model-foundations",
+      "subtopicId": "w3-data-model-foundations-c03",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-data-model-foundations-c03",
+      "source": {
+        "file": "Lecture 34 Managing and Exploring Data Models in Power Pivot.pptx",
+        "reference": "Slides 3-5"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g18-models-dax",
+      "groupNumber": "18",
+      "groupTitle": "Data Models, Relationships & DAX",
+      "sectionId": "excel-w3-data-model-foundations",
+      "sectionTitle": "Data Model Foundations — Tables, Keys & Integrity"
+    },
+    {
+      "id": "da-excel-track-q162",
+      "question": "A Data Model produces unreliable results because the table relationship design contains a structural problem. Which relationship concept should be reviewed first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One-to-many relationship"
+        },
+        {
+          "id": "B",
+          "text": "Relationship pitfalls"
+        },
+        {
+          "id": "C",
+          "text": "One-to-one and many-to-many mentions"
+        },
+        {
+          "id": "D",
+          "text": "Diagram View relationship creation"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "العلاقة تربط Common Field بين Tables داخل Diagram View. المصدر يعرض one-to-many ويذكر one-to-one وmany-to-many، ويحذر من circular dependencies وambiguous paths وmismatched data types.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "العلاقة تربط Common Field بين Tables داخل Diagram View. المصدر يعرض one-to-many ويذكر one-to-one وmany-to-many، ويحذر من circular dependencies وambiguous paths وmismatched data types.",
+        "options": {
+          "A": "غلط: «One-to-many relationship» لا يطابق المهمة المحددة في السؤال. العلاقة تربط Common Field بين Tables داخل Diagram View. المصدر يعرض one-to-many ويذكر one-to-one وmany-to-many، ويحذر من circular dependencies وambiguous paths وmismatched data types.",
+          "B": "صح: «Relationship pitfalls» يطابق المفهوم المطلوب هنا. العلاقة تربط Common Field بين Tables داخل Diagram View. المصدر يعرض one-to-many ويذكر one-to-one وmany-to-many، ويحذر من circular dependencies وambiguous paths وmismatched data types.",
+          "C": "غلط: «One-to-one and many-to-many mentions» لا يطابق المهمة المحددة في السؤال. العلاقة تربط Common Field بين Tables داخل Diagram View. المصدر يعرض one-to-many ويذكر one-to-one وmany-to-many، ويحذر من circular dependencies وambiguous paths وmismatched data types.",
+          "D": "غلط: «Diagram View relationship creation» لا يطابق المهمة المحددة في السؤال. العلاقة تربط Common Field بين Tables داخل Diagram View. المصدر يعرض one-to-many ويذكر one-to-one وmany-to-many، ويحذر من circular dependencies وambiguous paths وmismatched data types."
+        }
+      },
+      "topic": "Relationships — Types, Diagram View & Pitfalls",
+      "topicId": "excel-w3-relationships",
+      "subtopicId": "w3-relationships-c04",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "troubleshooting",
+      "questionFamily": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-relationships-c04",
+      "source": {
+        "file": "Lecture 34 Managing and Exploring Data Models in Power Pivot.pptx",
+        "reference": "Slides 6,8"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g18-models-dax",
+      "groupNumber": "18",
+      "groupTitle": "Data Models, Relationships & DAX",
+      "sectionId": "excel-w3-relationships",
+      "sectionTitle": "Relationships — Types, Diagram View & Pitfalls"
+    },
+    {
+      "id": "da-excel-track-q171",
+      "question": "A dashboard is built from Pivot-based views that all use the same integrated relational model rather than separate worksheet ranges. Which dashboard concept fits this design?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dynamic Pivot Charts"
+        },
+        {
+          "id": "B",
+          "text": "Interactive model filtering"
+        },
+        {
+          "id": "C",
+          "text": "Model-linked dashboard"
+        },
+        {
+          "id": "D",
+          "text": "DAX-backed aggregation"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs.",
+        "options": {
+          "A": "غلط: «Dynamic Pivot Charts» لا يطابق المهمة المحددة في السؤال. Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs.",
+          "B": "غلط: «Interactive model filtering» لا يطابق المهمة المحددة في السؤال. Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs.",
+          "C": "صح: «Model-linked dashboard» يطابق المفهوم المطلوب هنا. Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs.",
+          "D": "غلط: «DAX-backed aggregation» لا يطابق المهمة المحددة في السؤال. Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs."
+        }
+      },
+      "topic": "Model-Driven Dashboards — Linked Tables, Charts & Refresh",
+      "topicId": "excel-w3-model-dashboard",
+      "subtopicId": "w3-model-dashboard-c01",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-model-dashboard-c01",
+      "source": {
+        "file": "Lecture 30 Data Visualization with Power Pivot and Excel.pptx",
+        "reference": "Slides 3-4"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g19-model-dashboards",
+      "groupNumber": "19",
+      "groupTitle": "Model-Driven Dashboards & Power View",
+      "sectionId": "excel-w3-model-dashboard",
+      "sectionTitle": "Model-Driven Dashboards — Linked Tables, Charts & Refresh"
+    },
+    {
+      "id": "da-excel-track-q172",
+      "question": "A dashboard needs Pivot-based charts that update as the underlying model-driven analysis changes. Which visualization concept is being used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Model-linked dashboard"
+        },
+        {
+          "id": "B",
+          "text": "Interactive model filtering"
+        },
+        {
+          "id": "C",
+          "text": "DAX-backed aggregation"
+        },
+        {
+          "id": "D",
+          "text": "Dynamic Pivot Charts"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs.",
+        "options": {
+          "A": "غلط: «Model-linked dashboard» لا يطابق المهمة المحددة في السؤال. Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs.",
+          "B": "غلط: «Interactive model filtering» لا يطابق المهمة المحددة في السؤال. Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs.",
+          "C": "غلط: «DAX-backed aggregation» لا يطابق المهمة المحددة في السؤال. Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs.",
+          "D": "صح: «Dynamic Pivot Charts» يطابق المفهوم المطلوب هنا. Lecture 30 يربط Power Pivot Data Model مع PivotTables وCharts داخل dashboard ديناميكي. العناصر تظل مرتبطة بالموديل وتتفاعل مع data updates وSlicers/Timelines وdrill-downs."
+        }
+      },
+      "topic": "Model-Driven Dashboards — Linked Tables, Charts & Refresh",
+      "topicId": "excel-w3-model-dashboard",
+      "subtopicId": "w3-model-dashboard-c02",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-model-dashboard-c02",
+      "source": {
+        "file": "Lecture 30 Data Visualization with Power Pivot and Excel.pptx",
+        "reference": "Slides 3-4"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g19-model-dashboards",
+      "groupNumber": "19",
+      "groupTitle": "Model-Driven Dashboards & Power View",
+      "sectionId": "excel-w3-model-dashboard",
+      "sectionTitle": "Model-Driven Dashboards — Linked Tables, Charts & Refresh"
+    },
+    {
+      "id": "da-excel-track-q181",
+      "question": "A worksheet is being prepared for a Forest Plot using fields for effect size, confidence-interval bounds, and plotting position. Which preparation concept is being tested?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Forest Plot data layout"
+        },
+        {
+          "id": "B",
+          "text": "Custom CI error bars"
+        },
+        {
+          "id": "C",
+          "text": "Null line interpretation"
+        },
+        {
+          "id": "D",
+          "text": "Bar+Scatter construction"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line.",
+        "options": {
+          "A": "صح: «Forest Plot data layout» يطابق المفهوم المطلوب هنا. Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line.",
+          "B": "غلط: «Custom CI error bars» لا يطابق المهمة المحددة في السؤال. Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line.",
+          "C": "غلط: «Null line interpretation» لا يطابق المهمة المحددة في السؤال. Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line.",
+          "D": "غلط: «Bar+Scatter construction» لا يطابق المهمة المحددة في السؤال. Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line."
+        }
+      },
+      "topic": "Forest Plot — Effect Size, Confidence Intervals & Error Bars",
+      "topicId": "excel-w3-forest-plot",
+      "subtopicId": "w3-forest-plot-c01",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-forest-plot-c01",
+      "source": {
+        "file": "Lecture 32 Advanced Charts and Data Visualization in Excel - Part 1.pptx",
+        "reference": "Slides 3-6"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g20-statistical-visuals",
+      "groupNumber": "20",
+      "groupTitle": "Advanced Statistical Visuals in Excel",
+      "sectionId": "excel-w3-forest-plot",
+      "sectionTitle": "Forest Plot — Effect Size, Confidence Intervals & Error Bars"
+    },
+    {
+      "id": "da-excel-track-q182",
+      "question": "A Forest Plot is assembled by combining a bar-style element with a scatter-based element for the plotted estimates. Which construction concept is being tested?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Null line interpretation"
+        },
+        {
+          "id": "B",
+          "text": "Bar+Scatter construction"
+        },
+        {
+          "id": "C",
+          "text": "Forest Plot data layout"
+        },
+        {
+          "id": "D",
+          "text": "Custom CI error bars"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line.",
+        "options": {
+          "A": "غلط: «Null line interpretation» لا يطابق المهمة المحددة في السؤال. Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line.",
+          "B": "صح: «Bar+Scatter construction» يطابق المفهوم المطلوب هنا. Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line.",
+          "C": "غلط: «Forest Plot data layout» لا يطابق المهمة المحددة في السؤال. Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line.",
+          "D": "غلط: «Custom CI error bars» لا يطابق المهمة المحددة في السؤال. Forest Plot في المصدر يُبنى يدويًا: Study Name وEffect Size وPosition وفرق Lower/Upper CI، ثم Clustered Bar كقاعدة، إضافة Scatter series، إخفاء bars، وإضافة horizontal custom Error Bars مع Null Line."
+        }
+      },
+      "topic": "Forest Plot — Effect Size, Confidence Intervals & Error Bars",
+      "topicId": "excel-w3-forest-plot",
+      "subtopicId": "w3-forest-plot-c02",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-forest-plot-c02",
+      "source": {
+        "file": "Lecture 32 Advanced Charts and Data Visualization in Excel - Part 1.pptx",
+        "reference": "Slides 3-6"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g20-statistical-visuals",
+      "groupNumber": "20",
+      "groupTitle": "Advanced Statistical Visuals in Excel",
+      "sectionId": "excel-w3-forest-plot",
+      "sectionTitle": "Forest Plot — Effect Size, Confidence Intervals & Error Bars"
+    },
+    {
+      "id": "da-excel-track-q185",
+      "question": "For Mean coordinate, which formula correctly performs the task \"Mean\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "=(A2+B2)/2"
+        },
+        {
+          "id": "B",
+          "text": "=A2-B2"
+        },
+        {
+          "id": "C",
+          "text": "=MeanDifference+(1.96*STDEV.S(DifferenceRange))"
+        },
+        {
+          "id": "D",
+          "text": "Total Sales:=SUMX(fTransactions,RELATED(dProduct[Price])*fTransactions[Units]*(1-fTransactions[Discount]))"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "ابدأ بعمودين Method A وMethod B، ثم Mean=(A+B)/2 وDifference=A-B. احسب Bias بمتوسط Differences، ثم Upper/Lower Limits of Agreement باستخدام ±1.96×STDEV.S. ارسم Mean مقابل Difference وأضف ثلاث reference lines.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "ابدأ بعمودين Method A وMethod B، ثم Mean=(A+B)/2 وDifference=A-B. احسب Bias بمتوسط Differences، ثم Upper/Lower Limits of Agreement باستخدام ±1.96×STDEV.S. ارسم Mean مقابل Difference وأضف ثلاث reference lines.",
+        "options": {
+          "A": "صح: «=(A2+B2)/2» يطابق المفهوم المطلوب هنا. ابدأ بعمودين Method A وMethod B، ثم Mean=(A+B)/2 وDifference=A-B. احسب Bias بمتوسط Differences، ثم Upper/Lower Limits of Agreement باستخدام ±1.96×STDEV.S. ارسم Mean مقابل Difference وأضف ثلاث reference lines.",
+          "B": "غلط: «=A2-B2» لا يطابق المهمة المحددة في السؤال. ابدأ بعمودين Method A وMethod B، ثم Mean=(A+B)/2 وDifference=A-B. احسب Bias بمتوسط Differences، ثم Upper/Lower Limits of Agreement باستخدام ±1.96×STDEV.S. ارسم Mean مقابل Difference وأضف ثلاث reference lines.",
+          "C": "غلط: «=MeanDifference+(1.96*STDEV.S(DifferenceRange))» لا يطابق المهمة المحددة في السؤال. ابدأ بعمودين Method A وMethod B، ثم Mean=(A+B)/2 وDifference=A-B. احسب Bias بمتوسط Differences، ثم Upper/Lower Limits of Agreement باستخدام ±1.96×STDEV.S. ارسم Mean مقابل Difference وأضف ثلاث reference lines.",
+          "D": "غلط: «Total Sales:=SUMX(fTransactions,RELATED(dProduct[Price])*fTransactions[Units]*(1-fTransactions[Discount]))» لا يطابق المهمة المحددة في السؤال. ابدأ بعمودين Method A وMethod B، ثم Mean=(A+B)/2 وDifference=A-B. احسب Bias بمتوسط Differences، ثم Upper/Lower Limits of Agreement باستخدام ±1.96×STDEV.S. ارسم Mean مقابل Difference وأضف ثلاث reference lines."
+        }
+      },
+      "topic": "Bland–Altman Plot — Bias & Limits of Agreement",
+      "topicId": "excel-w3-bland-altman",
+      "subtopicId": "w3-bland-altman-c01",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "calculation-tracing",
+      "questionFamily": "tracing",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-bland-altman-c01",
+      "source": {
+        "file": "Lecture 32 Advanced Charts and Data Visualization in Excel - Part 1.pptx",
+        "reference": "Slides 8-11"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g20-statistical-visuals",
+      "groupNumber": "20",
+      "groupTitle": "Advanced Statistical Visuals in Excel",
+      "sectionId": "excel-w3-bland-altman",
+      "sectionTitle": "Bland–Altman Plot — Bias & Limits of Agreement"
+    },
+    {
+      "id": "da-excel-track-q199",
+      "question": "Before drawing an Ogive with a Scatter line, the worksheet prepares class limits, a running total of frequencies, and a zero-start row. Which preparation concept best matches this workflow?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ogive zero start"
+        },
+        {
+          "id": "B",
+          "text": "Scatter-line construction"
+        },
+        {
+          "id": "C",
+          "text": "Cumulative-frequency preparation"
+        },
+        {
+          "id": "D",
+          "text": "Axis boundary setup"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width.",
+        "options": {
+          "A": "غلط: «Ogive zero start» لا يطابق المهمة المحددة في السؤال. Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width.",
+          "B": "غلط: «Scatter-line construction» لا يطابق المهمة المحددة في السؤال. Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width.",
+          "C": "صح: «Cumulative-frequency preparation» يطابق المفهوم المطلوب هنا. Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width.",
+          "D": "غلط: «Axis boundary setup» لا يطابق المهمة المحددة في السؤال. Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width."
+        }
+      },
+      "topic": "Ogive — Cumulative Frequency with Scatter Lines",
+      "topicId": "excel-w3-ogive",
+      "subtopicId": "w3-ogive-c01",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-ogive-c01",
+      "source": {
+        "file": "Lecture 33 Advanced Charts and Data Visualization in Excel - Part 2.pptx",
+        "reference": "Slides 3-4"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g21-geo-multidimensional",
+      "groupNumber": "21",
+      "groupTitle": "Geographic & Multi-Dimensional Visuals",
+      "sectionId": "excel-w3-ogive",
+      "sectionTitle": "Ogive — Cumulative Frequency with Scatter Lines"
+    },
+    {
+      "id": "da-excel-track-q200",
+      "question": "An Ogive dataset includes an initial point with cumulative frequency equal to zero before the first class boundary. Which preparation concept is being tested?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Axis boundary setup"
+        },
+        {
+          "id": "B",
+          "text": "Cumulative-frequency preparation"
+        },
+        {
+          "id": "C",
+          "text": "Scatter-line construction"
+        },
+        {
+          "id": "D",
+          "text": "Ogive zero start"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "ar": "Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width.",
+        "options": {
+          "A": "غلط: «Axis boundary setup» لا يطابق المهمة المحددة في السؤال. Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width.",
+          "B": "غلط: «Cumulative-frequency preparation» لا يطابق المهمة المحددة في السؤال. Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width.",
+          "C": "غلط: «Scatter-line construction» لا يطابق المهمة المحددة في السؤال. Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width.",
+          "D": "صح: «Ogive zero start» يطابق المفهوم المطلوب هنا. Ogive في المصدر ليست native chart type. جهز class limits وcumulative frequencies، أضف zero start، ثم Scatter with Straight Lines and Markers، واضبط Axis Minimum وMajor Unit على class boundaries/width."
+        }
+      },
+      "topic": "Ogive — Cumulative Frequency with Scatter Lines",
+      "topicId": "excel-w3-ogive",
+      "subtopicId": "w3-ogive-c02",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-ogive-c02",
+      "source": {
+        "file": "Lecture 33 Advanced Charts and Data Visualization in Excel - Part 2.pptx",
+        "reference": "Slides 3-4"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g21-geo-multidimensional",
+      "groupNumber": "21",
+      "groupTitle": "Geographic & Multi-Dimensional Visuals",
+      "sectionId": "excel-w3-ogive",
+      "sectionTitle": "Ogive — Cumulative Frequency with Scatter Lines"
+    },
+    {
+      "id": "da-excel-track-q210",
+      "question": "A repetitive worksheet task is captured by starting the recorder, performing the actions, and then stopping the recording. Which macro concept is being tested?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Macro purpose"
+        },
+        {
+          "id": "B",
+          "text": "Recording workflow"
+        },
+        {
+          "id": "C",
+          "text": "Recorded VBA"
+        },
+        {
+          "id": "D",
+          "text": "Shortcut assignment"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "Macro يسجل سلسلة خطوات Excel لتحويل العمل المتكرر إلى action قابل لإعادة التشغيل. Workflow المصدر: Start Recording، اسم ومكان التخزين/reference mode، تنفيذ الخطوات، Stop Recording، ثم Save/Run مع shortcut عند الحاجة.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Macro يسجل سلسلة خطوات Excel لتحويل العمل المتكرر إلى action قابل لإعادة التشغيل. Workflow المصدر: Start Recording، اسم ومكان التخزين/reference mode، تنفيذ الخطوات، Stop Recording، ثم Save/Run مع shortcut عند الحاجة.",
+        "options": {
+          "A": "غلط: «Macro purpose» لا يطابق المهمة المحددة في السؤال. Macro يسجل سلسلة خطوات Excel لتحويل العمل المتكرر إلى action قابل لإعادة التشغيل. Workflow المصدر: Start Recording، اسم ومكان التخزين/reference mode، تنفيذ الخطوات، Stop Recording، ثم Save/Run مع shortcut عند الحاجة.",
+          "B": "صح: «Recording workflow» يطابق المفهوم المطلوب هنا. Macro يسجل سلسلة خطوات Excel لتحويل العمل المتكرر إلى action قابل لإعادة التشغيل. Workflow المصدر: Start Recording، اسم ومكان التخزين/reference mode، تنفيذ الخطوات، Stop Recording، ثم Save/Run مع shortcut عند الحاجة.",
+          "C": "غلط: «Recorded VBA» لا يطابق المهمة المحددة في السؤال. Macro يسجل سلسلة خطوات Excel لتحويل العمل المتكرر إلى action قابل لإعادة التشغيل. Workflow المصدر: Start Recording، اسم ومكان التخزين/reference mode، تنفيذ الخطوات، Stop Recording، ثم Save/Run مع shortcut عند الحاجة.",
+          "D": "غلط: «Shortcut assignment» لا يطابق المهمة المحددة في السؤال. Macro يسجل سلسلة خطوات Excel لتحويل العمل المتكرر إلى action قابل لإعادة التشغيل. Workflow المصدر: Start Recording، اسم ومكان التخزين/reference mode، تنفيذ الخطوات، Stop Recording، ثم Save/Run مع shortcut عند الحاجة."
+        }
+      },
+      "topic": "Macro Fundamentals & Recording Workflow",
+      "topicId": "excel-w3-macro-recording",
+      "subtopicId": "w3-macro-recording-c02",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-macro-recording-c02",
+      "source": {
+        "file": "Lecture 36 Excel Macros.pptx",
+        "reference": "Slides 3,5"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g22-macros",
+      "groupNumber": "22",
+      "groupTitle": "Macros & Secure Automation",
+      "sectionId": "excel-w3-macro-recording",
+      "sectionTitle": "Macro Fundamentals & Recording Workflow"
+    },
+    {
+      "id": "da-excel-track-q213",
+      "question": "A workbook contains macros from an uncertain source and the user is deciding whether they can be trusted. Which security concept should guide the decision?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Macro threat awareness"
+        },
+        {
+          "id": "B",
+          "text": "Trusted documents/locations"
+        },
+        {
+          "id": "C",
+          "text": "Enable-all risk"
+        },
+        {
+          "id": "D",
+          "text": "Trust Center configuration"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "ar": "المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر.",
+        "options": {
+          "A": "صح: «Macro threat awareness» يطابق المفهوم المطلوب هنا. المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر.",
+          "B": "غلط: «Trusted documents/locations» لا يطابق المهمة المحددة في السؤال. المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر.",
+          "C": "غلط: «Enable-all risk» لا يطابق المهمة المحددة في السؤال. المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر.",
+          "D": "غلط: «Trust Center configuration» لا يطابق المهمة المحددة في السؤال. المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر."
+        }
+      },
+      "topic": "Macro Security, Trust Center & Trusted Locations",
+      "topicId": "excel-w3-macro-security",
+      "subtopicId": "w3-macro-security-c01",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "troubleshooting",
+      "questionFamily": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-macro-security-c01",
+      "source": {
+        "file": "Lecture 36 Excel Macros.pptx",
+        "reference": "Slides 4,6,10"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g22-macros",
+      "groupNumber": "22",
+      "groupTitle": "Macros & Secure Automation",
+      "sectionId": "excel-w3-macro-security",
+      "sectionTitle": "Macro Security, Trust Center & Trusted Locations"
+    },
+    {
+      "id": "da-excel-track-q214",
+      "question": "Macro behavior needs to be controlled through Excel's security settings rather than by changing the macro code itself. Which configuration concept should be reviewed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Macro threat awareness"
+        },
+        {
+          "id": "B",
+          "text": "Trust Center configuration"
+        },
+        {
+          "id": "C",
+          "text": "Trusted documents/locations"
+        },
+        {
+          "id": "D",
+          "text": "Enable-all risk"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر.",
+        "options": {
+          "A": "غلط: «Macro threat awareness» لا يطابق المهمة المحددة في السؤال. المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر.",
+          "B": "صح: «Trust Center configuration» يطابق المفهوم المطلوب هنا. المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر.",
+          "C": "غلط: «Trusted documents/locations» لا يطابق المهمة المحددة في السؤال. المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر.",
+          "D": "غلط: «Enable-all risk» لا يطابق المهمة المحددة في السؤال. المصدر يوازن بين automation وخطر malicious code. Trust Center يتحكم في enable/disable levels، trusted documents تسمح لملفات موثوقة، trusted locations تشغّل ملفات مجلدات محددة، وEnable All Macros هو أقل مستوى أمان حسب المصدر."
+        }
+      },
+      "topic": "Macro Security, Trust Center & Trusted Locations",
+      "topicId": "excel-w3-macro-security",
+      "subtopicId": "w3-macro-security-c02",
+      "difficulty": "Hard",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "troubleshooting",
+      "questionFamily": "troubleshooting",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-macro-security-c02",
+      "source": {
+        "file": "Lecture 36 Excel Macros.pptx",
+        "reference": "Slides 4,6,10"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g22-macros",
+      "groupNumber": "22",
+      "groupTitle": "Macros & Secure Automation",
+      "sectionId": "excel-w3-macro-security",
+      "sectionTitle": "Macro Security, Trust Center & Trusted Locations"
+    },
+    {
+      "id": "da-excel-track-q223",
+      "question": "Excel-related AI tools are grouped by capabilities such as data preparation, analysis, visualization, automation, and formula assistance. Which classification concept is being tested?",
+      "options": [
+        {
+          "id": "A",
+          "text": "AI tool landscape snapshot"
+        },
+        {
+          "id": "B",
+          "text": "Formula-assistant examples"
+        },
+        {
+          "id": "C",
+          "text": "AI capability categories"
+        },
+        {
+          "id": "D",
+          "text": "Environment/version dependency"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "ar": "Lecture 37 يصنف استخدام AI حول Excel إلى Data Preparation وAnalysis وVisualization وAutomation، ثم يسرد 20 tool بأوصاف استخدام مختلفة من formula generation إلى FP&A وdashboards وpredictive modeling.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "Lecture 37 يصنف استخدام AI حول Excel إلى Data Preparation وAnalysis وVisualization وAutomation، ثم يسرد 20 tool بأوصاف استخدام مختلفة من formula generation إلى FP&A وdashboards وpredictive modeling.",
+        "options": {
+          "A": "غلط: «AI tool landscape snapshot» لا يطابق المهمة المحددة في السؤال. Lecture 37 يصنف استخدام AI حول Excel إلى Data Preparation وAnalysis وVisualization وAutomation، ثم يسرد 20 tool بأوصاف استخدام مختلفة من formula generation إلى FP&A وdashboards وpredictive modeling.",
+          "B": "غلط: «Formula-assistant examples» لا يطابق المهمة المحددة في السؤال. Lecture 37 يصنف استخدام AI حول Excel إلى Data Preparation وAnalysis وVisualization وAutomation، ثم يسرد 20 tool بأوصاف استخدام مختلفة من formula generation إلى FP&A وdashboards وpredictive modeling.",
+          "C": "صح: «AI capability categories» يطابق المفهوم المطلوب هنا. Lecture 37 يصنف استخدام AI حول Excel إلى Data Preparation وAnalysis وVisualization وAutomation، ثم يسرد 20 tool بأوصاف استخدام مختلفة من formula generation إلى FP&A وdashboards وpredictive modeling.",
+          "D": "غلط: «Environment/version dependency» لا يطابق المهمة المحددة في السؤال. Lecture 37 يصنف استخدام AI حول Excel إلى Data Preparation وAnalysis وVisualization وAutomation، ثم يسرد 20 tool بأوصاف استخدام مختلفة من formula generation إلى FP&A وdashboards وpredictive modeling."
+        }
+      },
+      "topic": "Excel AI Capability Categories & Tool Landscape Snapshot",
+      "topicId": "excel-w3-ai-landscape",
+      "subtopicId": "w3-ai-landscape-c01",
+      "difficulty": "Medium",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "scenario-application",
+      "questionFamily": "scenario",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-ai-landscape-c01",
+      "source": {
+        "file": "Lecture 37 Artificial Intelligence Integration in Excel.pptx",
+        "reference": "Slides 3-8"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g23-ai-excel",
+      "groupNumber": "23",
+      "groupTitle": "AI-Assisted Excel & Advanced Analysis",
+      "sectionId": "excel-w3-ai-landscape",
+      "sectionTitle": "Excel AI Capability Categories & Tool Landscape Snapshot"
+    },
+    {
+      "id": "da-excel-track-q226",
+      "question": "A user needs keyboard commands for creating, opening, and saving workbook files. Which shortcut category is being tested?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ribbon navigation shortcuts"
+        },
+        {
+          "id": "B",
+          "text": "Workbook lifecycle shortcuts"
+        },
+        {
+          "id": "C",
+          "text": "Cross-workbook navigation"
+        },
+        {
+          "id": "D",
+          "text": "PivotTable field areas"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "ar": "المصدر يجمع shortcuts لإنشاء/فتح/حفظ/إغلاق workbook والتنقل بين workbooks والوصول إلى Data/View/Formulas tabs، إضافة إلى protect workbook.",
+        "en": ""
+      },
+      "deepExplanation": {
+        "summary": "المصدر يجمع shortcuts لإنشاء/فتح/حفظ/إغلاق workbook والتنقل بين workbooks والوصول إلى Data/View/Formulas tabs، إضافة إلى protect workbook.",
+        "options": {
+          "A": "غلط: «Ribbon navigation shortcuts» لا يطابق المهمة المحددة في السؤال. المصدر يجمع shortcuts لإنشاء/فتح/حفظ/إغلاق workbook والتنقل بين workbooks والوصول إلى Data/View/Formulas tabs، إضافة إلى protect workbook.",
+          "B": "صح: «Workbook lifecycle shortcuts» يطابق المفهوم المطلوب هنا. المصدر يجمع shortcuts لإنشاء/فتح/حفظ/إغلاق workbook والتنقل بين workbooks والوصول إلى Data/View/Formulas tabs، إضافة إلى protect workbook.",
+          "C": "غلط: «Cross-workbook navigation» لا يطابق المهمة المحددة في السؤال. المصدر يجمع shortcuts لإنشاء/فتح/حفظ/إغلاق workbook والتنقل بين workbooks والوصول إلى Data/View/Formulas tabs، إضافة إلى protect workbook.",
+          "D": "غلط: «PivotTable field areas» لا يطابق المهمة المحددة في السؤال. المصدر يجمع shortcuts لإنشاء/فتح/حفظ/إغلاق workbook والتنقل بين workbooks والوصول إلى Data/View/Formulas tabs، إضافة إلى protect workbook."
+        }
+      },
+      "topic": "Workbook, Ribbon & Navigation Shortcuts",
+      "topicId": "excel-w3-shortcuts-workbook",
+      "subtopicId": "w3-shortcuts-workbook-c01",
+      "difficulty": "Easy",
+      "trackId": "excel",
+      "track": "Excel",
+      "questionType": "direct-knowledge",
+      "questionFamily": "direct",
+      "sourceType": "course",
+      "trackExamEligible": true,
+      "finalEligible": false,
+      "conceptKey": "w3-shortcuts-workbook-c01",
+      "source": {
+        "file": "Lecture 38 Excel Shortcuts.pptx",
+        "reference": "Slides 3"
+      },
+      "weekNumber": 3,
+      "groupId": "excel-g24-shortcuts",
+      "groupNumber": "24",
+      "groupTitle": "Excel Productivity & Shortcuts",
+      "sectionId": "excel-w3-shortcuts-workbook",
+      "sectionTitle": "Workbook, Ribbon & Navigation Shortcuts"
+    }
+  ]
+}
