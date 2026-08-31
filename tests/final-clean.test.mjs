@@ -45,10 +45,10 @@ test('Week 2 syllabus references resolve to restored audit artifacts',()=>{
   assert.ok(exists('data/excel-intake/week-2-slide-extract.json'));
 });
 
-test('V0.20.6 fallback release copy describes Excel Week 3, not Reset My Mistakes',()=>{
+test('current fallback release copy matches V0.20.8 Runtime Compatibility Hotfix',()=>{
   const update=read('assets/js/update-manager.js');
-  assert.match(update,/version:\s*["']0\.20\.6["']/);
-  assert.match(update,/title:\s*["']Excel Week 3 Study Production["']/);
+  assert.match(update,/version:\s*["']0\.20\.8["']/);
+  assert.match(update,/title:\s*["']Runtime Compatibility Hotfix["']/);
   assert.doesNotMatch(update,/title:\s*["']Reset My Mistakes["']/);
 });
 
@@ -56,7 +56,7 @@ test('Excel intake status no longer says Study production is next after Study co
   const weekStatus=read('data/excel-intake/week-status.json');
   assert.doesNotMatch(weekStatus,/Study production is next/i);
   const d=JSON.parse(weekStatus);
-  assert.equal(d.weeks.find(x=>x.week===3)?.status,'study-production');
+  assert.equal(d.weeks.find(x=>x.week===3)?.status,'practice-production');
 });
 
 test('local release workflow runs pre-deploy before starting the test server',()=>{

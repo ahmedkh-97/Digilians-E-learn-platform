@@ -89,7 +89,7 @@
                 "statisticsPrerequisiteSlides": 86,
                 "decision": "B"
               },
-              "assessmentStatus": "building-after-study-qa",
+              "assessmentStatus": "practice-ready-exam-locked",
               "examId": null,
               "study": {
                 "title": "Excel Foundations & Data Handling — Learning Groups",
@@ -4440,7 +4440,8 @@
                   "assessmentGate": "locked-until-study-approval"
                 }
               },
-              "displaySourceBatch": "Week 1"
+              "displaySourceBatch": "Week 1",
+              "practiceExamId": "data-analysis-excel-week01-practice-v1"
             },
             {
               "id": "excel-week-02",
@@ -4455,7 +4456,7 @@
                 "productionConcepts": 101,
                 "reuseOnlyClusters": 7
               },
-              "assessmentStatus": "building-after-study-qa",
+              "assessmentStatus": "practice-ready-exam-locked",
               "examId": null,
               "study": {
                 "title": "Excel Advanced Analysis, Dashboards & Power Query — Learning Groups",
@@ -8869,7 +8870,8 @@
                     }
                   }
                 ]
-              }
+              },
+              "practiceExamId": "data-analysis-excel-week02-practice-v1"
             },
             {
               "id": "excel-week-03",
@@ -8887,7 +8889,7 @@
                 "supporting": 30,
                 "bridge": 7
               },
-              "assessmentStatus": "building-after-study-qa",
+              "assessmentStatus": "practice-ready-exam-locked",
               "examId": null,
               "study": {
                 "title": "Excel Power Pivot, Advanced Visuals, Macros & AI — Learning Groups",
@@ -9087,23 +9089,23 @@
                       "concepts": [
                         {
                           "term": "PivotTable",
-                          "explanationAr": "PivotTable هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "PivotTable أداة تلخّص البيانات بإعادة توزيع الحقول داخل مناطق التحليل بدل قراءة الصفوف الخام واحدًا واحدًا."
                         },
                         {
                           "term": "Rows",
-                          "explanationAr": "Rows هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Rows هي المنطقة التي تعرض الفئات عموديًا على شكل صفوف داخل PivotTable."
                         },
                         {
                           "term": "Columns",
-                          "explanationAr": "Columns هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Columns هي المنطقة التي تقسّم النتائج أفقيًا إلى أعمدة حسب الحقل الموضوع فيها."
                         },
                         {
                           "term": "Values",
-                          "explanationAr": "Values هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Values هي منطقة النتائج المجمّعة مثل إجمالي المبيعات أو أي قيمة رقمية يتم تلخيصها."
                         },
                         {
                           "term": "Filters",
-                          "explanationAr": "Filters هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Filters هي منطقة تضييق التقرير بالكامل باستخدام قيمة أو فئة محددة دون تغيير مصدر البيانات."
                         }
                       ],
                       "miniExample": {
@@ -9125,9 +9127,9 @@
                         "textAr": "فهم مكان كل Field يمنع التقارير المضللة ويسهّل الانتقال لاحقًا إلى PivotTables المبنية على Data Model."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "وضع حقل رقمي في Rows ثم توقع أن يظهر كإجمالي داخل Values.",
+                        "الخلط بين Filters التي تؤثر على التقرير كله وRows/Columns التي تغير شكل التقسيم.",
+                        "إعادة شرح PivotTable من الصفر بدل التركيز على Field Layout الجديد في Week 3."
                       ],
                       "tryIt": {
                         "promptAr": "ضع Product في Rows وSales في Values وحدد وظيفة كل منطقة.",
@@ -9219,23 +9221,23 @@
                       "concepts": [
                         {
                           "term": "Group Dates",
-                          "explanationAr": "Group Dates هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Group Dates يجمع التاريخ داخل PivotTable إلى مستويات مثل Months أو Quarters أو Years."
                         },
                         {
                           "term": "Group/Ungroup",
-                          "explanationAr": "Group/Ungroup هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Group/Ungroup يجمع عناصر PivotTable في فئات مخصصة ثم يسمح بفك هذا التجميع عند الحاجة."
                         },
                         {
                           "term": "Sort",
-                          "explanationAr": "Sort هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Sort يرتب Labels أو Values داخل PivotTable مثل A→Z أو Largest to Smallest."
                         },
                         {
                           "term": "Delete PivotTable",
-                          "explanationAr": "Delete PivotTable هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Delete PivotTable يزيل الـPivotTable نفسه من الورقة من غير حذف Source Data."
                         },
                         {
                           "term": "Flatten",
-                          "explanationAr": "Flatten هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Flatten يحوّل ناتج PivotTable إلى جدول Values ثابت باستخدام Copy ثم Paste Special → Values."
                         }
                       ],
                       "miniExample": {
@@ -9257,9 +9259,9 @@
                         "textAr": "التحليل لا ينتهي بإنشاء PivotTable؛ لازم تعرف كيف تعيد تنظيمه أو تثبّت الناتج كقيم عادية عند التصدير."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "اعتبار Delete PivotTable حذفًا للـSource Data؛ المحاضرة تفصل بين الاثنين.",
+                        "استخدام Flatten ثم توقع بقاء التفاعل أو Refresh؛ Paste Special → Values ينتج جدولًا ثابتًا.",
+                        "تجميع Dates بدون اختيار المستوى المطلوب Month/Quarter/Year."
                       ],
                       "tryIt": {
                         "promptAr": "متى تستخدم Paste Special → Values بعد PivotTable؟",
@@ -9352,23 +9354,23 @@
                       "concepts": [
                         {
                           "term": "Power Pivot",
-                          "explanationAr": "Power Pivot هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Power Pivot إضافة داخل Excel لبناء Data Model وتحليل جداول متعددة ومجموعات بيانات كبيرة."
                         },
                         {
                           "term": "COM Add-in",
-                          "explanationAr": "COM Add-in هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "COM Add-in هو نوع الإضافة الذي يتم من خلاله تفعيل Power Pivot من Excel Options في خطوات المحاضرة."
                         },
                         {
                           "term": "Data Model",
-                          "explanationAr": "Data Model هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Data Model هو الهيكل داخل Excel الذي يحتفظ بجداول مرتبطة لتُحلل معًا."
                         },
                         {
                           "term": "Add to Data Model",
-                          "explanationAr": "Add to Data Model هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Add to Data Model ينقل Excel Table إلى الـData Model حتى تدخل في العلاقات والتحليل متعدد الجداول."
                         },
                         {
                           "term": "Get Data",
-                          "explanationAr": "Get Data هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Get Data يستورد بيانات من مصادر مثل CSV أو قواعد بيانات أو Workbooks، ويمكن تحميلها إلى Data Model."
                         }
                       ],
                       "miniExample": {
@@ -9390,9 +9392,9 @@
                         "textAr": "Data Model هو الجسر الذي يسمح بتحليل عدة جداول معًا بدل دمجها يدويًا أو الاعتماد على lookup واحد."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "تفعيل Add-in ثم نسيان تحميل Tables فعلًا إلى Data Model.",
+                        "استيراد External Data بدون اختيار Add this data to the Data Model عند الحاجة للموديل.",
+                        "افتراض أن Power Pivot متاح بنفس الشكل في كل إصدار أو ترخيص رغم ملاحظة الاعتماد على البيئة."
                       ],
                       "tryIt": {
                         "promptAr": "بعد استيراد CSV، ما الخيار الذي يربطه بتحليل Power Pivot متعدد الجداول؟",
@@ -9481,19 +9483,19 @@
                       "concepts": [
                         {
                           "term": "Power PivotTable",
-                          "explanationAr": "Power PivotTable هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Power PivotTable هو PivotTable مبني على Data Model بحيث يمكنه استخدام حقول من أكثر من Table."
                         },
                         {
                           "term": "Workbook Data Model",
-                          "explanationAr": "Workbook Data Model هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Workbook Data Model هو نموذج البيانات المخزن داخل نفس ملف Excel ويضم الجداول والعلاقات المستخدمة في التحليل."
                         },
                         {
                           "term": "Field List",
-                          "explanationAr": "Field List هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Field List هي القائمة التي تعرض Tables وFields المتاحة للسحب إلى Rows وColumns وValues وFilters."
                         },
                         {
                           "term": "Cross-table analysis",
-                          "explanationAr": "Cross-table analysis هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Cross-table analysis يعني تلخيص بيانات من جداول مختلفة بعد ربطها بعلاقات داخل Data Model."
                         }
                       ],
                       "miniExample": {
@@ -9515,9 +9517,9 @@
                         "textAr": "ده هو الانتقال الحقيقي من PivotTable أحادي المصدر إلى تحليل cross-table بدون تكرار نفس البيانات داخل جدول مسطح."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "إنشاء PivotTable عادي من Range ثم توقع ظهور كل Tables المرتبطة.",
+                        "محاولة تحليل عدة Tables قبل إنشاء Relationships بينها.",
+                        "الخلط بين Field List متعددة الجداول وField List من Source واحد."
                       ],
                       "tryIt": {
                         "promptAr": "لماذا تظهر عدة Tables في Field List؟",
@@ -9605,23 +9607,23 @@
                       "concepts": [
                         {
                           "term": "Data Model",
-                          "explanationAr": "Data Model هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Data Model بنية relational داخل Excel تجمع عدة Tables في نموذج واحد للتحليل."
                         },
                         {
                           "term": "Excel Table",
-                          "explanationAr": "Excel Table هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Excel Table هو نطاق بيانات منظم بعناوين ويمكن تسميته وتحميله إلى Data Model."
                         },
                         {
                           "term": "Primary Key",
-                          "explanationAr": "Primary Key هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Primary Key هو الحقل الذي يُفترض أن يميز الصفوف في جدول المفتاح المستخدم للعلاقة."
                         },
                         {
                           "term": "Foreign Key",
-                          "explanationAr": "Foreign Key هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Foreign Key هو الحقل الموجود في جدول آخر ويطابق المفتاح المشترك لربط الجدولين."
                         },
                         {
                           "term": "Data Integrity",
-                          "explanationAr": "Data Integrity هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Data Integrity تعني الحفاظ على أنواع بيانات صحيحة ومفاتيح متوافقة وعدم تكرار القيم التي يجب أن تكون فريدة."
                         }
                       ],
                       "miniExample": {
@@ -9643,9 +9645,9 @@
                         "textAr": "جودة الموديل تحدد جودة أي Pivot أو DAX بعده؛ أخطاء الأنواع والمفاتيح تنتقل مباشرة للنتائج."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "بناء Relationships قبل تحويل Datasets إلى Tables واضحة الأسماء.",
+                        "استخدام Keys غير متوافقة أو مكررة ثم الاعتماد على نتائج الموديل.",
+                        "تجاهل Data Types والDuplicates كجزء من Data Integrity."
                       ],
                       "tryIt": {
                         "promptAr": "ما أول خطوة قبل بناء العلاقات حسب المصدر؟",
@@ -9733,27 +9735,27 @@
                       "concepts": [
                         {
                           "term": "Diagram View",
-                          "explanationAr": "Diagram View هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Diagram View شاشة داخل Power Pivot تعرض الجداول والعلاقات بينها بصريًا وتسمح بإنشاء العلاقة بالسحب بين الحقول."
                         },
                         {
                           "term": "One-to-Many",
-                          "explanationAr": "One-to-Many هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "One-to-Many علاقة يكون فيها المفتاح فريدًا في جهة ويمكن أن يتكرر في الجهة الأخرى."
                         },
                         {
                           "term": "One-to-One",
-                          "explanationAr": "One-to-One هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "One-to-One نوع علاقة تكون فيه القيم المرتبطة فريدة على الجانبين."
                         },
                         {
                           "term": "Many-to-Many",
-                          "explanationAr": "Many-to-Many هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Many-to-Many نوع علاقة يذكره المصدر ضمن أنواع العلاقات التي تحتاج إدارة صحيحة داخل النموذج."
                         },
                         {
                           "term": "Circular Dependency",
-                          "explanationAr": "Circular Dependency هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Circular Dependency تعني وجود اعتماد دائري بين عناصر النموذج، وهي من المشاكل التي يحذر منها المصدر."
                         },
                         {
                           "term": "Ambiguous Path",
-                          "explanationAr": "Ambiguous Path هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ambiguous Path يعني وجود أكثر من مسار محتمل للعلاقة والتحليل بما قد يسبب نتائج غير واضحة."
                         }
                       ],
                       "miniExample": {
@@ -9775,9 +9777,9 @@
                         "textAr": "DAX وPivot يعتمدوا على العلاقات لتمرير سياق التحليل بين الجداول؛ علاقة سيئة قد تعطي نتيجة خاطئة أو بطيئة."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "ربط أعمدة لا تمثل Common Field متوافق بين الجدولين.",
+                        "تجاهل Circular Dependencies أو Ambiguous Paths داخل Diagram View.",
+                        "الخلط بين أنواع العلاقات المختلفة وكأنها تعطي نفس سلوك النموذج."
                       ],
                       "tryIt": {
                         "promptAr": "لو ProductID نص في Table ورقم في أخرى، ما نوع المشكلة المذكورة؟",
@@ -9865,23 +9867,23 @@
                       "concepts": [
                         {
                           "term": "DAX",
-                          "explanationAr": "DAX هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "DAX هي لغة الحساب المستخدمة داخل Power Pivot لبناء Measures وCalculated Columns ومنطق التحليل."
                         },
                         {
                           "term": "Measure",
-                          "explanationAr": "Measure هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Measure حساب داخل النموذج يُستخدم لإنتاج Aggregation أو Business Metric عند تحليل البيانات."
                         },
                         {
                           "term": "Calculated Column",
-                          "explanationAr": "Calculated Column هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Calculated Column عمود محسوب يضاف داخل Table باستخدام تعبير DAX وفق ما يعرضه المصدر."
                         },
                         {
                           "term": "Business Logic",
-                          "explanationAr": "Business Logic هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Business Logic هو قواعد الحساب أو التصنيف التي يتم التعبير عنها داخل DAX لتكوين Metric مخصص."
                         },
                         {
                           "term": "Time Intelligence",
-                          "explanationAr": "Time Intelligence هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Time Intelligence قدرة من قدرات DAX يذكرها المصدر لتحليل الزمن، لكن المحاضرة لا تقدم Syntax تفصيلي لها."
                         }
                       ],
                       "miniExample": {
@@ -9903,9 +9905,9 @@
                         "textAr": "بدل تكرار formula في خلايا worksheet، منطق القياس يعيش داخل model ويُستخدم في Pivot/report context."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "معاملة Measure وCalculated Column كأنهما نفس العنصر داخل الموديل.",
+                        "إضافة Time Intelligence Functions غير موجودة في المحاضرة رغم أن المصدر يذكر القدرة فقط.",
+                        "كتابة Business Logic خارج سياق DAX ثم نسبه للمصدر."
                       ],
                       "tryIt": {
                         "promptAr": "هل المصدر يقدم syntax لـTime Intelligence؟",
@@ -9993,23 +9995,23 @@
                       "concepts": [
                         {
                           "term": "SUMX",
-                          "explanationAr": "SUMX هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "SUMX دالة DAX تمر على Rows في Table وتحسب Expression لكل Row ثم تجمع النتائج في مثال المحاضرة."
                         },
                         {
                           "term": "RELATED",
-                          "explanationAr": "RELATED هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "RELATED دالة DAX تجلب قيمة من Table مرتبطة؛ المثال يستخدمها للوصول إلى dProduct[Price]."
                         },
                         {
                           "term": "fTransactions",
-                          "explanationAr": "fTransactions هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "fTransactions هو Fact Table المستخدم في مثال SUMX ويحتوي صفوف المعاملات التي يتم التكرار عليها."
                         },
                         {
                           "term": "dProduct",
-                          "explanationAr": "dProduct هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "dProduct هو Product Table المرتبط الذي تُجلب منه قيمة Price باستخدام RELATED."
                         },
                         {
                           "term": "Discount",
-                          "explanationAr": "Discount هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Discount يدخل داخل تعبير Total Sales لتقليل Price × Units وفق قيمة الخصم في كل Transaction."
                         }
                       ],
                       "miniExample": {
@@ -10031,9 +10033,9 @@
                         "textAr": "المثال يوضح كيف relationship يسمح للحساب باستخدام قيمة من dimension table داخل حساب transaction rows."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "استخدام RELATED بدون Relationship يسمح بالوصول إلى dProduct[Price].",
+                        "نسيان أن SUMX يكرر Expression على Rows في fTransactions قبل الجمع.",
+                        "إهمال Discount داخل صيغة Total Sales المعروضة في المثال."
                       ],
                       "tryIt": {
                         "promptAr": "ما وظيفة RELATED في صيغة المصدر؟",
@@ -10125,27 +10127,27 @@
                       "concepts": [
                         {
                           "term": "DISTINCTCOUNT",
-                          "explanationAr": "DISTINCTCOUNT هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "DISTINCTCOUNT دالة DAX تعد القيم المختلفة فقط؛ المثال المعروض يعد قيم SalesRep المميزة."
                         },
                         {
                           "term": "KPI",
-                          "explanationAr": "KPI هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "KPI مؤشر داخل النموذج يُستخدم لمتابعة Metric مقابل Target أو حالة أداء كما يوضح المصدر."
                         },
                         {
                           "term": "Hierarchy",
-                          "explanationAr": "Hierarchy هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Hierarchy ترتيب مستويات مرتبطة يساعد على الانتقال من مستوى أعلى إلى مستوى أكثر تفصيلًا."
                         },
                         {
                           "term": "Drill-Down",
-                          "explanationAr": "Drill-Down هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Drill-Down هو الانتقال داخل Hierarchy إلى تفاصيل أعمق أثناء الاستكشاف."
                         },
                         {
                           "term": "Slicer",
-                          "explanationAr": "Slicer هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Slicer أداة فلترة مرئية تتيح اختيار قيم تؤثر على Pivot أو Dashboard المرتبط."
                         },
                         {
                           "term": "Timeline",
-                          "explanationAr": "Timeline هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Timeline أداة فلترة تفاعلية مخصصة للحقول الزمنية داخل تقارير Pivot."
                         }
                       ],
                       "miniExample": {
@@ -10167,9 +10169,9 @@
                         "textAr": "Distinct count يجيب عدد القيم المختلفة، بينما KPI/Hierarchy تنظمان طريقة قراءة model والتعمق فيه."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "قراءة DISTINCTCOUNT كأنه COUNT عادي للقيم المكررة.",
+                        "الخلط بين Hierarchy للDrill-Down وبين Slicer/Timeline للفلترة.",
+                        "اعتبار Label مثل Count Sales دليلًا على معنى مختلف للصيغة بدل قراءة DAX الفعلي."
                       ],
                       "tryIt": {
                         "promptAr": "ماذا تعد DISTINCTCOUNT(fTransactions[SalesRep])؟",
@@ -10257,23 +10259,23 @@
                       "concepts": [
                         {
                           "term": "Integrated Data Model",
-                          "explanationAr": "Integrated Data Model هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Integrated Data Model يعني أن Tables وPivotTables وCharts تعتمد على نموذج بيانات مترابط واحد."
                         },
                         {
                           "term": "Pivot Chart",
-                          "explanationAr": "Pivot Chart هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Pivot Chart رسم مرتبط بتحليل Pivot ويستمد بياناته من الـData Model في هذا السياق."
                         },
                         {
                           "term": "Slicer",
-                          "explanationAr": "Slicer هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Slicer فلتر تفاعلي يغير العرض المرتبط مباشرة عند اختيار قيمة أو فئة."
                         },
                         {
                           "term": "Timeline",
-                          "explanationAr": "Timeline هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Timeline فلتر زمني تفاعلي يغير التقارير والرسومات المرتبطة بفترة زمنية محددة."
                         },
                         {
                           "term": "Drill-Down",
-                          "explanationAr": "Drill-Down هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Drill-Down يسمح بالانتقال من ملخص إلى مستوى أدق من التفاصيل داخل التقرير."
                         }
                       ],
                       "miniExample": {
@@ -10295,9 +10297,9 @@
                         "textAr": "الفكرة هي منع إعادة بناء التقرير يدويًا كل مرة تتغير البيانات، مع الحفاظ على نفس model-driven logic."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "إعادة بناء Dashboard يدويًا بعد كل Update بدل الاعتماد على العناصر المرتبطة بالموديل.",
+                        "اعتبار Slicer وTimeline مجرد تنسيق بصري بدل أدوات Filtering تفاعلية.",
+                        "تكرار Dashboard design fundamentals من Week 2 بدل التركيز على Model-driven connection."
                       ],
                       "tryIt": {
                         "promptAr": "ما الذي يجعل chart في هذا السياق يتحدث مع تغير data model؟",
@@ -10389,23 +10391,23 @@
                       "concepts": [
                         {
                           "term": "Power View",
-                          "explanationAr": "Power View هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Power View أداة Reporting داخل Excel تُنشئ Sheet مخصصة لبناء Visuals من Table أو Data Model."
                         },
                         {
                           "term": "COM Add-in",
-                          "explanationAr": "COM Add-in هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "COM Add-in هو مسار التفعيل المذكور لإظهار Power View عندما تكون الميزة متاحة في البيئة."
                         },
                         {
                           "term": "Customize Ribbon",
-                          "explanationAr": "Customize Ribbon هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Customize Ribbon يسمح بإضافة أمر Power View يدويًا إلى Ribbon داخل New Group."
                         },
                         {
                           "term": "Report Canvas",
-                          "explanationAr": "Report Canvas هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Report Canvas هي مساحة العمل في Power View التي توضع عليها الجداول والرسومات والعناصر البصرية."
                         },
                         {
                           "term": "Fields Pane",
-                          "explanationAr": "Fields Pane هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Fields Pane هي اللوحة التي تسحب منها Fields إلى الـCanvas لبناء التقرير."
                         }
                       ],
                       "miniExample": {
@@ -10427,9 +10429,9 @@
                         "textAr": "Power View يمثل طبقة visualization/reporting مرتبطة بالـData Model، لكن ظهوره وتوفره يعتمد على إصدار Excel وبيئته."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "افتراض ظهور زر Power View تلقائيًا في Ribbon لكل مستخدم.",
+                        "فتح Power View قبل تجهيز Table أو Data Model صالح للتقرير.",
+                        "تجاهل أن الميزة Environment/Version dependent كما توضح المحاضرة."
                       ],
                       "tryIt": {
                         "promptAr": "لو Power View button غير ظاهر، ما خطوتا المصدر؟",
@@ -10511,23 +10513,23 @@
                       "concepts": [
                         {
                           "term": "Table",
-                          "explanationAr": "Table هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Table في Power View يعرض Rows تفصيلية كشبكة بيانات وهو نقطة البداية الافتراضية للتقرير."
                         },
                         {
                           "term": "Matrix",
-                          "explanationAr": "Matrix هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Matrix يجمع البيانات ويعرض Totals/Subtotals بدون تكرار القيم مثل بنية PivotTable."
                         },
                         {
                           "term": "Cards",
-                          "explanationAr": "Cards هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Cards تحول كل Row إلى بطاقة منفصلة لعرض Snapshot مختصر لكيان واحد."
                         },
                         {
                           "term": "Granular Records",
-                          "explanationAr": "Granular Records هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Granular Records تعني السجلات التفصيلية صفًا بصف، وهي الحالة التي يناسبها Table."
                         },
                         {
                           "term": "Hierarchy",
-                          "explanationAr": "Hierarchy هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Hierarchy مجموعة مستويات مترابطة مثل Year → Quarter → Month ويمكن عرضها داخل Matrix."
                         }
                       ],
                       "miniExample": {
@@ -10549,9 +10551,9 @@
                         "textAr": "اختيار الشكل يعتمد على سؤال العرض: تفاصيل خام، hierarchy مجمعة، أو snapshot لكل entity."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "استخدام Table عند الحاجة إلى Totals/Subtotals مجمعة التي يناسبها Matrix.",
+                        "معاملة Cards كأنها Chart تجميعي بدل Snapshot لكل Row/Entity.",
+                        "نسيان أن Hierarchy تظهر فائدتها عند تجميع مستويات داخل Matrix."
                       ],
                       "tryIt": {
                         "promptAr": "أي visual أنسب لYear > Quarter > Month مع totals؟",
@@ -10644,27 +10646,27 @@
                       "concepts": [
                         {
                           "term": "Play Axis",
-                          "explanationAr": "Play Axis هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Play Axis محور زمني يحرك نقاط Scatter/Bubble عبر الزمن لإظهار تغيرها خطوة بعد خطوة."
                         },
                         {
                           "term": "Scatter/Bubble",
-                          "explanationAr": "Scatter/Bubble هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Scatter/Bubble رسم يضع متغيرات رقمية على المحاور ويمكن أن يستخدم Bubble Size لتمثيل متغير إضافي."
                         },
                         {
                           "term": "Bing Maps",
-                          "explanationAr": "Bing Maps هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Bing Maps هي خدمة الخرائط التي يعتمد عليها Power View لعرض البيانات الجغرافية في المحاضرة."
                         },
                         {
                           "term": "Multiples",
-                          "explanationAr": "Multiples هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Multiples مجموعة Charts صغيرة متشابهة تُعرض جنبًا إلى جنب لمقارنة فئات مختلفة."
                         },
                         {
                           "term": "Trellis",
-                          "explanationAr": "Trellis هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Trellis اسم آخر لفكرة Small Multiples داخل Power View كما يعرضها المصدر."
                         },
                         {
                           "term": "Drill-Down",
-                          "explanationAr": "Drill-Down هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Drill-Down انتقال تفاعلي إلى مستوى أكثر تفصيلًا داخل Visual يدعم Hierarchy."
                         }
                       ],
                       "miniExample": {
@@ -10686,9 +10688,9 @@
                         "textAr": "الجديد هنا ليس أساس chart types، بل interactivity وطريقة تقسيم/تحريك نفس التحليل داخل Power View."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "إعادة تدريس Bar/Column/Line/Pie fundamentals بدل التركيز على خصائص Power View التفاعلية.",
+                        "الخلط بين Play Axis الذي يحرك البيانات عبر الزمن وTrellis الذي يقسمها إلى Small Multiples.",
+                        "افتراض عمل Maps بدون خدمات/بيئة تدعم Bing Maps."
                       ],
                       "tryIt": {
                         "promptAr": "عايز تقارن trend منفصل لكل Country بنفس الشكل؛ أي feature في المصدر؟",
@@ -10778,27 +10780,27 @@
                       "concepts": [
                         {
                           "term": "Effect Size",
-                          "explanationAr": "Effect Size هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Effect Size هو النقطة الرئيسية التي تمثل نتيجة كل Study على المحور الأفقي في Forest Plot."
                         },
                         {
                           "term": "Confidence Interval",
-                          "explanationAr": "Confidence Interval هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Confidence Interval هو النطاق المحيط بالـEffect Size وتُحوّل حدوده إلى فروق لاستخدامها كـError Bars."
                         },
                         {
                           "term": "Position",
-                          "explanationAr": "Position هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Position عمود أرقام يحدد الموضع الرأسي لكل Study عند إضافة Scatter Series."
                         },
                         {
                           "term": "Scatter Series",
-                          "explanationAr": "Scatter Series هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Scatter Series هي السلسلة التي تحمل نقاط Effect Size فوق الـBase Chart بعد إخفاء الـBars الأصلية."
                         },
                         {
                           "term": "Custom Error Bars",
-                          "explanationAr": "Custom Error Bars هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Custom Error Bars تستخدم Graph Upper CI وGraph Lower CI لرسم امتداد الثقة أفقيًا حول كل نقطة."
                         },
                         {
                           "term": "Null Line",
-                          "explanationAr": "Null Line هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Null Line خط مرجعي رأسي يضعه المصدر عند X=1 للOdds Ratio أو X=0 للMean Difference."
                         }
                       ],
                       "miniExample": {
@@ -10820,9 +10822,9 @@
                         "textAr": "الرسم يحتاج تجهيز بيانات ودمج chart types؛ مجرد اختيار chart جاهز لا يكفي."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "إدخال CI Limits مباشرة كError Amount بدل حساب فرق Upper/Lower عن Effect Size.",
+                        "حذف Scatter Series بدل إخفاء Bars الأصلية في Base Chart.",
+                        "وضع Null Line عند قيمة واحدة لكل Metrics؛ المصدر يفرق بين X=1 للOdds Ratio وX=0 للMean Difference."
                       ],
                       "tryIt": {
                         "promptAr": "في Odds Ratio Forest Plot، أين يضع المصدر Null Line؟",
@@ -10932,27 +10934,27 @@
                       "concepts": [
                         {
                           "term": "Mean",
-                          "explanationAr": "Mean هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Mean هو متوسط القياسين Method A وMethod B لكل صف ويستخدم كقيمة X في الرسم."
                         },
                         {
                           "term": "Difference",
-                          "explanationAr": "Difference هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Difference هو Method A − Method B لكل زوج قياسات ويستخدم كقيمة Y."
                         },
                         {
                           "term": "Bias",
-                          "explanationAr": "Bias هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Bias هو Mean Difference لجميع الفروق ويظهر كخط مرجعي في منتصف الرسم."
                         },
                         {
                           "term": "ULoA",
-                          "explanationAr": "ULoA هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "ULoA هو Upper Limit of Agreement ويحسب في المصدر كـBias + 1.96 × STDEV.S(Differences)."
                         },
                         {
                           "term": "LLoA",
-                          "explanationAr": "LLoA هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "LLoA هو Lower Limit of Agreement ويحسب كـBias − 1.96 × STDEV.S(Differences)."
                         },
                         {
                           "term": "Scatter Plot",
-                          "explanationAr": "Scatter Plot هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Scatter Plot يرسم Mean مقابل Difference ثم تضاف إليه خطوط Bias وLimits of Agreement."
                         }
                       ],
                       "miniExample": {
@@ -10974,9 +10976,9 @@
                         "textAr": "الرسم يختبر نمط الاختلاف بين طريقتي قياس عبر مستوى القياس بدل الاكتفاء بcorrelation."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "رسم Method A مقابل Method B بدل Mean مقابل Difference.",
+                        "حساب Limits of Agreement بدون Mean Difference أو STDEV.S كما هو موضح.",
+                        "إضافة Reference Lines كنص فقط بدل Helper Series تمتد عبر Min/Max للMean."
                       ],
                       "tryIt": {
                         "promptAr": "لو Mean Difference بعيد عن zero، ماذا يقول المصدر؟",
@@ -11082,27 +11084,27 @@
                       "concepts": [
                         {
                           "term": "Event Time",
-                          "explanationAr": "Event Time هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Event Time هو الزمن الذي يحدث عنده Event ويستخدم لبناء صفوف حساب Survival."
                         },
                         {
                           "term": "Events d_i",
-                          "explanationAr": "Events d_i هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Events d_i هو عدد الأحداث التي تقع عند Time محدد في جدول Survival."
                         },
                         {
                           "term": "At Risk n_i",
-                          "explanationAr": "At Risk n_i هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "At Risk n_i هو عدد الحالات التي ما زالت معرضة للحدث قبل الزمن الحالي."
                         },
                         {
                           "term": "Interval Probability",
-                          "explanationAr": "Interval Probability هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Interval Probability تحسب في المصدر كـ1 − (d_i / n_i) لكل Event Time."
                         },
                         {
                           "term": "Cumulative Survival",
-                          "explanationAr": "Cumulative Survival هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Cumulative Survival يبدأ من S(0)=1 ثم يتراكم بضرب الاحتمال الحالي في القيمة السابقة."
                         },
                         {
                           "term": "Step Plot",
-                          "explanationAr": "Step Plot هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Step Plot شكل الرسم المتدرج الناتج عن تكرار Time Values وإزاحة Survival Values لعمل Vertical Drops."
                         }
                       ],
                       "miniExample": {
@@ -11124,9 +11126,9 @@
                         "textAr": "الخط المستقيم القطري بين نقاط البقاء لا يمثل step behavior المطلوب في المصدر؛ لذلك data reshaping جزء من بناء الرسم."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "بدء Cumulative Survival بقيمة غير S(0)=1.",
+                        "رسم Scatter عادي بخطوط مائلة بدون Duplicate/Offset points اللازمة للStep shape.",
+                        "تحويل Tests إحصائية ظاهرة في Screenshot إلى درس رغم عدم شرحها نصيًا."
                       ],
                       "tryIt": {
                         "promptAr": "لماذا يكرر المصدر time values؟",
@@ -11213,19 +11215,19 @@
                       "concepts": [
                         {
                           "term": "Scatter Plot",
-                          "explanationAr": "Scatter Plot هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Scatter Plot يرسم عمودين رقميين كأزواج X وY لإظهار شكل العلاقة بينهما."
                         },
                         {
                           "term": "Trendline",
-                          "explanationAr": "Trendline هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Trendline خط يضاف إلى نقاط Scatter لإظهار اتجاه العلاقة بصريًا."
                         },
                         {
                           "term": "Equation",
-                          "explanationAr": "Equation هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Equation هي معادلة الـTrendline التي يمكن إظهارها مباشرة على Chart."
                         },
                         {
                           "term": "R-squared",
-                          "explanationAr": "R-squared هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "R-squared قيمة يمكن عرضها مع Trendline على الرسم وفق خطوات المحاضرة."
                         }
                       ],
                       "miniExample": {
@@ -11247,9 +11249,9 @@
                         "textAr": "هذا درس Excel implementation فقط؛ نظرية correlation نفسها تم تدريسها كStatistics prerequisite ولا نكررها."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "استخدام بيانات غير رقمية في Scatter المخصص لعمودين رقميين.",
+                        "إعادة شرح Correlation Theory بدل خطوات Excel التطبيقية.",
+                        "إظهار Equation أو R² بدون إضافة Trendline أولًا."
                       ],
                       "tryIt": {
                         "promptAr": "ما الإضافة التي يرسم بها المصدر line of best fit؟",
@@ -11337,23 +11339,23 @@
                       "concepts": [
                         {
                           "term": "Analysis ToolPak",
-                          "explanationAr": "Analysis ToolPak هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Analysis ToolPak إضافة Excel توفر Data Analysis ومنها أداة Correlation المستخدمة في هذا الدرس."
                         },
                         {
                           "term": "Correlation Matrix",
-                          "explanationAr": "Correlation Matrix هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Correlation Matrix جدول يعرض معامل الارتباط لكل زوج من المتغيرات الرقمية."
                         },
                         {
                           "term": "Coefficient",
-                          "explanationAr": "Coefficient هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Coefficient هو الرقم الناتج لكل زوج Variables داخل Correlation Matrix."
                         },
                         {
                           "term": "Color Scale",
-                          "explanationAr": "Color Scale هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Color Scale قاعدة Conditional Formatting تحول اختلاف القيم إلى تدرج لوني."
                         },
                         {
                           "term": "Heatmap",
-                          "explanationAr": "Heatmap هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Heatmap هي Correlation Matrix بعد تطبيق Color Scale لتسهيل رؤية القيم العالية والمنخفضة."
                         }
                       ],
                       "miniExample": {
@@ -11375,9 +11377,9 @@
                         "textAr": "Matrix تجمع العلاقات pairwise في جدول واحد، والColor Scale تجعل قراءة pattern أسرع بدون تغيير القيم نفسها."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "تشغيل Correlation بدون تفعيل Analysis ToolPak عندما تكون الأداة غير ظاهرة.",
+                        "تطبيق Color Scale قبل إنتاج Matrix coefficients نفسها.",
+                        "قراءة Heatmap كنوع Chart مستقل بدل Matrix عليها Conditional Formatting."
                       ],
                       "tryIt": {
                         "promptAr": "هل الـheatmap تحسب correlation؟",
@@ -11465,23 +11467,23 @@
                       "concepts": [
                         {
                           "term": "Ogive",
-                          "explanationAr": "Ogive هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ogive رسم Cumulative Frequency يُبنى في المصدر يدويًا باستخدام Scatter with Straight Lines and Markers."
                         },
                         {
                           "term": "Class Limit",
-                          "explanationAr": "Class Limit هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Class Limit هو حد الفئة المستخدم على X-axis، ويعرض المصدر Upper Boundaries عند تجهيز البيانات."
                         },
                         {
                           "term": "Cumulative Frequency",
-                          "explanationAr": "Cumulative Frequency هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Cumulative Frequency هو المجموع المتزايد للتكرارات حتى الفئة الحالية ويستخدم كقيمة Y."
                         },
                         {
                           "term": "Zero Start",
-                          "explanationAr": "Zero Start هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Zero Start صف بداية بتكرار تراكمي 0 يضاف قبل أول فئة لتبدأ المنحنى من الصفر."
                         },
                         {
                           "term": "Scatter with Straight Lines",
-                          "explanationAr": "Scatter with Straight Lines هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Scatter with Straight Lines هو Chart Type المحدد في الـworkflow التفصيلي لرسم الـOgive."
                         }
                       ],
                       "miniExample": {
@@ -11503,9 +11505,9 @@
                         "textAr": "الرسم يعتمد على cumulative data preparation أكثر من اختيار chart جاهز."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "استخدام Frequency العادية بدل Cumulative Frequency على Y-axis.",
+                        "نسيان Zero Start قبل أول Class Limit.",
+                        "إخفاء اختلاف المصدر بين Scatter workflow التفصيلي وLine Chart المذكور لاحقًا بدل توثيقه."
                       ],
                       "tryIt": {
                         "promptAr": "ما قيمة cumulative frequency في نقطة البداية الإضافية؟",
@@ -11599,27 +11601,27 @@
                       "concepts": [
                         {
                           "term": "Filled Map",
-                          "explanationAr": "Filled Map هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Filled Map رسم جغرافي يلوّن مناطق مثل Countries أو States أو Counties حسب قيمة رقمية."
                         },
                         {
                           "term": "Geography Data Type",
-                          "explanationAr": "Geography Data Type هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Geography Data Type يحول أسماء المواقع إلى نوع جغرافي ليساعد Excel على التعرف عليها."
                         },
                         {
                           "term": "Map Area",
-                          "explanationAr": "Map Area هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Map Area يحدد نطاق العرض الجغرافي الذي يظهر داخل الخريطة."
                         },
                         {
                           "term": "Map Projection",
-                          "explanationAr": "Map Projection هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Map Projection يغير طريقة إسقاط شكل العالم مثل الأنماط التي يذكرها المصدر."
                         },
                         {
                           "term": "Bing Maps",
-                          "explanationAr": "Bing Maps هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Bing Maps هي الخدمة التي يذكر المصدر أن Map Chart يعتمد عليها عند الإنشاء أو التحديث."
                         },
                         {
                           "term": "3D Map",
-                          "explanationAr": "3D Map هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "3D Map ميزة مختلفة يقترحها المصدر عند الحاجة إلى بيانات ضخمة أو عرض التغير عبر الزمن."
                         }
                       ],
                       "miniExample": {
@@ -11641,9 +11643,9 @@
                         "textAr": "الجغرافيا تحتاج أسماء locations معترف بها وخدمة online؛ ليست بديلًا عن street-address أو lat/long mapping."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "إدخال Street Addresses أو Lat/Long رغم أن Standard Filled Map في المصدر مخصص لمناطق أعلى مستوى.",
+                        "نسيان تحويل Locations إلى Geography Data Type قبل Insert Map في خطوات المحاضرة.",
+                        "افتراض أن إنشاء/تحديث الخريطة لا يحتاج Online/Bing service."
                       ],
                       "tryIt": {
                         "promptAr": "هل Standard Filled Map في المصدر مناسب لstreet addresses؟",
@@ -11729,27 +11731,27 @@
                       "concepts": [
                         {
                           "term": "3-D Surface",
-                          "explanationAr": "3-D Surface هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "3-D Surface رسم يحتاج Matrix ويعرض قيم Z على سطح ثلاثي الأبعاد بحسب X وY."
                         },
                         {
                           "term": "X Axis",
-                          "explanationAr": "X Axis هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "X Axis في Surface يأتي من القيم الموضوعة في First Row من الـMatrix."
                         },
                         {
                           "term": "Y Axis",
-                          "explanationAr": "Y Axis هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Y Axis في Surface يأتي من القيم الموضوعة في First Column من الـMatrix."
                         },
                         {
                           "term": "Z Values",
-                          "explanationAr": "Z Values هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Z Values هي القيم الموجودة عند تقاطعات الـMatrix وتحدد ارتفاع/شكل الـSurface."
                         },
                         {
                           "term": "Bubble Chart",
-                          "explanationAr": "Bubble Chart هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Bubble Chart يعرض ثلاثة Variables على 2D Axes باستخدام X وY وحجم الفقاعة."
                         },
                         {
                           "term": "Bubble Size",
-                          "explanationAr": "Bubble Size هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Bubble Size يمثل المتغير الثالث Z بدون الحاجة إلى منظور 3D."
                         }
                       ],
                       "miniExample": {
@@ -11771,9 +11773,9 @@
                         "textAr": "شكل البيانات يحدد الأداة: matrix surface مقابل point-based X/Y/Z represented by bubble size."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "بناء Surface من ثلاثة أعمدة X/Y/Z بدل Matrix كما تحدد المحاضرة.",
+                        "اعتبار Bubble Size محورًا ثالثًا حقيقيًا بدل Encoding للمتغير الثالث.",
+                        "الخلط بين 3-D Surface perspective وBubble Chart ثنائي المحاور."
                       ],
                       "tryIt": {
                         "promptAr": "بياناتك ثلاثة أعمدة X,Y,Size؛ أي خيار المصدر المباشر؟",
@@ -11865,23 +11867,23 @@
                       "concepts": [
                         {
                           "term": "Combo Chart",
-                          "explanationAr": "Combo Chart هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Combo Chart هو الرسم الأول الذي يجمع سلسلتين ويستخدم Secondary Axis لإظهار Scale إضافي."
                         },
                         {
                           "term": "Secondary Axis",
-                          "explanationAr": "Secondary Axis هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Secondary Axis محور رأسي إضافي يستخدم عندما تختلف Scale إحدى السلاسل عن الأخرى."
                         },
                         {
                           "term": "Transparent Overlay",
-                          "explanationAr": "Transparent Overlay هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Transparent Overlay هو Chart مكرر بخلفية No Fill يوضع فوق الرسم الأصلي لإظهار Scale ثالثة."
                         },
                         {
                           "term": "Triple Y-Axis",
-                          "explanationAr": "Triple Y-Axis هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Triple Y-Axis هو هدف الـworkaround؛ المصدر يوضح أنه لا يوجد له Native Button مباشر في Excel."
                         },
                         {
                           "term": "Stem-and-Leaf",
-                          "explanationAr": "Stem-and-Leaf هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Stem-and-Leaf طريقة عرض Distribution يذكرها المصدر كSupporting Context باستخدام Sorting وText Formatting."
                         }
                       ],
                       "miniExample": {
@@ -11903,9 +11905,9 @@
                         "textAr": "هذا الدرس يفرق بين native feature وبين workaround، ويمنع تحويل mention قصير لStem-and-Leaf إلى workflow مخترع."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "البحث عن Native Triple Y-Axis button رغم أن المصدر يقدمه كWorkaround.",
+                        "نسيان جعل النسخة الثانية No Fill قبل Overlay فتغطي الرسم الأصلي.",
+                        "تحويل Stem-and-Leaf supporting mention إلى خطوات غير موجودة في المحاضرة."
                       ],
                       "tryIt": {
                         "promptAr": "هل Triple Y-Axis native chart في المصدر؟",
@@ -11999,23 +12001,23 @@
                       "concepts": [
                         {
                           "term": "Macro",
-                          "explanationAr": "Macro هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Macro تسلسل خطوات Excel يمكن تسجيله ثم تشغيله مرة أخرى لأتمتة عمل متكرر."
                         },
                         {
                           "term": "Record Macro",
-                          "explanationAr": "Record Macro هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Record Macro يبدأ تسجيل النقرات والإدخالات والتنسيقات التي يريد المستخدم إعادة تنفيذها."
                         },
                         {
                           "term": "Stop Recording",
-                          "explanationAr": "Stop Recording هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Stop Recording ينهي التسجيل ويوقف إضافة خطوات جديدة إلى الـMacro."
                         },
                         {
                           "term": "VBA",
-                          "explanationAr": "VBA هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "VBA هو الكود الذي يولده Excel خلف الـMacro المسجل ويمكن مراجعته أو تعديله لاحقًا."
                         },
                         {
                           "term": "Shortcut",
-                          "explanationAr": "Shortcut هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Shortcut مفتاح اختصار يمكن تعيينه لتشغيل Macro بسرعة عند الحاجة."
                         }
                       ],
                       "miniExample": {
@@ -12037,9 +12039,9 @@
                         "textAr": "التسجيل يحقق consistency ويكشف VBA الناتج، لكن لا يجعل كل automation آمنة أو مناسبة تلقائيًا."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "تسجيل خطوات إضافية غير مطلوبة ثم توقع Macro نظيف يعيد العمل المطلوب فقط.",
+                        "اختيار Relative/Absolute Reference بدون فهم تأثيره على موضع التنفيذ.",
+                        "نسيان Stop Recording ثم الاستمرار في إضافة Actions غير مقصودة."
                       ],
                       "tryIt": {
                         "promptAr": "ما الذي يحدث عند Stop Recording حسب المصدر؟",
@@ -12126,23 +12128,23 @@
                       "concepts": [
                         {
                           "term": "Trust Center",
-                          "explanationAr": "Trust Center هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Trust Center مكان إعداد مستويات Macro Security وTrusted Locations داخل Excel."
                         },
                         {
                           "term": "Trusted Document",
-                          "explanationAr": "Trusted Document هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Trusted Document ملف تم اعتباره موثوقًا فيسمح بتشغيل الـMacros فيه وفق إعدادات الأمان."
                         },
                         {
                           "term": "Trusted Location",
-                          "explanationAr": "Trusted Location هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Trusted Location مجلد موثوق يمكن أن تعمل الملفات الموجودة داخله بدون نفس رسائل التحذير."
                         },
                         {
                           "term": "Macro Security",
-                          "explanationAr": "Macro Security هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Macro Security مجموعة الإعدادات التي تحدد متى يتم منع أو السماح بتشغيل Macros."
                         },
                         {
                           "term": "Enable All Macros",
-                          "explanationAr": "Enable All Macros هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Enable All Macros أقل مستوى أمان في الخيارات المعروضة لأنه يسمح لكل الـMacros بالعمل دون تحذير."
                         }
                       ],
                       "miniExample": {
@@ -12164,9 +12166,9 @@
                         "textAr": "الأتمتة لا تبرر تشغيل أي macro بلا ثقة؛ security configuration جزء من المهارة نفسها."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "اختيار Enable All Macros كإعداد افتراضي رغم أنه أقل مستوى أمان في المصدر.",
+                        "اعتبار Trusted Location آمنة تلقائيًا بدون إدارة المجلد بعناية.",
+                        "تجاهل Trust Center عند الحاجة لموازنة Security مع Automation."
                       ],
                       "tryIt": {
                         "promptAr": "أي setting يصفه المصدر بأنه lowest security؟",
@@ -12247,19 +12249,19 @@
                       "concepts": [
                         {
                           "term": "Personal Macro Workbook",
-                          "explanationAr": "Personal Macro Workbook هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Personal Macro Workbook ملف مخفي يخزن Macros لتكون متاحة عند العمل في Workbooks مختلفة."
                         },
                         {
                           "term": "Developer Tab",
-                          "explanationAr": "Developer Tab هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Developer Tab يوفر أمر Macros لاختيار Procedure وتشغيلها يدويًا."
                         },
                         {
                           "term": "Keyboard Shortcut",
-                          "explanationAr": "Keyboard Shortcut هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Keyboard Shortcut طريقة تشغيل سريعة لMacro تم تعيين اختصار له."
                         },
                         {
                           "term": "Quick Access Toolbar",
-                          "explanationAr": "Quick Access Toolbar هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Quick Access Toolbar يمكن إضافة Macro إليه ليصبح التشغيل بنقرة واحدة."
                         }
                       ],
                       "miniExample": {
@@ -12281,9 +12283,9 @@
                         "textAr": "مكان التخزين وطريقة التشغيل يحددان مدى إعادة الاستخدام وسرعة الوصول للأتمتة."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "تخزين Macro في Workbook عادي ثم توقع توفره تلقائيًا في كل الملفات.",
+                        "الخلط بين Developer → Macros كتشغيل يدوي وبين Shortcut/QAT كطرق أسرع للتشغيل.",
+                        "إنشاء نفس Macro مرة أخرى بدل إعادة استخدام Personal Macro Workbook عند الحاجة العامة."
                       ],
                       "tryIt": {
                         "promptAr": "لو macro تستخدمها في ملفات كثيرة، ما storage المذكور؟",
@@ -12372,27 +12374,27 @@
                       "concepts": [
                         {
                           "term": "Workbook Event",
-                          "explanationAr": "Workbook Event هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Workbook Event Trigger يشغّل Macro تلقائيًا عند حدث على مستوى Workbook مثل فتح الملف."
                         },
                         {
                           "term": "Sheet Change",
-                          "explanationAr": "Sheet Change هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Sheet Change حدث يمكن ربطه بـVBA ليعمل عند تغيير قيمة داخل Worksheet."
                         },
                         {
                           "term": "Selection Event",
-                          "explanationAr": "Selection Event هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Selection Event يشغّل الإجراء عند تغيير الخلية المحددة وفق ما يذكره المصدر."
                         },
                         {
                           "term": "Absolute Reference",
-                          "explanationAr": "Absolute Reference هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Absolute Reference يجعل الـMacro يستهدف نفس Cell أو Range الذي تم تسجيله."
                         },
                         {
                           "term": "Relative Reference",
-                          "explanationAr": "Relative Reference هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Relative Reference يجعل خطوات الـMacro تتحرك نسبةً إلى Active Cell عند التشغيل."
                         },
                         {
                           "term": "Button/Shape",
-                          "explanationAr": "Button/Shape هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Button/Shape عنصر في Worksheet يمكن ربطه بـMacro ليعمل كزر تشغيل مباشر."
                         }
                       ],
                       "miniExample": {
@@ -12414,9 +12416,9 @@
                         "textAr": "Event + reference mode يحدد أين ومتى automation تنفذ؛ الخطأ في السياق قد يطبق action على مكان غير مقصود."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "استخدام Relative Reference ثم توقع أن يستهدف نفس Cell ثابتة كل مرة.",
+                        "وضع Macro مكلف داخل Event بدون مراعاة تحذير المصدر من Loops/volatile operations.",
+                        "ربط Button/Shape بـMacro مختلف عن الـAction المتوقع للمستخدم."
                       ],
                       "tryIt": {
                         "promptAr": "Macro لازم تشتغل على نفس cell دائمًا؛ أي reference mode يناسب وصف المصدر؟",
@@ -12512,27 +12514,27 @@
                       "concepts": [
                         {
                           "term": "Breakpoint",
-                          "explanationAr": "Breakpoint هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Breakpoint نقطة إيقاف أثناء Debugging تسمح بتعليق التنفيذ وفحص سلوك الـMacro."
                         },
                         {
                           "term": "Step-Through",
-                          "explanationAr": "Step-Through هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Step-Through تشغيل الكود خطوة بخطوة لتحديد أين يحدث الخطأ أو السلوك غير المتوقع."
                         },
                         {
                           "term": "Watch",
-                          "explanationAr": "Watch هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Watch أداة مراقبة لقيمة أثناء Debugging كما يذكر المصدر ضمن أساليب الاختبار."
                         },
                         {
                           "term": "Loop/Condition/Variable",
-                          "explanationAr": "Loop/Condition/Variable هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Loop/Condition/Variable عناصر برمجية يذكرها المصدر لجعل الـMacro أكثر مرونة وتنظيمًا."
                         },
                         {
                           "term": "UserForm",
-                          "explanationAr": "UserForm هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "UserForm واجهة رسومية في VBA تجمع إدخال المستخدم بدل الاعتماد على الخلايا فقط."
                         },
                         {
                           "term": "Command Button",
-                          "explanationAr": "Command Button هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Command Button Control داخل UserForm يمكن للمستخدم الضغط عليه لتنفيذ Action مرتبط."
                         }
                       ],
                       "miniExample": {
@@ -12554,9 +12556,9 @@
                         "textAr": "التسجيل نقطة بداية؛ الصيانة والdebugging تجعل automation قابلة للفهم، بينما UserForm تضيف واجهة input فوق macro."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "تعديل Macro كبير بدون Breakpoints أو Step-Through ثم صعوبة تحديد الخطأ.",
+                        "اعتبار UserForm مجرد تنسيق بصري بدل واجهة Input تحتوي Controls.",
+                        "اختراع Dataset لAssessment Advanced Filter رغم غياب Companion Workbook."
                       ],
                       "tryIt": {
                         "promptAr": "أي debugging method يسمح بتنفيذ الكود خطوة خطوة حسب المصدر؟",
@@ -12644,23 +12646,23 @@
                       "concepts": [
                         {
                           "term": "Data Preparation AI",
-                          "explanationAr": "Data Preparation AI هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Data Preparation AI فئة أدوات تساعد في Cleaning وTransformation وError Detection قبل بدء التحليل."
                         },
                         {
                           "term": "Analysis AI",
-                          "explanationAr": "Analysis AI هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Analysis AI فئة تركز على Predictive Analytics وTrend Identification وStatistical Modeling."
                         },
                         {
                           "term": "Visualization AI",
-                          "explanationAr": "Visualization AI هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Visualization AI فئة أدوات تساعد في إنشاء Charts وDashboards وInteractive Graphics."
                         },
                         {
                           "term": "Automation AI",
-                          "explanationAr": "Automation AI هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Automation AI فئة Assistants/Bots هدفها تقليل الخطوات المتكررة وإدارة Workflows وتقارير."
                         },
                         {
                           "term": "AI Tool Landscape",
-                          "explanationAr": "AI Tool Landscape هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "AI Tool Landscape هو تجميع الأدوات المذكورة في Lecture 37 حسب الاستخدام؛ القائمة Snapshot وليست ترتيبًا ثابتًا."
                         }
                       ],
                       "miniExample": {
@@ -12682,9 +12684,9 @@
                         "textAr": "القيمة التعليمية هنا هي فهم أنواع المساعدة، لا حفظ ترتيب تجاري أو اعتبار وصف الأدوات حقيقة أبدية."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "حفظ ترتيب أو وصف أدوات AI كحقيقة ثابتة رغم أنها Source Snapshot قابلة للتغير.",
+                        "اختيار Tool قبل تحديد هل الحاجة Data Preparation أو Analysis أو Visualization أو Automation.",
+                        "تحويل Vendor claims أو Pricing إلى أسئلة تقييم ثابتة."
                       ],
                       "tryIt": {
                         "promptAr": "احتياجك تنظيف وتحويل واكتشاف errors؛ تحت أي category يضعه المصدر؟",
@@ -12773,27 +12775,27 @@
                       "concepts": [
                         {
                           "term": "Sentiment Analysis",
-                          "explanationAr": "Sentiment Analysis هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Sentiment Analysis يصنف Tone في التعليقات للمساعدة في رؤية اتجاهات المشاعر داخل النصوص."
                         },
                         {
                           "term": "Keyword Extraction",
-                          "explanationAr": "Keyword Extraction هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Keyword Extraction يستخرج الكلمات أو الموضوعات المتكررة من نصوص داخل Worksheet."
                         },
                         {
                           "term": "Topic Modeling",
-                          "explanationAr": "Topic Modeling هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Topic Modeling يجمع Feedback المتشابه في Topics لتنظيم النص غير المهيكل."
                         },
                         {
                           "term": "Pattern Detection",
-                          "explanationAr": "Pattern Detection هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Pattern Detection يبحث عن علاقات أو Trends متكررة داخل البيانات وفق وصف الـAI Plugins في المصدر."
                         },
                         {
                           "term": "Anomaly Identification",
-                          "explanationAr": "Anomaly Identification هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Anomaly Identification يلفت الانتباه إلى Outliers أو قيم غير معتادة تحتاج مراجعة."
                         },
                         {
                           "term": "ML Forecasting",
-                          "explanationAr": "ML Forecasting هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "ML Forecasting يستخدم نماذج Machine Learning للتنبؤ والسيناريوهات كقدرة عامة مذكورة في المصدر دون تفاصيل Model."
                         }
                       ],
                       "miniExample": {
@@ -12815,9 +12817,9 @@
                         "textAr": "الفكرة هي تحويل unstructured text أو patterns كبيرة إلى إشارات تحليلية؛ المصدر لا يقدم algorithm أو model code لذلك لا نخترع implementation."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "اعتبار Sentiment Analysis وKeyword Extraction وTopic Modeling نفس المهمة النصية.",
+                        "اختراع ML Model أو Formula للForecasting بينما المصدر يذكر Capability فقط.",
+                        "معاملة Anomaly Identification كإصلاح تلقائي بدل Flag لقيم تحتاج الانتباه."
                       ],
                       "tryIt": {
                         "promptAr": "تجميع feedback إلى themes مترابطة يطابق أي use case؟",
@@ -12909,27 +12911,27 @@
                       "concepts": [
                         {
                           "term": "Dynamic Arrays",
-                          "explanationAr": "Dynamic Arrays هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Dynamic Arrays صيغ تنتج Results تمتد إلى عدة Cells تلقائيًا؛ Lecture 37 يذكرها كجزء من Advanced Formula Analysis."
                         },
                         {
                           "term": "INDEX-MATCH",
-                          "explanationAr": "INDEX-MATCH هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "INDEX-MATCH تركيب Lookup يذكره المصدر مع Advanced Formulas لاسترجاع قيم عبر Ranges."
                         },
                         {
                           "term": "SUMPRODUCT",
-                          "explanationAr": "SUMPRODUCT هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "SUMPRODUCT دالة يذكرها المصدر للحسابات المجمعة مثل Weighted Totals ضمن Advanced Analysis."
                         },
                         {
                           "term": "DAX",
-                          "explanationAr": "DAX هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "DAX لغة حساب مرتبطة بـPower Pivot وتظهر هنا كامتداد لنمذجة وتحليل متعدد الأبعاد."
                         },
                         {
                           "term": "Point-Biserial Correlation",
-                          "explanationAr": "Point-Biserial Correlation هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Point-Biserial Correlation تقنية يذكرها المصدر لربط Binary Variable بContinuous Variable دون تقديم Worked Example كامل."
                         },
                         {
                           "term": "Covariance Matrix",
-                          "explanationAr": "Covariance Matrix هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Covariance Matrix جدول Pairwise Covariances بين Variables يذكر المصدر بناءه باستخدام COVARIANCE.P/S."
                         }
                       ],
                       "miniExample": {
@@ -12951,9 +12953,9 @@
                         "textAr": "الهدف هو رؤية كيف تتجمع modeling/formulas/statistics في advanced analysis، مع منع تكرار Week 1/2 أو اختراع formulas غير معروضة."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "إعادة تدريس Dynamic Arrays وINDEX-MATCH من الصفر رغم أنها Bridge لمحتوى سابق.",
+                        "تحويل Point-Biserial أو Covariance Matrix إلى درس كامل بدون Worked Example كافٍ في المصدر.",
+                        "خلط DAX الجديد في Week 3 مع Statistical techniques المذكورة كSupporting Summary."
                       ],
                       "tryIt": {
                         "promptAr": "هل نعيد شرح INDEX-MATCH من الصفر هنا؟",
@@ -13042,31 +13044,31 @@
                       "concepts": [
                         {
                           "term": "Ctrl+N",
-                          "explanationAr": "Ctrl+N هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+N ينشئ Workbook جديد حسب قائمة Shortcuts في المحاضرة."
                         },
                         {
                           "term": "Ctrl+O",
-                          "explanationAr": "Ctrl+O هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+O يفتح Workbook موجود حسب القائمة المصدرية."
                         },
                         {
                           "term": "Ctrl+S",
-                          "explanationAr": "Ctrl+S هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+S يحفظ Workbook أو Sheet الحالية."
                         },
                         {
                           "term": "Ctrl+Tab",
-                          "explanationAr": "Ctrl+Tab هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+Tab ينتقل إلى Workbook التالي، ومع Ctrl+Shift+Tab يعود للسابق حسب المصدر."
                         },
                         {
                           "term": "Alt+A",
-                          "explanationAr": "Alt+A هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Alt+A يفتح Data Tab في Ribbon حسب بيئة القائمة المعروضة."
                         },
                         {
                           "term": "Alt+W",
-                          "explanationAr": "Alt+W هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Alt+W يفتح View Tab في Ribbon حسب القائمة المعروضة."
                         },
                         {
                           "term": "Alt+M",
-                          "explanationAr": "Alt+M هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Alt+M يفتح Formulas Tab حسب اختصارات Lecture 38."
                         }
                       ],
                       "miniExample": {
@@ -13088,9 +13090,9 @@
                         "textAr": "بدل حفظ قائمة عشوائية، نجمع shortcuts حسب workflow: file lifecycle ثم ribbon/navigation."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "حفظ Shortcut بدون ربطه بالAction الذي ينفذه.",
+                        "افتراض أن Ribbon Alt shortcuts ثابتة بنفس الشكل في كل لغة/بيئة Excel.",
+                        "الخلط بين Ctrl+Tab للتنقل بين Workbooks وTab للتنقل بين Cells."
                       ],
                       "tryIt": {
                         "promptAr": "ما shortcut الحفظ في المصدر؟",
@@ -13178,27 +13180,27 @@
                       "concepts": [
                         {
                           "term": "F2",
-                          "explanationAr": "F2 هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "F2 يدخل وضع Edit للخلية النشطة حسب القائمة المصدرية."
                         },
                         {
                           "term": "Ctrl+1",
-                          "explanationAr": "Ctrl+1 هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+1 يفتح Format Cells لتنسيق الخلية."
                         },
                         {
                           "term": "Ctrl+C/V",
-                          "explanationAr": "Ctrl+C/V هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+C/V يمثل Copy ثم Paste للخلايا."
                         },
                         {
                           "term": "Ctrl+B/I/U",
-                          "explanationAr": "Ctrl+B/I/U هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+B/I/U يطبق أو يزيل Bold وItalic وUnderline وفق القائمة."
                         },
                         {
                           "term": "Ctrl+Shift+Arrow",
-                          "explanationAr": "Ctrl+Shift+Arrow هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+Shift+Arrow يوسع التحديد في اتجاه السهم إلى نطاق الخلايا التالي كما يصف المصدر."
                         },
                         {
                           "term": "Shift+Home/End",
-                          "explanationAr": "Shift+Home/End هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Shift+Home/End يستخدم مع التحديد داخل سياق التحرير كما ورد في قائمة Lecture 38."
                         }
                       ],
                       "miniExample": {
@@ -13220,9 +13222,9 @@
                         "textAr": "التنظيم حسب family يسهّل التذكر ويقلل الخلط بين editing داخل cell وبين selection عبر range."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "الخلط بين Ctrl+1 لFormat Cells وF2 لتحرير Active Cell.",
+                        "استخدام Selection shortcut في سياق مختلف ثم اعتباره خطأ في القائمة بدون مراعاة Context.",
+                        "تعامل Ctrl+B/I/U كأوامر مستقلة عن حالة التنسيق الحالية رغم أنها Apply/Remove."
                       ],
                       "tryIt": {
                         "promptAr": "ما shortcut Format Cells في المصدر؟",
@@ -13309,23 +13311,23 @@
                       "concepts": [
                         {
                           "term": "Shift+Space",
-                          "explanationAr": "Shift+Space هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Shift+Space يحدد Entire Row حسب المصدر."
                         },
                         {
                           "term": "Ctrl+Space",
-                          "explanationAr": "Ctrl+Space هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+Space يحدد Entire Column حسب المصدر."
                         },
                         {
                           "term": "Ctrl+9",
-                          "explanationAr": "Ctrl+9 هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+9 يخفي Selected Row في قائمة الاختصارات."
                         },
                         {
                           "term": "Ctrl+0",
-                          "explanationAr": "Ctrl+0 هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Ctrl+0 يخفي Selected Column حسب المصدر، مع ملاحظة أن سلوك بعض الاختصارات يعتمد على البيئة."
                         },
                         {
                           "term": "Alt+Shift+Arrow",
-                          "explanationAr": "Alt+Shift+Arrow هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Alt+Shift+Arrow يستخدم Right Arrow للGroup وLeft Arrow للUngroup حسب القائمة."
                         }
                       ],
                       "miniExample": {
@@ -13347,9 +13349,9 @@
                         "textAr": "هذه shortcuts تتعامل مع structure أكبر من cell واحدة، لذلك الخطأ في selection قبل التنفيذ قد يؤثر على نطاق كامل."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "الخلط بين Shift+Space للRow وCtrl+Space للColumn.",
+                        "تطبيق Delete/Hide قبل تحديد Row أو Column المطلوب.",
+                        "افتراض أن Ctrl+0 أو System-level shortcuts تعمل بنفس الشكل في كل OS/Environment."
                       ],
                       "tryIt": {
                         "promptAr": "كيف يحدد المصدر entire column؟",
@@ -13444,23 +13446,23 @@
                       "concepts": [
                         {
                           "term": "PivotTable Shortcut",
-                          "explanationAr": "PivotTable Shortcut هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "PivotTable Shortcut هو الاختصار Alt+N>V المذكور لإنشاء PivotTable."
                         },
                         {
                           "term": "PivotChart Shortcut",
-                          "explanationAr": "PivotChart Shortcut هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "PivotChart Shortcut يشمل Alt+N>RC أو Alt+F1 وفق السياقات المذكورة في Lecture 38."
                         },
                         {
                           "term": "Group Pivot Items",
-                          "explanationAr": "Group Pivot Items هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Group Pivot Items يستخدم Alt+Shift+Arrow لتجميع أو فك تجميع عناصر PivotTable حسب المصدر."
                         },
                         {
                           "term": "Pivot Filter",
-                          "explanationAr": "Pivot Filter هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Pivot Filter يستخدم Alt+Down Arrow لفتح خيارات الفلترة على Pivot Item وفق القائمة."
                         },
                         {
                           "term": "Source QA",
-                          "explanationAr": "Source QA هو مصطلح أساسي داخل هذا workflow كما يقدمه المصدر؛ اقرأه مع الخطوات والسياق في نفس الدرس."
+                          "explanationAr": "Source QA هنا يعني الاحتفاظ بالاختصارات كما وردت مع وسم التناقضات مثل عنوان Top 40 وF11 بدل تصحيحها بصمت."
                         }
                       ],
                       "miniExample": {
@@ -13482,9 +13484,9 @@
                         "textAr": "المهارة هنا مزدوجة: استخدام source shortcuts في سياقها، ومعرفة أن قائمة presentation ليست دائمًا internally consistent."
                       },
                       "commonMistakes": [
-                        "تطبيق الخطوات خارج السياق أو بدون تجهيز البيانات المطلوب في المصدر.",
-                        "خلط هذا المفهوم مع موضوع سابق تم وسمه كReuse/Bridge بدل التركيز على الطبقة الجديدة.",
-                        "إضافة syntax أو قواعد غير موجودة في المحاضرة بدل الالتزام بـSource Trace."
+                        "تحويل F11 إلى حقيقة Assessment رغم أن وصفه في المصدر متعارض وتم وسمه كQA issue.",
+                        "اعتبار عنوان Top 40 دليلًا أن القائمة تحتوي 40 Action فقط رغم وجود عناصر أكثر وتكرارات.",
+                        "استخدام Pivot shortcuts لإعادة تدريس Pivot mechanics بدل إبقاء التركيز على Productivity."
                       ],
                       "tryIt": {
                         "promptAr": "ما shortcut إنشاء PivotTable المذكور بوضوح في المصدر؟",
@@ -13509,7 +13511,8 @@
                     }
                   }
                 ]
-              }
+              },
+              "practiceExamId": "data-analysis-excel-week03-practice-v1"
             }
           ],
           "productionStats": {

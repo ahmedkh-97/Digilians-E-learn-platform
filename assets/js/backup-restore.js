@@ -1,5 +1,5 @@
 
-import {resolveBuildVersion} from "./build-version.js?v=0.20.6";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.8";
 
 const BACKUP_FORMAT="digilians-progress-backup";
 const BACKUP_SCHEMA_VERSION=1;

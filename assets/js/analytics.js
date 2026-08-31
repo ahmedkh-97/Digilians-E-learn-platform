@@ -1,4 +1,5 @@
-import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.20.6";
+import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.20.8";
+import {createUuid,isBenignClientError} from "./runtime-compat.js?v=0.20.8";
 
 
 const SUPABASE_URL="https://gbyxpwcjfzxpxxbbwnzf.supabase.co";
@@ -84,14 +85,7 @@ function safeRemove(storage,key){
   try{storage.removeItem(key)}catch{}
 }
 
-function uuid(){
-  if(globalThis.crypto?.randomUUID)return crypto.randomUUID();
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,c=>{
-    const r=Math.random()*16|0;
-    const v=c==="x"?r:(r&0x3|0x8);
-    return v.toString(16);
-  });
-}
+function uuid(){return createUuid()}
 
 function normalizeId(value,max=160){
   if(value===null||value===undefined||value==="")return null;
@@ -202,6 +196,7 @@ function reportClientError(kind,message,details={}){
   if(isLocalTestEnvironment())return false;
 
   const safeMessage=sanitizeErrorMessage(message);
+  if(isBenignClientError(safeMessage))return false;
   const source=safeSourceFile(details.source||"");
   const line=Number(details.line)||0;
   const column=Number(details.column)||0;

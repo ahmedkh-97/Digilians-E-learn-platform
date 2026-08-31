@@ -1,6 +1,34 @@
 {
-  "latest": "0.20.6",
+  "latest": "0.20.8",
   "releases": [
+    {
+      "version": "0.20.8",
+      "title": "Runtime Compatibility Hotfix",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Improves browser compatibility for UUID generation and keeps benign ResizeObserver browser noise out of Platform Health.",
+      "highlights": [
+        "Centralizes UUID generation with crypto.randomUUID when available, crypto.getRandomValues fallback, and a final standards-shaped local fallback.",
+        "New learner player IDs and exam client-attempt IDs no longer fail in environments without crypto.randomUUID.",
+        "Anonymous analytics visitor/session IDs use the same compatibility UUID helper.",
+        "Known benign ResizeObserver loop notifications are filtered before Private Error Monitor rate-limit/error-health counting.",
+        "Excel Study and Practice remain unchanged; Excel Exam remains locked."
+      ]
+    },
+    {
+      "version": "0.20.7",
+      "title": "Excel Practice Production V1",
+      "date": "2026-08-31",
+      "type": "feature",
+      "summary": "Opens source-scoped Excel Practice across all three Excel weeks while keeping Excel Exam and Ranking locked.",
+      "highlights": [
+        "228 Practice questions cover every assessment-eligible Excel concept exactly once: Week 1 = 53, Week 2 = 89, Week 3 = 86.",
+        "Every question is course-source-only with English MCQ text and Arabic deep explanation for A/B/C/D.",
+        "Practice is untimed, instant-feedback, resumable and integrated with My Mistakes.",
+        "Practice registry items are non-ranked and never sync attempts to the shared leaderboard.",
+        "Excel Exam remains locked for the next production phase."
+      ]
+    },
     {
       "version": "0.20.6",
       "title": "Excel Week 3 Study Production",

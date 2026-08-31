@@ -5,7 +5,7 @@ import {
   getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
   getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
-} from "./storage.js?v=0.20.6";
+} from "./storage.js?v=0.20.8";
 
 import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
 import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles} from "./online.js";
@@ -21,8 +21,10 @@ import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
 import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,clearMistakesForOwner,MASTERY_STREAK} from "./mistakes.js?v=0.20.6";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.6";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,clearMistakesForOwner,MASTERY_STREAK} from "./mistakes.js?v=0.20.8";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.8";
+import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.20.8";
+import {createUuid} from "./runtime-compat.js?v=0.20.8";
 
 const state={
   studentName:"",
@@ -2390,9 +2392,11 @@ function globalStudyPercentForModule(module){
 function syncLearningFlowStats(module){
   if(!module)return;
   const studyPct=globalStudyPercentForModule(module);
-  const assessmentReady=Boolean(module?.examId) && module?.assessmentStatus!=="building-after-study-qa";
-  const practice=assessmentReady?globalBestResultForFeedbackMode(module?.examId,"instant"):null;
-  const exam=assessmentReady?globalBestResultForFeedbackMode(module?.examId,"exam"):null;
+  const {practiceReady,examReady}=moduleAssessmentState(module);
+  const practiceExamId=resolveModuleExamId(module,"instant");
+  const moduleExamId=resolveModuleExamId(module,"exam");
+  const practice=practiceReady?globalBestResultForFeedbackMode(practiceExamId,"instant"):null;
+  const exam=examReady?globalBestResultForFeedbackMode(moduleExamId,"exam"):null;
   if($("studyFlowStatus")){
     $("studyFlowStatus").textContent=studyPct>=100?"Completed 100%":studyPct?`${studyPct}% completed`:"Not started";
     $("studyFlowStatus").classList.toggle("complete",studyPct>=100);
@@ -2406,12 +2410,12 @@ function syncLearningFlowStats(module){
     $("examFlowStatus").classList.toggle("complete",Boolean(exam));
   }
   if($("openPracticeBtn")){
-    $("openPracticeBtn").disabled=!assessmentReady;
-    $("openPracticeBtn").innerHTML=assessmentReady?'Start Practice <span>→</span>':'Practice Building';
+    $("openPracticeBtn").disabled=!practiceReady;
+    $("openPracticeBtn").innerHTML=practiceReady?'Start Practice <span>→</span>':'Practice Building';
   }
   if($("openModuleExamBtn")){
-    $("openModuleExamBtn").disabled=!assessmentReady;
-    $("openModuleExamBtn").innerHTML=assessmentReady?'Start Exam <span>→</span>':'Exam Building';
+    $("openModuleExamBtn").disabled=!examReady;
+    $("openModuleExamBtn").innerHTML=examReady?'Start Exam <span>→</span>':'Exam Building';
   }
   if($("openStudyBtn")){
     if(isExcelLearningGroupsModule(module)){
@@ -2854,13 +2858,13 @@ $("studyResetProgressBtn").addEventListener("click",()=>{
 });
 
 function openModuleExam(forcedMode){
-  if(state.selectedModule?.assessmentStatus==="building-after-study-qa"){
-    showToast("Excel Week 1 Practice/Exam is still building after Study QA.");
+  const module=state.selectedModule;
+  const examId=resolveModuleExamId(module,forcedMode);
+  const item=state.registry.find(x=>x.id===examId);
+  if(!item){
+    showToast(forcedMode==="instant"?"Practice is not connected to this module yet.":"Exam is still locked for this module.");
     return;
   }
-  const examId=state.selectedModule?.examId;
-  const item=state.registry.find(x=>x.id===examId);
-  if(!item){showToast("No exam is connected to this module yet.");return}
   prepareExam(item,forcedMode);
 }
 
@@ -3548,7 +3552,7 @@ function finishExam(autoSubmitted){
   const beforeAchievements=getAchievements(getUserResults()).filter(a=>a.unlocked).map(a=>a.id);
   const result=calculateResult(state.currentExam.questions,state.answers);
   const timeTakenSeconds=Math.max(0,Math.floor((Date.now()-state.startedAt)/1000));
-  const clientAttemptId=crypto.randomUUID();
+  const clientAttemptId=createUuid();
 
   const subjectBreakdown=calculateSubjectBreakdown();
   const topicBreakdown=topicPerformance(state.currentExam.questions,state.answers);
@@ -3587,7 +3591,7 @@ function finishExam(autoSubmitted){
   }
 
   saveResult(record);
-  queuePendingAttempt(onlineAttempt);
+  if(shouldSyncAttemptOnline(state.currentRankedActivity))queuePendingAttempt(onlineAttempt);
   clearExamProgress();
 
   state.lastResult={...result,record,onlineAttempt};
@@ -3604,7 +3608,7 @@ function finishExam(autoSubmitted){
     metadata:{official:Boolean(state.currentExam?.exam?.generatedFromOfficialQbank)}
   });
   routeTo("resultView");
-  syncFinishedAttempt(onlineAttempt);
+  if(shouldSyncAttemptOnline(state.currentRankedActivity))syncFinishedAttempt(onlineAttempt);
 }
 
 async function syncFinishedAttempt(onlineAttempt){
@@ -3630,7 +3634,9 @@ function setResultSyncUI(mode,me=null,board=[]){
   const status=$("resultSyncStatus");
   if(!card||!rank||!status)return;
 
+  card.classList.toggle("hidden",mode==="local");
   card.classList.remove("synced","offline");
+  if(mode==="local")return;
 
   if(mode==="syncing"){
     rank.textContent="Syncing…";
@@ -3765,7 +3771,7 @@ function animateScore(target){
 function renderResult(){
   const {record}=state.lastResult,score=state.lastResult,pass=state.currentExam.exam.settings?.passingScore ?? 60;
   const officialCtx=state.currentExam.exam.generatedFromOfficialQbank || null;
-  setResultSyncUI("syncing");
+  setResultSyncUI(shouldSyncAttemptOnline(state.currentRankedActivity)?"syncing":"local");
   let headline="Keep practicing";
   if(officialCtx?.kind==="section")headline="Section Completed";
   else if(record.percentage>=90)headline="Excellent work";

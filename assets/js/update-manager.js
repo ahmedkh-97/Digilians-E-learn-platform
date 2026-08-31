@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.20.6";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.8";
 
 
 const UPDATE_KEYS={
@@ -10,17 +10,17 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.20.6",
-  title:"Excel Week 3 Study Production",
+  version:"0.20.8",
+  title:"Runtime Compatibility Hotfix",
   date:"2026-08-31",
-  summary:"Completes Excel Study coverage with the final Week 3 source batch while keeping assessment production gated.",
+  summary:"Improves browser compatibility for UUID generation and keeps benign ResizeObserver browser noise out of Platform Health.",
   highlights:[
-    "10 final Excel source files / 154 slides audited and mapped.",
-    "8 approved Week 3 Groups / 34 Deep Learning V3.2 lessons / 123 production concepts.",
-    "Full Excel Study now spans 24 Groups / 96 lessons / 294 topics.",
-    "Practice and Exam remain locked pending final Study/source-trace/local visual QA."
+    "Player/session and exam-attempt IDs now use a shared compatibility UUID helper instead of assuming crypto.randomUUID support.",
+    "UUID generation falls back to crypto.getRandomValues, then a standards-shaped local fallback for older environments.",
+    "Known benign ResizeObserver loop notifications no longer count as application errors in the Private Error Monitor.",
+    "Excel Study and Practice content remain unchanged; Excel Exam remains locked."
   ],
-  type:"content"
+  type:"fix"
 };
 
 export function normalizeVersion(value){

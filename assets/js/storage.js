@@ -1,3 +1,5 @@
+import {createUuid} from "./runtime-compat.js?v=0.20.8";
+
 const KEYS = {
   studentName: "digilians.studentName",
   playerId: "digilians.playerId",
@@ -18,7 +20,7 @@ export function clearStudentName(){ localStorage.removeItem(KEYS.studentName); }
 export function getPlayerId(){
   let id = localStorage.getItem(KEYS.playerId);
   if (!id) {
-    id = crypto.randomUUID();
+    id = createUuid();
     localStorage.setItem(KEYS.playerId, id);
   }
   return id;
