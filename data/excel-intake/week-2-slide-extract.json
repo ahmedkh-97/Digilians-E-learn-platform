@@ -1,0 +1,1360 @@
+[
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 1,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 2,
+    "text": "Lecture19: Advanced Data Management: Filtering, Consolidation, and Entry Tools",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 3,
+    "text": "Incorporating Sparklines for Quick Data Visualization\nCompact Trend Insights \nSparklines embed directly in cells to show line, column, or win/loss trends at a glance, making dashboards clearer without consuming extra space. \nFaster Comprehension \nResearch shows sparklines improve user comprehension speed by about 20%, enabling rapid scanning and better, quicker decisions. \nIdeal in Excel Tables \nUse sparklines alongside KPIs for quick spot checks, comparing trends across rows without cluttering the layout.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 4,
+    "text": "Incorporating Sparklines for Quick Data Visualization",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 5,
+    "text": "Utilizing Data Consolidation\nData consolidation is the process of combining information from multiple sources into a single, unified repository for easier management and analysis. This creates a \"single source of truth\" that helps eliminate data silos, improve data quality, and support more informed business decisions. \nExcel provides features for smaller-scale data consolidation using its built-in tool or formulas: \nConsolidate Feature: Found under the Data tab, this tool can sum, count, or average data from multiple worksheets or workbooks based on position or matching labels.\nFormulas: Functions like VSTACK can stack data dynamically, while 3D references (=SUM(Sheet1:Sheet3!A1)) can summarize data across consecutive sheets.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 6,
+    "text": "Utilizing Data Consolidation",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 7,
+    "text": "Entry Forms\nStructured Entry Form Benefits:\nGuided input reduces errors and strengthens integrity, cutting manual mistakes by nearly 50%.",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 8,
+    "text": "Creating Dynamic Excel Filter Search Boxes\nCreating a dynamic filter search box allows you to filter large datasets instantly as you type. Depending on your version of Excel, you can use the modern FILTER function or a classic VBA approach for older versions. \n1. Modern Method: The FILTER Function (Office 365 / Excel 2021+)\nThis method uses dynamic arrays to return results instantly without any coding. \nSetup the Search Cell: Pick a cell (e.g., F2) where users will type their search terms.\nThe Formula: In the cell where you want your results to start, enter:\u000b=FILTER(A9:C21, ISNUMBER(SEARCH(F2, A9:A21)), \"No Results Found\")\nA9:C21: The range containing your data.\nISNUMBER(SEARCH(...)): This enables partial matches, allowing you to find \"App\" when typing \"Apple\".\nLive Updates: As you type in F2, the results below the formula will automatically update to show matching rows.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 9,
+    "text": "Creating Dynamic Excel Filter Search Boxes\n2. Interactive Method: ActiveX Search Box (Real-Time Filtering)\nFor a \"Google-style\" experience where the filter updates with every keystroke, you can link an ActiveX text box to your search cell.\nEnable Developer Tab: Right-click the ribbon, select Customize the Ribbon, and check the Developer box.\nInsert Text Box: Go to Developer > Insert > ActiveX Controls and click the Text Box icon. Draw it on your sheet.\nLink to Cell: Right-click the text box, select Properties, and set the LinkedCell property to your search cell (e.g., F2).\nExit Design Mode: Click Design Mode in the Developer tab to start typing. Now, every character you type in the box is instantly mirrored in cell F2, triggering the FILTER formula.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 10,
+    "text": "Creating Dynamic Excel Filter Search Boxes\n3. Classic Method: VBA Macro (For Older Versions)\nIf your Excel version doesn't support the FILTER function, use a small script to filter a Formatted Table. \nVBA Script: Double-click your ActiveX Text Box while in Design Mode and paste this code:\nVba\nPrivate Sub TextBox1_Change()\n    ActiveSheet.ListObjects(\"MyTable\").Range.AutoFilter Field:=1, _\n    Criteria1:=\"*\" & TextBox1.Value & \"*\", Operator:=xlFilterValues\nEnd Sub",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 11,
+    "text": "Assessment\nAdd Form tool to the Quick Access Toolbar and use it with file Lecture 19",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s01",
+    "file": "Lecture 19 Advanced Data Management Filtering, Consolidation, and Entry Tools.pptx",
+    "slide": 12,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 1,
+    "text": "Chart Types in Excel\n1",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 2,
+    "text": "2\nChart Types in Excel\nData Visualization: is a graphical representation of data. By utilizing charts, graphs, maps, etc. data visualization tools provide an accessible way to see and understand trends, outliers, and patterns in data. Additionally, it provides an excellent way for employees or business owners to present data to non-technical audiences without confusion.\nCreating Basic Charts in Excel: Excel has multiple options for choosing a particular chart type. For example, if you want to create a column or bar chart, you are often presented with various visualization options. For example, there are 2D and 3D versions and normal, stacked, and 100% stacked options. Depending on your requirements, you can choose the visualization type that best suits your needs.",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 3,
+    "text": "3\nChart Types in Excel\nLet’s Visualize some data\nHow can we make an chart that defining the data\nWe will go to \nSelect the data  insert we choose the best chart for the data",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 4,
+    "text": "4\nBar Chart: Bar charts are one of the easiest charts to interpret, enabling the person viewing the chart to compare categorical data quickly. On a bar chart, the categorical data is on the y-axis, and the values are on the x-axis.\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 5,
+    "text": "If you have this simple data\n5\nChart Types in Excel",
+    "pictures": 3
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 6,
+    "text": "Look what’s happen, There are two options opened\u000b1- Format\u000b2- Design\n6\nLook\nChart Types in Excel",
+    "pictures": 3
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 7,
+    "text": "7\nStyle\nChart Types in Excel",
+    "pictures": 2
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 8,
+    "text": "8\nFilter\nChart Elements\nChart Types in Excel",
+    "pictures": 2
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 9,
+    "text": "9\nColumn Chart: A column chart, also known as a vertical bar chart, helps visualize data where categories are placed on the x-axis and the values on the y-axis. Similar to bar charts, they help visualize data across categories.\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 10,
+    "text": "Stacked bar chart\n10\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 11,
+    "text": "Cluster bar chart\n11\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 12,
+    "text": "12\nLine Chart: A line chart is the most useful way to capture how a numerical variable changes over time. This is helpful to identify trends in numeric values.\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 13,
+    "text": "Line chart\n13\nLine charts are typically used for showing trends over time.\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 14,
+    "text": "Multiple line chart\n14\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 15,
+    "text": "15\nPie Chart: A pie chart is most commonly used to show the proportions of a whole. It’s like visualizing fractions when you were in high school. With this pie chart, we want to compare the total sales between the three categories.\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 16,
+    "text": "16\nPie chart\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 17,
+    "text": "17\nSun burst\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 18,
+    "text": "18\nScatter Plot: A scatter plot is commonly used to visualize the relationship between two variables. It can be useful for quickly surfacing potential correlations between data points. We’ll create a scatter plot to compare the number of TVs and laptops sold.\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 19,
+    "text": "Scatter plot\n19\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 20,
+    "text": "Scatter plot\n20\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 21,
+    "text": "21\nWaterfall Chart: A waterfall chart is a special chart that helps illustrate how positive and negative values can contribute to a total. They can be great for visualizing changes over time. In our example, we’ll compare the total sales for each month regardless of the categories.\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 22,
+    "text": "22\nWaterfall chart\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 23,
+    "text": "23\nHistogram: A histogram is a graphical representation of data points organized into user-specified ranges. Similar in appearance to a bar graph, the histogram condenses a data series into an easily interpreted visual by taking many data points and grouping them into logical ranges or bins\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 24,
+    "text": "Tree map\n24\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 25,
+    "text": "Funnel chart\n25\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 26,
+    "text": "Radar chart\n26\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 27,
+    "text": "Combo chart\n27\nChart Types in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 28,
+    "text": "Let’s Practice\n28",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 29,
+    "text": "Exercise #1\n29\nEx1: Create a column chart and a Bar chart for this data",
+    "pictures": 2
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 30,
+    "text": "Exercise #2\n30\nEx2: Create a Pie chart and a Line chart for this data",
+    "pictures": 2
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 31,
+    "text": "Any Questions ?\n31",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s02",
+    "file": "Lecture 20 Chart Types in Excel.pptx",
+    "slide": 32,
+    "text": "32",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s03",
+    "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+    "slide": 1,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s03",
+    "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+    "slide": 2,
+    "text": "Lecture 21: Mastering Data Analysis and Visualization in Excel",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s03",
+    "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+    "slide": 3,
+    "text": "Sorting Data and Detecting Outliers in Excel\n1. Sorting to Spot Outliers\nSorting moves the smallest and largest values to the top and bottom of your list, making them immediately visible. \nStep 1: Select your data range.\nStep 2: Go to the Data tab and click Sort A-Z (Smallest to Largest).\nStep 3: Examine the first and last few rows for values that seem significantly different from the rest.",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s03",
+    "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+    "slide": 4,
+    "text": "Sorting Data and Detecting Outliers in Excel\n2. Detecting Outliers (IQR Method)\nThe Interquartile Range (IQR) is the most common statistical method to define an outlier. \nCalculate Quartiles: Use =QUARTILE.INC(range, 1) for the 1st quartile (Q1) and =QUARTILE.INC(range, 3) for the 3rd quartile (Q3).\nCalculate IQR: Use the formula =Q3 - Q1.\nSet Limits:\nLower Limit: =Q1 - (1.5 * IQR)\nUpper Limit: =Q3 + (1.5 * IQR)\nFlag Outliers: Use an IF and OR function to label data:\u000b=IF(OR(A2 < LowerLimit, A2 > UpperLimit), \"Outlier\", \"Normal\").",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s03",
+    "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+    "slide": 5,
+    "text": "Sorting Data and Detecting Outliers in Excel\n3. Visualizing with a Box & Whisker Chart\nExcel can automatically detect and plot outliers for you using built-in charts. \nStep 1: Select your data.\nStep 2: Go to the Insert tab > Charts > Box & Whisker.\nStep 3: Outliers will appear as individual dots outside the \"whiskers\" of the box.",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s03",
+    "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+    "slide": 6,
+    "text": "Sorting Data and Detecting Outliers in Excel\n4. Using Z-Scores (Standard Deviation)\nA Z-score indicates how many standard deviations a value is from the mean. Values with a Z-score greater than 3 or less than -3 are typically considered outliers. \nFormula: Use =STANDARDIZE(value, mean, standard_deviation).\nAutomation: Enable the Analysis ToolPak add-in to generate Descriptive Statistics for a quick overview of your data's spread.",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s03",
+    "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+    "slide": 7,
+    "text": "Using Goal Seek and Data Analysis Tools\nFind Inputs for Target Outcomes \nGoal Seek calculates the input needed to reach a specified result, making scenario planning faster and more reliable. \nPair with Advanced Analysis \nUsing Solver, Descriptive Statistics, and Regression extends insight from targets to optimization and diagnostic evaluation. \nImprove Forecasts and Decisions \nOrganizations report up to 20% gains in forecast accuracy and decision speed when these tools are applied together.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s03",
+    "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+    "slide": 8,
+    "text": "Using Goal Seek and Data Analysis Tools",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s03",
+    "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+    "slide": 9,
+    "text": "Assessment\nOpen file Lecture 21\nUse Goal Seek tool to changing Monthly Payment to 1500 and raise Down Payment.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s03",
+    "file": "Lecture 21 Mastering Data Analysis and Visualization in Excel.pptx",
+    "slide": 10,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 1,
+    "text": "Table Visualization using Excel\n1",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 2,
+    "text": "Table Design Tips\n2",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 3,
+    "text": "Table\n3",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 4,
+    "text": "1- Data Ink Ratio\nThe ink used to display anything that isn’t data should be reduced to a minimum.\n4\nData Ink\nNon-Data Ink",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 5,
+    "text": "1- Data Ink Ratio\n5",
+    "pictures": 2
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 6,
+    "text": "2- Grids and Rules\nUse the least visible means to support the function of the non-data ink.\n6",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 7,
+    "text": "3- White Space\nWhite space is the least visible means that you can use to delineate columns and rows or to group data.\n7",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 8,
+    "text": "3- White Space\nWhite space is the least visible means that you can use to delineate columns and rows or to group data.\n8",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 9,
+    "text": "4- Fill Colors\nDelicate shades of color can be used to group sections of data that are separate from the rest.\n9",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 10,
+    "text": "5- Highlighting\nUse one of these four visual attributes to highlight sections of data in tables.\n10",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 11,
+    "text": "6- Aligning Numbers\nNumbers should always be right aligned to the decimal point or to the rightmost digit when there is no decimal point.\n11",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 12,
+    "text": "7- Aligning Text\nThe text should be left aligned.\n12",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 13,
+    "text": "8- Displaying Dates\nWhether dates are aligned to the left, center, or right is not important. What is important is that all dates that appear in the same column contain a consistent number of digits.\n13",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 14,
+    "text": "Questions?\n14",
+    "pictures": 3
+  },
+  {
+    "sourceId": "excel-w2-s04",
+    "file": "Lecture 22 Table Visualization using Excel.pptx",
+    "slide": 15,
+    "text": "15",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 1,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 2,
+    "text": "Lecture 23: Advanced Excel Techniques and Automation",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 3,
+    "text": "Utilizing Solver and Python Automation in Excel\nSolver Optimization\nUse Solver to optimize resource allocation, scheduling, and constraints-driven problems. Define objective, variables, and limits to reach best-fit solutions efficiently with transparent assumptions and reproducible setups.\nPython Automation\nAutomate repetitive tasks and advanced processing via Python in Excel. Combine scripts with Solver outputs to build end-to-end workflows, often reducing task time by over 50%.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 4,
+    "text": "Utilizing Solver in Excel\n1. How to Enable Solver\nSolver is a free add-in that is included with Excel but is not enabled by default. \nGo to File > Options > Add-ins.\nAt the bottom, set the Manage dropdown to Excel Add-ins and click Go.\nCheck the box for Solver Add-in and click OK.\nThe Solver button will now appear on the Data tab in the Analyze group.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 5,
+    "text": "Utilizing Solver in Excel\nWhen to Use Solver vs. Goal Seek\nFeature \t\tGoal Seek\t\t\tSolver\nVariables\t\tChanges only one cell.\t\tChanges up to 200 cells.\nConstraints\t\tNone; it just hits a target.\tCan set multiple limits (e.g., budget < $5k).\nGoal\t\tFind a specific value.\t\tMaximize, minimize, or find a value.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 6,
+    "text": "Utilizing Solver in Excel\n3- Setting Up a Problem\nTo use Solver, you must define three main components in the Solver Parameters window: \nSet Objective: The cell you want to optimize (e.g., Total Profit). This must contain a formula.\nBy Changing Variable Cells: The input cells Solver can adjust to reach the goal (e.g., Price or Quantity).\nSubject to Constraints: The rules Solver must follow (e.g., \"Quantity must be an integer\" or \"Cost ≤ Budget\").",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 7,
+    "text": "Utilizing Solver in Excel\n4- Choosing a Solving Method\nSimplex LP: Use for linear problems (simple addition/multiplication where values change at a constant rate).\nGRG Nonlinear: Best for \"smooth\" nonlinear problems where values change at varying rates (e.g., pricing based on demand curves).\nEvolutionary: Use for the most complex, \"non-smooth\" problems, especially those involving IF or VLOOKUP functions.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 8,
+    "text": "Utilizing Solver in Excel",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 9,
+    "text": "Utilizing Python Automation in Excel\n1. Built-in Python in Excel (No Installation Needed) \nIf you have a compatible version of Excel 365, you can write Python directly in cells. \nHow to Start: Type =PY( in a cell or go to Formulas > Insert Python.\nData Access: Use the xl() function to reference ranges or tables, such as data = xl(\"A1:C10\", headers=True).\nBenefits: It runs in the Microsoft Cloud and returns results directly into your sheet without external scripts.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 10,
+    "text": "Utilizing Python Automation in Excel\n2. External Library: Pandas (Best for Data Processing) \nPandas is the industry standard for cleaning and analyzing tabular data. \nProcess: Read the file into a \"DataFrame,\" perform your logic, and save it.\nExample Script:",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 11,
+    "text": "Assessment\nOpen file Lecture 23 and use Solver tool to solve the problems.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s05",
+    "file": "Lecture 23 Advanced Excel Techniques and Automation.pptx",
+    "slide": 12,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 1,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 2,
+    "text": "Lecture 24: Designing Interactive Dashboards and Infographics in Excel",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 3,
+    "text": "Creating Dynamic Excel Dashboards\nCreating dynamic Excel dashboards allows you to build interactive, automatically updating reports using various built-in features. The process generally involves preparing your data, using Pivot Tables and Charts, and incorporating interactive elements like slicers and timelines. \nCore Components \nCombine pivot tables, slicers, charts, and conditional formatting for interactive views. \nInteractivity & Drill‑Down \nSlicers filter data instantly while charts update in real time for deeper insights. \nDecision Support \nVisual summaries highlight trends, exceptions, and KPIs for faster decisions. \nTime Savings \nUser studies show report creation drops from hours to minutes.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 4,
+    "text": "Creating Dynamic Excel Dashboards\nKey Steps to Create a Dynamic Dashboard\nPrepare Your Data: Start with clean, organized data in a tabular format with clear headers. Formatting your raw data as an Excel Table (Ctrl + T) ensures that your dashboard components automatically update when new data is added.\nUse Pivot Tables: These are the backbone of dynamic dashboards, summarizing large datasets quickly. Create a separate \"auxiliary\" worksheet for your Pivot Tables to keep your main dashboard sheet clean.\nBuild Visualizations: Create Pivot Charts from your Pivot Tables (e.g., bar, line, or pie charts) to visualize trends and patterns. Cut and paste these charts onto your main dashboard sheet.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 5,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 6,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 7,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 8,
+    "text": "Creating Dynamic Excel Dashboards\nAdd Interactivity with Slicers: Slicers are interactive filters that allow users to focus on specific data points.\nInsert a slicer from the Insert tab while a Pivot Chart is selected.\nConnect the slicer to all relevant Pivot Tables using the Report Connections option under the Slicer tab so that all charts filter simultaneously.\nYou can also add a Timeline for date-based filtering of data.\nFormat and Design: A well-designed dashboard should be visually appealing and easy to understand.\nPlace the most important metrics at the top or on the left.\nUse a consistent color scheme and font style.\nAdd clear labels and titles to all charts and sections.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 9,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 10,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 11,
+    "text": "Designing Compelling Infographics\nLeverage Excel Visual Tools \nCombine shapes, icons, SmartArt, and charts to build cohesive, story-driven visuals. \nDesign Clear Layouts \nUse consistent spacing, alignment, and grouping to guide attention and flow. \nApply Custom Color Schemes \nSelect a restrained palette with a heritage-gold accent to emphasize key data. \nBoost Data Recall \nWell-crafted infographics can improve audience memory by up to 60%.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 12,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 13,
+    "text": "Best Practices in Dashboard Interactivity and Storytelling\n1. Interactivity Features\nInteractive elements allow users to \"drill down\" into specifics without cluttering the main view. \nSlicers: These act as visual buttons to filter PivotTables and charts instantly. To add one, select your PivotTable and go to Insert > Slicer.\nTimelines: Specialized slicers for date fields that allow users to filter by years, quarters, months, or days with a simple slider.\nReport Connections: To make one slicer control multiple charts, right-click the slicer, select Report Connections, and check all relevant PivotTables.\nDynamic Titles: Link a chart title to a cell containing a formula (like =\"Sales for \" & F2) so the title updates automatically based on user filter selections.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 14,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 15,
+    "text": "Best Practices in Dashboard Interactivity and Storytelling\n2. Storytelling Best Practices\nEffective storytelling guides the viewer through a logical path: What is happening, why, and what to do next. \nVisual Hierarchy: Place your most critical KPIs in the top-left corner, as this is where eyes naturally start scanning.\nConsistent Color Palette: Use color with intent. For example, consistently use green for \"positive/sales\" and red for \"negative/costs\" to reduce the user's cognitive load.\nLess is More: Remove unnecessary gridlines, borders, and \"chart junk.\" If a data point doesn't influence a decision, consider removing it to keep the focus on the story.\nAnnotations: Use text boxes or data labels to explain outliers or significant events (e.g., \"New marketing campaign launched here\") so the dashboard \"speaks\" for itself.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 16,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 17,
+    "text": "Best Practices in Dashboard Interactivity and Storytelling\n3. Structural Flow\nOrganize your dashboard into \"chapters\" to help users digest information: \nOverview (The Hook): High-level KPIs showing overall status (e.g., Total Revenue vs. Goal).\nAnalysis (The Development): Interactive charts showing trends over time or regional breakdowns to explain the \"why\".\nAction (The Conclusion): Detailed tables or summary insights that point toward a specific next step.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 18,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 19,
+    "text": "Top 10 Dashboard Mistakes\n1. Too Much Clutter",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 20,
+    "text": "Top 10 Dashboard Mistakes\n2. Too Many Colors",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 21,
+    "text": "Top 10 Dashboard Mistakes\n3. Lack of Context",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 22,
+    "text": "Top 10 Dashboard Mistakes\n4. Bad Data-to-Visualization Pairing",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 23,
+    "text": "Top 10 Dashboard Mistakes\n5. Careless Arrangement",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 24,
+    "text": "Top 10 Dashboard Mistakes\n6. Incorrect (or No) Focus",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 25,
+    "text": "Top 10 Dashboard Mistakes\n7. Unnecessary Variety",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 26,
+    "text": "Top 10 Dashboard Mistakes\n8. Confusing Resemblance",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 27,
+    "text": "Top 10 Dashboard Mistakes\n9. Too Ornate",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 28,
+    "text": "Top 10 Dashboard Mistakes\n10. Just Plain Ugly",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 29,
+    "text": "Assessment\nOpen file Lecture  24and create the following reports:\n1- total sales, total qty, # of orders (summary report)\n2- region performance & chart\n3- top 7 sales rep by total sales & chart\n4- contribution of sales per HVO & LVO\n5- sales by years & qty\n6- price list\n7- product performance",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s06",
+    "file": "Lecture 24 Designing Interactive Dashboards and Infographics in Excel.pptx",
+    "slide": 30,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 1,
+    "text": "1\nPoor Design vs. Good Design",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 2,
+    "text": "Poor Design\n2\nLack of Visual Hierarchy: No clear prioritization of information.\nStraining Color Scheme: Dark background with light text is hard on the eyes.\nRedundant Information: Repetitive phrases add unnecessary bulk.\nNo Visual Aids: Lacks charts or graphs for quick data understanding.",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 3,
+    "text": "Good Design\n3",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 4,
+    "text": "Poor Design\n4\nUnclear Labels: Company names are hard to read and not clearly associated with their segments.\nColor Confusion: Similar colors make it difficult to distinguish between companies.\nLack of Data Representation: No percentages or values displayed for clarity.\nOverly Simple Pie Chart: Doesn't effectively communicate the market share differences.",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 5,
+    "text": "Good Design\n5",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 6,
+    "text": "Poor Design\n6\nInconsistent Formatting: Misaligned numbers and inconsistent use of symbols.\nCluttered Presentation: Too much information in a single table makes it hard to read.\nLack of Visual Separation: No clear distinction between domestic and international sales.\nReadability Issues: Small font size and unclear labels hinder comprehension.",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 7,
+    "text": "Good Design\n7",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 8,
+    "text": "Questions to Be Asked Before Creating Dashboards\n8",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 9,
+    "text": "1- What is the primary focus of your dashboard?\nIf the focus is specific, you want to keep your dashboard simple: use only a few visualizations and standard KPIs or metrics. You might also want to use color alerts to denote whether specific goals are met.\nIf the focus is broad, your dashboard will also need to be somewhat ‘broader’, accordingly. This means you will be using more charts, filters, and drills. It is a good idea to group similar sets of charts and show relationships between different parts of the data.\n9",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 10,
+    "text": "3- Who will use the dashboard?\nA single dashboard cannot meet everyone's needs\u000b\nExecutives (CEOs, Regional Managers, Senior Management): CEOs monitor a business intelligence dashboard that is understandable at a single glance.\u000b\nBusiness users: Usually intend to see a deeper level of detail than executives\n10",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 11,
+    "text": "4- How detailed does your dashboard need to be?\nFor static detail, your goal should be to summarize the data to the degree needed by the end users. This type of dashboard is meant for users who do not have the need to drill too deep, which is why you should use standard KPIs and visualizations.\nFor granular detail, you need to ensure that all the data is available, so users can drill into each segment and across different segments of the data as needed. For obvious reasons, this dashboard will usually include much larger amounts of data and filters.\n11",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 12,
+    "text": "5- What type of dashboard do you need?\nStrategic Dashboards: Strategic dashboards help business leaders monitor the company's progress towards predefined goals.\nOperational Dashboards: Often used at the departmental level, these dashboards monitor day-to-day operations of their department.\nAnalytical Dashboards: These dashboards provide insights into data collected over time.\n12",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 13,
+    "text": "Final Tip\nBefore adding any KPI, ask yourself this question:\u000b\n“What action will this KPI drive?”\u000b\nIf the data spikes or falls, will that metric lead to a decision? If you do not know, that KPI does not belong to your dashboard.\n13",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 14,
+    "text": "14\nSession Practice\nThe instructor will lead the practice session showing the steps of the first exercise.\nThen the students will have to solve the rest of exercises and present their solutions at the end of the session. \nStudents can ask for the help of the instructor if they encounter any problem during the implementation of exercises.",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 15,
+    "text": "15\nLet's practice\nExercise 1: Comparing Sales Data Across Multiple Regions\n- Task: Use a bar or column chart to compare quarterly sales data across different regions.\n- Challenge: Customize the chart to highlight the top-performing region in a different color.\nExercise 2: Analyzing Customer Trends Over Time\n-  Task: Create a line chart to visualize how customer preferences have changed over the past year.\n-  Challenge: Add a trendline to the chart to indicate overall trends and make predictions.\nExercise 3: Displaying Distribution of Customer Age Groups\n-  Task: Use a histogram to show the distribution of customer ages.\n-  Challenge: Adjust bin sizes to optimize clarity and interpretability.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 16,
+    "text": "Questions?\n16",
+    "pictures": 3
+  },
+  {
+    "sourceId": "excel-w2-s07",
+    "file": "Lecture 25 Poor Design vs. Good Design.pptx",
+    "slide": 17,
+    "text": "17",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 1,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 2,
+    "text": "Lecture 26: Introduction to Power Query & M",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 3,
+    "text": "Introduction to Power Query\nPower Query is a data preparation and transformation technology used to extract, transform, and load (ETL) data within Microsoft products like Excel and Power BI. It allows you to automate the process of cleaning and reshaping messy data using an intuitive, point-and-click interface. \nCore Workflow (The 4 Phases)\nConnect: Import data from hundreds of sources, including Excel files, CSVs, SQL databases, and web pages.\nTransform: Clean and shape the data (e.g., removing columns, filtering rows, or changing data types) without altering the original source.\nCombine: Merge or append data from multiple different sources into a single, unified view.\nLoad: Send the final, cleaned data to a worksheet or the Excel Data Model for reporting.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 4,
+    "text": "Introduction to Power Query\nKey Features\nNo-Code Interface: Most tasks are done via buttons on the ribbon, which automatically generate the underlying code.\nApplied Steps: Every action is recorded as a step in the Query Settings pane. You can reorder, delete, or modify these steps at any time.\nOne-Click Refresh: Once a query is set up, you can update your entire report with a single click whenever the source data changes.\nM Language: For advanced users, Power Query uses a functional scripting language called M for complex custom transformations.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 5,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 6,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 7,
+    "text": "M Language\n\"M Language\" almost always refers to the Power Query M formula language, a functional, case-sensitive language used to filter, combine, and \"mash up\" data. \nCore Purpose\nData Transformation: It is the engine behind Microsoft Power Query, used in Excel, Power BI, and Analysis Services.\nAutomation: While the Power Query interface allows you to click buttons to clean data, every action generates M code in the background. Advanced users write it manually for complex logic the UI can't handle.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 8,
+    "text": "M Language",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 9,
+    "text": "Example\nA CSV file containing the sales data for a manufacturer needs to be analyzed.\nThe data contains some problems and needs to be transformed in the power query.\ni.e. numbers stored as text, leading spaces, insufficient categorization, etc.\n9",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 10,
+    "text": "Collect Data\n10",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 11,
+    "text": "Promoted Headers\n11",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 12,
+    "text": "Changed Data Type\n12",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 13,
+    "text": "Number.FromText\nUse Case: \n\tConvert text to numbers (useful for cleaning up mixed data \ttypes).\nExample: \n\tNumber.FromText([Sales])\nExplanation: \n\tConverts the \"Sales\" column from text to numbers for \tcalculations.\n13",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 14,
+    "text": "Number.FromText\n14",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 15,
+    "text": "Number.Round\nUse Case: \n\tRound numbers to a specified number of decimal places.\nExample: \n\tNumber.Round([Modified Sales], 2)\nExplanation: \n\tRounds the modified sales value to two decimal places.\n15",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 16,
+    "text": "Number.Round\n16",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 17,
+    "text": "if...then...else\nUse Case: \n\tApply conditional logic to assign values based on criteria.\nExample: \n\tif [Rounded Sales] > 2500 then \"High\" else \"Low“\nExplanation: \n\tAdds a new column that labels sales greater than 2500 as \t\"High\" and anything else as \"Low.\"\n17",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 18,
+    "text": "if...then...else\n18",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 19,
+    "text": "Text.End\nUse Case: \n\tExtract the first few characters of a text string.\nExample: \n\tText.End([Product-ID], 3)\nExplanation: \n\tExtracts the last three characters of the \"Product-ID\" column.\n19",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 20,
+    "text": "Text.End\n20",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 21,
+    "text": "Text.Replace\nUse Case: \n\tReplace a specific part of a text string.\nExample: \n\tText.Replace([Product], \"Old\", \"New\")\nExplanation: \n\tReplaces the word \"Old\" with \"New\" in the \"Product\" column.\n21",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 22,
+    "text": "Text.Replace\n22",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 23,
+    "text": "Text.Trim\nUse Case: \n\tRemove leading and trailing spaces from text.\nExample: \n\tText.Trim([Customer-Name])\nExplanation: \n\tCleans up the \"Customer-Name\" field by removing extra \tspaces.\n23",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 24,
+    "text": "Text.Trim\n24",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 25,
+    "text": "Text.Proper\nUse Case: \n\tCapitalize the first letter of each word in a text string.\nExample: \n\tText.Proper([New Customer Name])\nExplanation: \n\tConverts the \"CustomerName\" to proper case (e.g., \"john \tsmith\" becomes \"John Smith\").\n25",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 26,
+    "text": "Text.Proper\n26",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 27,
+    "text": "Text.Length\nUse Case: \n\tCalculate the length of text in a column.\nExample: \n\tText.Length([CustomerName])\nExplanation: \n\tAdds a new column with the number of characters in the \t\"CustomerName\" field.\n27",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 28,
+    "text": "Text.Length\n28",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 29,
+    "text": "List.Sum\nUse Case: \n\tSumming up a list of values (for example, from multiple \tcolumns).\nExample: \nList.Sum({[Retail_discount], [WholeSales_discount], [Online_discount]})\nExplanation: \n\tAdds up the values from the \" Retail_discount,\" \" WholeSale _discount,\" and \t\"Online _discount \" columns.\n29",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 30,
+    "text": "List.Sum\n30",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 31,
+    "text": "Date.AddDays\nUse Case: \n\tAdd or subtract days from a date.\nExample: \n\tDate.AddDays([Order Date], 7)\nExplanation: \n\tAdds 7 days to the \"Order Date\" column to calculate delivery \tdates.\n31",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 32,
+    "text": "Date.AddDays\n32",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 33,
+    "text": "Date.Year\nUse Case: \n\tExtract the year from a date.\nExample: \n\tDate.Year([Order Date])\nExplanation: \n\tExtracts the year from the \"Order Date\" column to create a \t\"Year\" column.\n33",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 34,
+    "text": "Date.Year\n34",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 35,
+    "text": "M Language\nKey Characteristics\nStructure: It primarily uses a let...in block. The let part defines variables (steps), and the in part specifies the final output.\nFunctional & Lazy: Similar to F#, it evaluates expressions only when needed (lazy evaluation).\nCase Sensitive: Keywords and variable names must match exactly (e.g., if is not the same as IF).\nRich Library: Features nearly 1,000 unique functions for handling text, dates, numbers, and complex table operations. \nM vs. DAX\nUsers often confuse M with DAX (Data Analysis Expressions): \nM: Used for getting and cleaning data (ETL phase).\nDAX: Used for calculating metrics and KPIs (Analytics phase).",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 36,
+    "text": "Relational Tables in Power Query\nIn Power Query, \"relationships\" function differently than in a formal Data Model (like Power Pivot or Power BI Desktop). Power Query is primarily an ETL tool (Extract, Transform, Load). \n1. Merging (The Power Query Alternative)\nInstead of creating active links between tables, Power Query uses Merging to physically join data into a single table. \nHow to do it: Select Home > Merge Queries.\nFunction: It works like a SQL Join or Excel VLOOKUP. You select matching columns (keys) from two queries to pull data from one into the other.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 37,
+    "text": "Relational Tables in Power Query\n2. Relationship Columns (Relational Databases)\nWhen you connect to a relational database (like SQL Server or Oracle), Power Query can detect existing relationships. \nInclude Relationship Columns: This option adds a special column to your table that contains the related table as a \"Table\" or \"Record\" object.\nExpanding: You can click the Expand icon on these columns to pull in specific fields from the related table without manually setting up a merge.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 38,
+    "text": "Relational Tables in Power Query\n3. Power Query vs. Data Model\nIt is critical to distinguish where the \"relationship\" lives:\nPower Query: Joins tables by creating a combined view. Use this to flatten data into a single table before loading.\nData Model (Power Pivot/Power BI): Keeps tables separate but links them via keys (1:Many). Use this for Star Schema modeling to keep your file size small and your analysis fast.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 39,
+    "text": "Assessment\nOpen file Lecture 26\nAdd Power Query to the Ribbon\nAdd the three tables to Data Model",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s08",
+    "file": "Lecture 26 Introduction to Power Query  M.pptx",
+    "slide": 40,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 1,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 2,
+    "text": "Lecture 27: Merging, Editing, and Analyzing Data Using Power Query",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 3,
+    "text": "Analyzing Data Using Power Query\nPower Query is a powerful Microsoft tool used for data transformation and preparation within applications like Excel and Power BI. It is a game-changer for data analysis by automating time-consuming and error-prone manual data manipulation tasks. \nMerge data sources \nCombine tables from different systems with flexible join types to create a single, unified view. \nEdit with applied steps \nClean, transform, and document changes step‑by‑step for repeatable, transparent data preparation. \nLoad for analysis \nPublish clean datasets to Excel or Power BI models to enhance accuracy and speed of insights. \nReduced manual consolidation \nOrganizations report fewer errors and time savings by replacing manual spreadsheet merges.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 4,
+    "text": "Analyzing Data Using Power Query\nKey Functionality\nPower Query simplifies the Extract, Transform, Load (ETL) process through four main phases: \nConnect: It allows users to import data from a wide variety of sources, including local files (Excel, CSV, PDF), databases (SQL), web pages, and cloud services.\nTransform: The Power Query Editor provides a graphical, user-friendly interface to clean, shape, and refine the data. Transformations can be as simple as removing columns, changing data types, or filtering rows, to more complex operations like merging or appending data from different tables, pivoting/unpivoting columns, and creating custom calculated columns.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 5,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 6,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 7,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 8,
+    "text": "Analyzing Data Using Power Query\nKey Functionality\nPower Query simplifies the Extract, Transform, Load (ETL) process through four main phases: \nCombine: Users can integrate data from multiple sources to create a unified, single dataset for a more comprehensive analysis.\nLoad: The final, cleaned and transformed data can then be loaded into an Excel worksheet or a Power BI data model, where it can be used for reporting, visualization, and further analysis (e.g., using PivotTables).",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 9,
+    "text": "Combine & Merge",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 10,
+    "text": "Analyzing Data Using Power Query\nBenefits for Data Analysis\nAutomation: Once a set of transformation steps is defined, Power Query records them. When new source data is added or updated, you can simply click \"Refresh All\" to automatically re-apply all steps, saving significant time on recurring analyses.\nData Integrity: The transformation process does not alter the original data source; it creates a new, transformed representation, preserving the source data in its original state.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 11,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 12,
+    "text": "Analyzing Data Using Power Query\nBenefits for Data Analysis\nAccessibility: Its intuitive, graphical interface makes complex data manipulation accessible to users without requiring advanced programming skills, although it also supports a robust \"M\" formula language for more advanced users.\nHandles Large Datasets: It efficiently processes large volumes of data without slowing down the core Excel application by loading data into the more efficient Data Model rather than directly into worksheets.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 13,
+    "text": "Assessment\nOpen file Lecture 27\nCreate Pivot Table using Data Model from Power Pivot",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s09",
+    "file": "Lecture 27 Merging, Editing, and Analyzing Data Using Power Query.pptx",
+    "slide": 14,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 1,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 2,
+    "text": "Lecture 28: Connecting and Managing External Data Sources",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 3,
+    "text": "Relational Tables & External Data Connections\n1- Relational Tables in Excel \nExcel can model related tables and consume normalized data from enterprise sources. Managed connections help ensure accuracy, minimize duplication, and maintain consistent keys across worksheets. This structure supports dependable reporting and reduces manual reconciliation effort.\n2- External Data Connections\nWith connections to SQL Server, Access, and online services, Excel retrieves and refreshes data dynamically. Scheduled or on-demand updates power real-time analytics while honoring governance rules. Enterprises gain better oversight and operational agility through centralized data integration.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 4,
+    "text": "Importing and Consolidating Multi‑Source Data\nBring Data In Efficiently \nImport from CSV, XML, and JSON to quickly populate workbooks with structured, ready‑to‑use datasets. \nUnify Disparate Sources \nConsolidate multiple files or sheets into a single table to harmonize structures and reduce inconsistencies. \nManage for Accuracy \nEffective multi‑source governance improves reporting accuracy by 35% in financial and sales operations.",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 5,
+    "text": "Connecting Excel to SQLite\nWhy it matters \nExtend Excel with lightweight databases to analyze specialized data in compact setups. \nHow to connect \nUse ODBC drivers or add-ins to query SQLite tables directly from Excel. \nData types supported \nWork with geographic and temporal fields to power richer analytics. \nWho benefits \nSmall to mid-sized businesses needing compact, cost-effective insights.",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 6,
+    "text": "SQLite",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 7,
+    "text": "Conclusion: Empower Data Mastery with Excel 365\nAccelerate with Copilot \nUse intelligent assistance to draft formulas, summaries, and workflows faster.\nAnalyze with Confidence \nLeverage advanced tools to turn complex data into clear insights.\nBuild Impactful Dashboards \nCreate dynamic visuals that spotlight KPIs and drive decisions.\nNext Steps \nApply templates, automate refreshes, and iterate with stakeholder feedback.",
+    "pictures": 4
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 8,
+    "text": "Assessment\nOpen a new Excel file\nUse file Access named Lecture 28 to Connect and Manage with Power Query and Excel",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 9,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 10,
+    "text": "",
+    "pictures": 0
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 11,
+    "text": "",
+    "pictures": 1
+  },
+  {
+    "sourceId": "excel-w2-s10",
+    "file": "Lecture 28 Connecting and Managing External Data Sources.pptx",
+    "slide": 12,
+    "text": "",
+    "pictures": 1
+  }
+]

@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.20.5";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.6";
 
 
 const UPDATE_KEYS={
@@ -10,16 +10,17 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.20.5",
-  title:"Reset My Mistakes",
-  date:"2026-08-30",
-  summary:"Learners can safely clear their local My Mistakes history without deleting results, Ranking or QBank study progress.",
+  version:"0.20.6",
+  title:"Excel Week 3 Study Production",
+  date:"2026-08-31",
+  summary:"Completes Excel Study coverage with the final Week 3 source batch while keeping assessment production gated.",
   highlights:[
-    "Added Reset My Mistakes with two-step confirmation and the current saved-mistake count.",
-    "Reset clears Needs Review, Improving and Mastered history plus Official QBank mistake flags so old test mistakes do not re-import.",
-    "Exam results, Ranking, reviewed questions, bookmarks, answers, Study progress, learner name and avatar remain untouched."
+    "10 final Excel source files / 154 slides audited and mapped.",
+    "8 approved Week 3 Groups / 34 Deep Learning V3.2 lessons / 123 production concepts.",
+    "Full Excel Study now spans 24 Groups / 96 lessons / 294 topics.",
+    "Practice and Exam remain locked pending final Study/source-trace/local visual QA."
   ],
-  type:"feature"
+  type:"content"
 };
 
 export function normalizeVersion(value){
