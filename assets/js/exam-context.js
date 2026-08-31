@@ -70,44 +70,38 @@ function navigatorTopicForQuestion(q){
     "General"
   );
 }
-function navigatorGroupLabel(track,topic){
-  const t=clean(track);
-  const section=clean(topic);
-  if(t && section && normalizeContextText(t)!==normalizeContextText(section) && normalizeContextText(section)!=="general"){
-    return `${t} · ${section}`;
-  }
-  if(section && normalizeContextText(section)!=="general")return section;
-  return t || "Questions";
+function navigatorGroupLabel(track){
+  return clean(track) || "Questions";
 }
 export function buildNavigatorGroups(items=[]){
   const groups=[];
+  const byTrack=new Map();
   for(const raw of items||[]){
     const index=Number(raw?.index);
     if(!Number.isInteger(index) || index<0)continue;
     const track=clean(raw?.track);
-    const topic=clean(raw?.topic || "General");
-    const key=`${normalizeContextText(track)}::${normalizeContextText(topic)}`;
-    const last=groups[groups.length-1];
-    if(last?.key===key){
-      last.indexes.push(index);
-      continue;
+    const key=normalizeContextText(track) || "questions";
+    let group=byTrack.get(key);
+    if(!group){
+      group={
+        id:`track-${key.replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,80) || "questions"}`,
+        key,
+        track,
+        label:navigatorGroupLabel(track),
+        indexes:[]
+      };
+      byTrack.set(key,group);
+      groups.push(group);
     }
-    groups.push({
-      id:`group-${index}-${key.replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,80) || "questions"}`,
-      key,
-      track,
-      topic,
-      label:navigatorGroupLabel(track,topic),
-      indexes:[index]
-    });
+    group.indexes.push(index);
   }
   return groups;
 }
 function navigatorItemsFromProgress(progress,nav=null){
   const buttons=nav?[...nav.querySelectorAll(".nav-number")]:[];
   if(buttons.length && buttons.some(btn=>btn.dataset.navTrack || btn.dataset.navTopic)){
-    return buttons.map((btn,index)=>({
-      index,
+    return buttons.map((btn,domIndex)=>({
+      index:Number.isInteger(Number(btn.dataset.navIndex))?Number(btn.dataset.navIndex):domIndex,
       track:clean(btn.dataset.navTrack),
       topic:clean(btn.dataset.navTopic || "General")
     }));
@@ -263,8 +257,11 @@ function ensureExamContextUi(){
 
 function currentNavigatorIndex(nav,progress){
   const buttons=[...nav.querySelectorAll(".nav-number")];
-  const current=buttons.findIndex(btn=>btn.classList.contains("current"));
-  if(current>=0)return current;
+  const currentButton=buttons.find(btn=>btn.classList.contains("current"));
+  if(currentButton){
+    const stableIndex=Number(currentButton.dataset.navIndex);
+    if(Number.isInteger(stableIndex))return stableIndex;
+  }
   return Math.max(0,Number(progress?.currentIndex)||0);
 }
 function syncNavigatorGroupState(nav,progress){
@@ -322,7 +319,7 @@ function refreshQuestionNavigatorGroups(progress){
     toggle.setAttribute("aria-label",`${collapsed?"Expand":"Collapse"} section ${group.label}`);
     toggle.innerHTML=`
       <span class="question-nav-group-copy">
-        <small>SECTION</small>
+        <small>TRACK</small>
         <strong>${escapeHtml(group.label)}</strong>
       </span>
       <span class="question-nav-group-count">${group.indexes.length}</span>

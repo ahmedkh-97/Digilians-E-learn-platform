@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.20.17";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.20";
 
 
 const UPDATE_KEYS={
@@ -10,16 +10,16 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.20.17",
-  title:"Legacy Word Bullet Rendering Fix",
+  version:"0.20.20",
+  title:"Track-Grouped Exam Navigator",
   date:"2026-08-31",
-  summary:"Normalizes legacy Word/Wingdings bullet glyphs at display time so imported multi-line questions render cleanly without changing source question data or technical code formatting.",
+  summary:"Groups all exam navigator question numbers under their Data Analysis track instead of repeating topic/section blocks.",
   highlights:[
-    "Legacy U+F0B7 Word/Wingdings bullets now display as standard bullets in questions.",
-    "Five affected Looker Studio Official QBank questions render readable KPI/list lines.",
-    "The repair is presentation-only; Official QBank source JSON remains unchanged.",
-    "SQL, Python, DAX, Excel and Power Query M code newlines and technical rendering remain protected.",
-    "Exam logic, answers, Ranking, My Mistakes and learner state are unchanged."
+    "One navigator group per track: Excel, SQL, Python, Power BI, Tableau, Looker Studio, or other track present in the exam.",
+    "Questions from the same track stay together even when their topics differ or appear later in the exam sequence.",
+    "Stable original question indexes preserve navigator answer, current, marked and correctness states after visual regrouping.",
+    "Current-question topic/source context remains visible above the question.",
+    "No question order, scoring, timer, Ranking, My Mistakes or assessment-bank content changed."
   ],
   type:"fix"
 };
