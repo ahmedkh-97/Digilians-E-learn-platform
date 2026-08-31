@@ -1,3 +1,5 @@
+import "./exam-context.js?v=0.20.15";
+
 export function validateExamPayload(payload){
   const errors=[];
   if(!payload?.exam?.id) errors.push("Missing exam.id");
