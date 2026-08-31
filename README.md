@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.20.14
+# Digilians E-Learn Platform V0.20.17
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -2572,6 +2572,28 @@ Desktop navbar refinement only:
 - Excel Practice/Exam remain locked pending Study/source-trace and local visual QA approval.
 
 
+
+## V0.20.17 — Legacy Word Bullet Rendering Fix
+
+- Normalizes legacy Word/Wingdings `U+F0B7` bullet characters to standard `•` bullets at display time.
+- Repairs the five affected Looker Studio Official QBank question displays without editing the source bank.
+- Preserves multi-line technical code and the universal SQL / Python / DAX / Excel / Power Query M renderer.
+- No scoring, answers, Ranking, My Mistakes, exam timing, question ordering, or learner-state behavior changed.
+
+## V0.20.16 — Section-Aware Exam Navigator
+
+- Groups generated-exam Navigator numbers under clear `Track · Section/Topic` headings without changing question order.
+- Highlights the group containing the current question.
+- Section groups are collapsible and show their question count.
+- Preserves the V0.20.15 activity context bar and current-question source line.
+- No assessment/QBank payload, Ranking, timer, result or learner-state schema changes.
+
+## V0.20.15 — Exam Activity & Question Context
+
+- Adds an activity context bar inside exam runtime.
+- Shows the exact source/track/topic for the current question, including My Mistakes provenance.
+- Makes the Navigator heading activity-aware.
+- No assessment/QBank payload, Ranking, timer, result or learner-state schema changes.
 
 ## V0.20.14 — Excel Full Track Exam Flow Fix
 
