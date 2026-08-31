@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Excel Practice Production — Design V1 | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Excel Practice Production — Design V1" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/EXCEL-PRACTICE-PRODUCTION-DESIGN-V1.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/EXCEL-PRACTICE-PRODUCTION-DESIGN-V1.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Excel Practice Production — Design V1" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Excel Practice Production — Design V1","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/EXCEL-PRACTICE-PRODUCTION-DESIGN-V1.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="excel-practice-production--design-v1">Excel Practice Production — Design V1</h1>
+
+<h2 id="scope">Scope</h2>
+<p>Build Excel Practice only from the locally verified V0.20.6 Final Study QA package. GitHub is out of scope. Excel Exam remains locked until Practice is approved.</p>
+
+<h2 id="source-of-truth">Source of truth</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">data/curriculum/excel.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">data/syllabus-maps/excel.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">data/learning.json</code></li>
+  <li>Excel source trace already embedded in Study content</li>
+  <li>Only concepts marked <code class="language-plaintext highlighter-rouge">practiceEligible: true</code> / <code class="language-plaintext highlighter-rouge">assessmentEligible: true</code> may produce Practice questions.</li>
+</ul>
+
+<p>Current eligible coverage:</p>
+<ul>
+  <li>Week 1: 53</li>
+  <li>Week 2: 89</li>
+  <li>Week 3: 86</li>
+  <li>Total: 228 assessment-eligible concepts</li>
+</ul>
+
+<h2 id="approaches-considered">Approaches considered</h2>
+<h3 id="a-one-global-excel-practice-bank">A. One global Excel Practice bank</h3>
+<p>Simple runtime pool, but weaker week/module traceability and harder QA isolation.</p>
+
+<h3 id="b-three-week-scoped-practice-banks--recommended">B. Three week-scoped Practice banks — RECOMMENDED</h3>
+<p>One bank per Excel week, exactly one baseline question per eligible concept for V1. Gives deterministic 100% coverage, clean source trace, simple regression tests, and integrates naturally with the existing three module cards.</p>
+
+<h3 id="c-twenty-four-group-scoped-practice-banks">C. Twenty-four group-scoped Practice banks</h3>
+<p>Best granularity, but creates unnecessary registry/file complexity for the first Practice release. Can be added later as a filtered practice mode without changing the source bank model.</p>
+
+<h2 id="approved-implementation-design">Approved implementation design</h2>
+<p>Use Approach B.</p>
+
+<h3 id="bank-files">Bank files</h3>
+<ul>
+  <li>Week 1 bank: 53 questions</li>
+  <li>Week 2 bank: 89 questions</li>
+  <li>Week 3 bank: 86 questions</li>
+  <li>Total V1 pool: 228 questions</li>
+</ul>
+
+<p>Every question maps to exactly one eligible curriculum concept. No Supporting, Bridge, statistics-prerequisite, cross-track-bridge, source-inconsistent, or environment-only item may enter Practice unless it is explicitly marked eligible in the curriculum.</p>
+
+<h3 id="question-format">Question format</h3>
+<p>Every question must have:</p>
+<ul>
+  <li>4 options A/B/C/D</li>
+  <li>one correct answer</li>
+  <li>English question/options</li>
+  <li>Arabic concept explanation</li>
+  <li><code class="language-plaintext highlighter-rouge">deepExplanation.summary</code> in Arabic</li>
+  <li><code class="language-plaintext highlighter-rouge">deepExplanation.options.A/B/C/D</code> explaining why each option is correct/wrong</li>
+  <li><code class="language-plaintext highlighter-rouge">topic</code>, <code class="language-plaintext highlighter-rouge">topicId</code>, <code class="language-plaintext highlighter-rouge">conceptKey</code></li>
+  <li><code class="language-plaintext highlighter-rouge">difficulty</code>: Easy / Medium / Hard</li>
+  <li><code class="language-plaintext highlighter-rouge">questionType</code>: direct-knowledge / scenario-application / calculation-tracing / best-decision / troubleshooting where source-supported</li>
+  <li><code class="language-plaintext highlighter-rouge">sourceType: course</code> only</li>
+  <li><code class="language-plaintext highlighter-rouge">source.file</code> + slide/reference trace</li>
+  <li><code class="language-plaintext highlighter-rouge">trackExamEligible</code> and <code class="language-plaintext highlighter-rouge">finalEligible</code> remain false during Practice Production; Exam eligibility is a later gate.</li>
+</ul>
+
+<h3 id="difficulty-strategy">Difficulty strategy</h3>
+<p>Coverage comes before forced ratios. Each concept gets the strongest source-supported question form. Target distribution is checked for balance but questions are not distorted to satisfy a quota.</p>
+
+<h3 id="runtime-integration">Runtime integration</h3>
+<p>Add a separate <code class="language-plaintext highlighter-rouge">practiceExamId</code> to each Excel module. <code class="language-plaintext highlighter-rouge">openPracticeBtn</code> resolves <code class="language-plaintext highlighter-rouge">practiceExamId</code> in instant-feedback mode. <code class="language-plaintext highlighter-rouge">openModuleExamBtn</code> remains disabled because <code class="language-plaintext highlighter-rouge">examId</code> stays null and Exam production is not part of this release.</p>
+
+<p>Practice results use the existing exam runtime and therefore inherit:</p>
+<ul>
+  <li>local progress/resume</li>
+  <li>instant feedback</li>
+  <li>review screen</li>
+  <li>My Mistakes capture</li>
+  <li>navigation/marking</li>
+</ul>
+
+<p>Practice does not enter Ranking.</p>
+
+<h3 id="practice-files-and-registry">Practice files and registry</h3>
+<p>Create three Practice exam payloads, each using the existing Exam JSON runtime schema, and register them in <code class="language-plaintext highlighter-rouge">data/exams.json</code>. They are category <code class="language-plaintext highlighter-rouge">Practice</code>, feedbackModes <code class="language-plaintext highlighter-rouge">["instant"]</code>, timer disabled, retake enabled, and are reachable from their Excel module card.</p>
+
+<h2 id="stage-gates--tests">Stage gates / tests</h2>
+<ol>
+  <li>Baseline regression: current 18 tests + Pre-Deploy + Intake must pass before changes.</li>
+  <li>Eligibility lock: exactly 228 eligible concepts = 53/89/86.</li>
+  <li>Coverage lock: exactly one V1 Practice question per eligible concept; 0 missing, 0 duplicate concept mappings.</li>
+  <li>Schema/quality: four unique options, valid answer, source trace, Arabic deep explanation, four option reasons, no placeholders/boilerplate.</li>
+  <li>Assessment boundary: 0 questions from non-eligible concepts; sourceType is course only.</li>
+  <li>Runtime integration: three <code class="language-plaintext highlighter-rouge">practiceExamId</code> values resolve; Practice enabled; Exam remains locked.</li>
+  <li>My Mistakes/Progress regression: existing reset/startup/mistakes tests remain green plus Practice-specific runtime checks.</li>
+  <li>Full regression: Pre-Deploy, Intake, all tests, JSON/JS syntax, HTTP smoke.</li>
+  <li>Package gate: build ZIP, unpack to a clean folder, repeat core tests on the exact deliverable.</li>
+</ol>
+
+<h2 id="non-goals">Non-goals</h2>
+<ul>
+  <li>No Excel Exam questions yet.</li>
+  <li>No Ranking integration for Practice.</li>
+  <li>No GitHub operations.</li>
+  <li>No external-similar questions.</li>
+  <li>No invented concepts or silent correction of source issues.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

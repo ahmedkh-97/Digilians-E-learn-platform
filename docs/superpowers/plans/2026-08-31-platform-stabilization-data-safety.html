@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Platform Stabilization &amp; Data Safety Implementation Plan | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Platform Stabilization &amp; Data Safety Implementation Plan" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/superpowers/plans/2026-08-31-platform-stabilization-data-safety.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/superpowers/plans/2026-08-31-platform-stabilization-data-safety.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Platform Stabilization &amp; Data Safety Implementation Plan" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Platform Stabilization &amp; Data Safety Implementation Plan","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/superpowers/plans/2026-08-31-platform-stabilization-data-safety.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="platform-stabilization--data-safety-implementation-plan">Platform Stabilization &amp; Data Safety Implementation Plan</h1>
+
+<blockquote>
+  <p><strong>For agentic workers:</strong> REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (<code class="language-plaintext highlighter-rouge">- [ ]</code>) syntax for tracking.</p>
+</blockquote>
+
+<p><strong>Goal:</strong> Harden learner data persistence, migration, restore, and platform-health diagnostics without changing approved educational or assessment behavior.</p>
+
+<p><strong>Architecture:</strong> Add a small pure storage-safety module for schema/migration contracts, keep storage access resilient through one wrapper layer in <code class="language-plaintext highlighter-rouge">storage.js</code>, make restore application rollback-safe, and enrich existing analytics error metadata rather than creating a second monitoring system. Existing public APIs remain compatible.</p>
+
+<p><strong>Tech Stack:</strong> Vanilla ES modules, localStorage/sessionStorage, Node <code class="language-plaintext highlighter-rouge">node:test</code>, existing pre-deploy tooling.</p>
+
+<p><strong>Spec:</strong> <code class="language-plaintext highlighter-rouge">docs/superpowers/specs/2026-08-31-platform-stabilization-data-safety-design.md</code></p>
+
+<h2 id="global-constraints">Global Constraints</h2>
+<ul>
+  <li>Start from approved V0.20.9 portable package.</li>
+  <li>Do not modify Study, Practice, Exam, QBank, curriculum, syllabus, or ranking rules/content.</li>
+  <li>No GitHub operations.</li>
+  <li>Full regression runs once after feature QA, then package verification runs on the final ZIP.</li>
+</ul>
+
+<hr />
+
+<h3 id="task-1-versioned-storage-schema-and-migration-safety">Task 1: Versioned storage schema and migration safety</h3>
+<p><strong>Files:</strong> Create <code class="language-plaintext highlighter-rouge">assets/js/storage-safety.js</code>; modify <code class="language-plaintext highlighter-rouge">assets/js/storage.js</code>, <code class="language-plaintext highlighter-rouge">assets/js/app.js</code>; create <code class="language-plaintext highlighter-rouge">tests/storage-safety.test.mjs</code>.
+<strong>Produces:</strong> <code class="language-plaintext highlighter-rouge">CURRENT_STORAGE_SCHEMA_VERSION</code>, <code class="language-plaintext highlighter-rouge">ensureStorageSchema()</code>, resilient learner-storage access and warnings.</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Write failing tests for absent schema migration, future-schema refusal, destructive-migration snapshot requirement, and unavailable localStorage reads/writes.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Run targeted tests and verify RED.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Implement minimal storage-safety module and wrappers.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Run targeted tests and verify GREEN.</li>
+</ul>
+
+<h3 id="task-2-rollback-safe-backuprestore">Task 2: Rollback-safe Backup/Restore</h3>
+<p><strong>Files:</strong> Modify <code class="language-plaintext highlighter-rouge">assets/js/backup-restore.js</code>; create <code class="language-plaintext highlighter-rouge">tests/backup-restore-safety.test.mjs</code>.
+<strong>Produces:</strong> storage-schema-aware backups and rollback on partial restore failure.</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Write failing tests for storage schema backup validation and failed-write rollback.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Run targeted tests and verify RED.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Implement atomic best-effort apply/rollback and schema validation.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Run targeted tests and verify GREEN.</li>
+</ul>
+
+<h3 id="task-3-platform-health-severitycurrent-version-diagnostics">Task 3: Platform Health severity/current-version diagnostics</h3>
+<p><strong>Files:</strong> Modify <code class="language-plaintext highlighter-rouge">assets/js/analytics.js</code>; create <code class="language-plaintext highlighter-rouge">tests/platform-health-stability.test.mjs</code>.
+<strong>Produces:</strong> error severity metadata plus severity/current-version/last-error summary fields.</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Write failing pure aggregation/classification tests.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Run targeted tests and verify RED.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Implement classification and aggregation with backward compatibility for historical events.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Run targeted tests and verify GREEN.</li>
+</ul>
+
+<h3 id="task-4-pre-deploy-gates-and-feature-regression">Task 4: Pre-deploy gates and feature regression</h3>
+<p><strong>Files:</strong> Modify <code class="language-plaintext highlighter-rouge">tools/pre-deploy-check.mjs</code>; run all targeted tests.
+<strong>Produces:</strong> permanent guards for storage schema, rollback-safe restore, and health classification.</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Add guards that exercise real modules, not source-string-only assertions.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Run targeted suite + Pre-Deploy + Excel Intake.</li>
+</ul>
+
+<h3 id="task-5-release-and-package-verification">Task 5: Release and package verification</h3>
+<p><strong>Files:</strong> Update version/cache/changelog/readme only after feature gates pass; package once.
+<strong>Produces:</strong> V0.20.10 stabilization ZIP and checksum.</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Run one full regression.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Confirm protected-file hashes are unchanged.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Bump version/cache/changelog to V0.20.10.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Re-run release metadata gates.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Package once, extract fresh, re-run full verification + HTTP smoke.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

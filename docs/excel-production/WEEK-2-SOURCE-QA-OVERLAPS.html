@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Excel Week 2 — Source QA &amp; Overlap Log | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Excel Week 2 — Source QA &amp; Overlap Log" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/WEEK-2-SOURCE-QA-OVERLAPS.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/WEEK-2-SOURCE-QA-OVERLAPS.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Excel Week 2 — Source QA &amp; Overlap Log" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Excel Week 2 — Source QA &amp; Overlap Log","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/WEEK-2-SOURCE-QA-OVERLAPS.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="excel-week-2--source-qa--overlap-log">Excel Week 2 — Source QA &amp; Overlap Log</h1>
+
+<h2 id="qa-findings">QA findings</h2>
+
+<h3 id="1-high--w2-qa-01">1. HIGH — w2-qa-01</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s08</code> • Slides: 19-20</li>
+  <li>Finding: Text.End use-case line says ‘extract the first few characters’, while the function name, example and explanation state it extracts the last three characters.</li>
+  <li>Production action: No silent repair. Show PRESENTATION CORRECTION if teaching this slide.</li>
+</ul>
+
+<h3 id="2-medium--w2-qa-02">2. MEDIUM — w2-qa-02</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s01</code> • Slides: 3-11</li>
+  <li>Finding: Sparklines, Consolidation, Data Entry Form and FILTER search already exist in Week 1.</li>
+  <li>Production action: Reuse Week 1 explanations; only produce new Week 2 behavior (VSTACK/3D refs/ActiveX/VBA).</li>
+</ul>
+
+<h3 id="3-medium--w2-qa-03">3. MEDIUM — w2-qa-03</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s01</code> • Slides: 9-10</li>
+  <li>Finding: ActiveX and the VBA TextBox workflow depend on desktop Excel/Windows-style controls and are not universal across Excel environments.</li>
+  <li>Production action: Label environment dependency; do not present as the only search method.</li>
+</ul>
+
+<h3 id="4-medium--w2-qa-04">4. MEDIUM — w2-qa-04</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s02</code> • Slides: 10-11,17,24-27</li>
+  <li>Finding: Several chart types are named/shown visually with little or no explanatory text: stacked/clustered variants, Sunburst, Treemap, Funnel, Radar and Combo.</li>
+  <li>Production action: Use source visuals for recognition. Do not invent detailed use-case rules that are not supported by the deck.</li>
+</ul>
+
+<h3 id="5-medium--w2-qa-05">5. MEDIUM — w2-qa-05</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s03</code> • Slides: 4-6</li>
+  <li>Finding: IQR, Box Plot/outliers and Standard Deviation concepts were already approved as Statistics prerequisite in Week 1.</li>
+  <li>Production action: Teach only the Excel application layer: QUARTILE.INC, limits, IF/OR flag, Box &amp; Whisker and STANDARDIZE.</li>
+</ul>
+
+<h3 id="6-medium--w2-qa-06">6. MEDIUM — w2-qa-06</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s03</code> • Slides: 7</li>
+  <li>Finding: Regression is mentioned alongside Solver/Descriptive Statistics, but no regression workflow is taught in this deck.</li>
+  <li>Production action: Do not create a standalone Regression lesson or assessment question from the mention alone.</li>
+</ul>
+
+<h3 id="7-medium--w2-qa-07">7. MEDIUM — w2-qa-07</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s05</code> • Slides: 9-10</li>
+  <li>Finding: Python in Excel and Pandas overlap the existing Python/Pandas curriculum.</li>
+  <li>Production action: Keep as Excel automation bridge only; no duplicate Python fundamentals.</li>
+</ul>
+
+<h3 id="8-medium--w2-qa-08">8. MEDIUM — w2-qa-08</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s06</code> • Slides: 19-28</li>
+  <li>Finding: The Top 10 Dashboard Mistakes section often supplies a title plus visual example rather than full written reasoning.</li>
+  <li>Production action: Teach the named mistake + what the source visual demonstrates; do not manufacture unsupported rules.</li>
+</ul>
+
+<h3 id="9-medium--w2-qa-09">9. MEDIUM — w2-qa-09</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s07</code> • Slides: 8-12</li>
+  <li>Finding: Dashboard questions jump from 1 to 3; question 2 is missing from the supplied deck.</li>
+  <li>Production action: Preserve numbering/source trace; do not invent the missing question.</li>
+</ul>
+
+<h3 id="10-medium--w2-qa-10">10. MEDIUM — w2-qa-10</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s08</code> • Slides: 35</li>
+  <li>Finding: The M slide states a library size of nearly 1,000 functions; this is not necessary to understand or operate M.</li>
+  <li>Production action: Keep as source context if desired, but exclude the numeric claim from assessment.</li>
+</ul>
+
+<h3 id="11-medium--w2-qa-11">11. MEDIUM — w2-qa-11</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s10</code> • Slides: 3-7</li>
+  <li>Finding: Slides contain broad productivity/governance claims (for example a 35% accuracy improvement) and conclusion-style statements.</li>
+  <li>Production action: Do not turn unsourced productivity percentages into assessment facts.</li>
+</ul>
+
+<h3 id="12-medium--w2-qa-12">12. MEDIUM — w2-qa-12</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">batch</code> • Slides: Assessments</li>
+  <li>Finding: Several assessments require companion Excel/Access files (Lectures 19, 21, 23, 24, 26, 27 and 28) that are not in this uploaded batch.</li>
+  <li>Production action: Study can be produced from slides; practical assessment reproduction stays blocked until companion files are supplied or explicitly waived.</li>
+</ul>
+
+<h3 id="13-low--w2-qa-13">13. LOW — w2-qa-13</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s01</code> • Slides: 5</li>
+  <li>Finding: VSTACK is mentioned as a consolidation option but there is no worked VSTACK formula example.</li>
+  <li>Production action: Supporting mention only unless another source later teaches its syntax.</li>
+</ul>
+
+<h3 id="14-low--w2-qa-14">14. LOW — w2-qa-14</h3>
+<ul>
+  <li>Source: <code class="language-plaintext highlighter-rouge">excel-w2-s10</code> • Slides: 5-6</li>
+  <li>Finding: SQLite is presented as an external source via ODBC/add-ins; the source does not provide a detailed driver-installation procedure.</li>
+  <li>Production action: Teach connection concept and workflow only; do not invent driver setup steps.</li>
+</ul>
+
+<h2 id="overlap-resolutions">Overlap resolutions</h2>
+
+<ul>
+  <li><strong>Sparklines</strong> — Reuse the existing Sparklines lesson; Lecture 19 becomes KPI/dashboard context only.</li>
+  <li><strong>Data Consolidation</strong> — One core explanation. Add new 3D-reference/VSTACK/multi-source contexts without duplicating basics.</li>
+  <li><strong>Data Entry Form</strong> — Reuse Week 1 lesson; Lecture 19 assessment references it.</li>
+  <li><strong>Dynamic FILTER Search</strong> — Reuse FILTER+ISNUMBER+SEARCH; Week 2 adds ActiveX LinkedCell and VBA fallback only.</li>
+  <li><strong>IQR / Outliers / Box Plot</strong> — Week 1 remains prerequisite theory; Week 2 teaches Excel application with QUARTILE.INC, fences, IF/OR and Box &amp; Whisker.</li>
+  <li><strong>Standard Deviation / Z-score</strong> — Do not reteach SD theory. Teach STANDARDIZE as the Excel application.</li>
+  <li><strong>Analysis ToolPak</strong> — Reuse activation lesson; Week 2 references Descriptive Statistics use.</li>
+  <li><strong>Goal Seek → Solver</strong> — Goal Seek first; Solver follows as multi-variable/constraint optimization.</li>
+  <li><strong>Dashboard design</strong> — Lecture 25 supplies evaluation/audience principles; Lecture 24 supplies build/interactivity/storytelling workflow.</li>
+  <li><strong>Power Query ETL</strong> — Lecture 26 is foundation; Lecture 27 is applied transformation/combine/load continuation.</li>
+  <li><strong>Power Query Merge / Relational data</strong> — Teach merge/relationship distinction once; later sources become external-connection/application cases.</li>
+  <li><strong>Python/Pandas</strong> — Excel keeps only Python-in-Excel/Pandas automation bridge; Python language/Pandas fundamentals remain in Python track.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

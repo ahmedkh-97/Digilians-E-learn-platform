@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Platform Stabilization &amp; Data Safety Design | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Platform Stabilization &amp; Data Safety Design" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/superpowers/specs/2026-08-31-platform-stabilization-data-safety-design.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/superpowers/specs/2026-08-31-platform-stabilization-data-safety-design.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Platform Stabilization &amp; Data Safety Design" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Platform Stabilization &amp; Data Safety Design","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/superpowers/specs/2026-08-31-platform-stabilization-data-safety-design.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="platform-stabilization--data-safety-design">Platform Stabilization &amp; Data Safety Design</h1>
+
+<h2 id="goal">Goal</h2>
+<p>Harden the approved V0.20.9 platform against hidden storage/migration/restore failures without changing approved learning, practice, exam, QBank, ranking rules, or assessment content.</p>
+
+<h2 id="scope">Scope</h2>
+<ul>
+  <li>Add an explicit versioned learner-storage schema and safe migration runner.</li>
+  <li>Make current migration non-destructive; destructive future migrations must obtain a safety snapshot before changing learner data.</li>
+  <li>Keep the platform usable when localStorage reads/writes are unavailable; surface a learner-visible save warning instead of crashing silently.</li>
+  <li>Make backup restore rollback-safe when a browser storage write fails mid-restore.</li>
+  <li>Add storage-schema compatibility to backup validation.</li>
+  <li>Improve Platform Health data so app errors carry severity and summaries expose severity/current-version counts and last-error time.</li>
+  <li>Add regression/pre-deploy gates for these contracts.</li>
+</ul>
+
+<h2 id="non-goals">Non-goals</h2>
+<ul>
+  <li>No track/content additions.</li>
+  <li>No assessment-data edits.</li>
+  <li>No ranking architecture redesign.</li>
+  <li>No UI redesign beyond small status/health copy needed for the new safety behavior.</li>
+  <li>No GitHub operations.</li>
+</ul>
+
+<h2 id="release-gate">Release gate</h2>
+<p>Targeted tests -&gt; feature regression -&gt; one full regression -&gt; version/cache/changelog -&gt; one package -&gt; fresh-folder package verification.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

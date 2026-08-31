@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Excel Week 1 — Study V1 QA | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Excel Week 1 — Study V1 QA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/WEEK-1-STUDY-V1-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/WEEK-1-STUDY-V1-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Excel Week 1 — Study V1 QA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Excel Week 1 — Study V1 QA","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/WEEK-1-STUDY-V1-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="excel-week-1--study-v1-qa">Excel Week 1 — Study V1 QA</h1>
+
+<h2 id="build-scope">Build scope</h2>
+
+<p>This is an Excel development workspace on top of runtime <strong>V0.19.6</strong>.</p>
+
+<p>Implemented:</p>
+<ul>
+  <li><strong>27 Study sections</strong></li>
+  <li><strong>20 Excel Core</strong></li>
+  <li><strong>7 Statistics Prerequisite</strong></li>
+  <li><strong>70/70 audited concepts mapped exactly once</strong></li>
+  <li><strong>45 source formula cards</strong></li>
+  <li>Source Trace on all 27 sections</li>
+  <li>Excel-specific visual-learning renderer</li>
+  <li>Statistics prerequisite visual separation</li>
+  <li>Practice / Exam intentionally locked until Study QA is accepted</li>
+</ul>
+
+<h2 id="decision-b">Decision B</h2>
+
+<p>Statistics appears in the Week 1 learning journey as:</p>
+
+<p><code class="language-plaintext highlighter-rouge">PREREQUISITE • STATISTICS</code></p>
+
+<p>It remains excluded from:</p>
+<ul>
+  <li>Excel Practice</li>
+  <li>Excel Week Exam</li>
+  <li>Excel Track Final</li>
+  <li>Excel share of Data Analysis Final</li>
+</ul>
+
+<h2 id="source-integrity">Source integrity</h2>
+
+<p>The Study content was produced from the Week 1 audited source map.</p>
+
+<p>Important source issues are not silently corrected:</p>
+<ul>
+  <li>skewness contradiction is shown as <code class="language-plaintext highlighter-rouge">SOURCE INCONSISTENCY</code></li>
+  <li>Math worked-example arithmetic-label problem is shown as a correction warning</li>
+  <li>HLOOKUP assessment gap is shown as <code class="language-plaintext highlighter-rouge">SOURCE GAP</code></li>
+  <li>Nested IF / IFS sequencing gap is preserved</li>
+  <li>ISNUMBER is explained only inside the source workflow where it is used</li>
+</ul>
+
+<h2 id="renderer-runtime-qa">Renderer runtime QA</h2>
+
+<p>Automated Pre-Deploy verifies:</p>
+<ul>
+  <li>27/27 Study sections render</li>
+  <li>20 Excel Core / 7 Statistics prerequisite</li>
+  <li>70 unique concept IDs</li>
+  <li>exact match with the Week 1 Coverage Map</li>
+  <li>45 formula cards in data</li>
+  <li>all sections contain Source Trace</li>
+  <li>all Statistics Study sections map only to Statistics prerequisite concepts</li>
+  <li>Practice/Exam gate remains locked</li>
+</ul>
+
+<p>Result: <strong>PASS</strong></p>
+
+<h2 id="chromium-component-visual-qa">Chromium component visual QA</h2>
+
+<p>Real production renderer + production CSS were rendered for:</p>
+<ul>
+  <li>Formula / reference section</li>
+  <li>Statistics skewness conflict section</li>
+  <li>Dynamic-array spill section</li>
+</ul>
+
+<p>Desktop:</p>
+<ul>
+  <li>3/3 test sections rendered</li>
+  <li>7 technical Excel formula blocks in the selected sample</li>
+  <li>prerequisite badge visible</li>
+  <li>source-conflict card visible</li>
+  <li>page-level horizontal overflow = 0</li>
+</ul>
+
+<p>390px:</p>
+<ul>
+  <li>intro cards collapse to one column</li>
+  <li>formula cards collapse to one column</li>
+  <li>page-level horizontal overflow = 0</li>
+</ul>
+
+<p>Result: <strong>PASS</strong></p>
+
+<h2 id="full-localhost-browser-navigation">Full localhost browser navigation</h2>
+
+<p>A real localhost server was started successfully, but Chromium navigation to:</p>
+
+<p><code class="language-plaintext highlighter-rouge">http://127.0.0.1:8145/</code></p>
+
+<p>was blocked by the execution environment with:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ERR_BLOCKED_BY_ADMINISTRATOR</code></p>
+
+<p>Therefore this report does <strong>not</strong> claim a full browser click-through.</p>
+
+<p>Use <code class="language-plaintext highlighter-rouge">TEST-LOCAL.bat</code> on the user’s machine for:
+<code class="language-plaintext highlighter-rouge">Learn → Data Analysis → Excel → Week 1 → Study</code></p>
+
+<h2 id="existing-platform-regression">Existing platform regression</h2>
+
+<p>The normal platform Pre-Deploy remains PASS, including:</p>
+<ul>
+  <li>SQL 520</li>
+  <li>Python 520</li>
+  <li>Junior Official QBank 930</li>
+  <li>Professional Official QBank 1189</li>
+  <li>Python Study</li>
+  <li>SQL Study</li>
+  <li>Ranking</li>
+  <li>Shared Avatars</li>
+  <li>Analytics</li>
+  <li>Backup/Restore</li>
+  <li>Update Manager</li>
+</ul>
+
+<p>No Excel Week 1 question bank or exam was created in Study V1.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

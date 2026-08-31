@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Final Excel Study QA — V0.20.6 | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Final Excel Study QA — V0.20.6" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/FINAL-EXCEL-STUDY-QA-V0.20.6.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/FINAL-EXCEL-STUDY-QA-V0.20.6.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Final Excel Study QA — V0.20.6" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Final Excel Study QA — V0.20.6","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/FINAL-EXCEL-STUDY-QA-V0.20.6.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="final-excel-study-qa--v0206">Final Excel Study QA — V0.20.6</h1>
+
+<p>Date: 2026-08-31
+Scope: Local V0.20.6 Final Clean only. No GitHub writes.</p>
+
+<h2 id="final-status">Final status</h2>
+
+<p>Excel Study passed the final structural, educational-quality, source-trace, overlap, assessment-boundary, renderer, HTTP, and preservation gates.</p>
+
+<h2 id="course-totals">Course totals</h2>
+
+<ul>
+  <li>3 weeks</li>
+  <li>29 source files / 610 slides</li>
+  <li>24 Learning Groups</li>
+  <li>96 Study lessons</li>
+  <li>294 production topics</li>
+  <li>Week 3: 8 Groups / 34 lessons / 123 concepts</li>
+  <li>Week 3 classification: 86 assessment-eligible / 30 supporting / 7 bridge</li>
+  <li>Practice / Exam remain gated pending learner-side visual acceptance.</li>
+</ul>
+
+<h2 id="educational-quality-correction-completed-during-final-qa">Educational-quality correction completed during final QA</h2>
+
+<p>Final QA detected Week 3 beginner concept cards using repeated generic boilerplate and the same Common Mistakes template across all 34 lessons. The issue was fixed locally using the provided Lectures 29–38 as the educational boundary:</p>
+
+<ul>
+  <li>182 Week 3 beginner concept explanations rewritten as concept-specific teaching text.</li>
+  <li>Common Mistakes changed to lesson-specific mistakes.</li>
+  <li>Existing environment/version/source/overlap caveats preserved.</li>
+  <li>No external educational rules were silently added.</li>
+</ul>
+
+<p>A permanent regression test was added at <code class="language-plaintext highlighter-rouge">tests/excel-final-study-quality.test.mjs</code> and wired into <code class="language-plaintext highlighter-rouge">tools/pre-deploy-check.mjs</code>.</p>
+
+<h2 id="final-verification-evidence">Final verification evidence</h2>
+
+<ul>
+  <li>153/153 JSON files parse.</li>
+  <li>30/30 JS/MJS files pass syntax checks.</li>
+  <li>18/18 Node regression tests pass.</li>
+  <li>Full Pre-Deploy Check: PASS.</li>
+  <li>Excel Intake / Study Check: PASS.</li>
+  <li>Structural mapping: 24 Groups / 96 lessons / 294 topics, exact 1:1 concept mapping.</li>
+  <li>Source Trace: 96/96 lessons resolve to one of the 29 registered sources and valid slide ranges.</li>
+  <li>Cross-week duplicate production: 0 exact or high-similarity Week 3 overlap candidates against Weeks 1–2.</li>
+  <li>Assessment boundary: only 86 Week 3 excel-core topics are eligible; 30 supporting + 7 bridge remain non-eligible.</li>
+  <li>Renderer: 96/96 lessons render through <code class="language-plaintext highlighter-rouge">renderExcelStudySectionHtmlV2</code>; 24 Group headers and 3 overviews render.</li>
+  <li>HTTP smoke: all startup-critical and Excel critical assets return 200 from a local static server.</li>
+  <li>Preservation: Week 1 module exact, Week 2 module exact, <code class="language-plaintext highlighter-rouge">official-qbank/</code>, <code class="language-plaintext highlighter-rouge">question-banks/</code>, and <code class="language-plaintext highlighter-rouge">exams/</code> exact.</li>
+</ul>
+
+<h2 id="visual-browser-note">Visual-browser note</h2>
+
+<p>The QA environment’s managed Chromium policy blocks localhost with <code class="language-plaintext highlighter-rouge">ERR_BLOCKED_BY_ADMINISTRATOR</code>, so an automated pixel-level browser walkthrough could not be performed here. Renderer/runtime and HTTP tests passed. <code class="language-plaintext highlighter-rouge">TEST-LOCAL.bat</code> still runs Pre-Deploy automatically before opening the platform, and a short learner-side visual walkthrough of Excel Groups 17–24 remains the last manual acceptance check.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

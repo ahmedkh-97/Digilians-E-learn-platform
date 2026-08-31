@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Digilians E-Learn — Track Production Reference Standard V1 | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Digilians E-Learn — Track Production Reference Standard V1" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/production/TRACK-PRODUCTION-REFERENCE-STANDARD-V1.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/production/TRACK-PRODUCTION-REFERENCE-STANDARD-V1.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Digilians E-Learn — Track Production Reference Standard V1" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Digilians E-Learn — Track Production Reference Standard V1","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/production/TRACK-PRODUCTION-REFERENCE-STANDARD-V1.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="digilians-e-learn--track-production-reference-standard-v1">Digilians E-Learn — Track Production Reference Standard V1</h1>
+
+<p><strong>Status:</strong> Approved reference standard<br />
+<strong>Reference implementation:</strong> Excel Track<br />
+<strong>Applies to:</strong> Future Data Analysis tracks added to the platform<br />
+<strong>Runtime impact:</strong> None — this document defines production/readiness rules only.</p>
+
+<h2 id="1-purpose">1. Purpose</h2>
+
+<p>This standard defines the minimum production quality a track must reach before it is called <strong>Production Ready</strong>. Excel is the reference implementation because it currently has the complete end-to-end flow: source audit, structured study, practice, an independent full-track exam, results analytics, My Mistakes, ranking, data-safety protection, accessibility/UX guardrails, portable QA, and package verification.</p>
+
+<p>The goal is to avoid re-designing the production process for every future track and to prevent partial or superficially complete tracks from being treated as finished.</p>
+
+<h2 id="2-non-negotiable-production-principles">2. Non-Negotiable Production Principles</h2>
+
+<ol>
+  <li><strong>Source-grounded content only.</strong> Educational content must be traceable to the approved course sources. Unsupported content is not silently added.</li>
+  <li><strong>Study before assessment.</strong> Study coverage and source mapping are closed before Practice or Exam production is considered final.</li>
+  <li><strong>Practice and Exam are different products.</strong> Practice may teach/reinforce. The full-track Exam must use an independent question bank or independently authored exam wording; it must not simply replay Practice questions.</li>
+  <li><strong>Assessment boundary is explicit.</strong> Concepts must be classified as assessment-eligible, supporting, bridge, source-issue, or otherwise excluded before assessment production.</li>
+  <li><strong>No hidden state damage.</strong> Updates must preserve learner profile, progress, results, My Mistakes, ranking state, bookmarks/review state, and other protected local data unless the release explicitly changes one of those contracts.</li>
+  <li><strong>Targeted tests during development; full regression at the end.</strong> Use Smart Workflow V3 rather than repeating the full platform suite after every small edit.</li>
+  <li><strong>Package verification is mandatory.</strong> The final ZIP must be extracted to a fresh folder and tested as the deliverable itself. Tests must not depend on the development workspace or absolute local paths.</li>
+  <li><strong>Manual browser acceptance closes the release.</strong> Automated tests do not replace final visual/navigation acceptance in a real browser.</li>
+</ol>
+
+<h2 id="3-standard-production-lifecycle">3. Standard Production Lifecycle</h2>
+
+<h3 id="gate-a--source-intake--audit">Gate A — Source Intake &amp; Audit</h3>
+<p>A track cannot enter Study Production until all current source files are inventoried and audited.</p>
+
+<p>Required evidence:</p>
+<ul>
+  <li>source manifest with stable IDs and exact filenames;</li>
+  <li>source counts and page/slide counts where applicable;</li>
+  <li>source ordering/dependencies;</li>
+  <li>known source inconsistencies and environment-dependent features;</li>
+  <li>overlap/reuse decisions;</li>
+  <li>assessment boundary decisions.</li>
+</ul>
+
+<p><strong>Pass condition:</strong> every production concept can be traced to an approved source or explicitly identified as bridge/supporting content derived from the approved source structure.</p>
+
+<h3 id="gate-b--study-production">Gate B — Study Production</h3>
+<p>Study must be organized for learning rather than mirroring raw file order when grouping improves comprehension.</p>
+
+<p>Every approved lesson must provide, as supported by the source:</p>
+<ul>
+  <li>clear title and learning purpose;</li>
+  <li>beginner-first explanation;</li>
+  <li>important English technical terms;</li>
+  <li>workflow/steps/formulas/code when present in the material;</li>
+  <li>meaningful examples or source-supported visuals when needed;</li>
+  <li>common mistakes or caveats where relevant;</li>
+  <li>quick check or equivalent retrieval check;</li>
+  <li>source trace.</li>
+</ul>
+
+<p><strong>Pass condition:</strong> no missing lesson mappings, duplicate concept production, broken source traces, placeholders, generic boilerplate, or unresolved source issues presented as assessment facts.</p>
+
+<h3 id="gate-c--practice-production">Gate C — Practice Production</h3>
+<p>Practice must cover the approved assessment boundary without becoming a copy of the final exam.</p>
+
+<p>Required:</p>
+<ul>
+  <li>explicit mapping to assessment-eligible concepts;</li>
+  <li>deterministic IDs and traceability;</li>
+  <li>valid MCQ structure;</li>
+  <li>useful explanations for the correct answer and distractors when the platform mode requires it;</li>
+  <li>balanced answer positions;</li>
+  <li>no answer leakage in stems;</li>
+  <li>no weak/truncated/generic stems;</li>
+  <li>My Mistakes integration;</li>
+  <li>resume/progress support where applicable;</li>
+  <li><strong>non-ranked by default</strong> unless a future product decision explicitly changes this rule.</li>
+</ul>
+
+<p><strong>Pass condition:</strong> all intended eligible concepts are covered according to the track’s approved Practice design, with no missing/duplicate mapping and no regression to protected assessment data.</p>
+
+<h3 id="gate-d--independent-full-track-exam-bank">Gate D — Independent Full-Track Exam Bank</h3>
+<p>The full-track exam bank must be independently authored from the same approved concepts/sources.</p>
+
+<p>Required:</p>
+<ul>
+  <li>no direct Practice item reuse by ID or wording;</li>
+  <li>enough depth by concept/group/difficulty/question family to support fair alternate forms;</li>
+  <li>source-grounded distractors;</li>
+  <li>semantic alignment between clue, concept, and answer;</li>
+  <li>explicit exclusion from unrelated/global final-exam pools unless separately approved.</li>
+</ul>
+
+<p><strong>Pass condition:</strong> bank quality gates pass and the bank is large/deep enough for the approved dynamic or fixed exam design.</p>
+
+<h3 id="gate-e--exam-blueprint--fairness">Gate E — Exam Blueprint &amp; Fairness</h3>
+<p>Every dynamic exam must have an explicit validated blueprint.</p>
+
+<p>A blueprint must specify:</p>
+<ul>
+  <li>total question count;</li>
+  <li>duration;</li>
+  <li>pass score;</li>
+  <li>difficulty profile;</li>
+  <li>source policy;</li>
+  <li>module/week quotas when relevant;</li>
+  <li>group/topic quotas or coverage policy;</li>
+  <li>question-family balance;</li>
+  <li>duplicate-concept policy;</li>
+  <li>shuffle policy;</li>
+  <li>answer-position balance policy;</li>
+  <li>ranking eligibility.</li>
+</ul>
+
+<p><strong>Pass condition:</strong> multiple generated forms preserve the approved profile and do not create materially easier/harder attempts.</p>
+
+<h3 id="gate-f--runtime-integration">Gate F — Runtime Integration</h3>
+<p>Integrate the approved assessment without breaking existing flows.</p>
+
+<p>Required checks:</p>
+<ul>
+  <li>correct track/module routing;</li>
+  <li>Timer behavior;</li>
+  <li>Resume/pause behavior;</li>
+  <li>MARK/review behavior;</li>
+  <li>navigator state;</li>
+  <li>submit behavior;</li>
+  <li>immediate vs end-of-exam feedback contract;</li>
+  <li>result persistence;</li>
+  <li>My Mistakes persistence;</li>
+  <li>correct cache/version loading;</li>
+  <li>no accidental opening of locked assessment gates.</li>
+</ul>
+
+<h3 id="gate-g--results-ranking--analytics">Gate G — Results, Ranking &amp; Analytics</h3>
+<p>Results must be useful to the learner and safe for shared ranking.</p>
+
+<p>For a ranked full-track exam, require:</p>
+<ul>
+  <li>overall score;</li>
+  <li>correct/wrong count;</li>
+  <li>pass/fail status;</li>
+  <li>breakdown at the approved curriculum level (for Excel: Week + Learning Group);</li>
+  <li>result persistence;</li>
+  <li>My Mistakes compatibility;</li>
+  <li>ranking only when the exam is explicitly ranked;</li>
+  <li>stable player/attempt identity with compatibility-safe UUID generation.</li>
+</ul>
+
+<p>Practice attempts must not leak into ranked leaderboards unless the product explicitly changes that contract.</p>
+
+<h3 id="gate-h--data-safety--compatibility">Gate H — Data Safety &amp; Compatibility</h3>
+<p>Every production release must protect learner state.</p>
+
+<p>Required:</p>
+<ul>
+  <li>versioned storage schema;</li>
+  <li>future-schema guard;</li>
+  <li>compatibility-safe runtime IDs;</li>
+  <li>localStorage failure resilience;</li>
+  <li>backup/restore compatibility;</li>
+  <li>rollback on failed restore/migration writes;</li>
+  <li>owner isolation for user-specific reset operations;</li>
+  <li>benign browser noise separated from real platform errors.</li>
+</ul>
+
+<h3 id="gate-i--ux-accessibility--performance">Gate I — UX, Accessibility &amp; Performance</h3>
+<p>Do not redesign for the sake of redesign. Fix proven UX risks.</p>
+
+<p>Minimum requirements:</p>
+<ul>
+  <li>logical Back/Next/Home destinations;</li>
+  <li>track exam returns to its track context;</li>
+  <li>keyboard-visible focus;</li>
+  <li>usable dark-mode contrast;</li>
+  <li>dynamic feedback exposed as live updates where relevant;</li>
+  <li>loading/error states for startup-critical flows;</li>
+  <li>no startup race allowing actions before core data is ready;</li>
+  <li>performance budget gate for critical startup payload.</li>
+</ul>
+
+<h3 id="gate-j--final-regression--package-verification">Gate J — Final Regression &amp; Package Verification</h3>
+<p>Run the full platform gate only after the feature is complete.</p>
+
+<p>Required final checks:</p>
+<ul>
+  <li>full automated tests;</li>
+  <li>Pre-Deploy gate;</li>
+  <li>track intake/readiness gate;</li>
+  <li>all JSON parse;</li>
+  <li>all JS/MJS syntax;</li>
+  <li>registry file references resolve;</li>
+  <li>HTTP smoke from a local server;</li>
+  <li>protected-file hash comparison;</li>
+  <li>no absolute development-workspace paths in tests/tools;</li>
+  <li>build one ZIP;</li>
+  <li>extract the ZIP to a fresh folder;</li>
+  <li>repeat critical verification on the extracted package.</li>
+</ul>
+
+<h3 id="gate-k--manual-browser-acceptance">Gate K — Manual Browser Acceptance</h3>
+<p>A release is not finally approved until the actual package is tested manually in a browser for the critical learner journey.</p>
+
+<p>Minimum manual flow:</p>
+<ol>
+  <li>first visit / returning learner;</li>
+  <li>theme and profile state;</li>
+  <li>Study navigation;</li>
+  <li>Practice start → answer → resume → submit;</li>
+  <li>full-track Exam start → timer → mark → exit/resume → submit;</li>
+  <li>result breakdown;</li>
+  <li>My Mistakes;</li>
+  <li>Ranking for ranked exams;</li>
+  <li>refresh/update behavior.</li>
+</ol>
+
+<h2 id="4-smart-workflow-v3--execution-rule">4. Smart Workflow V3 — Execution Rule</h2>
+
+<p>Use this sequence for future production work:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Approved Baseline → Short Design → Data/Content → Targeted QA → Logic/Engine → Targeted Tests → Runtime Integration → Feature Regression → Full Regression → Version/Cache/Changelog → Package → Fresh-Package Verification → Manual Browser Acceptance</code></p>
+
+<h3 id="testing-rule">Testing rule</h3>
+<ul>
+  <li>During a stage: run only the tests that prove that stage plus directly affected regressions.</li>
+  <li>At milestone boundaries: run the feature regression.</li>
+  <li>Before release: run the full regression once.</li>
+  <li>If a test fails: reproduce → identify root cause → add/confirm regression → fix root cause → rerun targeted gate.</li>
+  <li>Never weaken a test only to obtain a green build.</li>
+</ul>
+
+<h2 id="5-protected-areas">5. Protected Areas</h2>
+
+<p>Unless the feature explicitly targets them, treat the following as protected:</p>
+<ul>
+  <li>Official QBank;</li>
+  <li>historical Question Banks;</li>
+  <li>historical Exams;</li>
+  <li>approved Study content from previously closed tracks/weeks;</li>
+  <li>Practice banks from previously closed releases;</li>
+  <li>Results/Ranking contracts;</li>
+  <li>My Mistakes contracts;</li>
+  <li>learner storage schema/data;</li>
+  <li>source manifests and curriculum mappings.</li>
+</ul>
+
+<p>Final package QA must prove unintended protected changes = <strong>0</strong>.</p>
+
+<h2 id="6-definition-of-production-ready">6. Definition of Production Ready</h2>
+
+<p>A track is <strong>Production Ready</strong> only when:</p>
+<ul>
+  <li>all applicable Gates A–K are complete;</li>
+  <li>no blocking source ambiguity remains hidden;</li>
+  <li>Study, Practice, and Full-Track Exam status are explicitly known;</li>
+  <li>all automated release gates pass on the final extracted package;</li>
+  <li>manual browser acceptance passes;</li>
+  <li>known non-blocking limitations are documented.</li>
+</ul>
+
+<p>A track with only Study content is <strong>Study Ready</strong>, not Production Ready.<br />
+A track with Study + Practice but no approved full-track assessment is <strong>Practice Ready</strong>, not fully Production Ready.</p>
+
+<h2 id="7-excel-as-the-reference-implementation">7. Excel as the Reference Implementation</h2>
+
+<p>Excel is the reference track for this standard. Exact current evidence is documented in:</p>
+
+<p><code class="language-plaintext highlighter-rouge">docs/production/EXCEL-REFERENCE-TRACK-EVIDENCE-V1.md</code></p>
+
+<p>The reusable approval checklist is:</p>
+
+<p><code class="language-plaintext highlighter-rouge">docs/production/TRACK-PRODUCTION-READINESS-CHECKLIST-V1.md</code></p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

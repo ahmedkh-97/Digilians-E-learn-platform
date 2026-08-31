@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Excel Study V2 — Group 02 Prototype QA | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Excel Study V2 — Group 02 Prototype QA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/EXCEL-STUDY-V2-GROUP02-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/EXCEL-STUDY-V2-GROUP02-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Excel Study V2 — Group 02 Prototype QA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Excel Study V2 — Group 02 Prototype QA","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/EXCEL-STUDY-V2-GROUP02-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="excel-study-v2--group-02-prototype-qa">Excel Study V2 — Group 02 Prototype QA</h1>
+
+<h2 id="data-architecture">Data architecture</h2>
+
+<p>PASS:</p>
+<ul>
+  <li>8 Learning Groups</li>
+  <li>27 lessons covered exactly once</li>
+  <li>lesson array reordered to match Group order</li>
+  <li>70/70 audited concepts remain covered exactly once</li>
+  <li>20 Excel Core + 7 Statistics prerequisite Study sections unchanged</li>
+  <li>Statistics assessment leakage = 0</li>
+  <li>Deep V2 restricted to Group 02 only</li>
+  <li>2 Deep V2 lessons</li>
+</ul>
+
+<h2 id="deep-renderer">Deep renderer</h2>
+
+<p>PASS:</p>
+<ul>
+  <li>Learning Goal</li>
+  <li>relationship context</li>
+  <li>Real Problem</li>
+  <li>sheet/table model</li>
+  <li>Worked Examples</li>
+  <li>Formula Anatomy</li>
+  <li>Execution Trace</li>
+  <li>Expected Result</li>
+  <li>Common Mistakes</li>
+  <li>Try It Yourself</li>
+  <li>Quick Check</li>
+  <li>Source Trace</li>
+  <li>Platform Clarification labels</li>
+</ul>
+
+<p>Group 02 rendered:</p>
+<ul>
+  <li>10 Worked Examples</li>
+  <li>2 Quick Checks</li>
+</ul>
+
+<h2 id="visual-qa">Visual QA</h2>
+
+<p>Chromium component QA used production renderer + production CSS.</p>
+
+<p>Desktop:</p>
+<ul>
+  <li>8/8 Group cards</li>
+  <li>2/2 Deep sections</li>
+  <li>10 Worked Examples</li>
+  <li>2 Quick Checks</li>
+  <li>10+ Platform/source labels</li>
+  <li>horizontal overflow = 0</li>
+</ul>
+
+<p>390px:</p>
+<ul>
+  <li>desktop Study TOC hides</li>
+  <li>Group map collapses to one column</li>
+  <li>Deep opening cards collapse to one column</li>
+  <li>horizontal overflow = 0</li>
+</ul>
+
+<p>Result: PASS.</p>
+
+<h2 id="existing-platform-qa">Existing platform QA</h2>
+
+<p>Excel Intake Check: PASS.</p>
+
+<p>Platform Pre-Deploy: PASS, including:</p>
+<ul>
+  <li>SQL 520</li>
+  <li>Python 520</li>
+  <li>Junior Official QBank 930</li>
+  <li>Professional Official QBank 1189</li>
+  <li>SQL/Python Study renderers</li>
+  <li>technical renderer</li>
+  <li>Rankings / Shared Avatars</li>
+  <li>Analytics</li>
+  <li>Backup/Restore</li>
+  <li>Update Manager</li>
+</ul>
+
+<h2 id="assessment-payload-protection">Assessment payload protection</h2>
+
+<p>No Excel question bank or Excel exam is introduced by this prototype.</p>
+
+<p>Existing SQL / Python / Official assessment payloads remain protected.</p>
+
+<h2 id="local-acceptance">Local acceptance</h2>
+
+<p>Run:</p>
+
+<p><code class="language-plaintext highlighter-rouge">TEST-LOCAL.bat</code></p>
+
+<p>Then:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Learn → Data Analysis → Excel → Excel Foundations &amp; Data Handling → Study</code></p>
+
+<p>Review especially:</p>
+<ul>
+  <li>Learning Map</li>
+  <li>Group 02</li>
+  <li>formula explanation depth</li>
+  <li>mobile layout</li>
+  <li>Quick Check interaction</li>
+</ul>
+
+<p>Do not deploy this prototype as the final Excel Study standard until the educational depth is approved.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

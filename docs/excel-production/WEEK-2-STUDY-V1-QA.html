@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Excel Week 2 — Study V1 QA | Digilians-E-learn-platform</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Excel Week 2 — Study V1 QA" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/WEEK-2-STUDY-V1-QA.html" />
+<meta property="og:url" content="https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/WEEK-2-STUDY-V1-QA.html" />
+<meta property="og:site_name" content="Digilians-E-learn-platform" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Excel Week 2 — Study V1 QA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Excel Week 2 — Study V1 QA","url":"https://ahmedkh-97.github.io/Digilians-E-learn-platform/docs/excel-production/WEEK-2-STUDY-V1-QA.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Digilians-E-learn-platform/assets/css/style.css?v=c54b13fc59966346a5f0211fdefaa9af515c889f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Digilians-E-learn-platform/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ahmedkh-97.github.io/Digilians-E-learn-platform/">Digilians-E-learn-platform</a></h1>
+      
+
+      <h1 id="excel-week-2--study-v1-qa">Excel Week 2 — Study V1 QA</h1>
+
+<h2 id="build">Build</h2>
+
+<p><strong>V0.20.2 — Excel Week 2 Study Production</strong></p>
+
+<p>This QA report covers the first production build generated from the CLOSED Week 2 audit for Lectures 19–28.</p>
+
+<h2 id="coverage-qa">Coverage QA</h2>
+
+<p>PASS:</p>
+
+<ul>
+  <li>8 / 8 approved Learning Groups</li>
+  <li>35 / 35 Study lessons</li>
+  <li>101 / 101 audited non-reuse production concepts mapped exactly once</li>
+  <li>no duplicate Week 2 production concept IDs</li>
+  <li>approved Group order preserved</li>
+  <li>35 / 35 Source Trace blocks</li>
+  <li>35 / 35 Deep Learning V3.2 structures</li>
+  <li>35 / 35 Quick Checks</li>
+  <li>35 / 35 Try It activities</li>
+  <li>15 Technical Labs</li>
+  <li>6 formula cards</li>
+  <li>33 source workflow steps</li>
+</ul>
+
+<p>Assessment-role distribution at Study level:</p>
+
+<ul>
+  <li>27 eligible lessons</li>
+  <li>6 mixed lessons</li>
+  <li>2 supporting-only lessons</li>
+</ul>
+
+<p>These lesson-level roles do not override concept-level assessment eligibility from the audit.</p>
+
+<h2 id="source--overlap-qa">Source / overlap QA</h2>
+
+<p>PASS:</p>
+
+<ul>
+  <li>Week 1 reuse is referenced rather than duplicated.</li>
+  <li>Text.End contradiction is visible as <code class="language-plaintext highlighter-rouge">PRESENTATION CORRECTION</code>.</li>
+  <li>ActiveX and VBA lessons expose <code class="language-plaintext highlighter-rouge">ENVIRONMENT DEPENDENCY</code>.</li>
+  <li>VSTACK remains supporting-only with no invented worked formula.</li>
+  <li>Pandas bridge remains supporting-only with no invented source code.</li>
+  <li>visual-only dashboard evidence remains explicitly limited.</li>
+  <li>SQLite / external-data boundaries remain source-limited.</li>
+  <li>missing companion-file requirements remain visible.</li>
+  <li>Practice / Exam gate remains locked.</li>
+</ul>
+
+<h2 id="renderer-qa">Renderer QA</h2>
+
+<p>PASS:</p>
+
+<p>The production Excel renderer successfully renders all <strong>35 / 35</strong> Week 2 lessons in the automated runtime check.</p>
+
+<p>The Excel-scoped renderer now supports a <code class="language-plaintext highlighter-rouge">TECHNICAL LAB</code> block using the existing universal technical-code renderer. This is used for source-backed VBA, Python in Excel and Power Query M examples without changing the core technical-content parser.</p>
+
+<h2 id="full-platform-pre-deploy">Full platform Pre-Deploy</h2>
+
+<p><strong>PASS — 2026-08-30</strong></p>
+
+<p>The complete existing Pre-Deploy suite passed after Week 2 integration, including:</p>
+
+<ul>
+  <li>JSON parse checks</li>
+  <li>ES-module syntax</li>
+  <li>DOM references</li>
+  <li>SQL 520 questions</li>
+  <li>Python 520 questions</li>
+  <li>Junior Official QBank 930</li>
+  <li>Professional Official QBank 1189</li>
+  <li>SQL / Python Study runtime</li>
+  <li>universal technical renderer regressions</li>
+  <li>Ranking / Shared Avatars</li>
+  <li>Analytics / Platform Health</li>
+  <li>Backup / Restore</li>
+  <li>Update Manager</li>
+  <li>My Mistakes</li>
+  <li>startup recovery</li>
+  <li>Week 1 Excel Deep Learning regression checks</li>
+  <li>new Week 2 source/overlap/coverage guards</li>
+</ul>
+
+<h2 id="protected-payload-comparison">Protected-payload comparison</h2>
+
+<p>Byte-level directory hashes against the uploaded V0.20.1 audit baseline confirm that these payload directories are unchanged:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">question-banks/</code> — unchanged</li>
+  <li><code class="language-plaintext highlighter-rouge">exams/</code> — unchanged</li>
+  <li><code class="language-plaintext highlighter-rouge">official-qbank/</code> — unchanged</li>
+</ul>
+
+<p>No assessment bank was intentionally modified during Week 2 Study production.</p>
+
+<h2 id="local-http-smoke">Local HTTP smoke</h2>
+
+<p><strong>PASS</strong></p>
+
+<p>A local no-cache server was started on port 8146 and returned HTTP 200 for:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/VERSION.txt</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/data/learning.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/data/curriculum/excel.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/data/syllabus-maps/excel.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/assets/js/excel-study-render.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/assets/css/style.css</code></li>
+</ul>
+
+<p>This confirms the production files are serveable as a local web build.</p>
+
+<h2 id="browser-visual-qa">Browser visual QA</h2>
+
+<p><strong>PENDING — not claimed in this report.</strong></p>
+
+<p>No full interactive browser click-through was completed in this execution environment. The user should run <code class="language-plaintext highlighter-rouge">TEST-LOCAL.bat</code> on the target machine before GitHub LIVE.</p>
+
+<p>Minimum visual acceptance path:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Learn → Data Analysis → Excel → Excel Advanced Analysis, Dashboards &amp; Power Query → Content Map</code></p>
+
+<p>Review at least one lesson from every Week 2 Group, with special attention to:</p>
+
+<ol>
+  <li>Group 09 — ActiveX Search and VBA AutoFilter Technical Lab</li>
+  <li>Group 10 — chart-selection / visual-recognition boundaries</li>
+  <li>Group 11 — table readability layouts</li>
+  <li>Group 12 — outlier formulas and Solver workflow</li>
+  <li>Group 13 — dashboard layout / storytelling cards</li>
+  <li>Group 14 — Python bridge boundary</li>
+  <li>Group 15 — Power Query M code + Text.End correction</li>
+  <li>Group 16 — external-data / SQLite / companion-file notes</li>
+</ol>
+
+<p>Also verify at desktop and narrow mobile width:</p>
+
+<ul>
+  <li>no horizontal page overflow</li>
+  <li>Technical Lab code remains readable/scrollable</li>
+  <li>Quick Check controls remain usable</li>
+  <li>Source Trace remains visible</li>
+  <li>no Week 1 progress is reset when opening Week 2</li>
+  <li>Practice / Exam controls remain locked</li>
+</ul>
+
+<h2 id="release-decision">Release decision</h2>
+
+<p>Automated QA: <strong>APPROVED</strong></p>
+
+<p>Local browser visual QA: <strong>REQUIRED BEFORE GITHUB LIVE</strong></p>
+
+<p>GitHub <code class="language-plaintext highlighter-rouge">main</code> should remain on V0.20.1 until the local V0.20.2 build is accepted.</p>
+
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
