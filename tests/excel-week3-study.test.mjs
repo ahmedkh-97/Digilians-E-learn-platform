@@ -11,7 +11,7 @@ test("Excel Week 3 production counts are locked",()=>{
  assert.equal(excel.modules.length,3); assert.equal(excel.studyGroups.length,24);
  assert.equal(w3.study.learningGroups.length,8); assert.equal(w3.study.sections.length,34);
  assert.equal(w3.sourceBatch.conceptClusters,143); assert.equal(w3.sourceBatch.productionConcepts,123); assert.equal(w3.sourceBatch.reuseOnlyClusters,20);
- assert.deepEqual(excel.productionStats,{sessions:3,topics:294,questions:0,status:"STUDY COMPLETE — QA / ASSESSMENT PENDING",studySections:96,sourceFiles:29,sourceSlides:610});
+ assert.deepEqual(excel.productionStats,{sessions:3,topics:294,questionBanks:4,questions:456,status:"FINAL READY",studySections:96,sourceFiles:29,sourceSlides:610,practiceQuestions:228,trackExamBankQuestions:228,trackExamFormQuestions:50,weekExamsReady:false});
 });
 test("all Week 3 lessons meet Deep Learning V3.2 structural minimum",()=>{
  for(const s of w3.study.sections){assert.ok(s.sourceTrace); assert.ok(s.beginnerLearningV3?.simpleExplanationAr); assert.ok(s.deepLearningV2?.opening?.goalAr); assert.ok(s.deepLearningV2?.tryIt?.promptAr); assert.equal(s.deepLearningV2?.quickCheck?.options?.length,4); assert.ok(s.deepLearningV2?.nextConnection?.textAr);}

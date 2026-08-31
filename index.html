@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" data-build-version="0.20.8">
+<html lang="en" data-theme="light" data-build-version="0.20.14">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -9,14 +9,25 @@
   <link rel="icon" href="assets/images/digilians-logo.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try{
+        var savedTheme=localStorage.getItem("digilians.theme");
+        if(savedTheme==="dark" || savedTheme==="light"){
+          document.documentElement.dataset.theme=savedTheme;
+          document.querySelector('meta[name="theme-color"]')?.setAttribute("content",savedTheme==="dark"?"#07101f":"#eef4ff");
+        }
+      }catch(_){}
+    })();
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.20.8" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.20.14" />
 </head>
 <body>
-  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.20.8">
+  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.20.14">
     <strong>DIGILIANS TEST MODE</strong>
     <span>This is a LOCAL TEST build — not the live GitHub site.</span>
-    <b>V0.20.8</b>
+    <b>V0.20.14</b>
   </div>
   <script>
     (function () {
@@ -33,7 +44,7 @@
   <!-- STARTUP / CRASH RECOVERY — independent from app.js -->
   <div id="fatalRecovery" class="fatal-recovery hidden" role="alertdialog" aria-modal="true" aria-labelledby="fatalRecoveryTitle">
     <article class="fatal-recovery-card">
-      <span class="fatal-recovery-badge">RECOVERY MODE · V0.20.8</span>
+      <span class="fatal-recovery-badge">RECOVERY MODE · V0.20.14</span>
       <div class="fatal-recovery-icon">!</div>
       <h2 id="fatalRecoveryTitle">The platform could not start correctly.</h2>
       <p id="fatalRecoveryMessage">A startup error prevented the application from loading.</p>
@@ -121,7 +132,7 @@
         <span class="whats-new-badge">DIGILIANS E-LEARN UPDATE</span>
         <div class="whats-new-version-row">
           <h2 id="whatsNewTitle">What’s New</h2>
-          <span id="whatsNewVersion">V0.20.8</span>
+          <span id="whatsNewVersion">V0.20.14</span>
         </div>
         <p id="whatsNewSubtitle">Latest improvements, fixes and learning upgrades.</p>
       </div>
@@ -207,8 +218,8 @@
                   <span class="input-icon">✦</span>
                   <input id="studentName" type="text" maxlength="40" autocomplete="name" placeholder="Enter your name" />
                 </div>
-                <button class="primary-btn hero-cta" id="startBtn">
-                  Enter Platform <span>→</span>
+                <button class="primary-btn hero-cta" id="startBtn" disabled aria-disabled="true">
+                  Loading Platform…
                 </button>
               </div>
               <p class="field-note" id="nameError"></p>
@@ -220,7 +231,7 @@
                 <strong id="returningUserName">Ahmed</strong>
                 <span>Your name and progress are saved on this device.</span>
               </div>
-              <button class="primary-btn hero-cta" id="continueUserBtn">Continue <span>→</span></button>
+              <button class="primary-btn hero-cta" id="continueUserBtn" disabled aria-disabled="true">Loading…</button>
             </div>
 
             <div class="trust-row reveal delay-5">
@@ -450,10 +461,10 @@
             <article class="flow-card">
               <span class="flow-number">03</span>
               <div class="flow-icon">◉</div>
-              <span class="pill">EXAM</span>
+              <span class="pill" id="examFlowPill">EXAM</span>
               <span class="flow-progress-status" id="examFlowStatus">Not attempted</span>
-              <h4>Test your readiness</h4>
-              <p>Take the exam in your preferred feedback mode and track your best.</p>
+              <h4 id="examFlowTitle">Test your readiness</h4>
+              <p id="examFlowDescription">Take the exam in your preferred feedback mode and track your best.</p>
               <button class="primary-btn wide" id="openModuleExamBtn">Open Exam <span>→</span></button>
             </article>
           </div>
@@ -903,7 +914,7 @@
           <aside class="question-nav-card">
             <div class="nav-card-head">
               <div><span class="eyebrow">NAVIGATOR</span><h4>Questions</h4></div>
-              <span class="answered-count" id="answeredCount">0 answered</span>
+              <span class="answered-count" id="answeredCount" aria-live="polite">0 answered</span>
             </div>
             <div id="questionNavigator" class="question-navigator"></div>
             <div class="nav-legend" id="questionNavLegend">
@@ -925,7 +936,7 @@
             </div>
             <div id="questionText" class="question-text-content" role="heading" aria-level="2"></div>
             <div id="optionsList" class="options-list"></div>
-            <div id="instantFeedback" class="feedback-box hidden"></div>
+            <div id="instantFeedback" class="feedback-box hidden" aria-live="polite"></div>
 
             <div class="exam-actions">
               <button class="secondary-btn" id="prevQuestionBtn">← Previous</button>
@@ -962,6 +973,20 @@
                 <div><span class="eyebrow">SUBJECT BREAKDOWN</span><h3>Performance by track</h3></div>
               </div>
               <div id="resultSubjectBreakdownGrid" class="subject-breakdown-grid"></div>
+            </section>
+
+            <section id="resultExcelWeekBreakdown" class="subject-breakdown hidden">
+              <div class="section-title-row">
+                <div><span class="eyebrow">EXCEL WEEK BREAKDOWN</span><h3>Performance by week</h3></div>
+              </div>
+              <div id="resultExcelWeekBreakdownGrid" class="subject-breakdown-grid"></div>
+            </section>
+
+            <section id="resultExcelGroupBreakdown" class="subject-breakdown hidden">
+              <div class="section-title-row">
+                <div><span class="eyebrow">EXCEL GROUP BREAKDOWN</span><h3>Performance by learning group</h3></div>
+              </div>
+              <div id="resultExcelGroupBreakdownGrid" class="subject-breakdown-grid"></div>
             </section>
 
             <section id="resultTopicBreakdown" class="subject-breakdown hidden">
@@ -1353,7 +1378,7 @@
       </div>
       <div class="footer-credit">
         <button type="button" class="footer-version-btn" id="footerWhatsNewBtn">
-          <span id="footerVersionText">V0.20.8</span>
+          <span id="footerVersionText">V0.20.14</span>
           <i id="footerUpdateDot" class="footer-update-dot hidden" aria-label="Update available"></i>
           What’s New
         </button>
@@ -1397,7 +1422,7 @@
       </button>
       <button class="secondary-btn wide update-drawer-btn" id="openWhatsNewBtn">
         <span>What’s New & Updates</span>
-        <b id="profileVersionBadge">V0.20.8</b>
+        <b id="profileVersionBadge">V0.20.14</b>
       </button>
       <button class="secondary-btn wide" id="changeNameBtn">Change saved name</button>
     </div>
@@ -1576,9 +1601,9 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/analytics.js?v=0.20.8"></script>
-  <script type="module" src="assets/js/update-manager.js?v=0.20.8"></script>
-  <script type="module" src="assets/js/backup-restore.js?v=0.20.8"></script>
-  <script type="module" src="assets/js/app.js?v=0.20.8"></script>
+  <script type="module" src="assets/js/analytics.js?v=0.20.14"></script>
+  <script type="module" src="assets/js/update-manager.js?v=0.20.14"></script>
+  <script type="module" src="assets/js/backup-restore.js?v=0.20.14"></script>
+  <script type="module" src="assets/js/app.js?v=0.20.14"></script>
 </body>
 </html>

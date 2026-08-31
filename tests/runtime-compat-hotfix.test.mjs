@@ -49,25 +49,29 @@ test('only the known ResizeObserver loop notification is treated as benign',asyn
 test('analytics filters benign browser noise before counting/reporting app errors',()=>{
   const analytics=read('assets/js/analytics.js');
   assert.match(analytics,/isBenignClientError/,'analytics must use benign-error classifier');
+  const classifierStart=analytics.indexOf('export function classifyClientError');
+  const classifierBenign=analytics.indexOf('isBenignClientError(',classifierStart);
   const reportStart=analytics.indexOf('function reportClientError');
+  const classifyCall=analytics.indexOf('classifyClientError(',reportStart);
   const shouldReport=analytics.indexOf('shouldReportError(',reportStart);
-  const benignCheck=analytics.indexOf('isBenignClientError(',reportStart);
-  assert.ok(reportStart>=0 && benignCheck>reportStart && benignCheck<shouldReport,
-    'benign browser noise must be filtered before rate-limit counting/reporting');
+  assert.ok(classifierStart>=0 && classifierBenign>classifierStart,
+    'client error classifier must recognize benign browser noise');
+  assert.ok(reportStart>=0 && classifyCall>reportStart && classifyCall<shouldReport,
+    'benign classification must happen before rate-limit counting/reporting');
 });
 
-test('V0.20.8 compatibility hotfix is cache-busted across startup modules',()=>{
+test('runtime compatibility helper stays cache-busted across the current release',()=>{
   const version=read('VERSION.txt').split(/\r?\n/,1)[0].trim();
+  const escaped=version.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
   const index=read('index.html');
   const app=read('assets/js/app.js');
   const storage=read('assets/js/storage.js');
   const analytics=read('assets/js/analytics.js');
-  assert.equal(version,'0.20.8');
   for(const asset of ['style.css','analytics.js','update-manager.js','backup-restore.js','app.js']){
-    assert.match(index,new RegExp(asset.replace('.','\\.')+'\\?v=0\\.20\\.8'));
+    assert.match(index,new RegExp(asset.replace('.','\\.')+`\\?v=${escaped}`));
   }
-  assert.match(app,/storage\.js\?v=0\.20\.8/);
-  assert.match(app,/runtime-compat\.js\?v=0\.20\.8/);
-  assert.match(storage,/runtime-compat\.js\?v=0\.20\.8/);
-  assert.match(analytics,/runtime-compat\.js\?v=0\.20\.8/);
+  assert.match(app,new RegExp(`storage\\.js\\?v=${escaped}`));
+  assert.match(app,new RegExp(`runtime-compat\\.js\\?v=${escaped}`));
+  assert.match(storage,new RegExp(`runtime-compat\\.js\\?v=${escaped}`));
+  assert.match(analytics,new RegExp(`runtime-compat\\.js\\?v=${escaped}`));
 });

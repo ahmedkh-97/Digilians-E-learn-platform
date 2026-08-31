@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.20.8
+# Digilians E-Learn Platform V0.20.14
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -2571,6 +2571,51 @@ Desktop navbar refinement only:
 - Source QA warnings remain visible: Text.End correction, ActiveX/VBA environment dependency, visual-only limits, cross-track Python boundary and missing companion files.
 - Excel Practice/Exam remain locked pending Study/source-trace and local visual QA approval.
 
+
+
+## V0.20.14 — Excel Full Track Exam Flow Fix
+
+- Replaces the misleading locked Week Exam card in the Excel learning flow with the ready **Excel — Full Track Exam**.
+- Shows **50 Questions · 60 Minutes · Ranked · Covers all 3 Excel weeks** directly in the third flow card.
+- Uses real Full Track status: Not attempted / Best score / In progress, with Start vs Resume actions.
+- Clarifies that Study + Practice are scoped to the selected Excel week while the Full Track Exam covers all 3 weeks.
+- Removes the duplicate standalone Excel track-exam row and removes stale unused module-flow assessment code.
+- Leaves Excel Study, Practice, Exam bank, Results, Ranking and learner data unchanged.
+
+## V0.20.13 — Excel Metadata Consistency Cleanup
+
+- Normalizes Excel track metadata to the approved production state: Study + Practice + ranked Full Track Exam are ready.
+- Keeps all Week Exams intentionally locked and keeps Data Analysis Final readiness as a separate bank/readiness gate.
+- Updates Excel production summary to 29 sources / 610 slides / 24 Groups / 96 lessons / 294 topics / 456 produced assessment questions across Practice + independent Track Exam bank.
+- Adds a permanent Excel metadata-consistency regression gate to Pre-Deploy.
+- No Study lesson, Practice question, Exam question, Ranking rule, or learner-state behavior changed.
+
+## V0.20.12 — UX Consistency & Navigation Polish
+
+- Full Track Exam setup, exit, result and review navigation now returns to the originating learning track.
+- Adds a consistent `:focus-visible` keyboard indicator across interactive controls.
+- Improves Dark Mode contrast for `Mark for Review` states.
+- Marks dynamic answered-count and instant-feedback regions with polite live announcements.
+- Adds a permanent Pre-Deploy UX consistency regression gate.
+- Leaves approved learning content, assessment banks, Ranking rules and learner data unchanged.
+
+
+## V0.20.10 — Platform Stabilization & Data Safety
+
+- Adds versioned learner storage schema protection without rewriting existing learner records.
+- Keeps startup usable when browser local storage is blocked or full and surfaces a local-save warning instead of crashing silently.
+- Makes Backup/Restore rollback-safe if a write fails partway through a restore.
+- Adds storage-schema compatibility checks to exported/imported learner backups.
+- Improves Platform Health with Critical / Error / Warning classification, current-version error counts and last-error timestamp.
+- Leaves approved Study, Practice, Excel Full Track Exam, Official QBank, Ranking rules and assessment content unchanged.
+
+## V0.20.9 — Excel Full Track Exam Production
+- Adds an **independent 228-question Excel Track Exam bank** built from the approved assessment-eligible Excel concepts without copying Practice V1 items.
+- Opens **Excel — Full Track Exam** as a ranked dynamic exam: **50 questions / 60 minutes / 60% passing score**.
+- Runtime forms preserve **Week 1/2/3 = 12/20/18** and **Easy/Medium/Hard = 13/25/12**.
+- Covers all **23 assessment-capable Learning Groups**; Group 14 remains excluded because it is bridge-only.
+- Adds **Week + Group result analytics** while preserving Resume, MARK, My Mistakes, retake, and shared Ranking behavior.
+- Week Practice remains non-ranked and all Week Exams remain locked.
 
 
 ## V0.20.8 — Runtime Compatibility Hotfix

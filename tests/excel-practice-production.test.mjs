@@ -190,25 +190,28 @@ test('generic fallback stems are not truncated or context-poor',async()=>{
   }
 });
 
-test('current release metadata is V0.20.8 and Excel Practice stays cache-busted consistently',async()=>{
+test('current release metadata keeps Excel Practice startup modules cache-busted consistently',async()=>{
   const version=(await readFile(new URL('../VERSION.txt',import.meta.url),'utf8')).split(/\r?\n/,1)[0].trim();
+  const escaped=version.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
   const index=await readFile(new URL('../index.html',import.meta.url),'utf8');
   const app=await readFile(new URL('../assets/js/app.js',import.meta.url),'utf8');
-  assert.equal(version,'0.20.8');
-  assert.match(index,/app\.js\?v=0\.20\.8/);
-  assert.match(app,/module-assessment\.js\?v=0\.20\.8/);
-  assert.match(app,/storage\.js\?v=0\.20\.8/);
+  assert.match(index,new RegExp(`app\\.js\\?v=${escaped}`));
+  assert.match(app,new RegExp(`module-assessment\\.js\\?v=${escaped}`));
+  assert.match(app,new RegExp(`storage\\.js\\?v=${escaped}`));
 });
 
-test('Excel intake metadata marks Study and Practice ready while Exam remains blocked',async()=>{
+test('Excel intake metadata marks Study and Practice approved, Full Track Exam ready, and Week Exams locked',async()=>{
   const weeks=await readJson('data/excel-intake/week-status.json');
   const curriculumState=await readJson('data/curriculum/excel.json');
-  assert.equal(curriculumState.curriculumStatus,'practice-ready-exam-pending');
+  assert.equal(curriculumState.curriculumStatus,'complete');
+  assert.equal(curriculumState.completion?.confirmedByUser,true);
+  assert.equal(curriculumState.completion?.trackExamReady,true);
+  assert.equal(weeks.trackExam?.ready,true);
   for(const w of weeks.weeks){
     assert.equal(w.studyReady,true,`Week ${w.week} Study should be approved`);
     assert.equal(w.practiceReady,true,`Week ${w.week} Practice should be ready`);
     assert.equal(w.examReady,false,`Week ${w.week} Exam must stay locked`);
-    assert.equal(w.assessmentReady,false,`Week ${w.week} full assessment gate remains false until Exam production`);
+    assert.equal(w.assessmentReady,false,`Week ${w.week} assessment gate stays false because Week Exams remain intentionally locked`);
     assert.equal(w.practiceProduction?.questionCount,expectedCounts[w.week]);
   }
 });

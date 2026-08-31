@@ -45,10 +45,15 @@ test('Week 2 syllabus references resolve to restored audit artifacts',()=>{
   assert.ok(exists('data/excel-intake/week-2-slide-extract.json'));
 });
 
-test('current fallback release copy matches V0.20.8 Runtime Compatibility Hotfix',()=>{
+test('current fallback release copy matches the latest changelog release',()=>{
   const update=read('assets/js/update-manager.js');
-  assert.match(update,/version:\s*["']0\.20\.8["']/);
-  assert.match(update,/title:\s*["']Runtime Compatibility Hotfix["']/);
+  const changelog=json('data/changelog.json');
+  const latest=changelog.releases.find(x=>x.version===changelog.latest);
+  assert.ok(latest);
+  const ev=latest.version.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const et=latest.title.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  assert.match(update,new RegExp(`version:\\s*["']${ev}["']`));
+  assert.match(update,new RegExp(`title:\\s*["']${et}["']`));
   assert.doesNotMatch(update,/title:\s*["']Reset My Mistakes["']/);
 });
 
