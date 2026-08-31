@@ -1,4 +1,4 @@
-# Digilians E-Learn Platform V0.20.6
+# Digilians E-Learn Platform V0.20.8
 
 ## CURRENT AUTHORITATIVE OFFICIAL QBANK STATUS — V0.9.5
 
@@ -2571,6 +2571,22 @@ Desktop navbar refinement only:
 - Source QA warnings remain visible: Text.End correction, ActiveX/VBA environment dependency, visual-only limits, cross-track Python boundary and missing companion files.
 - Excel Practice/Exam remain locked pending Study/source-trace and local visual QA approval.
 
+
+
+## V0.20.8 — Runtime Compatibility Hotfix
+- Replaces direct `crypto.randomUUID()` assumptions in learner startup and exam submission with a shared compatibility UUID helper.
+- UUID creation uses `crypto.randomUUID()` when supported, then `crypto.getRandomValues()`, then a final standards-shaped local fallback.
+- Private Error Monitor filters the known benign `ResizeObserver` loop notifications before they affect Platform Health metrics.
+- Excel Study/Practice content, Results, Ranking, and assessment datasets are unchanged; Excel Exam remains locked.
+
+
+## V0.20.7 — Excel Practice Production V1
+- Opens Excel Practice for all 3 weeks: **53 + 89 + 86 = 228** source-scoped MCQs.
+- Exactly one V1 question per `practiceEligible` Excel concept; no Supporting/Bridge leakage beyond curriculum eligibility.
+- English questions/options + Arabic deep explanation and A/B/C/D reasons.
+- Practice is **instant-feedback, untimed, resumable, non-ranked**, and updates My Mistakes.
+- `practiceExamId` is independent from `examId`, so **Excel Exam remains locked**.
+- New runtime assessment helper prevents non-ranked Practice attempts from entering online Ranking sync.
 
 ## V0.20.6 — Excel Week 3 Study Production
 - **V0.20.6 Final Clean integrity pass:** restored Week 2 audit artifacts, complete 29-source manifest, local Pre-Deploy workflow, and corrected current-release fallback metadata.
