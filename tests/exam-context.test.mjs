@@ -68,7 +68,7 @@ test("My Mistakes shows mixed activity but exact source for the current question
   };
   const model=buildExamContextModel({progress,visibleTopic:"Joins"});
   assert.deepEqual(model.activitySegments,["My Mistakes","Excel + SQL","2 Questions"]);
-  assert.deepEqual(model.questionSegments,["My Mistakes","SQL","Joins"]);
+  assert.deepEqual(model.questionSegments,["My Mistakes","Course","SQL","Joins"]);
   assert.equal(model.navigatorTitle,"SQL · My Mistakes");
 });
 
