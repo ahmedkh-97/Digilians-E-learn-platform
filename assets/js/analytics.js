@@ -1,5 +1,5 @@
-import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.20.8";
-import {createUuid,isBenignClientError} from "./runtime-compat.js?v=0.20.8";
+import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.20.14";
+import {createUuid,isBenignClientError} from "./runtime-compat.js?v=0.20.14";
 
 
 const SUPABASE_URL="https://gbyxpwcjfzxpxxbbwnzf.supabase.co";
@@ -160,6 +160,16 @@ export function sanitizeErrorMessage(value){
   return text||"Unknown client error";
 }
 
+export function classifyClientError(kind,message,details={}){
+  const safeMessage=sanitizeErrorMessage(message);
+  if(isBenignClientError(safeMessage))return "benign";
+  const normalizedKind=String(kind||"error").toLowerCase();
+  const phase=String(details?.phase||"runtime").toLowerCase();
+  if(phase==="startup" || normalizedKind.includes("fatal") || normalizedKind.includes("data_load"))return "critical";
+  if(normalizedKind==="resource_error" || normalizedKind.includes("warning"))return "warning";
+  return "error";
+}
+
 function safeSourceFile(value){
   if(!value)return "";
   try{
@@ -196,7 +206,8 @@ function reportClientError(kind,message,details={}){
   if(isLocalTestEnvironment())return false;
 
   const safeMessage=sanitizeErrorMessage(message);
-  if(isBenignClientError(safeMessage))return false;
+  const severity=classifyClientError(kind,safeMessage,details);
+  if(severity==="benign")return false;
   const source=safeSourceFile(details.source||"");
   const line=Number(details.line)||0;
   const column=Number(details.column)||0;
@@ -211,6 +222,7 @@ function reportClientError(kind,message,details={}){
       source,
       line,
       column,
+      severity,
       phase:String(details.phase||"runtime").slice(0,40)
     }
   });
@@ -332,7 +344,7 @@ export function buildTrendSeries(events){
     .sort((a,b)=>a.date.localeCompare(b.date));
 }
 
-export function aggregateAnalytics(events){
+export function aggregateAnalytics(events,options={}){
   const clean=Array.isArray(events)?events:[];
   const visitorIds=clean.map(x=>x.visitor_id).filter(Boolean);
   const sessionIds=clean.map(x=>x.session_id).filter(Boolean);
@@ -373,12 +385,27 @@ export function aggregateAnalytics(events){
   const officialExams=clean.filter(e=>e.event_type==="exam_start" && e.metadata?.official===true).length;
 
   const errorEvents=clean.filter(e=>e.event_type==="app_error");
+  const severityFor=e=>{
+    const saved=String(e?.metadata?.severity||"").toLowerCase();
+    if(["critical","error","warning"].includes(saved))return saved;
+    return classifyClientError(e?.metadata?.kind||"error",e?.metadata?.message||"Unknown client error",{phase:e?.metadata?.phase||"runtime"});
+  };
   const errorSessions=distinct(errorEvents.map(e=>e.session_id));
   const totalSessions=distinct(sessionIds);
   const errorFreeRate=totalSessions
     ?Math.max(0,Math.round(((totalSessions-errorSessions)/totalSessions)*100))
     :100;
   const errorKinds=countBy(errorEvents,e=>e.metadata?.kind||"error");
+  const severityCounts={critical:0,error:0,warning:0};
+  for(const event of errorEvents){
+    const severity=severityFor(event);
+    if(Object.prototype.hasOwnProperty.call(severityCounts,severity))severityCounts[severity]++;
+  }
+  const currentPlatformVersion=String(options?.currentVersion||"").trim();
+  const currentVersionEvents=currentPlatformVersion
+    ?errorEvents.filter(e=>String(e.platform_version||"")===currentPlatformVersion)
+    :[];
+  const sortedErrors=[...errorEvents].sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
 
   return {
     visitors:distinct(visitorIds),
@@ -408,7 +435,11 @@ export function aggregateAnalytics(events){
       affectedSessions:errorSessions,
       errorFreeRate,
       errorKinds,
-      recent:[...errorEvents].sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).slice(0,12)
+      severityCounts,
+      currentVersionErrors:currentVersionEvents.length,
+      currentVersionAffectedSessions:distinct(currentVersionEvents.map(e=>e.session_id)),
+      lastErrorAt:sortedErrors[0]?.created_at||null,
+      recent:sortedErrors.slice(0,12)
     },
     trend:buildTrendSeries(clean)
   };
@@ -760,7 +791,7 @@ function renderHealth(summary){
         <span class="analytics-error-mark">!</span>
         <div class="analytics-error-main">
           <div>
-            <strong>${escapeHtml(meta.kind||"error")}</strong>
+            <strong>${escapeHtml(String(meta.severity||classifyClientError(meta.kind,meta.message,{phase:meta.phase})).toUpperCase())} · ${escapeHtml(meta.kind||"error")}</strong>
             <span>${escapeHtml(fmtTime(e.created_at))}</span>
           </div>
           <p>${escapeHtml(meta.message||"Unknown client error")}</p>
@@ -824,7 +855,7 @@ async function renderAnalyticsDashboard(range=activeRange){
 
     const events=await fetchAnalyticsEvents(range);
     lastFetchedEvents=events;
-    const summary=aggregateAnalytics(events);
+    const summary=aggregateAnalytics(events,{currentVersion:currentVersion()});
 
     renderKpis(summary);
     renderTrend(summary);
@@ -1086,5 +1117,6 @@ export const analyticsTestApi={
   currentVersion,
   displayBuildVersion,
   sanitizeErrorMessage,
+  classifyClientError,
   reportClientError
 };

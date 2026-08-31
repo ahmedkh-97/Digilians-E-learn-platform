@@ -28,9 +28,9 @@ function combinedQuotas(total,difficultyTarget,sourceTarget){
   return allocateCounts(total,weights);
 }
 
-function relevantBanks(bankRegistry,trackId){
+function relevantBanks(bankRegistry,trackId,eligibilityField="finalEligible"){
   return (bankRegistry.banks||[]).filter(b=>
-    b.status==="active" && b.finalEligible!==false && b.trackId===trackId && b.file
+    b.status==="active" && b[eligibilityField]!==false && b.trackId===trackId && b.file
   );
 }
 
@@ -56,8 +56,9 @@ export function getBlueprintReadiness(bankRegistry,blueprint){
   const tracks=[];
   let readyTracks=0;
 
+  const eligibilityField=blueprint.kind==="track"?"trackExamEligible":"finalEligible";
   for(const spec of blueprint.tracks||[]){
-    const banks=relevantBanks(bankRegistry,spec.trackId);
+    const banks=relevantBanks(bankRegistry,spec.trackId,eligibilityField);
     const counts=summedCounts(banks);
     const difficultyNeed=allocateCounts(spec.count,blueprint.difficultyTarget);
     const sourceNeed=allocateCounts(spec.count,blueprint.sourceTarget);
@@ -90,7 +91,7 @@ export function getBlueprintReadiness(bankRegistry,blueprint){
 }
 
 async function loadTrackQuestions(trackId,bankRegistry,loadJson,eligibilityField="finalEligible"){
-  const banks=relevantBanks(bankRegistry,trackId);
+  const banks=relevantBanks(bankRegistry,trackId,eligibilityField);
   const all=[];
   for(const bank of banks){
     const payload=await loadJson(bank.file);
@@ -162,6 +163,39 @@ function arrangeAvoidingTopicRepeats(questions){
   return out;
 }
 
+function balancedAnswerTargets(count){
+  const ids=["A","B","C","D"];
+  const targets=[];
+  for(let i=0;i<count;i++)targets.push(ids[i%ids.length]);
+  return shuffled(targets);
+}
+
+function placeCorrectAt(question,targetId){
+  const ids=["A","B","C","D"];
+  const targetIndex=ids.indexOf(targetId);
+  if(targetIndex<0 || !Array.isArray(question.options) || question.options.length!==4)return question;
+  const correct=question.options.find(o=>o.id===question.correctAnswer);
+  if(!correct)return question;
+  const distractors=shuffled(question.options.filter(o=>o.id!==question.correctAnswer));
+  const arranged=[...distractors];
+  arranged.splice(targetIndex,0,correct);
+  const remapped={};
+  const options=arranged.map((option,index)=>{
+    const newId=ids[index];
+    remapped[newId]=question.deepExplanation?.options?.[option.id] || "";
+    return {...option,id:newId};
+  });
+  const deepExplanation=question.deepExplanation
+    ? {...question.deepExplanation,options:remapped}
+    : question.deepExplanation;
+  return {...question,options,correctAnswer:targetId,deepExplanation};
+}
+
+function balanceAndShuffleOptions(questions){
+  const targets=balancedAnswerTargets(questions.length);
+  return questions.map((question,index)=>placeCorrectAt(question,targets[index]));
+}
+
 export async function buildExamFromBlueprint({blueprint,bankRegistry,loadJson,coverageByTrack={}}){
   const readiness=getBlueprintReadiness(bankRegistry,blueprint);
   if(!readiness.ready){
@@ -220,6 +254,9 @@ export async function buildExamFromBlueprint({blueprint,bankRegistry,loadJson,co
     selected=arrangeAvoidingTopicRepeats(selected);
   }else if(blueprint.selection?.shuffleQuestions){
     selected=shuffled(selected);
+  }
+  if(blueprint.selection?.shuffleOptions){
+    selected=balanceAndShuffleOptions(selected);
   }
 
   return {

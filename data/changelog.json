@@ -1,6 +1,90 @@
 {
-  "latest": "0.20.8",
+  "latest": "0.20.14",
   "releases": [
+    {
+      "version": "0.20.14",
+      "title": "Excel Full Track Exam Flow Fix",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Replaces the misleading locked Excel Week Exam card with the ready ranked Full Track Exam while preserving Week Practice and intentionally locked Week Exams.",
+      "highlights": [
+        "Excel Study → Practice → Exam flow now exposes the ready 50-question / 60-minute ranked Full Track Exam directly from every Excel week.",
+        "The selected-week hint now explains that Study and Practice are week-scoped while the Full Track Exam covers all 3 Excel weeks.",
+        "Saved Full Track attempts show In progress and Resume Full Track Exam.",
+        "The duplicate standalone Excel track-exam row is removed so the learning flow has one clear exam call to action.",
+        "No Excel Study, Practice, Exam bank, Ranking rule, result logic, or learner data changed."
+      ]
+    },
+    {
+      "version": "0.20.13",
+      "title": "Excel Metadata Consistency Cleanup",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Normalizes Excel production metadata to the approved Study, Practice and Full Track Exam state while preserving intentionally locked Week Exams and separate Data Analysis Final readiness.",
+      "highlights": [
+        "Excel productionStats now reports FINAL READY with 29 sources / 610 slides / 24 Groups / 96 lessons / 294 topics.",
+        "Practice and independent Track Exam metadata now report 228 + 228 questions with a validated 50-question ranked form.",
+        "All three Excel curriculum weeks are confirmed audited and produced; Week Exams remain intentionally locked.",
+        "Excel curriculum completion is now explicit while Data Analysis Final bank readiness remains a separate gate.",
+        "No Study lesson, Practice question, Exam question, Ranking rule, or learner-state behavior changed."
+      ]
+    },
+    {
+      "version": "0.20.12",
+      "title": "UX Consistency & Navigation Polish",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Polishes exam navigation and accessibility without changing approved learning, assessment, ranking, or learner-data behavior.",
+      "highlights": [
+        "Full Track Exams return learners to the same learning track from Setup, Exit, Results and Review flows.",
+        "Keyboard focus indicators are now consistent across interactive controls.",
+        "Mark for Review keeps readable warning contrast in Dark Mode.",
+        "Exam answered progress and instant feedback expose polite live-region updates for assistive technology.",
+        "No Study, Practice, Exam bank, Ranking rule, or learner-state data changed."
+      ]
+    },
+    {
+      "version": "0.20.11",
+      "title": "Startup UX & Performance Guardrails",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Prevents interaction before core platform data is ready, applies the saved theme before first paint, and adds a permanent startup performance budget without changing approved learning or assessment content.",
+      "highlights": [
+        "Entry actions stay disabled until core platform data finishes loading, preventing slow-network startup races.",
+        "Saved Light/Dark theme is applied before the main stylesheet to reduce first-paint theme flash.",
+        "Pre-Deploy now enforces startup dependency count, raw payload and gzip-estimate performance budgets.",
+        "Startup recovery remains independent and bounded for load failures or initialization timeouts.",
+        "Study, Practice, Excel Full Track Exam, Official QBank, Ranking and learner data behavior remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.10",
+      "title": "Platform Stabilization & Data Safety",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Hardens learner progress storage, migration and restore safety while improving Platform Health diagnostics without changing approved learning or assessment content.",
+      "highlights": [
+        "Adds an explicit learner storage schema with non-destructive migration and future-version protection.",
+        "Browser storage failures no longer crash startup; learners receive a local-save warning instead.",
+        "Backup/Restore now preserves the learner storage schema and rolls back all learner keys if a restore write fails mid-operation.",
+        "Platform Health classifies Critical / Error / Warning events and exposes current-version error counts plus the last error timestamp.",
+        "Excel Study, Practice, Full Track Exam, Official QBank, Ranking rules and approved assessment content remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.9",
+      "title": "Excel Full Track Exam Production",
+      "date": "2026-08-31",
+      "type": "feature",
+      "summary": "Opens the ranked Excel Full Track Exam with an independent source-grounded bank, validated dynamic 50-question forms, and Week/Group result analytics.",
+      "highlights": [
+        "Independent 228-question Excel Track Exam bank covers the approved assessment-eligible concepts without copying Practice V1 items.",
+        "Dynamic 50-question forms enforce Week quotas 12/20/18 and difficulty quotas 13 Easy / 25 Medium / 12 Hard.",
+        "All 23 assessment-capable Excel Learning Groups are represented; Group 14 stays excluded because it is bridge-only.",
+        "Track Exam is 60 minutes, 60% passing, ranked, resumable, MARK-enabled, and integrated with My Mistakes.",
+        "Results add Week and Group breakdowns while Week Practice remains non-ranked and Week Exams remain locked."
+      ]
+    },
     {
       "version": "0.20.8",
       "title": "Runtime Compatibility Hotfix",

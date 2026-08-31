@@ -1,11 +1,13 @@
 
-import {resolveBuildVersion} from "./build-version.js?v=0.20.8";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.14";
+import {CURRENT_STORAGE_SCHEMA_VERSION,STORAGE_SCHEMA_KEY} from "./storage-safety.js?v=0.20.14";
 
 const BACKUP_FORMAT="digilians-progress-backup";
 const BACKUP_SCHEMA_VERSION=1;
 const MAX_BACKUP_BYTES=5*1024*1024;
 
 export const BACKUP_KEYS=[
+  STORAGE_SCHEMA_KEY,
   "digilians.studentName",
   "digilians.playerId",
   "digilians.avatarProfile",
@@ -163,6 +165,11 @@ function validateScalar(key,value){
   }
   if(key==="digilians_ranking_mode" && value && !["exam","track"].includes(value)){
     throw new Error("Invalid ranking mode");
+  }
+  if(key===STORAGE_SCHEMA_KEY){
+    const schema=Number(value);
+    if(!Number.isInteger(schema) || schema<1)throw new Error("Invalid learner storage schema");
+    if(schema>CURRENT_STORAGE_SCHEMA_VERSION)throw new Error("Backup uses a newer learner storage schema. Open it with the latest platform version.");
   }
   if(JSON_KEYS.has(key))parseJsonKey(key,value);
 }
@@ -381,18 +388,43 @@ export function mergeBackupIntoStorageData(currentData,incomingData){
   return out;
 }
 
+function restoreStorageSnapshot(storage,snapshot){
+  let ok=true;
+  for(const key of BACKUP_KEYS){
+    if(!safeRemove(storage,key))ok=false;
+  }
+  for(const [key,value] of Object.entries(snapshot||{})){
+    if(BACKUP_KEYS.includes(key) && !safeSet(storage,key,value))ok=false;
+  }
+  return ok;
+}
+
 export function applyBackupData(storage,incomingData,mode="merge"){
   if(!["merge","replace"].includes(mode))throw new Error("Invalid restore mode.");
 
   const current=collectBackupData(storage);
   const next=mode==="merge"?mergeBackupIntoStorageData(current,incomingData):{...incomingData};
+  let writeOk=true;
 
   if(mode==="replace"){
-    for(const key of BACKUP_KEYS)safeRemove(storage,key);
+    for(const key of BACKUP_KEYS){
+      if(!safeRemove(storage,key))writeOk=false;
+    }
   }
 
-  for(const [key,value] of Object.entries(next)){
-    if(BACKUP_KEYS.includes(key))safeSet(storage,key,value);
+  if(writeOk){
+    for(const [key,value] of Object.entries(next)){
+      if(BACKUP_KEYS.includes(key) && !safeSet(storage,key,value)){
+        writeOk=false;
+        break;
+      }
+    }
+  }
+
+  if(!writeOk){
+    const rolledBack=restoreStorageSnapshot(storage,current);
+    if(!rolledBack)throw new Error("Restore failed and learner storage could not be rolled back safely. Keep the automatic safety backup before continuing.");
+    throw new Error("Restore could not be completed safely, so all learner data changes were rolled back.");
   }
 
   return summarizeBackupData(collectBackupData(storage));

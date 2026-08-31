@@ -1,4 +1,32 @@
-import {createUuid} from "./runtime-compat.js?v=0.20.8";
+import {createUuid} from "./runtime-compat.js?v=0.20.14";
+import {ensureStorageSchema} from "./storage-safety.js?v=0.20.14";
+
+
+const storageWarningKeys=new Set();
+function emitStorageWarning(operation,key,error){
+  const signature=`${operation}:${key}`;
+  if(storageWarningKeys.has(signature))return;
+  storageWarningKeys.add(signature);
+  try{
+    if(typeof globalThis.dispatchEvent==="function" && typeof CustomEvent==="function"){
+      globalThis.dispatchEvent(new CustomEvent("digilians:storage-warning",{detail:{operation,key,errorName:String(error?.name||"StorageError")}}));
+    }
+  }catch{}
+}
+function safeGetRaw(key){
+  try{return globalThis.localStorage?.getItem?.(key)??null}catch(error){emitStorageWarning("read",key,error);return null}
+}
+function safeSetRaw(key,value){
+  try{globalThis.localStorage?.setItem?.(key,String(value));return true}catch(error){emitStorageWarning("write",key,error);return false}
+}
+function safeRemoveRaw(key){
+  try{globalThis.localStorage?.removeItem?.(key);return true}catch(error){emitStorageWarning("remove",key,error);return false}
+}
+export function initializeStorageSafety(){
+  const result=ensureStorageSchema(globalThis.localStorage);
+  if(!result.ok && result.reason!=="future-schema")emitStorageWarning("schema","digilians.storageSchemaVersion",new Error(result.reason));
+  return result;
+}
 
 const KEYS = {
   studentName: "digilians.studentName",
@@ -13,31 +41,31 @@ const KEYS = {
   quickChecks: "digilians.quickChecks"
 };
 
-export function getStudentName(){ return localStorage.getItem(KEYS.studentName) || ""; }
-export function setStudentName(name){ localStorage.setItem(KEYS.studentName, name.trim()); }
-export function clearStudentName(){ localStorage.removeItem(KEYS.studentName); }
+export function getStudentName(){ return safeGetRaw(KEYS.studentName) || ""; }
+export function setStudentName(name){ return safeSetRaw(KEYS.studentName, name.trim()); }
+export function clearStudentName(){ return safeRemoveRaw(KEYS.studentName); }
 
 export function getPlayerId(){
-  let id = localStorage.getItem(KEYS.playerId);
+  let id = safeGetRaw(KEYS.playerId);
   if (!id) {
     id = createUuid();
-    localStorage.setItem(KEYS.playerId, id);
+    safeSetRaw(KEYS.playerId, id);
   }
   return id;
 }
 
-export function getTheme(){ return localStorage.getItem(KEYS.theme) || "light"; }
-export function setTheme(theme){ localStorage.setItem(KEYS.theme, theme); }
+export function getTheme(){ return safeGetRaw(KEYS.theme) || "light"; }
+export function setTheme(theme){ return safeSetRaw(KEYS.theme, theme); }
 
 export function getResults(){
-  try { return JSON.parse(localStorage.getItem(KEYS.results)) || []; }
+  try { return JSON.parse(safeGetRaw(KEYS.results)) || []; }
   catch { return []; }
 }
 
 export function saveResult(result){
   const results = getResults();
   results.push(result);
-  localStorage.setItem(KEYS.results, JSON.stringify(results));
+  return safeSetRaw(KEYS.results, JSON.stringify(results));
 }
 
 export function markResultSynced(clientAttemptId){
@@ -45,7 +73,7 @@ export function markResultSynced(clientAttemptId){
   const index = results.findIndex(x => x.clientAttemptId === clientAttemptId);
   if (index >= 0) {
     results[index].onlineSynced = true;
-    localStorage.setItem(KEYS.results, JSON.stringify(results));
+    safeSetRaw(KEYS.results, JSON.stringify(results));
   }
 }
 
@@ -59,20 +87,20 @@ export function getPreviousBestForExam(examId, studentName){
 }
 
 export function saveExamProgress(progress){
-  localStorage.setItem(KEYS.progress, JSON.stringify(progress));
+  return safeSetRaw(KEYS.progress, JSON.stringify(progress));
 }
 export function getExamProgress(){
-  try { return JSON.parse(localStorage.getItem(KEYS.progress)) || null; }
+  try { return JSON.parse(safeGetRaw(KEYS.progress)) || null; }
   catch { return null; }
 }
-export function clearExamProgress(){ localStorage.removeItem(KEYS.progress); }
+export function clearExamProgress(){ return safeRemoveRaw(KEYS.progress); }
 
 function getStudyProgressState(){
-  try{return JSON.parse(localStorage.getItem(KEYS.studyProgress)) || {users:{}}}
+  try{return JSON.parse(safeGetRaw(KEYS.studyProgress)) || {users:{}}}
   catch{return {users:{}}}
 }
 function saveStudyProgressState(state){
-  localStorage.setItem(KEYS.studyProgress,JSON.stringify(state));
+  safeSetRaw(KEYS.studyProgress,JSON.stringify(state));
 }
 function emptyStudyProgress(){
   return {completedSections:[],completed:false,lastSectionId:null,updatedAt:null};
@@ -105,11 +133,11 @@ export function clearStudyProgress(studentName,moduleId){
 }
 
 function getQuickCheckStateStore(){
-  try{return JSON.parse(localStorage.getItem(KEYS.quickChecks)) || {users:{}}}
+  try{return JSON.parse(safeGetRaw(KEYS.quickChecks)) || {users:{}}}
   catch{return {users:{}}}
 }
 function saveQuickCheckStateStore(state){
-  localStorage.setItem(KEYS.quickChecks,JSON.stringify(state));
+  safeSetRaw(KEYS.quickChecks,JSON.stringify(state));
 }
 export function getQuickCheckState(studentName,moduleId,sectionId){
   if(!studentName || !moduleId || !sectionId)return null;
@@ -143,11 +171,11 @@ export function clearQuickCheckState(studentName,moduleId,sectionId){
   }
 }
 
-export function setLastCourse(course){ localStorage.setItem(KEYS.lastCourse, course); }
-export function getLastCourse(){ return localStorage.getItem(KEYS.lastCourse) || ""; }
+export function setLastCourse(course){ return safeSetRaw(KEYS.lastCourse, course); }
+export function getLastCourse(){ return safeGetRaw(KEYS.lastCourse) || ""; }
 
 export function getPendingAttempts(){
-  try { return JSON.parse(localStorage.getItem(KEYS.pendingAttempts)) || []; }
+  try { return JSON.parse(safeGetRaw(KEYS.pendingAttempts)) || []; }
   catch { return []; }
 }
 
@@ -155,20 +183,20 @@ export function queuePendingAttempt(attempt){
   const pending = getPendingAttempts();
   if (!pending.some(x => x.client_attempt_id === attempt.client_attempt_id)) {
     pending.push(attempt);
-    localStorage.setItem(KEYS.pendingAttempts, JSON.stringify(pending));
+    safeSetRaw(KEYS.pendingAttempts, JSON.stringify(pending));
   }
 }
 
 export function removePendingAttempt(clientAttemptId){
   const pending = getPendingAttempts().filter(x => x.client_attempt_id !== clientAttemptId);
-  localStorage.setItem(KEYS.pendingAttempts, JSON.stringify(pending));
+  safeSetRaw(KEYS.pendingAttempts, JSON.stringify(pending));
 }
 
 
 export function getOfficialQbankState(){
-  try{return JSON.parse(localStorage.getItem(KEYS.officialQbank)) || {tracks:{}}}catch{return {tracks:{}}}
+  try{return JSON.parse(safeGetRaw(KEYS.officialQbank)) || {tracks:{}}}catch{return {tracks:{}}}
 }
-function saveOfficialState(state){localStorage.setItem(KEYS.officialQbank,JSON.stringify(state))}
+function saveOfficialState(state){safeSetRaw(KEYS.officialQbank,JSON.stringify(state))}
 function officialTrackKey(trackId,levelId="junior-data-analysis",sourceRevision="source-r1"){return `${levelId}::${sourceRevision}::${trackId}`}
 function emptyOfficialTrack(){return {lastIndex:0,reviewed:[],bookmarks:[],mistakes:[],answers:{}}}
 export function getOfficialTrackState(trackId,levelId="junior-data-analysis",sourceRevision="source-r1"){

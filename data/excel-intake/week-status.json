@@ -28,14 +28,14 @@
         "70 clusters mapped: 53 Excel Core + 17 Statistics prerequisite.",
         "8 source QA issues/gaps recorded; no silent corrections.",
         "Study production implemented: 27 lessons across 8 relationship-based Learning Groups.",
-        "Practice V1 implemented: 53 source-only questions covering every assessment-eligible Week 1 concept exactly once; Exam remains locked."
+        "Practice V1 implemented: 53 source-only questions covering every assessment-eligible Week 1 concept exactly once; Week Exam remains intentionally locked; the ranked Full Track Exam is produced separately."
       ],
       "studyProduction": {
         "sections": 27,
         "excelCoreSections": 20,
         "statisticsPrerequisiteSections": 7,
         "conceptCoverage": "70/70",
-        "status": "implemented-awaiting-local-approval"
+        "status": "approved-production"
       },
       "practiceReady": true,
       "examReady": false,
@@ -44,7 +44,7 @@
         "coverage": "53/53 eligible concepts",
         "feedbackMode": "instant",
         "ranked": false,
-        "status": "implemented-local-qa"
+        "status": "approved-production"
       }
     },
     {
@@ -73,14 +73,14 @@
         "101 non-reuse production concepts mapped exactly once into 35 Study lessons.",
         "8 learner-facing Groups approved and implemented using Excel Deep Learning V3.2.",
         "QA boundaries preserved: Text.End correction, ActiveX/VBA environment dependency, visual-only chart/dashboard limits, Python/Pandas bridge, missing companion files.",
-        "Practice V1 implemented: 89 source-only questions covering every assessment-eligible Week 2 concept exactly once; Exam remains locked."
+        "Practice V1 implemented: 89 source-only questions covering every assessment-eligible Week 2 concept exactly once; Week Exam remains intentionally locked; the ranked Full Track Exam is produced separately."
       ],
       "studyProduction": {
         "sections": 35,
         "learningGroups": 8,
         "productionConceptCoverage": "101/101",
         "sourceConceptReference": "108 audited / 7 reuse-only",
-        "status": "implemented-awaiting-local-approval"
+        "status": "approved-production"
       },
       "practiceReady": true,
       "examReady": false,
@@ -89,7 +89,7 @@
         "coverage": "89/89 eligible concepts",
         "feedbackMode": "instant",
         "ranked": false,
-        "status": "implemented-local-qa"
+        "status": "approved-production"
       }
     },
     {
@@ -118,14 +118,14 @@
         "123 production concepts: 86 assessment-eligible + 30 supporting/time-sensitive + 7 bridge.",
         "8 learner-facing Groups approved and implemented using Excel Deep Learning V3.2.",
         "QA boundaries preserved: Power View/Map environment dependency, DAX metric-label issue, Ogive/source shortcut inconsistencies, macro percentage exclusions, AI time-sensitive snapshot and missing companion files.",
-        "Practice V1 implemented: 86 source-only questions covering every assessment-eligible Week 3 concept exactly once; Exam remains locked."
+        "Practice V1 implemented: 86 source-only questions covering every assessment-eligible Week 3 concept exactly once; Week Exam remains intentionally locked; the ranked Full Track Exam is produced separately."
       ],
       "studyProduction": {
         "sections": 34,
         "learningGroups": 8,
         "productionConceptCoverage": "123/123",
         "sourceConceptReference": "143 audited / 20 reuse-only",
-        "status": "implemented-awaiting-local-approval"
+        "status": "approved-production"
       },
       "practiceReady": true,
       "examReady": false,
@@ -134,8 +134,17 @@
         "coverage": "86/86 eligible concepts",
         "feedbackMode": "instant",
         "ranked": false,
-        "status": "implemented-local-qa"
+        "status": "approved-production"
       }
     }
-  ]
+  ],
+  "trackExam": {
+    "ready": true,
+    "examId": "data-analysis-excel-track-v1",
+    "bankQuestions": 228,
+    "formQuestions": 50,
+    "minutes": 60,
+    "passingScore": 60,
+    "ranked": true
+  }
 }

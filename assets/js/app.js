@@ -1,11 +1,11 @@
 import {
-  getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,
+  getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,initializeStorageSafety,
   markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
   getStudyProgress,updateStudyProgress,clearStudyProgress,
   getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
   getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
-} from "./storage.js?v=0.20.8";
+} from "./storage.js?v=0.20.14";
 
 import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
 import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles} from "./online.js";
@@ -21,10 +21,12 @@ import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
 import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,clearMistakesForOwner,MASTERY_STREAK} from "./mistakes.js?v=0.20.8";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.8";
-import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.20.8";
-import {createUuid} from "./runtime-compat.js?v=0.20.8";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,clearMistakesForOwner,MASTERY_STREAK} from "./mistakes.js?v=0.20.14";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.14";
+import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.20.14";
+import {createUuid} from "./runtime-compat.js?v=0.20.14";
+import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.20.14";
+import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.20.14";
 
 const state={
   studentName:"",
@@ -215,7 +217,23 @@ $("rankedIdentityCancelBtn")?.addEventListener("click",closeRankedIdentity);
 $("rankedIdentityName")?.addEventListener("keydown",e=>{if(e.key==="Enter")saveRankedIdentity();if(e.key==="Escape")closeRankedIdentity()});
 $("rankedIdentityModal")?.addEventListener("click",e=>{if(e.target===$("rankedIdentityModal"))closeRankedIdentity()});
 
+function setEntryControlsReady(ready){
+  const start=$("startBtn");
+  const resume=$("continueUserBtn");
+  if(start){
+    start.disabled=!ready;
+    start.setAttribute("aria-disabled",String(!ready));
+    start.innerHTML=ready?'Enter Platform <span>→</span>':'Loading Platform…';
+  }
+  if(resume){
+    resume.disabled=!ready;
+    resume.setAttribute("aria-disabled",String(!ready));
+    resume.innerHTML=ready?'Continue <span>→</span>':'Loading…';
+  }
+}
+
 function handleNameSubmit(){
+  if($("startBtn")?.disabled)return;
   const name=$("studentName").value.trim();
   if(name.length<2){
     $("nameError").textContent="Please enter a valid name.";
@@ -1798,50 +1816,6 @@ function renderModulePanel(course,track=null){
     panel.querySelector(".module-panel-head").insertAdjacentElement("afterend",list);
   }
 
-  function bestResultForFeedbackMode(examId,mode){
-    return getUserResults()
-      .filter(x=>x.examId===examId && x.feedbackMode===mode)
-      .sort((a,b)=>b.percentage-a.percentage || a.timeTakenSeconds-b.timeTakenSeconds)[0] || null;
-  }
-  function studyPercentForModule(module){
-    const total=module?.study?.sections?.length || 0;
-    if(!total || !state.studentName)return 0;
-    const saved=getStudyProgress(state.studentName,module.id);
-    const valid=new Set((module.study.sections||[]).map((s,i)=>s.id||`section-${i}`));
-    const completed=(saved.completedSections||[]).filter(id=>valid.has(id)).length;
-    return Math.round(completed/total*100);
-  }
-  function updateModuleLearningStats(module){
-    const studyPct=studyPercentForModule(module);
-    const practice=bestResultForFeedbackMode(module?.examId,"instant");
-    const exam=bestResultForFeedbackMode(module?.examId,"exam");
-
-    if($("studyFlowStatus")){
-      $("studyFlowStatus").textContent=studyPct>=100?"Completed 100%":studyPct?`${studyPct}% completed`:"Not started";
-      $("studyFlowStatus").classList.toggle("complete",studyPct>=100);
-    }
-    if($("practiceFlowStatus")){
-      $("practiceFlowStatus").textContent=!assessmentReady?"Building after Study QA":practice?`Best ${practice.percentage}%`:"Not attempted";
-      $("practiceFlowStatus").classList.toggle("complete",Boolean(practice));
-    }
-    if($("examFlowStatus")){
-      $("examFlowStatus").textContent=!assessmentReady?"Building after Study QA":exam?`Best ${exam.percentage}%`:"Not attempted";
-      $("examFlowStatus").classList.toggle("complete",Boolean(exam));
-    }
-
-    if($("openStudyBtn")){
-      if(isExcelLearningGroupsModule(module)){
-        $("openStudyBtn").innerHTML=`Explore Content${studyPct?` · ${studyPct}%`:""} <span>→</span>`;
-      }else{
-        $("openStudyBtn").innerHTML=studyPct>=100
-          ?'Review Study <span>→</span>'
-          :studyPct
-            ?`Continue Study · ${studyPct}% <span>→</span>`
-            :'Start Study <span>→</span>';
-      }
-    }
-  }
-
   function updateSelectedModuleUI(module,row,{scrollToPath=false}={}){
     state.selectedModule=module;
 
@@ -1860,7 +1834,7 @@ function renderModulePanel(course,track=null){
     if(selectedNoticeLabel)selectedNoticeLabel.textContent=isExcelLearningGroupsModule(module)?"SELECTED MODULE":"SELECTED SESSION";
     if(moduleName)moduleName.textContent=module.title;
     if(moduleHint)moduleHint.textContent=isExcelLearningGroupsModule(module)
-      ?"Open the content map, choose a Learning Group, then choose the exact lesson you want to study."
+      ?"Study + Practice cover this Excel week. Full Track Exam covers all 3 Excel weeks."
       :module.assessmentStatus==="building-after-study-qa"
         ?"Study is ready. Practice and Exam will unlock after Study/source-trace QA."
         :"Next: Study the material, practice with feedback, then take the session exam.";
@@ -1928,7 +1902,7 @@ function renderModulePanel(course,track=null){
     list.appendChild(row);
   });
 
-  if(track?.trackExamId){
+  if(shouldRenderStandaloneTrackExamRow(track)){
     const examItem=state.registry.find(x=>x.id===track.trackExamId);
     const row=document.createElement("button");
     row.className="module-row track-exam-row";
@@ -1967,7 +1941,7 @@ $("openStudyBtn").addEventListener("click",()=>{
   else openStudy();
 });
 $("openPracticeBtn").addEventListener("click",()=>openModuleExam("instant"));
-$("openModuleExamBtn").addEventListener("click",()=>openModuleExam(null));
+$("openModuleExamBtn").addEventListener("click",()=>openLearningFlowExam());
 
 
 $("selectedModuleNotice")?.addEventListener("click",()=>{
@@ -2394,9 +2368,19 @@ function syncLearningFlowStats(module){
   const studyPct=globalStudyPercentForModule(module);
   const {practiceReady,examReady}=moduleAssessmentState(module);
   const practiceExamId=resolveModuleExamId(module,"instant");
-  const moduleExamId=resolveModuleExamId(module,"exam");
   const practice=practiceReady?globalBestResultForFeedbackMode(practiceExamId,"instant"):null;
-  const exam=examReady?globalBestResultForFeedbackMode(moduleExamId,"exam"):null;
+  const flowExam=resolveLearningFlowExam({module,track:state.selectedTrack,registry:state.registry});
+  const usesTrackExam=flowExam.scope==="track";
+  const moduleExamId=resolveModuleExamId(module,"exam");
+  const exam=usesTrackExam
+    ?(flowExam.examId?getBestForExam(flowExam.examId,state.studentName):null)
+    :(examReady?globalBestResultForFeedbackMode(moduleExamId,"exam"):null);
+  const savedProgress=activeSavedExamProgress();
+  const blueprint=usesTrackExam
+    ?(state.blueprints?.blueprints||[]).find(x=>x.id===flowExam.item?.blueprintId || x.id===flowExam.examId)
+    :null;
+  const trackCard=buildLearningFlowExamCard({scope:flowExam.scope,item:flowExam.item,bestResult:exam,savedProgress,blueprint});
+
   if($("studyFlowStatus")){
     $("studyFlowStatus").textContent=studyPct>=100?"Completed 100%":studyPct?`${studyPct}% completed`:"Not started";
     $("studyFlowStatus").classList.toggle("complete",studyPct>=100);
@@ -2406,16 +2390,23 @@ function syncLearningFlowStats(module){
     $("practiceFlowStatus").classList.toggle("complete",Boolean(practice));
   }
   if($("examFlowStatus")){
-    $("examFlowStatus").textContent=exam?`Best ${exam.percentage}%`:"Not attempted";
-    $("examFlowStatus").classList.toggle("complete",Boolean(exam));
+    $("examFlowStatus").textContent=trackCard?.status || (exam?`Best ${exam.percentage}%`:"Not attempted");
+    $("examFlowStatus").classList.toggle("complete",Boolean(exam) && !trackCard?.resume);
   }
+  if($("examFlowPill"))$("examFlowPill").textContent=trackCard?.pill || "EXAM";
+  if($("examFlowTitle"))$("examFlowTitle").textContent=trackCard?.title || "Test your readiness";
+  if($("examFlowDescription"))$("examFlowDescription").textContent=trackCard?.description || "Take the exam in your preferred feedback mode and track your best.";
   if($("openPracticeBtn")){
     $("openPracticeBtn").disabled=!practiceReady;
     $("openPracticeBtn").innerHTML=practiceReady?'Start Practice <span>→</span>':'Practice Building';
   }
   if($("openModuleExamBtn")){
-    $("openModuleExamBtn").disabled=!examReady;
-    $("openModuleExamBtn").innerHTML=examReady?'Start Exam <span>→</span>':'Exam Building';
+    const ready=trackCard?.ready ?? examReady;
+    $("openModuleExamBtn").disabled=!ready;
+    $("openModuleExamBtn").innerHTML=trackCard
+      ?`${trackCard.buttonLabel} <span>→</span>`
+      :(examReady?'Start Exam <span>→</span>':'Exam Building');
+    $("openModuleExamBtn").dataset.examScope=trackCard?"track":"module";
   }
   if($("openStudyBtn")){
     if(isExcelLearningGroupsModule(module)){
@@ -2857,6 +2848,25 @@ $("studyResetProgressBtn").addEventListener("click",()=>{
   showToast("Study progress reset. Exam results were kept.");
 });
 
+function openLearningFlowExam(){
+  const module=state.selectedModule;
+  const flowExam=resolveLearningFlowExam({module,track:state.selectedTrack,registry:state.registry});
+  if(flowExam.scope==="track"){
+    const saved=activeSavedExamProgress();
+    if(saved?.examId===flowExam.examId){
+      resumeProgress(saved);
+      return;
+    }
+    if(flowExam.item){
+      prepareExam(flowExam.item);
+      return;
+    }
+    showToast("Full track exam is not available yet.");
+    return;
+  }
+  openModuleExam(null);
+}
+
 function openModuleExam(forcedMode){
   const module=state.selectedModule;
   const examId=resolveModuleExamId(module,forcedMode);
@@ -3070,6 +3080,7 @@ function configureExamSetup(payload,registryItem,forcedMode=null){
   state.previousBest=state.studentName?getPreviousBestForExam(payload.exam.id,state.studentName):null;
 
   const exam=payload.exam;
+  $("backToLibraryBtn").textContent=isStandardTrackExam()?`← ${state.selectedTrack?.title || exam.track || "Track"}`:"← Exams";
   $("setupCategory").textContent=exam.category || "Exam";
   $("setupDifficulty").textContent=exam.difficulty || "Mixed";
   $("setupTitle").textContent=exam.title;
@@ -3103,6 +3114,23 @@ function configureExamSetup(payload,registryItem,forcedMode=null){
   if(radio)radio.checked=true;
   routeTo("setupView");
 }
+function isStandardTrackExam(){
+  return Boolean(
+    state.currentExam?.exam?.category==="Track Exam" &&
+    !state.currentExam?.exam?.generatedFromOfficialQbank &&
+    state.selectedCourse && state.selectedTrack
+  );
+}
+
+function returnToSelectedTrack(){
+  if(!state.selectedCourse || !state.selectedTrack){
+    routeTo("examsView");
+    return;
+  }
+  routeTo("learnView");
+  renderModulePanel(state.selectedCourse,state.selectedTrack);
+}
+
 $("backToLibraryBtn").addEventListener("click",()=>{
   const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
   if(ctx?.kind==="section" || ctx?.kind==="track-random"){
@@ -3114,7 +3142,8 @@ $("backToLibraryBtn").addEventListener("click",()=>{
     state.officialLevelId=ctx.levelId || state.officialLevelId;
     state.officialTrackId=null;state.officialSectionId=null;
     routeTo("officialJuniorView");
-  }else routeTo("examsView");
+  }else if(isStandardTrackExam()) returnToSelectedTrack();
+  else routeTo("examsView");
 });
 
 $("beginExamBtn").addEventListener("click",()=>{
@@ -3450,7 +3479,9 @@ $("exitExamBtn").addEventListener("click",()=>{
   stopTimer();
   persistProgress();
   state.timerSuspendedAt=null;
-  routeTo(mistakePractice?"mistakesView":"dashboardView");
+  if(mistakePractice) routeTo("mistakesView");
+  else if(isStandardTrackExam()) returnToSelectedTrack();
+  else routeTo("dashboardView");
 });
 
 function startTimerIfNeeded(){
@@ -3556,12 +3587,13 @@ function finishExam(autoSubmitted){
 
   const subjectBreakdown=calculateSubjectBreakdown();
   const topicBreakdown=topicPerformance(state.currentExam.questions,state.answers);
+  const excelBreakdown=buildExcelTrackResultMetadata(state.currentExam.exam,state.currentExam.questions,state.answers);
   const officialContext=state.currentExam.exam.generatedFromOfficialQbank || null;
   const record={
     examId:state.currentExam.exam.id,examTitle:state.currentExam.exam.title,studentName:state.studentName,
     percentage:result.percentage,correct:result.correct,wrong:result.wrong,unanswered:result.unanswered,
     timeTakenSeconds,submittedAt:new Date().toISOString(),autoSubmitted,
-    clientAttemptId,onlineSynced:false,subjectBreakdown,topicBreakdown,officialContext,
+    clientAttemptId,onlineSynced:false,subjectBreakdown,topicBreakdown,excelBreakdown,officialContext,
     feedbackMode:state.feedbackMode,examCategory:state.currentExam.exam.category || "Exam"
   };
 
@@ -3736,6 +3768,33 @@ function renderTopicBreakdown(){
   section.classList.remove("hidden");
 }
 
+function renderExcelTrackBreakdown(){
+  const weekSection=$("resultExcelWeekBreakdown");
+  const weekGrid=$("resultExcelWeekBreakdownGrid");
+  const groupSection=$("resultExcelGroupBreakdown");
+  const groupGrid=$("resultExcelGroupBreakdownGrid");
+  if(!weekSection||!weekGrid||!groupSection||!groupGrid)return;
+
+  const data=state.lastResult?.record?.excelBreakdown || null;
+  if(!data){
+    weekSection.classList.add("hidden");weekGrid.innerHTML="";
+    groupSection.classList.add("hidden");groupGrid.innerHTML="";
+    return;
+  }
+
+  weekGrid.innerHTML=(data.weeks||[]).map(w=>`<div class="subject-breakdown-item">
+    <span>${escapeHtml(w.label)}</span><strong>${w.correct}/${w.total}</strong>
+    <small>${w.percentage}% • ${w.wrong} wrong${w.unanswered?` • ${w.unanswered} unanswered`:""}</small>
+  </div>`).join("");
+  weekSection.classList.toggle("hidden",!(data.weeks||[]).length);
+
+  groupGrid.innerHTML=(data.groups||[]).map(g=>`<div class="subject-breakdown-item">
+    <span>GROUP ${escapeHtml(g.groupNumber)} • ${escapeHtml(g.groupTitle)}</span><strong>${g.correct}/${g.total}</strong>
+    <small>${g.percentage}% • Week ${escapeHtml(g.weekNumber)}${g.wrong?` • ${g.wrong} wrong`:""}${g.unanswered?` • ${g.unanswered} unanswered`:""}</small>
+  </div>`).join("");
+  groupSection.classList.toggle("hidden",!(data.groups||[]).length);
+}
+
 function renderSubjectBreakdown(){
   const section=$("resultSubjectBreakdown");
   const grid=$("resultSubjectBreakdownGrid");
@@ -3787,6 +3846,7 @@ function renderResult(){
   $("timeTaken").textContent=formatDuration(record.timeTakenSeconds);
   renderSubjectBreakdown();
   renderTopicBreakdown();
+  renderExcelTrackBreakdown();
   $("celebration").classList.toggle("hidden",record.percentage<80);
   setTimeout(()=>animateScore(record.percentage),120);
 
@@ -3862,7 +3922,8 @@ $("nextExamBtn").addEventListener("click",()=>{
     state.officialSectionId=null;
     routeTo("officialTrackView");return
   }
-  routeTo("examsView");
+  if(isStandardTrackExam()) returnToSelectedTrack();
+  else routeTo("examsView");
 });
 
 function renderReview(){
@@ -3902,7 +3963,8 @@ $("reviewHomeBtn").addEventListener("click",()=>{
     state.officialLevelId=ctx.levelId || state.officialLevelId;
     state.officialTrackId=null;state.officialSectionId=null;
     routeTo("officialJuniorView");
-  }else routeTo("examsView");
+  }else if(isStandardTrackExam()) returnToSelectedTrack();
+  else routeTo("examsView");
 });
 
 function populateRankingExamSelect(){
@@ -4600,6 +4662,14 @@ function showToast(message){
 }
 
 async function init(){
+  let storageWarningShown=false;
+  window.addEventListener("digilians:storage-warning",()=>{
+    if(storageWarningShown)return;
+    storageWarningShown=true;
+    showToast("Local progress could not be saved. Check browser storage permissions or export a backup.");
+  });
+  const storageSafety=initializeStorageSafety();
+  if(!storageSafety.ok && storageSafety.reason==="future-schema")throw new Error("Saved learner data was created by a newer platform version. Open the latest platform before continuing.");
   applyTheme(getTheme());
   state.playerId=getPlayerId();
 
@@ -4633,6 +4703,7 @@ async function init(){
     openReturningUserAvatarRollout();
   }else routeTo("welcomeView");
 
+  setEntryControlsReady(true);
   window.__DIGILIANS_APP_READY__=true;
   window.__DIGILIANS_CLEAR_FATAL__?.();
 }
