@@ -85,12 +85,14 @@ export function buildExamContextModel({
     const activityTrack=tracks.length===1?tracks[0]:tracks.length<=3?tracks.join(" + "):"Mixed Tracks";
     const track=mistakeTrack(q)||activityTrack||"Mixed Topics";
     const topic=mistakeTopic(q,visibleTopic);
+    const sourceType=clean(q?.mistakeContext?.sourceType || q?.sourceType).toLowerCase();
+    const sourceLabel=sourceType==="official-qbank"?"Official QBank":sourceType==="course"?"Course":"";
     return {
       kind:"my-mistakes",
       activitySegments:unique(["My Mistakes",activityTrack||"Mixed Topics",questionCountLabel(questions.length)]),
-      questionSegments:unique(["My Mistakes",track,topic]),
+      questionSegments:unique(["My Mistakes",sourceLabel,track,topic]),
       navigatorTitle:`${track} · My Mistakes`,
-      navigatorSubtitle:topic
+      navigatorSubtitle:sourceLabel?`${sourceLabel} · ${topic}`:topic
     };
   }
 
