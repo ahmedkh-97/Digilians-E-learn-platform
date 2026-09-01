@@ -5,7 +5,7 @@ import {
   getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
   getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
-} from "./storage.js?v=0.20.20";
+} from "./storage.js?v=0.20.23";
 
 import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
 import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles} from "./online.js";
@@ -20,13 +20,13 @@ import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
 import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
-import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.20.20";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,clearMistakesForOwner,MASTERY_STREAK} from "./mistakes.js?v=0.20.20";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.20";
-import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.20.20";
-import {createUuid} from "./runtime-compat.js?v=0.20.20";
-import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.20.20";
-import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.20.20";
+import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.20.23";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.20.23";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.23";
+import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.20.23";
+import {createUuid} from "./runtime-compat.js?v=0.20.23";
+import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.20.23";
+import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.20.23";
 
 const state={
   studentName:"",
@@ -397,6 +397,25 @@ function recordAttemptMistakeOutcomes(questions,answers,exam=state.currentExam?.
 async function ensureOfficialMistakesImported(){
   if(state.mistakesOfficialSeeded)return;
   const officialState=getOfficialQbankState();
+
+  // Remove only legacy imported Official items that never had a real learner answer.
+  // Official Study wrong answers remain because they have a saved track answer.
+  // Official Exam wrong answers remain because they carry exam context.
+  const officialItems=getMistakes(mistakeOwnerId(),{includeMastered:true})
+    .filter(item=>item.context?.sourceType==="official-qbank");
+  for(const item of officialItems){
+    const levelId=item.context?.levelId||"junior-data-analysis";
+    const trackId=item.context?.trackId||item.question?.trackId||"";
+    if(!trackId)continue;
+    const matchingRecord=Object.entries(officialState?.tracks||{}).find(([trackKey])=>{
+      const parsed=parseOfficialMistakeTrackKey(trackKey);
+      return parsed.levelId===levelId && parsed.trackId===trackId;
+    })?.[1] || {};
+    if(isLegacyUnansweredOfficialSeed(item,matchingRecord)){
+      removeMistake(mistakeOwnerId(),item.key);
+    }
+  }
+
   const existingOfficial=new Set(getMistakes(mistakeOwnerId(),{includeMastered:true})
     .filter(item=>item.context?.sourceType==="official-qbank")
     .map(item=>`${item.context?.levelId||"junior-data-analysis"}::${item.context?.trackId||item.question?.trackId||""}::${item.question?.id||""}`));
@@ -1168,7 +1187,7 @@ async function prepareOfficialFinalExam(){
   const payload=await buildOfficialFinal({registry:state.officialRegistry,blueprint,loadJson});
   const level=officialLevelMeta();
   const item={id:payload.exam.id,title:payload.exam.title,course:'Data Analysis',module:`${level?.title||"Official QBank"} Final`,questionCount:payload.questions.length,generator:'official-qbank',ranked:true};
-  configureExamSetup(payload,item,'exam');
+  configureExamSetup(payload,item);
 }
 
 function renderCourses(targetId,compact=false){
@@ -3623,7 +3642,13 @@ function finishExam(autoSubmitted){
 
   if(state.currentExam.exam.generatedFromOfficialQbank){
     const wrongByTrack={};
-    for(const q of state.currentExam.questions){if((state.answers[q.id]??null)!==q.correctAnswer){wrongByTrack[q.trackId] ||= [];wrongByTrack[q.trackId].push(q.id)}}
+    for(const q of state.currentExam.questions){
+      const selected=state.answers[q.id]??null;
+      if(shouldRecordMistakeOutcome(q,selected)){
+        wrongByTrack[q.trackId] ||= [];
+        wrongByTrack[q.trackId].push(q.id);
+      }
+    }
     const levelId=state.currentExam.exam.generatedFromOfficialQbank.levelId || "junior-data-analysis";
     Object.entries(wrongByTrack).forEach(([trackId,ids])=>saveOfficialMistakes(trackId,ids,levelId,officialTrackRevision(trackId,levelId)));
   }

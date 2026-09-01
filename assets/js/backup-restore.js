@@ -1,6 +1,6 @@
 
-import {resolveBuildVersion} from "./build-version.js?v=0.20.20";
-import {CURRENT_STORAGE_SCHEMA_VERSION,STORAGE_SCHEMA_KEY} from "./storage-safety.js?v=0.20.20";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.23";
+import {CURRENT_STORAGE_SCHEMA_VERSION,STORAGE_SCHEMA_KEY} from "./storage-safety.js?v=0.20.23";
 
 const BACKUP_FORMAT="digilians-progress-backup";
 const BACKUP_SCHEMA_VERSION=1;

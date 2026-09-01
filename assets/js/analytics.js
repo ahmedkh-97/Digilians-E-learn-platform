@@ -1,5 +1,5 @@
-import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.20.20";
-import {createUuid,isBenignClientError} from "./runtime-compat.js?v=0.20.20";
+import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.20.23";
+import {createUuid,isBenignClientError} from "./runtime-compat.js?v=0.20.23";
 
 
 const SUPABASE_URL="https://gbyxpwcjfzxpxxbbwnzf.supabase.co";
@@ -65,7 +65,9 @@ let trackingDisabledUntil=0;
 let adminSession=null;
 let adminVerified=false;
 let activeRange="today";
+let activeHealthScope="current";
 let lastFetchedEvents=[];
+let lastAnalyticsSummary=null;
 let renderingDashboard=false;
 
 const ERROR_LIMIT_PER_SESSION=20;
@@ -165,6 +167,8 @@ export function classifyClientError(kind,message,details={}){
   if(isBenignClientError(safeMessage))return "benign";
   const normalizedKind=String(kind||"error").toLowerCase();
   const phase=String(details?.phase||"runtime").toLowerCase();
+  const networkFailure=/\b(failed to fetch|networkerror|network error|network request failed|load failed)\b/i.test(safeMessage);
+  if(networkFailure && !normalizedKind.includes("fatal") && !normalizedKind.includes("data_load"))return "warning";
   if(phase==="startup" || normalizedKind.includes("fatal") || normalizedKind.includes("data_load"))return "critical";
   if(normalizedKind==="resource_error" || normalizedKind.includes("warning"))return "warning";
   return "error";
@@ -344,6 +348,33 @@ export function buildTrendSeries(events){
     .sort((a,b)=>a.date.localeCompare(b.date));
 }
 
+function buildHealthScope(events,severityFor){
+  const scoped=Array.isArray(events)?events:[];
+  const errorEvents=scoped.filter(e=>e.event_type==="app_error");
+  const errorSessions=distinct(errorEvents.map(e=>e.session_id));
+  const totalSessions=distinct(scoped.map(e=>e.session_id).filter(Boolean));
+  const errorFreeRate=totalSessions
+    ?Math.max(0,Math.round(((totalSessions-errorSessions)/totalSessions)*100))
+    :100;
+  const errorKinds=countBy(errorEvents,e=>e.metadata?.kind||"error");
+  const severityCounts={critical:0,error:0,warning:0};
+  for(const event of errorEvents){
+    const severity=severityFor(event);
+    if(Object.prototype.hasOwnProperty.call(severityCounts,severity))severityCounts[severity]++;
+  }
+  const sortedErrors=[...errorEvents].sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
+  return {
+    errors:errorEvents.length,
+    affectedSessions:errorSessions,
+    totalSessions,
+    errorFreeRate,
+    errorKinds,
+    severityCounts,
+    lastErrorAt:sortedErrors[0]?.created_at||null,
+    recent:sortedErrors.slice(0,12)
+  };
+}
+
 export function aggregateAnalytics(events,options={}){
   const clean=Array.isArray(events)?events:[];
   const visitorIds=clean.map(x=>x.visitor_id).filter(Boolean);
@@ -384,28 +415,21 @@ export function aggregateAnalytics(events,options={}){
   const officialPractice=clean.filter(e=>e.event_type==="practice_start" && e.metadata?.official===true).length;
   const officialExams=clean.filter(e=>e.event_type==="exam_start" && e.metadata?.official===true).length;
 
-  const errorEvents=clean.filter(e=>e.event_type==="app_error");
   const severityFor=e=>{
     const saved=String(e?.metadata?.severity||"").toLowerCase();
+    // Reclassify historical network failures using today's safer health rules.
+    if(/\b(failed to fetch|networkerror|network error|network request failed|load failed)\b/i.test(String(e?.metadata?.message||""))){
+      return classifyClientError(e?.metadata?.kind||"error",e?.metadata?.message||"Unknown client error",{phase:e?.metadata?.phase||"runtime"});
+    }
     if(["critical","error","warning"].includes(saved))return saved;
     return classifyClientError(e?.metadata?.kind||"error",e?.metadata?.message||"Unknown client error",{phase:e?.metadata?.phase||"runtime"});
   };
-  const errorSessions=distinct(errorEvents.map(e=>e.session_id));
-  const totalSessions=distinct(sessionIds);
-  const errorFreeRate=totalSessions
-    ?Math.max(0,Math.round(((totalSessions-errorSessions)/totalSessions)*100))
-    :100;
-  const errorKinds=countBy(errorEvents,e=>e.metadata?.kind||"error");
-  const severityCounts={critical:0,error:0,warning:0};
-  for(const event of errorEvents){
-    const severity=severityFor(event);
-    if(Object.prototype.hasOwnProperty.call(severityCounts,severity))severityCounts[severity]++;
-  }
   const currentPlatformVersion=String(options?.currentVersion||"").trim();
-  const currentVersionEvents=currentPlatformVersion
-    ?errorEvents.filter(e=>String(e.platform_version||"")===currentPlatformVersion)
-    :[];
-  const sortedErrors=[...errorEvents].sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
+  const allHealth=buildHealthScope(clean,severityFor);
+  const currentEvents=currentPlatformVersion
+    ?clean.filter(e=>String(e.platform_version||"")===currentPlatformVersion)
+    :clean;
+  const currentHealth=buildHealthScope(currentEvents,severityFor);
 
   return {
     visitors:distinct(visitorIds),
@@ -431,15 +455,11 @@ export function aggregateAnalytics(events,options={}){
       installed:eventCount("update_installed")
     },
     health:{
-      errors:errorEvents.length,
-      affectedSessions:errorSessions,
-      errorFreeRate,
-      errorKinds,
-      severityCounts,
-      currentVersionErrors:currentVersionEvents.length,
-      currentVersionAffectedSessions:distinct(currentVersionEvents.map(e=>e.session_id)),
-      lastErrorAt:sortedErrors[0]?.created_at||null,
-      recent:sortedErrors.slice(0,12)
+      ...currentHealth,
+      currentVersion:currentPlatformVersion||null,
+      currentVersionErrors:currentHealth.errors,
+      currentVersionAffectedSessions:currentHealth.affectedSessions,
+      all:allHealth
     },
     trend:buildTrendSeries(clean)
   };
@@ -760,38 +780,69 @@ function renderMiniStats(id,items){
 
 
 function renderHealth(summary){
-  const health=summary.health||{errors:0,affectedSessions:0,errorFreeRate:100,recent:[]};
+  const health=summary.health||{errors:0,affectedSessions:0,errorFreeRate:100,recent:[],all:null,currentVersion:null};
+  const showingAll=activeHealthScope==="all";
+  const scoped=showingAll?(health.all||health):health;
+  const buildLabel=health.currentVersion?displayBuildVersion(health.currentVersion):"Current Build";
 
   const pairs={
-    analyticsErrorEvents:health.errors,
-    analyticsAffectedSessions:health.affectedSessions,
-    analyticsErrorFreeRate:`${health.errorFreeRate}%`
+    analyticsErrorEvents:scoped.errors,
+    analyticsAffectedSessions:scoped.affectedSessions,
+    analyticsErrorFreeRate:`${scoped.errorFreeRate}%`
   };
   for(const [id,value] of Object.entries(pairs)){
     const el=byId(id);
     if(el)el.textContent=String(value);
   }
 
+  const badge=byId("analyticsHealthBuildBadge");
+  if(badge)badge.textContent=`Current Build: ${buildLabel}`;
+  const notePrefix=showingAll?"All versions":"Current version";
+  const notePairs={
+    analyticsErrorEventsNote:`${notePrefix} · selected range`,
+    analyticsAffectedSessionsNote:`${notePrefix} sessions`,
+    analyticsErrorFreeRateNote:`${notePrefix} sessions`
+  };
+  for(const [id,value] of Object.entries(notePairs)){
+    const el=byId(id);
+    if(el)el.textContent=value;
+  }
+  document.querySelectorAll("[data-health-scope]").forEach(btn=>{
+    const active=btn.dataset.healthScope===activeHealthScope;
+    btn.classList.toggle("active",active);
+    btn.setAttribute("aria-pressed",String(active));
+  });
+
   const list=byId("analyticsRecentErrors");
   if(!list)return;
 
-  if(!health.recent.length){
-    list.innerHTML=`
-      <div class="analytics-health-empty">
-        <span>✓</span>
-        <div><strong>No tracked client errors</strong><p>No app errors were reported in the selected range.</p></div>
-      </div>`;
+  if(!scoped.recent.length){
+    list.innerHTML=showingAll
+      ?`<div class="analytics-health-empty">
+          <span>✓</span>
+          <div><strong>No tracked client errors</strong><p>No app errors were reported in the selected range.</p></div>
+        </div>`
+      :`<div class="analytics-health-empty">
+          <span>✓</span>
+          <div><strong>Current version is healthy — 0 errors</strong><p>No app errors were reported for ${escapeHtml(buildLabel)} in the selected range. Historical errors are still available under All Versions.</p></div>
+        </div>`;
     return;
   }
 
-  list.innerHTML=health.recent.map(e=>{
+  list.innerHTML=scoped.recent.map(e=>{
     const meta=e.metadata||{};
+    const severity=String(
+      /\b(failed to fetch|networkerror|network error|network request failed|load failed)\b/i.test(String(meta.message||""))
+        ?classifyClientError(meta.kind,meta.message,{phase:meta.phase})
+        :(meta.severity||classifyClientError(meta.kind,meta.message,{phase:meta.phase}))
+    ).toLowerCase();
+    const kindLabel=severity==="warning" && /failed to fetch/i.test(String(meta.message||""))?"NETWORK":(meta.kind||"error");
     return `
-      <div class="analytics-error-row">
+      <div class="analytics-error-row severity-${escapeHtml(severity)}">
         <span class="analytics-error-mark">!</span>
         <div class="analytics-error-main">
           <div>
-            <strong>${escapeHtml(String(meta.severity||classifyClientError(meta.kind,meta.message,{phase:meta.phase})).toUpperCase())} · ${escapeHtml(meta.kind||"error")}</strong>
+            <strong>${escapeHtml(severity.toUpperCase())} · ${escapeHtml(kindLabel)}</strong>
             <span>${escapeHtml(fmtTime(e.created_at))}</span>
           </div>
           <p>${escapeHtml(meta.message||"Unknown client error")}</p>
@@ -856,6 +907,7 @@ async function renderAnalyticsDashboard(range=activeRange){
     const events=await fetchAnalyticsEvents(range);
     lastFetchedEvents=events;
     const summary=aggregateAnalytics(events,{currentVersion:currentVersion()});
+    lastAnalyticsSummary=summary;
 
     renderKpis(summary);
     renderTrend(summary);
@@ -1017,6 +1069,13 @@ function bindAdminUi(){
 
   document.querySelectorAll("[data-analytics-range]").forEach(btn=>{
     btn.addEventListener("click",()=>renderAnalyticsDashboard(btn.dataset.analyticsRange));
+  });
+
+  document.querySelectorAll("[data-health-scope]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      activeHealthScope=btn.dataset.healthScope==="all"?"all":"current";
+      if(lastAnalyticsSummary)renderHealth(lastAnalyticsSummary);
+    });
   });
 
   window.addEventListener("digilians:routechange",e=>{

@@ -34,6 +34,19 @@ function sourceFamily(context={},question={}){
   if(raw==="official-qbank" || context.official || context.levelId || question.officialSource)return "official-qbank";
   return "course";
 }
+export function hasAnsweredSelection(selected){
+  return selected!==null && selected!==undefined && selected!=="";
+}
+export function shouldRecordMistakeOutcome(question,selected){
+  return hasAnsweredSelection(selected) && String(selected)!==String(question?.correctAnswer??"");
+}
+export function isLegacyUnansweredOfficialSeed(item,officialTrackRecord={}){
+  if(item?.context?.sourceType!=="official-qbank")return false;
+  if(item?.context?.examId || item?.context?.examTitle)return false;
+  const questionId=String(item?.question?.id||"");
+  if(!questionId)return false;
+  return !hasAnsweredSelection(officialTrackRecord?.answers?.[questionId]);
+}
 export function mistakeKeyForQuestion(question,context={}){
   const source=sourceFamily(context,question);
   const level=context.levelId||question.levelId||"";
@@ -77,7 +90,7 @@ function deriveStatus(streak){
   return "needs-review";
 }
 export function recordMistakeOutcome({ownerId,studentName,question,selected,context={},answeredAt=null,storage=globalThis.localStorage}={}){
-  if(!question?.id || selected===null || selected===undefined || selected==="")return null;
+  if(!question?.id || !hasAnsweredSelection(selected))return null;
   const correct=String(selected)===String(question.correctAnswer);
   const store=readStore(storage);
   const owner=ownerState(store,ownerId,studentName);
@@ -146,15 +159,13 @@ export function recordMistakeOutcome({ownerId,studentName,question,selected,cont
 }
 
 export function seedMistake({ownerId,studentName,question,selected=null,context={},seededAt=null,storage=globalThis.localStorage}={}){
-  if(!question?.id)return null;
+  if(!question?.id || !hasAnsweredSelection(selected))return null;
   const store=readStore(storage);
   const owner=ownerState(store,ownerId,studentName);
   const key=mistakeKeyForQuestion(question,context);
   if(owner.items[key])return safeClone(owner.items[key]);
-  const fallbackSelected=selected && String(selected)!==String(question.correctAnswer)
-    ?String(selected)
-    :(question.options||[]).find(o=>String(o.id)!==String(question.correctAnswer))?.id || "?";
-  return recordMistakeOutcome({ownerId,studentName,question,selected:fallbackSelected,context,answeredAt:seededAt,storage});
+  if(!shouldRecordMistakeOutcome(question,selected))return null;
+  return recordMistakeOutcome({ownerId,studentName,question,selected:String(selected),context,answeredAt:seededAt,storage});
 }
 
 export function getMistakes(ownerId,{includeMastered=true,storage=globalThis.localStorage}={}){

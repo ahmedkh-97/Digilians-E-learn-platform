@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.20.20";
+import {resolveBuildVersion} from "./build-version.js?v=0.20.23";
 
 
 const UPDATE_KEYS={
@@ -10,18 +10,18 @@ const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
 const FALLBACK_RELEASE={
-  version:"0.20.20",
-  title:"Track-Grouped Exam Navigator",
-  date:"2026-08-31",
-  summary:"Groups all exam navigator question numbers under their Data Analysis track instead of repeating topic/section blocks.",
+  version:"0.20.23",
+  title:"Official Final Feedback Mode Choice",
+  date:"2026-09-01",
+  summary:"Official QBank Final simulations now let the learner choose Instant Feedback or Exam Mode before the attempt begins.",
   highlights:[
-    "One navigator group per track: Excel, SQL, Python, Power BI, Tableau, Looker Studio, or other track present in the exam.",
-    "Questions from the same track stay together even when their topics differ or appear later in the exam sequence.",
-    "Stable original question indexes preserve navigator answer, current, marked and correctness states after visual regrouping.",
-    "Current-question topic/source context remains visible above the question.",
-    "No question order, scoring, timer, Ranking, My Mistakes or assessment-bank content changed."
+    "Junior and Professional Official Final simulations expose both Instant Feedback and Exam Mode in the existing setup screen.",
+    "Instant Feedback shows the correct answer and explanation after each answered question; Exam Mode keeps all feedback until submission.",
+    "The chosen feedback mode is saved with the attempt and preserved on Resume.",
+    "The 100-question distribution, 120-minute timer, scoring, Ranking, question banks, and learner-state schema are unchanged.",
+    "No Official QBank question text, options, or correct answers changed."
   ],
-  type:"fix"
+  type:"feature"
 };
 
 export function normalizeVersion(value){

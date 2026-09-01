@@ -178,7 +178,7 @@ export async function buildOfficialFinal({registry,blueprint,loadJson}){
     course:'Data Analysis',module:`${levelId==="professional-data-analysis"?"Professional":"Junior"} Official QBank - All Tracks`,
     category:'Official Final',uploadedBy:'Official Ministry QBank',
     createdAt:new Date().toISOString().slice(0,10),version:'1.0',difficulty:'Mixed',
-    settings:{timer:{enabled:true,durationMinutes:blueprint.timerMinutes},allowRetake:true,feedbackModes:['exam'],shuffleQuestions:false,shuffleOptions:false,passingScore:blueprint.passingScore||60},
+    settings:{timer:{enabled:true,durationMinutes:blueprint.timerMinutes},allowRetake:true,feedbackModes:blueprint.feedbackModes||['exam'],shuffleQuestions:false,shuffleOptions:false,passingScore:blueprint.passingScore||60},
     generatedFromOfficialQbank:{levelId,sourceRevision:blueprint.sourceRevision,sourceType:'official-qbank',distribution:blueprint.distribution,selectionStrategy:blueprint.selectionStrategy||null,ranked:true,kind:'final'},
     generatedFromBlueprint:{tracks:blueprint.distribution.map(x=>({trackId:x.trackId,label:x.label,count:x.count}))}
   },questions:shuffle(all)};
