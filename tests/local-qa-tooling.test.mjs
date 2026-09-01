@@ -29,3 +29,9 @@ test('full local test runs pre-deploy before localhost',()=>{
   assert.match(bat,/node tools\\local-server\.mjs/i);
   assert.ok(bat.indexOf('pre-deploy-check.mjs') < bat.indexOf('local-server.mjs'));
 });
+
+test('quick check protects answered-only My Mistakes behavior before localhost starts',()=>{
+  const quick=read('tools/quick-local-check.mjs');
+  assert.match(quick,/tests\/my-mistakes-unanswered\.test\.mjs/);
+  assert.match(quick,/tests\/my-mistakes-legacy-cleanup\.test\.mjs/);
+});

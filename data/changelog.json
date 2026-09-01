@@ -1,6 +1,48 @@
 {
-  "latest": "0.20.20",
+  "latest": "0.20.23",
   "releases": [
+    {
+      "version": "0.20.23",
+      "title": "Official Final Feedback Mode Choice",
+      "date": "2026-09-01",
+      "type": "feature",
+      "summary": "Lets learners choose Instant Feedback or Exam Mode before starting the ranked Official Junior or Professional Final simulation.",
+      "highlights": [
+        "Official Junior and Professional Finals now expose both Instant Feedback and Exam Mode in the existing setup screen.",
+        "Instant Feedback reveals the correct answer and explanation after each submitted answer while locking that answer; Exam Mode keeps feedback until final submission.",
+        "The selected feedback mode is saved with the unfinished attempt and preserved on Resume.",
+        "Final question distribution, 120-minute timer, passing score, Ranking behavior, and question selection remain unchanged.",
+        "No Official QBank question text, options, correct answers, My Mistakes rules, or learner-state schema changed."
+      ]
+    },
+    {
+      "version": "0.20.22",
+      "title": "Current-Build Platform Health",
+      "date": "2026-09-01",
+      "type": "fix",
+      "summary": "Makes the Private Error Monitor evaluate the current build by default while preserving historical errors in an explicit All Versions view.",
+      "highlights": [
+        "Platform Health now defaults Error Events, Affected Sessions, Error-Free Sessions and recent errors to the current build only.",
+        "A Current Version / All Versions control keeps historical diagnostics accessible without mixing them into current-build health.",
+        "Failed to fetch is reclassified as a Network Warning rather than Critical TypeError, including historical events when rendered.",
+        "Error-free session rate is calculated from sessions that actually ran the selected version scope.",
+        "No learner answers, assessment content, scoring, Ranking, My Mistakes data, or learner-state schema changed."
+      ]
+    },
+    {
+      "version": "0.20.21",
+      "title": "My Mistakes Answered-Only Guard",
+      "date": "2026-08-31",
+      "type": "fix",
+      "summary": "Keeps unanswered questions out of My Mistakes and removes only legacy Official QBank entries that were imported without a real learner answer.",
+      "highlights": [
+        "No Answer / Unanswered questions are no longer classified as mistakes when Official QBank exams are submitted.",
+        "Legacy Official QBank migration no longer fabricates a wrong option when no saved answer exists.",
+        "Previously imported unanswered-only Official items are pruned when My Mistakes opens, while genuine Study and Exam wrong answers are preserved.",
+        "Correct answers continue to support My Mistakes recovery streaks; only mistake creation requires a real wrong answer.",
+        "No question bank, correct answer, scoring, timer, Ranking, exam order, or learner result schema changed."
+      ]
+    },
     {
       "version": "0.20.20",
       "title": "Track-Grouped Exam Navigator",

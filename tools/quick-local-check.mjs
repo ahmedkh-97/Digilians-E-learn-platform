@@ -41,7 +41,7 @@ for(const rel of ['assets/js/app.js','assets/js/exam.js','assets/js/exam-context
   result.status===0?pass(`Syntax: ${rel}`):fail(`Syntax ${rel}: ${(result.stderr||result.stdout||'').trim()}`);
 }
 
-for(const rel of ['tests/exam-context.test.mjs','tests/exam-navigator-track-grouping.test.mjs','tests/exam-navigator-runtime-metadata.test.mjs','tests/legacy-word-bullet-rendering.test.mjs','tests/local-qa-tooling.test.mjs']){
+for(const rel of ['tests/exam-context.test.mjs','tests/exam-navigator-track-grouping.test.mjs','tests/exam-navigator-runtime-metadata.test.mjs','tests/legacy-word-bullet-rendering.test.mjs','tests/my-mistakes-unanswered.test.mjs','tests/my-mistakes-legacy-cleanup.test.mjs','tests/platform-health-stability.test.mjs','tests/platform-health-scope-ui.test.mjs','tests/official-final-feedback-modes.test.mjs','tests/local-qa-tooling.test.mjs']){
   const result=spawnSync(process.execPath,['--test',full(rel)],{cwd:ROOT,encoding:'utf8'});
   result.status===0?pass(`Targeted test: ${rel}`):fail(`Targeted test ${rel}\n${(result.stdout||'').trim()}\n${(result.stderr||'').trim()}`);
 }
