@@ -1,12 +1,12 @@
-# Digilians E-Learn Platform V0.20.20
+# Digilians E-Learn Platform V0.20.23
 
 A local-first learning and assessment platform for the Digilians Data Analysis track.
 
 ## Current release
 
-**V0.20.20 — Track-Grouped Exam Navigator**
+**V0.20.23 — Official Final Feedback Mode Choice**
 
-This release simplifies every exam navigator to one group per Data Analysis track while preserving the exact exam sequence and assessment behavior.
+This release lets learners choose **Instant Feedback** or **Exam Mode** before starting the ranked Official Junior or Professional Final simulation. The selected mode is preserved when an unfinished attempt is resumed.
 
 Release history is maintained in `data/changelog.json`. Release QA evidence is stored under `docs/releases/`.
 

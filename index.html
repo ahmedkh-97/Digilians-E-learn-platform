@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" data-build-version="0.20.20">
+<html lang="en" data-theme="light" data-build-version="0.20.23">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -21,13 +21,13 @@
     })();
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.20.20" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.20.23" />
 </head>
 <body>
-  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.20.20">
+  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.20.23">
     <strong>DIGILIANS TEST MODE</strong>
     <span>This is a LOCAL TEST build — not the live deployment.</span>
-    <b>V0.20.20</b>
+    <b>V0.20.23</b>
   </div>
   <script>
     (function () {
@@ -44,7 +44,7 @@
   <!-- STARTUP / CRASH RECOVERY — independent from app.js -->
   <div id="fatalRecovery" class="fatal-recovery hidden" role="alertdialog" aria-modal="true" aria-labelledby="fatalRecoveryTitle">
     <article class="fatal-recovery-card">
-      <span class="fatal-recovery-badge">RECOVERY MODE · V0.20.20</span>
+      <span class="fatal-recovery-badge">RECOVERY MODE · V0.20.23</span>
       <div class="fatal-recovery-icon">!</div>
       <h2 id="fatalRecoveryTitle">The platform could not start correctly.</h2>
       <p id="fatalRecoveryMessage">A startup error prevented the application from loading.</p>
@@ -132,7 +132,7 @@
         <span class="whats-new-badge">DIGILIANS E-LEARN UPDATE</span>
         <div class="whats-new-version-row">
           <h2 id="whatsNewTitle">What’s New</h2>
-          <span id="whatsNewVersion">V0.20.20</span>
+          <span id="whatsNewVersion">V0.20.23</span>
         </div>
         <p id="whatsNewSubtitle">Latest improvements, fixes and learning upgrades.</p>
       </div>
@@ -1234,15 +1234,22 @@
           </section>
 
           <section class="analytics-panel analytics-health-panel">
-            <div class="analytics-panel-head">
+            <div class="analytics-panel-head analytics-health-head">
               <div><span class="eyebrow">PLATFORM HEALTH</span><h3>Private Error Monitor</h3></div>
-              <span class="analytics-panel-note">Safe messages only • no stack traces • no learner answers</span>
+              <div class="analytics-health-head-tools">
+                <span class="analytics-health-build-badge" id="analyticsHealthBuildBadge">Current Build</span>
+                <div class="analytics-health-scope" role="group" aria-label="Platform Health version scope">
+                  <button type="button" class="active" data-health-scope="current">Current Version</button>
+                  <button type="button" data-health-scope="all">All Versions</button>
+                </div>
+                <span class="analytics-panel-note">Safe messages only • no stack traces • no learner answers</span>
+              </div>
             </div>
 
             <div class="analytics-health-summary">
-              <div><span>ERROR EVENTS</span><strong id="analyticsErrorEvents">0</strong><small>Selected range</small></div>
-              <div><span>AFFECTED SESSIONS</span><strong id="analyticsAffectedSessions">0</strong><small>Anonymous sessions</small></div>
-              <div><span>ERROR-FREE SESSIONS</span><strong id="analyticsErrorFreeRate">100%</strong><small>Based on tracked sessions</small></div>
+              <div><span>ERROR EVENTS</span><strong id="analyticsErrorEvents">0</strong><small id="analyticsErrorEventsNote">Current version · selected range</small></div>
+              <div><span>AFFECTED SESSIONS</span><strong id="analyticsAffectedSessions">0</strong><small id="analyticsAffectedSessionsNote">Current version sessions</small></div>
+              <div><span>ERROR-FREE SESSIONS</span><strong id="analyticsErrorFreeRate">100%</strong><small id="analyticsErrorFreeRateNote">Current version sessions</small></div>
             </div>
 
             <div id="analyticsRecentErrors" class="analytics-error-list"></div>
@@ -1378,7 +1385,7 @@
       </div>
       <div class="footer-credit">
         <button type="button" class="footer-version-btn" id="footerWhatsNewBtn">
-          <span id="footerVersionText">V0.20.20</span>
+          <span id="footerVersionText">V0.20.23</span>
           <i id="footerUpdateDot" class="footer-update-dot hidden" aria-label="Update available"></i>
           What’s New
         </button>
@@ -1422,7 +1429,7 @@
       </button>
       <button class="secondary-btn wide update-drawer-btn" id="openWhatsNewBtn">
         <span>What’s New & Updates</span>
-        <b id="profileVersionBadge">V0.20.20</b>
+        <b id="profileVersionBadge">V0.20.23</b>
       </button>
       <button class="secondary-btn wide" id="changeNameBtn">Change saved name</button>
     </div>
@@ -1601,9 +1608,9 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/analytics.js?v=0.20.20"></script>
-  <script type="module" src="assets/js/update-manager.js?v=0.20.20"></script>
-  <script type="module" src="assets/js/backup-restore.js?v=0.20.20"></script>
-  <script type="module" src="assets/js/app.js?v=0.20.20"></script>
+  <script type="module" src="assets/js/analytics.js?v=0.20.23"></script>
+  <script type="module" src="assets/js/update-manager.js?v=0.20.23"></script>
+  <script type="module" src="assets/js/backup-restore.js?v=0.20.23"></script>
+  <script type="module" src="assets/js/app.js?v=0.20.23"></script>
 </body>
 </html>
