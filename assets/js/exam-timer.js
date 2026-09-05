@@ -2,7 +2,7 @@ import {
   VOUCHER_TIMER_PHASE_FEEDBACK,
   isVoucherRankedLearningExam,
   applyVoucherRankedAwayTime
-} from './voucher-ranked-runtime.js?v=0.22.1';
+} from './voucher-ranked-runtime.js?v=0.22.2';
 
 export function inferExamTimerPolicy({exam,feedbackMode='instant',rankedActivity=false}={}){
   const enabled=Boolean(exam?.settings?.timer?.enabled);

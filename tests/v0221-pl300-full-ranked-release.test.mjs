@@ -8,12 +8,11 @@ const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=rel=>fs.readFileSync(path.join(ROOT,rel),'utf8');
 const json=rel=>JSON.parse(read(rel));
 
-test('V0.22.1 release identity documents Full Ranked Learning 509/509',()=>{
-  assert.equal(read('VERSION.txt').trim(),'0.22.1');
+test('V0.22.1 release history documents Full Ranked Learning 509/509',()=>{
   const changes=json('data/changelog.json');
-  assert.equal(changes.latest,'0.22.1');
-  assert.equal(changes.releases[0]?.version,'0.22.1');
-  const text=JSON.stringify(changes.releases[0]||{});
+  const release=changes.releases.find(item=>item.version==='0.22.1');
+  assert.ok(release);
+  const text=JSON.stringify(release);
   assert.match(text,/509/);
   assert.match(text,/265/);
   assert.match(text,/Completion/i);

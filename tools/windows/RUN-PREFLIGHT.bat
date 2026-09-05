@@ -1,6 +1,6 @@
 @echo off
 setlocal
-cd /d "%~dp0"
+cd /d "%~dp0..\.."
 where node >nul 2>nul
 if errorlevel 1 (
   echo Node.js 20+ is required for Preflight QA and is not available in PATH.

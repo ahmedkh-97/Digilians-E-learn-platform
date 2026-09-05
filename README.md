@@ -1,20 +1,20 @@
-# Digilians E-Learn Platform V0.22.1
+# Digilians E-Learn Platform V0.22.2
 
 A local-first learning and assessment platform for the Digilians Data Analysis track.
 
 ## Current release
 
-**V0.22.1 — PL-300 Full Ranked Learning 509/509**
+**V0.22.2 — PL-300 Study UX & Answer Lock**
 
-This release makes the complete two-PDF PL-300 source corpus the primary ranked study journey while keeping competitive correctness evidence-based.
+This release keeps the complete **509/509** PL-300 Full Ranked Learning journey and makes it easier and safer to study in smaller batches.
 
-- **509/509 source occurrences** are visible in one Full Ranked Bank: **369 Source 01 + 140 Source 02**.
-- All 509 count toward **Completion**. No source question is hidden in a secondary non-ranked area.
-- **265 validated concepts** contribute to Validated Accuracy and Mastery.
-- Duplicate source copies remain required for study coverage but collapse to one competitive concept weight.
-- Uncertain, malformed, or source-reveal-heavy items become **Study Checkpoints**: they must be reviewed, count toward completion, and cannot award self-declared correctness.
-- Shared ranking uses **Completion → Validated Mastery → First Pass → Attempts-to-Best → Active Solve Time**.
-- Existing Domain Ranked Learning and its **265 deterministic questions** remain intact for exam-style scoring.
+- Submitted answers are now **locked for that attempt**; changing the UI after Check Answer cannot rewrite the graded response.
+- **Retry Question** starts a new attempt while preserving the original First-Pass result.
+- Source-backed Answer Area fields use **native dropdowns** when the original source provides verified choices; no distractors are invented.
+- Reviewed/mapped explanations are **Arabic-first**, with the original English Source Explanation available in a collapsible reference panel.
+- The 509 source occurrences are organized into **34 Domain → Section → Mini Part batches** (up to 20 questions each), while All 509 Questions remains available.
+- **509 completion** and the existing **265 validated-concept mastery weighting** remain unchanged.
+- Repository cleanup is organizational only: Windows launcher/QA scripts live under `tools/windows/`, and development workflow notes live under `docs/development/`.
 
 Release history is maintained in `data/changelog.json`. Release QA evidence is stored under `docs/releases`, and PL-300 review evidence is stored under `docs/voucher-production`.
 
@@ -22,13 +22,13 @@ Release history is maintained in `data/changelog.json`. Release QA evidence is s
 
 The package includes a self-contained local workflow. Ordinary Windows localhost start does not require Node.js; Full developer QA requires Node.js 20+.
 
-- `START-LOCAL.bat` — Node-independent Windows launcher: runs the PowerShell basic safety check, then starts localhost on port 4173 or the next available port.
-- `QUICK-CHECK.bat` — fast integrity/syntax/targeted-test gate.
-- `FULL-QA.bat` — full pre-deploy regression gate.
-- `TEST-LOCAL.bat` — full QA first, then starts localhost for manual browser acceptance.
-- `RUN-PREFLIGHT.bat` — direct pre-deploy gate.
+- `tools/windows/START-LOCAL.bat` — Node-independent Windows launcher: runs the PowerShell basic safety check, then starts localhost on port 4173 or the next available port.
+- `tools/windows/QUICK-CHECK.bat` — fast integrity/syntax/targeted-test gate.
+- `tools/windows/FULL-QA.bat` — full pre-deploy regression gate.
+- `tools/windows/TEST-LOCAL.bat` — full QA first, then starts localhost for manual browser acceptance.
+- `tools/windows/RUN-PREFLIGHT.bat` — direct pre-deploy gate.
 
-See `LOCAL-TESTING.md` for the local workflow.
+See `docs/development/LOCAL-TESTING.md` for the local workflow.
 
 ## Production status
 
@@ -127,8 +127,8 @@ For each local release:
 
 1. Make the bounded change on the latest accepted local baseline.
 2. Run targeted tests.
-3. Run `QUICK-CHECK.bat` / `tools/quick-local-check.mjs`.
-4. Run `FULL-QA.bat` / `tools/pre-deploy-check.mjs`.
+3. Run `tools/windows/QUICK-CHECK.bat` / `tools/quick-local-check.mjs`.
+4. Run `tools/windows/FULL-QA.bat` / `tools/pre-deploy-check.mjs`.
 5. Build a fresh ZIP.
 6. Extract that ZIP into a clean directory.
 7. Re-run Quick Check and Full QA from the extracted package.

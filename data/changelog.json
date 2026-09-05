@@ -1,6 +1,22 @@
 {
-  "latest": "0.22.1",
+  "latest": "0.22.2",
   "releases": [
+    {
+      "version": "0.22.2",
+      "title": "PL-300 Study UX & Answer Lock",
+      "date": "2026-09-05",
+      "type": "feature",
+      "summary": "Improves the 509/509 PL-300 ranked study experience with immutable submitted answers, source-backed native dropdowns, Arabic-first explanations, and smaller Domain → Section → Mini Part study batches without changing competitive mastery weighting.",
+      "highlights": [
+        "Answer Lock now freezes a submitted PL-300 source-practice response for that attempt. Retry Question starts a new attempt while preserving the original first-pass result.",
+        "Native Dropdown support uses only source-verified choices. Source 01 Q5 and Q6 are promoted from free text to dropdown/select controls with no invented distractors.",
+        "Arabic explanation is shown first for reviewed or mapped source questions, while the original English Source Explanation remains available inside a collapsible reference panel.",
+        "The 509-question Full Ranked Learning journey is split into 34 smaller Domain → Section → Mini Part study batches, while All 509 Questions remains available and every occurrence stays in the same completion/ranking journey.",
+        "Mini Part navigation preserves all 509 source occurrences exactly once; unclassified source blocks remain explicit Source Review parts rather than being hidden or silently reclassified.",
+        "Safe repository cleanup moves Windows QA/launcher scripts under tools/windows and development workflow notes under docs/development without deleting runtime, assessment, source-review, or visual evidence assets.",
+        "Competitive ranking remains completion-first across 509 source occurrences with Validated Mastery based on the existing 265 evidence-backed concepts."
+      ]
+    },
     {
       "version": "0.22.1",
       "title": "PL-300 Full Ranked Learning 509/509",

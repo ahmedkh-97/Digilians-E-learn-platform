@@ -6,12 +6,12 @@ import {
   getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
   getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
-} from "./storage.js?v=0.22.1";
+} from "./storage.js?v=0.22.2";
 
 import {validateExamPayload,calculateResult,formatDuration,isAnswered,isQuestionAnswered,isAnswerCorrect,correctAnswerIds,selectedAnswerIds} from "./exam.js";
-import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.1";
+import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.2";
 import {buildAggregateLeaderboard} from "./ranking-engine.js";
-import {isRankingMode,isVoucherRankingMode,findRankingLevel,buildRankingScope} from "./ranking-scopes.js?v=0.22.1";
+import {isRankingMode,isVoucherRankingMode,findRankingLevel,buildRankingScope} from "./ranking-scopes.js?v=0.22.2";
 import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
 import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
@@ -22,13 +22,13 @@ import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
 import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
-import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.22.1";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,isPracticeableMistakeQuestion,patchMistakeContext,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.22.1";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.22.1";
-import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.22.1";
-import {createUuid} from "./runtime-compat.js?v=0.22.1";
-import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.22.1";
-import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.22.1";
+import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.22.2";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,isPracticeableMistakeQuestion,patchMistakeContext,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.22.2";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.22.2";
+import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.22.2";
+import {createUuid} from "./runtime-compat.js?v=0.22.2";
+import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.22.2";
+import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.22.2";
 import {
   validateVoucherRegistry,validateVoucherTrackRegistry,validateVoucherExamConfig,trackAvailability,
   selectVoucherQuestions,shuffleVoucherOptions,buildVoucherExamPayload,
@@ -42,17 +42,17 @@ import {
   voucherSessionRankingActivityId,buildVoucherSessionLeaderboard,resolveVoucherSessionRankStatus,firstPassPercentage,buildVoucherSessionAttemptMeta,buildVoucherSessionOnlineOverrides,
   voucherDomainRankingActivityId,buildVoucherDomainLeaderboard,buildVoucherOverallLeaderboard,resolveVoucherDomainRankStatus,buildVoucherDomainAttemptMeta,buildVoucherDomainOnlineOverrides,
   buildVoucherDomainNavigatorModel,buildVoucherSectionAnalytics
-} from "./voucher-engine.js?v=0.22.1";
+} from "./voucher-engine.js?v=0.22.2";
 import {
   createExamSession,resolveExamMode,
   selectSingleAnswerState,toggleMultiSelectAnswerState,confirmMultiSelectAnswerState,confirmVoucherRankedAnswerState,updateStructuredAnswerState,confirmStructuredAnswerState,
-  isStructuredQuestion,structuredFields,structuredAnswerFields,structuredAnswerComplete,structuredExpectedDisplay,structuredSelectedDisplay,structuredFieldCorrect,
+  isStructuredQuestion,structuredFields,structuredFieldChoices,structuredAnswerFields,structuredAnswerComplete,structuredExpectedDisplay,structuredSelectedDisplay,structuredFieldCorrect,
   normalizeNavigatorFilter,toggleMarkedQuestionState,moveQuestionIndex,setQuestionIndex,
   examTimerPolicyLabel,
   buildExamProgressSnapshot,getActiveExamProgress,effectiveSavedRemainingSeconds,voucherSavedAttemptMatches as matchesVoucherSavedAttempt,
   feedbackStateForQuestion,voucherSelectionStatusText,isMultiSelectQuestion as isMultiSelectFeedbackQuestion,
   buildSubjectBreakdown as buildExamSubjectBreakdown,buildStandardResultRecord,buildOnlineAttemptPayload,resultHeadline
-} from "./exam-engine.js?v=0.22.1";
+} from "./exam-engine.js?v=0.22.2";
 
 const state={
   studentName:"",
@@ -129,8 +129,11 @@ const state={
   voucherSourceReviewBank:null,
   voucherSourceReviewIndex:0,
   voucherSourceReviewFilter:"all",
+  voucherSourceReviewParts:[],
+  voucherSourceReviewPartId:"all",
   voucherSourcePracticeSelections:{},
   voucherSourcePracticeNativeInputs:{},
+  voucherSourcePracticeRetrying:new Set(),
   voucherFullRankedIndex:null,
   voucherFullRankedIndexByQuestion:new Map(),
   voucherSourceRevealOpened:new Set(),
@@ -656,7 +659,7 @@ function ensurePl300Styles(doc=globalThis.document){
   if(!doc?.head||doc.querySelector('link[data-pl300-styles]'))return;
   const link=doc.createElement('link');
   link.rel='stylesheet';
-  link.href='assets/css/pl300.css?v=0.22.1';
+  link.href='assets/css/pl300.css?v=0.22.2';
   link.dataset.pl300Styles='1';
   doc.head.append(link);
 }
@@ -708,7 +711,7 @@ let voucherSourcePracticeNative=null;
 let pl300FullRankedLearning=null;
 
 async function ensurePl300FullRankedLearning(){
-  pl300FullRankedLearning??=await import("./pl300-full-ranked-learning.js?v=0.22.1");
+  pl300FullRankedLearning??=await import("./pl300-full-ranked-learning.js?v=0.22.2");
   return pl300FullRankedLearning;
 }
 
@@ -791,7 +794,7 @@ async function syncPl300FullRankSnapshot({force=false}={}){
   const signature=[metrics.completedOccurrences,metrics.masteredClusters,metrics.firstPassCorrectClusters,metrics.attemptsToBest,metrics.activeSolveSeconds].join(":");
   if(!force&&signature===state.voucherFullRankLastSyncSignature)return true;
   const payload=pl300FullRankedLearning.buildPl300FullRankOnlineAttempt({
-    playerId:state.playerId,studentName:state.studentName,examVersion:"0.22.1",metrics,
+    playerId:state.playerId,studentName:state.studentName,examVersion:"0.22.2",metrics,
     trackId:state.voucherTrackId||config.trackId||"data-analysis",examId:config.id
   });
   await submitAttemptOnline(payload);
@@ -814,7 +817,7 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
     if(!config)throw new Error("Open Microsoft PL-300 first.");
     await ensurePl300FullRankedLearning();
     await loadVoucherFullRankedIndex(config);
-    voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.1");
+    voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.2");
     voucherSourcePracticeNative.ensureNativePracticeStyles();
     const sources=config.sourceReviewSources||[];
     if(sources.length!==2)throw new Error("The two PL-300 source review banks are required.");
@@ -824,15 +827,20 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
       if(!Array.isArray(bank?.questions)||!bank.questions.length)throw new Error("A PL-300 source bank has no questions.");
       return {...bank,sourceTitle:source.title||bank.title||source.sourceId};
     }));
-    const questions=banks.flatMap(bank=>bank.questions.map(question=>({...question,sourceTitle:bank.sourceTitle})));
+    const masterBank=config.masterBankFile?await loadJson(config.masterBankFile):{questions:[]};
+    const rawQuestions=banks.flatMap(bank=>bank.questions.map(question=>({...question,sourceTitle:bank.sourceTitle})));
+    const questions=pl300FullRankedLearning.enrichPl300SourceQuestionsWithArabic({questions:rawQuestions,index:state.voucherFullRankedIndex,masterQuestions:masterBank?.questions||[]});
     const expected=Number(config.fullRankedLearning?.questionCount)||509;
     if(questions.length!==expected)throw new Error(`Full Ranked Learning expected ${expected} source questions but found ${questions.length}.`);
     state.voucherSourceReviewSourceId="all";
     state.voucherSourceReviewBank={schemaVersion:1,examId:config.id,sourceId:"all",sourceTitle:"Full Ranked Bank — 509 Questions",questionCount:questions.length,questions};
     state.voucherSourceReviewFilter=["all","source-01","source-02","objective","checkpoint"].includes(String(filter))?String(filter):"all";
+    state.voucherSourceReviewParts=pl300FullRankedLearning.buildPl300MiniParts({index:state.voucherFullRankedIndex,architecture:state.voucherContentArchitecture,targetSize:18,maxSize:20});
+    state.voucherSourceReviewPartId="all";
     state.voucherSourceReviewIndex=0;
     state.voucherSourcePracticeSelections={};
     state.voucherSourcePracticeNativeInputs={};
+    state.voucherSourcePracticeRetrying=new Set();
     state.voucherSourceRevealOpened=new Set();
     state.voucherSourcePendingSeconds={};
     voucherSourceResetSolveTimer();
@@ -851,10 +859,13 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
 
 function voucherSourceReviewFilteredQuestions(){
   const questions=state.voucherSourceReviewBank?.questions||[];
-  if(state.voucherSourceReviewFilter==="source-01"||state.voucherSourceReviewFilter==="source-02")return questions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);
-  if(state.voucherSourceReviewFilter==="objective")return questions.filter(q=>voucherFullRankRecord(q)?.mode==="objective");
-  if(state.voucherSourceReviewFilter==="checkpoint")return questions.filter(q=>voucherFullRankRecord(q)?.mode==="checkpoint");
-  return questions;
+  const partQuestions=pl300FullRankedLearning?.filterPl300QuestionsByPart
+    ?pl300FullRankedLearning.filterPl300QuestionsByPart({questions,partId:state.voucherSourceReviewPartId,parts:state.voucherSourceReviewParts})
+    :questions;
+  if(state.voucherSourceReviewFilter==="source-01"||state.voucherSourceReviewFilter==="source-02")return partQuestions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);
+  if(state.voucherSourceReviewFilter==="objective")return partQuestions.filter(q=>voucherFullRankRecord(q)?.mode==="objective");
+  if(state.voucherSourceReviewFilter==="checkpoint")return partQuestions.filter(q=>voucherFullRankRecord(q)?.mode==="checkpoint");
+  return partQuestions;
 }
 
 function voucherSourcePracticeRecord(question){
@@ -868,9 +879,8 @@ function voucherSourcePracticeCorrectIds(question){
 }
 
 function voucherSourcePracticeSelection(question,record=voucherSourcePracticeRecord(question)){
-  const temp=state.voucherSourcePracticeSelections?.[question?.id];
-  if(Array.isArray(temp))return [...temp];
-  return record?.mode==="auto"&&Array.isArray(record.selected)?[...record.selected]:[];
+  const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question?.id||""));
+  return pl300FullRankedLearning.sourceAttemptSelection({question,record,tempSelections:state.voucherSourcePracticeSelections,retrying});
 }
 
 function voucherSourcePracticeSelectionsMatch(question,selected){
@@ -881,26 +891,10 @@ function voucherSourcePracticeSelectionsMatch(question,selected){
 
 function voucherSourcePracticeOptionsHtml(question,record){
   if(question?.reviewMode!=="scored-text"||!Array.isArray(question.options)||!question.options.length)return "";
-  const selected=voucherSourcePracticeSelection(question,record);
-  const hasTemp=Object.prototype.hasOwnProperty.call(state.voucherSourcePracticeSelections||{},question.id);
-  const graded=record?.mode==="auto"&&!hasTemp;
-  const correctIds=new Set(voucherSourcePracticeCorrectIds(question));
-  const multi=correctIds.size>1;
-  const options=question.options.map(option=>{
-    const id=String(option.id);
-    const isSelected=selected.includes(id);
-    const classes=["source-review-option"];
-    if(isSelected)classes.push("selected");
-    if(graded&&correctIds.has(id))classes.push("correct");
-    if(graded&&isSelected&&!correctIds.has(id))classes.push("incorrect");
-    return `<button type="button" class="${classes.join(" ")}" data-source-practice-option="${escapeHtml(id)}" aria-pressed="${isSelected?"true":"false"}"><b>${escapeHtml(id)}</b><div>${renderTechnicalRichText(option.text||"")}</div></button>`;
-  }).join("");
-  const result=graded
-    ?`<div class="source-practice-result ${record.correct?"correct":"incorrect"}"><strong>${record.correct?"Correct":"Not correct"}</strong><span>${record.correct?"Matches the source key.":"Review the source answer and try again."}</span></div>`
-    :"";
-  return `<div class="source-review-options ${multi?"multi":"single"}">${options}</div><div class="source-practice-actions"><button type="button" class="primary-btn" id="sourcePracticeCheckBtn" ${selected.length?"":"disabled"}>Check answer</button><small>${multi?`Select ${correctIds.size} answers.`:"Select one answer."}</small></div>${result}`;
+  const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question.id||""));
+  const locked=pl300FullRankedLearning.sourceAttemptLocked(record,retrying);
+  return pl300FullRankedLearning.buildSourcePracticeOptionsMarkup({question,record,selected:voucherSourcePracticeSelection(question,record),locked,retrying,renderRichText:renderTechnicalRichText});
 }
-
 
 
 function voucherSourcePracticeSummary(){
@@ -942,10 +936,13 @@ function renderVoucherSourceReview(){
   const practiceRecord=voucherSourcePracticeRecord(q);
   if(!practiceRecord)voucherSourceStartSolveTimer(q);
   const visualHtml=(q.questionVisuals||[]).map(path=>`<img src="${escapeHtml(path)}" alt="Source visual for question ${escapeHtml(q.questionNumber||"")}" loading="lazy">`).join("");
+  const retrying=state.voucherSourcePracticeRetrying?.has?.(String(q.id||""));
+  const sourceAttemptLocked=pl300FullRankedLearning.sourceAttemptLocked(practiceRecord,retrying);
   const optionsHtml=voucherSourcePracticeOptionsHtml(q,practiceRecord);
-  const nativeHtml=voucherSourcePracticeNative?.renderNativePractice(q,practiceRecord,state.voucherSourcePracticeNativeInputs)||"";
+  const nativeHtml=voucherSourcePracticeNative?.renderNativePractice(q,practiceRecord,state.voucherSourcePracticeNativeInputs,{locked:sourceAttemptLocked,retrying})||"";
   const metrics=voucherSourcePracticeSummary();
-  const filterLabel=state.voucherSourceReviewFilter==="source-01"?"Source 01":state.voucherSourceReviewFilter==="source-02"?"Source 02":state.voucherSourceReviewFilter==="objective"?"Validated Objective":state.voucherSourceReviewFilter==="checkpoint"?"Study Checkpoints":"All 509";
+  const practiceState=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
+  const {partTotal,partCompleted,activePartLabel,partOptionsHtml,filterLabel}=pl300FullRankedLearning.buildPl300PartViewState({parts:state.voucherSourceReviewParts,activePartId:state.voucherSourceReviewPartId,records:practiceState.records||{},totalAll,completedAll:metrics.completedOccurrences,activeFilter:state.voucherSourceReviewFilter});
   const pageLabel=Number(q.pageStart)===Number(q.pageEnd)?`Page ${q.pageStart}`:`Pages ${q.pageStart}–${q.pageEnd}`;
   const objective=rankRecord?.mode==="objective";
   const sourceType=String(q.sourceType||q.reviewMode||"source").replace(/-/g," ").toUpperCase();
@@ -960,10 +957,19 @@ function renderVoucherSourceReview(){
   body.innerHTML=pl300FullRankedLearning.buildPl300FullRankedReviewMarkup({
     sourceTitle,source01Count,source02Count,objectiveCount,checkpointCount,metrics,activeFilter:state.voucherSourceReviewFilter,totalAll,
     questionsLength:questions.length,currentIndex:state.voucherSourceReviewIndex,filterLabel,objective,typeLabel,sourceLabel,questionNumber:q.questionNumber||"",
+    partOptionsHtml,activePartLabel,partCompleted,partTotal,
     occurrence:q.occurrence||1,pageLabel,domainId:rankRecord?.domainId||"",recordStatus,questionHtml:renderTechnicalRichText(q.questionText||""),
     visualHtml,optionsHtml,nativeHtml,revealOpen,answerHtml:voucherSourceReviewAnswerHtml(q,practiceRecord)
   });
 
+  $("sourceReviewPart")?.addEventListener("change",event=>{
+    voucherSourceResetSolveTimer();
+    const requested=String(event.target?.value||"all");
+    state.voucherSourceReviewPartId=requested==="all"||state.voucherSourceReviewParts.some(part=>String(part.id)===requested)?requested:"all";
+    state.voucherSourceReviewIndex=0;
+    renderVoucherSourceReview();
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
   body.querySelectorAll('[data-source-review-filter]').forEach(button=>button.addEventListener('click',()=>{
     voucherSourceResetSolveTimer();
     state.voucherSourceReviewFilter=button.dataset.sourceReviewFilter||"all";
@@ -972,7 +978,8 @@ function renderVoucherSourceReview(){
   }));
   body.querySelectorAll('[data-source-practice-option]').forEach(button=>button.addEventListener('click',()=>{
     const optionId=String(button.dataset.sourcePracticeOption||"");
-    if(!optionId||q.reviewMode!=="scored-text")return;
+    const retrying=state.voucherSourcePracticeRetrying?.has?.(String(q.id||""));
+    if(!optionId||q.reviewMode!=="scored-text"||pl300FullRankedLearning.sourceAttemptLocked(practiceRecord,retrying))return;
     voucherSourceStartSolveTimer(q);
     const multi=voucherSourcePracticeCorrectIds(q).length>1;
     const current=voucherSourcePracticeSelection(q,practiceRecord);
@@ -983,6 +990,8 @@ function renderVoucherSourceReview(){
     renderVoucherSourceReview();
   }));
   $("sourcePracticeCheckBtn")?.addEventListener("click",()=>{
+    const retrying=state.voucherSourcePracticeRetrying?.has?.(String(q.id||""));
+    if(pl300FullRankedLearning.sourceAttemptLocked(practiceRecord,retrying))return;
     const selected=voucherSourcePracticeSelection(q,practiceRecord);
     if(!selected.length){showToast("Select an answer first.");return;}
     const correct=voucherSourcePracticeSelectionsMatch(q,selected);
@@ -993,16 +1002,36 @@ function renderVoucherSourceReview(){
       mode:"auto",selected,correct,activeSeconds
     });
     delete state.voucherSourcePracticeSelections[q.id];
+    state.voucherSourcePracticeRetrying?.delete?.(String(q.id));
     schedulePl300FullRankSync();
     renderVoucherSourceReview();
   });
-  voucherSourcePracticeNative?.wireNativePractice({
+  $("sourcePracticeRetryBtn")?.addEventListener("click",()=>{
+    if(!practiceRecord)return;
+    state.voucherSourcePracticeRetrying.add(String(q.id));
+    delete state.voucherSourcePracticeSelections[q.id];
+    delete state.voucherSourcePracticeNativeInputs[q.id];
+    voucherSourceResetSolveTimer();
+    voucherSourceStartSolveTimer(q);
+    renderVoucherSourceReview();
+  });
+  $("sourcePracticeNativeRetryBtn")?.addEventListener("click",()=>{
+    if(!practiceRecord)return;
+    state.voucherSourcePracticeRetrying.add(String(q.id));
+    delete state.voucherSourcePracticeSelections[q.id];
+    delete state.voucherSourcePracticeNativeInputs[q.id];
+    voucherSourceResetSolveTimer();
+    voucherSourceStartSolveTimer(q);
+    renderVoucherSourceReview();
+  });
+  if(!sourceAttemptLocked) voucherSourcePracticeNative?.wireNativePractice({
     root:body,question:q,record:practiceRecord,tempInputs:state.voucherSourcePracticeNativeInputs,
     onInput:answers=>{voucherSourceStartSolveTimer(q);state.voucherSourcePracticeNativeInputs[q.id]=answers;},
     onSave:({answers,correct})=>{
       const activeSeconds=voucherSourceConsumeSolveSeconds(q);
       saveVoucherSourcePracticeResult(mistakeOwnerId(),q.id,{examId:state.voucherExamConfig?.id||"microsoft-pl-300",sourceId:q.sourceId||state.voucherSourceReviewSourceId||"",mode:"native",answers,correct,activeSeconds});
       delete state.voucherSourcePracticeNativeInputs[q.id];
+      state.voucherSourcePracticeRetrying?.delete?.(String(q.id));
       schedulePl300FullRankSync();
       renderVoucherSourceReview();
     },
@@ -5332,16 +5361,30 @@ function renderRankedStructuredInputs(question,list,{selected,confirmed,feedback
     const row=document.createElement('label');
     row.className='ranked-structured-field';
     row.innerHTML=`<span class="ranked-structured-label">${escapeHtml(field.label||field.id)}</span>`;
-    const input=document.createElement('input');
-    input.type='text';
-    input.autocomplete='off';
-    input.spellcheck=false;
+    const choices=structuredFieldChoices(field);
+    const input=choices.length?document.createElement('select'):document.createElement('input');
+    if(choices.length){
+      const placeholder=document.createElement('option');
+      placeholder.value='';
+      placeholder.textContent='Select an answer';
+      input.appendChild(placeholder);
+      for(const choice of choices){
+        const option=document.createElement('option');
+        option.value=choice;
+        option.textContent=choice;
+        input.appendChild(option);
+      }
+    }else{
+      input.type='text';
+      input.autocomplete='off';
+      input.spellcheck=false;
+      input.placeholder='Type the source answer';
+    }
     input.setAttribute('data-ranked-structured-field',String(field.id));
     input.value=String(values?.[field.id]??'');
-    input.placeholder='Type the source answer';
     input.disabled=Boolean(confirmed)||(state.feedbackMode==='instant'&&!isCurrentVoucherRankedLearning()&&structuredAnswerComplete(question,selected));
     if(showFieldFeedback)input.classList.add(structuredFieldCorrect(field,input.value)?'correct':'wrong');
-    input.addEventListener('input',event=>updateStructuredField(question,field.id,event.target.value));
+    input.addEventListener(choices.length?'change':'input',event=>updateStructuredField(question,field.id,event.target.value));
     row.appendChild(input);
     if(showFieldFeedback){
       const expected=String((field.expected||[])[0]??'');

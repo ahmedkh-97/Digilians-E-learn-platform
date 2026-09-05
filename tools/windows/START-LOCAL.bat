@@ -1,6 +1,6 @@
 @echo off
 setlocal
-cd /d "%~dp0"
+cd /d "%~dp0..\.."
 echo ==============================================
 echo  Digilians E-Learn - SAFE LOCAL START
 echo ==============================================
@@ -17,7 +17,7 @@ if not exist "%PS%" (
   exit /b 1
 )
 
-"%PS%" -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\windows-basic-check.ps1"
+"%PS%" -NoProfile -ExecutionPolicy Bypass -File "%CD%\tools\windows-basic-check.ps1"
 if errorlevel 1 (
   echo.
   echo BASIC CHECK FAILED. Localhost was NOT started.
@@ -31,7 +31,7 @@ echo.
 echo Starting localhost...
 echo If port 4173 is busy, the launcher will choose the next available port automatically.
 echo.
-"%PS%" -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\windows-local-server.ps1"
+"%PS%" -NoProfile -ExecutionPolicy Bypass -File "%CD%\tools\windows-local-server.ps1"
 set "CODE=%ERRORLEVEL%"
 if not "%CODE%"=="0" (
   echo.

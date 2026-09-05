@@ -1,5 +1,5 @@
 import {formatStudyMixedText,normalizeStudyText} from "./study-format.js";
-import {renderTechnicalCodeBlock} from "./technical-content.js?v=0.22.1";
+import {renderTechnicalCodeBlock} from "./technical-content.js?v=0.22.2";
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
 function roleLabel(s){return s.role==="statistics-prerequisite"?"PREREQUISITE • STATISTICS":"EXCEL CORE";}
 function renderFormulas(items=[]){if(!items.length)return "";return `<section class="excel-study-block excel-formula-lab"><div class="excel-block-head"><span>FORMULA LAB</span><strong>نفهم الصيغة ونستخدمها صح</strong></div><div class="excel-formula-grid">${items.map(x=>`<article><h4>${esc(x.title)}</h4>${String(x.formula||"").startsWith("=")?renderTechnicalCodeBlock(x.formula,"excel"):`<pre class="excel-stat-formula" dir="ltr">${esc(x.formula)}</pre>`}<p dir="rtl">${formatStudyMixedText(x.explanationAr||"")}</p></article>`).join("")}</div></section>`;}

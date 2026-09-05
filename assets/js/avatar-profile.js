@@ -1,4 +1,4 @@
-import {getStoredAvatarProfile,setStoredAvatarProfile,clearStoredAvatarProfile} from "./storage.js?v=0.22.1";
+import {getStoredAvatarProfile,setStoredAvatarProfile,clearStoredAvatarProfile} from "./storage.js?v=0.22.2";
 
 
 const PROFILE_VERSION=2;

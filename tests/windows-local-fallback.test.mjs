@@ -14,7 +14,7 @@ test('package ships a Windows-native local-start fallback',()=>{
 });
 
 test('START-LOCAL uses the Windows-native PowerShell path for ordinary localhost use',()=>{
-  const bat=read('START-LOCAL.bat');
+  const bat=read('tools/windows/START-LOCAL.bat');
   assert.doesNotMatch(bat,/where node/i);
   assert.doesNotMatch(bat,/quick-local-check\.mjs/i);
   assert.match(bat,/windows-basic-check\.ps1/i);
@@ -57,7 +57,7 @@ test('Windows fallback server is loopback-only, prevents path traversal, and cho
 });
 
 test('developer QA scripts explain that Node 20+ is required instead of failing with command-not-found',()=>{
-  for(const rel of ['FULL-QA.bat','TEST-LOCAL.bat','RUN-PREFLIGHT.bat']){
+  for(const rel of ['tools/windows/FULL-QA.bat','tools/windows/TEST-LOCAL.bat','tools/windows/RUN-PREFLIGHT.bat']){
     const bat=read(rel);
     assert.match(bat,/where node/i,`${rel} does not detect Node`);
     assert.match(bat,/Node\.js 20\+/i,`${rel} does not explain requirement`);
@@ -65,7 +65,7 @@ test('developer QA scripts explain that Node 20+ is required instead of failing 
 });
 
 test('local testing guide separates ordinary localhost use from developer QA requirements',()=>{
-  const doc=read('LOCAL-TESTING.md');
+  const doc=read('docs/development/LOCAL-TESTING.md');
   assert.match(doc,/does not require Node\.js/i);
   assert.match(doc,/Full QA.*Node\.js 20\+/is);
   assert.match(doc,/PowerShell/i);

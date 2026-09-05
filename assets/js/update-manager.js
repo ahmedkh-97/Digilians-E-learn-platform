@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.22.1";
+import {resolveBuildVersion} from "./build-version.js?v=0.22.2";
 
 
 const UPDATE_KEYS={
@@ -9,7 +9,7 @@ const UPDATE_KEYS={
 const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
-const FALLBACK_RELEASE={version:"0.22.1",title:"PL-300 Full Ranked Learning 509/509"};
+const FALLBACK_RELEASE={version:"0.22.2",title:"PL-300 Study UX & Answer Lock"};
 
 export function normalizeVersion(value){
   const raw=String(value??"").trim().replace(/^v/i,"");

@@ -10,7 +10,7 @@ const json=rel=>JSON.parse(read(rel));
 const exists=rel=>fs.existsSync(path.join(ROOT,rel));
 
 const restored=[
-  'PRE-DEPLOY-CHECKLIST.md','RELEASE-WORKFLOW.md','RUN-PREFLIGHT.bat',
+  'docs/development/PRE-DEPLOY-CHECKLIST.md','docs/development/RELEASE-WORKFLOW.md','tools/windows/RUN-PREFLIGHT.bat',
   'data/excel-intake/week-2-coverage-map.json','data/excel-intake/week-2-slide-extract.json',
   'docs/excel-production/WEEK-2-FULL-CONTENT-AUDIT.md',
   'docs/excel-production/WEEK-2-SEQUENCE-DEPENDENCIES.md',
@@ -65,7 +65,7 @@ test('Excel intake status no longer says Study production is next after Study co
 });
 
 test('local release workflow runs pre-deploy before starting the test server',()=>{
-  const bat=read('TEST-LOCAL.bat');
+  const bat=read('tools/windows/TEST-LOCAL.bat');
   assert.match(bat,/node tools\\pre-deploy-check\.mjs/i);
   assert.match(bat,/node tools\\local-server\.mjs/i);
   assert.ok(bat.indexOf('pre-deploy-check.mjs') < bat.indexOf('local-server.mjs'));
