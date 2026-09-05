@@ -33,7 +33,21 @@ jobs:
       - name: V0.22.3 exhaustive PL-300 gate
         run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs
       - name: Full Node regression
-        run: node --test tests/*.test.mjs
+        shell: bash
+        run: |
+          set +e
+          node --test tests/*.test.mjs 2>&1 | tee /tmp/v0223-full-regression.log
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -ne 0 ]; then
+            echo "::group::Focused regression failure diagnostics"
+            grep -n -E -C 8 'not ok|AssertionError|ERR_ASSERTION|startup|gzip|budget|fail|expected|actual' /tmp/v0223-full-regression.log || true
+            echo "::endgroup::"
+            echo "::group::Regression log tail"
+            tail -n 180 /tmp/v0223-full-regression.log
+            echo "::endgroup::"
+            exit "$status"
+          fi
       - name: Pre-deploy gate
         run: node tools/pre-deploy-check.mjs
       - name: Commit generated renderer patch
