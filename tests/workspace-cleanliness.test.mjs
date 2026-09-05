@@ -30,6 +30,12 @@ test('stale root intake and final-clean markers are absent',()=>{
   }
 });
 
+test('temporary V0.22.3 release diagnostics and patchers are not shipped',()=>{
+  for(const rel of ['docs/releases/tmp-v0223-ci-diagnostic.txt','tools/v0223_patch_ranked_native.py']){
+    assert.equal(fs.existsSync(path.join(ROOT,rel)),false,`${rel} is a temporary release artifact and must not ship`);
+  }
+});
+
 test('temporary superpowers planning workspace is not shipped',()=>{
   assert.equal(fs.existsSync(path.join(ROOT,'docs','superpowers')),false);
 });
