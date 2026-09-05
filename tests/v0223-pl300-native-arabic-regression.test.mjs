@@ -106,8 +106,8 @@ test('Arabic explanation resolves for all 509 source occurrences after ranked-co
   assert.deepEqual(missing,[]);
 });
 
-test('source native renderer exposes dedicated Yes/No controls when the source format is binary',()=>{
-  const sourceBinary=all.find(q=>q.reviewMode==='native-structured'&&/yes\s+or\s+no/i.test(String(q.questionText||'')));
+test('source native renderer exposes dedicated Yes/No controls for audited binary source items',()=>{
+  const sourceBinary=all.find(q=>q.reviewMode==='native-structured'&&nativeInteractionKind(q)==='yes-no');
   assert.ok(sourceBinary,'expected at least one preserved Yes/No source answer area');
   const html=renderNativePractice(sourceBinary,null,{},{});
   assert.match(html,/data-native-interaction="yes-no"/);
