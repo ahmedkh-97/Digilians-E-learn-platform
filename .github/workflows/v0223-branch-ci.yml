@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: '22'
       - name: Apply deterministic ranked native renderer patch
-        run: node tools/v0223-patch-ranked-native.mjs
+        run: python3 tools/v0223_patch_ranked_native.py
       - name: V0.22.3 exhaustive PL-300 gate
         run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs
       - name: Full Node regression
