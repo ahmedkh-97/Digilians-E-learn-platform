@@ -1,0 +1,35 @@
+name: Apply V0.22.4 PL-300 Hotfix Once V2
+
+on:
+  push:
+    branches:
+      - hotfix/v0.22.4-pl300-preselect-dropdowns
+
+permissions:
+  contents: write
+
+jobs:
+  apply-hotfix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply minimal V0.22.4 implementation
+        run: python3 tools/apply-v0224-pl300-hotfix.py
+      - name: Verify targeted V0.22.4 behavior
+        run: node --test tests/v0224-pl300-preselect-dropdowns.test.mjs
+      - name: Commit verified implementation
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/v0224-apply-hotfix-once-v2.yml tools/apply-v0224-pl300-hotfix.py
+          git add assets/js/app.js assets/js/pl300-full-ranked-learning.js voucher/tracks/data-analysis/microsoft-pl-300/source-01-review-bank.json
+          git diff --cached --check
+          git commit -m "fix: add PL-300 pre-entry parts and source dropdowns"
+          git push
