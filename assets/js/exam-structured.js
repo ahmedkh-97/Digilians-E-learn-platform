@@ -14,6 +14,10 @@ export function structuredFields(question){
   return Array.isArray(question?.nativeResponse?.fields)?question.nativeResponse.fields:[];
 }
 
+export function structuredFieldChoices(field){
+  return Array.isArray(field?.choices)?[...new Set(field.choices.map(value=>String(value??'').trim()).filter(Boolean))]:[];
+}
+
 export function structuredAnswerFields(selected){
   return selected?.type==='structured' && selected?.fields && typeof selected.fields==='object'
     ?selected.fields:{};

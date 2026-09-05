@@ -1,5 +1,5 @@
 import {isStructuredQuestion,structuredAnswerComplete,structuredAnswerCorrect,structuredFields} from "./exam-structured.js";
-import "./exam-context.js?v=0.22.1";
+import "./exam-context.js?v=0.22.2";
 
 export function correctAnswerIds(question){
   const ids=Array.isArray(question?.correctAnswers)&&question.correctAnswers.length

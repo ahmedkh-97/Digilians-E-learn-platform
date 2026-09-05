@@ -1,5 +1,5 @@
-import {VOUCHER_TIMER_PHASE_SOLVING,isVoucherRankedLearningExam} from './voucher-ranked-runtime.js?v=0.22.1';
-import {inferExamTimerPolicy,restoreTimerAfterAway} from './exam-timer.js?v=0.22.1';
+import {VOUCHER_TIMER_PHASE_SOLVING,isVoucherRankedLearningExam} from './voucher-ranked-runtime.js?v=0.22.2';
+import {inferExamTimerPolicy,restoreTimerAfterAway} from './exam-timer.js?v=0.22.2';
 
 function timerRemainingForExam(exam){
   const timer=exam?.settings?.timer;

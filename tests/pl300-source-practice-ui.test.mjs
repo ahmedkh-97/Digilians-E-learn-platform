@@ -9,15 +9,16 @@ const nativeCss=fs.existsSync(new URL('../assets/css/source-practice-native.css'
 
 test('PL-300 source review supports auto-scored text practice',()=>{
   assert.match(app,/function voucherSourcePracticeRecord\(/);
-  assert.match(app,/data-source-practice-option/);
-  assert.match(app,/id="sourcePracticeCheckBtn"/);
-  assert.match(app,/Check answer/);
+  assert.match(fullRank,/data-source-practice-option/);
+  assert.match(fullRank,/id="sourcePracticeCheckBtn"/);
+  assert.match(fullRank,/Check answer/);
+  assert.match(app,/buildSourcePracticeOptionsMarkup/);
   assert.match(app,/saveVoucherSourcePracticeResult/);
 });
 
 test('fail-closed source questions use required study checkpoints without self-awarded correctness',()=>{
   assert.match(fullRank,/id="sourcePracticeCheckpointBtn"/);
-  assert.match(fullRank,/Complete study checkpoint/);
+  assert.match(fullRank,/إكمال نقطة المذاكرة/);
   assert.match(app,/mode:"checkpoint"/);
   assert.match(app,/reviewStatus:"reviewed"/);
   assert.doesNotMatch(app,/data-source-self-grade/);

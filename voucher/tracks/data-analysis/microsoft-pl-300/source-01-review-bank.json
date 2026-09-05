@@ -235,6 +235,12 @@
             "label": "Box 1",
             "expected": [
               "Append Queries as New"
+            ],
+            "choices": [
+              "Append Queries",
+              "Append Queries as New",
+              "Merge Queries",
+              "Merge Queries as New"
             ]
           },
           {
@@ -242,6 +248,12 @@
             "label": "Box 2",
             "expected": [
               "Disable loading the query to the data model"
+            ],
+            "choices": [
+              "Delete the queries",
+              "Disable including the query in report refresh",
+              "Disable loading the query to the data model",
+              "Duplicate the queries"
             ]
           }
         ],
@@ -250,7 +262,8 @@
           "ignoreWhitespaceAndPunctuation": true
         }
       },
-      "rankingImpact": "none"
+      "rankingImpact": "none",
+      "explanationAr": "الإجابة الصحيحة هي: Box 1 = Append Queries as New، وBox 2 = Disable loading the query to the data model.\n\nالسبب: جدولَي Customer لهما نفس الأعمدة والمطلوب إضافة الصفوف من القاعدتين في جدول واحد، لذلك العملية الصحيحة هي Append وليس Merge؛ لأن Merge يضيف أعمدة بناءً على مفتاح ربط. اختيار Append Queries as New ينشئ Query نهائي جديد ويترك الاستعلامين الأصليين كمصادر.\n\nبعد ذلك عطّل Load للاستعلامين الأصليين حتى لا يتم تحميل نسخ إضافية إلى الـData Model، وده يقلل حجم الموديل. مهم: Disable Load لا يعني إيقاف Refresh؛ الاستعلام يظل يتحدث أثناء الـScheduled Refresh ويُستخدم كمصدر للاستعلام النهائي."
     },
     {
       "id": "pl300-source-01-q006",
@@ -288,6 +301,14 @@
             "label": "Box 1",
             "expected": [
               "Inner"
+            ],
+            "choices": [
+              "Full outer",
+              "Inner",
+              "Left anti",
+              "Left outer",
+              "Right anti",
+              "Right outer"
             ]
           },
           {
@@ -295,6 +316,14 @@
             "label": "Box 2",
             "expected": [
               "Left outer"
+            ],
+            "choices": [
+              "Full outer",
+              "Inner",
+              "Left anti",
+              "Left outer",
+              "Right anti",
+              "Right outer"
             ]
           }
         ],
@@ -303,7 +332,8 @@
           "ignoreWhitespaceAndPunctuation": true
         }
       },
-      "rankingImpact": "none"
+      "rankingImpact": "none",
+      "explanationAr": "الإجابة الصحيحة هي: Box 1 = Inner، وBox 2 = Left outer.\n\nالسبب: كل Product لديه ProductSubCategory، لذلك الربط بين Product وProductSubCategory يمكن أن يكون Inner لأن كل صف له تطابق. لكن ليس كل ProductSubCategory لديه ProductCategory، لذلك نستخدم Left outer عند ربط ProductSubCategory بـProductCategory حتى نحتفظ بكل صفوف ProductSubCategory حتى لو لم يوجد Parent مطابق.\n\nنقطة مذاكرة: Inner يحتفظ بالصفوف المتطابقة فقط، بينما Left outer يحتفظ بكل صفوف الجدول الموجود على اليسار ويضيف المطابق من الجدول اليمين."
     },
     {
       "id": "pl300-source-01-q007",

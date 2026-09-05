@@ -5,6 +5,7 @@ import fs from 'node:fs';
 const app=fs.readFileSync(new URL('../assets/js/app.js',import.meta.url),'utf8');
 const css=fs.readFileSync(new URL('../assets/css/pl300.css',import.meta.url),'utf8');
 const fullRank=fs.readFileSync(new URL('../assets/js/pl300-full-ranked-learning.js',import.meta.url),'utf8');
+const version=fs.readFileSync(new URL('../VERSION.txt',import.meta.url),'utf8').trim();
 
 test('PL-300 landing makes the 509-question ranked journey primary and visible',()=>{
   assert.match(fullRank,/Full Ranked Bank[^\n]*509 Questions/);
@@ -31,7 +32,7 @@ test('PL-300 full ranked learning loads both source banks into one 509-question 
 
 test('ranked study checkpoints require evidence review and never expose self-awarded competitive correctness',()=>{
   assert.match(fullRank,/id="sourcePracticeCheckpointBtn"/);
-  assert.match(fullRank,/Complete study checkpoint/);
+  assert.match(fullRank,/إكمال نقطة المذاكرة/);
   assert.match(app,/mode:"checkpoint"/);
   assert.match(app,/reviewStatus:"reviewed"/);
   assert.doesNotMatch(app,/data-source-self-grade/);
@@ -39,7 +40,7 @@ test('ranked study checkpoints require evidence review and never expose self-awa
 });
 
 test('PL-300 full ranked UI consumes completion-first metrics from the dedicated lazy module',()=>{
-  assert.match(app,/pl300-full-ranked-learning\.js\?v=0\.22\.1/);
+  assert.ok(app.includes(`pl300-full-ranked-learning.js?v=${version}`));
   assert.match(app,/buildPl300FullRankMetrics/);
   assert.match(app,/voucherFullRankedIndex/);
   assert.match(fullRank,/Validated Accuracy/);

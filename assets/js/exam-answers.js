@@ -1,6 +1,6 @@
 import {correctAnswerIds,isAnswered,selectedAnswerIds} from './exam.js';
 import {isStructuredQuestion,structuredAnswerFields,structuredAnswerState,structuredAnswerComplete} from './exam-structured.js';
-import {VOUCHER_TIMER_PHASE_FEEDBACK,voucherRequiresExplicitAnswerConfirmation} from './voucher-ranked-runtime.js?v=0.22.1';
+import {VOUCHER_TIMER_PHASE_FEEDBACK,voucherRequiresExplicitAnswerConfirmation} from './voucher-ranked-runtime.js?v=0.22.2';
 
 function copyMap(value){
   return {...(value||{})};

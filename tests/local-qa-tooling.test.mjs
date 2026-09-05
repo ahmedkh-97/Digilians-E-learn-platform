@@ -10,13 +10,13 @@ const exists=p=>fs.existsSync(path.join(ROOT,p));
 
 test('local QA package ships quick check, pre-deploy and local server entry points',()=>{
   for(const file of [
-    'QUICK-CHECK.bat','START-LOCAL.bat','TEST-LOCAL.bat','FULL-QA.bat','RUN-PREFLIGHT.bat',
+    'tools/windows/QUICK-CHECK.bat','tools/windows/START-LOCAL.bat','tools/windows/TEST-LOCAL.bat','tools/windows/FULL-QA.bat','tools/windows/RUN-PREFLIGHT.bat',
     'tools/quick-local-check.mjs','tools/pre-deploy-check.mjs','tools/local-server.mjs','tools/excel-intake-check.mjs'
   ]) assert.ok(exists(file),`missing local QA file: ${file}`);
 });
 
 test('START-LOCAL refuses to start the Windows server until the basic safety check passes',()=>{
-  const bat=read('START-LOCAL.bat');
+  const bat=read('tools/windows/START-LOCAL.bat');
   assert.match(bat,/windows-basic-check\.ps1/i);
   assert.match(bat,/windows-local-server\.ps1/i);
   assert.ok(bat.indexOf('windows-basic-check.ps1') < bat.indexOf('windows-local-server.ps1'));
@@ -24,7 +24,7 @@ test('START-LOCAL refuses to start the Windows server until the basic safety che
 });
 
 test('full local test runs pre-deploy before localhost',()=>{
-  const bat=read('TEST-LOCAL.bat');
+  const bat=read('tools/windows/TEST-LOCAL.bat');
   assert.match(bat,/node tools\\pre-deploy-check\.mjs/i);
   assert.match(bat,/node tools\\local-server\.mjs/i);
   assert.ok(bat.indexOf('pre-deploy-check.mjs') < bat.indexOf('local-server.mjs'));

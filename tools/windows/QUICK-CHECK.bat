@@ -1,6 +1,6 @@
 @echo off
 setlocal
-cd /d "%~dp0"
+cd /d "%~dp0..\.."
 echo ==============================================
 echo  Digilians E-Learn - QUICK CHECK
 echo ==============================================
@@ -29,7 +29,7 @@ if not exist "%PS%" (
   pause
   exit /b 1
 )
-"%PS%" -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\windows-basic-check.ps1"
+"%PS%" -NoProfile -ExecutionPolicy Bypass -File "%CD%\tools\windows-basic-check.ps1"
 set CODE=%ERRORLEVEL%
 echo.
 if "%CODE%"=="0" echo WINDOWS BASIC CHECK PASS. Full developer QA still requires Node.js 20+.
