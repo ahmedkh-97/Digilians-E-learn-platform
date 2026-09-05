@@ -62,8 +62,7 @@ jobs:
                       if locator.count() > 0 and locator.first.is_visible():
                           with page.expect_download(timeout=120000) as info:
                               locator.first.click()
-                          download = info.value
-                          download.save_as(out)
+                          info.value.save_as(out)
                           clicked = True
                           break
                   except Exception:
@@ -99,20 +98,28 @@ jobs:
           mkdir -p /tmp/release-unpacked
           unzip -q /tmp/release.zip -d /tmp/release-unpacked
 
-          # Preserve repository metadata and GitHub configuration; replace production tree.
           rsync -a --delete \
             --exclude='.git/' \
             --exclude='.github/' \
             /tmp/release-unpacked/ ./
 
-          # The importer is temporary and must not ship in the production branch.
           rm -f .github/workflows/import-v0221-release.yml
 
-      - name: Verify imported release identity
+      - name: Verify imported release identity and 509 bank
         run: |
           test -f VERSION.txt
           grep -q '^0.22.1$' VERSION.txt
-          test -f voucher/tracks/data-analysis/microsoft-pl-300/full-source-bank.json
+          test -f voucher/tracks/data-analysis/microsoft-pl-300/full-ranked-index.json
+          python - <<'PY'
+          import json
+          p='voucher/tracks/data-analysis/microsoft-pl-300/full-ranked-index.json'
+          d=json.load(open(p, encoding='utf-8'))
+          assert d['questionCount'] == 509, d['questionCount']
+          assert d['sources'] == {'source-01': 369, 'source-02': 140}, d['sources']
+          assert d['objectiveOccurrences'] + d['checkpointOccurrences'] == 509
+          assert len(d['records']) == 509, len(d['records'])
+          print('PL-300 full ranked index verified: 509/509')
+          PY
           node tools/quick-local-check.mjs
 
       - name: Commit imported release
