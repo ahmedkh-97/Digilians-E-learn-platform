@@ -40,8 +40,8 @@ test('V0.22.3 exhaustive source audit preserves every PL-300 occurrence exactly 
   assert.equal(index.records.length,509);
   assert.deepEqual(countsBy('reviewMode'),{
     'native-structured':78,
-    'scored-text':323,
-    'source-reveal':108
+    'scored-text':321,
+    'source-reveal':110
   });
   assert.ok(all.every(q=>String(q.questionText||'').trim()),'every occurrence needs question text');
 });
