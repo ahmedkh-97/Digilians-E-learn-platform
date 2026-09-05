@@ -8,12 +8,11 @@ const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=rel=>fs.readFileSync(path.join(ROOT,rel),'utf8');
 const json=rel=>JSON.parse(read(rel));
 
-test('V0.22.2 release identity documents PL-300 Study UX and Answer Lock',()=>{
-  assert.equal(read('VERSION.txt').trim(),'0.22.2');
+test('V0.22.2 release archive documents PL-300 Study UX and Answer Lock',()=>{
   const changes=json('data/changelog.json');
-  assert.equal(changes.latest,'0.22.2');
-  assert.equal(changes.releases[0]?.version,'0.22.2');
-  const text=JSON.stringify(changes.releases[0]||{});
+  const release=changes.releases.find(x=>x.version==='0.22.2');
+  assert.ok(release,'V0.22.2 release entry must remain in changelog history');
+  const text=JSON.stringify(release);
   assert.match(text,/Answer Lock/i);
   assert.match(text,/Dropdown/i);
   assert.match(text,/Arabic/i);

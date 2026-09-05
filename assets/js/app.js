@@ -6,12 +6,12 @@ import {
   getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
   getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
-} from "./storage.js?v=0.22.2";
+} from "./storage.js?v=0.22.3";
 
 import {validateExamPayload,calculateResult,formatDuration,isAnswered,isQuestionAnswered,isAnswerCorrect,correctAnswerIds,selectedAnswerIds} from "./exam.js";
-import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.2";
+import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.3";
 import {buildAggregateLeaderboard} from "./ranking-engine.js";
-import {isRankingMode,isVoucherRankingMode,findRankingLevel,buildRankingScope} from "./ranking-scopes.js?v=0.22.2";
+import {isRankingMode,isVoucherRankingMode,findRankingLevel,buildRankingScope} from "./ranking-scopes.js?v=0.22.3";
 import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
 import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
@@ -22,13 +22,13 @@ import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
 import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
-import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.22.2";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,isPracticeableMistakeQuestion,patchMistakeContext,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.22.2";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.22.2";
-import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.22.2";
-import {createUuid} from "./runtime-compat.js?v=0.22.2";
-import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.22.2";
-import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.22.2";
+import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.22.3";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,isPracticeableMistakeQuestion,patchMistakeContext,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.22.3";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.22.3";
+import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.22.3";
+import {createUuid} from "./runtime-compat.js?v=0.22.3";
+import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.22.3";
+import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.22.3";
 import {
   validateVoucherRegistry,validateVoucherTrackRegistry,validateVoucherExamConfig,trackAvailability,
   selectVoucherQuestions,shuffleVoucherOptions,buildVoucherExamPayload,
@@ -42,17 +42,17 @@ import {
   voucherSessionRankingActivityId,buildVoucherSessionLeaderboard,resolveVoucherSessionRankStatus,firstPassPercentage,buildVoucherSessionAttemptMeta,buildVoucherSessionOnlineOverrides,
   voucherDomainRankingActivityId,buildVoucherDomainLeaderboard,buildVoucherOverallLeaderboard,resolveVoucherDomainRankStatus,buildVoucherDomainAttemptMeta,buildVoucherDomainOnlineOverrides,
   buildVoucherDomainNavigatorModel,buildVoucherSectionAnalytics
-} from "./voucher-engine.js?v=0.22.2";
+} from "./voucher-engine.js?v=0.22.3";
 import {
   createExamSession,resolveExamMode,
   selectSingleAnswerState,toggleMultiSelectAnswerState,confirmMultiSelectAnswerState,confirmVoucherRankedAnswerState,updateStructuredAnswerState,confirmStructuredAnswerState,
-  isStructuredQuestion,structuredFields,structuredFieldChoices,structuredAnswerFields,structuredAnswerComplete,structuredExpectedDisplay,structuredSelectedDisplay,structuredFieldCorrect,
+  isStructuredQuestion,structuredFields,structuredFieldChoices,structuredInteractionKind,structuredBinaryChoices,structuredAnswerFields,structuredAnswerComplete,structuredExpectedDisplay,structuredSelectedDisplay,structuredFieldCorrect,
   normalizeNavigatorFilter,toggleMarkedQuestionState,moveQuestionIndex,setQuestionIndex,
   examTimerPolicyLabel,
   buildExamProgressSnapshot,getActiveExamProgress,effectiveSavedRemainingSeconds,voucherSavedAttemptMatches as matchesVoucherSavedAttempt,
   feedbackStateForQuestion,voucherSelectionStatusText,isMultiSelectQuestion as isMultiSelectFeedbackQuestion,
   buildSubjectBreakdown as buildExamSubjectBreakdown,buildStandardResultRecord,buildOnlineAttemptPayload,resultHeadline
-} from "./exam-engine.js?v=0.22.2";
+} from "./exam-engine.js?v=0.22.3";
 
 const state={
   studentName:"",
@@ -659,7 +659,7 @@ function ensurePl300Styles(doc=globalThis.document){
   if(!doc?.head||doc.querySelector('link[data-pl300-styles]'))return;
   const link=doc.createElement('link');
   link.rel='stylesheet';
-  link.href='assets/css/pl300.css?v=0.22.2';
+  link.href='assets/css/pl300.css?v=0.22.3';
   link.dataset.pl300Styles='1';
   doc.head.append(link);
 }
@@ -711,7 +711,7 @@ let voucherSourcePracticeNative=null;
 let pl300FullRankedLearning=null;
 
 async function ensurePl300FullRankedLearning(){
-  pl300FullRankedLearning??=await import("./pl300-full-ranked-learning.js?v=0.22.2");
+  pl300FullRankedLearning??=await import("./pl300-full-ranked-learning.js?v=0.22.3");
   return pl300FullRankedLearning;
 }
 
@@ -794,7 +794,7 @@ async function syncPl300FullRankSnapshot({force=false}={}){
   const signature=[metrics.completedOccurrences,metrics.masteredClusters,metrics.firstPassCorrectClusters,metrics.attemptsToBest,metrics.activeSolveSeconds].join(":");
   if(!force&&signature===state.voucherFullRankLastSyncSignature)return true;
   const payload=pl300FullRankedLearning.buildPl300FullRankOnlineAttempt({
-    playerId:state.playerId,studentName:state.studentName,examVersion:"0.22.2",metrics,
+    playerId:state.playerId,studentName:state.studentName,examVersion:"0.22.3",metrics,
     trackId:state.voucherTrackId||config.trackId||"data-analysis",examId:config.id
   });
   await submitAttemptOnline(payload);
@@ -817,7 +817,7 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
     if(!config)throw new Error("Open Microsoft PL-300 first.");
     await ensurePl300FullRankedLearning();
     await loadVoucherFullRankedIndex(config);
-    voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.2");
+    voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.3");
     voucherSourcePracticeNative.ensureNativePracticeStyles();
     const sources=config.sourceReviewSources||[];
     if(sources.length!==2)throw new Error("The two PL-300 source review banks are required.");
@@ -5353,48 +5353,12 @@ function answerOptionText(question,selected){
   }).join('');
 }
 
-function renderRankedStructuredInputs(question,list,{selected,confirmed,feedbackReady}={}){
-  const values=structuredAnswerFields(selected);
-  const showFieldFeedback=state.feedbackMode==='instant'&&feedbackReady&&structuredAnswerComplete(question,selected);
+function renderRankedStructuredInputs(q,list,{selected,confirmed,feedbackReady}={}){
+  const values=structuredAnswerFields(selected),fields=structuredFields(q),kind=structuredInteractionKind(q),done=structuredAnswerComplete(q,selected),instant=state.feedbackMode==='instant',locked=Boolean(confirmed)||(instant&&!isCurrentVoucherRankedLearning()&&done),feedback=instant&&feedbackReady&&done;
   list.classList.add('ranked-structured-list');
-  for(const field of structuredFields(question)){
-    const row=document.createElement('label');
-    row.className='ranked-structured-field';
-    row.innerHTML=`<span class="ranked-structured-label">${escapeHtml(field.label||field.id)}</span>`;
-    const choices=structuredFieldChoices(field);
-    const input=choices.length?document.createElement('select'):document.createElement('input');
-    if(choices.length){
-      const placeholder=document.createElement('option');
-      placeholder.value='';
-      placeholder.textContent='Select an answer';
-      input.appendChild(placeholder);
-      for(const choice of choices){
-        const option=document.createElement('option');
-        option.value=choice;
-        option.textContent=choice;
-        input.appendChild(option);
-      }
-    }else{
-      input.type='text';
-      input.autocomplete='off';
-      input.spellcheck=false;
-      input.placeholder='Type the source answer';
-    }
-    input.setAttribute('data-ranked-structured-field',String(field.id));
-    input.value=String(values?.[field.id]??'');
-    input.disabled=Boolean(confirmed)||(state.feedbackMode==='instant'&&!isCurrentVoucherRankedLearning()&&structuredAnswerComplete(question,selected));
-    if(showFieldFeedback)input.classList.add(structuredFieldCorrect(field,input.value)?'correct':'wrong');
-    input.addEventListener(choices.length?'change':'input',event=>updateStructuredField(question,field.id,event.target.value));
-    row.appendChild(input);
-    if(showFieldFeedback){
-      const expected=String((field.expected||[])[0]??'');
-      const note=document.createElement('small');
-      note.className='ranked-structured-expected';
-      note.textContent=structuredFieldCorrect(field,input.value)?'Correct ✓':`Expected: ${expected}`;
-      row.appendChild(note);
-    }
-    list.appendChild(row);
-  }
+  const grade=(row,f,v)=>{if(!feedback)return;const ok=structuredFieldCorrect(f,v),n=document.createElement('small');row.classList.add(ok?'correct':'wrong');n.className='ranked-structured-expected';n.textContent=ok?'Correct ✓':`Expected: ${String((f.expected||[])[0]??'')}`;row.append(n)};
+  if(kind==='yes-no'){for(const f of fields){const row=document.createElement('div');row.className='ranked-structured-field';row.innerHTML=`<span class="ranked-structured-label">${escapeHtml(f.label||f.id)}</span><div class="ranked-structured-binary-controls"></div>`;for(const c of structuredBinaryChoices(q,f)){const b=document.createElement('button'),on=String(values?.[f.id]??'').toLowerCase()===String(c).toLowerCase();b.type='button';b.className=`ranked-structured-binary-option${on?' selected':''}`;b.textContent=c;b.ariaPressed=on;b.disabled=locked;b.onclick=()=>updateStructuredField(q,f.id,c);row.lastElementChild.append(b)}grade(row,f,values?.[f.id]);list.append(row)}return}
+  for(const f of fields){const row=document.createElement('label'),choices=structuredFieldChoices(f),input=choices.length?document.createElement('select'):document.createElement('input');row.className='ranked-structured-field';row.innerHTML=`<span class="ranked-structured-label">${escapeHtml(f.label||f.id)}</span>`;if(choices.length)input.innerHTML='<option value="">Select</option>'+choices.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');else input.type='text';input.setAttribute('data-ranked-structured-field',f.id);input.value=String(values?.[f.id]??'');input.disabled=locked;if(feedback)input.classList.add(structuredFieldCorrect(f,input.value)?'correct':'wrong');input.addEventListener(choices.length?'change':'input',e=>updateStructuredField(q,f.id,e.target.value));row.append(input);grade(row,f,input.value);list.append(row)}
 }
 function renderQuestion(){
   const qs=state.currentExam.questions,q=qs[state.currentIndex];

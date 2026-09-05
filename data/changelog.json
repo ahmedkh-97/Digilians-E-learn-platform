@@ -1,6 +1,22 @@
 {
-  "latest": "0.22.2",
+  "latest": "0.22.3",
   "releases": [
+    {
+      "version": "0.22.3",
+      "title": "PL-300 Native Arabic 509/509",
+      "date": "2026-09-05",
+      "type": "feature",
+      "summary": "Closes the PL-300 full-source learning regression with all 509 source occurrences preserved, 78 source-backed native structured interactions, Arabic-first feedback across all 509 occurrences, and release-safe validation without synthetic distractors.",
+      "highlights": [
+        "All 509 PL-300 source occurrences remain studyable: 369 from Source 01 and 140 from Source 02.",
+        "The source journey is explicitly audited as 321 scored-text, 78 native-structured, and 110 source-reveal checkpoints; non-deterministic source-reveal items do not create fake objective accuracy.",
+        "All 78 native structured items resolve to supported source-backed interactions: 71 text-fields, 5 Yes/No, 1 choice-fields, and 1 ordered-fields.",
+        "Arabic explanation resolution covers 509/509 source occurrences while preserving original source explanation evidence.",
+        "pl300-source-01-q164 remains intentionally visual-only instead of inventing missing question wording.",
+        "Answer Lock, intentional Retry, Instant Feedback, navigator/filter state, My Mistakes integration, and source-backed response choices are preserved.",
+        "The protected startup gzip budget remains capped at 450 KB; the release must pass targeted PL-300, full Node regression, and pre-deploy gates before merge."
+      ]
+    },
     {
       "version": "0.22.2",
       "title": "PL-300 Study UX & Answer Lock",
