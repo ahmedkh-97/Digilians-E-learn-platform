@@ -1,87 +1,27 @@
-name: V0.22.3 PL-300 Native Regression
+name: V0.22.3 PL-300 Release Validation
 
 on:
   push:
     branches:
       - release/v0.22.3-pl300-native-arabic-regression
+  pull_request:
+    branches:
+      - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  native-regression:
-    if: ${{ !contains(github.event.head_commit.message, '[skip v0223-ci]') }}
+  release-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Apply deterministic ranked native renderer patch
-        run: python3 tools/v0223_patch_ranked_native.py
-      - name: Diagnose source text gaps
-        run: |
-          node --input-type=module - <<'NODE'
-          import fs from 'node:fs';
-          const root='voucher/tracks/data-analysis/microsoft-pl-300/';
-          const all=['source-01-review-bank.json','source-02-review-bank.json'].flatMap(name=>JSON.parse(fs.readFileSync(root+name,'utf8')).questions);
-          const gaps=all.filter(q=>!String(q.questionText||'').trim()).map(q=>({id:q.id,sourceType:q.sourceType,reviewMode:q.reviewMode,questionVisuals:q.questionVisuals?.length||0,answerVisuals:q.answerVisuals?.length||0,sourceExplanation:Boolean(String(q.sourceExplanation||'').trim())}));
-          console.log('PL300_QUESTION_TEXT_GAPS='+JSON.stringify(gaps));
-          NODE
       - name: V0.22.3 exhaustive PL-300 gate
         run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs
       - name: Full Node regression
-        id: regression
-        shell: bash
-        run: |
-          set +e
-          node --test tests/*.test.mjs 2>&1 | tee /tmp/v0223-full-regression.log
-          status=${PIPESTATUS[0]}
-          set -e
-          echo "status=$status" >> "$GITHUB_OUTPUT"
-          if [ "$status" -ne 0 ]; then
-            echo "::group::Focused regression failure diagnostics"
-            grep -n -E -C 12 'not ok|AssertionError|ERR_ASSERTION|ERR_TEST_FAILURE|startup|gzip|budget|fail|expected|actual' /tmp/v0223-full-regression.log || true
-            echo "::endgroup::"
-            exit "$status"
-          fi
-      - name: Persist regression failure diagnostics
-        if: failure()
-        shell: bash
-        run: |
-          if [ ! -f /tmp/v0223-full-regression.log ]; then
-            echo "Regression log was not created; an earlier gate failed."
-            exit 0
-          fi
-          mkdir -p docs/releases
-          {
-            echo "V0.22.3 CI diagnostic"
-            echo "run=${{ github.run_id }}"
-            echo "sha=${{ github.sha }}"
-            echo
-            echo "===== FOCUSED ====="
-            grep -n -E -C 12 'not ok|AssertionError|ERR_ASSERTION|ERR_TEST_FAILURE|startup|gzip|budget|fail|expected|actual' /tmp/v0223-full-regression.log || true
-            echo
-            echo "===== TAIL ====="
-            tail -n 240 /tmp/v0223-full-regression.log
-          } > docs/releases/tmp-v0223-ci-diagnostic.txt
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/releases/tmp-v0223-ci-diagnostic.txt
-          git commit -m "ci: persist V0.22.3 failure diagnostics [skip v0223-ci]" || true
-          git push
+        run: node --test tests/*.test.mjs
       - name: Pre-deploy gate
         run: node tools/pre-deploy-check.mjs
-      - name: Commit generated renderer patch
-        run: |
-          if git diff --quiet -- assets/js/app.js assets/css/pl300.css; then
-            echo "Renderer already patched."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/js/app.js assets/css/pl300.css
-          git commit -m "feat: complete V0.22.3 ranked native renderer [skip v0223-ci]"
-          git push
