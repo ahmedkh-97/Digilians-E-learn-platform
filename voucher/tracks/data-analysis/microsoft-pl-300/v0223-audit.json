@@ -1,0 +1,48 @@
+{
+  "release": "0.22.3",
+  "date": "2026-09-05",
+  "scope": "Microsoft PL-300 full source learning audit",
+  "totalSourceOccurrences": 509,
+  "sources": {
+    "source01": 369,
+    "source02": 140
+  },
+  "reviewModes": {
+    "scoredText": 321,
+    "nativeStructured": 78,
+    "sourceReveal": 110
+  },
+  "nativeInteractionKinds": {
+    "textFields": 71,
+    "yesNo": 5,
+    "choiceFields": 1,
+    "orderedFields": 1
+  },
+  "arabicExplanation": {
+    "resolved": 509,
+    "total": 509
+  },
+  "visualOnlySourceIds": [
+    "pl300-source-01-q164"
+  ],
+  "sourceFidelity": {
+    "inventedDistractors": false,
+    "orderedChoicesSourceBackedOnly": true,
+    "yesNoRequiresSourceEvidence": true,
+    "sourceRevealExcludedFromObjectiveAccuracy": true
+  },
+  "baselineVerification": {
+    "githubActionsRunId": 33974479568,
+    "targetedTestsPassed": 7,
+    "nodeTestsPassed": 539,
+    "preDeploy": "PASS",
+    "startupGzipBudgetKb": 450,
+    "startupGzipBudget": "PASS"
+  },
+  "notes": [
+    "All 509 source occurrences remain studyable and represented in the Full Ranked Learning journey.",
+    "Only deterministic gradable items contribute objective accuracy; source-reveal checkpoints never create synthetic correctness.",
+    "pl300-source-01-q164 intentionally preserves source visual evidence instead of inventing missing question text.",
+    "baselineVerification records the last all-green implementation run before release metadata and cleanup; the final release commit is validated again by GitHub Actions."
+  ]
+}
