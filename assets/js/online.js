@@ -2,6 +2,7 @@ const SUPABASE_URL = "https://gbyxpwcjfzxpxxbbwnzf.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_tb1vaMv8eB98FcaaqLLl3A_k1nXSdgJ";
 const ATTEMPTS_ENDPOINT = `${SUPABASE_URL}/rest/v1/exam_attempts`;
 const RANKING_PROFILES_ENDPOINT = `${SUPABASE_URL}/rest/v1/ranking_profiles`;
+const VOUCHER_PROFILES_ENDPOINT = `${SUPABASE_URL}/rest/v1/voucher_profiles`;
 
 const SHARED_AVATAR_IDS = new Set([
   "boy-3d-1","boy-3d-2","boy-3d-3","boy-3d-4",
@@ -77,6 +78,43 @@ export async function fetchRankingProfiles(playerIds,{chunkSize=100}={}){
       if(row?.player_id && SHARED_AVATAR_IDS.has(row.avatar_id)){
         out.set(row.player_id,row.avatar_id);
       }
+    }
+  }
+  return out;
+}
+
+export async function syncVoucherPrimaryTrack(playerId,primaryTrackId){
+  const allowed=new Set(["data-analysis","marketing","graphic-design","ui-ux","media-production"]);
+  if(!playerId || !allowed.has(String(primaryTrackId||"")))return false;
+  const url=`${VOUCHER_PROFILES_ENDPOINT}?on_conflict=player_id`;
+  await apiFetch(url,{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      Prefer:"resolution=merge-duplicates,return=minimal"
+    },
+    body:JSON.stringify({
+      player_id:playerId,
+      primary_track_id:String(primaryTrackId),
+      updated_at:new Date().toISOString()
+    })
+  });
+  return true;
+}
+
+export async function fetchVoucherPrimaryTracks(playerIds,{chunkSize=100}={}){
+  const unique=[...new Set((playerIds||[]).filter(Boolean))];
+  if(!unique.length)return new Map();
+  const out=new Map();
+  for(let start=0;start<unique.length;start+=chunkSize){
+    const chunk=unique.slice(start,start+chunkSize);
+    const filter=encodeURIComponent(`in.(${chunk.join(",")})`);
+    const url=
+      `${VOUCHER_PROFILES_ENDPOINT}?select=player_id,primary_track_id,updated_at`+
+      `&player_id=${filter}&limit=${chunk.length}`;
+    const rows=(await apiFetch(url))||[];
+    for(const row of rows){
+      if(row?.player_id && row?.primary_track_id)out.set(row.player_id,row.primary_track_id);
     }
   }
   return out;

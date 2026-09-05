@@ -8,6 +8,8 @@ import {fileURLToPath} from 'node:url';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const full=p=>path.join(ROOT,p);
 const read=p=>fs.readFileSync(full(p),'utf8');
+const version=fs.readFileSync(full('VERSION.txt'),'utf8').split(/\r?\n/,1)[0].trim();
+const escapedVersion=version.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 
 function startupPayloadPaths(){
   const curriculum=JSON.parse(read('data/curriculum.json'));
@@ -64,4 +66,16 @@ test('startup has an independent recovery state for load failures and timeouts',
 test('pre-deploy permanently enforces the UX/performance stabilization gate',()=>{
   const predeploy=read('tools/pre-deploy-check.mjs');
   assert.match(predeploy,/platform-ux-performance\.test\.mjs/);
+});
+
+test('PL-300 feature CSS is lazy-loaded instead of inflating the startup stylesheet',()=>{
+  const app=read('assets/js/app.js');
+  const globalCss=read('assets/css/style.css');
+  assert.ok(fs.existsSync(full('assets/css/pl300.css')),'PL-300 feature stylesheet must exist');
+  const pl300Css=read('assets/css/pl300.css');
+  assert.doesNotMatch(globalCss,/V0\.21\.4 PL-300 content architecture/);
+  assert.match(pl300Css,/V0\.21\.4 PL-300 content architecture/);
+  assert.match(pl300Css,/ranked-structured-field/);
+  assert.match(app,/ensurePl300Styles/);
+  assert.match(app,new RegExp(`assets\\/css\\/pl300\\.css\\?v=${escapedVersion}`));
 });

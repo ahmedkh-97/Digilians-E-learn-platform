@@ -9,3 +9,8 @@ test('pre-deploy runs the path portability regression gate',()=>{
   const source=fs.readFileSync(path.join(ROOT,'tools/pre-deploy-check.mjs'),'utf8');
   assert.match(source,/path-portability\.test\.mjs/);
 });
+
+test('pre-deploy requires the lazy PL-300 stylesheet used by ranked/source-review views',()=>{
+  const source=fs.readFileSync(path.join(ROOT,'tools/pre-deploy-check.mjs'),'utf8');
+  assert.match(source,/assets\/css\/pl300\.css/);
+});

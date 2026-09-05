@@ -1,6 +1,566 @@
 {
-  "latest": "0.20.23",
+  "latest": "0.22.1",
   "releases": [
+    {
+      "version": "0.22.1",
+      "title": "PL-300 Full Ranked Learning 509/509",
+      "date": "2026-09-05",
+      "type": "feature",
+      "summary": "Makes all 509 PL-300 source question occurrences part of one ranked learning journey while preserving fair competitive scoring across 265 validated concepts.",
+      "highlights": [
+        "Full Ranked Bank now exposes all 509 source occurrences as the primary PL-300 study journey: 369 from Source 01 and 140 from Source 02.",
+        "Ranking is completion-first: every source occurrence must be studied before a learner can lead on full-bank completion.",
+        "Validated Accuracy and Mastery are concept-weighted across 265 evidence-backed concepts; duplicate source copies collapse to one competitive concept weight.",
+        "Source blocks that cannot be scored safely become required Study Checkpoints. They count toward 509/509 completion but never award self-declared correctness.",
+        "The shared Full Ranked Learning leaderboard orders Completion, Validated Mastery, First Pass, Attempts-to-Best, then Active Solve Time.",
+        "Existing 265-question Domain Ranked Learning remains intact for deterministic exam-style scoring; Full Ranked Learning adds source-complete study coverage without changing protected exam banks."
+      ]
+    },
+    {
+      "version": "0.22.0",
+      "title": "Production Release Candidate",
+      "date": "2026-09-05",
+      "type": "feature",
+      "summary": "Freezes the 265-question PL-300 Native Ranked Engine for production deployment after final responsive/dark-theme, ranking-sync, cache/update, performance, package-integrity, and localhost acceptance gates.",
+      "highlights": [
+        "PL-300 Ranked Learning remains locked at 265 reviewed questions: 201 canonical text questions plus 64 reviewed Native Structured questions.",
+        "All 509 source question blocks remain available through Full Source Practice; 14 Native Structured candidates remain intentionally fail-closed from Ranking.",
+        "Production release identity, cache-busting, What's New fallback, and changelog metadata are unified on V0.22.0.",
+        "Responsive and dark-theme regression gates remain mandatory, including keyboard focus, warning contrast, early theme bootstrapping, and startup performance budgets.",
+        "Shared Ranking/Supabase integration remains isolated to anonymous attempt/profile metadata with local-first fallback behavior.",
+        "The production package excludes temporary planning workspaces and is required to pass fresh extracted-package QA and localhost HTTP smoke before deployment."
+      ]
+    },
+    {
+      "version": "0.21.12",
+      "title": "PL-300 Native Ranked Engine",
+      "date": "2026-09-05",
+      "type": "feature",
+      "summary": "Promotes 64 explicitly reviewed source-backed Native Structured PL-300 questions into Domain Ranked Learning, expanding the ranked bank from 201 to 265 while keeping 14 native candidates fail-closed.",
+      "highlights": [
+        "The PL-300 Ranked Bank now contains 265 questions: 201 reviewed canonical text questions and 64 reviewed Native Structured questions.",
+        "Native Ranked responses support fields and ordered-fields with normalized-text scoring, explicit confirmation in Instant Feedback, and editable responses in Feedback at End.",
+        "Structured questions integrate with Resume, Navigator filters/status, first-pass accuracy, active-solve timing, results, My Mistakes, Domain Ranking, Overall Ranking, and section/topic analytics.",
+        "Domain coverage is 75 Prepare the Data, 63 Model the Data, 67 Visualize & Analyze the Data, and 60 Manage & Secure Power BI.",
+        "All 78 Native Structured source candidates have explicit review decisions: 64 approved and 14 withheld for duplicate, conflict, ambiguity, unstable UI wording, insufficient evidence, or free-form scoring.",
+        "Full Source Practice continues to preserve all 509 source blocks and source-review records themselves remain non-ranked; no synthetic distractors were introduced."
+      ]
+    },
+    {
+      "version": "0.21.11",
+      "title": "PL-300 Ranked Conflict Closure",
+      "date": "2026-09-05",
+      "type": "content",
+      "summary": "Resolves the final unlinked rankable PL-300 text conflict with owner-approved C-017, expands the reviewed Ranked Bank to 201 questions, and fail-closes the malformed tooltip variants to non-ranked source-reveal practice.",
+      "highlights": [
+        "C-017 approves Enable high-density sampling for the 10-million-row scatter-plot scenario while preserving the conflicting Source 02 trend-line key as provenance.",
+        "The reviewed PL-300 Ranked Bank expands from 200 to 201 questions; Real Exam remains 60 questions / 120 minutes and Domain Ranked Learning behavior is unchanged.",
+        "The two malformed tooltip variants remain traceable in Full Source Practice but are converted to source-reveal/self-grade and excluded from Ranking.",
+        "All 509 source blocks remain practiceable: 321 text auto-scored, 78 Native Structured auto-scored, and 110 source-reveal/self-graded.",
+        "The canonical text bank is now 271 questions: 201 production-ready plus 70 intentionally fail-closed questions.",
+        "Native Structured visual responses remain non-ranked until a dedicated ranked free-text/ordered-field response engine is implemented; no synthetic distractors were created."
+      ]
+    },
+    {
+      "version": "0.21.10",
+      "title": "PL-300 Native Source Practice + Conflict Audit",
+      "date": "2026-09-05",
+      "type": "feature",
+      "summary": "Upgrades source-faithful PL-300 practice with native scoring for 78 visual/answer-area items and adds deterministic duplicate/answer-conflict auditing while keeping the 200-question ranked bank fail-closed.",
+      "highlights": [
+        "All 509 source blocks remain practiceable: 323 text items auto-score, 78 visual/answer-area items use source-evidence-only Native Structured scoring, and 108 remain source reveal + self-grade.",
+        "Native Structured Practice stores per-field answers locally, grades normalized text without inventing distractors, and remains explicitly non-ranked.",
+        "A full-source dedup audit records 34 normalized duplicate clusters and 9 answer-conflict candidates; normalized-text fingerprints are audit evidence, not a semantic-unique count.",
+        "The only four unlinked text-scoreable blocks form two near-duplicate source-key conflict clusters, so the ranked production bank remains 200 pending explicit owner approval.",
+        "No Official QBank, course Question Bank, course Exam, PL-300 master-bank, or draft-master-bank assessment payload is intentionally changed in this release."
+      ]
+    },
+    {
+      "version": "0.21.9",
+      "title": "PL-300 Full Source Practice: 509/509 Practiceable",
+      "date": "2026-09-05",
+      "type": "feature",
+      "summary": "Turns every actual question block from both uploaded PL-300 PDFs into persistent non-ranked practice while preserving the reviewed 200-question ranked bank.",
+      "highlights": [
+        "All 509 actual source question blocks are practiceable: 323 text questions auto-score from preserved source keys and 186 visual/answer-area items use source-faithful self-grading after reveal.",
+        "Single-select and multi-select text items now support real answer selection, Check answer, correct/wrong styling, retry, and persistent local progress.",
+        "Hotspot, Drag & Drop, Fill-in-the-Blank and other visual-heavy source questions keep their original question/answer evidence and add I got it right / I missed it self-grading.",
+        "Source Practice state is stored inside digilians.voucher and is preserved by Progress Backup/Restore merges.",
+        "The reviewed 200-question Domain Ranked Learning bank, Domain/Overall ranking logic, answer keys, and protected assessment payloads are unchanged."
+      ]
+    },
+    {
+      "version": "0.21.8",
+      "title": "PL-300 Full Source Ingestion: Both Uploaded PDFs",
+      "date": "2026-09-05",
+      "type": "content",
+      "summary": "Ingests every actual question block from both uploaded PL-300 PDFs into a source-faithful non-ranked review layer while keeping the 200-question reviewed ranked bank unchanged.",
+      "highlights": [
+        "Full Source Review now contains 509 actual source question blocks: 369 from PL-300 Final.pdf and 140 from PL-300 Final 2.pdf.",
+        "The trailing Source 02 NEW QUESTION 415 marker is explicitly excluded because it is promotional product copy, not an exam question.",
+        "323 text-scoreable items preserve source options and answer tokens; 186 visual or answer-area items use source reveal instead of invented scoring.",
+        "552 derived WebP source-review assets preserve question and answer evidence for Hotspot, Drag & Drop, Fill-in-the-Blank, and other visual-heavy source items.",
+        "The existing 200-question reviewed production bank, Domain Ranked Learning, Overall Ranking, My Mistakes, Section Analytics, and protected assessment payloads remain unchanged."
+      ]
+    },
+    {
+      "version": "0.21.7",
+      "title": "PL-300 Integration Polish: My Mistakes, Section Analytics & Visual Audit",
+      "date": "2026-09-05",
+      "type": "feature",
+      "summary": "Finishes the pre-release PL-300 integration layer with Domain/Section-aware My Mistakes, ranked Section Analytics, a fail-closed visual production audit, and the owner-approved Q184 scoring correction.",
+      "highlights": [
+        "My Mistakes now keeps PL-300 Voucher provenance down to Domain and Section, including safe backfill for existing stored mistakes.",
+        "Each ranked PL-300 Domain now exposes Section Analytics in canonical section order, including strongest/weakest section signals from the best official attempt.",
+        "The PL-300 visual audit now validates released exhibit coverage, asset existence, alt text, manifest provenance and completed manual review before pre-deploy can pass.",
+        "All 45 released visual-backed PL-300 questions completed manual review; no released exhibit-dependent question is missing a visual asset.",
+        "Owner-approved correction C-016 scores Source 01 Q184 as role-playing dimension while preserving the original Type 2 SCD source answer as provenance."
+      ]
+    },
+    {
+      "version": "0.21.6",
+      "title": "PL-300 Full Ranked QA: Navigator Status, Filters & Overall Ranking",
+      "date": "2026-09-05",
+      "type": "fix",
+      "summary": "Completes the PL-300 Domain Ranked Learning QA pass by fixing grouped navigator answer states and filters, and by wiring the promised Overall PL-300 leaderboard from all four official Domain results.",
+      "highlights": [
+        "Instant Feedback now colors grouped Domain navigator questions green for correct and red for wrong after confirmation; Mark for Review remains an independent star overlay.",
+        "The Answered filter now actually shows only answered questions; All, Unanswered, Answered and Marked share the same stable Domain/Section model.",
+        "PL-300 Overall Ranking is now a real shared leaderboard built from each learner’s best official attempt in all four Domains.",
+        "Overall ranking orders Total Mastery, First-Pass Accuracy, Attempts-to-Best, then total Active Solve Time; learners missing any Domain remain outside the official Overall board.",
+        "Voucher context breadcrumbs from V0.21.5 are preserved, and the accepted 200-question PL-300 bank plus all protected assessment payloads remain unchanged."
+      ]
+    },
+    {
+      "version": "0.21.5",
+      "title": "Voucher Exam Context Hotfix: PL-300 Domain Breadcrumbs",
+      "date": "2026-09-05",
+      "type": "maintenance",
+      "summary": "Keeps PL-300 Domain attempts anchored to Voucher context even when the saved progress intentionally omits the full generated exam payload.",
+      "highlights": [
+        "PL-300 ranked Domain attempts now resolve context from the compact Voucher resume metadata instead of falling back to stale English / Module setup breadcrumbs.",
+        "YOU ARE SOLVING now follows Voucher → Microsoft PL-300 → current Domain for Domain-ranked attempts.",
+        "THIS QUESTION now shows the current Domain → exact learning section, such as Prepare the Data → Data Sources & Connectivity.",
+        "The navigator heading now identifies Microsoft PL-300 and the active Domain while preserving the grouped Section Navigator and stable question numbers.",
+        "Official QBank, My Mistakes, generic course exams, ranking rules, answer keys, timers and the accepted 200-question PL-300 bank are unchanged."
+      ]
+    },
+    {
+      "version": "0.21.4",
+      "title": "PL-300 Domain Ranked Learning: Domain Attempts + Section Navigator",
+      "date": "2026-09-05",
+      "type": "feature",
+      "summary": "Rebuilds PL-300 around four complete ranked Domain attempts while keeping the ten curriculum sessions as visible learning sections inside the exam navigator.",
+      "highlights": [
+        "The four PL-300 Domains are now the official ranked activities; sessions are learning sections for navigation, breakdowns and review rather than separate leaderboards.",
+        "Each Domain supports Instant Feedback or Feedback at End, with both modes contributing to the same Domain Ranking and no countdown pressure.",
+        "A grouped Section Navigator on the left shows the current section, answered progress, marked questions and stable question numbers; mobile uses a drawer trigger.",
+        "Domain ranking orders best completed attempts by mastery, first-pass accuracy, attempts-to-best and active solve time; incomplete attempts remain provisional and local.",
+        "Domain attempts bypass legacy Voucher size validation, removing the Choose a valid Voucher mock size error from structured PL-300 learning.",
+        "Legacy Session, 60Q and Full Bank attempts remain readable in history but are no longer primary PL-300 ranking paths.",
+        "The accepted 200-question PL-300 master bank and four-domain/ten-section content architecture remain unchanged."
+      ]
+    },
+    {
+      "version": "0.21.3",
+      "title": "PL-300 Ranked Learning Core: Session Ranking + Instant Feedback",
+      "date": "2026-09-04",
+      "type": "feature",
+      "summary": "Rebuilds the primary PL-300 competition flow around the ten revision sessions so learners can study with instant feedback and still earn a fair session rank.",
+      "highlights": [
+        "The ten PL-300 sessions become the primary ranked activities; legacy 60Q and Full Bank attempts remain readable but their cards are removed from the main Ranked Learning path.",
+        "Every ranked session supports Instant Feedback or Feedback at End, with both modes feeding the same session leaderboard.",
+        "Active Solve Time replaces countdown pressure for session ranking and pauses while instant feedback is being read or the attempt is safely exited.",
+        "Official session ranking requires a complete session attempt and sorts by final mastery, first-pass accuracy, attempts-to-best, then active solve time.",
+        "Incomplete session attempts stay provisional and local; result actions focus on Retake Session, Session Ranking, and My Mistakes while Quick Practice stays secondary and non-ranked.",
+        "A permanent Release Identity Gate now blocks version mismatches across VERSION.txt, HTML runtime identity, cache busting, update fallback, and changelog metadata.",
+        "The accepted 200-question PL-300 master bank and V0.21.2 four-domain/ten-session content architecture remain unchanged."
+      ]
+    },
+    {
+      "version": "0.21.2",
+      "title": "PL-300 Content Architecture: 4 Domains / 10 Sessions",
+      "date": "2026-09-04",
+      "type": "content",
+      "summary": "Maps all 200 reviewed PL-300 production questions into the approved four-domain, ten-session revision architecture and adds focused session practice while preserving all existing ranked-exam contracts.",
+      "highlights": [
+        "All 200 reviewed PL-300 production questions map exactly once into four domains and ten focused revision sessions.",
+        "The PL-300 landing flow now presents the domain/session revision map before the existing global Ranked Challenge, Full Bank Ranked Exam, Improvement and Custom Practice paths.",
+        "Each session supports focused non-ranked Instant Feedback study and Exam-Style practice using only the session allowlist, with existing safe option shuffling and Exam Engine behavior.",
+        "Saved session attempts reconstruct the exact question and option order and restore the session title without changing the existing progress schema or localStorage keys.",
+        "The 60-question Ranked Challenge remains 120 minutes and unchanged; the 200-question Full Bank Ranked Exam remains 400 minutes with its separate leaderboard.",
+        "The V0.21.1 PL-300 master-bank question objects and answer keys remain unchanged; permanent Quick, Pre-Deploy and Windows package guards now require the content architecture registry/runtime."
+      ]
+    },
+    {
+      "version": "0.21.1",
+      "title": "PL-300 Final Bank Review: 200Q Production Bank",
+      "date": "2026-09-04",
+      "type": "content",
+      "summary": "Completes final triage of all 270 canonical PL-300 text questions, promotes 20 additional high-confidence items to a 200-question production bank, and keeps 70 explicitly reviewed items fail-closed.",
+      "highlights": [
+        "PL-300 production bank expands from 180 to 200 reviewed questions; all 180 previously released master-bank question objects remain unchanged.",
+        "The 20 new questions have reviewed Arabic concept explanations, option-level rationales, current-scope verification metadata, and unchanged source answer keys.",
+        "All 70 non-production questions now carry explicit final review dispositions covering conflict, duplicate/variant, context, legacy, malformed source, visual completeness, scope confidence, or ambiguity.",
+        "Eleven answer-key/source-current-behavior conflicts remain withheld for owner approval; no unresolved conflict is silently rescored.",
+        "Full Bank Ranked Exam now covers all 200 reviewed questions in 400 minutes with its separate leaderboard; the 60-question Ranked Challenge remains 120 minutes and unchanged.",
+        "The accepted V0.21.0 modular Exam/Voucher/Ranking architecture and all non-PL-300 assessment payloads remain unchanged."
+      ]
+    },
+    {
+      "version": "0.21.0",
+      "title": "Platform Architecture Refactor: Modular Core Baseline",
+      "date": "2026-09-04",
+      "type": "maintenance",
+      "summary": "Completes the incremental behavior-preserving architecture refactor and establishes stable modular boundaries for future Voucher, exam, ranking and track production work.",
+      "highlights": [
+        "Exam runtime is split into focused Session, Timer, Answers, Navigation, Persistence, Feedback, Results and Mode modules exposed through one app-facing exam-engine.js facade.",
+        "Voucher core contracts are exposed through voucher-engine.js and Ranking Center scope construction is centralized in ranking-scopes.js without changing ranking IDs, score ordering or Supabase contracts.",
+        "Light/Dark semantic design tokens live in assets/css/tokens.css, and Ranking plus Avatar persistence now use explicit storage boundaries while preserving existing localStorage keys.",
+        "tools/architecture-check.mjs is now a permanent Full Pre-Deploy gate that blocks circular JS imports, core-facade violations, orchestrator storage leaks and unresolved CSS variables without fallbacks.",
+        "The final architecture audit reports zero JS import cycles, clean core facade boundaries, clean orchestrator storage boundaries and resolved CSS token usage.",
+        "PL-300 reviewed questions, answer keys, Official QBank, course Question Banks, Exams, timer rules, Resume schema, My Mistakes and protected assessment payloads remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.46",
+      "title": "Voucher & Ranking Refactor: Core Boundaries",
+      "date": "2026-09-04",
+      "type": "maintenance",
+      "summary": "Reduces app.js coupling by introducing one Voucher core facade and a pure Ranking Center scope module while preserving all existing assessment and competition behavior.",
+      "highlights": [
+        "assets/js/voucher-engine.js now exposes the existing Voucher registry, bank, storage, ranking, ranked-runtime and learning contracts through one app-facing facade.",
+        "app.js no longer imports voucher-registry.js, voucher-bank-engine.js, voucher-storage.js, voucher-ranking.js, voucher-ranked-runtime.js or voucher-learning.js directly.",
+        "assets/js/ranking-scopes.js now owns the six supported Ranking Center modes and pure Junior/Professional/Track aggregate scope construction.",
+        "Voucher Exam Ranking, Voucher Track Overall, Official aggregate ranking, Individual Exam Ranking, ranking activity IDs and Supabase contracts are unchanged.",
+        "Quick Local Check, Full Pre-Deploy and Windows Basic Check now require voucher-engine.js and ranking-scopes.js and focused refactor regressions protect their contracts.",
+        "PL-300 reviewed questions, answer keys, Official QBank, course Question Banks, Exams and protected assessment payloads remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.45",
+      "title": "Exam Modes Refactor: Explicit Mode Profiles",
+      "date": "2026-09-04",
+      "type": "maintenance",
+      "summary": "Centralizes course, Official QBank, My Mistakes and Voucher exam-mode decisions behind explicit pure mode profiles while preserving all learner-visible assessment behavior.",
+      "highlights": [
+        "assets/js/exam-modes.js now defines explicit profiles for Course Practice/Exam, Official Practice/Exam, My Mistakes, Voucher Practice, Ranked Learning, Full Bank Ranked and Improvement modes.",
+        "app.js resolves one active examMode at exam start and uses it for feedback normalization, ranked identity state, analytics lifecycle events and Voucher result-mode labeling.",
+        "Ranked Challenge remains instant-feedback solve-time competition; Full Bank Ranked remains end-feedback continuous-ranked; Improvement and Custom Practice remain non-ranked.",
+        "Official QBank ranking remains independent from whether the learner selects Instant Feedback or Exam Mode, preserving existing leaderboard behavior.",
+        "Quick Local Check, Full Pre-Deploy and Windows Basic Check now require exam-modes.js and the regression suite protects the mode-profile contract.",
+        "PL-300 reviewed questions, answer keys, Official QBank, course Question Banks, Exams and protected assessment payloads remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.44",
+      "title": "Exam Engine Refactor Phase 2E: Integration Facade",
+      "date": "2026-09-04",
+      "type": "maintenance",
+      "summary": "Completes the Phase 2 Exam Engine integration boundary by routing app.js through one facade while preserving all existing exam behavior and extracted core contracts.",
+      "highlights": [
+        "assets/js/exam-engine.js is now the single application-facing contract for Session, Timer, Answers, Navigation, Persistence, Feedback and Results core logic.",
+        "Fresh and restored attempts now use one createExamSession(...) entry point while preserving existing timer, Resume and state-normalization behavior.",
+        "app.js no longer imports the seven extracted Exam Engine core modules directly; DOM rendering and side effects remain in the controller for a behavior-preserving cleanup.",
+        "Quick Local Check, Full Pre-Deploy and Windows Basic Check now require exam-engine.js and run an integration regression that prevents direct-core imports from returning.",
+        "Ranked Challenge, Full Bank Ranked Exam, Practice, My Mistakes, Official QBank, score calculation, ranking payloads and LocalStorage schemas are unchanged.",
+        "PL-300 reviewed questions, answer keys, Official QBank, course Question Banks, Exams and protected assessment payloads remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.43",
+      "title": "Exam Engine Refactor Phase 2D: Feedback & Results Core",
+      "date": "2026-09-04",
+      "type": "maintenance",
+      "summary": "Extracts feedback-state decisions and core result-record construction from app.js into focused pure modules while preserving feedback timing, scoring, ranking payloads and result UI behavior.",
+      "highlights": [
+        "Instant-feedback readiness, ranked confirmation gating, multi-select detection and Voucher selection-status messaging now live in assets/js/exam-feedback.js.",
+        "Subject breakdowns, standard persisted result records, online ranking attempt payloads and result headline thresholds now live in assets/js/exam-results.js.",
+        "app.js remains responsible for DOM rendering, explanation markup, mistake recording, storage, analytics and online synchronization, keeping this slice narrowly behavior-preserving.",
+        "Ranked Challenge single-choice auto-submit, multi-select Confirm Answer, feedback-paused solve timer, Full Bank Exam Mode and separate ranking scopes are unchanged.",
+        "LocalStorage keys, Resume schema, timer policies, score calculation inputs, My Mistakes and protected assessment payloads are unchanged.",
+        "Quick Local Check, Full Pre-Deploy and Windows Basic Check now require exam-feedback.js and exam-results.js and run focused Phase 2D regressions."
+      ]
+    },
+    {
+      "version": "0.20.42",
+      "title": "Exam Engine Refactor Phase 2C: Persistence Core",
+      "date": "2026-09-04",
+      "type": "maintenance",
+      "summary": "Extracts saved-attempt snapshot construction and persistence-related resume helpers from app.js into a focused pure module while preserving the progress schema, storage keys and Resume behavior.",
+      "highlights": [
+        "The existing progressVersion 2 Save / Exit / Resume payload is now built by assets/js/exam-persistence.js and still written through storage.js.",
+        "Voucher resumes continue to persist compact deterministic reconstruction metadata: track/exam identity, runtime mode, question order and option order, without embedding the full Voucher bank.",
+        "Active-learner saved-progress filtering, continuous-ranked saved-remaining calculations, and exact Voucher saved-path matching now live behind the persistence boundary.",
+        "app.js still owns exam reconstruction and Resume orchestration in this slice, keeping Phase 2C behavior-preserving and narrowly scoped.",
+        "LocalStorage keys, saved-progress schema, timer policies, answer flow, navigation, feedback, scoring, ranking, My Mistakes and assessment content are unchanged.",
+        "Quick Local Check, Full Pre-Deploy and Windows Basic Check now require exam-persistence.js and run focused Phase 2C regressions."
+      ]
+    },
+    {
+      "version": "0.20.41",
+      "title": "Exam Engine Refactor Phase 2B: Answers & Navigation Core",
+      "date": "2026-09-04",
+      "type": "maintenance",
+      "summary": "Extracts answer-state transitions and question-navigation state from app.js into focused pure runtime modules while preserving exam UI, scoring, feedback, timer and persistence behavior.",
+      "highlights": [
+        "Single-choice selection, ranked-learning auto-confirm, multi-select toggling and confirmation state now live in assets/js/exam-answers.js while app.js remains responsible for UI rendering, persistence and timer side effects.",
+        "Navigator filter normalization, MARK toggling, direct question index clamping and Previous/Next movement now live in assets/js/exam-navigation.js.",
+        "The existing Ranked Challenge rule remains unchanged: single-choice submits immediately while multi-select requires Confirm Answer before feedback.",
+        "Saved attempt schema, LocalStorage keys, Resume behavior, score calculation, My Mistakes, ranking scopes and timer policies are unchanged.",
+        "Quick Local Check, Full Pre-Deploy and Windows Basic Check now require exam-answers.js and exam-navigation.js and run focused Phase 2B regressions.",
+        "PL-300 reviewed questions, answer keys, Official QBank, course Question Banks, Exams, curriculum and protected assessment payloads remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.40",
+      "title": "Exam Engine Refactor Phase 2A: Session & Timer Core",
+      "date": "2026-09-04",
+      "type": "maintenance",
+      "summary": "Extracts exam session initialization and timer-policy/restore calculations from app.js into focused pure runtime modules without changing exam behavior.",
+      "highlights": [
+        "Fresh and restored exam attempt state normalization now lives in assets/js/exam-session.js with current-index clamping, MARK deduplication, confirmed-answer state, feedback mode, timer state, and started-at restoration preserved.",
+        "Timer policy inference, learner-facing policy labels, and saved-attempt away-time calculations now live in assets/js/exam-timer.js.",
+        "Ranked Learning solve-time semantics still use voucher-ranked-runtime.js, preserving pause-during-feedback and count-away-time-while-solving behavior.",
+        "app.js remains the UI/controller layer; answer handlers, navigator rendering, persistence payload shape, feedback rendering, result calculation, ranking and My Mistakes are intentionally unchanged.",
+        "Quick Local Check, Full Pre-Deploy and Windows Basic Check now require the new exam-session.js and exam-timer.js dependencies and run focused refactor regressions.",
+        "PL-300 reviewed questions, answer keys, Official QBank, course Question Banks, course Exams, curriculum and protected assessment payloads remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.39",
+      "title": "Exam Navigation & Voucher Context Fix",
+      "date": "2026-09-04",
+      "type": "fix",
+      "summary": "Keeps the primary navbar visible during Voucher exams and makes PL-300 exam/question context derive from the active Voucher payload instead of stale course setup breadcrumbs.",
+      "highlights": [
+        "Voucher Focus Mode no longer hides the primary sticky topbar during an active Voucher exam.",
+        "Voucher exam activity context now identifies Voucher, Data Analysis, and Microsoft PL-300 from the generated Voucher exam payload.",
+        "Current-question context and navigator labeling now use the active PL-300 exam label and actual question topic rather than stale English / Module setup text.",
+        "Official QBank, My Mistakes, and generic course exam context paths remain unchanged.",
+        "PL-300 reviewed questions, answer keys, ranking scopes, timers, Resume, My Mistakes, Official QBank, course banks, exams, and protected assessment payloads remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.38",
+      "title": "Refactor Foundation: Design Tokens & Ranking Storage",
+      "date": "2026-09-04",
+      "type": "maintenance",
+      "summary": "Begins the architecture refactor with behavior-preserving design-token extraction and safe ranking-preference persistence boundaries.",
+      "highlights": [
+        "Light and Dark semantic CSS variables move into a dedicated load-first assets/css/tokens.css file with the v0.20.37 values preserved exactly.",
+        "Ranking UI preference reads and writes move behind storage.js safe storage helpers while preserving the existing legacy localStorage key names and saved user selections.",
+        "app.js no longer directly accesses localStorage for ranking mode, track, exam, or Voucher ranking preferences.",
+        "Quick Local Check and Full Pre-Deploy now require tokens.css so a missing refactor dependency fails before localhost acceptance.",
+        "Exam behavior, timer rules, ranking scopes/order, Voucher PL-300 content, answer keys, My Mistakes, Official QBank, course banks, exams, and curriculum remain unchanged.",
+        "This is the first incremental refactor slice; Exam Engine extraction is intentionally deferred to a separate test-gated phase rather than bundled into a big-bang rewrite."
+      ]
+    },
+    {
+      "version": "0.20.37",
+      "title": "Voucher Selection Affordance & Visual Clarity Fix",
+      "date": "2026-09-04",
+      "type": "fix",
+      "summary": "Makes Voucher Custom Practice question-count choices unmistakably clickable and selected in both Light and Dark mode while restoring the Voucher border token consistently.",
+      "highlights": [
+        "Custom Practice 25 / 50 / 100 / Full Reviewed Bank choices now render as explicit selection cards with stronger borders, contrasting surfaces and larger visual affordance.",
+        "Hover and keyboard focus states now clearly signal clickability, while the selected choice gains a persistent checkmark so selection is not communicated by color alone.",
+        "Dark mode has dedicated default, hover and active card treatments with readable text and visible boundaries.",
+        "The Custom Practice section now labels the control group with Choose number of questions and Select one option to continue.",
+        "Voucher surfaces now map the legacy --border token to the platform --line token so existing Voucher borders no longer disappear when the variable is unresolved.",
+        "Ranked Challenge, Full Bank Ranked Exam, PL-300 reviewed questions, answer keys, ranking/readiness, My Mistakes and protected assessment payloads are unchanged."
+      ]
+    },
+    {
+      "version": "0.20.36",
+      "title": "Full Bank Ranked Exam",
+      "date": "2026-09-04",
+      "type": "feature",
+      "summary": "Adds a separate ranked PL-300 exam that uses all 180 reviewed questions in one 360-minute Exam Mode attempt without changing the existing 60-question Ranked Challenge leaderboard.",
+      "highlights": [
+        "PL-300 now offers Full Bank Ranked Exam: all 180 reviewed questions in one attempt, 360-minute continuous ranked timer, and feedback only after submission.",
+        "Full Bank Ranking is isolated from the existing 60-question Ranked Challenge leaderboard; score ranks first and faster completion time breaks ties within each mode.",
+        "The existing 60-question Ranked Challenge remains unchanged with 120 solve minutes, Instant Feedback, solve-time-only timing, Readiness, and Improve My Level.",
+        "Full Bank Ranked Exam supports saved-attempt Resume and reconstructs the exact question/option order from compact Voucher resume metadata.",
+        "Custom Practice 25 / 50 / 100 / Full Reviewed Bank remains non-ranked and configurable; Track Overall continues to use only Real Exam Size challenge results.",
+        "PL-300 reviewed question text, answer keys, option IDs, visuals, Official QBank, course Question Banks, course Exams, My Mistakes, and protected curriculum content are unchanged."
+      ]
+    },
+    {
+      "version": "0.20.35",
+      "title": "Windows Local Start Reliability Hotfix",
+      "date": "2026-09-04",
+      "type": "fix",
+      "summary": "Makes START-LOCAL.bat reliable on Windows without depending on the installed Node.js state or a single hard-coded localhost port.",
+      "highlights": [
+        "START-LOCAL.bat now always uses the Windows-native PowerShell safety check and loopback local server for ordinary testing, so a present but old or broken Node.js installation cannot intercept startup.",
+        "The Windows local server tries port 4173 first and automatically advances to the next available loopback port when the preferred port is already in use.",
+        "START-LOCAL.bat now keeps the console open after an unexpected server-start failure so the actual error remains visible for diagnosis.",
+        "Developer QA remains unchanged: QUICK-CHECK, FULL-QA, TEST-LOCAL, and RUN-PREFLIGHT continue to use Node.js where appropriate.",
+        "Voucher learning flow, PL-300 content, answer keys, ranking/readiness, My Mistakes, Official QBank, course banks, exams, curriculum, and protected assessment payloads are unchanged."
+      ]
+    },
+    {
+      "version": "0.20.34",
+      "title": "Voucher Exam Learning Flow Polish",
+      "date": "2026-09-03",
+      "type": "fix",
+      "summary": "Polishes Voucher Custom Practice selection and the Instant Feedback exam cycle without changing assessment content or scoring.",
+      "highlights": [
+        "Voucher Custom Practice 25 / 50 / 100 / Full Reviewed Bank choices now retain a visible selected state in Light and Dark mode; the missing Voucher accent token that caused white-on-white selection is fixed at the Voucher surface boundary.",
+        "Practice-size buttons now expose aria-pressed state so the selected choice remains explicit to assistive technology as well as visually.",
+        "Multi-select Confirm Answer now communicates incomplete, ready-to-confirm, and confirmed states; it remains unavailable until the exact required number of answers is selected.",
+        "Single-choice Instant Feedback remains one-click: choosing an option submits immediately with no Confirm Answer step.",
+        "Voucher Instant Feedback now keeps Previous / Mark / Next (or Submit) in a sticky action bar while long explanations are being read, and newly opened feedback is brought into view.",
+        "PL-300 reviewed question content, answer keys, option IDs, ranking/readiness logic, solve-time timer policy, My Mistakes, Official QBank, course Question Banks, course Exams, and protected curriculum payloads are unchanged."
+      ]
+    },
+    {
+      "version": "0.20.33",
+      "title": "Voucher Answer Cycle Flow Fix",
+      "date": "2026-09-03",
+      "type": "fix",
+      "summary": "Shortens the PL-300 Ranked Challenge answer cycle and prevents unrelated saved Voucher practice from intercepting the selected path.",
+      "highlights": [
+        "Ranked single-choice questions now submit immediately when an option is selected, lock the answer, show Instant Feedback, and pause the solve timer without a second confirmation click.",
+        "Confirm Answer is now shown only for native multi-select questions after the learner selects the required number of answers.",
+        "The ranked timer still counts solving time only: single-choice selection moves directly into feedback-paused state, while multi-select stays in solving state until Confirm Answer.",
+        "Saved Voucher attempts now intercept launch only when track, Voucher exam, mock kind, and size match the newly selected path; an unrelated Custom Practice no longer opens when starting Ranked Challenge.",
+        "Microsoft PL-300 reviewed questions, scoring, option IDs, ranking/readiness rules, My Mistakes, Official QBank, course Question Banks, course Exams, and protected curriculum payloads are unchanged."
+      ]
+    },
+    {
+      "version": "0.20.32",
+      "title": "Voucher Competitive Learning UX",
+      "date": "2026-09-03",
+      "type": "feature",
+      "summary": "Turns Microsoft PL-300 Voucher into a rank-first competitive learning loop with mandatory Instant Feedback, solve-time-only ranked timing, focused improvement sessions, and exam Focus Mode.",
+      "highlights": [
+        "PL-300 Ranked Challenge now uses one shared contract: 60 questions, 120 solve minutes, mandatory Instant Feedback, explicit answer confirmation, and rank eligibility for every learner.",
+        "The ranked timer counts solving time only: it pauses during confirmed feedback, continues while the learner is still solving, and applies away time only to the solving phase.",
+        "The Voucher exam page now prioritizes Current Rank, Personal Best, Digilians Readiness, improvement, next-rank target, Ranked Challenge, Improve My Level, and leaderboard preview before Custom Practice.",
+        "Improve My Level creates a 25-question non-ranked Instant Feedback session weighted toward weak domains, active Voucher mistakes, and unseen reviewed questions.",
+        "Voucher Focus Mode hides the main navbar while solving, adds All / Unanswered / Answered / Marked navigator filters, live selection guidance, and question-card anchored navigation.",
+        "Ranked results and attempt history now store/display readiness, solve-only timing and improvement metadata, with Improve My Level as the primary post-challenge action.",
+        "Learner-facing PL-300 feedback is structured and removes implementation language such as Option IDs, Safe Shuffle, provenance and runtime metadata while internal provenance remains preserved.",
+        "Official QBank, course Question Banks, course Exams, protected data, My Mistakes Wrong-only behavior, and Voucher Track Overall denominator/membership rules remain protected."
+      ]
+    },
+    {
+      "version": "0.20.31",
+      "title": "Voucher UX Restructure",
+      "date": "2026-09-03",
+      "type": "design",
+      "summary": "Reorganizes Voucher navigation and Microsoft PL-300 preparation into clearer Practice, Real Exam, Source Mock, Ranking, and progress paths without changing assessment logic.",
+      "highlights": [
+        "Voucher child navigation now resets to the top immediately, eliminating the confusing inherited/smooth scroll position seen when moving from Hub to Track to Exam.",
+        "Track exam cards hydrate reviewed-question totals from each exam config instead of displaying a copied stale count; Microsoft PL-300 now shows the current 180 reviewed questions.",
+        "Practice sizes are now 25 / 50 / 100 / Full Reviewed Bank, while ranked Real Exam Simulation is a separate 60-question / 120-minute path with its own clear CTA and Exam Ranking action.",
+        "Full Source Mocks and empty Attempt History use compact states until useful content exists, and Track Overall Ranking moves into the exam hero instead of a detached footer action row.",
+        "The Voucher Hub hero is shorter so track choices appear sooner, while the released exam card becomes a featured certification card with live readiness metadata.",
+        "No Voucher bank content, scoring, Safe Shuffle, Resume, Ranking rules, My Mistakes rules, Official QBank, course Question Banks, course Exams, or protected curriculum data changed."
+      ]
+    },
+    {
+      "version": "0.20.30",
+      "title": "Microsoft PL-300 Reviewed Bank Wave 2",
+      "date": "2026-09-03",
+      "type": "learning",
+      "summary": "Expands the Data Analysis Microsoft PL-300 Voucher from 101 to 180 reviewed production questions while keeping unresolved or stale source variants fail-closed.",
+      "highlights": [
+        "Microsoft PL-300 reviewed production bank expands to 180 canonical questions; 90 remaining canonical drafts stay excluded from Random and Real Exam generation.",
+        "The reviewed bank now includes 27 native multi-select questions and 41 questions with safe exhibit assets while preserving stable Option-ID scoring.",
+        "Random 25 / 50 / 100, Full Reviewed Bank 180, and Real Exam Size 60 questions / 120 minutes remain available; only Real Exam Size is rank eligible.",
+        "Wave 2 uses an explicit reviewed allowlist for standalone Source 2 questions and keeps newly identified stale, ambiguous, legacy, and conflicting variants fail-closed pending owner approval.",
+        "Full Source mocks remain withheld until Hotspot, Drag & Drop, case-study, and answer-area-heavy questions can be reconstructed without leaking solutions or changing question meaning.",
+        "Official QBank, course Question Banks, course Exams, protected curriculum data, existing Ranking rules, and My Mistakes Wrong-only behavior remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.29",
+      "title": "Microsoft PL-300 Voucher Production V1",
+      "date": "2026-09-03",
+      "type": "learning",
+      "summary": "Releases the first Data Analysis Voucher exam with a reviewed PL-300 bank, native multi-select, safe visual-question support, Arabic explanations, and ranked 60-question Real Exam simulation.",
+      "highlights": [
+        "Data Analysis Voucher now contains Microsoft PL-300 Exam with 101 reviewed canonical questions from the two supplied PL-300 PDF sources.",
+        "Random 25 / 50 / 100, Full Reviewed Bank, and Real Exam Size 60 questions / 120 minutes are available; only Real Exam Size is rank eligible.",
+        "Native multi-select scoring preserves multi-answer questions without converting them to single-choice, and safe option shuffling remains ID-based.",
+        "Twenty reviewed questions retain required exhibit/model visuals through cropped answer-safe assets; unsupported visual-heavy Source mocks remain withheld rather than released incompletely.",
+        "Approved answer-key conflicts are corrected only in scoring while the original PDF answer text remains preserved in provenance; unreviewed questions stay fail-closed.",
+        "Official QBank, course Question Banks, course Exams, protected curriculum data, existing Ranking rules, and My Mistakes Wrong-only behavior remain unchanged."
+      ]
+    },
+    {
+      "version": "0.20.28",
+      "title": "Voucher Ranking Center Integration",
+      "date": "2026-09-02",
+      "type": "feature",
+      "summary": "Makes Voucher Exam Ranking and Voucher Track Overall first-class modes inside the main Ranking Center while preserving the existing Real Exam Size-only ranking rules.",
+      "highlights": [
+        "Ranking Center now shows dedicated Voucher Track Overall and Voucher Exam Ranking tabs alongside the existing Official and course ranking modes.",
+        "Voucher ranking controls are registry-driven: learners choose a Voucher track and, when available, a released rank-eligible Real Exam leaderboard.",
+        "Before any Voucher exam is released, both Voucher ranking modes remain visible with clear empty states instead of being hidden.",
+        "Voucher Exam Ranking continues to accept only best Real Exam Size attempts; Voucher Track Overall still uses fixed total question volume and Primary Track membership.",
+        "No Official QBank content, course Question Banks, Exams, Voucher question content, scoring rules, My Mistakes rules, or learner data schema changed."
+      ]
+    },
+    {
+      "version": "0.20.27",
+      "title": "Voucher Visual Redesign",
+      "date": "2026-09-02",
+      "type": "design",
+      "summary": "Refreshes the Voucher Hub with a premium youthful visual system while preserving all Voucher exam, ranking, storage, and My Mistakes behavior.",
+      "highlights": [
+        "Voucher now opens with a stronger premium hero that frames the section as a focused exam-preparation destination.",
+        "Data Analysis, Marketing, Graphic Design, UI/UX, and Media Production now use distinct visual accents and richer track-card hierarchy.",
+        "Coming Soon cards communicate track identity and preparation status without looking disabled or unfinished.",
+        "Responsive hover behavior and reduced-motion fallbacks keep the redesign polished and accessible across desktop and mobile.",
+        "No Voucher exam logic, Official QBank content, course Question Banks, Exams, scoring, Ranking rules, My Mistakes rules, or learner data schema changed."
+      ]
+    },
+    {
+      "version": "0.20.26",
+      "title": "Windows PowerShell Parser Fix",
+      "date": "2026-09-02",
+      "type": "fix",
+      "summary": "Fixes the Windows PowerShell fallback parser error that blocked Node-free START-LOCAL before the basic safety check could run.",
+      "highlights": [
+        "windows-basic-check.ps1 now uses braced variable interpolation before a colon, preventing PowerShell from treating the variable as a drive-qualified reference.",
+        "A regression guard scans shipped PowerShell fallback scripts for ambiguous unbraced variable-colon interpolation.",
+        "START-LOCAL.bat keeps the same safe behavior: full Node Quick Check when Node is available, Windows PowerShell fallback when it is not.",
+        "No Voucher content, Official QBank content, course Question Banks, Exams, scoring, Ranking rules, My Mistakes rules, or learner data schema changed."
+      ]
+    },
+    {
+      "version": "0.20.25",
+      "title": "Windows Local Start Fallback",
+      "date": "2026-09-02",
+      "type": "fix",
+      "summary": "Makes ordinary Windows localhost testing work even when Node.js is not installed, while preserving the full Node-based developer QA path.",
+      "highlights": [
+        "START-LOCAL.bat now prefers the existing Node Quick Check/server when Node is available and automatically falls back to Windows PowerShell when it is not.",
+        "The PowerShell fallback performs a basic required-file, version, and JSON-readability gate before starting a loopback-only local server at 127.0.0.1:4173.",
+        "FULL-QA.bat, TEST-LOCAL.bat, and RUN-PREFLIGHT.bat now explain that Node.js 20+ is required instead of failing with a command-not-found message.",
+        "The fallback is permanently protected by regression tests and the Node Quick Check; it does not claim to replace JavaScript syntax or full regression testing.",
+        "No Voucher content, Official QBank content, course Question Banks, Exams, scoring, Ranking rules, My Mistakes rules, or learner data schema changed."
+      ]
+    },
+    {
+      "version": "0.20.24",
+      "title": "Voucher Infrastructure",
+      "date": "2026-09-02",
+      "type": "feature",
+      "summary": "Adds the production-ready Voucher subsystem foundation with five tracks, independent learner state, safe mock generation, Voucher My Mistakes integration, and Real Exam Size-only ranking without shipping any Voucher question content yet.",
+      "highlights": [
+        "Voucher is a first-class Home and Navbar destination with Data Analysis, Marketing, Graphic Design, UI/UX, and Media Production tracks; empty tracks remain Coming Soon.",
+        "Learners select one Primary Track for Voucher Track Overall competition while remaining free to practice exams from other tracks.",
+        "Voucher attempts, seen-question coverage, compact Resume state, Full Source/Random Mock generation, Safe Shuffle, Unseen-First selection, and timed/untimed modes are isolated from existing Course and Official QBank results.",
+        "My Mistakes now supports Voucher as a separate source filter with Track and Exam filtering while preserving the Wrong-only / No Answer exclusion rule.",
+        "Voucher Exam Ranking and Track Overall foundations accept only Real Exam Size attempts; no production Voucher questions are included in this infrastructure release.",
+        "Official QBank, course Question Banks, course Exams, existing assessment registries, scoring, and historical learner progress remain protected and unchanged."
+      ]
+    },
     {
       "version": "0.20.23",
       "title": "Official Final Feedback Mode Choice",

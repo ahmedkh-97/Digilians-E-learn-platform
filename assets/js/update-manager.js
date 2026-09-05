@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.20.23";
+import {resolveBuildVersion} from "./build-version.js?v=0.22.1";
 
 
 const UPDATE_KEYS={
@@ -9,20 +9,7 @@ const UPDATE_KEYS={
 const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
-const FALLBACK_RELEASE={
-  version:"0.20.23",
-  title:"Official Final Feedback Mode Choice",
-  date:"2026-09-01",
-  summary:"Official QBank Final simulations now let the learner choose Instant Feedback or Exam Mode before the attempt begins.",
-  highlights:[
-    "Junior and Professional Official Final simulations expose both Instant Feedback and Exam Mode in the existing setup screen.",
-    "Instant Feedback shows the correct answer and explanation after each answered question; Exam Mode keeps all feedback until submission.",
-    "The chosen feedback mode is saved with the attempt and preserved on Resume.",
-    "The 100-question distribution, 120-minute timer, scoring, Ranking, question banks, and learner-state schema are unchanged.",
-    "No Official QBank question text, options, or correct answers changed."
-  ],
-  type:"feature"
-};
+const FALLBACK_RELEASE={version:"0.22.1",title:"PL-300 Full Ranked Learning 509/509"};
 
 export function normalizeVersion(value){
   const raw=String(value??"").trim().replace(/^v/i,"");

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "examId": "microsoft-pl-300",
+  "title": "Microsoft PL-300 Exam",
+  "trackId": "data-analysis",
+  "releaseStatus": "reviewed-bank-v4-released",
+  "mockReadinessThreshold": 70,
+  "realExam": {
+    "questionCount": 60,
+    "durationMinutes": 120,
+    "rankEligible": true
+  },
+  "sources": [
+    {
+      "sourceId": "source-01",
+      "title": "PL-300 Final.pdf",
+      "pageCount": 501,
+      "rawQuestionBlocks": 369,
+      "supportedTextCopies": 237,
+      "visualOrNonTextBlocks": 132
+    },
+    {
+      "sourceId": "source-02",
+      "title": "PL-300 Final 2.pdf",
+      "pageCount": 62,
+      "rawQuestionBlocks": 140,
+      "supportedTextCopies": 86,
+      "visualOrNonTextBlocks": 54
+    }
+  ],
+  "audit": {
+    "rawQuestionBlocks": 509,
+    "supportedTextCopies": 323,
+    "exactUniqueTextFingerprints": 297,
+    "draftCanonicalTextQuestions": 271,
+    "draftTopicCounts": {
+      "manage-secure": 76,
+      "model-data": 65,
+      "prepare-data": 68,
+      "visualize-analyze": 61
+    },
+    "note": "All 271 canonical text questions remain resolved: 201 ranked text questions and 70 fail-closed text questions. Native Ranked Engine V1 additionally promotes 64 of 78 deterministic structured source items; 14 remain fail-closed. All 509 source blocks remain practiceable.",
+    "productionReadyQuestions": 265,
+    "remainingDraftQuestions": 70,
+    "finalReviewedWithheldQuestions": 70,
+    "finalReviewComplete": true,
+    "withheldDispositionCounts": {
+      "duplicate-suppressed": 5,
+      "variant-suppressed": 4,
+      "withheld-ambiguous": 13,
+      "withheld-conflict-owner-approval": 11,
+      "withheld-context-incomplete": 21,
+      "withheld-legacy": 7,
+      "withheld-malformed-source": 5,
+      "withheld-scope-confidence": 3,
+      "withheld-visual-incomplete": 1
+    },
+    "productionReadyTextQuestions": 201,
+    "nativeRankedQuestions": 64,
+    "totalRankedQuestions": 265
+  },
+  "fullSourceMocks": {
+    "status": "withheld-pending-visual-normalization",
+    "releasedCount": 0,
+    "reason": "Hotspot, Drag & Drop, and answer-area-heavy source pages must be normalized without leaking answer keys before Full Source mocks can be released."
+  },
+  "fullSourceReview": {
+    "status": "released-full-ranked-learning",
+    "releasedCount": 509,
+    "sourceCounts": {
+      "source-01": 369,
+      "source-02": 140
+    },
+    "mode": "full-ranked-learning-509",
+    "policy": "All 509 source occurrences are required for ranked Completion. Evidence-backed objective concepts contribute Validated Accuracy; uncertain, malformed, or insufficiently structured source blocks are completion-only Study Checkpoints. Duplicate occurrences remain required for study coverage but collapse to one concept weight for competitive mastery.",
+    "autoScoredTextBlocks": 321,
+    "selfGradedVisualBlocks": 108,
+    "practicePersistence": "digilians.voucher owner sourcePractice",
+    "rankingImpact": "completion-all-509; validated-accuracy-only-265-concepts",
+    "nativeStructuredVisualBlocks": 78,
+    "nativeStructureAuditFile": "voucher/tracks/data-analysis/microsoft-pl-300/native-structure-audit.json",
+    "sourceDedupAuditFile": "voucher/tracks/data-analysis/microsoft-pl-300/source-dedup-audit.json",
+    "selfGradedSourceBlocks": 0,
+    "selfGradedMalformedTextBlocks": 2,
+    "nativeRankedQuestions": 64,
+    "nativeRankedReviewFile": "voucher/tracks/data-analysis/microsoft-pl-300/native-ranked-review.json",
+    "rankedCompletionQuestionBlocks": 509,
+    "validatedAccuracyConcepts": 265
+  }
+}

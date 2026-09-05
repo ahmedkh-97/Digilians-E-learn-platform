@@ -22,7 +22,7 @@ test('full track exam navigation returns to the selected learning track',()=>{
 });
 
 test('track exam setup labels its back action with the selected track',()=>{
-  assert.match(app,/backToLibraryBtn["']\)\.textContent\s*=\s*isStandardTrackExam\(\)/,'setup must update the back label for track exams');
+  assert.match(app,/backToLibraryBtn["']\)\.textContent\s*=\s*voucherCtx\?[\s\S]{0,220}isStandardTrackExam\(\)/,'setup must preserve the selected-track back label after the Voucher-specific branch');
 });
 
 test('keyboard users receive a global focus-visible indicator',()=>{

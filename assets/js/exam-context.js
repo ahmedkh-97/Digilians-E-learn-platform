@@ -125,6 +125,7 @@ export function buildExamContextModel({
   const exam=generated?.exam||null;
   const q=currentQuestion(progress);
   const official=exam?.generatedFromOfficialQbank||null;
+  const voucher=exam?.generatedFromVoucher||progress?.voucherResume||null;
   const mistakes=exam?.generatedFromMistakes||null;
 
   if(official){
@@ -138,6 +139,30 @@ export function buildExamContextModel({
       questionSegments:unique(["Official QBank",level,track,topic]),
       navigatorTitle:`${track} · Official QBank`,
       navigatorSubtitle:level?`${level} · ${topic}`:topic
+    };
+  }
+
+  if(voucher){
+    const track=clean(exam?.module || voucher.trackId || "Data Analysis");
+    const rawTitle=clean(exam?.title || progress?.examTitle || voucher.voucherExamId || "Voucher Exam");
+    const examLabel=clean(rawTitle.split(/\s*•\s*/)[0].replace(/\s+Exam$/i,"")) || "Voucher Exam";
+    const domainTitle=clean(voucher.domainTitle || "");
+    const sectionTitle=clean(visibleTopic || q?.sectionTitle || q?.section || q?.topic || q?.topicId || "Question");
+    if(domainTitle){
+      return {
+        kind:"voucher",
+        activitySegments:unique(["Voucher",examLabel,domainTitle]),
+        questionSegments:unique([domainTitle,sectionTitle]),
+        navigatorTitle:`${examLabel} · ${domainTitle}`,
+        navigatorSubtitle:sectionTitle
+      };
+    }
+    return {
+      kind:"voucher",
+      activitySegments:unique(["Voucher",track,examLabel]),
+      questionSegments:unique([examLabel,sectionTitle]),
+      navigatorTitle:`${examLabel} · Questions`,
+      navigatorSubtitle:sectionTitle
     };
   }
 

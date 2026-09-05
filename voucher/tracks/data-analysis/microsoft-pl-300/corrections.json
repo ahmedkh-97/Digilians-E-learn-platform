@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "examId": "microsoft-pl-300",
+  "policy": "Source answer keys remain preserved verbatim; approved corrections affect scoring only after owner approval.",
+  "corrections": [
+    {
+      "id": "C-001",
+      "sourceId": "source-02",
+      "questionNumber": "227",
+      "approvedAnswerTexts": [
+        "Power Bl dataset"
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "Reuse the existing published semantic model/dataset so existing measures are available.",
+      "sourceAnswerIds": [
+        "A"
+      ],
+      "sourceAnswerTexts": [
+        "a SharePoint folder"
+      ]
+    },
+    {
+      "id": "C-002",
+      "sourceId": "source-02",
+      "questionNumber": "296",
+      "approvedAnswerTexts": [
+        "Enable report readers to personalize visuals."
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "Personalize visuals lets readers switch visual type with minimal authoring.",
+      "sourceAnswerIds": [
+        "C"
+      ],
+      "sourceAnswerTexts": [
+        "Create a separate report page for users to view the column chart."
+      ]
+    },
+    {
+      "id": "C-003",
+      "sourceId": "source-02",
+      "questionNumber": "310",
+      "approvedAnswerTexts": [
+        "Enable personalization for the report"
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "Report personalization supports changing measure, visual type and legend.",
+      "sourceAnswerIds": [
+        "C"
+      ],
+      "sourceAnswerTexts": [
+        "Edit the interactions between the three visuals."
+      ]
+    },
+    {
+      "id": "C-004",
+      "sourceId": "source-02",
+      "questionNumber": "244",
+      "approvedAnswerTexts": [
+        "Create a theme as a JSON file and import the theme into Power Bl Desktop."
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "Reusable custom report themes are JSON.",
+      "sourceAnswerIds": [
+        "D"
+      ],
+      "sourceAnswerTexts": [
+        "From Power Bl Desktop, customize the current theme."
+      ]
+    },
+    {
+      "id": "C-005",
+      "sourceId": "source-02",
+      "questionNumber": "410",
+      "approvedAnswerTexts": [],
+      "status": "APPROVED_CANONICAL_SOURCE02_EXCLUDED",
+      "action": "exclude-source-variant",
+      "note": "Malformed/split options; use Source 01 canonical SharePoint Folder -> Transform -> filter Folder Path.",
+      "sourceAnswerIds": [
+        "A"
+      ],
+      "sourceAnswerTexts": [
+        "Get data from a SharePoint folder, enter the site URL and then select Combine & Load"
+      ]
+    },
+    {
+      "id": "C-007",
+      "sourceId": "source-02",
+      "questionNumber": "407",
+      "approvedAnswerTexts": [
+        "From Power Query, merge the Orders query and the Order Line Hems query."
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "Flatten order header into order detail to form the fact table.",
+      "sourceAnswerIds": [
+        "D"
+      ],
+      "sourceAnswerTexts": [
+        "From Power Query, merge the Order Line Items query and the Products query."
+      ]
+    },
+    {
+      "id": "C-008",
+      "sourceId": "source-02",
+      "questionNumber": "147",
+      "approvedAnswerTexts": [
+        "The referenced file was moved to a new location",
+        "You do not have permissions to the file."
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "Could-not-find-file aligns with moved/inaccessible source, not privacy firewall.",
+      "sourceAnswerIds": [
+        "B",
+        "D"
+      ],
+      "sourceAnswerTexts": [
+        "An incorrect privacy level was used for the data source.",
+        "You do not have permissions to the file."
+      ]
+    },
+    {
+      "id": "C-010",
+      "sourceId": "source-02",
+      "questionNumber": "71",
+      "approvedAnswerTexts": [
+        "Sync the Country slicer on page 1, page 2, and page 3,"
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "Sync slicers applies the selection only to selected pages.",
+      "sourceAnswerIds": [
+        "B"
+      ],
+      "sourceAnswerTexts": [
+        "Remove the Country slicer from page 1, page 2, and page 3. Add the Country field to the page-level filters."
+      ]
+    },
+    {
+      "id": "C-011",
+      "sourceId": "source-02",
+      "questionNumber": "123",
+      "approvedAnswerTexts": [],
+      "status": "APPROVED_SOURCE02_EXCLUDED",
+      "action": "exclude-source-variant",
+      "note": "Legacy variant has no clean current sensitivity-label option; Source 01 canonical retained.",
+      "sourceAnswerIds": [
+        "A"
+      ],
+      "sourceAnswerTexts": [
+        "Active Directory groups"
+      ]
+    },
+    {
+      "id": "C-013",
+      "sourceId": "source-02",
+      "questionNumber": "42",
+      "approvedAnswerTexts": [
+        "Pin a card visual to a dashboard and set an alert on the tile."
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "Power BI data alerts are configured on supported dashboard tiles.",
+      "sourceAnswerIds": [
+        "A"
+      ],
+      "sourceAnswerTexts": [
+        "Pin a report page to a dashboard and set an alert on the page."
+      ]
+    },
+    {
+      "id": "C-014",
+      "sourceId": "source-02",
+      "questionNumber": "102",
+      "approvedAnswerTexts": [
+        "For the report, change the Export data setting to None"
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "Analyze in Excel relies on Build permission; report export is a separate capability and can be disabled.",
+      "sourceAnswerIds": [
+        "B"
+      ],
+      "sourceAnswerTexts": [
+        "For the report change the Export data setting to Summarized data, data with current layout and underlying data"
+      ]
+    },
+    {
+      "id": "C-015",
+      "sourceId": "source-02",
+      "questionNumber": "307",
+      "approvedAnswerTexts": [
+        "From Power BI Desktop, create a new role that has the following filter.[countryRegionName]= “United States” && [ProductCategory]= “Clothing”"
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "Report filters are not a security boundary. Use an RLS role that enforces both CountryRegionName and ProductCategory predicates.",
+      "sourceAnswerIds": [
+        "D"
+      ],
+      "sourceAnswerTexts": [
+        "Add the following filters to a report.CountryRegionName is United SatesProductCategory is Clothing"
+      ]
+    },
+    {
+      "id": "C-016",
+      "sourceId": "source-01",
+      "questionNumber": "184",
+      "approvedAnswerTexts": [
+        "role-playing dimension"
+      ],
+      "status": "APPROVED",
+      "action": "correct-source-key",
+      "note": "The exhibit uses the same DimAddress table in separate BillingAddressID and MailingAddressID relationships, so the dimension plays multiple semantic roles. No Type 2 history/versioning structure is shown.",
+      "sourceAnswerIds": [
+        "A"
+      ],
+      "sourceAnswerTexts": [
+        "Type 2 slowly changing dimension (SCD)"
+      ]
+    },
+    {
+      "id": "C-017",
+      "sourceId": "source-02",
+      "questionNumber": "19",
+      "approvedAnswerTexts": [
+        "Enable high-density sampling on the scatter plot."
+      ],
+      "status": "APPROVED",
+      "action": "resolve-duplicate-answer-conflict",
+      "note": "The 10-million-row scatter-plot scenario asks for a scatter-only change that preserves the accuracy of other visuals. High-density sampling is the source-01 supported scoring and is approved for canonical ranking; the source-02 trend-line key remains preserved as provenance only.",
+      "sourceAnswerIds": [
+        "B"
+      ],
+      "sourceAnswerTexts": [
+        "Add a trend line to the scatter plot"
+      ]
+    }
+  ],
+  "withheld": [
+    {
+      "id": "C-009",
+      "status": "EXCLUDED_PENDING_ADAPTATION"
+    },
+    {
+      "id": "C-012",
+      "status": "EXCLUDED_PENDING_FINAL_REVIEW"
+    },
+    {
+      "id": "C-018",
+      "status": "EXCLUDED_MALFORMED_CONFLICTING_VARIANTS",
+      "sourceRefs": [
+        "source-01:249",
+        "source-02:242"
+      ],
+      "note": "Tooltip variants disagree and the Source 02 explanation requires a target-visual action that is absent from its choices. Keep both blocks in Full Source Practice as source-reveal/self-grade; never promote to Ranking."
+    }
+  ]
+}

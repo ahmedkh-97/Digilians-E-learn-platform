@@ -101,6 +101,39 @@ test("Generic course exam falls back to setup breadcrumb and visible topic",()=>
   assert.deepEqual(model.questionSegments,["Data Analysis","SQL","Joins"]);
 });
 
+
+
+test("Voucher exam context overrides stale course setup breadcrumbs",()=>{
+  const progress={
+    currentIndex:0,
+    generatedExam:{
+      exam:{
+        title:"Microsoft PL-300 Exam",
+        course:"Voucher",
+        module:"Data Analysis",
+        category:"Voucher Mock",
+        generatedFromVoucher:{
+          trackId:"data-analysis",
+          voucherExamId:"microsoft-pl-300",
+          sizeMode:"50",
+          rankEligible:false
+        }
+      },
+      questions:[{id:"q1",topic:"Visualize and analyze the data",topicId:"visualize-analyze"}]
+    }
+  };
+  const model=buildExamContextModel({
+    progress,
+    setupBreadcrumb:"English / Module / Exam",
+    setupCategory:"Exam",
+    visibleTopic:"Visualize and analyze the data"
+  });
+  assert.equal(model.kind,"voucher");
+  assert.deepEqual(model.activitySegments,["Voucher","Data Analysis","Microsoft PL-300"]);
+  assert.deepEqual(model.questionSegments,["Microsoft PL-300","Visualize and analyze the data"]);
+  assert.equal(model.navigatorTitle,"Microsoft PL-300 · Questions");
+});
+
 test("normalization makes rendered question matching stable",()=>{
   assert.equal(normalizeContextText("  Power   Pivot & DAX\n"),"power pivot & dax");
 });
@@ -139,4 +172,33 @@ test("navigator grouping has readable fallback for missing track metadata",()=>{
   assert.equal(groups.length,1);
   assert.equal(groups[0].label,"Questions");
   assert.deepEqual(groups[0].indexes,[0,1]);
+});
+
+test("Saved PL-300 ranked Domain context stays Voucher-native without generatedExam payload",()=>{
+  const progress={
+    currentIndex:0,
+    examId:"voucher-data-analysis-microsoft-pl-300-domain-prepare-data",
+    examTitle:"Microsoft PL-300 • Prepare the Data",
+    generatedExam:null,
+    voucherResume:{
+      trackId:"data-analysis",
+      voucherExamId:"microsoft-pl-300",
+      mockKind:"domain",
+      sizeMode:"domain",
+      domainRanked:true,
+      domainId:"prepare-data",
+      domainTitle:"Prepare the Data"
+    }
+  };
+  const model=buildExamContextModel({
+    progress,
+    setupBreadcrumb:"English / Module / Exam",
+    setupCategory:"Exam",
+    visibleTopic:"Data Sources & Connectivity"
+  });
+  assert.equal(model.kind,"voucher");
+  assert.deepEqual(model.activitySegments,["Voucher","Microsoft PL-300","Prepare the Data"]);
+  assert.deepEqual(model.questionSegments,["Prepare the Data","Data Sources & Connectivity"]);
+  assert.equal(model.navigatorTitle,"Microsoft PL-300 · Prepare the Data");
+  assert.equal(model.navigatorSubtitle,"Data Sources & Connectivity");
 });

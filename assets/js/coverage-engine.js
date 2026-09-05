@@ -1,3 +1,4 @@
+import {isAnswered,isAnswerCorrect} from "./exam.js";
 function shuffled(array){
   const a=[...array];
   for(let i=a.length-1;i>0;i--){
@@ -141,8 +142,8 @@ export function topicPerformance(questions,answers){
     const g=groups[key];
     g.total++;
     const selected=answers[q.id] ?? null;
-    if(selected===null)g.unanswered++;
-    else if(selected===q.correctAnswer)g.correct++;
+    if(!isAnswered(selected))g.unanswered++;
+    else if(isAnswerCorrect(q,selected))g.correct++;
     else g.wrong++;
   }
   return Object.values(groups).map(g=>({
