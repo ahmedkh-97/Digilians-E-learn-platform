@@ -37,6 +37,10 @@ jobs:
           index_text=index.read_text(encoding='utf-8').replace('0.22.2',version)
           index.write_text(index_text,encoding='utf-8')
 
+          app=root/'assets/js/app.js'
+          app_text=app.read_text(encoding='utf-8').replace('0.22.2',version)
+          app.write_text(app_text,encoding='utf-8')
+
           update=root/'assets/js/update-manager.js'
           update_text=update.read_text(encoding='utf-8').replace('0.22.2',version)
           update_text=update_text.replace('PL-300 Study UX & Answer Lock','PL-300 Native Arabic 509/509')
@@ -75,12 +79,12 @@ jobs:
         if: github.event_name == 'push'
         shell: bash
         run: |
-          if git diff --quiet -- VERSION.txt index.html assets/js/update-manager.js data/changelog.json; then
+          if git diff --quiet -- VERSION.txt index.html assets/js/app.js assets/js/update-manager.js data/changelog.json; then
             echo "Release identity already committed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add VERSION.txt index.html assets/js/update-manager.js data/changelog.json
+          git add VERSION.txt index.html assets/js/app.js assets/js/update-manager.js data/changelog.json
           git commit -m "release: set V0.22.3 identity [skip release-prep]"
           git push
