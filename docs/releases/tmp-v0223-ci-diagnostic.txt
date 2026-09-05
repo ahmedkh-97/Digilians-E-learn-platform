@@ -1,30 +1,30 @@
 V0.22.3 CI diagnostic
-run=33974168289
-sha=e4225a8228032e5543040850b2e966638a4f79be
+run=33974212676
+sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 
 ===== FOCUSED =====
 2-# Subtest: progress backups carry the learner storage schema marker
 3-ok 1 - progress backups carry the learner storage schema marker
 4-  ---
-5-  duration_ms: 17.879259
+5-  duration_ms: 18.138691
 6-  type: 'test'
 7-  ...
 8-# Subtest: restore validation refuses learner data from a future storage schema
 9-ok 2 - restore validation refuses learner data from a future storage schema
 10-  ---
-11-  duration_ms: 9.389486
+11-  duration_ms: 6.626278
 12-  type: 'test'
 13-  ...
 14:# Subtest: restore rolls back all learner keys when a browser write fails mid-apply
 15:ok 3 - restore rolls back all learner keys when a browser write fails mid-apply
 16-  ---
-17-  duration_ms: 3.583861
+17-  duration_ms: 3.172337
 18-  type: 'test'
 19-  ...
 20-# Subtest: Official section exposes level, track and current topic
 21-ok 4 - Official section exposes level, track and current topic
 22-  ---
-23-  duration_ms: 2.013933
+23-  duration_ms: 1.991759
 24-  type: 'test'
 25-  ...
 26-# Subtest: Professional Official random exam keeps level and current question topic
@@ -33,25 +33,25 @@ sha=e4225a8228032e5543040850b2e966638a4f79be
 242-# Subtest: ambiguous concept families resolve to source-specific semantic answers
 243-ok 41 - ambiguous concept families resolve to source-specific semantic answers
 244-  ---
-245-  duration_ms: 7.433376
+245-  duration_ms: 6.911456
 246-  type: 'test'
 247-  ...
 248-# Subtest: generic fallback stems are not truncated or context-poor
 249-ok 42 - generic fallback stems are not truncated or context-poor
 250-  ---
-251-  duration_ms: 10.576457
+251-  duration_ms: 8.888302
 252-  type: 'test'
 253-  ...
 254:# Subtest: current release metadata keeps Excel Practice startup modules cache-busted consistently
 255:ok 43 - current release metadata keeps Excel Practice startup modules cache-busted consistently
 256-  ---
-257-  duration_ms: 5.571724
+257-  duration_ms: 8.995133
 258-  type: 'test'
 259-  ...
 260-# Subtest: Excel intake metadata marks Study and Practice approved, Full Track Exam ready, and Week Exams locked
 261-ok 44 - Excel intake metadata marks Study and Practice approved, Full Track Exam ready, and Week Exams locked
 262-  ---
-263-  duration_ms: 4.496408
+263-  duration_ms: 6.201807
 264-  type: 'test'
 265-  ...
 266-# Subtest: Practice stems are learner-facing and correct-answer positions are balanced
@@ -60,25 +60,25 @@ sha=e4225a8228032e5543040850b2e966638a4f79be
 536-# Subtest: full local test runs pre-deploy before localhost
 537-ok 90 - full local test runs pre-deploy before localhost
 538-  ---
-539-  duration_ms: 0.41449
+539-  duration_ms: 0.3456
 540-  type: 'test'
 541-  ...
 542-# Subtest: quick check protects answered-only My Mistakes behavior before localhost starts
 543-ok 91 - quick check protects answered-only My Mistakes behavior before localhost starts
 544-  ---
-545-  duration_ms: 0.293676
+545-  duration_ms: 0.293422
 546-  type: 'test'
 547-  ...
 548:# Subtest: quick check blocks localhost on Voucher infrastructure and regression failures
 549:ok 92 - quick check blocks localhost on Voucher infrastructure and regression failures
 550-  ---
-551-  duration_ms: 0.411435
+551-  duration_ms: 0.314153
 552-  type: 'test'
 553-  ...
 554-# Subtest: quick check permanently guards the Windows no-Node local-start fallback
 555-ok 93 - quick check permanently guards the Windows no-Node local-start fallback
 556-  ---
-557-  duration_ms: 0.332087
+557-  duration_ms: 0.306721
 558-  type: 'test'
 559-  ...
 560-# Subtest: full pre-deploy validates Voucher JSON alongside core data
@@ -87,25 +87,25 @@ sha=e4225a8228032e5543040850b2e966638a4f79be
 968-# Subtest: PL-300 text review retains 201 approved text questions while native ranking expands the master bank
 969-ok 162 - PL-300 text review retains 201 approved text questions while native ranking expands the master bank
 970-  ---
-971-  duration_ms: 1.509365
+971-  duration_ms: 1.520459
 972-  type: 'test'
 973-  ...
 974-# Subtest: all 20 conservative wave-3 candidates are production approved with reviewed Arabic explanations
 975-ok 163 - all 20 conservative wave-3 candidates are production approved with reviewed Arabic explanations
 976-  ---
-977-  duration_ms: 1.076971
+977-  duration_ms: 1.072775
 978-  type: 'test'
 979-  ...
 980:# Subtest: the other 70 questions have a final fail-closed disposition instead of an unresolved review state
 981:ok 164 - the other 70 questions have a final fail-closed disposition instead of an unresolved review state
 982-  ---
-983-  duration_ms: 0.5917
+983-  duration_ms: 0.590308
 984-  type: 'test'
 985-  ...
 986-# Subtest: known answer-key conflicts remain withheld and source scoring is not silently changed
 987-ok 165 - known answer-key conflicts remain withheld and source scoring is not silently changed
 988-  ---
-989-  duration_ms: 1.675034
+989-  duration_ms: 1.551246
 990-  type: 'test'
 991-  ...
 992-# Subtest: legacy Q&A and Power View questions stay out of production
@@ -114,31 +114,31 @@ sha=e4225a8228032e5543040850b2e966638a4f79be
 1124-# Subtest: ranked study checkpoints require evidence review and never expose self-awarded competitive correctness
 1125-ok 188 - ranked study checkpoints require evidence review and never expose self-awarded competitive correctness
 1126-  ---
-1127-  duration_ms: 0.542578
+1127-  duration_ms: 0.615787
 1128-  type: 'test'
 1129-  ...
 1130-# Subtest: PL-300 full ranked UI consumes completion-first metrics from the dedicated lazy module
 1131-ok 189 - PL-300 full ranked UI consumes completion-first metrics from the dedicated lazy module
 1132-  ---
-1133-  duration_ms: 0.328641
+1133-  duration_ms: 0.344408
 1134-  type: 'test'
 1135-  ...
 1136:# Subtest: full ranked source-review presentation is lazy-rendered by the PL-300 module instead of inflating startup app payload
 1137:ok 190 - full ranked source-review presentation is lazy-rendered by the PL-300 module instead of inflating startup app payload
 1138-  ---
-1139-  duration_ms: 0.371169
+1139-  duration_ms: 0.383017
 1140-  type: 'test'
 1141-  ...
 1142:# Subtest: PL-300 full source review exposes both PDFs and all 509 actual question blocks
 1143:ok 191 - PL-300 full source review exposes both PDFs and all 509 actual question blocks
 1144-  ---
-1145-  duration_ms: 19.441694
+1145-  duration_ms: 17.64396
 1146-  type: 'test'
 1147-  ...
 1148-# Subtest: every source-review entry is traceable and reviewable without inventing a scored answer
 1149-ok 192 - every source-review entry is traceable and reviewable without inventing a scored answer
 1150-  ---
-1151-  duration_ms: 10.032897
+1151-  duration_ms: 14.450978
 1152-  type: 'test'
 1153-  ...
 1154-# Subtest: Full Ranked review UI exposes a primary Study Part selector and selected-part progress
@@ -147,1909 +147,800 @@ sha=e4225a8228032e5543040850b2e966638a4f79be
 1184-# Subtest: part filtering keeps source-bank order and limits navigation to the selected mini part
 1185-ok 198 - part filtering keeps source-bank order and limits navigation to the selected mini part
 1186-  ---
-1187-  duration_ms: 2.517449
+1187-  duration_ms: 3.039817
 1188-  type: 'test'
 1189-  ...
 1190-# Subtest: part selector markup exposes All 509 plus grouped domain → section → part labels
 1191-ok 199 - part selector markup exposes All 509 plus grouped domain → section → part labels
 1192-  ---
-1193-  duration_ms: 1.593291
+1193-  duration_ms: 1.359537
 1194-  type: 'test'
 1195-  ...
 1196:# Subtest: part view state centralizes selector label and progress without bloating startup app code
 1197:ok 200 - part view state centralizes selector label and progress without bloating startup app code
 1198-  ---
-1199-  duration_ms: 1.537237
+1199-  duration_ms: 1.594781
 1200-  type: 'test'
 1201-  ...
 1202-# Subtest: source-backed native fields can expose explicit choice lists
 1203-ok 201 - source-backed native fields can expose explicit choice lists
 1204-  ---
-1205-  duration_ms: 1.797721
+1205-  duration_ms: 1.770155
 1206-  type: 'test'
 1207-  ...
 1208-# Subtest: Full Ranked native renderer uses select dropdowns when source choices exist
 1209-ok 202 - Full Ranked native renderer uses select dropdowns when source choices exist
-1210-  ---
-1211-  duration_ms: 2.820993
-1212-  type: 'test'
-1213-  ...
+--
 1214-# Subtest: master ranked bank carries the same source-backed choices for structured exam mode
 1215-ok 203 - master ranked bank carries the same source-backed choices for structured exam mode
 1216-  ---
-1217-  duration_ms: 0.249594
+1217-  duration_ms: 0.393322
 1218-  type: 'test'
 1219-  ...
 1220-# Subtest: ranked exam structured renderer switches source-backed choice fields to select controls
-1221:not ok 204 - ranked exam structured renderer switches source-backed choice fields to select controls
+1221-ok 204 - ranked exam structured renderer switches source-backed choice fields to select controls
 1222-  ---
-1223-  duration_ms: 3.866496
+1223-  duration_ms: 0.640845
 1224-  type: 'test'
-1225-  location: '/home/runner/work/Digilians-E-learn-platform/Digilians-E-learn-platform/tests/pl300-native-dropdowns.test.mjs:40:1'
-1226:  failureType: 'testCodeFailure'
-1227-  error: |-
-1228-    The input did not match the regular expression /data-ranked-structured-field/. Input:
-1229-    
-1230-    'import {\n' +
-1231-      '  getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,initializeStorageSafety,\n' +
-1232-      '  getPrimaryTrack,setPrimaryTrack,getRankingPreferences,setRankingMode as persistRankingMode,setRankingTrackPreference,setLastRankingExamId,setVoucherRankingTrackPreference,setVoucherRankingExamPreference,\n' +
-1233-      '  markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,\n' +
-1234-      '  getStudyProgress,updateStudyProgress,clearStudyProgress,\n' +
-1235-      '  getQuickCheckState,saveQuickCheckState,clearQuickCheckState,\n' +
-1236-      '  setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,\n' +
-1237-      '  getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags\n' +
-1238-      '} from "./storage.js?v=0.22.2";\n' +
+1225-  ...
+1226:# Subtest: all 78 native candidates have an explicit fail-closed ranking review decision
+1227:ok 205 - all 78 native candidates have an explicit fail-closed ranking review decision
+1228-  ---
+1229-  duration_ms: 1.671937
+1230-  type: 'test'
+1231-  ...
+1232-# Subtest: approved native candidates are promoted exactly once as structured ranked questions
+1233-ok 206 - approved native candidates are promoted exactly once as structured ranked questions
+1234-  ---
+1235-  duration_ms: 25.496449
+1236-  type: 'test'
+1237-  ...
+1238-# Subtest: withheld native duplicates, conflicts and ambiguous items never enter ranked master bank
+1239-ok 207 - withheld native duplicates, conflicts and ambiguous items never enter ranked master bank
 --
-1403-      '\n' +
-1404-      'function setVoucherFocusMode(active){\n' +
-1405-      '  const enabled=Boolean(active);\n' +
-1406-      '  document.body.classList.toggle("voucher-focus-mode",enabled);\n' +
-1407-      '  $("voucherNavSummary")?.classList.toggle("hidden",!enabled);\n' +
-1408-      '  $("voucherNavFilters")?.classList.toggle("hidden",!enabled);\n' +
-1409-      '}\n' +
-1410-      '\n' +
-1411-      'function routeTo(id){\n' +
-1412-      '  window.__DIGILIANS_EXAM_ACTIVE__=id==="examView";\n' +
-1413-      '  window.dispatchEvent(new CustomEvent("digilians:routechange",{detail:{viewId:id,examActiv'... 392098 more characters
-1414-    
-1415:  code: 'ERR_ASSERTION'
-1416:  name: 'AssertionError'
-1417:  expected:
-1418:  actual: |-
-1419-    import {
-1420-      getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,initializeStorageSafety,
-1421-      getPrimaryTrack,setPrimaryTrack,getRankingPreferences,setRankingMode as persistRankingMode,setRankingTrackPreference,setLastRankingExamId,setVoucherRankingTrackPreference,setVoucherRankingExamPreference,
-1422-      markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
-1423-      getStudyProgress,updateStudyProgress,clearStudyProgress,
-1424-      getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
-1425-      setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
-1426-      getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
-1427-    } from "./storage.js?v=0.22.2";
-1428-    
-1429-    import {validateExamPayload,calculateResult,formatDuration,isAnswered,isQuestionAnswered,isAnswerCorrect,correctAnswerIds,selectedAnswerIds} from "./exam.js";
-1430-    import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.2";
+1250-# Subtest: structured normalization is case, punctuation, unicode and whitespace tolerant
+1251-ok 209 - structured normalization is case, punctuation, unicode and whitespace tolerant
+1252-  ---
+1253-  duration_ms: 1.971739
+1254-  type: 'test'
+1255-  ...
+1256-# Subtest: structured answer state is complete only when all required fields are filled
+1257-ok 210 - structured answer state is complete only when all required fields are filled
+1258-  ---
+1259-  duration_ms: 0.433563
+1260-  type: 'test'
+1261-  ...
+1262:# Subtest: structured answers score against source-backed expected values
+1263:ok 211 - structured answers score against source-backed expected values
+1264-  ---
+1265-  duration_ms: 0.515346
+1266-  type: 'test'
+1267-  ...
+1268-# Subtest: shared result engine includes structured questions without changing MCQ scoring
+1269-ok 212 - shared result engine includes structured questions without changing MCQ scoring
+1270-  ---
+1271-  duration_ms: 1.207599
+1272-  type: 'test'
+1273-  ...
+1274-# Subtest: payload validation accepts complete structured scoring contracts and rejects malformed ones
+1275-ok 213 - payload validation accepts complete structured scoring contracts and rejects malformed ones
 --
-2188-        const metrics=voucherFullRankMetrics();
-2189-        if(!metrics)return;
-2190-        if($("pl300FullRankCompletion"))$("pl300FullRankCompletion").textContent=`${metrics.completedOccurrences} / ${metrics.totalOccurrences}`;
-2191-        if($("pl300FullRankAccuracy"))$("pl300FullRankAccuracy").textContent=`${metrics.validatedAccuracy}%`;
-2192-        if($("pl300FullRankMastery"))$("pl300FullRankMastery").textContent=`${metrics.masteredClusters} / ${metrics.validatedConceptCount}`;
-2193-        const start=$("pl300FullRankStartBtn");
-2194-        if(start){
-2195-          start.textContent=metrics.completedOccurrences>0&&metrics.completedOccurrences<metrics.totalOccurrences?"Continue Full Ranked Bank →":metrics.completedOccurrences>=metrics.totalOccurrences?"Review Full Ranked Bank →":"Start Full Ranked Bank →";
-2196-          start.addEventListener("click",()=>requireRankedIdentity(()=>void openVoucherFullRankedLearning({filter:"all",continueIncomplete:true}),"Enter your name before starting the PL-300 Full Ranked Bank."));
-2197-        }
-2198-        $("pl300FullRankRankingBtn")?.addEventListener("click",()=>requireRankedIdentity(()=>void openVoucherFullRankedLearningRanking(state.voucherTrackId,config.id),"Enter your name to view the PL-300 Full Bank Ranking."));
-2199-        if($("voucherArchitecturePanel"))renderVoucherArchitecturePanel();
-2200:      }catch(error){console.error("PL-300 Full Ranked card hydration failed",error);}
-2201-    }
-2202-    
-2203-    let pl300FullRankSyncTimer=null;
-2204-    
-2205-    async function syncPl300FullRankSnapshot({force=false}={}){
-2206-      const config=state.voucherExamConfig;
-2207-      if(!config?.fullRankedLearning||!state.playerId||!state.studentName)return false;
-2208-      await ensurePl300FullRankedLearning();
-2209-      await loadVoucherFullRankedIndex(config);
-2210-      const metrics=voucherFullRankMetrics();
-2211-      if(!metrics||metrics.completedOccurrences<=0)return false;
-2212-      const signature=[metrics.completedOccurrences,metrics.masteredClusters,metrics.firstPassCorrectClusters,metrics.attemptsToBest,metrics.activeSolveSeconds].join(":");
+1334-# Subtest: structured My Mistakes questions remain practiceable without invented MCQ options
+1335-ok 223 - structured My Mistakes questions remain practiceable without invented MCQ options
+1336-  ---
+1337-  duration_ms: 0.489457
+1338-  type: 'test'
+1339-  ...
+1340-# Subtest: PL-300 visual audit accepts approved native structured source-evidence visuals
+1341-ok 224 - PL-300 visual audit accepts approved native structured source-evidence visuals
+1342-  ---
+1343-  duration_ms: 101.239615
+1344-  type: 'test'
+1345-  ...
+1346:# Subtest: PL-300 source practice promotes evidence-backed visuals while fail-closed source reveals remain checkpoint candidates
+1347:ok 225 - PL-300 source practice promotes evidence-backed visuals while fail-closed source reveals remain checkpoint candidates
+1348-  ---
+1349-  duration_ms: 16.971968
+1350-  type: 'test'
+1351-  ...
+1352-# Subtest: native source records stay practice-scoped while only explicit reviewed copies enter the ranked master bank
+1353-ok 226 - native source records stay practice-scoped while only explicit reviewed copies enter the ranked master bank
+1354-  ---
+1355-  duration_ms: 30.609186
+1356-  type: 'test'
+1357-  ...
+1358-# Subtest: voucher storage and source-practice UI support native structured answers
+1359-ok 227 - voucher storage and source-practice UI support native structured answers
 --
-2239-        voucherSourcePracticeNative.ensureNativePracticeStyles();
-2240-        const sources=config.sourceReviewSources||[];
-2241-        if(sources.length!==2)throw new Error("The two PL-300 source review banks are required.");
-2242-        const banks=await Promise.all(sources.map(async source=>{
-2243-          if(!source?.reviewBankFile)throw new Error("A PL-300 source review bank is unavailable.");
-2244-          const bank=await loadJson(source.reviewBankFile);
-2245-          if(!Array.isArray(bank?.questions)||!bank.questions.length)throw new Error("A PL-300 source bank has no questions.");
-2246-          return {...bank,sourceTitle:source.title||bank.title||source.sourceId};
-2247-        }));
-2248-        const masterBank=config.masterBankFile?await loadJson(config.masterBankFile):{questions:[]};
-2249-        const rawQuestions=banks.flatMap(bank=>bank.questions.map(question=>({...question,sourceTitle:bank.sourceTitle})));
-2250-        const questions=pl300FullRankedLearning.enrichPl300SourceQuestionsWithArabic({questions:rawQuestions,index:state.voucherFullRankedIndex,masterQuestions:masterBank?.questions||[]});
-2251:        const expected=Number(config.fullRankedLearning?.questionCount)||509;
-2252:        if(questions.length!==expected)throw new Error(`Full Ranked Learning expected ${expected} source questions but found ${questions.length}.`);
-2253-        state.voucherSourceReviewSourceId="all";
-2254-        state.voucherSourceReviewBank={schemaVersion:1,examId:config.id,sourceId:"all",sourceTitle:"Full Ranked Bank — 509 Questions",questionCount:questions.length,questions};
-2255-        state.voucherSourceReviewFilter=["all","source-01","source-02","objective","checkpoint"].includes(String(filter))?String(filter):"all";
-2256-        state.voucherSourceReviewParts=pl300FullRankedLearning.buildPl300MiniParts({index:state.voucherFullRankedIndex,architecture:state.voucherContentArchitecture,targetSize:18,maxSize:20});
-2257-        state.voucherSourceReviewPartId="all";
-2258-        state.voucherSourceReviewIndex=0;
-2259-        state.voucherSourcePracticeSelections={};
-2260-        state.voucherSourcePracticeNativeInputs={};
-2261-        state.voucherSourcePracticeRetrying=new Set();
-2262-        state.voucherSourceRevealOpened=new Set();
-2263-        state.voucherSourcePendingSeconds={};
-2264-        voucherSourceResetSolveTimer();
-2265-        if(continueIncomplete){
-2266-          const filtered=voucherSourceReviewFilteredQuestions();
-2267-          const practice=getVoucherSourcePracticeState(mistakeOwnerId(),config.id);
-2268-          const nextIndex=filtered.findIndex(question=>!practice.records?.[question.id]);
-2269-          state.voucherSourceReviewIndex=nextIndex>=0?nextIndex:0;
-2270-        }
-2271-        routeTo("voucherSourceReviewView");
-2272-      }catch(error){
-2273:        console.error("Voucher full ranked learning failed",error);
-2274-        showToast(error?.message||"Could not open PL-300 Full Ranked Learning.");
-2275-      }
-2276-    }
-2277-    
-2278-    function voucherSourceReviewFilteredQuestions(){
-2279-      const questions=state.voucherSourceReviewBank?.questions||[];
-2280-      const partQuestions=pl300FullRankedLearning?.filterPl300QuestionsByPart
-2281-        ?pl300FullRankedLearning.filterPl300QuestionsByPart({questions,partId:state.voucherSourceReviewPartId,parts:state.voucherSourceReviewParts})
-2282-        :questions;
-2283-      if(state.voucherSourceReviewFilter==="source-01"||state.voucherSourceReviewFilter==="source-02")return partQuestions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);
-2284-      if(state.voucherSourceReviewFilter==="objective")return partQuestions.filter(q=>voucherFullRankRecord(q)?.mode==="objective");
-2285-      if(state.voucherSourceReviewFilter==="checkpoint")return partQuestions.filter(q=>voucherFullRankRecord(q)?.mode==="checkpoint");
+1370-# Subtest: PL-300 official-weight blueprint resolves to 60 questions
+1371-ok 229 - PL-300 official-weight blueprint resolves to 60 questions
+1372-  ---
+1373-  duration_ms: 0.495837
+1374-  type: 'test'
+1375-  ...
+1376-# Subtest: PL-300 draft master bank preserves stable option IDs, provenance and multi-select answer sets
+1377-ok 230 - PL-300 draft master bank preserves stable option IDs, provenance and multi-select answer sets
+1378-  ---
+1379-  duration_ms: 23.122224
+1380-  type: 'test'
+1381-  ...
+1382:# Subtest: PL-300 production subset is fail-closed, current-scope and large enough for all configured mock sizes
+1383:ok 231 - PL-300 production subset is fail-closed, current-scope and large enough for all configured mock sizes
+1384-  ---
+1385-  duration_ms: 1.457475
+1386-  type: 'test'
+1387-  ...
+1388-# Subtest: production subset supports the fixed 60-question real-exam quota after domain review
+1389-ok 232 - production subset supports the fixed 60-question real-exam quota after domain review
+1390-  ---
+1391-  duration_ms: 0.307744
+1392-  type: 'test'
+1393-  ...
+1394:# Subtest: non-production questions stay excluded from Random and Real generation by the existing fail-closed engine
+1395:ok 233 - non-production questions stay excluded from Random and Real generation by the existing fail-closed engine
+1396-  ---
+1397-  duration_ms: 0.170717
+1398-  type: 'test'
+1399-  ...
+1400-# Subtest: production PL-300 excludes unreviewed standalone Source 2 questions
+1401-ok 234 - production PL-300 excludes unreviewed standalone Source 2 questions
+1402-  ---
+1403-  duration_ms: 2.184229
+1404-  type: 'test'
+1405-  ...
+1406-# Subtest: owner-approved Source 2 RLS conflict Q307 uses RLS scoring and enters the reviewed production set
+1407-ok 235 - owner-approved Source 2 RLS conflict Q307 uses RLS scoring and enters the reviewed production set
 --
-2293-    }
-2294-    
-2295-    function voucherSourcePracticeCorrectIds(question){
-2296-      return (Array.isArray(question?.correctAnswers)&&question.correctAnswers.length?question.correctAnswers:[question?.correctAnswer]).filter(Boolean).map(String);
-2297-    }
-2298-    
-2299-    function voucherSourcePracticeSelection(question,record=voucherSourcePracticeRecord(question)){
-2300-      const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question?.id||""));
-2301-      return pl300FullRankedLearning.sourceAttemptSelection({question,record,tempSelections:state.voucherSourcePracticeSelections,retrying});
-2302-    }
-2303-    
-2304-    function voucherSourcePracticeSelectionsMatch(question,selected){
-2305:      const expected=[...voucherSourcePracticeCorrectIds(question)].sort();
-2306:      const actual=[...(selected||[])].map(String).sort();
-2307:      return expected.length===actual.length&&expected.every((id,index)=>id===actual[index]);
-2308-    }
-2309-    
-2310-    function voucherSourcePracticeOptionsHtml(question,record){
-2311-      if(question?.reviewMode!=="scored-text"||!Array.isArray(question.options)||!question.options.length)return "";
-2312-      const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question.id||""));
-2313-      const locked=pl300FullRankedLearning.sourceAttemptLocked(record,retrying);
-2314-      return pl300FullRankedLearning.buildSourcePracticeOptionsMarkup({question,record,selected:voucherSourcePracticeSelection(question,record),locked,retrying,renderRichText:renderTechnicalRichText});
-2315-    }
-2316-    
-2317-    
-2318-    function voucherSourcePracticeSummary(){
-2319-      return voucherFullRankMetrics()||{completedOccurrences:0,totalOccurrences:509,completionPercentage:0,masteredClusters:0,validatedConceptCount:265,validatedAccuracy:0,firstPassPercentage:0,checkpointCompletions:0};
+1412-# Subtest: conservative PL-300 production set still supports all mock sizes and the fixed real-exam quota
+1413-ok 236 - conservative PL-300 production set still supports all mock sizes and the fixed real-exam quota
+1414-  ---
+1415-  duration_ms: 0.386402
+1416-  type: 'test'
+1417-  ...
+1418-# Subtest: approved scatter conflict is promoted as the 201st ranked question with preserved source provenance
+1419-ok 237 - approved scatter conflict is promoted as the 201st ranked question with preserved source provenance
+1420-  ---
+1421-  duration_ms: 44.919532
+1422-  type: 'test'
+1423-  ...
+1424:# Subtest: the malformed tooltip variants remain available only as fail-closed source reveal practice
+1425:ok 238 - the malformed tooltip variants remain available only as fail-closed source reveal practice
+1426-  ---
+1427-  duration_ms: 26.727121
+1428-  type: 'test'
+1429-  ...
+1430-# Subtest: release metadata reflects 265 ranked questions while all 509 source blocks remain practiceable
+1431-ok 239 - release metadata reflects 265 ranked questions while all 509 source blocks remain practiceable
+1432-  ---
+1433-  duration_ms: 5.989037
+1434-  type: 'test'
+1435-  ...
+1436-# Subtest: ranked learning styles define .voucher-ranked-learning-overview
+1437-ok 240 - ranked learning styles define .voucher-ranked-learning-overview
 --
-2654-        const bank=await loadJson(config.masterBankFile);
-2655-        const validationErrors=validateVoucherContentArchitecture({architecture,questions:bank.questions||[],examId:config.id});
-2656-        if(validationErrors.length)throw new Error(validationErrors.join("; "));
-2657-        const questions=questionsForVoucherDomain({architecture,questions:bank.questions||[],domainId:domain.id});
-2658-        const sections=sessionsForVoucherDomain({architecture,domainId:domain.id});
-2659-        if(!questions.length)throw new Error("This PL-300 Domain has no released questions.");
-2660-        await prepareVoucherMock({
-2661-          mockKind:"domain",sourceId:domain.id,sizeMode:"domain",timed:false,feedbackMode,
-2662-          allowedQuestionIds:questions.map(question=>question.id),domainTitle:domain.title,
-2663-          domainRanked:true,domainId:domain.id,sectionIds:sections.map(section=>section.id),timerDisplay
-2664-        });
-2665-      }catch(error){
-2666:        console.error("Voucher ranked domain failed",error);
-2667-        showToast(error?.message||"Could not prepare this PL-300 ranked Domain.");
-2668-      }
-2669-    }
-2670-    
-2671-    async function prepareVoucherRankedSession(sessionId,{feedbackMode="instant",timerDisplay=true}={}){
-2672-      const architecture=state.voucherContentArchitecture;
-2673-      const config=state.voucherExamConfig;
-2674-      const session=voucherArchitectureSession(sessionId,architecture);
-2675-      if(!architecture||!config||!session){showToast("Choose a PL-300 session first.");return}
-2676-      if(!state.studentName){requireRankedIdentity(()=>void prepareVoucherRankedSession(sessionId,{feedbackMode,timerDisplay}),"Enter your name before starting a ranked PL-300 session.");return}
-2677-      try{
-2678-        const bank=await loadJson(config.masterBankFile);
-2679-        const validationErrors=validateVoucherContentArchitecture({architecture,questions:bank.questions||[],examId:config.id});
-2680-        if(validationErrors.length)throw new Error(validationErrors.join("; "));
-2681-        const questions=questionsForVoucherSession({architecture,questions:bank.questions||[],sessionId:session.id});
-2682-        if(!questions.length)throw new Error("This PL-300 session has no released questions.");
-2683-        await prepareVoucherMock({
-2684-          mockKind:"session",sourceId:session.id,sizeMode:"session",timed:false,feedbackMode,
-2685-          allowedQuestionIds:questions.map(question=>question.id),sessionTitle:session.title,
-2686-          sessionRanked:true,sessionId:session.id,domainId:session.domainId,timerDisplay
-2687-        });
-2688-      }catch(error){
-2689:        console.error("Voucher ranked session failed",error);
-2690-        showToast(error?.message||"Could not prepare this PL-300 ranked session.");
-2691-      }
-2692-    }
-2693-    
-2694-    function renderVoucherExam(){
-2695-      const meta=voucherTrackMeta(state.voucherTrackId);
-2696-      $("voucherExamBreadcrumb").textContent=`Voucher / ${meta?.title||"Track"} / ${state.voucherExamEntry?.title||state.voucherExamId||"Exam"}`;
-2697-      const body=$("voucherExamBody");
-2698-      if(!body)return;
-2699-      if(state.voucherExamError||!state.voucherExamConfig){
-2700-        body.innerHTML=`<article class="voucher-empty-card"><h3>Exam unavailable</h3><p>${escapeHtml(state.voucherExamError||"This Voucher exam is not ready yet.")}</p></article>`;
-2701-        return;
+1670-# Subtest: owner-approved conflict resolution leaves no unlinked rankable text blocks
+1671-ok 279 - owner-approved conflict resolution leaves no unlinked rankable text blocks
+1672-  ---
+1673-  duration_ms: 5.310235
+1674-  type: 'test'
+1675-  ...
+1676-# Subtest: PL-300 source review supports auto-scored text practice
+1677-ok 280 - PL-300 source review supports auto-scored text practice
+1678-  ---
+1679-  duration_ms: 0.835948
+1680-  type: 'test'
+1681-  ...
+1682:# Subtest: fail-closed source questions use required study checkpoints without self-awarded correctness
+1683:ok 281 - fail-closed source questions use required study checkpoints without self-awarded correctness
+1684-  ---
+1685-  duration_ms: 0.428615
+1686-  type: 'test'
+1687-  ...
+1688-# Subtest: full ranked source practice displays persistent completion and objective answer-state styling
+1689-ok 282 - full ranked source practice displays persistent completion and objective answer-state styling
+1690-  ---
+1691-  duration_ms: 2.205
+1692-  type: 'test'
+1693-  ...
+1694-# Subtest: native structured source practice has responsive answer-field styling
+1695-ok 283 - native structured source practice has responsive answer-field styling
 --
-2982-      const totalQuestions=Object.entries(architecture.questionSessionMap||{}).filter(([,sessionId])=>sections.some(section=>String(section.id)===String(sessionId))).length;
-2983-      if(!totalQuestions)throw new Error("This PL-300 Domain has no released questions.");
-2984-      state.voucherContentArchitecture=architecture;
-2985-      return {examId:config.id,title:domain.title,domainId:domain.id,sectionIds:sections.map(section=>section.id),totalQuestions,activityId:voucherDomainRankingActivityId(trackId,config.id,domain.id)};
-2986-    }
-2987-    
-2988-    async function loadVoucherDomainRanking(trackId,examId,domainId){
-2989-      const requestId=++state.voucherRankingRequestId;
-2990-      try{
-2991-        const spec=await voucherDomainRankingSpec(trackId,examId,domainId);
-2992-        const rows=await fetchAttemptsForExamIds([spec.activityId]);
-2993-        if(requestId!==state.voucherRankingRequestId)return;
-2994:        const board=buildVoucherDomainLeaderboard(rows,{expectedQuestions:spec.totalQuestions});
-2995-        let avatarMap=new Map();
-2996-        try{avatarMap=await fetchRankingProfiles(board.map(x=>x.player_id))}catch{}
-2997-        if(requestId!==state.voucherRankingRequestId)return;
-2998-        renderVoucherRankingBoard({board,mode:"domain",trackId,examSpec:spec,avatarMap});
-2999-      }catch(error){
-3000-        if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load Domain Ranking.");
-3001-      }
-3002-    }
-3003-    
-3004-    async function voucherSessionRankingSpec(trackId,examId,sessionId){
-3005-      const {config}=await loadVoucherExamConfig(trackId,examId);
-3006-      if(!config?.contentArchitectureFile)throw new Error("This PL-300 exam does not have a content architecture.");
+1754-# Subtest: PL-300 visual audit derives released question count from config instead of a stale literal
+1755-ok 293 - PL-300 visual audit derives released question count from config instead of a stale literal
+1756-  ---
+1757-  duration_ms: 0.743259
+1758-  type: 'test'
+1759-  ...
+1760-# Subtest: PL-300 Wave 2 expands the reviewed current-scope bank beyond 170 questions
+1761-ok 294 - PL-300 Wave 2 expands the reviewed current-scope bank beyond 170 questions
+1762-  ---
+1763-  duration_ms: 1.620029
+1764-  type: 'test'
+1765-  ...
+1766:# Subtest: Wave 2 remains fail-closed for known unresolved or stale answer-key conflicts
+1767:ok 295 - Wave 2 remains fail-closed for known unresolved or stale answer-key conflicts
+1768-  ---
+1769-  duration_ms: 0.540243
+1770-  type: 'test'
+1771-  ...
+1772-# Subtest: standalone Source 2 production remains an explicit reviewed allowlist
+1773-ok 296 - standalone Source 2 production remains an explicit reviewed allowlist
+1774-  ---
+1775-  duration_ms: 3.050933
+1776-  type: 'test'
+1777-  ...
+1778-# Subtest: Wave 2 does not admit legacy/out-of-scope or incomplete case-study payloads
+1779-ok 297 - Wave 2 does not admit legacy/out-of-scope or incomplete case-study payloads
 --
-3012-      state.voucherContentArchitecture=architecture;
-3013-      const totalQuestions=Object.values(architecture.questionSessionMap||{}).filter(id=>String(id)===String(session.id)).length;
-3014-      if(!totalQuestions)throw new Error("This PL-300 session has no released questions.");
-3015-      return {examId:config.id,title:session.title,sessionId:session.id,domainId:session.domainId,totalQuestions,activityId:voucherSessionRankingActivityId(trackId,config.id,session.id)};
-3016-    }
-3017-    
-3018-    async function loadVoucherSessionRanking(trackId,examId,sessionId){
-3019-      const requestId=++state.voucherRankingRequestId;
-3020-      try{
-3021-        const spec=await voucherSessionRankingSpec(trackId,examId,sessionId);
-3022-        const rows=await fetchAttemptsForExamIds([spec.activityId]);
-3023-        if(requestId!==state.voucherRankingRequestId)return;
-3024:        const board=buildVoucherSessionLeaderboard(rows,{expectedQuestions:spec.totalQuestions});
-3025-        let avatarMap=new Map();
-3026-        try{avatarMap=await fetchRankingProfiles(board.map(x=>x.player_id))}catch{}
-3027-        if(requestId!==state.voucherRankingRequestId)return;
-3028-        renderVoucherRankingBoard({board,mode:"session",trackId,examSpec:spec,avatarMap});
-3029-      }catch(error){
-3030-        if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load Session Ranking.");
-3031-      }
-3032-    }
-3033-    
-3034-    async function loadVoucherExamRanking(trackId,examId){
-3035-      const requestId=++state.voucherRankingRequestId;
-3036-      try{
+1790-# Subtest: Platform Health scope switch is local and does not refetch analytics
+1791-ok 299 - Platform Health scope switch is local and does not refetch analytics
+1792-  ---
+1793-  duration_ms: 1.079856
+1794-  type: 'test'
+1795-  ...
+1796-# Subtest: Platform Health has distinct visual treatment for warning rows
+1797-ok 300 - Platform Health has distinct visual treatment for warning rows
+1798-  ---
+1799-  duration_ms: 0.386051
+1800-  type: 'test'
+1801-  ...
+1802:# Subtest: client error classification distinguishes startup criticals, runtime errors, warnings, and benign noise
+1803:ok 301 - client error classification distinguishes startup criticals, runtime errors, warnings, and benign noise
+1804-  ---
+1805-  duration_ms: 8.800741
+1806-  type: 'test'
+1807-  ...
+1808-# Subtest: health aggregation exposes severity counts, current-version errors, and last error timestamp
+1809-ok 302 - health aggregation exposes severity counts, current-version errors, and last error timestamp
+1810-  ---
+1811-  duration_ms: 5.442694
+1812-  type: 'test'
+1813-  ...
+1814-# Subtest: historical app_error events without severity remain classifiable
+1815-ok 303 - historical app_error events without severity remain classifiable
+1816-  ---
+1817-  duration_ms: 6.989173
+1818-  type: 'test'
+1819-  ...
+1820:# Subtest: failed to fetch is classified as a network warning instead of a critical/error TypeError
+1821:ok 304 - failed to fetch is classified as a network warning instead of a critical/error TypeError
+1822-  ---
+1823-  duration_ms: 3.444346
+1824-  type: 'test'
+1825-  ...
+1826-# Subtest: health defaults to current-version sessions and errors while preserving all-version history
+1827-ok 305 - health defaults to current-version sessions and errors while preserving all-version history
+1828-  ---
+1829-  duration_ms: 13.034865
+1830-  type: 'test'
+1831-  ...
+1832:# Subtest: current-version health rate uses only sessions that actually ran the current build
+1833:ok 306 - current-version health rate uses only sessions that actually ran the current build
+1834-  ---
+1835-  duration_ms: 2.874979
+1836-  type: 'test'
+1837-  ...
+1838-# Subtest: full track exam navigation returns to the selected learning track
+1839-ok 307 - full track exam navigation returns to the selected learning track
+1840-  ---
+1841-  duration_ms: 3.079197
+1842-  type: 'test'
+1843-  ...
+1844-# Subtest: track exam setup labels its back action with the selected track
+1845-ok 308 - track exam setup labels its back action with the selected track
 --
-5151-            </div>`
-5152-          :"";
-5153-    
-5154-        const trace=(ex.executionTrace||[]).length
-5155-          ?`<div class="python-detail-card" dir="rtl">
-5156-              <span class="python-detail-label">EXECUTION TRACE</span>
-5157-              <ol class="python-trace-list">
-5158-                ${(ex.executionTrace||[]).map(step=>`<li dir="auto">${formatStudyMixedText(step)}</li>`).join("")}
-5159-              </ol>
-5160-            </div>`
-5161-          :"";
-5162-    
-5163:        const output=ex.expectedOutput!==undefined && ex.expectedOutput!==null && String(ex.expectedOutput)!==""
-5164-          ?`<div class="python-detail-card python-output-card" dir="ltr">
-5165-              <span class="python-detail-label">EXPECTED OUTPUT</span>
-5166:              <pre><code>${escapeHtml(String(ex.expectedOutput))}</code></pre>
-5167-            </div>`
-5168-          :"";
-5169-    
-5170-        const why=ex.whyItWorks
-5171-          ?`<div class="python-detail-card" dir="rtl">
-5172-              <span class="python-detail-label">WHY IT WORKS</span>
-5173-              <p dir="auto">${formatStudyMixedText(ex.whyItWorks)}</p>
-5174-            </div>`
-5175-          :"";
-5176-    
-5177-        const mistakes=(ex.commonMistakes||[]).length
-5178-          ?`<div class="python-detail-card python-warning-card" dir="rtl">
+1874-# Subtest: entry CTA is inert until platform data is ready
+1875-ok 313 - entry CTA is inert until platform data is ready
+1876-  ---
+1877-  duration_ms: 3.570817
+1878-  type: 'test'
+1879-  ...
+1880-# Subtest: saved theme is applied before the main stylesheet to avoid a light-mode flash
+1881-ok 314 - saved theme is applied before the main stylesheet to avoid a light-mode flash
+1882-  ---
+1883-  duration_ms: 1.311795
+1884-  type: 'test'
+1885-  ...
+1886:# Subtest: startup payload stays within the stabilization performance budget
+1887:not ok 315 - startup payload stays within the stabilization performance budget
+1888-  ---
+1889-  duration_ms: 66.82272
+1890-  type: 'test'
+1891-  location: '/home/runner/work/Digilians-E-learn-platform/Digilians-E-learn-platform/tests/platform-ux-performance.test.mjs:45:1'
+1892:  failureType: 'testCodeFailure'
+1893:  error: 'startup gzip estimate 450.4KB exceeds 450KB budget'
+1894:  code: 'ERR_ASSERTION'
+1895:  name: 'AssertionError'
+1896:  expected: true
+1897:  actual: false
+1898-  operator: '=='
+1899-  stack: |-
+1900-    TestContext.<anonymous> (file:///home/runner/work/Digilians-E-learn-platform/Digilians-E-learn-platform/tests/platform-ux-performance.test.mjs:56:10)
+1901-    Test.runInAsyncScope (node:async_hooks:214:14)
+1902-    Test.run (node:internal/test_runner/test:1047:25)
+1903-    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+1904-    Test.postRun (node:internal/test_runner/test:1173:19)
+1905-    Test.run (node:internal/test_runner/test:1101:12)
+1906-    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+1907-  ...
+1908:# Subtest: startup has an independent recovery state for load failures and timeouts
+1909:ok 316 - startup has an independent recovery state for load failures and timeouts
+1910-  ---
+1911-  duration_ms: 0.576258
+1912-  type: 'test'
+1913-  ...
+1914-# Subtest: pre-deploy permanently enforces the UX/performance stabilization gate
+1915-ok 317 - pre-deploy permanently enforces the UX/performance stabilization gate
+1916-  ---
+1917-  duration_ms: 0.196466
+1918-  type: 'test'
+1919-  ...
+1920:# Subtest: PL-300 feature CSS is lazy-loaded instead of inflating the startup stylesheet
+1921:ok 318 - PL-300 feature CSS is lazy-loaded instead of inflating the startup stylesheet
+1922-  ---
+1923-  duration_ms: 3.578478
+1924-  type: 'test'
+1925-  ...
+1926-# Subtest: pre-deploy runs the path portability regression gate
+1927-ok 319 - pre-deploy runs the path portability regression gate
+1928-  ---
+1929-  duration_ms: 1.226256
+1930-  type: 'test'
+1931-  ...
+1932-# Subtest: pre-deploy requires the lazy PL-300 stylesheet used by ranked/source-review views
+1933-ok 320 - pre-deploy requires the lazy PL-300 stylesheet used by ranked/source-review views
 --
-6045-          improvementSession:true,weakDomains,attemptKey:createUuid()
-6046-        };
-6047-        const examConfig={...config,trackTitle:voucherTrackMeta(config.trackId)?.title||config.trackId};
-6048-        const payload=buildVoucherExamPayload({examConfig,questions,runtime});
-6049-        payload.exam.title=`${config.title} • Improve My Level`;
-6050-        payload.exam.description=`Focused learning session • ${weakDomains.length?weakDomains.join(" + "):"mixed review"} • 25 Questions • Instant Feedback • Non-Ranked`;
-6051-        const errors=validateExamPayload(payload);
-6052-        if(errors.length)throw new Error(errors.join("; "));
-6053-        state.voucherRuntimeSelection={mockKind:"improvement",sizeMode:"improvement-25",timed:false,feedbackMode:"instant",improvementSession:true,weakDomains};
-6054-        state.currentRegistryItem={id:payload.exam.id,title:payload.exam.title,course:"Voucher",module:examConfig.trackTitle,questionCount:payload.questions.length,generator:"voucher",ranked:false,trackId:config.trackId};
-6055-        await launchPreparedVoucherExam(payload,state.currentRegistryItem,{feedbackMode:"instant",timed:false,improvementSession:true,weakDomains});
-6056-      }catch(error){
-6057:        console.error("Voucher improvement session failed",error);
-6058-        showToast(error?.message||"Could not prepare your improvement session.");
-6059-      }
-6060-    }
-6061-    
-6062-    async function prepareVoucherMock(runtimeConfig){
-6063-      if(runtimeConfig?.domainRanked===true&&!state.studentName){
-6064-        requireRankedIdentity(()=>void prepareVoucherMock(runtimeConfig),"Enter your name before starting a ranked PL-300 Domain.");
-6065-        return;
-6066-      }
-6067-      if(runtimeConfig?.sessionRanked===true&&!state.studentName){
-6068-        requireRankedIdentity(()=>void prepareVoucherMock(runtimeConfig),"Enter your name before starting a ranked PL-300 session.");
-6069-        return;
+2292-# Subtest: reset clears only the current owner mistake history
+2293-ok 380 - reset clears only the current owner mistake history
+2294-  ---
+2295-  duration_ms: 2.384481
+2296-  type: 'test'
+2297-  ...
+2298-# Subtest: official reset removes only mistake flags and preserves study state
+2299-ok 381 - official reset removes only mistake flags and preserves study state
+2300-  ---
+2301-  duration_ms: 0.735978
+2302-  type: 'test'
+2303-  ...
+2304:# Subtest: startup and exam code do not call crypto.randomUUID directly
+2305:ok 382 - startup and exam code do not call crypto.randomUUID directly
+2306-  ---
+2307-  duration_ms: 4.166443
+2308-  type: 'test'
+2309-  ...
+2310-# Subtest: createUuid falls back to crypto.getRandomValues when randomUUID is unavailable
+2311-ok 383 - createUuid falls back to crypto.getRandomValues when randomUUID is unavailable
+2312-  ---
+2313-  duration_ms: 3.178346
+2314-  type: 'test'
+2315-  ...
+2316-# Subtest: createUuid has a last-resort UUID fallback when Web Crypto is absent
+2317-ok 384 - createUuid has a last-resort UUID fallback when Web Crypto is absent
 --
-6153-              :"Random Voucher practice — Unseen-First with safe option shuffling.";
-6154-        const errors=validateExamPayload(payload);
-6155-        if(errors.length)throw new Error(errors.join("; "));
-6156-        state.voucherExamEntry=resolved.entry;
-6157-        state.voucherExamConfig=resolved.config;
-6158-        state.voucherRuntimeSelection={...runtimeConfig};
-6159-        state.currentRegistryItem={
-6160-          id:payload.exam.id,title:payload.exam.title,course:"Voucher",module:config.trackTitle,
-6161-          questionCount:payload.questions.length,generator:"voucher",ranked:payload.exam.generatedFromVoucher?.rankEligible===true,trackId
-6162-        };
-6163-        await launchPreparedVoucherExam(payload,state.currentRegistryItem,{...runtimeConfig,feedbackMode:runtime.feedbackMode});
-6164-      }catch(error){
-6165:        console.error("Voucher mock preparation failed",error);
-6166-        showToast(error?.message||"Could not prepare this Voucher mock.");
-6167-      }
-6168-    }
-6169-    
-6170-    function voucherSavedModeLabel(progress){
-6171-      const saved=progress?.voucherResume||{};
-6172-      if(saved.sessionRanked||saved.mockKind==="session")return "Ranked Session";
-6173-      if(saved.sizeMode==="real")return "Legacy Ranked Challenge";
-6174-      if(saved.sizeMode==="full-ranked")return "Full Bank Ranked Exam";
-6175-      if(saved.mockKind==="improvement"||saved.sizeMode==="improvement-25")return "Improvement Session";
-6176-      if(saved.mockKind==="source")return "Source Mock";
-6177-      return "Custom Practice";
+2328-# Subtest: analytics filters benign browser noise before counting/reporting app errors
+2329-ok 386 - analytics filters benign browser noise before counting/reporting app errors
+2330-  ---
+2331-  duration_ms: 0.602467
+2332-  type: 'test'
+2333-  ...
+2334-# Subtest: runtime compatibility helper stays cache-busted across the current release
+2335-ok 387 - runtime compatibility helper stays cache-busted across the current release
+2336-  ---
+2337-  duration_ms: 3.946202
+2338-  type: 'test'
+2339-  ...
+2340:# Subtest: startup-critical storage import is cache-busted with the current release
+2341:ok 388 - startup-critical storage import is cache-busted with the current release
+2342-  ---
+2343-  duration_ms: 1.072495
+2344-  type: 'test'
+2345-  ...
+2346:# Subtest: storage module exposes the reset API required by app startup
+2347:ok 389 - storage module exposes the reset API required by app startup
+2348-  ---
+2349-  duration_ms: 0.262185
+2350-  type: 'test'
+2351-  ...
+2352-# Subtest: storage schema migrates an unversioned install non-destructively to the current version
+2353-ok 390 - storage schema migrates an unversioned install non-destructively to the current version
+2354-  ---
+2355-  duration_ms: 2.048775
+2356-  type: 'test'
+2357-  ...
+2358-# Subtest: future storage schema is refused without mutating learner data
+2359-ok 391 - future storage schema is refused without mutating learner data
 --
-6533-          state.currentExam=payload;
-6534-          state.currentRegistryItem=item;
-6535-          state.currentRankedActivity=progress.rankedActivity ?? (Boolean(progress.voucherResume.domainRanked)||Boolean(progress.voucherResume.sessionRanked)||progress.voucherResume.sizeMode==="real"||progress.voucherResume.sizeMode==="full-ranked");
-6536-          state.previousBest=progress.voucherResume.domainRanked
-6537-            ?voucherBestRankedDomainAttempt(progress.voucherResume.voucherExamId,progress.voucherResume.domainId)
-6538-            :progress.voucherResume.sessionRanked
-6539-              ?voucherBestRankedSessionAttempt(progress.voucherResume.voucherExamId,progress.voucherResume.sessionId||progress.voucherResume.sourceId)
-6540-              :progress.voucherResume.sizeMode==="full-ranked"
-6541-              ?getBestVoucherAttempt(mistakeOwnerId(),progress.voucherResume.voucherExamId,{rankEligibleOnly:true,sizeMode:"full-ranked"})
-6542-              :getBestVoucherAttempt(mistakeOwnerId(),progress.voucherResume.voucherExamId,{rankEligibleOnly:progress.voucherResume.sizeMode==="real",sizeMode:progress.voucherResume.sizeMode==="real"?"real":null});
-6543-          startExam(progress);
-6544-        }catch(error){
-6545:          console.error("Voucher resume failed",error);
-6546-          clearExamProgress();
-6547-          showToast("Saved Voucher attempt could not be reconstructed. Your other progress is unchanged.");
-6548-          routeTo(state.voucherExamId?"voucherExamView":"dashboardView");
-6549-        }
-6550-        return;
-6551-      }
-6552-      let item=state.registry.find(x=>x.id===progress.examId);
-6553-      if(!item && progress.generatedExam){
-6554-        item={
-6555-          id:progress.examId,
-6556-          title:progress.generatedExam.exam?.title||"Saved Exam",
-6557-          course:progress.generatedExam.exam?.course||"Data Analysis",
+2532-# Subtest: PL-300 primary hierarchy is ranked learning first instead of challenge first
+2533-ok 420 - PL-300 primary hierarchy is ranked learning first instead of challenge first
+2534-  ---
+2535-  duration_ms: 0.235905
+2536-  type: 'test'
+2537-  ...
+2538-# Subtest: ranked-learning controls preserve accessible dialog, live regions and text-labelled states
+2539-ok 421 - ranked-learning controls preserve accessible dialog, live regions and text-labelled states
+2540-  ---
+2541-  duration_ms: 2.373053
+2542-  type: 'test'
+2543-  ...
+2544:# Subtest: content architecture validation fails closed on missing, unknown, or duplicate mapping contracts
+2545:ok 422 - content architecture validation fails closed on missing, unknown, or duplicate mapping contracts
+2546-  ---
+2547-  duration_ms: 2.781157
+2548-  type: 'test'
+2549-  ...
+2550-# Subtest: session filtering returns only mapped questions and preserves master-bank order
+2551-ok 423 - session filtering returns only mapped questions and preserves master-bank order
+2552-  ---
+2553-  duration_ms: 0.535726
+2554-  type: 'test'
+2555-  ...
+2556-# Subtest: view model aggregates deterministic domain/session counts and seen progress
+2557-ok 424 - view model aggregates deterministic domain/session counts and seen progress
 --
-6584-        state.currentRankedActivity=progress.rankedActivity ?? (item?.ranked!==false);
-6585-    
-6586-        const officialCtx=payload.exam?.generatedFromOfficialQbank || null;
-6587-        if(officialCtx){
-6588-          state.officialLevelId=officialCtx.levelId || "junior-data-analysis";
-6589-          state.officialTrackId=officialCtx.trackId || null;
-6590-          state.officialSectionId=officialCtx.sectionId || null;
-6591-        }
-6592-    
-6593-        state.previousBest=state.studentName?getPreviousBestForExam(payload.exam.id,state.studentName):null;
-6594-        startExam(progress);
-6595-      }catch(e){
-6596:        console.error("Resume failed",e);
-6597-        clearExamProgress();
-6598-        showToast("Saved progress could not be restored.");
-6599-        routeTo("examsView");
-6600-      }
-6601-    }
-6602-    
-6603-    function persistProgress(){
-6604-      if(!state.currentExam || !state.studentName)return;
-6605-      const nowEpoch=Date.now();
-6606-      const snapshotStartedAt=state.timerPolicy==="active-solve"&&state.solvePauseStartedAt
-6607-        ?Number(state.startedAt)+(nowEpoch-Number(state.solvePauseStartedAt))
-6608-        :state.startedAt;
+2820-# Subtest: session ranking activity id is stable and session-scoped
+2821-ok 468 - session ranking activity id is stable and session-scoped
+2822-  ---
+2823-  duration_ms: 1.445537
+2824-  type: 'test'
+2825-  ...
+2826-# Subtest: first pass percentage uses completed question volume
+2827-ok 469 - first pass percentage uses completed question volume
+2828-  ---
+2829-  duration_ms: 0.254654
+2830-  type: 'test'
+2831-  ...
+2832:# Subtest: session rank status is official only when every expected question has an answer
+2833:ok 470 - session rank status is official only when every expected question has an answer
+2834-  ---
+2835-  duration_ms: 1.118163
+2836-  type: 'test'
+2837-  ...
+2838-# Subtest: session leaderboard ranks mastery, first-pass accuracy, fewer attempts, active solve time, then earliest achievement
+2839-ok 471 - session leaderboard ranks mastery, first-pass accuracy, fewer attempts, active solve time, then earliest achievement
+2840-  ---
+2841-  duration_ms: 1.905148
+2842-  type: 'test'
+2843-  ...
+2844-# Subtest: session attempt metadata distinguishes official completion and first-pass accuracy
+2845-ok 472 - session attempt metadata distinguishes official completion and first-pass accuracy
 --
-6765-        return rows.map(row=>`<div class="structured-answer-row"><b>${escapeHtml(row.label)}:</b> ${escapeHtml(row.value||'—')}</div>`).join('');
-6766-      }
-6767-      const ids=selectedAnswerIds(selected);
-6768-      return ids.map(id=>{
-6769-        const option=(question?.options||[]).find(o=>String(o.id)===String(id));
-6770-        return option?`<div><b>${escapeHtml(optionDisplayLabel(question,id))}.</b> ${renderTechnicalOption(option.text||'',question)}</div>`:'';
-6771-      }).join('');
-6772-    }
-6773-    
-6774-    function renderRankedStructuredInputs(q,list,{selected,confirmed,feedbackReady}={}){
-6775-      const values=structuredAnswerFields(selected),fields=structuredFields(q),kind=structuredInteractionKind(q),pool=kind==='ordered-fields'?structuredChoicePool(q):[],locked=Boolean(confirmed)||(state.feedbackMode==='instant'&&!isCurrentVoucherRankedLearning()&&structuredAnswerComplete(q,selected)),feedback=state.feedbackMode==='instant'&&feedbackReady&&structuredAnswerComplete(q,selected);
-6776-      list.classList.add('ranked-structured-list');list.dataset.structuredInteraction=kind;
-6777:      const grade=(row,f,v)=>{if(!feedback)return;const ok=structuredFieldCorrect(f,v);row.classList.add(ok?'correct':'wrong');const n=document.createElement('small');n.className='ranked-structured-expected';n.textContent=ok?'Correct ✓':`Expected: ${String((f.expected||[])[0]??'')}`;row.append(n)};
-6778-      if(kind==='yes-no'){
-6779-        for(const f of fields){const row=document.createElement('div');row.className='ranked-structured-field ranked-structured-binary';row.innerHTML=`<span class="ranked-structured-label">${escapeHtml(f.label||f.id)}</span><div class="ranked-structured-binary-controls"></div>`;const group=row.lastElementChild;for(const c of structuredBinaryChoices(q,f)){const b=document.createElement('button'),on=String(values?.[f.id]??'').toLowerCase()===String(c).toLowerCase();b.type='button';b.className=`ranked-structured-binary-option${on?' selected':''}`;b.textContent=c;b.dataset.rankedStructuredBinary=f.id;b.dataset.rankedStructuredValue=c;b.ariaPressed=on;b.disabled=locked;b.onclick=()=>updateStructuredField(q,f.id,c);group.append(b)}grade(row,f,values?.[f.id]);list.append(row)}return;
-6780-      }
-6781-      let dragged='';
-6782-      if(pool.length){const box=document.createElement('div');box.className='ranked-structured-choice-pool';box.innerHTML='<small>Drag a source-backed choice to a target, or use the dropdown.</small><div class="ranked-structured-choice-list"></div>';for(const c of pool){const b=document.createElement('button');b.type='button';b.className='ranked-structured-choice';b.textContent=c;b.draggable=!locked;b.disabled=locked;b.dataset.rankedStructuredChoice=c;b.ondragstart=e=>{dragged=c;e.dataTransfer?.setData('text/plain',c)};b.ondragend=()=>dragged='';box.lastElementChild.append(b)}list.append(box)}
-6783-      fields.forEach((f,i)=>{const row=document.createElement('label'),choices=structuredFieldChoices(f),opts=pool.length&&!choices.length?pool:choices,input=opts.length?document.createElement('select'):document.createElement('input');row.className=`ranked-structured-field${pool.length?' ranked-structured-drop-target':''}`;row.innerHTML=`<span class="ranked-structured-label">${pool.length?`<b>${i+1}</b> `:''}${escapeHtml(f.label||f.id)}</span>`;if(opts.length){input.innerHTML='<option value="">Select an answer</option>'+opts.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('')}else{input.type='text';input.placeholder='Type the source answer'}input.dataset.rankedStructuredField=f.id;input.value=String(values?.[f.id]??'');input.disabled=locked;if(feedback)input.classList.add(structuredFieldCorrect(f,input.value)?'correct':'wrong');input.addEventListener(opts.length?'change':'input',e=>updateStructuredField(q,f.id,e.target.value));row.append(input);if(pool.length){row.dataset.rankedStructuredDropField=f.id;row.ondragover=e=>{if(!locked){e.preventDefault();row.classList.add('drag-over')}};row.ondragleave=()=>row.classList.remove('drag-over');row.ondrop=e=>{if(locked)return;e.preventDefault();row.classList.remove('drag-over');const v=dragged||e.dataTransfer?.getData('text/plain');if(v){input.value=v;updateStructuredField(q,f.id,v)}}}grade(row,f,input.value);list.append(row)})
-6784-    }
-6785-    function renderQuestion(){
-6786-      const qs=state.currentExam.questions,q=qs[state.currentIndex];
-6787-      $("questionCounter").textContent=`Question ${state.currentIndex+1} / ${qs.length}`;
-6788-      $("progressFill").style.width=`${((state.currentIndex+1)/qs.length)*100}%`;
-6789-      {
+2964-# Subtest: Voucher registry exposes exactly the five approved tracks
+2965-ok 492 - Voucher registry exposes exactly the five approved tracks
+2966-  ---
+2967-  duration_ms: 1.515672
+2968-  type: 'test'
+2969-  ...
+2970-# Subtest: Data Analysis is released while the other approved Voucher tracks remain Coming Soon
+2971-ok 493 - Data Analysis is released while the other approved Voucher tracks remain Coming Soon
+2972-  ---
+2973-  duration_ms: 1.617015
+2974-  type: 'test'
+2975-  ...
+2976:# Subtest: exam config fails closed when Real Exam metadata is incomplete
+2977:ok 494 - exam config fails closed when Real Exam metadata is incomplete
+2978-  ---
+2979-  duration_ms: 0.307023
+2980-  type: 'test'
+2981-  ...
+2982-# Subtest: ranked Domain completion records Domain mastery, first pass, active solve and scoped ranking ID
+2983-ok 495 - ranked Domain completion records Domain mastery, first pass, active solve and scoped ranking ID
+2984-  ---
+2985-  duration_ms: 1.603424
+2986-  type: 'test'
+2987-  ...
+2988-# Subtest: legacy challenge and full-bank activity IDs remain in completion code only for historical compatibility
+2989-ok 496 - legacy challenge and full-bank activity IDs remain in completion code only for historical compatibility
 --
-7607-      setResultSyncUI("syncing");
-7608-    
-7609-      try{
-7610-        await submitAttemptOnline(onlineAttempt);
-7611-        removePendingAttempt(onlineAttempt.client_attempt_id);
-7612-        markResultSynced(onlineAttempt.client_attempt_id);
-7613-    
-7614-        const rankingId=String(onlineAttempt.exam_id||"");
-7615-        const domainRanking=rankingId.includes("::domain::");
-7616-        const sessionRanking=rankingId.includes("::session::");
-7617-        const rows=(domainRanking||sessionRanking)?await fetchAttemptsForExamIds([onlineAttempt.exam_id]):null;
-7618-        const board=domainRanking
-7619:          ?buildVoucherDomainLeaderboard(rows,{expectedQuestions:Number(onlineAttempt.total_questions)||0})
-7620-          :sessionRanking
-7621:            ?buildVoucherSessionLeaderboard(rows,{expectedQuestions:Number(onlineAttempt.total_questions)||0})
-7622-            :await getLeaderboard(onlineAttempt.exam_id);
-7623-        const me=board.find(x=>x.player_id===state.playerId);
-7624-        setResultSyncUI("synced",me,board);
-7625-      }catch(error){
-7626:        console.error("Online result sync failed:",error);
-7627-        setResultSyncUI("offline");
-7628-      }
-7629-    }
-7630-    
-7631-    function setResultSyncUI(mode,me=null,board=[]){
-7632-      const card=$("onlineRankCard");
-7633-      const rank=$("resultOnlineRank");
-7634-      const status=$("resultSyncStatus");
-7635-      if(!card||!rank||!status)return;
-7636-    
-7637-      card.classList.toggle("hidden",mode==="local");
-7638-      card.classList.remove("synced","offline");
-7639-      if(mode==="local")return;
-7640-    
-7641-      if(mode==="syncing"){
-7642-        rank.textContent="Syncing…";
-7643-        status.textContent="Saving this attempt online.";
-7644-        return;
-7645-      }
-7646-    
-7647-      if(mode==="offline"){
-7648-        card.classList.add("offline");
-7649-        rank.textContent="Saved locally";
-7650:        status.textContent="Online sync failed. The platform will retry automatically next time.";
-7651-        return;
-7652-      }
-7653-    
-7654-      card.classList.add("synced");
-7655-      if(me){
-7656-        rank.textContent=`#${me.rank} of ${board.length}`;
-7657-        const previous=board[me.rank-2];
-7658-        const sessionRanking=Number.isFinite(Number(me.firstPassPercentage))&&Number.isFinite(Number(me.attemptCount));
-7659-        if(sessionRanking){
-7660-          if(me.rank===1){
-7661-            status.textContent=`You are #1 • Mastery ${Number(me.percentage)||0}% • First Pass ${Number(me.firstPassPercentage)||0}% • reached in ${Number(me.attemptCount)||1} attempt${Number(me.attemptCount)===1?"":"s"}.`;
-7662-          }else if(previous){
+3066-# Subtest: voucher backup merge preserves source practice records
+3067-ok 509 - voucher backup merge preserves source practice records
+3068-  ---
+3069-  duration_ms: 1.302972
+3070-  type: 'test'
+3071-  ...
+3072-# Subtest: native structured source answers persist and contribute only to local practice summary
+3073-ok 510 - native structured source answers persist and contribute only to local practice summary
+3074-  ---
+3075-  duration_ms: 2.934749
+3076-  type: 'test'
+3077-  ...
+3078:# Subtest: native structured source result fails closed when no answer fields are provided
+3079:ok 511 - native structured source result fails closed when no answer fields are provided
+3080-  ---
+3081-  duration_ms: 0.716058
+3082-  type: 'test'
+3083-  ...
+3084-# Subtest: voucher source practice persists auto-scored and self-graded source items
+3085-ok 512 - voucher source practice persists auto-scored and self-graded source items
+3086-  ---
+3087-  duration_ms: 2.09855
+3088-  type: 'test'
+3089-  ...
+3090-# Subtest: Voucher attempts stay in their own store and best eligible attempt is selected
+3091-ok 513 - Voucher attempts stay in their own store and best eligible attempt is selected
 --
-8166-      $("rankingHeadTime").classList.remove("hidden");
-8167-      $("rankingBestLabel").textContent="Total Grade";
-8168-      $("rankingAttemptsLabel").textContent="Completed";
-8169-    }
-8170-    function setRankingLoading(message="Fetching the latest shared results from Supabase."){
-8171-      const status=$("leaderboardStatus"),content=$("leaderboardContent");
-8172-      status.className="status-card info";
-8173-      status.classList.remove("hidden");
-8174-      status.innerHTML=`<div class="status-icon">↗</div><div><strong>Loading leaderboard…</strong><p>${escapeHtml(message)}</p></div>`;
-8175-      content.classList.add("hidden");
-8176-    }
-8177-    function showRankingError(error){
-8178:      console.error("Leaderboard fetch failed:",error);
-8179-      const status=$("leaderboardStatus"),content=$("leaderboardContent");
-8180-      status.className="status-card danger";
-8181-      status.classList.remove("hidden");
-8182-      status.innerHTML=`<div class="status-icon">!</div><div><strong>Leaderboard is temporarily unavailable</strong><p>Your local exam results are still safe. Check your connection and try Refresh.</p></div>`;
-8183-      content.classList.add("hidden");
-8184-    }
-8185-    function showRankingContent(){
-8186-      $("leaderboardStatus").classList.add("hidden");
-8187-      $("leaderboardContent").classList.remove("hidden");
-8188-    }
-8189-    
-8190-    function rankingAvatarHtml(entry,isMe=false){
+3204-# Subtest: PowerShell fallback scripts avoid ambiguous unbraced variable-colon interpolation
+3205-ok 532 - PowerShell fallback scripts avoid ambiguous unbraced variable-colon interpolation
+3206-  ---
+3207-  duration_ms: 0.976911
+3208-  type: 'test'
+3209-  ...
+3210-# Subtest: Windows fallback server is loopback-only, prevents path traversal, and chooses a free port
+3211-ok 533 - Windows fallback server is loopback-only, prevents path traversal, and chooses a free port
+3212-  ---
+3213-  duration_ms: 0.417619
+3214-  type: 'test'
+3215-  ...
+3216:# Subtest: developer QA scripts explain that Node 20+ is required instead of failing with command-not-found
+3217:ok 534 - developer QA scripts explain that Node 20+ is required instead of failing with command-not-found
+3218-  ---
+3219-  duration_ms: 0.322936
+3220-  type: 'test'
+3221-  ...
+3222-# Subtest: local testing guide separates ordinary localhost use from developer QA requirements
+3223-ok 535 - local testing guide separates ordinary localhost use from developer QA requirements
+3224-  ---
+3225-  duration_ms: 0.501635
+3226-  type: 'test'
+3227-  ...
+3228-# Subtest: workspace has no redundant HTML mirrors when Markdown source exists
+3229-ok 536 - workspace has no redundant HTML mirrors when Markdown source exists
 --
-8852-      applyTheme(getTheme());
-8853-      state.playerId=getPlayerId();
-8854-    
-8855-      let dataLoaded=false;
-8856-      try{
-8857-        await loadData();
-8858-        dataLoaded=true;
-8859-      }catch(e){
-8860-        console.error(e);
-8861-        window.dispatchEvent(new CustomEvent("digilians:client-error",{detail:{
-8862-          kind:e?.name||"data_load_error",
-8863-          message:e?.message||"Platform data could not be loaded.",
-8864:          phase:"startup"
-8865-        }}));
-8866-        $("examLoadError").textContent="Could not load platform data. Open this project through GitHub Pages or a local web server.";
-8867-        $("examLoadError").classList.remove("hidden");
-8868-      }
-8869-    
-8870-      if(!dataLoaded){
-8871-        window.__DIGILIANS_SHOW_FATAL__?.("Platform data could not be loaded.");
-8872-        return;
-8873-      }
-8874-    
-8875-      state.studentName=getStudentName();
-8876-      state.primaryTrackId=getPrimaryTrack();
---
-8880-      if(state.studentName){
-8881-        $("returningUserEntry").classList.remove("hidden");$("newUserEntry").classList.add("hidden");
-8882-        $("returningUserName").textContent=state.studentName;
-8883-        routeTo("welcomeView");
-8884-        openReturningUserAvatarRollout();
-8885-      }else routeTo("welcomeView");
-8886-    
-8887-      setEntryControlsReady(true);
-8888-      window.__DIGILIANS_APP_READY__=true;
-8889-      window.__DIGILIANS_CLEAR_FATAL__?.();
-8890-    }
-8891-    init().catch(error=>{
-8892:      console.error("Fatal application startup error:",error);
-8893-      window.dispatchEvent(new CustomEvent("digilians:client-error",{detail:{
-8894:        kind:error?.name||"fatal_startup_error",
-8895-        message:error?.message||"The application could not start correctly.",
-8896:        phase:"startup"
-8897-      }}));
-8898-      window.__DIGILIANS_SHOW_FATAL__?.("The application could not start correctly.");
-8899-    });
-8900-    
-8901-  operator: 'match'
-8902-  stack: |-
-8903-    TestContext.<anonymous> (file:///home/runner/work/Digilians-E-learn-platform/Digilians-E-learn-platform/tests/pl300-native-dropdowns.test.mjs:43:10)
-8904-    Test.runInAsyncScope (node:async_hooks:214:14)
-8905-    Test.run (node:internal/test_runner/test:1047:25)
-8906-    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
-8907-    Test.postRun (node:internal/test_runner/test:1173:19)
-8908-    Test.run (node:internal/test_runner/test:1101:12)
-8909-    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
-8910-  ...
-8911:# Subtest: all 78 native candidates have an explicit fail-closed ranking review decision
-8912:ok 205 - all 78 native candidates have an explicit fail-closed ranking review decision
-8913-  ---
-8914-  duration_ms: 1.979499
-8915-  type: 'test'
-8916-  ...
-8917-# Subtest: approved native candidates are promoted exactly once as structured ranked questions
-8918-ok 206 - approved native candidates are promoted exactly once as structured ranked questions
-8919-  ---
-8920-  duration_ms: 20.712376
-8921-  type: 'test'
-8922-  ...
-8923-# Subtest: withheld native duplicates, conflicts and ambiguous items never enter ranked master bank
-8924-ok 207 - withheld native duplicates, conflicts and ambiguous items never enter ranked master bank
---
-8935-# Subtest: structured normalization is case, punctuation, unicode and whitespace tolerant
-8936-ok 209 - structured normalization is case, punctuation, unicode and whitespace tolerant
-8937-  ---
-8938-  duration_ms: 2.058136
-8939-  type: 'test'
-8940-  ...
-8941-# Subtest: structured answer state is complete only when all required fields are filled
-8942-ok 210 - structured answer state is complete only when all required fields are filled
-8943-  ---
-8944-  duration_ms: 0.496633
-8945-  type: 'test'
-8946-  ...
-8947:# Subtest: structured answers score against source-backed expected values
-8948:ok 211 - structured answers score against source-backed expected values
-8949-  ---
-8950-  duration_ms: 1.406624
-8951-  type: 'test'
-8952-  ...
-8953-# Subtest: shared result engine includes structured questions without changing MCQ scoring
-8954-ok 212 - shared result engine includes structured questions without changing MCQ scoring
-8955-  ---
-8956-  duration_ms: 1.267616
-8957-  type: 'test'
-8958-  ...
-8959-# Subtest: payload validation accepts complete structured scoring contracts and rejects malformed ones
-8960-ok 213 - payload validation accepts complete structured scoring contracts and rejects malformed ones
---
-8996-ok 219 - structured wrong answers enter My Mistakes and reconstruct native metadata
-8997-  ---
-8998-  duration_ms: 6.458403
-8999-  type: 'test'
-9000-  ...
-9001-# Subtest: incomplete structured answers never enter My Mistakes
-9002-ok 220 - incomplete structured answers never enter My Mistakes
-9003-  ---
-9004-  duration_ms: 0.368234
-9005-  type: 'test'
-9006-  ...
-9007-# Subtest: app wires native structured fields, confirmation and question-aware answered state
-9008:not ok 221 - app wires native structured fields, confirmation and question-aware answered state
-9009-  ---
-9010-  duration_ms: 7.52164
-9011-  type: 'test'
-9012-  location: '/home/runner/work/Digilians-E-learn-platform/Digilians-E-learn-platform/tests/pl300-native-ranked-results-mistakes.test.mjs:37:1'
-9013:  failureType: 'testCodeFailure'
-9014-  error: |-
-9015-    The input did not match the regular expression /data-ranked-structured-field/. Input:
-9016-    
-9017-    'import {\n' +
-9018-      '  getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,initializeStorageSafety,\n' +
-9019-      '  getPrimaryTrack,setPrimaryTrack,getRankingPreferences,setRankingMode as persistRankingMode,setRankingTrackPreference,setLastRankingExamId,setVoucherRankingTrackPreference,setVoucherRankingExamPreference,\n' +
-9020-      '  markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,\n' +
-9021-      '  getStudyProgress,updateStudyProgress,clearStudyProgress,\n' +
-9022-      '  getQuickCheckState,saveQuickCheckState,clearQuickCheckState,\n' +
-9023-      '  setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,\n' +
-9024-      '  getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags\n' +
-9025-      '} from "./storage.js?v=0.22.2";\n' +
---
-9190-      '\n' +
-9191-      'function setVoucherFocusMode(active){\n' +
-9192-      '  const enabled=Boolean(active);\n' +
-9193-      '  document.body.classList.toggle("voucher-focus-mode",enabled);\n' +
-9194-      '  $("voucherNavSummary")?.classList.toggle("hidden",!enabled);\n' +
-9195-      '  $("voucherNavFilters")?.classList.toggle("hidden",!enabled);\n' +
-9196-      '}\n' +
-9197-      '\n' +
-9198-      'function routeTo(id){\n' +
-9199-      '  window.__DIGILIANS_EXAM_ACTIVE__=id==="examView";\n' +
-9200-      '  window.dispatchEvent(new CustomEvent("digilians:routechange",{detail:{viewId:id,examActiv'... 392098 more characters
-9201-    
-9202:  code: 'ERR_ASSERTION'
-9203:  name: 'AssertionError'
-9204:  expected:
-9205:  actual: |-
-9206-    import {
-9207-      getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,initializeStorageSafety,
-9208-      getPrimaryTrack,setPrimaryTrack,getRankingPreferences,setRankingMode as persistRankingMode,setRankingTrackPreference,setLastRankingExamId,setVoucherRankingTrackPreference,setVoucherRankingExamPreference,
-9209-      markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
-9210-      getStudyProgress,updateStudyProgress,clearStudyProgress,
-9211-      getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
-9212-      setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
-9213-      getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
-9214-    } from "./storage.js?v=0.22.2";
-9215-    
-9216-    import {validateExamPayload,calculateResult,formatDuration,isAnswered,isQuestionAnswered,isAnswerCorrect,correctAnswerIds,selectedAnswerIds} from "./exam.js";
-9217-    import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.2";
---
-9975-        const metrics=voucherFullRankMetrics();
-9976-        if(!metrics)return;
-9977-        if($("pl300FullRankCompletion"))$("pl300FullRankCompletion").textContent=`${metrics.completedOccurrences} / ${metrics.totalOccurrences}`;
-9978-        if($("pl300FullRankAccuracy"))$("pl300FullRankAccuracy").textContent=`${metrics.validatedAccuracy}%`;
-9979-        if($("pl300FullRankMastery"))$("pl300FullRankMastery").textContent=`${metrics.masteredClusters} / ${metrics.validatedConceptCount}`;
-9980-        const start=$("pl300FullRankStartBtn");
-9981-        if(start){
-9982-          start.textContent=metrics.completedOccurrences>0&&metrics.completedOccurrences<metrics.totalOccurrences?"Continue Full Ranked Bank →":metrics.completedOccurrences>=metrics.totalOccurrences?"Review Full Ranked Bank →":"Start Full Ranked Bank →";
-9983-          start.addEventListener("click",()=>requireRankedIdentity(()=>void openVoucherFullRankedLearning({filter:"all",continueIncomplete:true}),"Enter your name before starting the PL-300 Full Ranked Bank."));
-9984-        }
-9985-        $("pl300FullRankRankingBtn")?.addEventListener("click",()=>requireRankedIdentity(()=>void openVoucherFullRankedLearningRanking(state.voucherTrackId,config.id),"Enter your name to view the PL-300 Full Bank Ranking."));
-9986-        if($("voucherArchitecturePanel"))renderVoucherArchitecturePanel();
-9987:      }catch(error){console.error("PL-300 Full Ranked card hydration failed",error);}
-9988-    }
-9989-    
-9990-    let pl300FullRankSyncTimer=null;
-9991-    
-9992-    async function syncPl300FullRankSnapshot({force=false}={}){
-9993-      const config=state.voucherExamConfig;
-9994-      if(!config?.fullRankedLearning||!state.playerId||!state.studentName)return false;
-9995-      await ensurePl300FullRankedLearning();
-9996-      await loadVoucherFullRankedIndex(config);
-9997-      const metrics=voucherFullRankMetrics();
-9998-      if(!metrics||metrics.completedOccurrences<=0)return false;
-9999-      const signature=[metrics.completedOccurrences,metrics.masteredClusters,metrics.firstPassCorrectClusters,metrics.attemptsToBest,metrics.activeSolveSeconds].join(":");
---
-10026-        voucherSourcePracticeNative.ensureNativePracticeStyles();
-10027-        const sources=config.sourceReviewSources||[];
-10028-        if(sources.length!==2)throw new Error("The two PL-300 source review banks are required.");
-10029-        const banks=await Promise.all(sources.map(async source=>{
-10030-          if(!source?.reviewBankFile)throw new Error("A PL-300 source review bank is unavailable.");
-10031-          const bank=await loadJson(source.reviewBankFile);
-10032-          if(!Array.isArray(bank?.questions)||!bank.questions.length)throw new Error("A PL-300 source bank has no questions.");
-10033-          return {...bank,sourceTitle:source.title||bank.title||source.sourceId};
-10034-        }));
-10035-        const masterBank=config.masterBankFile?await loadJson(config.masterBankFile):{questions:[]};
-10036-        const rawQuestions=banks.flatMap(bank=>bank.questions.map(question=>({...question,sourceTitle:bank.sourceTitle})));
-10037-        const questions=pl300FullRankedLearning.enrichPl300SourceQuestionsWithArabic({questions:rawQuestions,index:state.voucherFullRankedIndex,masterQuestions:masterBank?.questions||[]});
-10038:        const expected=Number(config.fullRankedLearning?.questionCount)||509;
-10039:        if(questions.length!==expected)throw new Error(`Full Ranked Learning expected ${expected} source questions but found ${questions.length}.`);
-10040-        state.voucherSourceReviewSourceId="all";
-10041-        state.voucherSourceReviewBank={schemaVersion:1,examId:config.id,sourceId:"all",sourceTitle:"Full Ranked Bank — 509 Questions",questionCount:questions.length,questions};
-10042-        state.voucherSourceReviewFilter=["all","source-01","source-02","objective","checkpoint"].includes(String(filter))?String(filter):"all";
-10043-        state.voucherSourceReviewParts=pl300FullRankedLearning.buildPl300MiniParts({index:state.voucherFullRankedIndex,architecture:state.voucherContentArchitecture,targetSize:18,maxSize:20});
-10044-        state.voucherSourceReviewPartId="all";
-10045-        state.voucherSourceReviewIndex=0;
-10046-        state.voucherSourcePracticeSelections={};
-10047-        state.voucherSourcePracticeNativeInputs={};
-10048-        state.voucherSourcePracticeRetrying=new Set();
-10049-        state.voucherSourceRevealOpened=new Set();
-10050-        state.voucherSourcePendingSeconds={};
-10051-        voucherSourceResetSolveTimer();
-10052-        if(continueIncomplete){
-10053-          const filtered=voucherSourceReviewFilteredQuestions();
-10054-          const practice=getVoucherSourcePracticeState(mistakeOwnerId(),config.id);
-10055-          const nextIndex=filtered.findIndex(question=>!practice.records?.[question.id]);
-10056-          state.voucherSourceReviewIndex=nextIndex>=0?nextIndex:0;
-10057-        }
-10058-        routeTo("voucherSourceReviewView");
-10059-      }catch(error){
-10060:        console.error("Voucher full ranked learning failed",error);
-10061-        showToast(error?.message||"Could not open PL-300 Full Ranked Learning.");
-10062-      }
-10063-    }
-10064-    
-10065-    function voucherSourceReviewFilteredQuestions(){
-10066-      const questions=state.voucherSourceReviewBank?.questions||[];
-10067-      const partQuestions=pl300FullRankedLearning?.filterPl300QuestionsByPart
-10068-        ?pl300FullRankedLearning.filterPl300QuestionsByPart({questions,partId:state.voucherSourceReviewPartId,parts:state.voucherSourceReviewParts})
-10069-        :questions;
-10070-      if(state.voucherSourceReviewFilter==="source-01"||state.voucherSourceReviewFilter==="source-02")return partQuestions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);
-10071-      if(state.voucherSourceReviewFilter==="objective")return partQuestions.filter(q=>voucherFullRankRecord(q)?.mode==="objective");
-10072-      if(state.voucherSourceReviewFilter==="checkpoint")return partQuestions.filter(q=>voucherFullRankRecord(q)?.mode==="checkpoint");
---
-10080-    }
-10081-    
-10082-    function voucherSourcePracticeCorrectIds(question){
-10083-      return (Array.isArray(question?.correctAnswers)&&question.correctAnswers.length?question.correctAnswers:[question?.correctAnswer]).filter(Boolean).map(String);
-10084-    }
-10085-    
-10086-    function voucherSourcePracticeSelection(question,record=voucherSourcePracticeRecord(question)){
-10087-      const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question?.id||""));
-10088-      return pl300FullRankedLearning.sourceAttemptSelection({question,record,tempSelections:state.voucherSourcePracticeSelections,retrying});
-10089-    }
-10090-    
-10091-    function voucherSourcePracticeSelectionsMatch(question,selected){
-10092:      const expected=[...voucherSourcePracticeCorrectIds(question)].sort();
-10093:      const actual=[...(selected||[])].map(String).sort();
-10094:      return expected.length===actual.length&&expected.every((id,index)=>id===actual[index]);
-10095-    }
-10096-    
-10097-    function voucherSourcePracticeOptionsHtml(question,record){
-10098-      if(question?.reviewMode!=="scored-text"||!Array.isArray(question.options)||!question.options.length)return "";
-10099-      const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question.id||""));
-10100-      const locked=pl300FullRankedLearning.sourceAttemptLocked(record,retrying);
-10101-      return pl300FullRankedLearning.buildSourcePracticeOptionsMarkup({question,record,selected:voucherSourcePracticeSelection(question,record),locked,retrying,renderRichText:renderTechnicalRichText});
-10102-    }
-10103-    
-10104-    
-10105-    function voucherSourcePracticeSummary(){
-10106-      return voucherFullRankMetrics()||{completedOccurrences:0,totalOccurrences:509,completionPercentage:0,masteredClusters:0,validatedConceptCount:265,validatedAccuracy:0,firstPassPercentage:0,checkpointCompletions:0};
---
-10441-        const bank=await loadJson(config.masterBankFile);
-10442-        const validationErrors=validateVoucherContentArchitecture({architecture,questions:bank.questions||[],examId:config.id});
-10443-        if(validationErrors.length)throw new Error(validationErrors.join("; "));
-10444-        const questions=questionsForVoucherDomain({architecture,questions:bank.questions||[],domainId:domain.id});
-10445-        const sections=sessionsForVoucherDomain({architecture,domainId:domain.id});
-10446-        if(!questions.length)throw new Error("This PL-300 Domain has no released questions.");
-10447-        await prepareVoucherMock({
-10448-          mockKind:"domain",sourceId:domain.id,sizeMode:"domain",timed:false,feedbackMode,
-10449-          allowedQuestionIds:questions.map(question=>question.id),domainTitle:domain.title,
-10450-          domainRanked:true,domainId:domain.id,sectionIds:sections.map(section=>section.id),timerDisplay
-10451-        });
-10452-      }catch(error){
-10453:        console.error("Voucher ranked domain failed",error);
-10454-        showToast(error?.message||"Could not prepare this PL-300 ranked Domain.");
-10455-      }
-10456-    }
-10457-    
-10458-    async function prepareVoucherRankedSession(sessionId,{feedbackMode="instant",timerDisplay=true}={}){
-10459-      const architecture=state.voucherContentArchitecture;
-10460-      const config=state.voucherExamConfig;
-10461-      const session=voucherArchitectureSession(sessionId,architecture);
-10462-      if(!architecture||!config||!session){showToast("Choose a PL-300 session first.");return}
-10463-      if(!state.studentName){requireRankedIdentity(()=>void prepareVoucherRankedSession(sessionId,{feedbackMode,timerDisplay}),"Enter your name before starting a ranked PL-300 session.");return}
-10464-      try{
-10465-        const bank=await loadJson(config.masterBankFile);
-10466-        const validationErrors=validateVoucherContentArchitecture({architecture,questions:bank.questions||[],examId:config.id});
-10467-        if(validationErrors.length)throw new Error(validationErrors.join("; "));
-10468-        const questions=questionsForVoucherSession({architecture,questions:bank.questions||[],sessionId:session.id});
-10469-        if(!questions.length)throw new Error("This PL-300 session has no released questions.");
-10470-        await prepareVoucherMock({
-10471-          mockKind:"session",sourceId:session.id,sizeMode:"session",timed:false,feedbackMode,
-10472-          allowedQuestionIds:questions.map(question=>question.id),sessionTitle:session.title,
-10473-          sessionRanked:true,sessionId:session.id,domainId:session.domainId,timerDisplay
-10474-        });
-10475-      }catch(error){
-10476:        console.error("Voucher ranked session failed",error);
-10477-        showToast(error?.message||"Could not prepare this PL-300 ranked session.");
-10478-      }
-10479-    }
-10480-    
-10481-    function renderVoucherExam(){
-10482-      const meta=voucherTrackMeta(state.voucherTrackId);
-10483-      $("voucherExamBreadcrumb").textContent=`Voucher / ${meta?.title||"Track"} / ${state.voucherExamEntry?.title||state.voucherExamId||"Exam"}`;
-10484-      const body=$("voucherExamBody");
-10485-      if(!body)return;
-10486-      if(state.voucherExamError||!state.voucherExamConfig){
-10487-        body.innerHTML=`<article class="voucher-empty-card"><h3>Exam unavailable</h3><p>${escapeHtml(state.voucherExamError||"This Voucher exam is not ready yet.")}</p></article>`;
-10488-        return;
---
-10769-      const totalQuestions=Object.entries(architecture.questionSessionMap||{}).filter(([,sessionId])=>sections.some(section=>String(section.id)===String(sessionId))).length;
-10770-      if(!totalQuestions)throw new Error("This PL-300 Domain has no released questions.");
-10771-      state.voucherContentArchitecture=architecture;
-10772-      return {examId:config.id,title:domain.title,domainId:domain.id,sectionIds:sections.map(section=>section.id),totalQuestions,activityId:voucherDomainRankingActivityId(trackId,config.id,domain.id)};
-10773-    }
-10774-    
-10775-    async function loadVoucherDomainRanking(trackId,examId,domainId){
-10776-      const requestId=++state.voucherRankingRequestId;
-10777-      try{
-10778-        const spec=await voucherDomainRankingSpec(trackId,examId,domainId);
-10779-        const rows=await fetchAttemptsForExamIds([spec.activityId]);
-10780-        if(requestId!==state.voucherRankingRequestId)return;
-10781:        const board=buildVoucherDomainLeaderboard(rows,{expectedQuestions:spec.totalQuestions});
-10782-        let avatarMap=new Map();
-10783-        try{avatarMap=await fetchRankingProfiles(board.map(x=>x.player_id))}catch{}
-10784-        if(requestId!==state.voucherRankingRequestId)return;
-10785-        renderVoucherRankingBoard({board,mode:"domain",trackId,examSpec:spec,avatarMap});
-10786-      }catch(error){
-10787-        if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load Domain Ranking.");
-10788-      }
-10789-    }
-10790-    
-10791-    async function voucherSessionRankingSpec(trackId,examId,sessionId){
-10792-      const {config}=await loadVoucherExamConfig(trackId,examId);
-10793-      if(!config?.contentArchitectureFile)throw new Error("This PL-300 exam does not have a content architecture.");
---
-10799-      state.voucherContentArchitecture=architecture;
-10800-      const totalQuestions=Object.values(architecture.questionSessionMap||{}).filter(id=>String(id)===String(session.id)).length;
-10801-      if(!totalQuestions)throw new Error("This PL-300 session has no released questions.");
-10802-      return {examId:config.id,title:session.title,sessionId:session.id,domainId:session.domainId,totalQuestions,activityId:voucherSessionRankingActivityId(trackId,config.id,session.id)};
-10803-    }
-10804-    
-10805-    async function loadVoucherSessionRanking(trackId,examId,sessionId){
-10806-      const requestId=++state.voucherRankingRequestId;
-10807-      try{
-10808-        const spec=await voucherSessionRankingSpec(trackId,examId,sessionId);
-10809-        const rows=await fetchAttemptsForExamIds([spec.activityId]);
-10810-        if(requestId!==state.voucherRankingRequestId)return;
-10811:        const board=buildVoucherSessionLeaderboard(rows,{expectedQuestions:spec.totalQuestions});
-10812-        let avatarMap=new Map();
-10813-        try{avatarMap=await fetchRankingProfiles(board.map(x=>x.player_id))}catch{}
-10814-        if(requestId!==state.voucherRankingRequestId)return;
-10815-        renderVoucherRankingBoard({board,mode:"session",trackId,examSpec:spec,avatarMap});
-10816-      }catch(error){
-10817-        if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load Session Ranking.");
-10818-      }
-10819-    }
-10820-    
-10821-    async function loadVoucherExamRanking(trackId,examId){
-10822-      const requestId=++state.voucherRankingRequestId;
-10823-      try{
---
-12938-            </div>`
-12939-          :"";
-12940-    
-12941-        const trace=(ex.executionTrace||[]).length
-12942-          ?`<div class="python-detail-card" dir="rtl">
-12943-              <span class="python-detail-label">EXECUTION TRACE</span>
-12944-              <ol class="python-trace-list">
-12945-                ${(ex.executionTrace||[]).map(step=>`<li dir="auto">${formatStudyMixedText(step)}</li>`).join("")}
-12946-              </ol>
-12947-            </div>`
-12948-          :"";
-12949-    
-12950:        const output=ex.expectedOutput!==undefined && ex.expectedOutput!==null && String(ex.expectedOutput)!==""
-12951-          ?`<div class="python-detail-card python-output-card" dir="ltr">
-12952-              <span class="python-detail-label">EXPECTED OUTPUT</span>
-12953:              <pre><code>${escapeHtml(String(ex.expectedOutput))}</code></pre>
-12954-            </div>`
-12955-          :"";
-12956-    
-12957-        const why=ex.whyItWorks
-12958-          ?`<div class="python-detail-card" dir="rtl">
-12959-              <span class="python-detail-label">WHY IT WORKS</span>
-12960-              <p dir="auto">${formatStudyMixedText(ex.whyItWorks)}</p>
-12961-            </div>`
-12962-          :"";
-12963-    
-12964-        const mistakes=(ex.commonMistakes||[]).length
-12965-          ?`<div class="python-detail-card python-warning-card" dir="rtl">
---
-13832-          improvementSession:true,weakDomains,attemptKey:createUuid()
-13833-        };
-13834-        const examConfig={...config,trackTitle:voucherTrackMeta(config.trackId)?.title||config.trackId};
-13835-        const payload=buildVoucherExamPayload({examConfig,questions,runtime});
-13836-        payload.exam.title=`${config.title} • Improve My Level`;
-13837-        payload.exam.description=`Focused learning session • ${weakDomains.length?weakDomains.join(" + "):"mixed review"} • 25 Questions • Instant Feedback • Non-Ranked`;
-13838-        const errors=validateExamPayload(payload);
-13839-        if(errors.length)throw new Error(errors.join("; "));
-13840-        state.voucherRuntimeSelection={mockKind:"improvement",sizeMode:"improvement-25",timed:false,feedbackMode:"instant",improvementSession:true,weakDomains};
-13841-        state.currentRegistryItem={id:payload.exam.id,title:payload.exam.title,course:"Voucher",module:examConfig.trackTitle,questionCount:payload.questions.length,generator:"voucher",ranked:false,trackId:config.trackId};
-13842-        await launchPreparedVoucherExam(payload,state.currentRegistryItem,{feedbackMode:"instant",timed:false,improvementSession:true,weakDomains});
-13843-      }catch(error){
-13844:        console.error("Voucher improvement session failed",error);
-13845-        showToast(error?.message||"Could not prepare your improvement session.");
-13846-      }
-13847-    }
-13848-    
-13849-    async function prepareVoucherMock(runtimeConfig){
-13850-      if(runtimeConfig?.domainRanked===true&&!state.studentName){
-13851-        requireRankedIdentity(()=>void prepareVoucherMock(runtimeConfig),"Enter your name before starting a ranked PL-300 Domain.");
-13852-        return;
-13853-      }
-13854-      if(runtimeConfig?.sessionRanked===true&&!state.studentName){
-13855-        requireRankedIdentity(()=>void prepareVoucherMock(runtimeConfig),"Enter your name before starting a ranked PL-300 session.");
-13856-        return;
---
-13940-              :"Random Voucher practice — Unseen-First with safe option shuffling.";
-13941-        const errors=validateExamPayload(payload);
-13942-        if(errors.length)throw new Error(errors.join("; "));
-13943-        state.voucherExamEntry=resolved.entry;
-13944-        state.voucherExamConfig=resolved.config;
-13945-        state.voucherRuntimeSelection={...runtimeConfig};
-13946-        state.currentRegistryItem={
-13947-          id:payload.exam.id,title:payload.exam.title,course:"Voucher",module:config.trackTitle,
-13948-          questionCount:payload.questions.length,generator:"voucher",ranked:payload.exam.generatedFromVoucher?.rankEligible===true,trackId
-13949-        };
-13950-        await launchPreparedVoucherExam(payload,state.currentRegistryItem,{...runtimeConfig,feedbackMode:runtime.feedbackMode});
-13951-      }catch(error){
-13952:        console.error("Voucher mock preparation failed",error);
-13953-        showToast(error?.message||"Could not prepare this Voucher mock.");
-13954-      }
-13955-    }
-13956-    
-13957-    function voucherSavedModeLabel(progress){
-13958-      const saved=progress?.voucherResume||{};
-13959-      if(saved.sessionRanked||saved.mockKind==="session")return "Ranked Session";
-13960-      if(saved.sizeMode==="real")return "Legacy Ranked Challenge";
-13961-      if(saved.sizeMode==="full-ranked")return "Full Bank Ranked Exam";
-13962-      if(saved.mockKind==="improvement"||saved.sizeMode==="improvement-25")return "Improvement Session";
-13963-      if(saved.mockKind==="source")return "Source Mock";
-13964-      return "Custom Practice";
---
-14320-          state.currentExam=payload;
-14321-          state.currentRegistryItem=item;
-14322-          state.currentRankedActivity=progress.rankedActivity ?? (Boolean(progress.voucherResume.domainRanked)||Boolean(progress.voucherResume.sessionRanked)||progress.voucherResume.sizeMode==="real"||progress.voucherResume.sizeMode==="full-ranked");
-14323-          state.previousBest=progress.voucherResume.domainRanked
-14324-            ?voucherBestRankedDomainAttempt(progress.voucherResume.voucherExamId,progress.voucherResume.domainId)
-14325-            :progress.voucherResume.sessionRanked
-14326-              ?voucherBestRankedSessionAttempt(progress.voucherResume.voucherExamId,progress.voucherResume.sessionId||progress.voucherResume.sourceId)
-14327-              :progress.voucherResume.sizeMode==="full-ranked"
-14328-              ?getBestVoucherAttempt(mistakeOwnerId(),progress.voucherResume.voucherExamId,{rankEligibleOnly:true,sizeMode:"full-ranked"})
-14329-              :getBestVoucherAttempt(mistakeOwnerId(),progress.voucherResume.voucherExamId,{rankEligibleOnly:progress.voucherResume.sizeMode==="real",sizeMode:progress.voucherResume.sizeMode==="real"?"real":null});
-14330-          startExam(progress);
-14331-        }catch(error){
-14332:          console.error("Voucher resume failed",error);
-14333-          clearExamProgress();
-14334-          showToast("Saved Voucher attempt could not be reconstructed. Your other progress is unchanged.");
-14335-          routeTo(state.voucherExamId?"voucherExamView":"dashboardView");
-14336-        }
-14337-        return;
-14338-      }
-14339-      let item=state.registry.find(x=>x.id===progress.examId);
-14340-      if(!item && progress.generatedExam){
-14341-        item={
-14342-          id:progress.examId,
-14343-          title:progress.generatedExam.exam?.title||"Saved Exam",
-14344-          course:progress.generatedExam.exam?.course||"Data Analysis",
---
-14371-        state.currentRankedActivity=progress.rankedActivity ?? (item?.ranked!==false);
-14372-    
-14373-        const officialCtx=payload.exam?.generatedFromOfficialQbank || null;
-14374-        if(officialCtx){
-14375-          state.officialLevelId=officialCtx.levelId || "junior-data-analysis";
-14376-          state.officialTrackId=officialCtx.trackId || null;
-14377-          state.officialSectionId=officialCtx.sectionId || null;
-14378-        }
-14379-    
-14380-        state.previousBest=state.studentName?getPreviousBestForExam(payload.exam.id,state.studentName):null;
-14381-        startExam(progress);
-14382-      }catch(e){
-14383:        console.error("Resume failed",e);
-14384-        clearExamProgress();
-14385-        showToast("Saved progress could not be restored.");
-14386-        routeTo("examsView");
-14387-      }
-14388-    }
-14389-    
-14390-    function persistProgress(){
-14391-      if(!state.currentExam || !state.studentName)return;
-14392-      const nowEpoch=Date.now();
-14393-      const snapshotStartedAt=state.timerPolicy==="active-solve"&&state.solvePauseStartedAt
-14394-        ?Number(state.startedAt)+(nowEpoch-Number(state.solvePauseStartedAt))
-14395-        :state.startedAt;
---
-14552-        return rows.map(row=>`<div class="structured-answer-row"><b>${escapeHtml(row.label)}:</b> ${escapeHtml(row.value||'—')}</div>`).join('');
-14553-      }
-14554-      const ids=selectedAnswerIds(selected);
-14555-      return ids.map(id=>{
-14556-        const option=(question?.options||[]).find(o=>String(o.id)===String(id));
-14557-        return option?`<div><b>${escapeHtml(optionDisplayLabel(question,id))}.</b> ${renderTechnicalOption(option.text||'',question)}</div>`:'';
-14558-      }).join('');
-14559-    }
-14560-    
-14561-    function renderRankedStructuredInputs(q,list,{selected,confirmed,feedbackReady}={}){
-14562-      const values=structuredAnswerFields(selected),fields=structuredFields(q),kind=structuredInteractionKind(q),pool=kind==='ordered-fields'?structuredChoicePool(q):[],locked=Boolean(confirmed)||(state.feedbackMode==='instant'&&!isCurrentVoucherRankedLearning()&&structuredAnswerComplete(q,selected)),feedback=state.feedbackMode==='instant'&&feedbackReady&&structuredAnswerComplete(q,selected);
-14563-      list.classList.add('ranked-structured-list');list.dataset.structuredInteraction=kind;
-14564:      const grade=(row,f,v)=>{if(!feedback)return;const ok=structuredFieldCorrect(f,v);row.classList.add(ok?'correct':'wrong');const n=document.createElement('small');n.className='ranked-structured-expected';n.textContent=ok?'Correct ✓':`Expected: ${String((f.expected||[])[0]??'')}`;row.append(n)};
-14565-      if(kind==='yes-no'){
-14566-        for(const f of fields){const row=document.createElement('div');row.className='ranked-structured-field ranked-structured-binary';row.innerHTML=`<span class="ranked-structured-label">${escapeHtml(f.label||f.id)}</span><div class="ranked-structured-binary-controls"></div>`;const group=row.lastElementChild;for(const c of structuredBinaryChoices(q,f)){const b=document.createElement('button'),on=String(values?.[f.id]??'').toLowerCase()===String(c).toLowerCase();b.type='button';b.className=`ranked-structured-binary-option${on?' selected':''}`;b.textContent=c;b.dataset.rankedStructuredBinary=f.id;b.dataset.rankedStructuredValue=c;b.ariaPressed=on;b.disabled=locked;b.onclick=()=>updateStructuredField(q,f.id,c);group.append(b)}grade(row,f,values?.[f.id]);list.append(row)}return;
-14567-      }
-14568-      let dragged='';
-14569-      if(pool.length){const box=document.createElement('div');box.className='ranked-structured-choice-pool';box.innerHTML='<small>Drag a source-backed choice to a target, or use the dropdown.</small><div class="ranked-structured-choice-list"></div>';for(const c of pool){const b=document.createElement('button');b.type='button';b.className='ranked-structured-choice';b.textContent=c;b.draggable=!locked;b.disabled=locked;b.dataset.rankedStructuredChoice=c;b.ondragstart=e=>{dragged=c;e.dataTransfer?.setData('text/plain',c)};b.ondragend=()=>dragged='';box.lastElementChild.append(b)}list.append(box)}
-14570-      fields.forEach((f,i)=>{const row=document.createElement('label'),choices=structuredFieldChoices(f),opts=pool.length&&!choices.length?pool:choices,input=opts.length?document.createElement('select'):document.createElement('input');row.className=`ranked-structured-field${pool.length?' ranked-structured-drop-target':''}`;row.innerHTML=`<span class="ranked-structured-label">${pool.length?`<b>${i+1}</b> `:''}${escapeHtml(f.label||f.id)}</span>`;if(opts.length){input.innerHTML='<option value="">Select an answer</option>'+opts.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('')}else{input.type='text';input.placeholder='Type the source answer'}input.dataset.rankedStructuredField=f.id;input.value=String(values?.[f.id]??'');input.disabled=locked;if(feedback)input.classList.add(structuredFieldCorrect(f,input.value)?'correct':'wrong');input.addEventListener(opts.length?'change':'input',e=>updateStructuredField(q,f.id,e.target.value));row.append(input);if(pool.length){row.dataset.rankedStructuredDropField=f.id;row.ondragover=e=>{if(!locked){e.preventDefault();row.classList.add('drag-over')}};row.ondragleave=()=>row.classList.remove('drag-over');row.ondrop=e=>{if(locked)return;e.preventDefault();row.classList.remove('drag-over');const v=dragged||e.dataTransfer?.getData('text/plain');if(v){input.value=v;updateStructuredField(q,f.id,v)}}}grade(row,f,input.value);list.append(row)})
-14571-    }
-14572-    function renderQuestion(){
-14573-      const qs=state.currentExam.questions,q=qs[state.currentIndex];
-14574-      $("questionCounter").textContent=`Question ${state.currentIndex+1} / ${qs.length}`;
-14575-      $("progressFill").style.width=`${((state.currentIndex+1)/qs.length)*100}%`;
-14576-      {
---
-15394-      setResultSyncUI("syncing");
-15395-    
-15396-      try{
-15397-        await submitAttemptOnline(onlineAttempt);
-15398-        removePendingAttempt(onlineAttempt.client_attempt_id);
-15399-        markResultSynced(onlineAttempt.client_attempt_id);
-15400-    
-15401-        const rankingId=String(onlineAttempt.exam_id||"");
-15402-        const domainRanking=rankingId.includes("::domain::");
-15403-        const sessionRanking=rankingId.includes("::session::");
-15404-        const rows=(domainRanking||sessionRanking)?await fetchAttemptsForExamIds([onlineAttempt.exam_id]):null;
-15405-        const board=domainRanking
-15406:          ?buildVoucherDomainLeaderboard(rows,{expectedQuestions:Number(onlineAttempt.total_questions)||0})
-15407-          :sessionRanking
-15408:            ?buildVoucherSessionLeaderboard(rows,{expectedQuestions:Number(onlineAttempt.total_questions)||0})
-15409-            :await getLeaderboard(onlineAttempt.exam_id);
-15410-        const me=board.find(x=>x.player_id===state.playerId);
-15411-        setResultSyncUI("synced",me,board);
-15412-      }catch(error){
-15413:        console.error("Online result sync failed:",error);
-15414-        setResultSyncUI("offline");
-15415-      }
-15416-    }
-15417-    
-15418-    function setResultSyncUI(mode,me=null,board=[]){
-15419-      const card=$("onlineRankCard");
-15420-      const rank=$("resultOnlineRank");
-15421-      const status=$("resultSyncStatus");
-15422-      if(!card||!rank||!status)return;
-15423-    
-15424-      card.classList.toggle("hidden",mode==="local");
-15425-      card.classList.remove("synced","offline");
-15426-      if(mode==="local")return;
-15427-    
-15428-      if(mode==="syncing"){
-15429-        rank.textContent="Syncing…";
-15430-        status.textContent="Saving this attempt online.";
-15431-        return;
-15432-      }
-15433-    
-15434-      if(mode==="offline"){
-15435-        card.classList.add("offline");
-15436-        rank.textContent="Saved locally";
-15437:        status.textContent="Online sync failed. The platform will retry automatically next time.";
-15438-        return;
-15439-      }
-15440-    
-15441-      card.classList.add("synced");
-15442-      if(me){
-15443-        rank.textContent=`#${me.rank} of ${board.length}`;
-15444-        const previous=board[me.rank-2];
-15445-        const sessionRanking=Number.isFinite(Number(me.firstPassPercentage))&&Number.isFinite(Number(me.attemptCount));
-15446-        if(sessionRanking){
-15447-          if(me.rank===1){
-15448-            status.textContent=`You are #1 • Mastery ${Number(me.percentage)||0}% • First Pass ${Number(me.firstPassPercentage)||0}% • reached in ${Number(me.attemptCount)||1} attempt${Number(me.attemptCount)===1?"":"s"}.`;
-15449-          }else if(previous){
---
-15953-      $("rankingHeadTime").classList.remove("hidden");
-15954-      $("rankingBestLabel").textContent="Total Grade";
-15955-      $("rankingAttemptsLabel").textContent="Completed";
-15956-    }
-15957-    function setRankingLoading(message="Fetching the latest shared results from Supabase."){
-15958-      const status=$("leaderboardStatus"),content=$("leaderboardContent");
-15959-      status.className="status-card info";
-15960-      status.classList.remove("hidden");
-15961-      status.innerHTML=`<div class="status-icon">↗</div><div><strong>Loading leaderboard…</strong><p>${escapeHtml(message)}</p></div>`;
-15962-      content.classList.add("hidden");
-15963-    }
-15964-    function showRankingError(error){
-15965:      console.error("Leaderboard fetch failed:",error);
-15966-      const status=$("leaderboardStatus"),content=$("leaderboardContent");
-15967-      status.className="status-card danger";
-15968-      status.classList.remove("hidden");
-15969-      status.innerHTML=`<div class="status-icon">!</div><div><strong>Leaderboard is temporarily unavailable</strong><p>Your local exam results are still safe. Check your connection and try Refresh.</p></div>`;
-15970-      content.classList.add("hidden");
-15971-    }
-15972-    function showRankingContent(){
-15973-      $("leaderboardStatus").classList.add("hidden");
-15974-      $("leaderboardContent").classList.remove("hidden");
-15975-    }
-15976-    
-15977-    function rankingAvatarHtml(entry,isMe=false){
---
-16639-      applyTheme(getTheme());
-16640-      state.playerId=getPlayerId();
-16641-    
-16642-      let dataLoaded=false;
-16643-      try{
-16644-        await loadData();
-16645-        dataLoaded=true;
-16646-      }catch(e){
-16647-        console.error(e);
-16648-        window.dispatchEvent(new CustomEvent("digilians:client-error",{detail:{
-16649-          kind:e?.name||"data_load_error",
-16650-          message:e?.message||"Platform data could not be loaded.",
-16651:          phase:"startup"
-16652-        }}));
-16653-        $("examLoadError").textContent="Could not load platform data. Open this project through GitHub Pages or a local web server.";
-16654-        $("examLoadError").classList.remove("hidden");
-16655-      }
-16656-    
-16657-      if(!dataLoaded){
-16658-        window.__DIGILIANS_SHOW_FATAL__?.("Platform data could not be loaded.");
-16659-        return;
-16660-      }
-16661-    
-16662-      state.studentName=getStudentName();
-16663-      state.primaryTrackId=getPrimaryTrack();
---
-16667-      if(state.studentName){
-16668-        $("returningUserEntry").classList.remove("hidden");$("newUserEntry").classList.add("hidden");
-16669-        $("returningUserName").textContent=state.studentName;
-16670-        routeTo("welcomeView");
-16671-        openReturningUserAvatarRollout();
-16672-      }else routeTo("welcomeView");
-16673-    
-16674-      setEntryControlsReady(true);
-16675-      window.__DIGILIANS_APP_READY__=true;
-16676-      window.__DIGILIANS_CLEAR_FATAL__?.();
-16677-    }
-16678-    init().catch(error=>{
-16679:      console.error("Fatal application startup error:",error);
-16680-      window.dispatchEvent(new CustomEvent("digilians:client-error",{detail:{
-16681:        kind:error?.name||"fatal_startup_error",
-16682-        message:error?.message||"The application could not start correctly.",
-16683:        phase:"startup"
-16684-      }}));
-16685-      window.__DIGILIANS_SHOW_FATAL__?.("The application could not start correctly.");
-16686-    });
-16687-    
-16688-  operator: 'match'
-16689-  stack: |-
-16690-    TestContext.<anonymous> (file:///home/runner/work/Digilians-E-learn-platform/Digilians-E-learn-platform/tests/pl300-native-ranked-results-mistakes.test.mjs:39:10)
-16691-    Test.runInAsyncScope (node:async_hooks:214:14)
-16692-    Test.run (node:internal/test_runner/test:1047:25)
-16693-    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
-16694-    Test.postRun (node:internal/test_runner/test:1173:19)
-16695-    Test.run (node:internal/test_runner/test:1101:12)
---
-16704-# Subtest: structured My Mistakes questions remain practiceable without invented MCQ options
-16705-ok 223 - structured My Mistakes questions remain practiceable without invented MCQ options
-16706-  ---
-16707-  duration_ms: 0.293306
-16708-  type: 'test'
-16709-  ...
-16710-# Subtest: PL-300 visual audit accepts approved native structured source-evidence visuals
-16711-ok 224 - PL-300 visual audit accepts approved native structured source-evidence visuals
-16712-  ---
-16713-  duration_ms: 104.485986
-16714-  type: 'test'
-16715-  ...
-16716:# Subtest: PL-300 source practice promotes evidence-backed visuals while fail-closed source reveals remain checkpoint candidates
-16717:ok 225 - PL-300 source practice promotes evidence-backed visuals while fail-closed source reveals remain checkpoint candidates
-16718-  ---
-16719-  duration_ms: 19.560425
-16720-  type: 'test'
-16721-  ...
-16722-# Subtest: native source records stay practice-scoped while only explicit reviewed copies enter the ranked master bank
-16723-ok 226 - native source records stay practice-scoped while only explicit reviewed copies enter the ranked master bank
-16724-  ---
-16725-  duration_ms: 36.672269
-16726-  type: 'test'
-16727-  ...
-16728-# Subtest: voucher storage and source-practice UI support native structured answers
-16729-ok 227 - voucher storage and source-practice UI support native structured answers
---
-16740-# Subtest: PL-300 official-weight blueprint resolves to 60 questions
-16741-ok 229 - PL-300 official-weight blueprint resolves to 60 questions
-16742-  ---
-16743-  duration_ms: 0.546836
-16744-  type: 'test'
-16745-  ...
-16746-# Subtest: PL-300 draft master bank preserves stable option IDs, provenance and multi-select answer sets
-16747-ok 230 - PL-300 draft master bank preserves stable option IDs, provenance and multi-select answer sets
-16748-  ---
-16749-  duration_ms: 25.684015
-16750-  type: 'test'
-16751-  ...
-16752:# Subtest: PL-300 production subset is fail-closed, current-scope and large enough for all configured mock sizes
-16753:ok 231 - PL-300 production subset is fail-closed, current-scope and large enough for all configured mock sizes
-16754-  ---
-16755-  duration_ms: 2.192025
-16756-  type: 'test'
-16757-  ...
-16758-# Subtest: production subset supports the fixed 60-question real-exam quota after domain review
-16759-ok 232 - production subset supports the fixed 60-question real-exam quota after domain review
-16760-  ---
-16761-  duration_ms: 0.514386
-16762-  type: 'test'
-16763-  ...
-16764:# Subtest: non-production questions stay excluded from Random and Real generation by the existing fail-closed engine
-16765:ok 233 - non-production questions stay excluded from Random and Real generation by the existing fail-closed engine
-16766-  ---
-16767-  duration_ms: 0.27995
-16768-  type: 'test'
-16769-  ...
-16770-# Subtest: production PL-300 excludes unreviewed standalone Source 2 questions
-16771-ok 234 - production PL-300 excludes unreviewed standalone Source 2 questions
-16772-  ---
-16773-  duration_ms: 2.156598
-16774-  type: 'test'
-16775-  ...
-16776-# Subtest: owner-approved Source 2 RLS conflict Q307 uses RLS scoring and enters the reviewed production set
-16777-ok 235 - owner-approved Source 2 RLS conflict Q307 uses RLS scoring and enters the reviewed production set
---
-16782-# Subtest: conservative PL-300 production set still supports all mock sizes and the fixed real-exam quota
-16783-ok 236 - conservative PL-300 production set still supports all mock sizes and the fixed real-exam quota
-16784-  ---
-16785-  duration_ms: 0.377973
-16786-  type: 'test'
-16787-  ...
-16788-# Subtest: approved scatter conflict is promoted as the 201st ranked question with preserved source provenance
-16789-ok 237 - approved scatter conflict is promoted as the 201st ranked question with preserved source provenance
-16790-  ---
-16791-  duration_ms: 44.811686
-16792-  type: 'test'
-16793-  ...
-16794:# Subtest: the malformed tooltip variants remain available only as fail-closed source reveal practice
-16795:ok 238 - the malformed tooltip variants remain available only as fail-closed source reveal practice
-16796-  ---
-16797-  duration_ms: 28.202697
-16798-  type: 'test'
-16799-  ...
-16800-# Subtest: release metadata reflects 265 ranked questions while all 509 source blocks remain practiceable
-16801-ok 239 - release metadata reflects 265 ranked questions while all 509 source blocks remain practiceable
-16802-  ---
-16803-  duration_ms: 5.797084
-16804-  type: 'test'
-16805-  ...
-16806-# Subtest: ranked learning styles define .voucher-ranked-learning-overview
-16807-ok 240 - ranked learning styles define .voucher-ranked-learning-overview
---
-17040-# Subtest: owner-approved conflict resolution leaves no unlinked rankable text blocks
-17041-ok 279 - owner-approved conflict resolution leaves no unlinked rankable text blocks
-17042-  ---
-17043-  duration_ms: 5.115598
-17044-  type: 'test'
-17045-  ...
-17046-# Subtest: PL-300 source review supports auto-scored text practice
-17047-ok 280 - PL-300 source review supports auto-scored text practice
-17048-  ---
-17049-  duration_ms: 0.922354
-17050-  type: 'test'
-17051-  ...
-17052:# Subtest: fail-closed source questions use required study checkpoints without self-awarded correctness
-17053:ok 281 - fail-closed source questions use required study checkpoints without self-awarded correctness
-17054-  ---
-17055-  duration_ms: 0.400665
-17056-  type: 'test'
-17057-  ...
-17058-# Subtest: full ranked source practice displays persistent completion and objective answer-state styling
-17059-ok 282 - full ranked source practice displays persistent completion and objective answer-state styling
-17060-  ---
-17061-  duration_ms: 1.895723
-17062-  type: 'test'
-17063-  ...
-17064-# Subtest: native structured source practice has responsive answer-field styling
-17065-ok 283 - native structured source practice has responsive answer-field styling
---
-17124-# Subtest: PL-300 visual audit derives released question count from config instead of a stale literal
-17125-ok 293 - PL-300 visual audit derives released question count from config instead of a stale literal
-17126-  ---
-17127-  duration_ms: 0.812751
-17128-  type: 'test'
-17129-  ...
-17130-# Subtest: PL-300 Wave 2 expands the reviewed current-scope bank beyond 170 questions
-17131-ok 294 - PL-300 Wave 2 expands the reviewed current-scope bank beyond 170 questions
-17132-  ---
-17133-  duration_ms: 1.426311
-17134-  type: 'test'
-17135-  ...
-17136:# Subtest: Wave 2 remains fail-closed for known unresolved or stale answer-key conflicts
-17137:ok 295 - Wave 2 remains fail-closed for known unresolved or stale answer-key conflicts
-17138-  ---
-17139-  duration_ms: 0.563918
-17140-  type: 'test'
-17141-  ...
-17142-# Subtest: standalone Source 2 production remains an explicit reviewed allowlist
-17143-ok 296 - standalone Source 2 production remains an explicit reviewed allowlist
-17144-  ---
-17145-  duration_ms: 2.412463
-17146-  type: 'test'
-17147-  ...
-17148-# Subtest: Wave 2 does not admit legacy/out-of-scope or incomplete case-study payloads
-17149-ok 297 - Wave 2 does not admit legacy/out-of-scope or incomplete case-study payloads
---
-17160-# Subtest: Platform Health scope switch is local and does not refetch analytics
-17161-ok 299 - Platform Health scope switch is local and does not refetch analytics
-17162-  ---
-17163-  duration_ms: 1.433845
-17164-  type: 'test'
-17165-  ...
-17166-# Subtest: Platform Health has distinct visual treatment for warning rows
-17167-ok 300 - Platform Health has distinct visual treatment for warning rows
-17168-  ---
-17169-  duration_ms: 0.310397
-17170-  type: 'test'
-17171-  ...
-17172:# Subtest: client error classification distinguishes startup criticals, runtime errors, warnings, and benign noise
-17173:ok 301 - client error classification distinguishes startup criticals, runtime errors, warnings, and benign noise
-17174-  ---
-17175-  duration_ms: 6.273781
-17176-  type: 'test'
-17177-  ...
-17178-# Subtest: health aggregation exposes severity counts, current-version errors, and last error timestamp
-17179-ok 302 - health aggregation exposes severity counts, current-version errors, and last error timestamp
-17180-  ---
-17181-  duration_ms: 3.702401
-17182-  type: 'test'
-17183-  ...
-17184-# Subtest: historical app_error events without severity remain classifiable
-17185-ok 303 - historical app_error events without severity remain classifiable
-17186-  ---
-17187-  duration_ms: 3.665853
-17188-  type: 'test'
-17189-  ...
-17190:# Subtest: failed to fetch is classified as a network warning instead of a critical/error TypeError
-17191:ok 304 - failed to fetch is classified as a network warning instead of a critical/error TypeError
-17192-  ---
-17193-  duration_ms: 3.085154
-17194-  type: 'test'
-17195-  ...
-17196-# Subtest: health defaults to current-version sessions and errors while preserving all-version history
-17197-ok 305 - health defaults to current-version sessions and errors while preserving all-version history
-17198-  ---
-17199-  duration_ms: 10.824798
-17200-  type: 'test'
-17201-  ...
-17202:# Subtest: current-version health rate uses only sessions that actually ran the current build
-17203:ok 306 - current-version health rate uses only sessions that actually ran the current build
-17204-  ---
-17205-  duration_ms: 3.634776
-17206-  type: 'test'
-17207-  ...
-17208-# Subtest: full track exam navigation returns to the selected learning track
-17209-ok 307 - full track exam navigation returns to the selected learning track
-17210-  ---
-17211-  duration_ms: 3.162487
-17212-  type: 'test'
-17213-  ...
-17214-# Subtest: track exam setup labels its back action with the selected track
-17215-ok 308 - track exam setup labels its back action with the selected track
---
-17244-# Subtest: entry CTA is inert until platform data is ready
-17245-ok 313 - entry CTA is inert until platform data is ready
-17246-  ---
-17247-  duration_ms: 4.985957
-17248-  type: 'test'
-17249-  ...
-17250-# Subtest: saved theme is applied before the main stylesheet to avoid a light-mode flash
-17251-ok 314 - saved theme is applied before the main stylesheet to avoid a light-mode flash
-17252-  ---
-17253-  duration_ms: 1.235857
-17254-  type: 'test'
-17255-  ...
-17256:# Subtest: startup payload stays within the stabilization performance budget
-17257:not ok 315 - startup payload stays within the stabilization performance budget
-17258-  ---
-17259-  duration_ms: 56.369126
-17260-  type: 'test'
-17261-  location: '/home/runner/work/Digilians-E-learn-platform/Digilians-E-learn-platform/tests/platform-ux-performance.test.mjs:45:1'
-17262:  failureType: 'testCodeFailure'
-17263:  error: 'startup gzip estimate 450.4KB exceeds 450KB budget'
-17264:  code: 'ERR_ASSERTION'
-17265:  name: 'AssertionError'
-17266:  expected: true
-17267:  actual: false
-17268-  operator: '=='
-17269-  stack: |-
-17270-    TestContext.<anonymous> (file:///home/runner/work/Digilians-E-learn-platform/Digilians-E-learn-platform/tests/platform-ux-performance.test.mjs:56:10)
-17271-    Test.runInAsyncScope (node:async_hooks:214:14)
-17272-    Test.run (node:internal/test_runner/test:1047:25)
-17273-    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
-17274-    Test.postRun (node:internal/test_runner/test:1173:19)
-17275-    Test.run (node:internal/test_runner/test:1101:12)
-17276-    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
-17277-  ...
-17278:# Subtest: startup has an independent recovery state for load failures and timeouts
-17279:ok 316 - startup has an independent recovery state for load failures and timeouts
-17280-  ---
-17281-  duration_ms: 0.62455
-17282-  type: 'test'
-17283-  ...
-17284-# Subtest: pre-deploy permanently enforces the UX/performance stabilization gate
-17285-ok 317 - pre-deploy permanently enforces the UX/performance stabilization gate
-17286-  ---
-17287-  duration_ms: 0.282565
-17288-  type: 'test'
-17289-  ...
-17290:# Subtest: PL-300 feature CSS is lazy-loaded instead of inflating the startup stylesheet
-17291:ok 318 - PL-300 feature CSS is lazy-loaded instead of inflating the startup stylesheet
-17292-  ---
-17293-  duration_ms: 3.596053
-17294-  type: 'test'
-17295-  ...
-17296-# Subtest: pre-deploy runs the path portability regression gate
-17297-ok 319 - pre-deploy runs the path portability regression gate
-17298-  ---
-17299-  duration_ms: 1.392197
-17300-  type: 'test'
-17301-  ...
-17302-# Subtest: pre-deploy requires the lazy PL-300 stylesheet used by ranked/source-review views
-17303-ok 320 - pre-deploy requires the lazy PL-300 stylesheet used by ranked/source-review views
---
-17662-# Subtest: reset clears only the current owner mistake history
-17663-ok 380 - reset clears only the current owner mistake history
-17664-  ---
-17665-  duration_ms: 1.839899
-17666-  type: 'test'
-17667-  ...
-17668-# Subtest: official reset removes only mistake flags and preserves study state
-17669-ok 381 - official reset removes only mistake flags and preserves study state
-17670-  ---
-17671-  duration_ms: 0.582152
-17672-  type: 'test'
-17673-  ...
-17674:# Subtest: startup and exam code do not call crypto.randomUUID directly
-17675:ok 382 - startup and exam code do not call crypto.randomUUID directly
-17676-  ---
-17677-  duration_ms: 3.706598
-17678-  type: 'test'
-17679-  ...
-17680-# Subtest: createUuid falls back to crypto.getRandomValues when randomUUID is unavailable
-17681-ok 383 - createUuid falls back to crypto.getRandomValues when randomUUID is unavailable
-17682-  ---
-17683-  duration_ms: 3.597105
-17684-  type: 'test'
-17685-  ...
-17686-# Subtest: createUuid has a last-resort UUID fallback when Web Crypto is absent
-17687-ok 384 - createUuid has a last-resort UUID fallback when Web Crypto is absent
---
-17698-# Subtest: analytics filters benign browser noise before counting/reporting app errors
-17699-ok 386 - analytics filters benign browser noise before counting/reporting app errors
-17700-  ---
-17701-  duration_ms: 0.531969
-17702-  type: 'test'
-17703-  ...
-17704-# Subtest: runtime compatibility helper stays cache-busted across the current release
-17705-ok 387 - runtime compatibility helper stays cache-busted across the current release
-17706-  ---
-17707-  duration_ms: 4.147909
-17708-  type: 'test'
-17709-  ...
-17710:# Subtest: startup-critical storage import is cache-busted with the current release
-17711:ok 388 - startup-critical storage import is cache-busted with the current release
-17712-  ---
-17713-  duration_ms: 1.146411
-17714-  type: 'test'
-17715-  ...
-17716:# Subtest: storage module exposes the reset API required by app startup
-17717:ok 389 - storage module exposes the reset API required by app startup
-17718-  ---
-17719-  duration_ms: 0.255054
-17720-  type: 'test'
-17721-  ...
-17722-# Subtest: storage schema migrates an unversioned install non-destructively to the current version
-17723-ok 390 - storage schema migrates an unversioned install non-destructively to the current version
-17724-  ---
-17725-  duration_ms: 2.256694
-17726-  type: 'test'
-17727-  ...
-17728-# Subtest: future storage schema is refused without mutating learner data
-17729-ok 391 - future storage schema is refused without mutating learner data
---
-17902-# Subtest: PL-300 primary hierarchy is ranked learning first instead of challenge first
-17903-ok 420 - PL-300 primary hierarchy is ranked learning first instead of challenge first
-17904-  ---
-17905-  duration_ms: 0.200022
-17906-  type: 'test'
-17907-  ...
-17908-# Subtest: ranked-learning controls preserve accessible dialog, live regions and text-labelled states
-17909-ok 421 - ranked-learning controls preserve accessible dialog, live regions and text-labelled states
-17910-  ---
-17911-  duration_ms: 2.250214
-17912-  type: 'test'
-17913-  ...
-17914:# Subtest: content architecture validation fails closed on missing, unknown, or duplicate mapping contracts
-17915:ok 422 - content architecture validation fails closed on missing, unknown, or duplicate mapping contracts
-17916-  ---
-17917-  duration_ms: 2.264749
-17918-  type: 'test'
-17919-  ...
-17920-# Subtest: session filtering returns only mapped questions and preserves master-bank order
-17921-ok 423 - session filtering returns only mapped questions and preserves master-bank order
-17922-  ---
-17923-  duration_ms: 0.526419
-17924-  type: 'test'
-17925-  ...
-17926-# Subtest: view model aggregates deterministic domain/session counts and seen progress
-17927-ok 424 - view model aggregates deterministic domain/session counts and seen progress
---
-18190-# Subtest: session ranking activity id is stable and session-scoped
-18191-ok 468 - session ranking activity id is stable and session-scoped
-18192-  ---
-18193-  duration_ms: 1.247709
-18194-  type: 'test'
-18195-  ...
-18196-# Subtest: first pass percentage uses completed question volume
-18197-ok 469 - first pass percentage uses completed question volume
-18198-  ---
-18199-  duration_ms: 0.192408
-18200-  type: 'test'
-18201-  ...
-18202:# Subtest: session rank status is official only when every expected question has an answer
-18203:ok 470 - session rank status is official only when every expected question has an answer
-18204-  ---
-18205-  duration_ms: 0.845822
-18206-  type: 'test'
-18207-  ...
-18208-# Subtest: session leaderboard ranks mastery, first-pass accuracy, fewer attempts, active solve time, then earliest achievement
-18209-ok 471 - session leaderboard ranks mastery, first-pass accuracy, fewer attempts, active solve time, then earliest achievement
-18210-  ---
-18211-  duration_ms: 1.75384
-18212-  type: 'test'
-18213-  ...
-18214-# Subtest: session attempt metadata distinguishes official completion and first-pass accuracy
-18215-ok 472 - session attempt metadata distinguishes official completion and first-pass accuracy
---
-18334-# Subtest: Voucher registry exposes exactly the five approved tracks
-18335-ok 492 - Voucher registry exposes exactly the five approved tracks
-18336-  ---
-18337-  duration_ms: 2.031842
-18338-  type: 'test'
-18339-  ...
-18340-# Subtest: Data Analysis is released while the other approved Voucher tracks remain Coming Soon
-18341-ok 493 - Data Analysis is released while the other approved Voucher tracks remain Coming Soon
-18342-  ---
-18343-  duration_ms: 2.31372
-18344-  type: 'test'
-18345-  ...
-18346:# Subtest: exam config fails closed when Real Exam metadata is incomplete
-18347:ok 494 - exam config fails closed when Real Exam metadata is incomplete
-18348-  ---
-18349-  duration_ms: 0.385477
-18350-  type: 'test'
-18351-  ...
-18352-# Subtest: ranked Domain completion records Domain mastery, first pass, active solve and scoped ranking ID
-18353-ok 495 - ranked Domain completion records Domain mastery, first pass, active solve and scoped ranking ID
-18354-  ---
-18355-  duration_ms: 1.242006
-18356-  type: 'test'
-18357-  ...
-18358-# Subtest: legacy challenge and full-bank activity IDs remain in completion code only for historical compatibility
-18359-ok 496 - legacy challenge and full-bank activity IDs remain in completion code only for historical compatibility
---
-18436-# Subtest: voucher backup merge preserves source practice records
-18437-ok 509 - voucher backup merge preserves source practice records
-18438-  ---
-18439-  duration_ms: 1.628464
-18440-  type: 'test'
-18441-  ...
-18442-# Subtest: native structured source answers persist and contribute only to local practice summary
-18443-ok 510 - native structured source answers persist and contribute only to local practice summary
-18444-  ---
-18445-  duration_ms: 2.917699
-18446-  type: 'test'
-18447-  ...
-18448:# Subtest: native structured source result fails closed when no answer fields are provided
-18449:ok 511 - native structured source result fails closed when no answer fields are provided
-18450-  ---
-18451-  duration_ms: 0.736744
-18452-  type: 'test'
-18453-  ...
-18454-# Subtest: voucher source practice persists auto-scored and self-graded source items
-18455-ok 512 - voucher source practice persists auto-scored and self-graded source items
-18456-  ---
-18457-  duration_ms: 2.916747
-18458-  type: 'test'
-18459-  ...
-18460-# Subtest: Voucher attempts stay in their own store and best eligible attempt is selected
-18461-ok 513 - Voucher attempts stay in their own store and best eligible attempt is selected
---
-18574-# Subtest: PowerShell fallback scripts avoid ambiguous unbraced variable-colon interpolation
-18575-ok 532 - PowerShell fallback scripts avoid ambiguous unbraced variable-colon interpolation
-18576-  ---
-18577-  duration_ms: 0.942467
-18578-  type: 'test'
-18579-  ...
-18580-# Subtest: Windows fallback server is loopback-only, prevents path traversal, and chooses a free port
-18581-ok 533 - Windows fallback server is loopback-only, prevents path traversal, and chooses a free port
-18582-  ---
-18583-  duration_ms: 0.373188
-18584-  type: 'test'
-18585-  ...
-18586:# Subtest: developer QA scripts explain that Node 20+ is required instead of failing with command-not-found
-18587:ok 534 - developer QA scripts explain that Node 20+ is required instead of failing with command-not-found
-18588-  ---
-18589-  duration_ms: 0.362634
-18590-  type: 'test'
-18591-  ...
-18592-# Subtest: local testing guide separates ordinary localhost use from developer QA requirements
-18593-ok 535 - local testing guide separates ordinary localhost use from developer QA requirements
-18594-  ---
-18595-  duration_ms: 0.4914
-18596-  type: 'test'
-18597-  ...
-18598-# Subtest: workspace has no redundant HTML mirrors when Markdown source exists
-18599-ok 536 - workspace has no redundant HTML mirrors when Markdown source exists
---
-18614-  type: 'test'
-18615-  ...
-18616-# Subtest: README stays current-state focused instead of becoming a release archive
-18617-ok 539 - README stays current-state focused instead of becoming a release archive
-18618-  ---
-18619-  duration_ms: 0.390929
-18620-  type: 'test'
-18621-  ...
-18622-1..539
-18623-# tests 539
-18624-# suites 0
-18625-# pass 536
-18626:# fail 3
-18627-# cancelled 0
-18628-# skipped 0
-18629-# todo 0
-18630-# duration_ms 4392.705976
+3244-  type: 'test'
+3245-  ...
+3246-# Subtest: README stays current-state focused instead of becoming a release archive
+3247-ok 539 - README stays current-state focused instead of becoming a release archive
+3248-  ---
+3249-  duration_ms: 0.420082
+3250-  type: 'test'
+3251-  ...
+3252-1..539
+3253-# tests 539
+3254-# suites 0
+3255-# pass 538
+3256:# fail 1
+3257-# cancelled 0
+3258-# skipped 0
+3259-# todo 0
+3260-# duration_ms 4215.113724
 
 ===== TAIL =====
-  duration_ms: 0.8784
+  duration_ms: 1.163852
   type: 'test'
   ...
 # Subtest: only explicit Real Exam Size Voucher attempts are marked ranked
 ok 502 - only explicit Real Exam Size Voucher attempts are marked ranked
   ---
-  duration_ms: 0.349995
+  duration_ms: 0.440984
   type: 'test'
   ...
 # Subtest: Real Voucher payload explicitly marks Ranked Learning Challenge
 ok 503 - Real Voucher payload explicitly marks Ranked Learning Challenge
   ---
-  duration_ms: 1.115124
+  duration_ms: 1.397184
   type: 'test'
   ...
 # Subtest: Voucher saved attempt uses accessible in-app modal instead of browser confirm
 ok 504 - Voucher saved attempt uses accessible in-app modal instead of browser confirm
   ---
-  duration_ms: 2.392862
+  duration_ms: 2.094524
   type: 'test'
   ...
 # Subtest: Voucher surfaces map their legacy border token to the platform line token
 ok 505 - Voucher surfaces map their legacy border token to the platform line token
   ---
-  duration_ms: 1.439129
+  duration_ms: 1.215309
   type: 'test'
   ...
 # Subtest: Custom Practice explicitly tells learners that question counts are selectable controls
 ok 506 - Custom Practice explicitly tells learners that question counts are selectable controls
   ---
-  duration_ms: 0.281607
+  duration_ms: 0.273782
   type: 'test'
   ...
 # Subtest: Practice size cards expose strong default, hover, focus and selected affordances
 ok 507 - Practice size cards expose strong default, hover, focus and selected affordances
   ---
-  duration_ms: 1.266201
+  duration_ms: 1.280978
   type: 'test'
   ...
 # Subtest: Practice size cards have dedicated dark-mode default, hover and selected treatments
 ok 508 - Practice size cards have dedicated dark-mode default, hover and selected treatments
   ---
-  duration_ms: 0.659436
+  duration_ms: 0.662137
   type: 'test'
   ...
 # Subtest: voucher backup merge preserves source practice records
 ok 509 - voucher backup merge preserves source practice records
   ---
-  duration_ms: 1.628464
+  duration_ms: 1.302972
   type: 'test'
   ...
 # Subtest: native structured source answers persist and contribute only to local practice summary
 ok 510 - native structured source answers persist and contribute only to local practice summary
   ---
-  duration_ms: 2.917699
+  duration_ms: 2.934749
   type: 'test'
   ...
 # Subtest: native structured source result fails closed when no answer fields are provided
 ok 511 - native structured source result fails closed when no answer fields are provided
   ---
-  duration_ms: 0.736744
+  duration_ms: 0.716058
   type: 'test'
   ...
 # Subtest: voucher source practice persists auto-scored and self-graded source items
 ok 512 - voucher source practice persists auto-scored and self-graded source items
   ---
-  duration_ms: 2.916747
+  duration_ms: 2.09855
   type: 'test'
   ...
 # Subtest: Voucher attempts stay in their own store and best eligible attempt is selected
 ok 513 - Voucher attempts stay in their own store and best eligible attempt is selected
   ---
-  duration_ms: 1.759496
+  duration_ms: 1.495272
   type: 'test'
   ...
 # Subtest: seen question IDs are deduplicated per exam
 ok 514 - seen question IDs are deduplicated per exam
   ---
-  duration_ms: 1.181948
+  duration_ms: 1.25549
   type: 'test'
   ...
 # Subtest: Voucher store round-trips independently
 ok 515 - Voucher store round-trips independently
   ---
-  duration_ms: 1.155307
+  duration_ms: 1.407079
   type: 'test'
   ...
 # Subtest: best Voucher ranked attempt can be isolated by size mode
 ok 516 - best Voucher ranked attempt can be isolated by size mode
   ---
-  duration_ms: 0.343831
+  duration_ms: 0.444218
   type: 'test'
   ...
 # Subtest: Voucher is first-class navigation plus Home entry
 ok 517 - Voucher is first-class navigation plus Home entry
   ---
-  duration_ms: 0.961621
+  duration_ms: 0.947176
   type: 'test'
   ...
 # Subtest: Voucher has Hub, Track, and Exam views
 ok 518 - Voucher has Hub, Track, and Exam views
   ---
-  duration_ms: 0.187842
+  duration_ms: 0.19239
   type: 'test'
   ...
 # Subtest: Voucher UI is registry driven and supports Coming Soon
 ok 519 - Voucher UI is registry driven and supports Coming Soon
   ---
-  duration_ms: 0.165451
+  duration_ms: 0.160381
   type: 'test'
   ...
 # Subtest: Voucher question visual assets have an enlargement control contract
 ok 520 - Voucher question visual assets have an enlargement control contract
   ---
-  duration_ms: 0.255007
+  duration_ms: 0.250618
   type: 'test'
   ...
 # Subtest: Voucher child navigation resets scroll instantly instead of smooth-scrolling through the next view
 ok 521 - Voucher child navigation resets scroll instantly instead of smooth-scrolling through the next view
   ---
-  duration_ms: 1.043359
+  duration_ms: 1.310363
   type: 'test'
   ...
 # Subtest: Voucher track exam cards hydrate reviewed count from exam config rather than stale registry copy
 ok 522 - Voucher track exam cards hydrate reviewed count from exam config rather than stale registry copy
   ---
-  duration_ms: 0.250476
+  duration_ms: 0.331239
   type: 'test'
   ...
 # Subtest: Quick Practice sizes remain available only as a secondary non-ranked tool
 ok 523 - Quick Practice sizes remain available only as a secondary non-ranked tool
   ---
-  duration_ms: 0.261592
+  duration_ms: 0.354093
   type: 'test'
   ...
 # Subtest: PL-300 primary hierarchy is Ranked Learning with Domains and Sections, not legacy challenge or Session-ranked blocks
 ok 524 - PL-300 primary hierarchy is Ranked Learning with Domains and Sections, not legacy challenge or Session-ranked blocks
   ---
-  duration_ms: 0.354054
+  duration_ms: 0.42487
   type: 'test'
   ...
 # Subtest: Voucher layout supports Domain Ranked Learning, grouped section navigator, secondary source review and mobile cards
 ok 525 - Voucher layout supports Domain Ranked Learning, grouped section navigator, secondary source review and mobile cards
   ---
-  duration_ms: 2.962467
+  duration_ms: 2.541136
   type: 'test'
   ...
 # Subtest: Voucher hub uses a premium hero with capability highlights
 ok 526 - Voucher hub uses a premium hero with capability highlights
   ---
-  duration_ms: 1.389996
+  duration_ms: 0.979124
   type: 'test'
   ...
 # Subtest: Voucher track cards expose track-specific visual tone and richer coming-soon state
 ok 527 - Voucher track cards expose track-specific visual tone and richer coming-soon state
   ---
-  duration_ms: 0.313952
+  duration_ms: 0.258209
   type: 'test'
   ...
 # Subtest: Voucher redesign provides premium interaction styling without hiding content
 ok 528 - Voucher redesign provides premium interaction styling without hiding content
   ---
-  duration_ms: 0.600301
+  duration_ms: 0.693073
   type: 'test'
   ...
 # Subtest: package ships a Windows-native local-start fallback
 ok 529 - package ships a Windows-native local-start fallback
   ---
-  duration_ms: 0.937205
+  duration_ms: 1.089941
   type: 'test'
   ...
 # Subtest: START-LOCAL uses the Windows-native PowerShell path for ordinary localhost use
 ok 530 - START-LOCAL uses the Windows-native PowerShell path for ordinary localhost use
   ---
-  duration_ms: 0.500771
+  duration_ms: 0.542797
   type: 'test'
   ...
 # Subtest: Windows fallback basic check protects required runtime files and JSON
 ok 531 - Windows fallback basic check protects required runtime files and JSON
   ---
-  duration_ms: 1.051387
+  duration_ms: 1.243723
   type: 'test'
   ...
 # Subtest: PowerShell fallback scripts avoid ambiguous unbraced variable-colon interpolation
 ok 532 - PowerShell fallback scripts avoid ambiguous unbraced variable-colon interpolation
   ---
-  duration_ms: 0.942467
+  duration_ms: 0.976911
   type: 'test'
   ...
 # Subtest: Windows fallback server is loopback-only, prevents path traversal, and chooses a free port
 ok 533 - Windows fallback server is loopback-only, prevents path traversal, and chooses a free port
   ---
-  duration_ms: 0.373188
+  duration_ms: 0.417619
   type: 'test'
   ...
 # Subtest: developer QA scripts explain that Node 20+ is required instead of failing with command-not-found
 ok 534 - developer QA scripts explain that Node 20+ is required instead of failing with command-not-found
   ---
-  duration_ms: 0.362634
+  duration_ms: 0.322936
   type: 'test'
   ...
 # Subtest: local testing guide separates ordinary localhost use from developer QA requirements
 ok 535 - local testing guide separates ordinary localhost use from developer QA requirements
   ---
-  duration_ms: 0.4914
+  duration_ms: 0.501635
   type: 'test'
   ...
 # Subtest: workspace has no redundant HTML mirrors when Markdown source exists
 ok 536 - workspace has no redundant HTML mirrors when Markdown source exists
   ---
-  duration_ms: 6.566341
+  duration_ms: 4.930183
   type: 'test'
   ...
 # Subtest: stale root intake and final-clean markers are absent
 ok 537 - stale root intake and final-clean markers are absent
   ---
-  duration_ms: 0.317581
+  duration_ms: 0.35195
   type: 'test'
   ...
 # Subtest: temporary superpowers planning workspace is not shipped
 ok 538 - temporary superpowers planning workspace is not shipped
   ---
-  duration_ms: 0.221589
+  duration_ms: 0.190516
   type: 'test'
   ...
 # Subtest: README stays current-state focused instead of becoming a release archive
 ok 539 - README stays current-state focused instead of becoming a release archive
   ---
-  duration_ms: 0.390929
+  duration_ms: 0.420082
   type: 'test'
   ...
 1..539
 # tests 539
 # suites 0
-# pass 536
-# fail 3
+# pass 538
+# fail 1
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 4392.705976
+# duration_ms 4215.113724
