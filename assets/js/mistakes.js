@@ -1,3 +1,5 @@
+import {isAnswered,isQuestionAnswered,isAnswerCorrect,correctAnswerIds} from "./exam.js";
+import {isStructuredQuestion,structuredFields} from "./exam-structured.js";
 const STORE_KEY="digilians.mistakes";
 const SCHEMA_VERSION=1;
 export const MASTERY_STREAK=2;
@@ -31,21 +33,29 @@ function ownerState(store,ownerId,studentName=""){
 }
 function sourceFamily(context={},question={}){
   const raw=String(context.sourceType||question.sourceType||"").toLowerCase();
+  if(raw==="voucher" || context.generatedFromVoucher || question.voucherSource)return "voucher";
   if(raw==="official-qbank" || context.official || context.levelId || question.officialSource)return "official-qbank";
   return "course";
 }
-export function hasAnsweredSelection(selected){
-  return selected!==null && selected!==undefined && selected!=="";
+
+export function isPracticeableMistakeQuestion(question){
+  if(!question?.id)return false;
+  if(isStructuredQuestion(question))return structuredFields(question).length>0;
+  return Array.isArray(question?.options)&&question.options.length>=2&&correctAnswerIds(question).length>0;
+}
+
+export function hasAnsweredSelection(selected,question=null){
+  return question?isQuestionAnswered(question,selected):isAnswered(selected);
 }
 export function shouldRecordMistakeOutcome(question,selected){
-  return hasAnsweredSelection(selected) && String(selected)!==String(question?.correctAnswer??"");
+  return hasAnsweredSelection(selected,question) && !isAnswerCorrect(question,selected);
 }
 export function isLegacyUnansweredOfficialSeed(item,officialTrackRecord={}){
   if(item?.context?.sourceType!=="official-qbank")return false;
   if(item?.context?.examId || item?.context?.examTitle)return false;
   const questionId=String(item?.question?.id||"");
   if(!questionId)return false;
-  return !hasAnsweredSelection(officialTrackRecord?.answers?.[questionId]);
+  return !hasAnsweredSelection(officialTrackRecord?.answers?.[questionId],item?.question);
 }
 export function mistakeKeyForQuestion(question,context={}){
   const source=sourceFamily(context,question);
@@ -67,6 +77,7 @@ function questionSnapshot(question={},context={}){
     question:String(question.question||""),
     options:safeClone(Array.isArray(question.options)?question.options:[]),
     correctAnswer:String(question.correctAnswer||""),
+    correctAnswers:correctAnswerIds(question),
     topic:String(context.topic||question.topic||question.topicId||"General"),
     topicId:String(question.topicId||""),
     difficulty:String(question.difficulty||"Mixed"),
@@ -79,6 +90,12 @@ function questionSnapshot(question={},context={}){
     officialSet:question.officialSet??null,
     originalQuestionNumber:question.originalQuestionNumber??null,
     officialSource:question.officialSource?safeClone(question.officialSource):null,
+    voucherSource:question.voucherSource?safeClone(question.voucherSource):null,
+    responseType:String(question.responseType||""),
+    nativeResponse:question.nativeResponse?safeClone(question.nativeResponse):null,
+    visualAsset:question.visualAsset??null,
+    visualAssets:Array.isArray(question.visualAssets)?safeClone(question.visualAssets):[],
+    sourceExplanation:String(question.sourceExplanation||""),
     explanationAr:explanation.summary,
     optionReasons:explanation.optionReasons
   };
@@ -90,8 +107,8 @@ function deriveStatus(streak){
   return "needs-review";
 }
 export function recordMistakeOutcome({ownerId,studentName,question,selected,context={},answeredAt=null,storage=globalThis.localStorage}={}){
-  if(!question?.id || !hasAnsweredSelection(selected))return null;
-  const correct=String(selected)===String(question.correctAnswer);
+  if(!question?.id || !hasAnsweredSelection(selected,question))return null;
+  const correct=isAnswerCorrect(question,selected);
   const store=readStore(storage);
   const owner=ownerState(store,ownerId,studentName);
   const key=mistakeKeyForQuestion(question,context);
@@ -113,7 +130,8 @@ export function recordMistakeOutcome({ownerId,studentName,question,selected,cont
       module:String(context.module||question.module||""),
       levelId:String(context.levelId||""),
       examId:String(context.examId||""),
-      examTitle:String(context.examTitle||"")
+      examTitle:String(context.examTitle||""),
+      voucherSourceId:String(context.voucherSourceId||"")
     },
     firstWrongAt:timestamp,
     lastWrongAt:null,
@@ -133,7 +151,7 @@ export function recordMistakeOutcome({ownerId,studentName,question,selected,cont
   base.question=questionSnapshot(question,{...base.context,...context});
   base.context={...base.context,...context,sourceType:sourceFamily(context,question)};
   base.lastAnsweredAt=timestamp;
-  base.lastSelected=String(selected);
+  base.lastSelected=safeClone(selected);
   base.updatedAt=timestamp;
 
   if(correct){
@@ -144,7 +162,7 @@ export function recordMistakeOutcome({ownerId,studentName,question,selected,cont
     if(base.status==="mastered" && !base.masteredAt)base.masteredAt=timestamp;
   }else{
     base.wrongCount=Math.max(0,Number(base.wrongCount)||0)+1;
-    base.lastWrongSelected=String(selected);
+    base.lastWrongSelected=safeClone(selected);
     base.recoveryStreak=0;
     base.status="needs-review";
     base.lastWrongAt=timestamp;
@@ -159,13 +177,13 @@ export function recordMistakeOutcome({ownerId,studentName,question,selected,cont
 }
 
 export function seedMistake({ownerId,studentName,question,selected=null,context={},seededAt=null,storage=globalThis.localStorage}={}){
-  if(!question?.id || !hasAnsweredSelection(selected))return null;
+  if(!question?.id || !hasAnsweredSelection(selected,question))return null;
   const store=readStore(storage);
   const owner=ownerState(store,ownerId,studentName);
   const key=mistakeKeyForQuestion(question,context);
   if(owner.items[key])return safeClone(owner.items[key]);
   if(!shouldRecordMistakeOutcome(question,selected))return null;
-  return recordMistakeOutcome({ownerId,studentName,question,selected:String(selected),context,answeredAt:seededAt,storage});
+  return recordMistakeOutcome({ownerId,studentName,question,selected:safeClone(selected),context,answeredAt:seededAt,storage});
 }
 
 export function getMistakes(ownerId,{includeMastered=true,storage=globalThis.localStorage}={}){
@@ -182,6 +200,20 @@ export function getMistake(ownerId,key,{storage=globalThis.localStorage}={}){
   const store=readStore(storage);
   const item=store.owners?.[normalizeOwnerId(ownerId)]?.items?.[key];
   return item?safeClone(item):null;
+}
+
+export function patchMistakeContext(ownerId,key,patch={}, {storage=globalThis.localStorage}={}){
+  if(!patch || typeof patch!=="object" || Array.isArray(patch))return getMistake(ownerId,key,{storage});
+  const store=readStore(storage);
+  const owner=store.owners?.[normalizeOwnerId(ownerId)];
+  const item=owner?.items?.[key];
+  if(!item)return null;
+  const clean=Object.fromEntries(Object.entries(safeClone(patch)).filter(([,value])=>value!==undefined&&value!==null&&value!==""));
+  if(!Object.keys(clean).length)return safeClone(item);
+  item.context={...(item.context||{}),...clean};
+  owner.updatedAt=new Date().toISOString();
+  writeStore(store,storage);
+  return safeClone(item);
 }
 
 export function getMistakeSummary(ownerId,{storage=globalThis.localStorage}={}){
@@ -237,6 +269,12 @@ export function questionFromMistake(item){
     question:q.question,
     options:safeClone(q.options||[]),
     correctAnswer:q.correctAnswer,
+    correctAnswers:Array.isArray(q.correctAnswers)?safeClone(q.correctAnswers):undefined,
+    responseType:q.responseType||undefined,
+    nativeResponse:q.nativeResponse?safeClone(q.nativeResponse):undefined,
+    visualAsset:q.visualAsset??undefined,
+    visualAssets:Array.isArray(q.visualAssets)?safeClone(q.visualAssets):undefined,
+    sourceExplanation:q.sourceExplanation||undefined,
     topic:q.topic||"General",
     topicId:q.topicId||"",
     difficulty:q.difficulty||"Mixed",

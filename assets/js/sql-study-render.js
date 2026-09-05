@@ -1,6 +1,6 @@
 
 import {formatStudyMixedText,normalizeStudyText} from "./study-format.js";
-import {renderTechnicalCodeBlock,renderTechnicalQuestion,renderTechnicalOption} from "./technical-content.js?v=0.20.23";
+import {renderTechnicalCodeBlock,renderTechnicalQuestion,renderTechnicalOption} from "./technical-content.js?v=0.22.1";
 
 function escapeHtml(value){
   return String(value??"").replace(/[&<>"']/g,ch=>({

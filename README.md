@@ -1,20 +1,28 @@
-# Digilians E-Learn Platform V0.20.23
+# Digilians E-Learn Platform V0.22.1
 
 A local-first learning and assessment platform for the Digilians Data Analysis track.
 
 ## Current release
 
-**V0.20.23 — Official Final Feedback Mode Choice**
+**V0.22.1 — PL-300 Full Ranked Learning 509/509**
 
-This release lets learners choose **Instant Feedback** or **Exam Mode** before starting the ranked Official Junior or Professional Final simulation. The selected mode is preserved when an unfinished attempt is resumed.
+This release makes the complete two-PDF PL-300 source corpus the primary ranked study journey while keeping competitive correctness evidence-based.
 
-Release history is maintained in `data/changelog.json`. Release QA evidence is stored under `docs/releases/`.
+- **509/509 source occurrences** are visible in one Full Ranked Bank: **369 Source 01 + 140 Source 02**.
+- All 509 count toward **Completion**. No source question is hidden in a secondary non-ranked area.
+- **265 validated concepts** contribute to Validated Accuracy and Mastery.
+- Duplicate source copies remain required for study coverage but collapse to one competitive concept weight.
+- Uncertain, malformed, or source-reveal-heavy items become **Study Checkpoints**: they must be reviewed, count toward completion, and cannot award self-declared correctness.
+- Shared ranking uses **Completion → Validated Mastery → First Pass → Attempts-to-Best → Active Solve Time**.
+- Existing Domain Ranked Learning and its **265 deterministic questions** remain intact for exam-style scoring.
+
+Release history is maintained in `data/changelog.json`. Release QA evidence is stored under `docs/releases`, and PL-300 review evidence is stored under `docs/voucher-production`.
 
 ## Run locally
 
-The package includes a self-contained local QA workflow. Node.js is required.
+The package includes a self-contained local workflow. Ordinary Windows localhost start does not require Node.js; Full developer QA requires Node.js 20+.
 
-- `START-LOCAL.bat` — runs the Quick Check first, then starts localhost only if the check passes.
+- `START-LOCAL.bat` — Node-independent Windows launcher: runs the PowerShell basic safety check, then starts localhost on port 4173 or the next available port.
 - `QUICK-CHECK.bat` — fast integrity/syntax/targeted-test gate.
 - `FULL-QA.bat` — full pre-deploy regression gate.
 - `TEST-LOCAL.bat` — full QA first, then starts localhost for manual browser acceptance.
@@ -57,7 +65,7 @@ The reference production standard is `docs/production/TRACK-PRODUCTION-REFERENCE
 
 The frozen core includes:
 
-- Responsive Home / Learn / Official QBank / Exams / My Mistakes / Ranking navigation.
+- Responsive Home / Learn / Official QBank / Exams / Voucher / My Mistakes / Ranking navigation.
 - Local learner identity and avatar profile.
 - Study and Quick Check persistence.
 - Exam resume and timer fairness.
@@ -80,6 +88,7 @@ Core behavior should not be redesigned during curriculum production unless a rep
 - `assets/js/` — runtime, study renderers, assessment logic, storage, analytics, update manager, and QA-support modules.
 - `assets/avatars/` — local avatar assets.
 - `data/` — curriculum, learning, registry, changelog, and platform data.
+- `voucher/` — Voucher registry, released exam configs, reviewed master banks, source manifests, visual assets, and per-track exam registries.
 - `official-qbank/` — Official QBank payloads.
 - `question-banks/` — course Practice banks.
 - `exams/` — course and full-track exam payloads.

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "microsoft-pl-300",
+  "trackId": "data-analysis",
+  "title": "Microsoft PL-300 Exam",
+  "subtitle": "Power BI Data Analyst • Full Ranked Learning 509/509 • 265 ranked validated concepts",
+  "passingScore": 70,
+  "masterBankFile": "voucher/tracks/data-analysis/microsoft-pl-300/master-bank.json",
+  "masterBankQuestionCount": 265,
+  "sourceManifestFile": "voucher/tracks/data-analysis/microsoft-pl-300/source-manifest.json",
+  "sourceMockStatus": "pending-visual-normalization",
+  "sources": [],
+  "blueprint": [
+    {
+      "topicId": "prepare-data",
+      "weight": 28.3333
+    },
+    {
+      "topicId": "model-data",
+      "weight": 28.3333
+    },
+    {
+      "topicId": "visualize-analyze",
+      "weight": 26.6667
+    },
+    {
+      "topicId": "manage-secure",
+      "weight": 16.6667
+    }
+  ],
+  "realExam": {
+    "questionCount": 60,
+    "durationMinutes": 120,
+    "rankEligible": true
+  },
+  "releaseNotes": {
+    "reviewedBankOnly": true,
+    "fullSourceMocksReleased": false,
+    "note": "Full Ranked Learning 509/509 makes every source occurrence part of the ranked study journey. 265 validated concepts contribute objective mastery/accuracy; remaining source blocks are required completion checkpoints with no self-awarded competitive correctness.",
+    "fullSourceReviewReleased": true,
+    "fullSourceReviewQuestionBlocks": 509,
+    "fullSourcePracticeReleased": true,
+    "autoScoredSourceBlocks": 321,
+    "nativeScoredSourceBlocks": 78,
+    "sourceDedupAuditFile": "voucher/tracks/data-analysis/microsoft-pl-300/source-dedup-audit.json",
+    "nativeStructureAuditFile": "voucher/tracks/data-analysis/microsoft-pl-300/native-structure-audit.json",
+    "rankExpansion": {
+      "rankedQuestions": 265,
+      "textRankedQuestions": 201,
+      "nativeRankedQuestions": 64,
+      "nativeRankedReviewFile": "voucher/tracks/data-analysis/microsoft-pl-300/native-ranked-review.json",
+      "excludedMalformedCluster": [
+        "source-01:249",
+        "source-02:242"
+      ]
+    },
+    "fullSourceRankedLearning": true,
+    "rankedCompletionQuestionBlocks": 509,
+    "validatedAccuracyConcepts": 265,
+    "checkpointPolicy": "completion-only-no-self-awarded-accuracy"
+  },
+  "fullBankExam": {
+    "questionCount": 265,
+    "durationMinutes": 530,
+    "rankEligible": true
+  },
+  "contentArchitectureFile": "voucher/tracks/data-analysis/microsoft-pl-300/content-architecture.json",
+  "sourceReviewStatus": "released",
+  "sourceReviewSources": [
+    {
+      "sourceId": "source-01",
+      "title": "PL-300 Final.pdf",
+      "reviewBankFile": "voucher/tracks/data-analysis/microsoft-pl-300/source-01-review-bank.json",
+      "rawQuestionBlocks": 369,
+      "reviewMode": "full-ranked-learning-source"
+    },
+    {
+      "sourceId": "source-02",
+      "title": "PL-300 Final 2.pdf",
+      "reviewBankFile": "voucher/tracks/data-analysis/microsoft-pl-300/source-02-review-bank.json",
+      "rawQuestionBlocks": 140,
+      "reviewMode": "full-ranked-learning-source"
+    }
+  ],
+  "fullRankedLearning": {
+    "questionCount": 509,
+    "validatedConceptCount": 265,
+    "source01Count": 369,
+    "source02Count": 140,
+    "indexFile": "voucher/tracks/data-analysis/microsoft-pl-300/full-ranked-index.json",
+    "activitySuffix": "full-ranked-learning",
+    "rankingPolicy": "completion-first",
+    "checkpointPolicy": "completion-only-no-self-awarded-accuracy"
+  }
+}

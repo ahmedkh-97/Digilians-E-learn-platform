@@ -1,5 +1,5 @@
-import {createUuid} from "./runtime-compat.js?v=0.20.23";
-import {ensureStorageSchema} from "./storage-safety.js?v=0.20.23";
+import {createUuid} from "./runtime-compat.js?v=0.22.1";
+import {ensureStorageSchema} from "./storage-safety.js?v=0.22.1";
 
 
 const storageWarningKeys=new Set();
@@ -38,12 +38,54 @@ const KEYS = {
   pendingAttempts: "digilians.pendingAttempts",
   officialQbank: "digilians.officialQbank",
   studyProgress: "digilians.studyProgress",
-  quickChecks: "digilians.quickChecks"
+  quickChecks: "digilians.quickChecks",
+  primaryTrack: "digilians.primaryTrack",
+  rankingMode: "digilians_ranking_mode",
+  rankingTrackLevel: "digilians_ranking_track_level",
+  rankingTrack: "digilians_ranking_track",
+  lastRankingExamId: "digilians_last_ranking_exam_id",
+  voucherRankingTrack: "digilians_voucher_ranking_track",
+  voucherRankingExam: "digilians_voucher_ranking_exam",
+  avatarProfile: "digilians.avatarProfile"
 };
+
+
+export function getStoredAvatarProfile(){ return safeGetRaw(KEYS.avatarProfile) || ""; }
+export function setStoredAvatarProfile(value){ return safeSetRaw(KEYS.avatarProfile,value||""); }
+export function clearStoredAvatarProfile(){ return safeRemoveRaw(KEYS.avatarProfile); }
 
 export function getStudentName(){ return safeGetRaw(KEYS.studentName) || ""; }
 export function setStudentName(name){ return safeSetRaw(KEYS.studentName, name.trim()); }
 export function clearStudentName(){ return safeRemoveRaw(KEYS.studentName); }
+
+export function getPrimaryTrack(){ return safeGetRaw(KEYS.primaryTrack) || ""; }
+export function setPrimaryTrack(trackId){
+  const allowed=new Set(["data-analysis","marketing","graphic-design","ui-ux","media-production"]);
+  const value=String(trackId||"");
+  if(!allowed.has(value))return false;
+  return safeSetRaw(KEYS.primaryTrack,value);
+}
+export function clearPrimaryTrack(){ return safeRemoveRaw(KEYS.primaryTrack); }
+
+export function getRankingPreferences(){
+  return {
+    mode:safeGetRaw(KEYS.rankingMode)||"",
+    trackLevelId:safeGetRaw(KEYS.rankingTrackLevel)||"",
+    trackId:safeGetRaw(KEYS.rankingTrack)||"",
+    lastExamId:safeGetRaw(KEYS.lastRankingExamId)||"",
+    voucherTrackId:safeGetRaw(KEYS.voucherRankingTrack)||"",
+    voucherExamId:safeGetRaw(KEYS.voucherRankingExam)||""
+  };
+}
+export function setRankingMode(mode){ return safeSetRaw(KEYS.rankingMode,mode||""); }
+export function setRankingTrackPreference(levelId,trackId){
+  const levelSaved=safeSetRaw(KEYS.rankingTrackLevel,levelId||"");
+  const trackSaved=safeSetRaw(KEYS.rankingTrack,trackId||"");
+  return levelSaved && trackSaved;
+}
+export function setLastRankingExamId(examId){ return safeSetRaw(KEYS.lastRankingExamId,examId||""); }
+export function setVoucherRankingTrackPreference(trackId){ return safeSetRaw(KEYS.voucherRankingTrack,trackId||""); }
+export function setVoucherRankingExamPreference(examId){ return safeSetRaw(KEYS.voucherRankingExam,examId||""); }
 
 export function getPlayerId(){
   let id = safeGetRaw(KEYS.playerId);

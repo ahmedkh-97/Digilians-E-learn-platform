@@ -1,15 +1,17 @@
 import {
   getStudentName,setStudentName,clearStudentName,getPlayerId,getTheme,setTheme,getResults,saveResult,initializeStorageSafety,
+  getPrimaryTrack,setPrimaryTrack,getRankingPreferences,setRankingMode as persistRankingMode,setRankingTrackPreference,setLastRankingExamId,setVoucherRankingTrackPreference,setVoucherRankingExamPreference,
   markResultSynced,getBestForExam,getPreviousBestForExam,saveExamProgress,getExamProgress,clearExamProgress,
   getStudyProgress,updateStudyProgress,clearStudyProgress,
   getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
   getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
-} from "./storage.js?v=0.20.23";
+} from "./storage.js?v=0.22.1";
 
-import {validateExamPayload,calculateResult,formatDuration} from "./exam.js";
-import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles} from "./online.js";
+import {validateExamPayload,calculateResult,formatDuration,isAnswered,isQuestionAnswered,isAnswerCorrect,correctAnswerIds,selectedAnswerIds} from "./exam.js";
+import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.1";
 import {buildAggregateLeaderboard} from "./ranking-engine.js";
+import {isRankingMode,isVoucherRankingMode,findRankingLevel,buildRankingScope} from "./ranking-scopes.js?v=0.22.1";
 import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
 import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
@@ -20,13 +22,37 @@ import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
 import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
-import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.20.23";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.20.23";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.20.23";
-import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.20.23";
-import {createUuid} from "./runtime-compat.js?v=0.20.23";
-import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.20.23";
-import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.20.23";
+import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.22.1";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,isPracticeableMistakeQuestion,patchMistakeContext,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.22.1";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.22.1";
+import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.22.1";
+import {createUuid} from "./runtime-compat.js?v=0.22.1";
+import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.22.1";
+import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.22.1";
+import {
+  validateVoucherRegistry,validateVoucherTrackRegistry,validateVoucherExamConfig,trackAvailability,
+  selectVoucherQuestions,shuffleVoucherOptions,buildVoucherExamPayload,
+  getVoucherSeenQuestionIds,markVoucherQuestionsSeen,saveVoucherAttempt,getBestVoucherAttempt,getVoucherAttempts,
+  getVoucherSourcePracticeState,saveVoucherSourcePracticeResult,
+  voucherRankingActivityId,isVoucherRankEligibleAttempt,buildVoucherExamLeaderboard,buildVoucherTrackOverallLeaderboard,
+  VOUCHER_TIMER_PHASE_SOLVING,VOUCHER_TIMER_PHASE_FEEDBACK,voucherTimerPhaseForQuestion,applyVoucherRankedAwayTime,voucherRankedSolveTimeSeconds,
+  voucherReadinessLevel,voucherRankedImprovement,voucherWeakDomains,voucherNextRankTarget,selectVoucherImprovementQuestions,
+  validateVoucherContentArchitecture,buildVoucherContentArchitectureView,questionsForVoucherSession,findVoucherContentArchitectureSession,
+  findVoucherContentArchitectureDomain,sessionsForVoucherDomain,questionsForVoucherDomain,
+  voucherSessionRankingActivityId,buildVoucherSessionLeaderboard,resolveVoucherSessionRankStatus,firstPassPercentage,buildVoucherSessionAttemptMeta,buildVoucherSessionOnlineOverrides,
+  voucherDomainRankingActivityId,buildVoucherDomainLeaderboard,buildVoucherOverallLeaderboard,resolveVoucherDomainRankStatus,buildVoucherDomainAttemptMeta,buildVoucherDomainOnlineOverrides,
+  buildVoucherDomainNavigatorModel,buildVoucherSectionAnalytics
+} from "./voucher-engine.js?v=0.22.1";
+import {
+  createExamSession,resolveExamMode,
+  selectSingleAnswerState,toggleMultiSelectAnswerState,confirmMultiSelectAnswerState,confirmVoucherRankedAnswerState,updateStructuredAnswerState,confirmStructuredAnswerState,
+  isStructuredQuestion,structuredFields,structuredAnswerFields,structuredAnswerComplete,structuredExpectedDisplay,structuredSelectedDisplay,structuredFieldCorrect,
+  normalizeNavigatorFilter,toggleMarkedQuestionState,moveQuestionIndex,setQuestionIndex,
+  examTimerPolicyLabel,
+  buildExamProgressSnapshot,getActiveExamProgress,effectiveSavedRemainingSeconds,voucherSavedAttemptMatches as matchesVoucherSavedAttempt,
+  feedbackStateForQuestion,voucherSelectionStatusText,isMultiSelectQuestion as isMultiSelectFeedbackQuestion,
+  buildSubjectBreakdown as buildExamSubjectBreakdown,buildStandardResultRecord,buildOnlineAttemptPayload,resultHeadline
+} from "./exam-engine.js?v=0.22.1";
 
 const state={
   studentName:"",
@@ -48,7 +74,14 @@ const state={
   excelStudyStartSectionId:null,
   currentExam:null,
   currentRegistryItem:null,
+  examMode:null,
   answers:{},
+  firstPassAnswers:{},
+  firstPassCommitted:{},
+  confirmedMultiAnswers:{},
+  confirmedVoucherAnswers:{},
+  voucherTimerPhase:null,
+  voucherNavigatorFilter:"all",
   markedQuestions:[],
   currentIndex:0,
   feedbackMode:"instant",
@@ -57,12 +90,14 @@ const state={
   timerId:null,
   timerPolicy:"none",
   timerSuspendedAt:null,
+  solvePauseStartedAt:null,
   studyObserver:null,
   activeStudySectionId:null,
   lastResult:null,
   previousBest:null,
   filter:"All",
   playerId:null,
+  primaryTrackId:"",
   rankingExamId:null,
   rankingMode:"junior-overall",
   rankingTrackLevelId:"junior-data-analysis",
@@ -78,11 +113,42 @@ const state={
   mistakesOfficialSeeded:false,
   mistakesStatusFilter:"active",
   mistakesPracticeSummary:null,
-  mistakesPracticeKeys:[]
+  mistakesPracticeKeys:[],
+  voucherRegistry:{tracks:[]},
+  voucherTrackRegistries:{},
+  voucherLoadError:null,
+  voucherTrackId:null,
+  voucherExamId:null,
+  voucherExamEntry:null,
+  voucherExamConfig:null,
+  voucherExamError:null,
+  voucherContentArchitecture:null,
+  voucherSelectedDomainId:null,
+  voucherSelectedSessionId:null,
+  voucherSourceReviewSourceId:null,
+  voucherSourceReviewBank:null,
+  voucherSourceReviewIndex:0,
+  voucherSourceReviewFilter:"all",
+  voucherSourcePracticeSelections:{},
+  voucherSourcePracticeNativeInputs:{},
+  voucherFullRankedIndex:null,
+  voucherFullRankedIndexByQuestion:new Map(),
+  voucherSourceRevealOpened:new Set(),
+  voucherSourceSolveQuestionId:null,
+  voucherSourceSolveStartedAt:null,
+  voucherSourcePendingSeconds:{},
+  voucherRuntimeSelection:null,
+  voucherRankingMode:"exam",
+  voucherRankingTrackId:null,
+  voucherRankingExamId:null,
+  voucherRankingSessionId:null,
+  voucherRankingDomainId:null,
+  voucherRankingRequestId:0,
+  voucherFullRankLastSyncSignature:""
 };
 
 const $=id=>document.getElementById(id);
-const views=["welcomeView","dashboardView","learnView","excelModuleExplorerView","excelGroupExplorerView","studyView","officialQbankView","officialJuniorView","officialTrackView","officialStudyView","examsView","mistakesView","setupView","examView","resultView","reviewView","rankingView","analyticsView","validatorView"];
+const views=["welcomeView","dashboardView","voucherView","voucherTrackView","voucherExamView","voucherSourceReviewView","voucherRankingView","learnView","excelModuleExplorerView","excelGroupExplorerView","studyView","officialQbankView","officialJuniorView","officialTrackView","officialStudyView","examsView","mistakesView","setupView","examView","resultView","reviewView","rankingView","analyticsView","validatorView"];
 
 function emitAnalytics(eventType,detail={}){
   try{
@@ -95,6 +161,19 @@ function emitAnalytics(eventType,detail={}){
 
 function initials(name){
   return (name || "Guest").trim().split(/\s+/).slice(0,2).map(x=>x[0]?.toUpperCase()).join("") || "G";
+}
+
+function resetVoucherRouteScroll(id){
+  if(!["voucherView","voucherTrackView","voucherExamView","voucherSourceReviewView","voucherRankingView"].includes(id))return false;
+  window.scrollTo({top:0,left:0,behavior:"auto"});
+  return true;
+}
+
+function setVoucherFocusMode(active){
+  const enabled=Boolean(active);
+  document.body.classList.toggle("voucher-focus-mode",enabled);
+  $("voucherNavSummary")?.classList.toggle("hidden",!enabled);
+  $("voucherNavFilters")?.classList.toggle("hidden",!enabled);
 }
 
 function routeTo(id){
@@ -111,9 +190,15 @@ function routeTo(id){
     return;
   }
   views.forEach(v=>$(v)?.classList.toggle("active",v===id));
+  setVoucherFocusMode(id==="examView" && Boolean(state.currentExam?.exam?.generatedFromVoucher));
   updateNav(id);
-  window.scrollTo({top:0,behavior:"smooth"});
+  if(!resetVoucherRouteScroll(id))window.scrollTo({top:0,behavior:"smooth"});
   if(id==="dashboardView") renderDashboard();
+  if(id==="voucherView") renderVoucherHub();
+  if(id==="voucherTrackView") renderVoucherTrack();
+  if(id==="voucherExamView") renderVoucherExam();
+  if(id==="voucherSourceReviewView") renderVoucherSourceReview();
+  if(id==="voucherRankingView") renderVoucherRankingShell();
   if(id==="learnView") renderLearn();
   if(id==="excelModuleExplorerView") renderExcelModuleExplorer();
   if(id==="excelGroupExplorerView") renderExcelGroupExplorer();
@@ -126,7 +211,7 @@ function routeTo(id){
 }
 
 function updateNav(viewId){
-  const map={dashboardView:"dashboardView",learnView:"learnView",excelModuleExplorerView:"learnView",excelGroupExplorerView:"learnView",studyView:"learnView",officialQbankView:"officialQbankView",officialJuniorView:"officialQbankView",officialTrackView:"officialQbankView",officialStudyView:"officialQbankView",examsView:"examsView",mistakesView:"mistakesView",rankingView:"rankingView"};
+  const map={dashboardView:"dashboardView",voucherView:"voucherView",voucherTrackView:"voucherView",voucherExamView:"voucherView",voucherSourceReviewView:"voucherView",voucherRankingView:"voucherView",learnView:"learnView",excelModuleExplorerView:"learnView",excelGroupExplorerView:"learnView",studyView:"learnView",officialQbankView:"officialQbankView",officialJuniorView:"officialQbankView",officialTrackView:"officialQbankView",officialStudyView:"officialQbankView",examsView:"examsView",mistakesView:"mistakesView",rankingView:"rankingView"};
   document.querySelectorAll("[data-route]").forEach(btn=>{
     btn.classList.toggle("active",btn.dataset.route===map[viewId]);
   });
@@ -150,6 +235,18 @@ $("brandHome").addEventListener("click",e=>{
   else routeTo("welcomeView");
 });
 
+const PRIMARY_TRACK_TITLES={
+  "data-analysis":"Data Analysis",
+  marketing:"Marketing",
+  "graphic-design":"Graphic Design",
+  "ui-ux":"UI/UX",
+  "media-production":"Media Production"
+};
+let primaryTrackContinuation=null;
+let primaryTrackChooserMode="required";
+
+function primaryTrackTitle(trackId){return PRIMARY_TRACK_TITLES[String(trackId||"")]||"Not selected"}
+
 function syncUserUI(){
   const name=state.studentName || "Guest";
   const avatarProfile=getAvatarProfile();
@@ -157,7 +254,65 @@ function syncUserUI(){
   $("profileName").textContent=name;
   $("drawerName").textContent=name;
   $("rankingLocalName").textContent=name;
+  if($("profilePrimaryTrack"))$("profilePrimaryTrack").textContent=primaryTrackTitle(state.primaryTrackId||getPrimaryTrack());
 }
+
+function closePrimaryTrackChooser({force=false}={}){
+  if(primaryTrackChooserMode==="required"&&!force)return false;
+  const modal=$("primaryTrackModal");
+  if(!modal)return false;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden","true");
+  $("primaryTrackError").textContent="";
+  if(primaryTrackChooserMode!=="required")primaryTrackContinuation=null;
+  return true;
+}
+
+async function savePrimaryTrackChoice(){
+  const selected=document.querySelector('input[name="primaryTrackOption"]:checked')?.value||"";
+  if(!setPrimaryTrack(selected)){
+    $("primaryTrackError").textContent="Choose one primary track to continue.";
+    return;
+  }
+  state.primaryTrackId=selected;
+  syncUserUI();
+  const continuation=primaryTrackContinuation;
+  const changed=primaryTrackChooserMode==="change";
+  primaryTrackContinuation=null;
+  $("primaryTrackModal").classList.add("hidden");
+  $("primaryTrackModal").setAttribute("aria-hidden","true");
+  $("primaryTrackError").textContent="";
+  try{await syncVoucherPrimaryTrack(state.playerId,selected)}catch(error){console.warn("Voucher Primary Track sync unavailable:",error)}
+  if(changed)showToast(`Primary Track updated: ${primaryTrackTitle(selected)}`);
+  continuation?.();
+}
+
+function ensurePrimaryTrack({required=true,onDone=null,mode="required"}={}){
+  const current=getPrimaryTrack();
+  state.primaryTrackId=current;
+  if(current && mode!=="change"){
+    syncUserUI();
+    onDone?.();
+    return true;
+  }
+  primaryTrackChooserMode=mode;
+  primaryTrackContinuation=onDone;
+  $("primaryTrackModalTitle").textContent=mode==="change"?"Change your primary track":"Choose your primary track";
+  $("primaryTrackModalSubtitle").textContent=mode==="change"
+    ?"Your next Voucher Track Overall competition will use this track. Existing progress and attempts stay untouched."
+    :"This sets your official Voucher Track Overall competition. You can still explore every track.";
+  document.querySelectorAll('input[name="primaryTrackOption"]').forEach(input=>{input.checked=input.value===current});
+  $("primaryTrackCancelBtn").classList.toggle("hidden",Boolean(required)&&mode!=="change");
+  $("primaryTrackError").textContent="";
+  $("primaryTrackModal").classList.remove("hidden");
+  $("primaryTrackModal").setAttribute("aria-hidden","false");
+  setTimeout(()=>document.querySelector('input[name="primaryTrackOption"]:checked')?.focus()||document.querySelector('input[name="primaryTrackOption"]')?.focus(),40);
+  return false;
+}
+
+$("primaryTrackSaveBtn")?.addEventListener("click",savePrimaryTrackChoice);
+$("primaryTrackCancelBtn")?.addEventListener("click",()=>closePrimaryTrackChooser());
+$("primaryTrackModal")?.addEventListener("click",event=>{if(event.target===$("primaryTrackModal"))closePrimaryTrackChooser()});
 
 function closeRankedIdentity(){
   const modal=$("rankedIdentityModal");
@@ -202,8 +357,10 @@ function saveRankedIdentity(){
   const continueRanked=async()=>{
     syncUserUI();
     await syncCurrentAvatarToRanking();
-    showToast(`Ranked profile saved: ${name}`);
-    continuation?.();
+    ensurePrimaryTrack({required:true,onDone:()=>{
+      showToast(`Ranked profile saved: ${name}`);
+      continuation?.();
+    }});
   };
 
   if(!hasAvatarProfile()){
@@ -247,8 +404,10 @@ function handleNameSubmit(){
   const enterPlatform=async()=>{
     syncUserUI();
     await syncCurrentAvatarToRanking();
-    showToast(`Welcome, ${name}`);
-    routeTo("dashboardView");
+    ensurePrimaryTrack({required:true,onDone:()=>{
+      showToast(`Welcome, ${name}`);
+      routeTo("dashboardView");
+    }});
   };
 
   if(!hasAvatarProfile()){
@@ -260,16 +419,17 @@ function handleNameSubmit(){
 $("startBtn").addEventListener("click",handleNameSubmit);
 $("studentName").addEventListener("keydown",e=>{if(e.key==="Enter")handleNameSubmit()});
 $("continueUserBtn").addEventListener("click",()=>{
+  const continueToDashboard=()=>ensurePrimaryTrack({required:true,onDone:()=>routeTo("dashboardView")});
   if(state.studentName && !hasAvatarProfile()){
     openAvatarPicker({
       mode:"rollout",
       required:true,
       name:state.studentName,
-      onDone:async()=>{syncUserUI();await syncCurrentAvatarToRanking();routeTo("dashboardView")}
+      onDone:async()=>{syncUserUI();await syncCurrentAvatarToRanking();continueToDashboard()}
     });
     return;
   }
-  routeTo("dashboardView");
+  continueToDashboard();
 });
 
 function openReturningUserAvatarRollout(){
@@ -282,7 +442,7 @@ function openReturningUserAvatarRollout(){
       syncUserUI();
       await syncCurrentAvatarToRanking();
       showToast("Avatar saved — welcome back!");
-      routeTo("dashboardView");
+      ensurePrimaryTrack({required:true,onDone:()=>routeTo("dashboardView")});
     }
   });
   return true;
@@ -315,14 +475,12 @@ async function loadData(){
   state.coverageRegistry=coverageRegistry;
   state.officialRegistry=officialRegistry;
   state.officialFinalBlueprints=officialFinalBlueprintRegistry.blueprints || [];
-  try{
-    const savedMode=localStorage.getItem("digilians_ranking_mode");
-    const savedTrackLevel=localStorage.getItem("digilians_ranking_track_level");
-    const savedTrack=localStorage.getItem("digilians_ranking_track");
-    if(["junior-overall","professional-overall","track","exam"].includes(savedMode))state.rankingMode=savedMode;
-    if(savedTrackLevel)state.rankingTrackLevelId=savedTrackLevel;
-    if(savedTrack)state.rankingTrackId=savedTrack;
-  }catch{}
+  const rankingPreferences=getRankingPreferences();
+  if(isRankingMode(rankingPreferences.mode))state.rankingMode=rankingPreferences.mode;
+  if(rankingPreferences.trackLevelId)state.rankingTrackLevelId=rankingPreferences.trackLevelId;
+  if(rankingPreferences.trackId)state.rankingTrackId=rankingPreferences.trackId;
+  if(rankingPreferences.voucherTrackId)state.voucherRankingTrackId=rankingPreferences.voucherTrackId;
+  if(rankingPreferences.voucherExamId)state.voucherRankingExamId=rankingPreferences.voucherExamId;
 
   const manifests={},syllabusMaps={},coverageMaps={};
   await Promise.all((curriculumRegistry.tracks||[]).map(async item=>{
@@ -340,7 +498,1269 @@ async function loadData(){
   state.manifests=manifests;
   state.syllabusMaps=syllabusMaps;
   state.coverageMaps=coverageMaps;
+  await loadVoucherRegistryData();
 }
+
+async function loadVoucherRegistryData(){
+  state.voucherLoadError=null;
+  state.voucherRegistry={tracks:[]};
+  state.voucherTrackRegistries={};
+  try{
+    const registry=await loadJson("voucher/registry.json");
+    const errors=validateVoucherRegistry(registry);
+    if(errors.length)throw new Error(errors.join("; "));
+    state.voucherRegistry=registry;
+    const children={};
+    await Promise.all((registry.tracks||[]).map(async track=>{
+      try{
+        const child=await loadJson(track.registryFile);
+        const childErrors=validateVoucherTrackRegistry(child,track.id);
+        if(childErrors.length)throw new Error(childErrors.join("; "));
+        children[track.id]=child;
+      }catch(error){
+        console.warn("Voucher track registry unavailable:",track.id,error);
+        children[track.id]={schemaVersion:1,trackId:track.id,title:track.title,exams:[],unavailable:true};
+      }
+    }));
+    state.voucherTrackRegistries=children;
+  }catch(error){
+    console.warn("Voucher registry unavailable:",error);
+    state.voucherLoadError=error?.message||"Voucher data could not be loaded.";
+  }
+}
+
+function voucherTrackMeta(trackId){
+  return (state.voucherRegistry.tracks||[]).find(track=>track.id===trackId)||null;
+}
+
+const voucherTrackPresentation={
+  "data-analysis":{tone:"data",index:"01",mark:"DA",tagline:"Think in data. Decide with confidence.",meta:"Analytics • Insights • Decisions"},
+  "marketing":{tone:"marketing",index:"02",mark:"MK",tagline:"Turn ideas into measurable growth.",meta:"Strategy • Growth • Campaigns"},
+  "graphic-design":{tone:"design",index:"03",mark:"GD",tagline:"Train your eye. Sharpen your craft.",meta:"Visuals • Creativity • Design"},
+  "ui-ux":{tone:"ux",index:"04",mark:"UX",tagline:"Design experiences people understand.",meta:"Research • Flows • Interfaces"},
+  "media-production":{tone:"media",index:"05",mark:"MP",tagline:"Create with purpose. Produce with impact.",meta:"Story • Production • Media"}
+};
+
+function renderVoucherHomeCard(){
+  if($("voucherHomePrimaryTrack"))$("voucherHomePrimaryTrack").textContent=primaryTrackTitle(state.primaryTrackId||getPrimaryTrack());
+}
+
+function renderVoucherHub(){
+  const grid=$("voucherTrackGrid");
+  if(!grid)return;
+  if(state.voucherLoadError){
+    grid.innerHTML=`<article class="voucher-empty-card"><span>VOUCHER</span><h3>Voucher is temporarily unavailable</h3><p>${escapeHtml(state.voucherLoadError)}</p></article>`;
+    return;
+  }
+  const primary=state.primaryTrackId||getPrimaryTrack();
+  grid.innerHTML=(state.voucherRegistry.tracks||[]).map(track=>{
+    const child=state.voucherTrackRegistries[track.id];
+    const availability=trackAvailability(child);
+    const ready=availability==="ready"&&!child?.unavailable;
+    const count=Array.isArray(child?.exams)?child.exams.length:0;
+    const presentation=voucherTrackPresentation[track.id]||{tone:"default",index:"--",mark:track.title.slice(0,2).toUpperCase(),tagline:"Prepare with focused mock practice.",meta:"Voucher preparation"};
+    return `<article class="voucher-track-card ${ready?"is-ready":"is-coming-soon"}" data-voucher-tone="${escapeHtml(presentation.tone)}">
+      <div class="voucher-track-card-head">
+        <span class="voucher-track-icon" aria-hidden="true">${escapeHtml(presentation.mark)}</span>
+        <span class="voucher-track-number">${escapeHtml(presentation.index)}</span>
+        ${primary===track.id?'<span class="voucher-your-track">YOUR TRACK</span>':''}
+      </div>
+      <div class="voucher-track-content">
+        <span class="eyebrow">VOUCHER TRACK</span>
+        <h3>${escapeHtml(track.title)}</h3>
+        <p class="voucher-track-tagline">${escapeHtml(presentation.tagline)}</p>
+        <div class="voucher-track-meta">${escapeHtml(presentation.meta)}</div>
+      </div>
+      ${ready?`<div class="voucher-track-ready"><span>${count} released exam${count===1?"":"s"}</span><button type="button" class="primary-btn wide" data-voucher-track="${escapeHtml(track.id)}">Open Track <span>→</span></button></div>`:`<div class="voucher-coming-soon-panel"><span class="voucher-coming-soon"><i></i> Coming Soon</span><small>Mocks and detailed explanations are being prepared from approved source PDFs.</small></div>`}
+    </article>`;
+  }).join("");
+  grid.querySelectorAll("[data-voucher-track]").forEach(button=>button.addEventListener("click",()=>openVoucherTrack(button.dataset.voucherTrack)));
+}
+
+function openVoucherTrack(trackId){
+  const meta=voucherTrackMeta(trackId);
+  if(!meta)return;
+  state.voucherTrackId=trackId;
+  state.voucherExamId=null;
+  state.voucherExamEntry=null;
+  state.voucherExamConfig=null;
+  state.voucherExamError=null;
+  state.voucherContentArchitecture=null;
+  state.voucherSelectedDomainId=null;
+  state.voucherSelectedSessionId=null;
+  routeTo("voucherTrackView");
+}
+
+function renderVoucherTrackExamCard(exam,config,{featured=false}={}){
+  const reviewed=Number(config?.masterBankQuestionCount)||0;
+  const realCount=Number(config?.realExam?.questionCount)||0;
+  const duration=Number(config?.realExam?.durationMinutes)||0;
+  const pass=Number(config?.passingScore)||0;
+  const subtitle=config?.subtitle||exam.subtitle||"Certification mock preparation";
+  return `<article class="voucher-exam-card ${featured?"is-featured":""}" data-voucher-exam-card="${escapeHtml(exam.id)}">
+    <div class="voucher-exam-card-copy">
+      <span class="eyebrow">VOUCHER EXAM</span>
+      <h3>${escapeHtml(exam.title||exam.id)}</h3>
+      <p>${escapeHtml(subtitle)}</p>
+      ${config?`<div class="voucher-exam-stat-row"><span><strong>${reviewed}</strong> Reviewed</span><span><strong>${realCount}</strong> Real Exam</span><span><strong>${duration}</strong> Min</span><span><strong>${pass}%</strong> Pass</span><span class="ranked">RANKED</span></div>`:"<div class=\"voucher-exam-stat-row is-loading\"><span>Loading live exam details…</span></div>"}
+    </div>
+    <button type="button" class="primary-btn voucher-exam-open-btn" data-voucher-exam="${escapeHtml(exam.id)}">Prepare for ${escapeHtml(exam.title||"Exam")} <span>→</span></button>
+  </article>`;
+}
+
+async function renderVoucherTrack(){
+  const trackId=state.voucherTrackId;
+  const meta=voucherTrackMeta(trackId);
+  const child=state.voucherTrackRegistries[trackId];
+  if(!meta||!child){routeTo("voucherView");return}
+  $("voucherTrackTitle").textContent=meta.title;
+  $("voucherTrackBreadcrumb").textContent=`Voucher / ${meta.title}`;
+  const grid=$("voucherExamGrid");
+  if(child.unavailable){
+    grid.innerHTML='<article class="voucher-empty-card"><h3>Track unavailable</h3><p>This track registry could not be loaded. Other platform areas are unaffected.</p></article>';
+    return;
+  }
+  if(!child.exams.length){
+    grid.innerHTML=`<article class="voucher-empty-card"><span class="voucher-coming-soon">Coming Soon</span><h3>${escapeHtml(meta.title)} mocks are being prepared</h3><p>No production Voucher exam is released in this track yet.</p></article>`;
+    return;
+  }
+  grid.innerHTML=child.exams.map((exam,index)=>renderVoucherTrackExamCard(exam,null,{featured:index===0})).join("");
+  grid.querySelectorAll("[data-voucher-exam]").forEach(button=>button.addEventListener("click",()=>void openVoucherExam(button.dataset.voucherExam)));
+  const hydrated=await Promise.all(child.exams.map(async (exam,index)=>{
+    try{
+      const {config}=await loadVoucherExamConfig(trackId,exam.id);
+      return renderVoucherTrackExamCard(exam,config,{featured:index===0});
+    }catch(error){
+      console.warn("Voucher track card metadata unavailable:",exam.id,error);
+      return renderVoucherTrackExamCard(exam,null,{featured:index===0});
+    }
+  }));
+  if(state.voucherTrackId!==trackId||!$("voucherTrackView")?.classList.contains("active"))return;
+  grid.innerHTML=hydrated.join("");
+  grid.querySelectorAll("[data-voucher-exam]").forEach(button=>button.addEventListener("click",()=>void openVoucherExam(button.dataset.voucherExam)));
+}
+
+async function loadVoucherExamConfig(trackId,examId){
+  const child=state.voucherTrackRegistries[trackId];
+  const entry=(child?.exams||[]).find(exam=>exam.id===examId);
+  if(!entry)throw new Error("Voucher exam is not registered.");
+  if(!entry.configFile)throw new Error("Exam configuration is missing.");
+  const config=await loadJson(entry.configFile);
+  const errors=validateVoucherExamConfig(config);
+  if(errors.length)throw new Error(errors.join("; "));
+  if(config.trackId!==trackId||config.id!==examId)throw new Error("Exam registry/config identity mismatch.");
+  return {entry,config};
+}
+
+function ensurePl300Styles(doc=globalThis.document){
+  if(!doc?.head||doc.querySelector('link[data-pl300-styles]'))return;
+  const link=doc.createElement('link');
+  link.rel='stylesheet';
+  link.href='assets/css/pl300.css?v=0.22.1';
+  link.dataset.pl300Styles='1';
+  doc.head.append(link);
+}
+
+async function openVoucherExam(examId){
+  if(String(examId)==="microsoft-pl-300")ensurePl300Styles();
+  state.voucherExamId=examId;
+  state.voucherExamEntry=null;
+  state.voucherExamConfig=null;
+  state.voucherExamError=null;
+  state.voucherContentArchitecture=null;
+  state.voucherSelectedDomainId=null;
+  state.voucherSelectedSessionId=null;
+  try{
+    const {entry,config}=await loadVoucherExamConfig(state.voucherTrackId,examId);
+    state.voucherExamEntry=entry;
+    state.voucherExamConfig=config;
+    if(config.contentArchitectureFile){
+      try{
+        const architecture=await loadJson(config.contentArchitectureFile);
+        state.voucherContentArchitecture=architecture;
+        state.voucherSelectedDomainId=architecture?.domains?.[0]?.id||null;
+      }catch(architectureError){
+        console.warn("Voucher content architecture unavailable:",architectureError);
+      }
+    }
+  }catch(error){
+    console.warn("Voucher exam configuration unavailable:",error);
+    state.voucherExamError=error?.message||"Voucher exam configuration could not be loaded.";
+  }
+  routeTo("voucherExamView");
+}
+
+function voucherRandomSizeButtons(config){
+  const available=Number(config?.masterBankQuestionCount||0);
+  const choices=[25,50,100].filter(size=>!available||available>=size).map(size=>`<button type="button" class="voucher-size-btn" data-voucher-size="${size}" aria-pressed="false"><strong>${size}</strong><small>Questions</small></button>`);
+  choices.push(`<button type="button" class="voucher-size-btn full-reviewed" data-voucher-size="full-bank" aria-pressed="false"><strong>Full Reviewed Bank</strong><small>${available||"All"} Questions</small></button>`);
+  return choices.join("");
+}
+
+function voucherModeControls(prefix,{timed=true,feedback="exam"}={}){
+  return `<div class="voucher-mode-grid compact">
+    <fieldset><legend>Timing</legend><label><input type="radio" name="${prefix}Timed" value="timed" ${timed?"checked":""}> Timed</label><label><input type="radio" name="${prefix}Timed" value="untimed" ${!timed?"checked":""}> Untimed</label></fieldset>
+    <fieldset><legend>Feedback</legend><label><input type="radio" name="${prefix}Feedback" value="exam" ${feedback==="exam"?"checked":""}> Exam Mode</label><label><input type="radio" name="${prefix}Feedback" value="instant" ${feedback==="instant"?"checked":""}> Instant Feedback</label></fieldset>
+  </div>`;
+}
+
+let voucherSourcePracticeNative=null;
+let pl300FullRankedLearning=null;
+
+async function ensurePl300FullRankedLearning(){
+  pl300FullRankedLearning??=await import("./pl300-full-ranked-learning.js?v=0.22.1");
+  return pl300FullRankedLearning;
+}
+
+async function loadVoucherFullRankedIndex(config=state.voucherExamConfig){
+  if(state.voucherFullRankedIndex?.examId===config?.id)return state.voucherFullRankedIndex;
+  if(!config?.fullRankedLearning?.indexFile)throw new Error("Full Ranked Learning index is unavailable.");
+  const index=await loadJson(config.fullRankedLearning.indexFile);
+  if(!Array.isArray(index?.records)||Number(index?.questionCount)!==509)throw new Error("Full Ranked Learning index is invalid.");
+  state.voucherFullRankedIndex=index;
+  state.voucherFullRankedIndexByQuestion=new Map(index.records.map(record=>[String(record.questionId),record]));
+  return index;
+}
+
+function voucherFullRankRecord(question){
+  return question?.id?state.voucherFullRankedIndexByQuestion?.get?.(String(question.id))||null:null;
+}
+
+function voucherFullRankMetrics(){
+  if(!pl300FullRankedLearning||!state.voucherFullRankedIndex)return null;
+  const practice=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
+  return pl300FullRankedLearning.buildPl300FullRankMetrics({index:state.voucherFullRankedIndex,records:practice.records||{}});
+}
+
+function voucherSourceStartSolveTimer(question,{force=false}={}){
+  if(!question?.id)return;
+  const id=String(question.id);
+  if(!force&&state.voucherSourceSolveQuestionId===id&&Number.isFinite(Number(state.voucherSourceSolveStartedAt)))return;
+  state.voucherSourceSolveQuestionId=id;
+  state.voucherSourceSolveStartedAt=Date.now();
+}
+
+function voucherSourceConsumeSolveSeconds(question){
+  const id=String(question?.id||"");
+  if(!id||state.voucherSourceSolveQuestionId!==id||!Number.isFinite(Number(state.voucherSourceSolveStartedAt)))return 0;
+  const elapsed=Math.max(0,Math.min(1800,Math.round((Date.now()-Number(state.voucherSourceSolveStartedAt))/1000)));
+  state.voucherSourceSolveQuestionId=null;
+  state.voucherSourceSolveStartedAt=null;
+  return elapsed;
+}
+
+function voucherSourceResetSolveTimer(){
+  state.voucherSourceSolveQuestionId=null;
+  state.voucherSourceSolveStartedAt=null;
+}
+
+async function hydrateVoucherFullRankedCard(config){
+  if(!config?.fullRankedLearning)return;
+  try{
+    await ensurePl300FullRankedLearning();
+    await loadVoucherFullRankedIndex(config);
+    const landing=$("pl300FullRankLanding");
+    if(landing){
+      landing.className="";
+      landing.innerHTML=pl300FullRankedLearning.buildPl300FullRankedLandingMarkup({domainCount:state.voucherContentArchitecture?.domains?.length||4,sessionCount:state.voucherContentArchitecture?.sessions?.length||10});
+    }
+    const metrics=voucherFullRankMetrics();
+    if(!metrics)return;
+    if($("pl300FullRankCompletion"))$("pl300FullRankCompletion").textContent=`${metrics.completedOccurrences} / ${metrics.totalOccurrences}`;
+    if($("pl300FullRankAccuracy"))$("pl300FullRankAccuracy").textContent=`${metrics.validatedAccuracy}%`;
+    if($("pl300FullRankMastery"))$("pl300FullRankMastery").textContent=`${metrics.masteredClusters} / ${metrics.validatedConceptCount}`;
+    const start=$("pl300FullRankStartBtn");
+    if(start){
+      start.textContent=metrics.completedOccurrences>0&&metrics.completedOccurrences<metrics.totalOccurrences?"Continue Full Ranked Bank →":metrics.completedOccurrences>=metrics.totalOccurrences?"Review Full Ranked Bank →":"Start Full Ranked Bank →";
+      start.addEventListener("click",()=>requireRankedIdentity(()=>void openVoucherFullRankedLearning({filter:"all",continueIncomplete:true}),"Enter your name before starting the PL-300 Full Ranked Bank."));
+    }
+    $("pl300FullRankRankingBtn")?.addEventListener("click",()=>requireRankedIdentity(()=>void openVoucherFullRankedLearningRanking(state.voucherTrackId,config.id),"Enter your name to view the PL-300 Full Bank Ranking."));
+    if($("voucherArchitecturePanel"))renderVoucherArchitecturePanel();
+  }catch(error){console.error("PL-300 Full Ranked card hydration failed",error);}
+}
+
+let pl300FullRankSyncTimer=null;
+
+async function syncPl300FullRankSnapshot({force=false}={}){
+  const config=state.voucherExamConfig;
+  if(!config?.fullRankedLearning||!state.playerId||!state.studentName)return false;
+  await ensurePl300FullRankedLearning();
+  await loadVoucherFullRankedIndex(config);
+  const metrics=voucherFullRankMetrics();
+  if(!metrics||metrics.completedOccurrences<=0)return false;
+  const signature=[metrics.completedOccurrences,metrics.masteredClusters,metrics.firstPassCorrectClusters,metrics.attemptsToBest,metrics.activeSolveSeconds].join(":");
+  if(!force&&signature===state.voucherFullRankLastSyncSignature)return true;
+  const payload=pl300FullRankedLearning.buildPl300FullRankOnlineAttempt({
+    playerId:state.playerId,studentName:state.studentName,examVersion:"0.22.1",metrics,
+    trackId:state.voucherTrackId||config.trackId||"data-analysis",examId:config.id
+  });
+  await submitAttemptOnline(payload);
+  state.voucherFullRankLastSyncSignature=signature;
+  return true;
+}
+
+function schedulePl300FullRankSync(){
+  if(pl300FullRankSyncTimer)clearTimeout(pl300FullRankSyncTimer);
+  pl300FullRankSyncTimer=setTimeout(()=>{
+    pl300FullRankSyncTimer=null;
+    void syncPl300FullRankSnapshot().catch(error=>console.warn("PL-300 Full Ranked Learning sync deferred:",error));
+  },1200);
+}
+
+async function openVoucherFullRankedLearning({filter="all",continueIncomplete=false}={}){
+  try{
+    ensurePl300Styles();
+    const config=state.voucherExamConfig;
+    if(!config)throw new Error("Open Microsoft PL-300 first.");
+    await ensurePl300FullRankedLearning();
+    await loadVoucherFullRankedIndex(config);
+    voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.1");
+    voucherSourcePracticeNative.ensureNativePracticeStyles();
+    const sources=config.sourceReviewSources||[];
+    if(sources.length!==2)throw new Error("The two PL-300 source review banks are required.");
+    const banks=await Promise.all(sources.map(async source=>{
+      if(!source?.reviewBankFile)throw new Error("A PL-300 source review bank is unavailable.");
+      const bank=await loadJson(source.reviewBankFile);
+      if(!Array.isArray(bank?.questions)||!bank.questions.length)throw new Error("A PL-300 source bank has no questions.");
+      return {...bank,sourceTitle:source.title||bank.title||source.sourceId};
+    }));
+    const questions=banks.flatMap(bank=>bank.questions.map(question=>({...question,sourceTitle:bank.sourceTitle})));
+    const expected=Number(config.fullRankedLearning?.questionCount)||509;
+    if(questions.length!==expected)throw new Error(`Full Ranked Learning expected ${expected} source questions but found ${questions.length}.`);
+    state.voucherSourceReviewSourceId="all";
+    state.voucherSourceReviewBank={schemaVersion:1,examId:config.id,sourceId:"all",sourceTitle:"Full Ranked Bank — 509 Questions",questionCount:questions.length,questions};
+    state.voucherSourceReviewFilter=["all","source-01","source-02","objective","checkpoint"].includes(String(filter))?String(filter):"all";
+    state.voucherSourceReviewIndex=0;
+    state.voucherSourcePracticeSelections={};
+    state.voucherSourcePracticeNativeInputs={};
+    state.voucherSourceRevealOpened=new Set();
+    state.voucherSourcePendingSeconds={};
+    voucherSourceResetSolveTimer();
+    if(continueIncomplete){
+      const filtered=voucherSourceReviewFilteredQuestions();
+      const practice=getVoucherSourcePracticeState(mistakeOwnerId(),config.id);
+      const nextIndex=filtered.findIndex(question=>!practice.records?.[question.id]);
+      state.voucherSourceReviewIndex=nextIndex>=0?nextIndex:0;
+    }
+    routeTo("voucherSourceReviewView");
+  }catch(error){
+    console.error("Voucher full ranked learning failed",error);
+    showToast(error?.message||"Could not open PL-300 Full Ranked Learning.");
+  }
+}
+
+function voucherSourceReviewFilteredQuestions(){
+  const questions=state.voucherSourceReviewBank?.questions||[];
+  if(state.voucherSourceReviewFilter==="source-01"||state.voucherSourceReviewFilter==="source-02")return questions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);
+  if(state.voucherSourceReviewFilter==="objective")return questions.filter(q=>voucherFullRankRecord(q)?.mode==="objective");
+  if(state.voucherSourceReviewFilter==="checkpoint")return questions.filter(q=>voucherFullRankRecord(q)?.mode==="checkpoint");
+  return questions;
+}
+
+function voucherSourcePracticeRecord(question){
+  if(!question?.id)return null;
+  const practice=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
+  return practice.records?.[question.id]||null;
+}
+
+function voucherSourcePracticeCorrectIds(question){
+  return (Array.isArray(question?.correctAnswers)&&question.correctAnswers.length?question.correctAnswers:[question?.correctAnswer]).filter(Boolean).map(String);
+}
+
+function voucherSourcePracticeSelection(question,record=voucherSourcePracticeRecord(question)){
+  const temp=state.voucherSourcePracticeSelections?.[question?.id];
+  if(Array.isArray(temp))return [...temp];
+  return record?.mode==="auto"&&Array.isArray(record.selected)?[...record.selected]:[];
+}
+
+function voucherSourcePracticeSelectionsMatch(question,selected){
+  const expected=[...voucherSourcePracticeCorrectIds(question)].sort();
+  const actual=[...(selected||[])].map(String).sort();
+  return expected.length===actual.length&&expected.every((id,index)=>id===actual[index]);
+}
+
+function voucherSourcePracticeOptionsHtml(question,record){
+  if(question?.reviewMode!=="scored-text"||!Array.isArray(question.options)||!question.options.length)return "";
+  const selected=voucherSourcePracticeSelection(question,record);
+  const hasTemp=Object.prototype.hasOwnProperty.call(state.voucherSourcePracticeSelections||{},question.id);
+  const graded=record?.mode==="auto"&&!hasTemp;
+  const correctIds=new Set(voucherSourcePracticeCorrectIds(question));
+  const multi=correctIds.size>1;
+  const options=question.options.map(option=>{
+    const id=String(option.id);
+    const isSelected=selected.includes(id);
+    const classes=["source-review-option"];
+    if(isSelected)classes.push("selected");
+    if(graded&&correctIds.has(id))classes.push("correct");
+    if(graded&&isSelected&&!correctIds.has(id))classes.push("incorrect");
+    return `<button type="button" class="${classes.join(" ")}" data-source-practice-option="${escapeHtml(id)}" aria-pressed="${isSelected?"true":"false"}"><b>${escapeHtml(id)}</b><div>${renderTechnicalRichText(option.text||"")}</div></button>`;
+  }).join("");
+  const result=graded
+    ?`<div class="source-practice-result ${record.correct?"correct":"incorrect"}"><strong>${record.correct?"Correct":"Not correct"}</strong><span>${record.correct?"Matches the source key.":"Review the source answer and try again."}</span></div>`
+    :"";
+  return `<div class="source-review-options ${multi?"multi":"single"}">${options}</div><div class="source-practice-actions"><button type="button" class="primary-btn" id="sourcePracticeCheckBtn" ${selected.length?"":"disabled"}>Check answer</button><small>${multi?`Select ${correctIds.size} answers.`:"Select one answer."}</small></div>${result}`;
+}
+
+
+
+function voucherSourcePracticeSummary(){
+  return voucherFullRankMetrics()||{completedOccurrences:0,totalOccurrences:509,completionPercentage:0,masteredClusters:0,validatedConceptCount:265,validatedAccuracy:0,firstPassPercentage:0,checkpointCompletions:0};
+}
+
+function voucherSourceReviewAnswerHtml(question,practiceRecord=voucherSourcePracticeRecord(question)){
+  return pl300FullRankedLearning.buildPl300FullRankedAnswerMarkup({
+    question,completed:Boolean(practiceRecord),revealed:Boolean(practiceRecord)||state.voucherSourceRevealOpened?.has?.(String(question?.id||"")),
+    nativeAnswerHtml:question?.reviewMode==="native-structured"?(voucherSourcePracticeNative?.renderNativeAnswer(question,renderTechnicalRichText)||""):"",
+    renderRichText:renderTechnicalRichText
+  });
+}
+
+function renderVoucherSourceReview(){
+  const body=$("voucherSourceReviewBody");
+  if(!body)return;
+  const bank=state.voucherSourceReviewBank;
+  if(!bank){
+    body.innerHTML='<article class="voucher-empty-card"><h3>Full Ranked Learning unavailable</h3><p>Return to Microsoft PL-300 and open the 509-question ranked bank.</p></article>';
+    return;
+  }
+  const questions=voucherSourceReviewFilteredQuestions();
+  if(!questions.length)state.voucherSourceReviewIndex=0;
+  state.voucherSourceReviewIndex=Math.max(0,Math.min(state.voucherSourceReviewIndex,Math.max(0,questions.length-1)));
+  const q=questions[state.voucherSourceReviewIndex]||null;
+  const totalAll=bank.questions?.length||0;
+  const source01Count=(bank.questions||[]).filter(item=>item.sourceId==="source-01").length;
+  const source02Count=(bank.questions||[]).filter(item=>item.sourceId==="source-02").length;
+  const objectiveCount=state.voucherFullRankedIndex?.objectiveOccurrences||0;
+  const checkpointCount=state.voucherFullRankedIndex?.checkpointOccurrences||0;
+  const sourceTitle="Full Ranked Bank — 509 Questions";
+  $("voucherSourceReviewBreadcrumb").textContent=`Voucher / Microsoft PL-300 / Full Ranked Bank`;
+  if(!q){
+    body.innerHTML='<article class="voucher-empty-card"><h3>No questions in this filter</h3><p>Choose another Full Ranked Learning filter.</p></article>';
+    return;
+  }
+  const rankRecord=voucherFullRankRecord(q);
+  const practiceRecord=voucherSourcePracticeRecord(q);
+  if(!practiceRecord)voucherSourceStartSolveTimer(q);
+  const visualHtml=(q.questionVisuals||[]).map(path=>`<img src="${escapeHtml(path)}" alt="Source visual for question ${escapeHtml(q.questionNumber||"")}" loading="lazy">`).join("");
+  const optionsHtml=voucherSourcePracticeOptionsHtml(q,practiceRecord);
+  const nativeHtml=voucherSourcePracticeNative?.renderNativePractice(q,practiceRecord,state.voucherSourcePracticeNativeInputs)||"";
+  const metrics=voucherSourcePracticeSummary();
+  const filterLabel=state.voucherSourceReviewFilter==="source-01"?"Source 01":state.voucherSourceReviewFilter==="source-02"?"Source 02":state.voucherSourceReviewFilter==="objective"?"Validated Objective":state.voucherSourceReviewFilter==="checkpoint"?"Study Checkpoints":"All 509";
+  const pageLabel=Number(q.pageStart)===Number(q.pageEnd)?`Page ${q.pageStart}`:`Pages ${q.pageStart}–${q.pageEnd}`;
+  const objective=rankRecord?.mode==="objective";
+  const sourceType=String(q.sourceType||q.reviewMode||"source").replace(/-/g," ").toUpperCase();
+  const typeLabel=objective
+    ?q.reviewMode==="native-structured"?`${sourceType} / RANKED OBJECTIVE`:`TEXT / RANKED OBJECTIVE`
+    :`${sourceType} / RANKED STUDY CHECKPOINT`;
+  const recordStatus=practiceRecord
+    ?objective?(practiceRecord.everCorrect===true||practiceRecord.correct===true?"STUDIED · MASTERED":"STUDIED · REVIEW"):"STUDIED · CHECKPOINT"
+    :"NOT STUDIED";
+  const revealOpen=practiceRecord?.mode==="auto"||practiceRecord?.mode==="native"||practiceRecord?.mode==="checkpoint"||practiceRecord?.mode==="self"||state.voucherSourceRevealOpened?.has?.(String(q.id));
+  const sourceLabel=q.sourceId==="source-01"?"Source 01":"Source 02";
+  body.innerHTML=pl300FullRankedLearning.buildPl300FullRankedReviewMarkup({
+    sourceTitle,source01Count,source02Count,objectiveCount,checkpointCount,metrics,activeFilter:state.voucherSourceReviewFilter,totalAll,
+    questionsLength:questions.length,currentIndex:state.voucherSourceReviewIndex,filterLabel,objective,typeLabel,sourceLabel,questionNumber:q.questionNumber||"",
+    occurrence:q.occurrence||1,pageLabel,domainId:rankRecord?.domainId||"",recordStatus,questionHtml:renderTechnicalRichText(q.questionText||""),
+    visualHtml,optionsHtml,nativeHtml,revealOpen,answerHtml:voucherSourceReviewAnswerHtml(q,practiceRecord)
+  });
+
+  body.querySelectorAll('[data-source-review-filter]').forEach(button=>button.addEventListener('click',()=>{
+    voucherSourceResetSolveTimer();
+    state.voucherSourceReviewFilter=button.dataset.sourceReviewFilter||"all";
+    state.voucherSourceReviewIndex=0;
+    renderVoucherSourceReview();
+  }));
+  body.querySelectorAll('[data-source-practice-option]').forEach(button=>button.addEventListener('click',()=>{
+    const optionId=String(button.dataset.sourcePracticeOption||"");
+    if(!optionId||q.reviewMode!=="scored-text")return;
+    voucherSourceStartSolveTimer(q);
+    const multi=voucherSourcePracticeCorrectIds(q).length>1;
+    const current=voucherSourcePracticeSelection(q,practiceRecord);
+    const next=multi
+      ?(current.includes(optionId)?current.filter(id=>id!==optionId):[...current,optionId])
+      :[optionId];
+    state.voucherSourcePracticeSelections[q.id]=next;
+    renderVoucherSourceReview();
+  }));
+  $("sourcePracticeCheckBtn")?.addEventListener("click",()=>{
+    const selected=voucherSourcePracticeSelection(q,practiceRecord);
+    if(!selected.length){showToast("Select an answer first.");return;}
+    const correct=voucherSourcePracticeSelectionsMatch(q,selected);
+    const activeSeconds=voucherSourceConsumeSolveSeconds(q);
+    saveVoucherSourcePracticeResult(mistakeOwnerId(),q.id,{
+      examId:state.voucherExamConfig?.id||"microsoft-pl-300",
+      sourceId:q.sourceId||state.voucherSourceReviewSourceId||"",
+      mode:"auto",selected,correct,activeSeconds
+    });
+    delete state.voucherSourcePracticeSelections[q.id];
+    schedulePl300FullRankSync();
+    renderVoucherSourceReview();
+  });
+  voucherSourcePracticeNative?.wireNativePractice({
+    root:body,question:q,record:practiceRecord,tempInputs:state.voucherSourcePracticeNativeInputs,
+    onInput:answers=>{voucherSourceStartSolveTimer(q);state.voucherSourcePracticeNativeInputs[q.id]=answers;},
+    onSave:({answers,correct})=>{
+      const activeSeconds=voucherSourceConsumeSolveSeconds(q);
+      saveVoucherSourcePracticeResult(mistakeOwnerId(),q.id,{examId:state.voucherExamConfig?.id||"microsoft-pl-300",sourceId:q.sourceId||state.voucherSourceReviewSourceId||"",mode:"native",answers,correct,activeSeconds});
+      delete state.voucherSourcePracticeNativeInputs[q.id];
+      schedulePl300FullRankSync();
+      renderVoucherSourceReview();
+    },
+    toast:showToast
+  });
+  const reveal=body.querySelector('#sourceReviewReveal');
+  reveal?.addEventListener('toggle',()=>{
+    if(!reveal.open||q.reviewMode!=="source-reveal"||practiceRecord)return;
+    state.voucherSourceRevealOpened.add(String(q.id));
+    const elapsed=voucherSourceConsumeSolveSeconds(q);
+    state.voucherSourcePendingSeconds[q.id]=(Number(state.voucherSourcePendingSeconds[q.id])||0)+elapsed;
+    const button=$("sourcePracticeCheckpointBtn");
+    if(button)button.disabled=false;
+  });
+  $("sourcePracticeCheckpointBtn")?.addEventListener("click",()=>{
+    if(practiceRecord)return;
+    const activeSeconds=(Number(state.voucherSourcePendingSeconds[q.id])||0)+voucherSourceConsumeSolveSeconds(q);
+    saveVoucherSourcePracticeResult(mistakeOwnerId(),q.id,{
+      examId:state.voucherExamConfig?.id||"microsoft-pl-300",
+      sourceId:q.sourceId||state.voucherSourceReviewSourceId||"",
+      mode:"checkpoint",reviewStatus:"reviewed",activeSeconds
+    });
+    delete state.voucherSourcePendingSeconds[q.id];
+    schedulePl300FullRankSync();
+    renderVoucherSourceReview();
+  });
+  $("sourceReviewPrev")?.addEventListener("click",()=>{if(state.voucherSourceReviewIndex>0){voucherSourceResetSolveTimer();state.voucherSourceReviewIndex-=1;renderVoucherSourceReview();window.scrollTo({top:0,behavior:"smooth"})}});
+  $("sourceReviewNext")?.addEventListener("click",()=>{if(state.voucherSourceReviewIndex<questions.length-1){voucherSourceResetSolveTimer();state.voucherSourceReviewIndex+=1;renderVoucherSourceReview();window.scrollTo({top:0,behavior:"smooth"})}});
+  $("sourceReviewJumpBtn")?.addEventListener("click",()=>{
+    const requested=Math.max(1,Math.min(questions.length,Number($("sourceReviewJump")?.value)||1));
+    voucherSourceResetSolveTimer();
+    state.voucherSourceReviewIndex=requested-1;renderVoucherSourceReview();window.scrollTo({top:0,behavior:"smooth"});
+  });
+}
+
+function voucherLocalRankedAttempts(examId){
+  return getVoucherAttempts(mistakeOwnerId(),examId).filter(attempt=>attempt?.rankEligible===true&&String(attempt?.sizeMode||"")==="real");
+}
+
+function voucherArchitectureQuestionIds(architecture=state.voucherContentArchitecture){
+  return Object.keys(architecture?.questionSessionMap||{});
+}
+
+function voucherArchitectureSession(sessionId,architecture=state.voucherContentArchitecture){
+  return (architecture?.sessions||[]).find(session=>String(session.id)===String(sessionId))||null;
+}
+
+function voucherRankedSessionLocalAttempts(examId,sessionId,{officialOnly=false}={}){
+  return getVoucherAttempts(mistakeOwnerId(),examId).filter(attempt=>{
+    if(attempt?.voucherMode!=="ranked-session")return false;
+    if(String(attempt?.sessionId||"")!==String(sessionId||""))return false;
+    return !officialOnly||attempt?.officialRankEligible===true;
+  });
+}
+
+function voucherBestRankedSessionAttempt(examId,sessionId){
+  return voucherRankedSessionLocalAttempts(examId,sessionId,{officialOnly:true}).sort((a,b)=>
+    Number(b?.percentage||0)-Number(a?.percentage||0) ||
+    Number(b?.firstPassPercentage||0)-Number(a?.firstPassPercentage||0) ||
+    Number(a?.attemptNumber||Number.MAX_SAFE_INTEGER)-Number(b?.attemptNumber||Number.MAX_SAFE_INTEGER) ||
+    Number(a?.timeTakenSeconds||Number.MAX_SAFE_INTEGER)-Number(b?.timeTakenSeconds||Number.MAX_SAFE_INTEGER) ||
+    String(a?.submittedAt||"").localeCompare(String(b?.submittedAt||""))
+  )[0]||null;
+}
+
+function voucherRankedDomainLocalAttempts(examId,domainId,{officialOnly=false}={}){
+  return getVoucherAttempts(mistakeOwnerId(),examId).filter(attempt=>{
+    if(attempt?.voucherMode!=="ranked-domain")return false;
+    if(String(attempt?.domainId||"")!==String(domainId||""))return false;
+    return !officialOnly||attempt?.officialRankEligible===true;
+  });
+}
+
+function voucherBestRankedDomainAttempt(examId,domainId){
+  return voucherRankedDomainLocalAttempts(examId,domainId,{officialOnly:true}).sort((a,b)=>
+    Number(b?.percentage||0)-Number(a?.percentage||0) ||
+    Number(b?.firstPassPercentage||0)-Number(a?.firstPassPercentage||0) ||
+    Number(a?.attemptNumber||Number.MAX_SAFE_INTEGER)-Number(b?.attemptNumber||Number.MAX_SAFE_INTEGER) ||
+    Number(a?.timeTakenSeconds||Number.MAX_SAFE_INTEGER)-Number(b?.timeTakenSeconds||Number.MAX_SAFE_INTEGER) ||
+    String(a?.submittedAt||"").localeCompare(String(b?.submittedAt||""))
+  )[0]||null;
+}
+
+function buildVoucherDomainLearningLocalSummary(view,examId){
+  const bestByDomain=new Map();
+  for(const domain of view?.domains||[]){
+    const best=voucherBestRankedDomainAttempt(examId,domain.id);
+    if(best)bestByDomain.set(domain.id,best);
+  }
+  const domainsCompleted=bestByDomain.size;
+  const mastered=[...bestByDomain.values()].reduce((sum,a)=>sum+Number(a.correct||0),0);
+  const total=view?.totalQuestions||0;
+  const mastery=total?Math.round((mastered/total)*100):0;
+  const recommended=(view?.domains||[]).slice().sort((a,b)=>{
+    const aa=bestByDomain.get(a.id),bb=bestByDomain.get(b.id);
+    if(Boolean(aa)!==Boolean(bb))return aa?1:-1;
+    return Number(aa?.percentage??-1)-Number(bb?.percentage??-1) || Number(a.order||0)-Number(b.order||0);
+  })[0]||null;
+  return {bestByDomain,domainsCompleted,mastered,total,mastery,recommended};
+}
+
+function pl300FullRankDomainCoverage(domainId){
+  const records=state.voucherFullRankedIndex?.records||[];
+  const domainRecords=records.filter(record=>String(record.domainId||"")===String(domainId||""));
+  const practice=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
+  const completed=domainRecords.filter(record=>practice.records?.[record.questionId]).length;
+  return {
+    total:domainRecords.length,
+    completed,
+    objective:domainRecords.filter(record=>record.mode==="objective").length,
+    checkpoints:domainRecords.filter(record=>record.mode==="checkpoint").length
+  };
+}
+
+function renderVoucherArchitecturePanel(){
+  const panel=$("voucherArchitecturePanel");
+  const architecture=state.voucherContentArchitecture;
+  const config=state.voucherExamConfig;
+  if(!panel)return;
+  if(!architecture){
+    panel.innerHTML='<div class="voucher-inline-empty">Structured PL-300 domains are temporarily unavailable.</div>';
+    return;
+  }
+  const pseudoQuestions=voucherArchitectureQuestionIds(architecture).map(id=>({id}));
+  const seenIds=getVoucherSeenQuestionIds(mistakeOwnerId(),config?.id);
+  const view=buildVoucherContentArchitectureView({architecture,questions:pseudoQuestions,seenIds});
+  const localSummary=buildVoucherDomainLearningLocalSummary(view,config?.id);
+  const selectedDomainId=state.voucherSelectedDomainId||view.domains[0]?.id||null;
+  state.voucherSelectedDomainId=selectedDomainId;
+  const selectedDomain=view.domains.find(domain=>String(domain.id)===String(selectedDomainId))||view.domains[0]||null;
+  const domainSessions=view.sessions.filter(session=>String(session.domainId)===String(selectedDomain?.id));
+  const domainBest=selectedDomain?localSummary.bestByDomain.get(selectedDomain.id):null;
+  const domainAttempts=selectedDomain?voucherRankedDomainLocalAttempts(config?.id,selectedDomain.id,{officialOnly:true}):[];
+  const sectionAnalytics=selectedDomain?buildVoucherSectionAnalytics({architecture,domainId:selectedDomain.id,attempt:domainBest}):{rows:[],strongest:null,weakest:null,hasAttempt:false};
+  const recommended=localSummary.recommended;
+  const saved=activeSavedExamProgress();
+  const savedDomainId=saved?.voucherResume?.domainRanked||saved?.voucherResume?.mockKind==="domain"?saved?.voucherResume?.domainId:null;
+
+  panel.innerHTML=`
+    <div class="voucher-ranked-learning-overview domain-ranked">
+      <div class="voucher-architecture-head">
+        <div><span class="eyebrow">PL-300 DOMAIN RANKED LEARNING</span><h3>Study and rank by complete PL-300 Domain.</h3><p>Each Domain is one ranked learning attempt. Sessions stay inside it as study sections so you always know what you are solving.</p></div>
+        <div class="voucher-architecture-summary"><strong>${localSummary.mastery}%</strong><span>Overall Mastery</span><small>${localSummary.domainsCompleted}/${view.domains.length} domains complete</small></div>
+      </div>
+      <div class="voucher-ranked-learning-stats">
+        <div><span>DOMAINS COMPLETED</span><strong>${localSummary.domainsCompleted} / ${view.domains.length}</strong></div>
+        <div><span>QUESTIONS MASTERED</span><strong>${localSummary.mastered} / ${view.totalQuestions}</strong></div>
+        <div><span>OVERALL RANK</span><strong>${localSummary.domainsCompleted===view.domains.length?"Ready":"Provisional"}</strong><small>${localSummary.domainsCompleted===view.domains.length?"Overall ranking comes after all four domains":"Complete all four domains for official overall rank"}</small></div>
+        <div class="recommended"><span>RECOMMENDED NEXT</span><strong>${escapeHtml(recommended?.title||"Choose a domain")}</strong><small>${recommended?`${recommended.questionCount} questions • ${localSummary.bestByDomain.has(recommended.id)?"lowest mastery":"not completed yet"}`:""}</small></div>
+      </div>
+      ${state.voucherFullRankedIndex?`<div class="voucher-full-source-coverage"><span class="eyebrow">FULL SOURCE COVERAGE</span><strong>${state.voucherFullRankedIndex.mappedDomainOccurrences} mapped to Domains · ${state.voucherFullRankedIndex.unclassifiedOccurrences} Unclassified Source Review</strong><small>Mapped source coverage + Unclassified Source Review = 509 required study occurrences. Domain exam scoring remains the validated ${view.totalQuestions}-question bank.</small></div>`:""}
+      <button type="button" class="secondary-btn voucher-overall-ranking-action" id="voucherOverallRankingBtn">View PL-300 Overall Ranking →</button>
+    </div>
+
+    <div class="voucher-domain-grid compact" role="list" aria-label="PL-300 ranked domains">
+      ${view.domains.map((domain,index)=>{const best=localSummary.bestByDomain.get(domain.id);const sourceCoverage=pl300FullRankDomainCoverage(domain.id);return `<button type="button" class="voucher-domain-card${String(domain.id)===String(selectedDomain?.id)?" active":""}" data-voucher-domain="${escapeHtml(domain.id)}" aria-pressed="${String(domain.id)===String(selectedDomain?.id)?"true":"false"}">
+        <span class="voucher-domain-index">0${index+1}</span><span class="eyebrow">RANKED DOMAIN</span><strong>${escapeHtml(domain.title)}</strong><small>${domain.sessionCount} Sections · ${domain.questionCount} Validated Questions</small>${sourceCoverage.total?`<small>Source coverage ${sourceCoverage.completed}/${sourceCoverage.total} studied · ${sourceCoverage.checkpoints} checkpoints</small>`:""}<span class="voucher-domain-progress"><i style="width:${best?Number(best.percentage)||0:domain.progressPercentage}%"></i></span><em>${best?`Best ${Number(best.percentage)||0}%`:`${domain.progressPercentage}% reviewed`}</em>
+      </button>`}).join("")}
+    </div>
+
+    ${selectedDomain?`<article class="voucher-domain-ranked-detail">
+      <div class="voucher-domain-ranked-copy">
+        <span class="eyebrow">RANKED DOMAIN</span><h4>${escapeHtml(selectedDomain.title)}</h4><p>${escapeHtml(selectedDomain.description||"")}</p>
+        <div class="voucher-domain-ranked-stats"><span><strong>${selectedDomain.questionCount}</strong> Questions</span><span><strong>${domainSessions.length}</strong> Sections</span><span><strong>${domainBest?`${Number(domainBest.percentage)||0}%`:"—"}</strong> Best</span><span><strong>${domainAttempts.length}</strong> Official Attempts</span></div>
+        <div class="voucher-domain-section-preview"><span class="eyebrow">SECTIONS inside this Domain</span>${domainSessions.map((session,index)=>`<div><span>${index+1}</span><strong>${escapeHtml(session.title)}</strong><small>${session.questionCount} Questions</small></div>`).join("")}</div>
+        <div class="voucher-section-analytics">
+          <div class="voucher-section-analytics-head"><div><span class="eyebrow">SECTION ANALYTICS</span><strong>${sectionAnalytics.hasAttempt?"Best official Domain attempt":"Complete this Domain to unlock analytics"}</strong></div>${sectionAnalytics.hasAttempt?`<small>Weakest: ${escapeHtml(sectionAnalytics.weakest?.title||"—")}</small>`:""}</div>
+          <div class="voucher-section-analytics-grid">${sectionAnalytics.rows.map(row=>`<div class="voucher-section-analytics-row is-${escapeHtml(row.status)}"><span>${escapeHtml(row.title)}</span><strong>${row.percentage===null?"—":`${row.percentage}%`}</strong><small>${row.percentage===null?"No official attempt yet":`${row.correct}/${row.total} correct${sectionAnalytics.strongest?.id===row.id?" • Strongest":""}${sectionAnalytics.weakest?.id===row.id?" • Review first":""}`}</small></div>`).join("")}</div>
+        </div>
+      </div>
+      <div class="voucher-domain-ranked-setup">
+        <span class="voucher-path-badge">RANKED DOMAIN</span>
+        <fieldset class="voucher-ranked-session-choice"><legend>Feedback</legend><label><input type="radio" name="voucherDomainFeedback" value="instant" checked> <span><strong>Instant Feedback</strong><small>Learn after every answer. Feedback reading time does not count.</small></span></label><label><input type="radio" name="voucherDomainFeedback" value="exam"> <span><strong>Feedback at End</strong><small>Solve the complete Domain first, then review.</small></span></label></fieldset>
+        <fieldset class="voucher-ranked-session-choice"><legend>Active Solve Time</legend><label><input type="radio" name="voucherDomainTimerDisplay" value="show" checked> Show while solving</label><label><input type="radio" name="voucherDomainTimerDisplay" value="hide"> Hide while solving</label></fieldset>
+        <button type="button" class="primary-btn large-btn" id="voucherDomainStartBtn">${String(savedDomainId)===String(selectedDomain.id)?"Resume Domain":"Start / Resume Domain"} →</button>
+        <button type="button" class="secondary-btn" id="voucherDomainRankingBtn">View Domain Ranking →</button>
+        <small>Complete every released question in this Domain for an Official Domain Rank. Incomplete attempts remain provisional and local.</small>
+      </div>
+    </article>`:""}
+  `;
+
+  panel.querySelectorAll("[data-voucher-domain]").forEach(button=>button.addEventListener("click",()=>{
+    state.voucherSelectedDomainId=button.dataset.voucherDomain;
+    renderVoucherArchitecturePanel();
+  }));
+  $("voucherDomainStartBtn")?.addEventListener("click",()=>{
+    const feedbackMode=document.querySelector('input[name="voucherDomainFeedback"]:checked')?.value||"instant";
+    const timerDisplay=(document.querySelector('input[name="voucherDomainTimerDisplay"]:checked')?.value||"show")==="show";
+    void prepareVoucherRankedDomain(state.voucherSelectedDomainId,{feedbackMode,timerDisplay});
+  });
+  $("voucherDomainRankingBtn")?.addEventListener("click",()=>openVoucherDomainRanking(state.voucherTrackId,config.id,state.voucherSelectedDomainId));
+  $("voucherOverallRankingBtn")?.addEventListener("click",()=>openVoucherOverallRanking(state.voucherTrackId,config.id));
+}
+
+async function prepareVoucherRankedDomain(domainId,{feedbackMode="instant",timerDisplay=true}={}){
+  const architecture=state.voucherContentArchitecture;
+  const config=state.voucherExamConfig;
+  const domain=findVoucherContentArchitectureDomain({architecture,domainId});
+  if(!architecture||!config||!domain){showToast("Choose a PL-300 Domain first.");return}
+  if(!state.studentName){requireRankedIdentity(()=>void prepareVoucherRankedDomain(domainId,{feedbackMode,timerDisplay}),"Enter your name before starting a ranked PL-300 Domain.");return}
+  try{
+    const bank=await loadJson(config.masterBankFile);
+    const validationErrors=validateVoucherContentArchitecture({architecture,questions:bank.questions||[],examId:config.id});
+    if(validationErrors.length)throw new Error(validationErrors.join("; "));
+    const questions=questionsForVoucherDomain({architecture,questions:bank.questions||[],domainId:domain.id});
+    const sections=sessionsForVoucherDomain({architecture,domainId:domain.id});
+    if(!questions.length)throw new Error("This PL-300 Domain has no released questions.");
+    await prepareVoucherMock({
+      mockKind:"domain",sourceId:domain.id,sizeMode:"domain",timed:false,feedbackMode,
+      allowedQuestionIds:questions.map(question=>question.id),domainTitle:domain.title,
+      domainRanked:true,domainId:domain.id,sectionIds:sections.map(section=>section.id),timerDisplay
+    });
+  }catch(error){
+    console.error("Voucher ranked domain failed",error);
+    showToast(error?.message||"Could not prepare this PL-300 ranked Domain.");
+  }
+}
+
+async function prepareVoucherRankedSession(sessionId,{feedbackMode="instant",timerDisplay=true}={}){
+  const architecture=state.voucherContentArchitecture;
+  const config=state.voucherExamConfig;
+  const session=voucherArchitectureSession(sessionId,architecture);
+  if(!architecture||!config||!session){showToast("Choose a PL-300 session first.");return}
+  if(!state.studentName){requireRankedIdentity(()=>void prepareVoucherRankedSession(sessionId,{feedbackMode,timerDisplay}),"Enter your name before starting a ranked PL-300 session.");return}
+  try{
+    const bank=await loadJson(config.masterBankFile);
+    const validationErrors=validateVoucherContentArchitecture({architecture,questions:bank.questions||[],examId:config.id});
+    if(validationErrors.length)throw new Error(validationErrors.join("; "));
+    const questions=questionsForVoucherSession({architecture,questions:bank.questions||[],sessionId:session.id});
+    if(!questions.length)throw new Error("This PL-300 session has no released questions.");
+    await prepareVoucherMock({
+      mockKind:"session",sourceId:session.id,sizeMode:"session",timed:false,feedbackMode,
+      allowedQuestionIds:questions.map(question=>question.id),sessionTitle:session.title,
+      sessionRanked:true,sessionId:session.id,domainId:session.domainId,timerDisplay
+    });
+  }catch(error){
+    console.error("Voucher ranked session failed",error);
+    showToast(error?.message||"Could not prepare this PL-300 ranked session.");
+  }
+}
+
+function renderVoucherExam(){
+  const meta=voucherTrackMeta(state.voucherTrackId);
+  $("voucherExamBreadcrumb").textContent=`Voucher / ${meta?.title||"Track"} / ${state.voucherExamEntry?.title||state.voucherExamId||"Exam"}`;
+  const body=$("voucherExamBody");
+  if(!body)return;
+  if(state.voucherExamError||!state.voucherExamConfig){
+    body.innerHTML=`<article class="voucher-empty-card"><h3>Exam unavailable</h3><p>${escapeHtml(state.voucherExamError||"This Voucher exam is not ready yet.")}</p></article>`;
+    return;
+  }
+  const config=state.voucherExamConfig;
+  const reviewed=Number(config.masterBankQuestionCount)||0;
+  const architecture=state.voucherContentArchitecture;
+  const domainCount=architecture?.domains?.length||4;
+  const sessionCount=architecture?.sessions?.length||10;
+  const sourceReleased=(config.sourceReviewSources||[]).length>0;
+
+  body.innerHTML=`
+    <div id="pl300FullRankLanding" class="pl300-full-ranked-loading"><span class="eyebrow">PL-300 FULL RANKED LEARNING</span><h2>Microsoft PL-300 — Ranked Learning</h2><p>509 Questions · ${domainCount} Ranked Domains · ${sessionCount} Study Sections</p></div>
+
+    <section class="voucher-content-architecture" id="voucherArchitecturePanel" aria-label="PL-300 ranked domains and sessions"></section>
+
+    <details class="voucher-more-practice">
+      <summary><span><span class="eyebrow">More Practice</span><strong>Quick Practice</strong></span><small>Custom subsets • Non-Ranked</small></summary>
+      <div class="voucher-more-practice-body">
+        <p>Use Quick Practice for custom subsets and extra repetition. The complete 509-question source journey is the primary ranked experience above.</p>
+        <div class="voucher-size-picker-head"><div><strong>Choose number of questions</strong><small>Select one option to continue</small></div><span class="voucher-size-picker-hint">QUICK PRACTICE</span></div>
+        <div class="voucher-size-grid" id="voucherSizeGrid" role="group" aria-label="Choose number of quick practice questions">${voucherRandomSizeButtons(config)}</div>
+        ${voucherModeControls("voucherPractice")}
+        <div class="voucher-practice-summary" id="voucherPracticeSummary"><span>QUICK PRACTICE</span><strong>Choose a practice size</strong><small>Non-Ranked</small></div>
+        <button type="button" class="primary-btn large-btn" id="voucherStartRandomBtn" disabled>Choose practice size to start →</button>
+      </div>
+    </details>
+
+    <section class="voucher-progress-section"><div class="section-title-row"><div><span class="eyebrow">YOUR PROGRESS</span><h3>Ranked Learning History</h3></div></div><div id="voucherAttemptHistory" class="voucher-empty-compact"><strong>No attempts yet</strong><span>Complete your first ranked Domain to start tracking mastery here.</span></div></section>`;
+
+  renderVoucherArchitecturePanel();
+  void hydrateVoucherFullRankedCard(config);
+
+  const history=$("voucherAttemptHistory");
+  const attempts=getVoucherAttempts(mistakeOwnerId(),config.id).sort((a,b)=>String(b.submittedAt||"").localeCompare(String(a.submittedAt||"")));
+  if(history&&attempts.length){
+    history.className="voucher-attempt-list";
+    history.innerHTML=attempts.slice(0,12).map(attempt=>{
+      const domainRanked=attempt.voucherMode==="ranked-domain";
+      const sessionRanked=attempt.voucherMode==="ranked-session";
+      const legacy=sessionRanked||attempt.voucherMode==="ranked-learning"||attempt.voucherMode==="full-bank-ranked"||attempt.sizeMode==="real"||attempt.sizeMode==="full-ranked"||attempt.voucherMode==="improvement";
+      const modeLabel=domainRanked
+        ?`${attempt.domainTitle||attempt.domainId||"Ranked Domain"} • ${attempt.feedbackMode==="instant"?"Instant Feedback":"Feedback at End"}`
+        :sessionRanked
+          ?`Legacy Session Attempt • ${attempt.sessionTitle||attempt.sessionId||"Session"}`
+          :legacy
+            ?`Legacy Attempt • ${attempt.voucherMode==="full-bank-ranked"||attempt.sizeMode==="full-ranked"?"Full Bank":attempt.voucherMode==="improvement"?"Improvement":"60Q Challenge"}`
+            :attempt.mockKind==="source"?"Source Practice":`Quick Practice ${attempt.sizeMode||""}`;
+      const status=domainRanked?(attempt.officialRankEligible?"OFFICIAL DOMAIN":"PROVISIONAL"):(legacy?"LEGACY":"PRACTICE");
+      const firstPass=domainRanked&&Number.isFinite(Number(attempt.firstPassPercentage))?` • First pass ${Number(attempt.firstPassPercentage)}%`:"";
+      const date=attempt.submittedAt?new Date(attempt.submittedAt).toLocaleDateString():"";
+      return `<div class="voucher-attempt-row ${domainRanked?"is-ranked":"is-practice"}"><div><span class="voucher-attempt-badge">${escapeHtml(modeLabel)}</span><strong>${Number(attempt.percentage)||0}% • ${Number(attempt.correct)||0}/${Number(attempt.total)||0}</strong><small>${escapeHtml(status)}${firstPass}${date?` • ${escapeHtml(date)}`:""}</small></div><span>${attempt.passed?"PASS":"RETRY"}</span><small>${domainRanked?"Active solve":"Time"} ${formatLeaderboardTime(attempt.timeTakenSeconds||0)}</small></div>`;
+    }).join("");
+  }
+
+  let selectedSize=null;
+  const updatePracticeSummary=()=>{
+    const summary=$("voucherPracticeSummary");
+    if(!summary)return;
+    if(!selectedSize){summary.innerHTML='<span>QUICK PRACTICE</span><strong>Choose a practice size</strong><small>Non-Ranked</small>';return}
+    const total=selectedSize==="full-bank"?reviewed:Number(selectedSize)||0;
+    const timing=document.querySelector('input[name="voucherPracticeTimed"]:checked')?.value==="untimed"?"Untimed":"Timed";
+    const feedback=document.querySelector('input[name="voucherPracticeFeedback"]:checked')?.value==="instant"?"Instant Feedback":"Feedback at End";
+    summary.innerHTML=`<span>QUICK PRACTICE</span><strong>${total} Questions • ${timing}</strong><small>${feedback} • Non-Ranked</small>`;
+  };
+  body.querySelectorAll("[data-voucher-size]").forEach(button=>button.addEventListener("click",()=>{
+    selectedSize=button.dataset.voucherSize;
+    body.querySelectorAll("[data-voucher-size]").forEach(x=>{const active=x===button;x.classList.toggle("active",active);x.setAttribute("aria-pressed",active?"true":"false")});
+    const start=$("voucherStartRandomBtn");start.disabled=false;start.textContent=selectedSize==="full-bank"?`Start Full Reviewed Bank • ${reviewed} Q →`:`Start ${selectedSize}-Question Quick Practice →`;
+    updatePracticeSummary();
+  }));
+  body.querySelectorAll('input[name="voucherPracticeTimed"],input[name="voucherPracticeFeedback"]').forEach(input=>input.addEventListener("change",updatePracticeSummary));
+  $("voucherStartRandomBtn")?.addEventListener("click",()=>{
+    if(!selectedSize)return;
+    void prepareVoucherMock({mockKind:"random",sizeMode:selectedSize,sourceId:null,
+      timed:(document.querySelector('input[name="voucherPracticeTimed"]:checked')?.value||"timed")==="timed",
+      feedbackMode:document.querySelector('input[name="voucherPracticeFeedback"]:checked')?.value||"exam"
+    });
+  });
+}
+
+async function voucherRankedExamSpecs(trackId){
+  const child=state.voucherTrackRegistries[trackId];
+  if(!child?.exams?.length)return [];
+  const specs=[];
+  for(const entry of child.exams){
+    try{
+      const {config}=await loadVoucherExamConfig(trackId,entry.id);
+      if(config?.realExam?.rankEligible!==true)continue;
+      const totalQuestions=Number(config.realExam.questionCount)||0;
+      if(!totalQuestions)continue;
+      specs.push({
+        examId:config.id,
+        title:config.title,
+        activityId:voucherRankingActivityId(trackId,config.id),
+        totalQuestions
+      });
+    }catch(error){
+      console.warn("Voucher ranked exam config skipped",entry?.id,error);
+    }
+  }
+  return specs;
+}
+
+async function voucherFullBankRankedSpec(trackId,examId){
+  const {config}=await loadVoucherExamConfig(trackId,examId);
+  const full=config?.fullBankExam||{};
+  if(full.rankEligible!==true)throw new Error("This Voucher exam does not have a released Full Bank Ranked Exam yet.");
+  const totalQuestions=Number(full.questionCount)||Number(config.masterBankQuestionCount)||0;
+  const durationMinutes=Number(full.durationMinutes)||0;
+  if(!totalQuestions||!durationMinutes)throw new Error("Full Bank Ranked Exam configuration is incomplete.");
+  return {examId:config.id,title:config.title,activityId:voucherRankingActivityId(trackId,config.id,"full-bank"),totalQuestions,durationMinutes};
+}
+
+function renderVoucherRankingShell(){
+  const mode=state.voucherRankingMode||"exam";
+  const trackId=state.voucherRankingTrackId||state.voucherTrackId;
+  const meta=voucherTrackMeta(trackId);
+  const examTitle=state.voucherExamConfig?.id===state.voucherRankingExamId?state.voucherExamConfig.title:state.voucherExamEntry?.title||state.voucherRankingExamId||"Voucher Exam";
+  const sessionTitle=state.voucherContentArchitecture?.sessions?.find(session=>String(session.id)===String(state.voucherRankingSessionId))?.title||"PL-300 Session";
+  const domainTitle=state.voucherContentArchitecture?.domains?.find(domain=>String(domain.id)===String(state.voucherRankingDomainId))?.title||"PL-300 Domain";
+  $("voucherRankingTitle").textContent=mode==="full-ranked-learning"?`${examTitle} • Full Ranked Learning 509/509`:mode==="domain-overall"?`${examTitle} • PL-300 Overall Ranking`:mode==="domain"?`${domainTitle} • Domain Ranking`:mode==="session"?`${sessionTitle} • Legacy Session Ranking`:mode==="track"?`${meta?.title||"Voucher"} Overall Ranking`:mode==="full-exam"?`${examTitle} • Full Bank Ranking`:`${examTitle} Ranking`;
+  $("voucherRankingRule").textContent=mode==="full-ranked-learning"
+    ?"Completion → Validated Mastery → First Pass → Attempts-to-Best → Active Solve Time."
+    :mode==="domain-overall"
+    ?"Complete all four PL-300 Domains • Total Mastery → First Pass → Attempts-to-Best → Active Solve Time."
+    :mode==="domain"
+    ?"Complete the full Domain to join • Mastery → First Pass → Attempts-to-Best → Active Solve Time."
+    :mode==="session"
+      ?"Legacy Session leaderboard • retained for history only."
+      :mode==="track"
+      ?"Best Real Exam Size attempt from every released exam • fixed total question denominator • Primary Track members only."
+      :mode==="full-exam"
+        ?"Full Bank Ranked Exam only • all reviewed questions • best attempt per learner • score first, then time."
+        :"Real Exam Size only • best attempt per learner • score first, then time.";
+  $("voucherRankingSummary").innerHTML="";
+  $("voucherRankingContent").classList.add("hidden");
+  const status=$("voucherRankingStatus");
+  status.className="status-card info";
+  status.innerHTML=`<div class="status-icon">↗</div><div><strong>Loading Voucher ranking…</strong><p>Fetching shared ${mode==="full-ranked-learning"?"Full Ranked Learning 509/509":mode==="domain-overall"?"PL-300 Overall":mode==="domain"?"Ranked Domain":mode==="session"?"Legacy Ranked Session":mode==="full-exam"?"Full Bank Ranked Exam":"Real Exam"} results.</p></div>`;
+  status.classList.remove("hidden");
+}
+
+function voucherRankingAvatarCell(playerId,name,avatarMap){
+  const avatarId=avatarMap?.get?.(playerId);
+  const visual=avatarId?avatarMarkup(avatarId,{lazy:true}):escapeHtml(initials(name));
+  return `<span class="voucher-ranking-avatar">${visual}</span>`;
+}
+
+function renderVoucherRankingBoard({board=[],mode="exam",trackId="",examSpec=null,examSpecs=[],avatarMap=new Map()}={}){
+  const content=$("voucherRankingContent"),list=$("voucherRankingList"),personal=$("voucherRankingPersonal"),status=$("voucherRankingStatus"),summary=$("voucherRankingSummary");
+  const isTrack=mode==="track";
+  const isFull=mode==="full-exam";
+  const isSession=mode==="session";
+  const isDomain=mode==="domain";
+  const isOverall=mode==="domain-overall";
+  const totalMarks=isTrack?examSpecs.reduce((sum,x)=>sum+(Number(x.totalQuestions)||0),0):(Number(examSpec?.totalQuestions)||0);
+  summary.innerHTML=isOverall
+    ?`<div><span>Certification</span><strong>${escapeHtml(examSpec?.title||"Microsoft PL-300")}</strong></div><div><span>Questions</span><strong>${totalMarks}</strong></div><div><span>Required</span><strong>${Number(examSpec?.domains?.length)||4} / ${Number(examSpec?.domains?.length)||4} Domains</strong></div><div><span>Scoring</span><strong>Total Mastery → First Pass → Attempts → Active Solve Time</strong></div>`
+    :isDomain
+    ?`<div><span>Domain</span><strong>${escapeHtml(examSpec?.title||"PL-300 Domain")}</strong></div><div><span>Questions</span><strong>${totalMarks}</strong></div><div><span>Rank Status</span><strong>Complete Domain Only</strong></div><div><span>Scoring</span><strong>Mastery → First Pass → Attempts → Active Solve Time</strong></div>`
+    :isSession
+      ?`<div><span>Session</span><strong>${escapeHtml(examSpec?.title||"PL-300 Session")}</strong></div><div><span>Questions</span><strong>${totalMarks}</strong></div><div><span>Rank Status</span><strong>Legacy</strong></div><div><span>Scoring</span><strong>Historical Session Ranking</strong></div>`
+      :isTrack
+      ?`<div><span>Track</span><strong>${escapeHtml(voucherTrackMeta(trackId)?.title||trackId)}</strong></div><div><span>Total Marks</span><strong>${totalMarks}</strong></div><div><span>Ranked Exams</span><strong>${examSpecs.length}</strong></div><div><span>Scoring</span><strong>Best Real Exam Size</strong></div>`
+      :`<div><span>Exam</span><strong>${escapeHtml(examSpec?.title||state.voucherRankingExamId||"Voucher Exam")}</strong></div><div><span>Total Marks</span><strong>${totalMarks}</strong></div><div><span>Mode</span><strong>${isFull?"Full Bank Ranked Exam":"Real Exam Size"}</strong></div><div><span>Scoring</span><strong>Best Attempt</strong></div>`;
+  status.classList.add("hidden");
+  content.classList.remove("hidden");
+  if(!board.length){
+    list.innerHTML=`<div class="voucher-inline-empty">${isOverall?"Complete all four PL-300 Domains to join the Overall Ranking.":isDomain?"Complete the full Domain to join this leaderboard.":isSession?"No legacy Session attempts are synced yet.":`No ranked ${isFull?"Full Bank":"Real Exam"} attempt has been synced yet.`}</div>`;
+  }else{
+    list.innerHTML=board.map(row=>{
+      const name=row.student_name||"Learner";
+      const score=isOverall?`${row.totalCorrect}/${row.totalQuestions}`:isTrack?`${row.totalCorrect}/${row.totalQuestions}`:(isDomain||isSession)?`${Number(row.percentage)||0}%`:`${Number(row.score)||0}/${Number(row.total_questions)||totalMarks}`;
+      const pct=(isOverall||isTrack)?row.percentage:Number(row.percentage)||0;
+      const time=isOverall?row.totalTimeSeconds:isTrack?row.totalTimeSeconds:row.time_taken_seconds;
+      const detail=isOverall?`First Pass ${Number(row.firstPassPercentage)||0}% · ${Number(row.attemptsToBest)||Number(row.totalDomains)||4} attempts-to-best`:isTrack?`${row.completedExams}/${row.totalExams} exams`:(isDomain||isSession)?`First Pass ${Number(row.firstPassPercentage)||0}% · ${Number(row.attemptCount)||1} attempt${Number(row.attemptCount)===1?"":"s"}`:`${pct}%`;
+      return `<div class="voucher-ranking-row${row.player_id===state.playerId?" current-user":""}"><span class="voucher-ranking-rank">#${row.rank}</span><div class="voucher-ranking-student">${voucherRankingAvatarCell(row.player_id,name,avatarMap)}<div><strong>${escapeHtml(name)}</strong><small>${row.player_id===state.playerId?"You":isTrack?escapeHtml(voucherTrackMeta(trackId)?.title||trackId):"Voucher learner"}</small></div></div><div class="voucher-ranking-score"><strong>${escapeHtml(score)}</strong><small>${escapeHtml(detail)}</small></div><div class="voucher-ranking-time"><strong>${escapeHtml(formatLeaderboardTime(time||0))}</strong><small>${isOverall?`${pct}% overall · Active Solve Time`:isTrack?`${pct}% overall`:(isDomain||isSession)?"Active Solve Time":"best time"}</small></div></div>`;
+    }).join("");
+  }
+  const me=board.find(row=>row.player_id===state.playerId);
+  const primary=getPrimaryTrack();
+  if(isOverall&&me){
+    personal.innerHTML=`<div><span class="eyebrow">YOUR POSITION</span><h3>${escapeHtml(state.studentName||me.student_name||"Learner")}</h3><small>Official PL-300 Overall • ${me.completedDomains}/${me.totalDomains} Domains • First Pass ${Number(me.firstPassPercentage)||0}% • ${Number(me.attemptsToBest)||me.totalDomains} attempts-to-best</small></div><div class="rank-local-stats"><div><span>Rank</span><strong>#${me.rank}</strong></div><div><span>Overall</span><strong>${Number(me.percentage)||0}%</strong></div></div>`;
+  }else if(isOverall){
+    personal.innerHTML=`<div><span class="eyebrow">YOUR POSITION</span><h3>${escapeHtml(state.studentName||"Learner")}</h3><small>Complete all four PL-300 Domains with Official attempts to join the Overall Ranking.</small></div><div class="rank-local-stats"><div><span>Rank</span><strong>—</strong></div></div>`;
+  }else if(isDomain&&me){
+    personal.innerHTML=`<div><span class="eyebrow">YOUR POSITION</span><h3>${escapeHtml(state.studentName||me.student_name||"Learner")}</h3><small>Official full-Domain attempt • First Pass ${Number(me.firstPassPercentage)||0}% • best reached in ${Number(me.attemptCount)||1} attempt${Number(me.attemptCount)===1?"":"s"}</small></div><div class="rank-local-stats"><div><span>Rank</span><strong>#${me.rank}</strong></div><div><span>Mastery</span><strong>${Number(me.percentage)||0}%</strong></div></div>`;
+  }else if(isDomain){
+    personal.innerHTML=`<div><span class="eyebrow">YOUR POSITION</span><h3>${escapeHtml(state.studentName||"Learner")}</h3><small>Complete every question in this Domain to join the official leaderboard. Provisional attempts stay local.</small></div><div class="rank-local-stats"><div><span>Rank</span><strong>—</strong></div></div>`;
+  }else if(isSession&&me){
+    personal.innerHTML=`<div><span class="eyebrow">YOUR POSITION</span><h3>${escapeHtml(state.studentName||me.student_name||"Learner")}</h3><small>Legacy full-session attempt • First Pass ${Number(me.firstPassPercentage)||0}% • ${Number(me.attemptCount)||1} attempt${Number(me.attemptCount)===1?"":"s"}</small></div><div class="rank-local-stats"><div><span>Rank</span><strong>#${me.rank}</strong></div><div><span>Mastery</span><strong>${Number(me.percentage)||0}%</strong></div></div>`;
+  }else if(isSession){
+    personal.innerHTML=`<div><span class="eyebrow">YOUR POSITION</span><h3>${escapeHtml(state.studentName||"Learner")}</h3><small>Complete the full session to join the official leaderboard. Provisional attempts stay on this device.</small></div><div class="rank-local-stats"><div><span>Rank</span><strong>—</strong></div></div>`;
+  }else if(isTrack && primary!==trackId){
+    personal.innerHTML=`<div><span class="eyebrow">VIEW ONLY</span><h3>${escapeHtml(state.studentName||"Learner")}</h3><small>Your Primary Track is ${escapeHtml(primaryTrackTitle(primary)||"not selected")}. You can view this leaderboard, but only ${escapeHtml(voucherTrackMeta(trackId)?.title||trackId)} members enter its Overall Ranking.</small></div>`;
+  }else if(me){
+    const best=isTrack?`${me.totalCorrect}/${me.totalQuestions} • ${me.percentage}%`:`${Number(me.score)||0}/${Number(me.total_questions)||totalMarks} • ${Number(me.percentage)||0}%`;
+    personal.innerHTML=`<div><span class="eyebrow">YOUR POSITION</span><h3>${escapeHtml(state.studentName||me.student_name||"Learner")}</h3><small>${isTrack?`${me.completedExams}/${me.totalExams} ranked exams completed`:isFull?"Best synced Full Bank Ranked Exam attempt":"Best synced Real Exam attempt"}</small></div><div class="rank-local-stats"><div><span>Rank</span><strong>#${me.rank}</strong></div><div><span>Best</span><strong>${escapeHtml(best)}</strong></div></div>`;
+  }else{
+    personal.innerHTML=`<div><span class="eyebrow">YOUR POSITION</span><h3>${escapeHtml(state.studentName||"Learner")}</h3><small>Complete a ${isFull?"Full Bank Ranked Exam":"Real Exam Size"} attempt to join this Voucher leaderboard.</small></div><div class="rank-local-stats"><div><span>Rank</span><strong>—</strong></div></div>`;
+  }
+}
+
+function renderPl300FullRankedLearningBoard({board=[],avatarMap=new Map(),metrics=null}={}){
+  const content=$("voucherRankingContent"),list=$("voucherRankingList"),personal=$("voucherRankingPersonal"),status=$("voucherRankingStatus"),summary=$("voucherRankingSummary");
+  const avatarHtmlByPlayer={};
+  for(const row of board){const name=row.student_name||"Learner";avatarHtmlByPlayer[row.player_id]=voucherRankingAvatarCell(row.player_id,name,avatarMap);}
+  const view=pl300FullRankedLearning.buildPl300FullRankLeaderboardPresentation({board,currentPlayerId:state.playerId,studentName:state.studentName,avatarHtmlByPlayer});
+  summary.innerHTML=view.summaryHtml;list.innerHTML=view.listHtml;personal.innerHTML=view.personalHtml;status.classList.add("hidden");content.classList.remove("hidden");
+  if(!board.some(row=>row.player_id===state.playerId)&&Number(metrics?.completedOccurrences)>0){
+    personal.querySelector("small")?.replaceChildren(document.createTextNode(`${metrics.completedOccurrences}/509 saved locally. Sync when online to enter the shared board.`));
+  }
+}
+
+async function loadVoucherFullRankedLearningRanking(trackId,examId){
+  const requestId=++state.voucherRankingRequestId;
+  try{
+    await ensurePl300FullRankedLearning();
+    await loadVoucherFullRankedIndex(state.voucherExamConfig);
+    try{await syncPl300FullRankSnapshot({force:true})}catch(error){console.warn("Full Ranked snapshot sync unavailable:",error)}
+    const activityId=pl300FullRankedLearning.pl300FullRankActivityId(trackId,examId);
+    const rows=await fetchAttemptsForExamIds([activityId]);
+    if(requestId!==state.voucherRankingRequestId)return;
+    const board=pl300FullRankedLearning.buildPl300FullRankLeaderboard(rows,{totalOccurrences:509,validatedConceptCount:265});
+    let avatarMap=new Map();
+    try{avatarMap=await fetchRankingProfiles(board.map(row=>row.player_id))}catch{}
+    if(requestId!==state.voucherRankingRequestId)return;
+    renderPl300FullRankedLearningBoard({board,avatarMap,metrics:voucherFullRankMetrics()});
+  }catch(error){
+    if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load Full Ranked Learning leaderboard.");
+  }
+}
+
+function renderVoucherRankingError(message){
+  const status=$("voucherRankingStatus");
+  status.className="status-card warning";
+  status.innerHTML=`<div class="status-icon">!</div><div><strong>Voucher ranking unavailable</strong><p>${escapeHtml(message||"Could not load the shared leaderboard.")}</p></div>`;
+  status.classList.remove("hidden");
+  $("voucherRankingContent").classList.add("hidden");
+}
+
+async function voucherOverallRankingSpec(trackId,examId){
+  const {config}=await loadVoucherExamConfig(trackId,examId);
+  if(!config?.contentArchitectureFile)throw new Error("This PL-300 exam does not have a content architecture.");
+  const architecture=state.voucherContentArchitecture&&String(state.voucherContentArchitecture.examId)===String(examId)
+    ?state.voucherContentArchitecture
+    :await loadJson(config.contentArchitectureFile);
+  const domains=(architecture?.domains||[]).map(domain=>{
+    const sections=sessionsForVoucherDomain({architecture,domainId:domain.id});
+    const totalQuestions=Object.entries(architecture.questionSessionMap||{}).filter(([,sessionId])=>sections.some(section=>String(section.id)===String(sessionId))).length;
+    return {domainId:String(domain.id),title:String(domain.title||domain.id),totalQuestions,activityId:voucherDomainRankingActivityId(trackId,config.id,domain.id)};
+  }).filter(domain=>domain.totalQuestions>0);
+  if(!domains.length)throw new Error("This PL-300 exam has no released ranked Domains.");
+  state.voucherContentArchitecture=architecture;
+  return {examId:config.id,title:config.title||"Microsoft PL-300",totalQuestions:domains.reduce((sum,domain)=>sum+domain.totalQuestions,0),domains};
+}
+
+async function loadVoucherOverallRanking(trackId,examId){
+  const requestId=++state.voucherRankingRequestId;
+  try{
+    const spec=await voucherOverallRankingSpec(trackId,examId);
+    const rows=await fetchAttemptsForExamIds(spec.domains.map(domain=>domain.activityId));
+    if(requestId!==state.voucherRankingRequestId)return;
+    const board=buildVoucherOverallLeaderboard(rows,{domains:spec.domains});
+    let avatarMap=new Map();
+    try{avatarMap=await fetchRankingProfiles(board.map(x=>x.player_id))}catch{}
+    if(requestId!==state.voucherRankingRequestId)return;
+    renderVoucherRankingBoard({board,mode:"domain-overall",trackId,examSpec:spec,avatarMap});
+  }catch(error){
+    if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load PL-300 Overall Ranking.");
+  }
+}
+
+async function voucherDomainRankingSpec(trackId,examId,domainId){
+  const {config}=await loadVoucherExamConfig(trackId,examId);
+  if(!config?.contentArchitectureFile)throw new Error("This PL-300 exam does not have a content architecture.");
+  const architecture=state.voucherContentArchitecture&&String(state.voucherContentArchitecture.examId)===String(examId)
+    ?state.voucherContentArchitecture
+    :await loadJson(config.contentArchitectureFile);
+  const domain=findVoucherContentArchitectureDomain({architecture,domainId});
+  if(!domain)throw new Error("This PL-300 Domain is not available.");
+  const sections=sessionsForVoucherDomain({architecture,domainId});
+  const totalQuestions=Object.entries(architecture.questionSessionMap||{}).filter(([,sessionId])=>sections.some(section=>String(section.id)===String(sessionId))).length;
+  if(!totalQuestions)throw new Error("This PL-300 Domain has no released questions.");
+  state.voucherContentArchitecture=architecture;
+  return {examId:config.id,title:domain.title,domainId:domain.id,sectionIds:sections.map(section=>section.id),totalQuestions,activityId:voucherDomainRankingActivityId(trackId,config.id,domain.id)};
+}
+
+async function loadVoucherDomainRanking(trackId,examId,domainId){
+  const requestId=++state.voucherRankingRequestId;
+  try{
+    const spec=await voucherDomainRankingSpec(trackId,examId,domainId);
+    const rows=await fetchAttemptsForExamIds([spec.activityId]);
+    if(requestId!==state.voucherRankingRequestId)return;
+    const board=buildVoucherDomainLeaderboard(rows,{expectedQuestions:spec.totalQuestions});
+    let avatarMap=new Map();
+    try{avatarMap=await fetchRankingProfiles(board.map(x=>x.player_id))}catch{}
+    if(requestId!==state.voucherRankingRequestId)return;
+    renderVoucherRankingBoard({board,mode:"domain",trackId,examSpec:spec,avatarMap});
+  }catch(error){
+    if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load Domain Ranking.");
+  }
+}
+
+async function voucherSessionRankingSpec(trackId,examId,sessionId){
+  const {config}=await loadVoucherExamConfig(trackId,examId);
+  if(!config?.contentArchitectureFile)throw new Error("This PL-300 exam does not have a content architecture.");
+  const architecture=state.voucherContentArchitecture&&String(state.voucherContentArchitecture.examId)===String(examId)
+    ?state.voucherContentArchitecture
+    :await loadJson(config.contentArchitectureFile);
+  const session=findVoucherContentArchitectureSession({architecture,sessionId});
+  if(!session)throw new Error("This PL-300 session is not available.");
+  state.voucherContentArchitecture=architecture;
+  const totalQuestions=Object.values(architecture.questionSessionMap||{}).filter(id=>String(id)===String(session.id)).length;
+  if(!totalQuestions)throw new Error("This PL-300 session has no released questions.");
+  return {examId:config.id,title:session.title,sessionId:session.id,domainId:session.domainId,totalQuestions,activityId:voucherSessionRankingActivityId(trackId,config.id,session.id)};
+}
+
+async function loadVoucherSessionRanking(trackId,examId,sessionId){
+  const requestId=++state.voucherRankingRequestId;
+  try{
+    const spec=await voucherSessionRankingSpec(trackId,examId,sessionId);
+    const rows=await fetchAttemptsForExamIds([spec.activityId]);
+    if(requestId!==state.voucherRankingRequestId)return;
+    const board=buildVoucherSessionLeaderboard(rows,{expectedQuestions:spec.totalQuestions});
+    let avatarMap=new Map();
+    try{avatarMap=await fetchRankingProfiles(board.map(x=>x.player_id))}catch{}
+    if(requestId!==state.voucherRankingRequestId)return;
+    renderVoucherRankingBoard({board,mode:"session",trackId,examSpec:spec,avatarMap});
+  }catch(error){
+    if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load Session Ranking.");
+  }
+}
+
+async function loadVoucherExamRanking(trackId,examId){
+  const requestId=++state.voucherRankingRequestId;
+  try{
+    const specs=await voucherRankedExamSpecs(trackId);
+    const spec=specs.find(x=>x.examId===examId);
+    if(!spec)throw new Error("This Voucher exam does not have a released rank-eligible Real Exam yet.");
+    const rows=await fetchAttemptsForExamIds([spec.activityId]);
+    if(requestId!==state.voucherRankingRequestId)return;
+    const board=buildVoucherExamLeaderboard(rows);
+    let avatarMap=new Map();
+    try{avatarMap=await fetchRankingProfiles(board.map(x=>x.player_id))}catch{}
+    if(requestId!==state.voucherRankingRequestId)return;
+    renderVoucherRankingBoard({board,mode:"exam",trackId,examSpec:spec,avatarMap});
+  }catch(error){
+    if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load Voucher Exam Ranking.");
+  }
+}
+
+async function loadVoucherFullBankRanking(trackId,examId){
+  const requestId=++state.voucherRankingRequestId;
+  try{
+    const spec=await voucherFullBankRankedSpec(trackId,examId);
+    const rows=await fetchAttemptsForExamIds([spec.activityId]);
+    if(requestId!==state.voucherRankingRequestId)return;
+    const board=buildVoucherExamLeaderboard(rows);
+    let avatarMap=new Map();
+    try{avatarMap=await fetchRankingProfiles(board.map(x=>x.player_id))}catch{}
+    if(requestId!==state.voucherRankingRequestId)return;
+    renderVoucherRankingBoard({board,mode:"full-exam",trackId,examSpec:spec,avatarMap});
+  }catch(error){
+    if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load Full Bank Ranking.");
+  }
+}
+
+async function loadVoucherTrackOverallRanking(trackId){
+  const requestId=++state.voucherRankingRequestId;
+  try{
+    const specs=await voucherRankedExamSpecs(trackId);
+    if(!specs.length)throw new Error("No released rank-eligible Voucher exams exist in this track yet.");
+    const rows=await fetchAttemptsForExamIds(specs.map(x=>x.activityId));
+    if(requestId!==state.voucherRankingRequestId)return;
+    const ids=[...new Set(rows.map(x=>x.player_id).filter(Boolean))];
+    let primaryTracks;
+    try{
+      if(state.playerId&&getPrimaryTrack())await syncVoucherPrimaryTrack(state.playerId,getPrimaryTrack());
+      primaryTracks=await fetchVoucherPrimaryTracks(ids);
+    }catch{
+      throw new Error("Track Overall needs the Voucher Profiles Supabase migration and an online connection. Exam Ranking is still available.");
+    }
+    const board=buildVoucherTrackOverallLeaderboard({trackId,exams:specs,rows,primaryTracks});
+    let avatarMap=new Map();
+    try{avatarMap=await fetchRankingProfiles(board.map(x=>x.player_id))}catch{}
+    if(requestId!==state.voucherRankingRequestId)return;
+    renderVoucherRankingBoard({board,mode:"track",trackId,examSpecs:specs,avatarMap});
+  }catch(error){
+    if(requestId===state.voucherRankingRequestId)renderVoucherRankingError(error?.message||"Could not load Voucher Track Overall Ranking.");
+  }
+}
+
+function openVoucherFullRankedLearningRanking(trackId=state.voucherTrackId,examId=state.voucherExamId){
+  requireRankedIdentity(()=>{
+    state.voucherRankingMode="full-ranked-learning";
+    state.voucherRankingTrackId=trackId;
+    state.voucherRankingExamId=examId;
+    routeTo("voucherRankingView");
+    void loadVoucherFullRankedLearningRanking(trackId,examId);
+  },"Enter your name to open the PL-300 Full Ranked Learning leaderboard.");
+}
+
+function openVoucherOverallRanking(trackId=state.voucherTrackId,examId=state.voucherExamId){
+  requireRankedIdentity(()=>{
+    state.voucherRankingMode="domain-overall";
+    state.voucherRankingTrackId=trackId;
+    state.voucherRankingExamId=examId;
+    state.voucherRankingDomainId=null;
+    routeTo("voucherRankingView");
+    void loadVoucherOverallRanking(trackId,examId);
+  },"Enter your name to open the PL-300 Overall leaderboard.");
+}
+
+function openVoucherDomainRanking(trackId=state.voucherTrackId,examId=state.voucherExamId,domainId=state.voucherSelectedDomainId){
+  requireRankedIdentity(()=>{
+    if(!domainId){showToast("Choose a PL-300 Domain first.");return}
+    state.voucherRankingMode="domain";
+    state.voucherRankingTrackId=trackId;
+    state.voucherRankingExamId=examId;
+    state.voucherRankingDomainId=domainId;
+    routeTo("voucherRankingView");
+    void loadVoucherDomainRanking(trackId,examId,domainId);
+  },"Enter your name to open this PL-300 Domain leaderboard.");
+}
+
+function openVoucherSessionRanking(trackId=state.voucherTrackId,examId=state.voucherExamId,sessionId=state.voucherSelectedSessionId){
+  requireRankedIdentity(()=>{
+    if(!sessionId){showToast("Choose a PL-300 session first.");return}
+    state.voucherRankingMode="session";
+    state.voucherRankingTrackId=trackId;
+    state.voucherRankingExamId=examId;
+    state.voucherRankingSessionId=sessionId;
+    routeTo("voucherRankingView");
+    void loadVoucherSessionRanking(trackId,examId,sessionId);
+  },"Enter your name to open this PL-300 Session leaderboard.");
+}
+
+function openVoucherExamRanking(trackId=state.voucherTrackId,examId=state.voucherExamId){
+  requireRankedIdentity(()=>{
+    state.voucherRankingMode="exam";
+    state.voucherRankingTrackId=trackId;
+    state.voucherRankingExamId=examId;
+    routeTo("voucherRankingView");
+    void loadVoucherExamRanking(trackId,examId);
+  },"Enter your name to open this Voucher Exam leaderboard.");
+}
+
+function openVoucherFullBankRanking(trackId=state.voucherTrackId,examId=state.voucherExamId){
+  requireRankedIdentity(()=>{
+    state.voucherRankingMode="full-exam";
+    state.voucherRankingTrackId=trackId;
+    state.voucherRankingExamId=examId;
+    routeTo("voucherRankingView");
+    void loadVoucherFullBankRanking(trackId,examId);
+  },"Enter your name to open this Full Bank Ranked leaderboard.");
+}
+
+function openVoucherTrackOverallRanking(trackId=state.voucherTrackId){
+  requireRankedIdentity(()=>{
+    if(!getPrimaryTrack()){
+      ensurePrimaryTrack({required:true,onDone:()=>openVoucherTrackOverallRanking(trackId)});
+      return;
+    }
+    state.voucherRankingMode="track";
+    state.voucherRankingTrackId=trackId;
+    state.voucherRankingExamId=null;
+    routeTo("voucherRankingView");
+    void loadVoucherTrackOverallRanking(trackId);
+  },"Enter your name to view the Voucher Track Overall leaderboard.");
+}
+
+$("voucherRankingBackBtn")?.addEventListener("click",()=>{
+  state.voucherTrackId=state.voucherRankingTrackId||state.voucherTrackId;
+  if(state.voucherRankingMode==="full-ranked-learning"&&state.voucherRankingExamId){
+    state.voucherExamId=state.voucherRankingExamId;
+    routeTo("voucherExamView");
+  }else if(state.voucherRankingMode==="domain-overall"&&state.voucherRankingExamId){
+    state.voucherExamId=state.voucherRankingExamId;
+    routeTo("voucherExamView");
+  }else if(state.voucherRankingMode==="domain"&&state.voucherRankingExamId){
+    state.voucherExamId=state.voucherRankingExamId;
+    state.voucherSelectedDomainId=state.voucherRankingDomainId||state.voucherSelectedDomainId;
+    routeTo("voucherExamView");
+  }else if(state.voucherRankingMode==="session"&&state.voucherRankingExamId){
+    state.voucherExamId=state.voucherRankingExamId;
+    state.voucherSelectedSessionId=state.voucherRankingSessionId||state.voucherSelectedSessionId;
+    routeTo("voucherExamView");
+  }else if((state.voucherRankingMode==="exam"||state.voucherRankingMode==="full-exam")&&state.voucherRankingExamId){
+    state.voucherExamId=state.voucherRankingExamId;
+    routeTo("voucherExamView");
+  }else routeTo("voucherTrackView");
+});
+
+function openVoucherVisual(asset,alt="Voucher question visual"){
+  const modal=$("voucherVisualModal"),image=$("voucherVisualImage");
+  if(!modal||!image||!asset)return false;
+  image.src=String(asset);
+  image.alt=String(alt||"Voucher question visual");
+  $("voucherVisualCaption").textContent=image.alt;
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden","false");
+  return true;
+}
+window.openVoucherVisual=openVoucherVisual;
+$("voucherVisualCloseBtn")?.addEventListener("click",()=>{$("voucherVisualModal").classList.add("hidden");$("voucherVisualModal").setAttribute("aria-hidden","true");$("voucherVisualImage").removeAttribute("src")});
+$("voucherVisualModal")?.addEventListener("click",event=>{if(event.target===$("voucherVisualModal"))$("voucherVisualCloseBtn")?.click()});
+$("voucherTrackBackBtn")?.addEventListener("click",()=>routeTo("voucherView"));
+$("voucherExamBackBtn")?.addEventListener("click",()=>routeTo("voucherTrackView"));
+$("voucherSourceReviewBackBtn")?.addEventListener("click",()=>routeTo("voucherExamView"));
+$("openVoucherHomeBtn")?.addEventListener("click",()=>routeTo("voucherView"));
 
 function getUserResults(){
   return getResults().filter(r=>r.studentName===state.studentName);
@@ -365,22 +1785,32 @@ function parseOfficialMistakeTrackKey(key){
 }
 function mistakeContextForQuestion(q,exam=state.currentExam?.exam,override={}){
   const official=exam?.generatedFromOfficialQbank || null;
-  const trackId=override.trackId || official?.trackId || q?.trackId || state.selectedTrack?.id || state.currentRegistryItem?.trackId || "";
+  const voucher=exam?.generatedFromVoucher || null;
+  const trackId=override.trackId || voucher?.trackId || official?.trackId || q?.trackId || state.selectedTrack?.id || state.currentRegistryItem?.trackId || "";
   const levelId=override.levelId || official?.levelId || "";
   const officialMeta=levelId && trackId?mistakeTrackMeta(levelId,trackId):null;
-  const sourceType=override.sourceType || (official || q?.sourceType==="official-qbank"?"official-qbank":"course");
+  const sourceType=override.sourceType || (voucher || q?.sourceType==="voucher"?"voucher":(official || q?.sourceType==="official-qbank"?"official-qbank":"course"));
+  const voucherTrack=voucher?state.voucherRegistry?.tracks?.find?.(item=>item.id===trackId):null;
+  const voucherSection=sourceType==="voucher"?voucherDomainQuestionSession(q):null;
+  const resolvedDomainId=override.domainId || voucher?.domainId || voucherSection?.domainId || (sourceType==="voucher"?q?.topicId:"") || "";
+  const voucherDomain=resolvedDomainId?findVoucherContentArchitectureDomain({architecture:state.voucherContentArchitecture,domainId:resolvedDomainId}):null;
   return {
     sourceType,
     official:sourceType==="official-qbank",
     courseId:override.courseId || state.selectedCourse?.id || "",
-    course:override.course || exam?.course || state.selectedCourse?.title || (sourceType==="official-qbank"?"Data Analysis":""),
+    course:override.course || (sourceType==="voucher"?"Voucher":exam?.course || state.selectedCourse?.title || (sourceType==="official-qbank"?"Data Analysis":"")),
     trackId,
-    track:override.track || q?.track || officialMeta?.track || state.selectedTrack?.title || exam?.module || trackId || "General",
+    track:override.track || q?.track || voucherTrack?.title || officialMeta?.track || state.selectedTrack?.title || exam?.module || trackId || "General",
     moduleId:override.moduleId || state.selectedModule?.id || "",
     module:override.module || exam?.module || state.selectedModule?.title || "",
     levelId,
-    examId:override.examId || exam?.id || "",
+    examId:override.examId || voucher?.voucherExamId || exam?.id || "",
     examTitle:override.examTitle || exam?.title || "",
+    voucherSourceId:override.voucherSourceId || voucher?.sourceId || "",
+    domainId:String(resolvedDomainId||""),
+    domainTitle:override.domainTitle || voucher?.domainTitle || voucherDomain?.title || (sourceType==="voucher"?q?.topic:"") || "",
+    sectionId:override.sectionId || voucherSection?.id || "",
+    sectionTitle:override.sectionTitle || voucherSection?.title || "",
     topic:override.topic || displayTopicForQuestion(q)
   };
 }
@@ -448,6 +1878,47 @@ async function ensureOfficialMistakesImported(){
   }
   state.mistakesOfficialSeeded=true;
 }
+async function ensureVoucherMistakeContexts(){
+  const items=getMistakes(mistakeOwnerId(),{includeMastered:true}).filter(item=>{
+    if(item?.context?.sourceType!=="voucher")return false;
+    return !item.context?.domainId || !item.context?.sectionId || !item.context?.domainTitle || !item.context?.sectionTitle;
+  });
+  if(!items.length)return;
+  const groups=new Map();
+  for(const item of items){
+    const trackId=String(item.context?.trackId||item.question?.trackId||"");
+    const examId=String(item.context?.examId||"");
+    if(!trackId||!examId)continue;
+    const key=`${trackId}::${examId}`;
+    if(!groups.has(key))groups.set(key,{trackId,examId,items:[]});
+    groups.get(key).items.push(item);
+  }
+  for(const group of groups.values()){
+    try{
+      const {config}=await loadVoucherExamConfig(group.trackId,group.examId);
+      if(!config?.contentArchitectureFile)continue;
+      const architecture=(state.voucherExamConfig?.id===group.examId&&state.voucherContentArchitecture)
+        ?state.voucherContentArchitecture
+        :await loadJson(config.contentArchitectureFile);
+      const sessions=new Map((architecture?.sessions||[]).map(row=>[String(row.id),row]));
+      const domains=new Map((architecture?.domains||[]).map(row=>[String(row.id),row]));
+      for(const item of group.items){
+        const sectionId=String(architecture?.questionSessionMap?.[item.question?.id]||item.context?.sectionId||"");
+        const section=sessions.get(sectionId)||null;
+        const domainId=String(section?.domainId||item.context?.domainId||item.question?.topicId||"");
+        const domain=domains.get(domainId)||null;
+        if(!section&&!domain)continue;
+        patchMistakeContext(mistakeOwnerId(),item.key,{
+          examTitle:item.context?.examTitle||config.title||group.examId,
+          domainId,domainTitle:domain?.title||item.context?.domainTitle||item.question?.topic||"",
+          sectionId:section?.id||item.context?.sectionId||"",sectionTitle:section?.title||item.context?.sectionTitle||""
+        });
+      }
+    }catch(error){
+      console.warn("Could not enrich Voucher mistake context",group.examId,error);
+    }
+  }
+}
 function mistakeStatusLabel(status){
   if(status==="mastered")return "Mastered";
   if(status==="improving")return "Improving";
@@ -458,16 +1929,23 @@ function mistakeSourceLabel(item){
     const level=item.context.levelId==="professional-data-analysis"?"Professional":"Junior";
     return `${level} Official QBank`;
   }
+  if(item?.context?.sourceType==="voucher")return `Voucher${item.context?.examTitle?` • ${item.context.examTitle}`:""}`;
   return item?.context?.examTitle || item?.context?.module || "Course Practice / Exam";
 }
 function mistakeExplanation(item){
   return item?.question?.explanationAr || "No detailed explanation is stored for this question yet.";
 }
-function selectedMistakeOption(item){
-  return item?.question?.options?.find(o=>String(o.id)===String(item.lastWrongSelected||item.lastSelected)) || null;
+function selectedMistakeOptions(item){
+  const selected=item?.lastWrongSelected??item?.lastSelected;
+  const ids=new Set(selectedAnswerIds(selected));
+  return (item?.question?.options||[]).filter(o=>ids.has(String(o.id)));
 }
-function correctMistakeOption(item){
-  return item?.question?.options?.find(o=>String(o.id)===String(item.question?.correctAnswer)) || null;
+function correctMistakeOptions(item){
+  const ids=new Set(correctAnswerIds(item?.question||{}));
+  return (item?.question?.options||[]).filter(o=>ids.has(String(o.id)));
+}
+function mistakeOptionSummary(options,qLike){
+  return (options||[]).map(option=>`<div><b>${escapeHtml(option.id)}.</b> ${renderTechnicalOption(option.text||"",qLike)}</div>`).join("")||"—";
 }
 function relativeMistakeDate(value){
   const time=Date.parse(value||"");
@@ -479,6 +1957,9 @@ function currentMistakeFilters(){
     search:($("mistakesSearch")?.value||"").trim().toLowerCase(),
     source:$("mistakesSourceFilter")?.value||"all",
     track:$("mistakesTrackFilter")?.value||"all",
+    exam:$("mistakesExamFilter")?.value||"all",
+    domain:$("mistakesDomainFilter")?.value||"all",
+    section:$("mistakesSectionFilter")?.value||"all",
     topic:$("mistakesTopicFilter")?.value||"all",
     status:$("mistakesStatusFilter")?.value||state.mistakesStatusFilter||"active"
   };
@@ -488,32 +1969,71 @@ function filterMistakeItems(items,filters=currentMistakeFilters()){
     const q=item.question||{},ctx=item.context||{};
     if(filters.source!=="all" && (ctx.sourceType||q.sourceType)!==filters.source)return false;
     if(filters.track!=="all" && String(ctx.trackId||q.trackId||ctx.track||q.track)!==filters.track)return false;
+    if(filters.exam!=="all" && String(ctx.examId||"")!==filters.exam)return false;
+    if(filters.domain!=="all" && String(ctx.domainId||ctx.domainTitle||"")!==filters.domain)return false;
+    if(filters.section!=="all" && String(ctx.sectionId||ctx.sectionTitle||"")!==filters.section)return false;
     if(filters.topic!=="all" && String(q.topic||"General")!==filters.topic)return false;
     if(filters.status==="active" && item.status==="mastered")return false;
     if(!["all","active"].includes(filters.status) && item.status!==filters.status)return false;
     if(filters.search){
-      const hay=[q.question,q.topic,q.track,ctx.track,ctx.examTitle,ctx.module,mistakeSourceLabel(item)].join(" ").toLowerCase();
+      const hay=[q.question,q.topic,q.track,ctx.track,ctx.examTitle,ctx.module,ctx.domainTitle,ctx.sectionTitle,mistakeSourceLabel(item)].join(" ").toLowerCase();
       if(!hay.includes(filters.search))return false;
     }
     return true;
   });
 }
 function syncMistakeFilterOptions(items){
-  const trackSelect=$("mistakesTrackFilter"),topicSelect=$("mistakesTopicFilter");
+  const sourceSelect=$("mistakesSourceFilter"),trackSelect=$("mistakesTrackFilter"),examSelect=$("mistakesExamFilter"),domainSelect=$("mistakesDomainFilter"),sectionSelect=$("mistakesSectionFilter"),topicSelect=$("mistakesTopicFilter");
   if(!trackSelect||!topicSelect)return;
-  const previousTrack=trackSelect.value||"all",previousTopic=topicSelect.value||"all";
-  const tracks=new Map(),topics=new Set();
-  for(const item of items){
+  const source=sourceSelect?.value||"all";
+  const voucherOnly=source==="voucher";
+  const scoped=source==="all"?(items||[]):(items||[]).filter(item=>(item.context?.sourceType||item.question?.sourceType)===source);
+  const previousTrack=trackSelect.value||"all",previousExam=examSelect?.value||"all",previousDomain=domainSelect?.value||"all",previousSection=sectionSelect?.value||"all",previousTopic=topicSelect.value||"all";
+
+  const tracks=new Map();
+  for(const item of scoped){
     const ctx=item.context||{},q=item.question||{};
     const value=String(ctx.trackId||q.trackId||ctx.track||q.track||"General");
-    const label=String(ctx.track||q.track||value||"General");
-    tracks.set(value,label);
-    topics.add(String(q.topic||"General"));
+    tracks.set(value,String(ctx.track||q.track||value||"General"));
   }
   trackSelect.innerHTML='<option value="all">All tracks</option>'+[...tracks.entries()].sort((a,b)=>a[1].localeCompare(b[1])).map(([value,label])=>`<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`).join("");
+  trackSelect.value=[...tracks.keys()].includes(previousTrack)?previousTrack:"all";
+  const selectedTrack=trackSelect.value;
+  const trackScoped=selectedTrack==="all"?scoped:scoped.filter(item=>String(item.context?.trackId||item.question?.trackId||item.context?.track||item.question?.track)===selectedTrack);
+
+  const exams=new Map();
+  for(const item of trackScoped){const ctx=item.context||{};if(ctx.examId)exams.set(String(ctx.examId),String(ctx.examTitle||ctx.examId));}
+  if(examSelect){
+    examSelect.classList.toggle("hidden",!voucherOnly);
+    examSelect.innerHTML='<option value="all">All exams</option>'+[...exams.entries()].sort((a,b)=>a[1].localeCompare(b[1])).map(([value,label])=>`<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`).join("");
+    examSelect.value=voucherOnly&&exams.has(previousExam)?previousExam:"all";
+  }
+  const selectedExam=examSelect?.value||"all";
+  const examScoped=selectedExam==="all"?trackScoped:trackScoped.filter(item=>String(item.context?.examId||"")===selectedExam);
+
+  const domains=new Map();
+  for(const item of examScoped){const ctx=item.context||{};if(ctx.domainId||ctx.domainTitle)domains.set(String(ctx.domainId||ctx.domainTitle),String(ctx.domainTitle||ctx.domainId));}
+  if(domainSelect){
+    domainSelect.classList.toggle("hidden",!voucherOnly);
+    domainSelect.innerHTML='<option value="all">All domains</option>'+[...domains.entries()].sort((a,b)=>a[1].localeCompare(b[1])).map(([value,label])=>`<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`).join("");
+    domainSelect.value=voucherOnly&&domains.has(previousDomain)?previousDomain:"all";
+  }
+  const selectedDomain=domainSelect?.value||"all";
+  const domainScoped=selectedDomain==="all"?examScoped:examScoped.filter(item=>String(item.context?.domainId||item.context?.domainTitle||"")===selectedDomain);
+
+  const sections=new Map();
+  for(const item of domainScoped){const ctx=item.context||{};if(ctx.sectionId||ctx.sectionTitle)sections.set(String(ctx.sectionId||ctx.sectionTitle),String(ctx.sectionTitle||ctx.sectionId));}
+  if(sectionSelect){
+    sectionSelect.classList.toggle("hidden",!voucherOnly);
+    sectionSelect.innerHTML='<option value="all">All sections</option>'+[...sections.entries()].sort((a,b)=>a[1].localeCompare(b[1])).map(([value,label])=>`<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`).join("");
+    sectionSelect.value=voucherOnly&&sections.has(previousSection)?previousSection:"all";
+  }
+  const selectedSection=sectionSelect?.value||"all";
+  const sectionScoped=selectedSection==="all"?domainScoped:domainScoped.filter(item=>String(item.context?.sectionId||item.context?.sectionTitle||"")===selectedSection);
+
+  const topics=new Set(sectionScoped.map(item=>String(item.question?.topic||"General")));
   topicSelect.innerHTML='<option value="all">All topics</option>'+[...topics].sort((a,b)=>a.localeCompare(b)).map(topic=>`<option value="${escapeHtml(topic)}">${escapeHtml(topic)}</option>`).join("");
-  if([...tracks.keys()].includes(previousTrack))trackSelect.value=previousTrack;
-  if(topics.has(previousTopic))topicSelect.value=previousTopic;
+  topicSelect.value=topics.has(previousTopic)?previousTopic:"all";
 }
 function renderMistakeWeakTopics(){
   const section=$("mistakesWeakTopicsSection"),row=$("mistakesWeakTopics");if(!section||!row)return;
@@ -550,19 +2070,26 @@ function renderMistakesList(){
   }
   empty.classList.add("hidden");
   list.innerHTML=filtered.map((item,index)=>{
-    const q=item.question||{},selected=selectedMistakeOption(item),correct=correctMistakeOption(item);
+    const q=item.question||{},selected=selectedMistakeOptions(item),correct=correctMistakeOptions(item);
     const source=mistakeSourceLabel(item),status=mistakeStatusLabel(item.status),mastered=item.status==="mastered";
     const qLike={...q,deepExplanation:q.optionReasons?{summary:q.explanationAr||"",options:q.optionReasons}:undefined};
+    const lastWrong=item.lastWrongSelected??item.lastSelected;
+    const structuredMistake=isStructuredQuestion(qLike);
+    const structuredExpected=structuredMistake?structuredExpectedDisplay(qLike):[];
+    const lastWrongLabel=structuredMistake?answerDisplayText(qLike,lastWrong):(selectedAnswerIds(lastWrong).join(", ")||"—");
+    const lastWrongBody=structuredMistake?answerOptionText(qLike,lastWrong):mistakeOptionSummary(selected,qLike);
+    const correctLabel=structuredMistake?(structuredExpected.map(row=>`${row.label}: ${row.value||"—"}`).join(" · ")||"—"):(correctAnswerIds(q).join(", ")||"—");
+    const correctBody=structuredMistake?structuredExpected.map(row=>`<div class="structured-answer-row"><b>${escapeHtml(row.label)}:</b> ${escapeHtml(row.value||"—")}</div>`).join(""):mistakeOptionSummary(correct,qLike);
     return `<article class="mistake-card status-${escapeHtml(item.status)}" data-mistake-key="${escapeHtml(item.key)}">
       <div class="mistake-card-top">
-        <div class="mistake-card-meta"><span class="mistake-status-chip ${escapeHtml(item.status)}">${escapeHtml(status)}</span><span>${escapeHtml(source)}</span><span>${escapeHtml(q.track||item.context?.track||"General")}</span><span>${escapeHtml(q.topic||"General")}</span></div>
+        <div class="mistake-card-meta"><span class="mistake-status-chip ${escapeHtml(item.status)}">${escapeHtml(status)}</span><span>${escapeHtml(source)}</span><span>${escapeHtml(q.track||item.context?.track||"General")}</span>${item.context?.domainTitle?`<span>${escapeHtml(item.context.domainTitle)}</span>`:""}${item.context?.sectionTitle?`<span>${escapeHtml(item.context.sectionTitle)}</span>`:""}${!item.context?.domainTitle||String(q.topic||"")!==String(item.context.domainTitle||"")?`<span>${escapeHtml(q.topic||"General")}</span>`:""}</div>
         <div class="mistake-count-badge"><strong>${Number(item.wrongCount)||0}×</strong><small>wrong</small></div>
       </div>
       <div class="mistake-question-number">QUESTION ${String(index+1).padStart(2,"0")}</div>
       <div class="mistake-question-text">${renderTechnicalQuestion(q.question||"",qLike)}</div>
       <div class="mistake-answer-grid">
-        <div class="mistake-answer wrong-answer"><span>YOUR LAST WRONG ANSWER</span><strong>${escapeHtml(item.lastWrongSelected||item.lastSelected||"—")}</strong><div>${selected?renderTechnicalOption(selected.text,qLike):"—"}</div></div>
-        <div class="mistake-answer correct-answer"><span>CORRECT ANSWER</span><strong>${escapeHtml(q.correctAnswer||"—")}</strong><div>${correct?renderTechnicalOption(correct.text,qLike):"—"}</div></div>
+        <div class="mistake-answer wrong-answer"><span>YOUR LAST WRONG ANSWER</span><strong>${escapeHtml(lastWrongLabel)}</strong><div>${lastWrongBody}</div></div>
+        <div class="mistake-answer correct-answer"><span>CORRECT ANSWER</span><strong>${escapeHtml(correctLabel)}</strong><div>${correctBody}</div></div>
       </div>
       <details class="mistake-explanation"><summary>Review explanation</summary><div dir="rtl">${renderTechnicalRichText(mistakeExplanation(item),qLike)}</div></details>
       <div class="mistake-card-footer">
@@ -575,6 +2102,7 @@ function renderMistakesList(){
 }
 async function renderMistakes(){
   await ensureOfficialMistakesImported();
+  await ensureVoucherMistakeContexts();
   const summary=getMistakeSummary(mistakeOwnerId());
   const active=summary["needs-review"]+summary.improving;
   $("mistakesActiveCount").textContent=active;
@@ -600,7 +2128,7 @@ function startMistakesPracticeByKeys(keys){
 }
 function startMistakesPractice(items){
   if(!items?.length){showToast("No mistakes are available for this practice view.");return}
-  const questions=items.map(questionFromMistake).filter(q=>q.id && q.options?.length>=2 && q.correctAnswer);
+  const questions=items.map(questionFromMistake).filter(isPracticeableMistakeQuestion);
   if(!questions.length){showToast("These saved mistakes cannot be practiced yet.");return}
   const id=`my-mistakes-${Date.now()}`;
   state.mistakesPracticeKeys=items.map(x=>x.key);
@@ -620,7 +2148,7 @@ function startMistakesPractice(items){
 }
 
 $("mistakesSearch")?.addEventListener("input",renderMistakesList);
-["mistakesSourceFilter","mistakesTrackFilter","mistakesTopicFilter","mistakesStatusFilter"].forEach(id=>$(id)?.addEventListener("change",()=>{
+["mistakesSourceFilter","mistakesTrackFilter","mistakesExamFilter","mistakesDomainFilter","mistakesSectionFilter","mistakesTopicFilter","mistakesStatusFilter"].forEach(id=>$(id)?.addEventListener("change",()=>{
   if(id==="mistakesStatusFilter")state.mistakesStatusFilter=$(id).value;
   renderMistakesList();
 }));
@@ -682,6 +2210,7 @@ function renderDashboard(){
   $("attemptCount").textContent=stats.attempts;
 
   renderContinueCard();
+  renderVoucherHomeCard();
   if($("officialHomeCount")){
     const officialTotal=(state.officialRegistry.levels||[]).filter(x=>x.available!==false).reduce((sum,x)=>sum+(Number(x.questionCount)||0),0);
     $("officialHomeCount").textContent=officialTotal || state.officialRegistry.totalQuestions || 0;
@@ -693,16 +2222,10 @@ function renderDashboard(){
 }
 
 function activeSavedExamProgress(){
-  const progress=getExamProgress();
-  return progress && progress.studentName===state.studentName ? progress : null;
+  return getActiveExamProgress(getExamProgress(),state.studentName);
 }
 function effectiveSavedRemaining(progress){
-  if(progress?.remainingSeconds===null || progress?.remainingSeconds===undefined)return null;
-  let remaining=Math.max(0,Number(progress.remainingSeconds)||0);
-  if(progress.timerPolicy==="continuous-ranked" && progress.savedAtEpoch){
-    remaining=Math.max(0,remaining-Math.floor((Date.now()-Number(progress.savedAtEpoch))/1000));
-  }
-  return remaining;
+  return effectiveSavedRemainingSeconds(progress,{nowEpoch:Date.now()});
 }
 function formatResumeRemaining(progress){
   const remaining=effectiveSavedRemaining(progress);
@@ -971,7 +2494,8 @@ function renderOfficialTrackHub(){
     card.querySelector(".section-rank-btn").addEventListener("click",()=>requireRankedIdentity(()=>{
       state.rankingMode="exam";
       state.rankingExamId=examId;
-      try{localStorage.setItem("digilians_ranking_mode","exam");localStorage.setItem("digilians_last_ranking_exam_id",examId)}catch{}
+      persistRankingMode("exam");
+      setLastRankingExamId(examId);
       routeTo("rankingView");
     },"Enter your name before opening a section leaderboard."));
     grid.appendChild(card);
@@ -2998,18 +4522,15 @@ if($("startOfficialFinalBtn"))$("startOfficialFinalBtn").addEventListener('click
 });
 if($("officialLevelOverallRankingBtn"))$("officialLevelOverallRankingBtn").addEventListener("click",()=>requireRankedIdentity(()=>{
   state.rankingMode=state.officialLevelId==="professional-data-analysis"?"professional-overall":"junior-overall";
-  try{localStorage.setItem("digilians_ranking_mode",state.rankingMode)}catch{}
+  persistRankingMode(state.rankingMode);
   routeTo("rankingView");
 },"Enter your name before opening the full-bank Total Grades leaderboard."));
 if($("officialTrackOverallRankingBtn"))$("officialTrackOverallRankingBtn").addEventListener("click",()=>requireRankedIdentity(()=>{
   state.rankingMode="track";
   state.rankingTrackLevelId=state.officialLevelId;
   state.rankingTrackId=state.officialTrackId;
-  try{
-    localStorage.setItem("digilians_ranking_mode","track");
-    localStorage.setItem("digilians_ranking_track_level",state.rankingTrackLevelId);
-    localStorage.setItem("digilians_ranking_track",state.rankingTrackId||"");
-  }catch{}
+  persistRankingMode("track");
+  setRankingTrackPreference(state.rankingTrackLevelId,state.rankingTrackId||"");
   routeTo("rankingView");
 },"Enter your name before opening this Track Total Grades leaderboard."));
 if($("officialStudyBackBtn"))$("officialStudyBackBtn").addEventListener('click',()=>routeTo('officialTrackView'));
@@ -3040,6 +4561,234 @@ if($("officialPracticeBtn"))$("officialPracticeBtn").addEventListener('click',()
   }
 });
 if($("officialExamBtn"))$("officialExamBtn").addEventListener('click',()=>requireRankedIdentity(()=>prepareOfficialTrack('exam'),"Enter your name before starting a ranked Official Exam."));
+
+function voucherBlueprint(config){
+  if(Array.isArray(config?.blueprint))return config.blueprint;
+  if(Array.isArray(config?.blueprint?.topics))return config.blueprint.topics;
+  return null;
+}
+
+function voucherCountForSize(config,bank,sizeMode){
+  const eligible=(bank?.questions||[]).filter(q=>q?.status!=="conflict"&&q?.productionReady!==false);
+  if(sizeMode==="full-bank"||sizeMode==="full-ranked")return eligible.length;
+  if(sizeMode==="real")return Number(config?.realExam?.questionCount)||0;
+  const count=Number(sizeMode);
+  return Number.isInteger(count)&&count>0?count:0;
+}
+
+async function prepareVoucherImprovementSession(config=state.voucherExamConfig){
+  try{
+    const examId=config?.id||state.voucherExamId;
+    if(!config?.masterBankFile||!examId)throw new Error("Voucher improvement bank is unavailable.");
+    const ranked=voucherLocalRankedAttempts(examId).sort((a,b)=>Date.parse(b.submittedAt||0)-Date.parse(a.submittedAt||0));
+    const latest=ranked[0];
+    if(!latest){showToast("Complete your first Ranked Challenge so we can identify your weak areas.");return}
+    const weakDomains=voucherWeakDomains(latest,2);
+    const mistakeQuestionIds=getMistakes(mistakeOwnerId(),{includeMastered:false})
+      .filter(item=>item?.context?.sourceType==="voucher"&&String(item?.context?.examId||"")===String(examId))
+      .map(item=>String(item?.question?.id||"")).filter(Boolean);
+    const seenIds=getVoucherSeenQuestionIds(mistakeOwnerId(),examId);
+    const bank=await loadJson(config.masterBankFile);
+    const selected=selectVoucherImprovementQuestions({questions:bank.questions||[],weakDomains,mistakeQuestionIds,seenIds,count:25});
+    if(!selected.length)throw new Error("No reviewed questions are available for an improvement session.");
+    const questions=selected.map(question=>shuffleVoucherOptions({...question,options:(question.options||[]).map(option=>({...option}))}));
+    const runtime={
+      mockKind:"improvement",sizeMode:"improvement-25",sourceId:null,
+      timed:false,feedbackMode:"instant",rankedLearning:false,
+      improvementSession:true,weakDomains,attemptKey:createUuid()
+    };
+    const examConfig={...config,trackTitle:voucherTrackMeta(config.trackId)?.title||config.trackId};
+    const payload=buildVoucherExamPayload({examConfig,questions,runtime});
+    payload.exam.title=`${config.title} • Improve My Level`;
+    payload.exam.description=`Focused learning session • ${weakDomains.length?weakDomains.join(" + "):"mixed review"} • 25 Questions • Instant Feedback • Non-Ranked`;
+    const errors=validateExamPayload(payload);
+    if(errors.length)throw new Error(errors.join("; "));
+    state.voucherRuntimeSelection={mockKind:"improvement",sizeMode:"improvement-25",timed:false,feedbackMode:"instant",improvementSession:true,weakDomains};
+    state.currentRegistryItem={id:payload.exam.id,title:payload.exam.title,course:"Voucher",module:examConfig.trackTitle,questionCount:payload.questions.length,generator:"voucher",ranked:false,trackId:config.trackId};
+    await launchPreparedVoucherExam(payload,state.currentRegistryItem,{feedbackMode:"instant",timed:false,improvementSession:true,weakDomains});
+  }catch(error){
+    console.error("Voucher improvement session failed",error);
+    showToast(error?.message||"Could not prepare your improvement session.");
+  }
+}
+
+async function prepareVoucherMock(runtimeConfig){
+  if(runtimeConfig?.domainRanked===true&&!state.studentName){
+    requireRankedIdentity(()=>void prepareVoucherMock(runtimeConfig),"Enter your name before starting a ranked PL-300 Domain.");
+    return;
+  }
+  if(runtimeConfig?.sessionRanked===true&&!state.studentName){
+    requireRankedIdentity(()=>void prepareVoucherMock(runtimeConfig),"Enter your name before starting a ranked PL-300 session.");
+    return;
+  }
+  if(runtimeConfig?.sizeMode==="real"||runtimeConfig?.sizeMode==="full-ranked"){
+    if(!state.studentName){
+      requireRankedIdentity(()=>void prepareVoucherMock(runtimeConfig),"Enter your name before starting a ranked Voucher Real Exam.");
+      return;
+    }
+    if(!getPrimaryTrack()){
+      ensurePrimaryTrack({required:true,onDone:()=>void prepareVoucherMock(runtimeConfig)});
+      return;
+    }
+  }
+  try{
+    const trackId=state.voucherTrackId;
+    const examId=state.voucherExamId;
+    if(!trackId||!examId)throw new Error("Choose a Voucher exam first.");
+    if(String(examId)==="microsoft-pl-300")ensurePl300Styles();
+    const resolved=state.voucherExamConfig&&state.voucherExamConfig.id===examId
+      ?{entry:state.voucherExamEntry,config:state.voucherExamConfig}
+      :await loadVoucherExamConfig(trackId,examId);
+    const config={...resolved.config,trackTitle:voucherTrackMeta(trackId)?.title||trackId};
+    let questions=[];
+    if(runtimeConfig?.mockKind==="source"){
+      const source=(config.sources||[]).find(item=>String(item.sourceId)===String(runtimeConfig.sourceId));
+      if(!source)throw new Error("Voucher source PDF is not registered.");
+      const bankFile=source.bankFile||source.sourceBankFile;
+      if(!bankFile)throw new Error("Voucher source bank file is missing.");
+      const bank=await loadJson(bankFile);
+      questions=(bank.questions||[]).map(question=>({...question,options:(question.options||[]).map(option=>({...option}))}));
+      if(!questions.length)throw new Error("This source mock has no released questions.");
+    }else{
+      if(!config.masterBankFile)throw new Error("Voucher Master Bank is not configured.");
+      const bank=await loadJson(config.masterBankFile);
+      if(runtimeConfig?.domainRanked===true&&Array.isArray(runtimeConfig?.allowedQuestionIds)){
+        const byId=new Map((bank.questions||[]).map(question=>[String(question.id),question]));
+        const selected=runtimeConfig.allowedQuestionIds.map(id=>byId.get(String(id))).filter(Boolean);
+        if(selected.length!==runtimeConfig.allowedQuestionIds.length)throw new Error("The PL-300 Domain question map is incomplete.");
+        questions=selected.map(question=>shuffleVoucherOptions({...question,options:(question.options||[]).map(option=>({...option}))}));
+      }else{
+        const count=voucherCountForSize(config,bank,runtimeConfig?.sizeMode);
+        if(!count)throw new Error("Choose a valid Voucher mock size.");
+        const seenIds=getVoucherSeenQuestionIds(mistakeOwnerId(),examId);
+        const selected=selectVoucherQuestions({
+          questions:bank.questions||[],count,seenIds,
+          blueprint:Array.isArray(runtimeConfig?.allowedQuestionIds)?null:voucherBlueprint(config),
+          allowedQuestionIds:runtimeConfig?.allowedQuestionIds||null
+        });
+        questions=selected.map(question=>shuffleVoucherOptions({...question,options:(question.options||[]).map(option=>({...option}))}));
+      }
+    }
+
+    const runtime={
+      mockKind:runtimeConfig.mockKind,
+      sourceId:runtimeConfig.sourceId||null,
+      sizeMode:runtimeConfig.sizeMode,
+      timed:Boolean(runtimeConfig.timed),
+      feedbackMode:runtimeConfig.feedbackMode||"exam",
+      rankedLearning:Boolean(runtimeConfig.rankedLearning)||Boolean(runtimeConfig.domainRanked),
+      domainRanked:Boolean(runtimeConfig.domainRanked),
+      domainTitle:runtimeConfig.domainTitle||null,
+      sectionIds:Array.isArray(runtimeConfig.sectionIds)?runtimeConfig.sectionIds.map(String):[],
+      sessionRanked:Boolean(runtimeConfig.sessionRanked),
+      sessionId:runtimeConfig.sessionId||null,
+      domainId:runtimeConfig.domainId||null,
+      sessionTitle:runtimeConfig.sessionTitle||null,
+      timerDisplay:runtimeConfig.timerDisplay!==false,
+      fullBankRanked:Boolean(runtimeConfig.fullBankRanked),
+      improvementSession:Boolean(runtimeConfig.improvementSession),
+      weakDomains:Array.isArray(runtimeConfig.weakDomains)?runtimeConfig.weakDomains:[],
+      attemptKey:createUuid()
+    };
+    const payload=buildVoucherExamPayload({examConfig:config,questions,runtime});
+    if(runtime.mockKind==="domain"&&runtimeConfig?.domainTitle)payload.exam.title=`${config.title} • ${runtimeConfig.domainTitle}`;
+    if(runtime.mockKind==="session"&&runtimeConfig?.sessionTitle)payload.exam.title=`${config.title} • ${runtimeConfig.sessionTitle}`;
+    payload.exam.description=runtime.mockKind==="source"
+      ?"Full Source Mock — source question and option order preserved."
+      :runtime.mockKind==="domain"
+        ?`${runtimeConfig?.domainTitle||"PL-300 Domain"} — complete ranked Domain • ${runtime.feedbackMode==="instant"?"Instant Feedback":"Feedback at End"} • Active Solve Time.`
+      :runtime.mockKind==="session"
+        ?`${runtimeConfig?.sessionTitle||"PL-300 Session"} — legacy ranked session • ${runtime.feedbackMode==="instant"?"Instant Feedback":"Feedback at End"} • Active Solve Time.`
+      :runtime.sizeMode==="real"
+        ?"Real Exam Size simulation — rank eligible after submission."
+        :runtime.sizeMode==="full-ranked"
+          ?"Full Bank Ranked Exam — all reviewed questions, Exam Mode, separate leaderboard."
+          :"Random Voucher practice — Unseen-First with safe option shuffling.";
+    const errors=validateExamPayload(payload);
+    if(errors.length)throw new Error(errors.join("; "));
+    state.voucherExamEntry=resolved.entry;
+    state.voucherExamConfig=resolved.config;
+    state.voucherRuntimeSelection={...runtimeConfig};
+    state.currentRegistryItem={
+      id:payload.exam.id,title:payload.exam.title,course:"Voucher",module:config.trackTitle,
+      questionCount:payload.questions.length,generator:"voucher",ranked:payload.exam.generatedFromVoucher?.rankEligible===true,trackId
+    };
+    await launchPreparedVoucherExam(payload,state.currentRegistryItem,{...runtimeConfig,feedbackMode:runtime.feedbackMode});
+  }catch(error){
+    console.error("Voucher mock preparation failed",error);
+    showToast(error?.message||"Could not prepare this Voucher mock.");
+  }
+}
+
+function voucherSavedModeLabel(progress){
+  const saved=progress?.voucherResume||{};
+  if(saved.sessionRanked||saved.mockKind==="session")return "Ranked Session";
+  if(saved.sizeMode==="real")return "Legacy Ranked Challenge";
+  if(saved.sizeMode==="full-ranked")return "Full Bank Ranked Exam";
+  if(saved.mockKind==="improvement"||saved.sizeMode==="improvement-25")return "Improvement Session";
+  if(saved.mockKind==="source")return "Source Mock";
+  return "Custom Practice";
+}
+
+function resolveVoucherSavedAttempt({saved,targetTitle,targetMode}={}){
+  const modal=$("voucherSavedAttemptModal");
+  if(!modal||!saved)return Promise.resolve("new");
+  const title=$("voucherSavedAttemptTitle"),meta=$("voucherSavedAttemptMeta");
+  const resume=$("voucherSavedAttemptResumeBtn"),fresh=$("voucherSavedAttemptNewBtn"),cancel=$("voucherSavedAttemptCancelBtn");
+  const total=Number(saved.totalQuestions)||saved.voucherResume?.questionIds?.length||0;
+  const confirmedCount=Object.keys(saved.confirmedVoucherAnswers||{}).filter(key=>saved.confirmedVoucherAnswers[key]).length;
+  const answered=confirmedCount||Object.keys(saved.answers||{}).length;
+  const last=saved.savedAtEpoch?new Date(Number(saved.savedAtEpoch)).toLocaleString():"Unknown";
+  const remaining=formatResumeRemaining(saved);
+  title.textContent=`Saved ${voucherSavedModeLabel(saved)} found`;
+  meta.innerHTML=`<strong>${escapeHtml(savedProgressTitle(saved))}</strong><span>${answered} / ${total} answered</span><span>${escapeHtml(remaining)}</span><span>Last activity: ${escapeHtml(last)}</span>${targetTitle?`<small>New selection: ${escapeHtml(targetTitle)} • ${escapeHtml(targetMode||"Voucher")}</small>`:""}`;
+  modal.classList.remove("hidden");modal.setAttribute("aria-hidden","false");
+  const returnFocus=document.activeElement;
+  return new Promise(resolve=>{
+    const buttons=[resume,fresh,cancel].filter(Boolean);
+    const finish=value=>{
+      modal.classList.add("hidden");modal.setAttribute("aria-hidden","true");
+      resume?.removeEventListener("click",onResume);fresh?.removeEventListener("click",onNew);cancel?.removeEventListener("click",onCancel);document.removeEventListener("keydown",onKey);
+      if(returnFocus instanceof HTMLElement)requestAnimationFrame(()=>returnFocus.focus());
+      resolve(value);
+    };
+    const onResume=()=>finish("resume"),onNew=()=>finish("new"),onCancel=()=>finish("cancel");
+    const onKey=event=>{
+      if(event.key==="Escape"){event.preventDefault();finish("cancel");return}
+      if(event.key!=="Tab"||buttons.length<2)return;
+      const first=buttons[0],lastButton=buttons[buttons.length-1];
+      if(event.shiftKey&&document.activeElement===first){event.preventDefault();lastButton.focus()}
+      else if(!event.shiftKey&&document.activeElement===lastButton){event.preventDefault();first.focus()}
+    };
+    resume?.addEventListener("click",onResume);fresh?.addEventListener("click",onNew);cancel?.addEventListener("click",onCancel);document.addEventListener("keydown",onKey);
+    requestAnimationFrame(()=>resume?.focus());
+  });
+}
+
+async function launchPreparedVoucherExam(payload,registryItem,runtimeConfig={}){
+  const ctx=payload?.exam?.generatedFromVoucher||null;
+  const saved=activeSavedExamProgress();
+  if(saved&&matchesVoucherSavedAttempt(saved,ctx)){
+    const decision=await resolveVoucherSavedAttempt({saved,targetExamId:ctx?.voucherExamId,targetTitle:payload?.exam?.title,targetMode:ctx?.fullBankRanked?"Full Bank Ranked Exam":ctx?.rankedLearning?"Ranked Challenge":"Custom Practice"});
+    if(decision==="cancel")return false;
+    if(decision==="resume"){
+      await resumeProgress(saved);
+      return true;
+    }
+    clearExamProgress();
+  }else if(saved){
+    clearExamProgress();
+  }
+  state.currentExam=payload;
+  state.currentRegistryItem=registryItem;
+  state.currentRankedActivity=payload?.exam?.generatedFromVoucher?.rankEligible===true;
+  state.previousBest=ctx?.fullBankRanked
+    ?getBestVoucherAttempt(mistakeOwnerId(),ctx.voucherExamId,{rankEligibleOnly:true,sizeMode:"full-ranked"})
+    :ctx?getBestVoucherAttempt(mistakeOwnerId(),ctx.voucherExamId,{rankEligibleOnly:Boolean(ctx.realExamSize),sizeMode:ctx.realExamSize?"real":null}):null;
+  state.feedbackMode=runtimeConfig.feedbackMode||payload?.exam?.settings?.feedbackModes?.[0]||"instant";
+  startExam();
+  return true;
+}
 
 async function prepareExam(registryItem,forcedMode=null){
   const saved=activeSavedExamProgress();
@@ -3096,10 +4845,13 @@ function configureExamSetup(payload,registryItem,forcedMode=null){
   state.currentExam=payload;
   state.currentRegistryItem=registryItem;
   state.currentRankedActivity=registryItem?.ranked!==false;
-  state.previousBest=state.studentName?getPreviousBestForExam(payload.exam.id,state.studentName):null;
+  const voucherCtx=payload.exam?.generatedFromVoucher||null;
+  state.previousBest=voucherCtx
+    ?getBestVoucherAttempt(mistakeOwnerId(),voucherCtx.voucherExamId,{rankEligibleOnly:Boolean(voucherCtx.realExamSize)})
+    :state.studentName?getPreviousBestForExam(payload.exam.id,state.studentName):null;
 
   const exam=payload.exam;
-  $("backToLibraryBtn").textContent=isStandardTrackExam()?`← ${state.selectedTrack?.title || exam.track || "Track"}`:"← Exams";
+  $("backToLibraryBtn").textContent=voucherCtx?"← Voucher Exam":isStandardTrackExam()?`← ${state.selectedTrack?.title || exam.track || "Track"}`:"← Exams";
   $("setupCategory").textContent=exam.category || "Exam";
   $("setupDifficulty").textContent=exam.difficulty || "Mixed";
   $("setupTitle").textContent=exam.title;
@@ -3151,6 +4903,13 @@ function returnToSelectedTrack(){
 }
 
 $("backToLibraryBtn").addEventListener("click",()=>{
+  const voucherCtx=state.currentExam?.exam?.generatedFromVoucher;
+  if(voucherCtx){
+    state.voucherTrackId=voucherCtx.trackId||state.voucherTrackId;
+    state.voucherExamId=voucherCtx.voucherExamId||state.voucherExamId;
+    routeTo("voucherExamView");
+    return;
+  }
   const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
   if(ctx?.kind==="section" || ctx?.kind==="track-random"){
     state.officialLevelId=ctx.levelId || state.officialLevelId;
@@ -3188,63 +4947,42 @@ $("beginExamBtn").addEventListener("click",()=>{
   begin();
 });
 
-function inferTimerPolicy(feedbackMode=state.feedbackMode,ranked=state.currentRankedActivity){
-  const enabled=Boolean(state.currentExam?.exam?.settings?.timer?.enabled);
-  // Ranked Exam Mode keeps elapsed ranking time continuous even when no countdown timer is configured.
-  if(ranked && feedbackMode==="exam")return "continuous-ranked";
-  if(!enabled)return "none";
-  return "paused";
-}
-function timerPolicyLabel(policy=state.timerPolicy){
-  if(policy==="continuous-ranked")return "Ranked exam time continues while you are away.";
-  if(policy==="paused")return "Timer pauses while you are away.";
-  return "No countdown timer; your active-session time is saved.";
-}
 function startExam(restored=null){
-  if(state.currentRankedActivity && !state.studentName){
+  state.examMode=resolveExamMode({
+    exam:state.currentExam?.exam,
+    feedbackMode:restored?.feedbackMode||state.feedbackMode,
+    rankedActivity:state.currentRankedActivity
+  });
+  state.feedbackMode=state.examMode.feedbackMode;
+  state.currentRankedActivity=state.examMode.rankedActivity;
+  if(state.examMode.rankedActivity && !state.studentName){
     requireRankedIdentity(()=>startExam(restored),"Your name is required before this ranked attempt can begin.");
     return;
   }
   stopTimer();
   state.timerSuspendedAt=null;
+  state.solvePauseStartedAt=null;
 
-  if(restored){
-    state.answers=restored.answers || {};
-    state.markedQuestions=[...new Set(restored.markedQuestions || [])];
-    state.currentIndex=Math.min(Math.max(0,restored.currentIndex || 0),Math.max(0,state.currentExam.questions.length-1));
-    state.feedbackMode=restored.feedbackMode || "instant";
-    state.timerPolicy=restored.timerPolicy || inferTimerPolicy(state.feedbackMode,state.currentRankedActivity);
-
-    let elapsed=Math.max(0,Number(restored.elapsedSeconds)||0);
-    let remaining=restored.remainingSeconds ?? null;
-    if(state.timerPolicy==="continuous-ranked" && restored.savedAtEpoch){
-      const awaySeconds=Math.max(0,Math.floor((Date.now()-Number(restored.savedAtEpoch))/1000));
-      elapsed+=awaySeconds;
-      if(remaining!==null)remaining=Math.max(0,Number(remaining)-awaySeconds);
-    }
-
-    state.startedAt=Date.now()-elapsed*1000;
-    state.remainingSeconds=remaining;
-  }else{
-    state.answers={};
-    state.markedQuestions=[];
-    state.currentIndex=0;
-    state.startedAt=Date.now();
-    const timer=state.currentExam.exam.settings?.timer;
-    state.remainingSeconds=timer?.enabled?timer.durationMinutes*60:null;
-    state.timerPolicy=inferTimerPolicy(state.feedbackMode,state.currentRankedActivity);
-  }
+  const session=createExamSession({
+    exam:state.currentExam?.exam,
+    questions:state.currentExam?.questions||[],
+    restored,
+    feedbackMode:state.feedbackMode,
+    rankedActivity:state.currentRankedActivity,
+    nowEpoch:Date.now()
+  });
+  Object.assign(state,session);
 
   buildQuestionNavigator();
   renderQuestion();
   routeTo("examView");
-  emitAnalytics(state.currentExam?.exam?.generatedFromMistakes?"mistakes_practice_start":state.feedbackMode==="instant"?"practice_start":"exam_start",{
+  emitAnalytics(state.examMode.analyticsStartEvent,{
     courseId:state.selectedCourse?.id||null,
     trackId:state.selectedTrack?.id||state.currentExam?.exam?.generatedFromOfficialQbank?.trackId||state.currentRegistryItem?.trackId||null,
     moduleId:state.selectedModule?.id||null,
     examId:state.currentExam?.exam?.id||null,
     feedbackMode:state.feedbackMode,
-    metadata:{official:Boolean(state.currentExam?.exam?.generatedFromOfficialQbank)}
+    metadata:{official:state.examMode.official,modeId:state.examMode.id}
   });
   updateTimerPolicyHint();
 
@@ -3259,7 +4997,111 @@ function startExam(restored=null){
   persistProgress();
 }
 
+async function reconstructVoucherProgress(progress){
+  const descriptor=progress?.voucherResume;
+  if(String(descriptor?.voucherExamId)==="microsoft-pl-300")ensurePl300Styles();
+  if(!descriptor?.trackId||!descriptor?.voucherExamId)throw new Error("Voucher resume metadata is incomplete.");
+  const {entry,config}=await loadVoucherExamConfig(descriptor.trackId,descriptor.voucherExamId);
+  let architecture=null;
+  let session=null;
+  let domain=null;
+  if(descriptor.mockKind==="session"||descriptor.mockKind==="domain"){
+    if(!config.contentArchitectureFile)throw new Error("Saved Voucher content architecture is unavailable.");
+    architecture=await loadJson(config.contentArchitectureFile);
+    state.voucherContentArchitecture=architecture;
+  }
+  if(descriptor.mockKind==="session"){
+    session=findVoucherContentArchitectureSession({architecture,sessionId:descriptor.sourceId});
+    if(!session)throw new Error(`Saved Voucher session no longer exists: ${descriptor.sourceId}`);
+  }
+  if(descriptor.mockKind==="domain"){
+    domain=findVoucherContentArchitectureDomain({architecture,domainId:descriptor.domainId});
+    if(!domain)throw new Error(`Saved Voucher domain no longer exists: ${descriptor.domainId}`);
+  }
+  let bank;
+  if(descriptor.mockKind==="source"){
+    const source=(config.sources||[]).find(item=>String(item.sourceId)===String(descriptor.sourceId));
+    const bankFile=source?.bankFile||source?.sourceBankFile;
+    if(!bankFile)throw new Error("Saved Voucher source is no longer available.");
+    bank=await loadJson(bankFile);
+  }else{
+    if(!config.masterBankFile)throw new Error("Saved Voucher Master Bank is unavailable.");
+    bank=await loadJson(config.masterBankFile);
+  }
+  const byId=new Map((bank.questions||[]).map(question=>[String(question.id),question]));
+  const questionIds=Array.isArray(descriptor.questionIds)?descriptor.questionIds:[];
+  if(!questionIds.length)throw new Error("Saved Voucher question order is missing.");
+  const questions=questionIds.map(questionId=>{
+    const original=byId.get(String(questionId));
+    if(!original)throw new Error(`Saved Voucher question no longer exists: ${questionId}`);
+    const optionOrder=descriptor.optionOrderByQuestion?.[questionId];
+    if(!Array.isArray(optionOrder)||optionOrder.length!==(original.options||[]).length)throw new Error(`Saved Voucher option order is invalid: ${questionId}`);
+    const optionMap=new Map((original.options||[]).map(option=>[String(option.id),option]));
+    const options=optionOrder.map(optionId=>{
+      const option=optionMap.get(String(optionId));
+      if(!option)throw new Error(`Saved Voucher option no longer exists: ${questionId}/${optionId}`);
+      return {...option};
+    });
+    if(new Set(optionOrder.map(String)).size!==optionMap.size)throw new Error(`Saved Voucher option set changed: ${questionId}`);
+    return {...original,options};
+  });
+  const runtime={
+    mockKind:descriptor.mockKind,sourceId:descriptor.sourceId||null,sizeMode:descriptor.sizeMode,
+    timed:Boolean(descriptor.timed),feedbackMode:descriptor.feedbackMode||progress.feedbackMode||"instant",
+    rankedLearning:Boolean(descriptor.rankedLearning),sessionRanked:Boolean(descriptor.sessionRanked),domainRanked:Boolean(descriptor.domainRanked),
+    sessionId:descriptor.sessionId||descriptor.sourceId||null,domainId:descriptor.domainId||session?.domainId||null,
+    sessionTitle:session?.title||null,domainTitle:descriptor.domainTitle||domain?.title||null,
+    sectionIds:Array.isArray(descriptor.sectionIds)?descriptor.sectionIds:(domain?domain.sessionIds||[]:[]),
+    timerDisplay:descriptor.timerDisplay!==false,
+    fullBankRanked:Boolean(descriptor.fullBankRanked),improvementSession:Boolean(descriptor.improvementSession),
+    weakDomains:Array.isArray(descriptor.weakDomains)?descriptor.weakDomains:[],attemptKey:"resume"
+  };
+  const payload=buildVoucherExamPayload({examConfig:{...config,trackTitle:voucherTrackMeta(descriptor.trackId)?.title||descriptor.trackId},questions,runtime});
+  if(descriptor.mockKind==="session"&&session){
+    payload.exam.title=`${config.title} • ${session.title}`;
+    payload.exam.description=`${session.title} — legacy ranked session • ${runtime.feedbackMode==="instant"?"Instant Feedback":"Feedback at End"}.`;
+  }
+  if(descriptor.mockKind==="domain"&&domain){
+    payload.exam.title=`${config.title} • ${domain.title}`;
+    payload.exam.description=`${domain.title} — complete ranked domain • ${runtime.feedbackMode==="instant"?"Instant Feedback":"Feedback at End"}.`;
+  }
+  payload.exam.id=progress.examId;
+  const errors=validateExamPayload(payload);
+  if(errors.length)throw new Error(errors.join("; "));
+  state.voucherTrackId=descriptor.trackId;
+  state.voucherExamId=descriptor.voucherExamId;
+  state.voucherExamEntry=entry;
+  state.voucherExamConfig=config;
+  state.voucherExamError=null;
+  return {
+    payload,
+    item:{id:progress.examId,title:payload.exam.title,course:"Voucher",module:payload.exam.module,questionCount:questions.length,generator:"voucher",ranked:Boolean(descriptor.domainRanked)||Boolean(descriptor.sessionRanked)||descriptor.sizeMode==="real"||descriptor.sizeMode==="full-ranked",trackId:descriptor.trackId}
+  };
+}
+
 async function resumeProgress(progress){
+  if(progress?.voucherResume){
+    try{
+      const {payload,item}=await reconstructVoucherProgress(progress);
+      state.currentExam=payload;
+      state.currentRegistryItem=item;
+      state.currentRankedActivity=progress.rankedActivity ?? (Boolean(progress.voucherResume.domainRanked)||Boolean(progress.voucherResume.sessionRanked)||progress.voucherResume.sizeMode==="real"||progress.voucherResume.sizeMode==="full-ranked");
+      state.previousBest=progress.voucherResume.domainRanked
+        ?voucherBestRankedDomainAttempt(progress.voucherResume.voucherExamId,progress.voucherResume.domainId)
+        :progress.voucherResume.sessionRanked
+          ?voucherBestRankedSessionAttempt(progress.voucherResume.voucherExamId,progress.voucherResume.sessionId||progress.voucherResume.sourceId)
+          :progress.voucherResume.sizeMode==="full-ranked"
+          ?getBestVoucherAttempt(mistakeOwnerId(),progress.voucherResume.voucherExamId,{rankEligibleOnly:true,sizeMode:"full-ranked"})
+          :getBestVoucherAttempt(mistakeOwnerId(),progress.voucherResume.voucherExamId,{rankEligibleOnly:progress.voucherResume.sizeMode==="real",sizeMode:progress.voucherResume.sizeMode==="real"?"real":null});
+      startExam(progress);
+    }catch(error){
+      console.error("Voucher resume failed",error);
+      clearExamProgress();
+      showToast("Saved Voucher attempt could not be reconstructed. Your other progress is unchanged.");
+      routeTo(state.voucherExamId?"voucherExamView":"dashboardView");
+    }
+    return;
+  }
   let item=state.registry.find(x=>x.id===progress.examId);
   if(!item && progress.generatedExam){
     item={
@@ -3313,27 +5155,127 @@ async function resumeProgress(progress){
 
 function persistProgress(){
   if(!state.currentExam || !state.studentName)return;
-  saveExamProgress({
-    progressVersion:2,
+  const nowEpoch=Date.now();
+  const snapshotStartedAt=state.timerPolicy==="active-solve"&&state.solvePauseStartedAt
+    ?Number(state.startedAt)+(nowEpoch-Number(state.solvePauseStartedAt))
+    :state.startedAt;
+  const progress=buildExamProgressSnapshot({
     studentName:state.studentName,
-    examId:state.currentExam.exam.id,
-    examTitle:state.currentExam.exam.title,
+    currentExam:state.currentExam,
+    currentRegistryItem:state.currentRegistryItem,
     answers:state.answers,
+    firstPassAnswers:state.firstPassAnswers,
+    firstPassCommitted:state.firstPassCommitted,
+    confirmedMultiAnswers:state.confirmedMultiAnswers,
+    confirmedVoucherAnswers:state.confirmedVoucherAnswers,
+    voucherTimerPhase:state.voucherTimerPhase,
     markedQuestions:state.markedQuestions,
     currentIndex:state.currentIndex,
-    totalQuestions:state.currentExam.questions.length,
     feedbackMode:state.feedbackMode,
     remainingSeconds:state.remainingSeconds,
-    elapsedSeconds:Math.max(0,Math.floor((Date.now()-state.startedAt)/1000)),
+    startedAt:snapshotStartedAt,
     timerPolicy:state.timerPolicy,
-    rankedActivity:state.currentRankedActivity,
-    savedAtEpoch:Date.now(),
-    generatedExam:["question-bank","official-qbank","mistakes"].includes(state.currentRegistryItem?.generator)?state.currentExam:null
+    currentRankedActivity:state.currentRankedActivity,
+    nowEpoch
   });
+  if(progress)saveExamProgress(progress);
+}
+
+function voucherRankedQuestionAnswered(q){
+  if(!isCurrentVoucherRankedLearning())return isQuestionAnswered(q,state.answers?.[q?.id]);
+  if(isCurrentVoucherActiveSolveRanked()&&state.feedbackMode!=="instant")return isQuestionAnswered(q,state.answers?.[q?.id]);
+  return isCurrentQuestionConfirmed(q);
+}
+function voucherQuestionStatus(q){
+  const answered=voucherRankedQuestionAnswered(q);
+  if(!answered)return "unanswered";
+  if(state.feedbackMode==="instant"&&isCurrentQuestionConfirmed(q)){
+    return isAnswerCorrect(q,state.answers?.[q?.id])?"correct":"wrong";
+  }
+  return "answered";
+}
+function setVoucherNavigatorFilter(filter){
+  state.voucherNavigatorFilter=normalizeNavigatorFilter(filter);
+  updateNavigator();
+}
+
+function voucherDomainQuestionSession(question){
+  if(!question||!state.voucherContentArchitecture)return null;
+  const sessionId=state.voucherContentArchitecture?.questionSessionMap?.[question.id];
+  return voucherArchitectureSession(sessionId,state.voucherContentArchitecture);
+}
+
+function closeVoucherDomainNavigatorDrawer(){
+  const card=document.querySelector("#examView .question-nav-card");
+  card?.classList.remove("domain-nav-open");
+  $("voucherDomainNavToggle")?.setAttribute("aria-expanded","false");
+}
+
+function renderVoucherDomainQuestionNavigator(){
+  const questions=state.currentExam?.questions||[];
+  const architecture=state.voucherContentArchitecture;
+  const domainNav=$("voucherDomainSectionNav");
+  const flatNav=$("questionNavigator");
+  const card=document.querySelector("#examView .question-nav-card");
+  const toggle=$("voucherDomainNavToggle");
+  if(!domainNav||!architecture||!questions.length)return false;
+
+  const model=buildVoucherDomainNavigatorModel({
+    architecture,
+    questions,
+    currentIndex:state.currentIndex,
+    filter:state.voucherNavigatorFilter||"all",
+    statusForQuestion:q=>({
+      status:voucherQuestionStatus(q),
+      answered:voucherRankedQuestionAnswered(q),
+      marked:(state.markedQuestions||[]).includes(q.id)
+    })
+  });
+
+  flatNav?.classList.add("hidden");
+  domainNav.classList.remove("hidden");
+  card?.classList.add("domain-ranked-nav");
+  toggle?.classList.remove("hidden");
+  if(toggle)toggle.textContent=`Sections • ${model.answeredCount}/${model.totalQuestions}`;
+
+  domainNav.innerHTML=model.sections.map((section,sectionIndex)=>{
+    const open=section.current || sectionIndex===0;
+    const buttons=section.questions.map(entry=>{
+      const status=entry.visualStatus|| (entry.answered?"answered-neutral":"unanswered");
+      const current=entry.globalIndex===state.currentIndex;
+      const answerLabel=status==="correct"?"Correct":status==="wrong"?"Incorrect":entry.answered?"Answered":"Unanswered";
+      return `<button type="button" class="nav-number ${status}${entry.marked?" marked":""}${current?" current":""}" data-nav-index="${entry.globalIndex}" aria-label="Question ${entry.globalIndex+1}: ${answerLabel}${entry.marked?"; Marked for review":""}${current?"; current":""}">${entry.globalIndex+1}</button>`;
+    }).join("");
+    return `<details class="voucher-domain-section${section.current?" current-section":""}" data-domain-section="${escapeHtml(section.id)}" ${open?"open":""}>
+      <summary><span><small>SECTION ${sectionIndex+1}</small><strong>${escapeHtml(section.title)}</strong></span><em>${section.answered}/${section.total}${section.marked?` • ★ ${section.marked}`:""}</em></summary>
+      <div class="voucher-domain-section-grid">${buttons||'<span class="voucher-domain-section-empty">No questions in this filter.</span>'}</div>
+    </details>`;
+  }).join("");
+
+  domainNav.querySelectorAll("[data-nav-index]").forEach(btn=>btn.addEventListener("click",()=>{
+    const index=Number(btn.dataset.navIndex);
+    state.currentIndex=setQuestionIndex({targetIndex:index,totalQuestions:questions.length});
+    persistProgress();
+    renderQuestion();
+    closeVoucherDomainNavigatorDrawer();
+    scrollToQuestionCard();
+  }));
+  return true;
 }
 
 function buildQuestionNavigator(){
-  const nav=$("questionNavigator");nav.innerHTML="";
+  const nav=$("questionNavigator");
+  if(isCurrentVoucherDomainRanked()){
+    nav.innerHTML="";
+    renderVoucherDomainQuestionNavigator();
+    return;
+  }
+  $("voucherDomainSectionNav")?.classList.add("hidden");
+  $("voucherDomainNavToggle")?.classList.add("hidden");
+  const card=document.querySelector("#examView .question-nav-card");
+  card?.classList.remove("domain-ranked-nav","domain-nav-open");
+  nav.classList.remove("hidden");
+  nav.innerHTML="";
   state.currentExam.questions.forEach((q,index)=>{
     const btn=document.createElement("button");
     btn.className="nav-number";
@@ -3344,28 +5286,110 @@ function buildQuestionNavigator(){
     btn.dataset.navTopic=String(displayTopicForQuestion(q) || q?.sectionTitle || q?.section || q?.topic || q?.topicId || "General");
     btn.setAttribute("aria-label",`Question ${index+1}`);
     btn.addEventListener("click",()=>{
-      state.currentIndex=index;
+      state.currentIndex=setQuestionIndex({targetIndex:index,totalQuestions:state.currentExam.questions.length});
       persistProgress();
       renderQuestion();
+      scrollToQuestionCard();
     });
     nav.appendChild(btn);
   });
+}
+function optionDisplayLabel(question,optionId){
+  if(question?.voucherSource||state.currentExam?.exam?.generatedFromVoucher){
+    const index=(question?.options||[]).findIndex(option=>String(option.id)===String(optionId));
+    if(index>=0&&index<26)return String.fromCharCode(65+index);
+  }
+  return String(optionId??"");
+}
+
+function isMultiSelectQuestion(question){
+  return isMultiSelectFeedbackQuestion(question);
+}
+function answerDisplayText(question,selected){
+  if(isStructuredQuestion(question)){
+    const rows=selected?.type==='structured'?structuredSelectedDisplay(question,selected):structuredExpectedDisplay(question);
+    return rows.map(row=>`${row.label}: ${row.value||'—'}`).join(' · ');
+  }
+  return selectedAnswerIds(selected).map(id=>optionDisplayLabel(question,id)).join(', ');
+}
+function answerOptionText(question,selected){
+  if(isStructuredQuestion(question)){
+    const rows=selected?.type==='structured'?structuredSelectedDisplay(question,selected):structuredExpectedDisplay(question);
+    return rows.map(row=>`<div class="structured-answer-row"><b>${escapeHtml(row.label)}:</b> ${escapeHtml(row.value||'—')}</div>`).join('');
+  }
+  const ids=selectedAnswerIds(selected);
+  return ids.map(id=>{
+    const option=(question?.options||[]).find(o=>String(o.id)===String(id));
+    return option?`<div><b>${escapeHtml(optionDisplayLabel(question,id))}.</b> ${renderTechnicalOption(option.text||'',question)}</div>`:'';
+  }).join('');
+}
+
+function renderRankedStructuredInputs(question,list,{selected,confirmed,feedbackReady}={}){
+  const values=structuredAnswerFields(selected);
+  const showFieldFeedback=state.feedbackMode==='instant'&&feedbackReady&&structuredAnswerComplete(question,selected);
+  list.classList.add('ranked-structured-list');
+  for(const field of structuredFields(question)){
+    const row=document.createElement('label');
+    row.className='ranked-structured-field';
+    row.innerHTML=`<span class="ranked-structured-label">${escapeHtml(field.label||field.id)}</span>`;
+    const input=document.createElement('input');
+    input.type='text';
+    input.autocomplete='off';
+    input.spellcheck=false;
+    input.setAttribute('data-ranked-structured-field',String(field.id));
+    input.value=String(values?.[field.id]??'');
+    input.placeholder='Type the source answer';
+    input.disabled=Boolean(confirmed)||(state.feedbackMode==='instant'&&!isCurrentVoucherRankedLearning()&&structuredAnswerComplete(question,selected));
+    if(showFieldFeedback)input.classList.add(structuredFieldCorrect(field,input.value)?'correct':'wrong');
+    input.addEventListener('input',event=>updateStructuredField(question,field.id,event.target.value));
+    row.appendChild(input);
+    if(showFieldFeedback){
+      const expected=String((field.expected||[])[0]??'');
+      const note=document.createElement('small');
+      note.className='ranked-structured-expected';
+      note.textContent=structuredFieldCorrect(field,input.value)?'Correct ✓':`Expected: ${expected}`;
+      row.appendChild(note);
+    }
+    list.appendChild(row);
+  }
 }
 function renderQuestion(){
   const qs=state.currentExam.questions,q=qs[state.currentIndex];
   $("questionCounter").textContent=`Question ${state.currentIndex+1} / ${qs.length}`;
   $("progressFill").style.width=`${((state.currentIndex+1)/qs.length)*100}%`;
   {
-    const displayTopic=displayTopicForQuestion(q);
+    const domainSession=isCurrentVoucherDomainRanked()?voucherDomainQuestionSession(q):null;
+    const displayTopic=domainSession?.title||displayTopicForQuestion(q);
     $("questionTopic").textContent=displayTopic;
     const inferred=displayTopic!==(q.topic||"General");
     $("questionTopic").dataset.topicInferred=inferred?"true":"false";
-    $("questionTopic").title=inferred?`Display classification: ${displayTopic} • stored metadata: ${q.topic||"General"}`:"";
+    $("questionTopic").title=domainSession
+      ?`${state.currentExam?.exam?.generatedFromVoucher?.domainTitle||"PL-300 Domain"} • ${domainSession.title}`
+      :inferred?`Display classification: ${displayTopic} • stored metadata: ${q.topic||"General"}`:"";
   }
   $("questionDifficulty").textContent=q.difficulty || "Medium";
   const technicalInfo=analyzeTechnicalContent(q.question,q);
   $("questionText").innerHTML=renderTechnicalQuestion(q.question,q);
   $("questionText").classList.toggle("has-code-question",technicalInfo.hasCode);
+  const voucherVisual=$("voucherQuestionVisual");
+  if(voucherVisual){
+    const assets=state.currentExam?.exam?.generatedFromVoucher
+      ?[...(Array.isArray(q?.visualAssets)?q.visualAssets:[]),...(q?.visualAsset?[q.visualAsset]:[])].map(String).filter(Boolean)
+      :[];
+    const uniqueAssets=[...new Set(assets)];
+    if(uniqueAssets.length){
+      const alt=String(q.visualAlt||q.visualCaption||"Voucher question visual");
+      voucherVisual.innerHTML=uniqueAssets.map((asset,index)=>`<div class="voucher-question-visual-item"><img src="${escapeHtml(asset)}" alt="${escapeHtml(alt)}${uniqueAssets.length>1?` ${index+1}`:""}"><button type="button" class="secondary-btn" data-voucher-visual-index="${index}">Enlarge visual ↗</button></div>`).join('');
+      voucherVisual.classList.remove("hidden");
+      voucherVisual.querySelectorAll("[data-voucher-visual-index]").forEach(button=>button.addEventListener("click",()=>{
+        const asset=uniqueAssets[Number(button.dataset.voucherVisualIndex)||0];
+        openVoucherVisual(asset,alt);
+      }));
+    }else{
+      voucherVisual.innerHTML="";
+      voucherVisual.classList.add("hidden");
+    }
+  }
 
   const marked=state.markedQuestions.includes(q.id);
   if($("markReviewBtn")){
@@ -3374,129 +5398,446 @@ function renderQuestion(){
     $("markReviewBtn").textContent=marked?"★ Marked for Review":"☆ Mark for Review";
   }
 
-  const list=$("optionsList");list.innerHTML="";
-  q.options.forEach(option=>{
-    const btn=document.createElement("button");btn.className="option-btn";
-    btn.innerHTML=`<span class="option-letter">${escapeHtml(option.id)}</span><span class="option-content">${renderTechnicalOption(option.text,q)}</span>`;
-    const selected=state.answers[q.id];
-    if(selected===option.id)btn.classList.add("selected");
-    if(state.feedbackMode==="instant" && selected){
-      if(option.id===q.correctAnswer)btn.classList.add("correct");
-      if(option.id===selected && selected!==q.correctAnswer)btn.classList.add("wrong");
+  const list=$("optionsList");list.innerHTML="";list.classList.remove("ranked-structured-list");
+  const selected=state.answers[q.id];
+  const selectedIds=new Set(selectedAnswerIds(selected));
+  const rankedLearning=isCurrentVoucherRankedLearning();
+  const confirmed=rankedLearning?isCurrentQuestionConfirmed(q):Boolean(state.confirmedMultiAnswers[q.id]);
+  const feedbackState=feedbackStateForQuestion({question:q,selected,feedbackMode:state.feedbackMode,rankedLearning,confirmedVoucher:isCurrentQuestionConfirmed(q),confirmedMulti:Boolean(state.confirmedMultiAnswers[q.id])});
+  const multi=feedbackState.multi;
+  const feedbackReady=feedbackState.feedbackReady;
+  const correctIds=new Set(feedbackState.correctIds);
+  const selectionStatus=$("voucherSelectionStatus");
+  if(selectionStatus){
+    if(state.currentExam?.exam?.generatedFromVoucher){
+      selectionStatus.textContent=voucherSelectionStatusText({question:q,selected,feedbackMode:state.feedbackMode,rankedLearning,confirmed});
+      selectionStatus.classList.remove("hidden");
+    }else{
+      selectionStatus.textContent="";
+      selectionStatus.classList.add("hidden");
     }
-    btn.addEventListener("click",()=>selectAnswer(q,option.id));
+  }
+  if(isStructuredQuestion(q)){
+    renderRankedStructuredInputs(q,list,{selected,confirmed,feedbackReady});
+  }else (q.options||[]).forEach((option,optionIndex)=>{
+    const btn=document.createElement("button");btn.className="option-btn";
+    const visibleLabel=state.currentExam?.exam?.generatedFromVoucher && optionIndex<26?String.fromCharCode(65+optionIndex):option.id;
+    btn.innerHTML=`<span class="option-letter">${escapeHtml(visibleLabel)}</span><span class="option-content">${renderTechnicalOption(option.text,q)}</span>`;
+    if(selectedIds.has(String(option.id)))btn.classList.add("selected");
+    if(state.feedbackMode==="instant" && feedbackReady && isAnswered(selected)){
+      if(correctIds.has(String(option.id)))btn.classList.add("correct");
+      if(selectedIds.has(String(option.id)) && !correctIds.has(String(option.id)))btn.classList.add("wrong");
+    }
+    btn.setAttribute("aria-pressed",selectedIds.has(String(option.id))?"true":"false");
+    btn.disabled=rankedLearning&&confirmed;
+    btn.addEventListener("click",()=>multi?toggleMultiSelectAnswer(q,option.id):selectAnswer(q,option.id));
     list.appendChild(btn);
   });
+
+  const confirm=$("multiSelectConfirmBtn");
+  if(confirm){
+    const structured=isStructuredQuestion(q);
+    const required=structured?structuredFields(q).length:correctAnswerIds(q).length;
+    const selectedCount=structured?Object.values(structuredAnswerFields(selected)).filter(value=>String(value??'').trim()).length:selectedAnswerIds(selected).length;
+    const show=state.feedbackMode==="instant"&&(multi||structured);
+    const ready=show&&(structured?structuredAnswerComplete(q,selected):selectedCount===required)&&!confirmed;
+    confirm.classList.toggle("hidden",!show);
+    confirm.classList.toggle("is-ready",ready);
+    confirm.classList.toggle("is-confirmed",show&&confirmed);
+    const complete=structured?structuredAnswerComplete(q,selected):(isAnswered(selected)&&selectedCount===required);
+    confirm.disabled=rankedLearning
+      ?(!complete||confirmed)
+      :structured?true:(!complete||Boolean(state.confirmedMultiAnswers[q.id]));
+    if(confirmed)confirm.textContent="Answer confirmed ✓";
+    else if(structured&&!complete)confirm.textContent=`Complete all ${required} fields first`;
+    else if(!structured&&selectedCount===0)confirm.textContent=`Select ${required} answers first`;
+    else if(!structured&&selectedCount<required)confirm.textContent=`Select ${required-selectedCount} more answer${required-selectedCount===1?"":"s"}`;
+    else confirm.textContent="Confirm Answer ✓";
+  }
+
   renderInstantFeedback(q);
   updateNavigator();
+  if(rankedLearning)syncVoucherRankedTimerPhase();
 
-  $("prevQuestionBtn").disabled=state.currentIndex===0;
+  const previousButton=document.getElementById("prevQuestionBtn");
+  previousButton.disabled=state.currentIndex===0;
+  const voucherFeedbackOpen=Boolean(state.currentExam?.exam?.generatedFromVoucher&&state.feedbackMode==="instant"&&feedbackReady&&isQuestionAnswered(q,selected));
+  const examActions=document.querySelector("#examView .exam-actions");
+  examActions?.classList.toggle("voucher-sticky-actions",voucherFeedbackOpen);
+  const stickyMark=$("stickyMarkReviewBtn");
+  if(stickyMark){
+    stickyMark.classList.toggle("hidden",!voucherFeedbackOpen);
+    stickyMark.classList.toggle("marked",marked);
+    stickyMark.setAttribute("aria-pressed",marked?"true":"false");
+    stickyMark.textContent=marked?"★ Marked":"☆ Mark";
+  }
   $("nextQuestionBtn").classList.toggle("hidden",state.currentIndex===qs.length-1);
   $("submitExamBtn").classList.toggle("hidden",state.currentIndex!==qs.length-1);
   const officialKind=state.currentExam?.exam?.generatedFromOfficialQbank?.kind;
   const mistakePractice=Boolean(state.currentExam?.exam?.generatedFromMistakes);
   $("submitExamBtn").innerHTML=mistakePractice?'Finish Practice <span>✓</span>':officialKind==="section"?'Finish Section <span>✓</span>':'Submit Exam <span>✓</span>';
 }
+function isCurrentVoucherRankedLearning(){
+  return Boolean(state.examMode?.voucherRankedLearning);
+}
+function isCurrentVoucherSessionRanked(){
+  return Boolean(state.examMode?.sessionRanked||state.currentExam?.exam?.generatedFromVoucher?.sessionRanked);
+}
+function isCurrentVoucherDomainRanked(){
+  return Boolean(state.examMode?.domainRanked||state.currentExam?.exam?.generatedFromVoucher?.domainRanked);
+}
+function isCurrentVoucherActiveSolveRanked(){
+  return isCurrentVoucherDomainRanked()||isCurrentVoucherSessionRanked();
+}
+function cloneAnswerValue(value){
+  if(value&&typeof value==='object')return JSON.parse(JSON.stringify(value));
+  return Array.isArray(value)?[...value]:value;
+}
+function commitFirstPassAnswer(question,value=state.answers?.[question?.id]){
+  const id=question?.id;
+  if(!id||!isCurrentVoucherActiveSolveRanked()||state.firstPassCommitted?.[id]||!isQuestionAnswered(question,value))return false;
+  state.firstPassAnswers={...(state.firstPassAnswers||{}),[id]:cloneAnswerValue(value)};
+  state.firstPassCommitted={...(state.firstPassCommitted||{}),[id]:true};
+  return true;
+}
+function currentFirstPassCorrect(){
+  return (state.currentExam?.questions||[]).reduce((sum,q)=>sum+(state.firstPassCommitted?.[q.id]&&isAnswerCorrect(q,state.firstPassAnswers?.[q.id])?1:0),0);
+}
+function isCurrentQuestionConfirmed(question){
+  return Boolean(question?.id&&state.confirmedVoucherAnswers?.[question.id]);
+}
+function updateStructuredField(q,fieldId,value){
+  const rankedLearning=isCurrentVoucherRankedLearning();
+  const beforeComplete=isQuestionAnswered(q,state.answers?.[q.id]);
+  const result=updateStructuredAnswerState({
+    question:q,fieldId,value,answers:state.answers,rankedLearning,feedbackMode:state.feedbackMode,confirmed:isCurrentQuestionConfirmed(q)
+  });
+  if(!result.changed)return;
+  state.answers=result.answers;
+  const nowComplete=isQuestionAnswered(q,state.answers?.[q.id]);
+  if(isCurrentVoucherActiveSolveRanked()&&state.feedbackMode!=="instant"&&!beforeComplete&&nowComplete)commitFirstPassAnswer(q,state.answers[q.id]);
+  persistProgress();
+  updateNavigator();
+  const status=$("voucherSelectionStatus");
+  if(status)status.textContent=voucherSelectionStatusText({question:q,selected:state.answers[q.id],feedbackMode:state.feedbackMode,rankedLearning,confirmed:isCurrentQuestionConfirmed(q)});
+  const confirm=$("multiSelectConfirmBtn");
+  if(confirm&&state.feedbackMode==="instant"&&rankedLearning){
+    confirm.disabled=!structuredAnswerComplete(q,state.answers[q.id])||isCurrentQuestionConfirmed(q);
+    confirm.classList.toggle("is-ready",!confirm.disabled);
+    confirm.textContent=structuredAnswerComplete(q,state.answers[q.id])?"Confirm Answer ✓":`Complete all ${structuredFields(q).length} fields first`;
+  }
+  if(!rankedLearning&&state.feedbackMode==="instant"&&nowComplete)renderQuestion();
+}
+function confirmStructuredRankedAnswer(){
+  const q=state.currentExam?.questions?.[state.currentIndex];
+  const result=confirmStructuredAnswerState({
+    question:q,answers:state.answers,confirmedVoucherAnswers:state.confirmedVoucherAnswers,
+    rankedLearning:isCurrentVoucherRankedLearning(),alreadyConfirmed:isCurrentQuestionConfirmed(q)
+  });
+  if(!result.changed)return;
+  state.confirmedVoucherAnswers=result.confirmedVoucherAnswers;
+  if(isCurrentVoucherActiveSolveRanked())commitFirstPassAnswer(q,state.answers[q.id]);
+  if(result.voucherTimerPhase)state.voucherTimerPhase=result.voucherTimerPhase;
+  if(result.stopTimer)stopTimer();
+  persistProgress();
+  renderQuestion();
+  scrollVoucherFeedbackIntoView();
+}
+
 function selectAnswer(q,optionId){
-  if(state.feedbackMode==="instant" && state.answers[q.id])return;
-  state.answers[q.id]=optionId;
+  const rankedLearning=isCurrentVoucherRankedLearning();
+  const result=selectSingleAnswerState({
+    question:q,
+    optionId,
+    answers:state.answers,
+    confirmedVoucherAnswers:state.confirmedVoucherAnswers,
+    rankedLearning,
+    feedbackMode:state.feedbackMode,
+    alreadyConfirmed:isCurrentQuestionConfirmed(q)
+  });
+  if(!result.changed)return;
+  state.answers=result.answers;
+  state.confirmedVoucherAnswers=result.confirmedVoucherAnswers;
+  if(isCurrentVoucherActiveSolveRanked())commitFirstPassAnswer(q,state.answers[q.id]);
+  if(result.voucherTimerPhase)state.voucherTimerPhase=result.voucherTimerPhase;
+  if(result.stopTimer)stopTimer();
+  persistProgress();
+  renderQuestion();
+  if(state.currentExam?.exam?.generatedFromVoucher&&state.feedbackMode==="instant"&&(!result.requiresConfirm||!rankedLearning))scrollVoucherFeedbackIntoView();
+}
+function toggleMultiSelectAnswer(q,optionId){
+  const rankedLearning=isCurrentVoucherRankedLearning();
+  const result=toggleMultiSelectAnswerState({
+    question:q,
+    optionId,
+    answers:state.answers,
+    rankedLearning,
+    feedbackMode:state.feedbackMode,
+    confirmed:rankedLearning?isCurrentQuestionConfirmed(q):Boolean(state.confirmedMultiAnswers[q.id])
+  });
+  if(!result.changed)return;
+  state.answers=result.answers;
+  if(isCurrentVoucherActiveSolveRanked()&&state.feedbackMode!=="instant"&&selectedAnswerIds(state.answers[q.id]).length===correctAnswerIds(q).length)commitFirstPassAnswer(q,state.answers[q.id]);
   persistProgress();
   renderQuestion();
 }
+function confirmMultiSelectAnswer(){
+  const q=state.currentExam?.questions?.[state.currentIndex];
+  const result=confirmMultiSelectAnswerState({question:q,answers:state.answers,confirmedMultiAnswers:state.confirmedMultiAnswers});
+  if(!result.changed)return;
+  state.confirmedMultiAnswers=result.confirmedMultiAnswers;
+  persistProgress();
+  renderQuestion();
+  if(state.currentExam?.exam?.generatedFromVoucher)scrollVoucherFeedbackIntoView();
+}
+function confirmVoucherRankedAnswer(){
+  const q=state.currentExam?.questions?.[state.currentIndex];
+  const result=confirmVoucherRankedAnswerState({
+    question:q,
+    answers:state.answers,
+    firstPassAnswers:state.firstPassAnswers,
+    firstPassCommitted:state.firstPassCommitted,
+    confirmedMultiAnswers:state.confirmedMultiAnswers,
+    confirmedVoucherAnswers:state.confirmedVoucherAnswers,
+    rankedLearning:isCurrentVoucherRankedLearning(),
+    alreadyConfirmed:isCurrentQuestionConfirmed(q)
+  });
+  if(!result.changed)return;
+  state.confirmedMultiAnswers=result.confirmedMultiAnswers;
+  state.confirmedVoucherAnswers=result.confirmedVoucherAnswers;
+  if(isCurrentVoucherActiveSolveRanked())commitFirstPassAnswer(q,state.answers[q.id]);
+  if(result.voucherTimerPhase)state.voucherTimerPhase=result.voucherTimerPhase;
+  if(result.stopTimer)stopTimer();
+  persistProgress();
+  renderQuestion();
+  scrollVoucherFeedbackIntoView();
+}
+function handleVoucherAnswerConfirm(){
+  const q=state.currentExam?.questions?.[state.currentIndex];
+  if(isStructuredQuestion(q)&&isCurrentVoucherRankedLearning())confirmStructuredRankedAnswer();
+  else if(isCurrentVoucherRankedLearning())confirmVoucherRankedAnswer();
+  else confirmMultiSelectAnswer();
+}
+$("multiSelectConfirmBtn")?.addEventListener("click",handleVoucherAnswerConfirm);
 function toggleMarkForReview(){
   const q=state.currentExam?.questions?.[state.currentIndex];
   if(!q)return;
-  const set=new Set(state.markedQuestions||[]);
-  set.has(q.id)?set.delete(q.id):set.add(q.id);
-  state.markedQuestions=[...set];
+  state.markedQuestions=toggleMarkedQuestionState(state.markedQuestions,q.id);
   persistProgress();
   renderQuestion();
 }
 $("markReviewBtn").addEventListener("click",toggleMarkForReview);
+$("stickyMarkReviewBtn")?.addEventListener("click",toggleMarkForReview);
+
+function scrollVoucherFeedbackIntoView(){
+  requestAnimationFrame(()=>{
+    const feedback=$("instantFeedback");
+    if(!feedback||feedback.classList.contains("hidden"))return;
+    const reduceMotion=globalThis.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches===true;
+    feedback.scrollIntoView({behavior:reduceMotion?"auto":"smooth",block:"nearest"});
+  });
+}
+
+function structuredAnswerStateForExpected(question){
+  const fields={};
+  for(const row of structuredExpectedDisplay(question))fields[row.id]=row.value;
+  return {type:'structured',fields,complete:true};
+}
+
+function renderVoucherLearningExplanation(question,selected){
+  const deep=question?.deepExplanation||{};
+  const correctIds=correctAnswerIds(question);
+  const correctSet=new Set(correctIds.map(String));
+  const summary=String(deep.summary||question?.explanationAr||question?.explanation?.ar||question?.explanation?.en||"No reviewed explanation is available yet.");
+  const correctOptions=answerOptionText(question,isStructuredQuestion(question)?structuredAnswerStateForExpected(question):correctIds);
+  const wrongRows=(question?.options||[]).filter(option=>!correctSet.has(String(option.id))).map(option=>{
+    const reason=deep.options?.[option.id];
+    if(!reason)return "";
+    return `<li><div class="voucher-explanation-option"><span class="voucher-explanation-tech">${escapeHtml(optionDisplayLabel(question,option.id))}</span><div><strong>${renderTechnicalOption(option.text||"",question)}</strong><p>${renderTechnicalRichText(String(reason),question)}</p></div></div></li>`;
+  }).filter(Boolean).join("");
+  const tip=String(deep.examTip||question?.examTip||question?.reviewedTip||"").trim();
+  const selectedText=answerOptionText(question,selected);
+  return `<div class="voucher-learning-explanation" dir="rtl">
+    <section class="voucher-explanation-section voucher-explanation-answer">
+      <span class="voucher-explanation-kicker">CORRECT ANSWER</span>
+      <div class="voucher-explanation-tech-block">${correctOptions}</div>
+    </section>
+    <section class="voucher-explanation-section">
+      <h4>لماذا هذه الإجابة صحيحة؟</h4>
+      <div>${renderTechnicalRichText(summary,question)}</div>
+    </section>
+    ${wrongRows?`<section class="voucher-explanation-section"><h4>لماذا الخيارات الأخرى غير صحيحة؟</h4><ul class="voucher-explanation-wrong-list">${wrongRows}</ul></section>`:""}
+    ${tip?`<section class="voucher-explanation-section voucher-exam-tip"><h4>Exam Tip</h4><div>${renderTechnicalRichText(tip,question)}</div></section>`:""}
+    <section class="voucher-explanation-section voucher-your-answer">
+      <span class="voucher-explanation-kicker">YOUR ANSWER</span>
+      <div class="voucher-explanation-tech-block">${selectedText}</div>
+    </section>
+  </div>`;
+}
 
 function renderInstantFeedback(q){
   const box=$("instantFeedback");box.className="feedback-box hidden";box.innerHTML="";
   const selected=state.answers[q.id];
-  if(state.feedbackMode!=="instant" || !selected)return;
-  const correct=selected===q.correctAnswer;
-  const selectedOption=q.options.find(o=>o.id===selected);
-  const correctOption=q.options.find(o=>o.id===q.correctAnswer);
+  const rankedLearning=isCurrentVoucherRankedLearning();
+  const feedbackState=feedbackStateForQuestion({question:q,selected,feedbackMode:state.feedbackMode,rankedLearning,confirmedVoucher:isCurrentQuestionConfirmed(q),confirmedMulti:Boolean(state.confirmedMultiAnswers[q.id])});
+  if(!feedbackState.showFeedback)return;
+  const correct=feedbackState.correct;
+  const correctIds=feedbackState.correctIds;
+  const selectedLabels=answerDisplayText(q,selected)||"—";
+  const correctAnswerValue=isStructuredQuestion(q)?structuredAnswerStateForExpected(q):correctIds;
+  const correctLabels=answerDisplayText(q,correctAnswerValue)||"—";
   box.className=`feedback-box ${correct?"success":"error"}`;
 
+  if(state.currentExam?.exam?.generatedFromVoucher){
+    box.innerHTML=`<strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${escapeHtml(correctLabels)}`}</strong>${renderVoucherLearningExplanation(q,selected)}`;
+    return;
+  }
+
   const answerStrip=`<div class="technical-feedback-answer">
-    <div><span>YOUR ANSWER</span><strong>${escapeHtml(selected)}</strong><div>${renderTechnicalOption(selectedOption?.text||"",q)}</div></div>
-    <div><span>CORRECT ANSWER</span><strong>${escapeHtml(q.correctAnswer)}</strong><div>${renderTechnicalOption(correctOption?.text||"",q)}</div></div>
+    <div><span>YOUR ANSWER</span><strong>${escapeHtml(selectedLabels)}</strong><div>${answerOptionText(q,selected)}</div></div>
+    <div><span>CORRECT ANSWER</span><strong>${escapeHtml(correctLabels)}</strong><div>${answerOptionText(q,correctAnswerValue)}</div></div>
   </div>`;
 
   if(q.deepExplanation){
-    const selectedReason=q.deepExplanation.options?.[selected]||"";
+    const selectedReasons=selectedAnswerIds(selected).map(id=>q.deepExplanation.options?.[id]||"").filter(Boolean).join(" ");
     box.innerHTML=`
-      <strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${escapeHtml(q.correctAnswer)}`}</strong>
+      <strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${escapeHtml(correctLabels)}`}</strong>
       ${answerStrip}
       <div class="ranked-official-feedback" dir="rtl">
-        <p><b>${correct?"ليه اختيارك صح؟":"ليه اختيارك غلط؟"}</b> ${renderTechnicalRichText(selectedReason,q)}</p>
+        <p><b>${correct?"ليه اختيارك صح؟":"ليه اختيارك غلط؟"}</b> ${renderTechnicalRichText(selectedReasons,q)}</p>
         <p><b>شرح المفهوم:</b> ${renderTechnicalRichText(q.deepExplanation.summary||"",q)}</p>
       </div>`;
   }else{
     const explanation=q.aiExplanation?.ar || q.explanation?.ar || q.explanation?.en || "No explanation provided.";
-    box.innerHTML=`<strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${escapeHtml(q.correctAnswer)}`}</strong>
+    box.innerHTML=`<strong>${correct?"Correct ✓":`Incorrect ✕ — Correct answer: ${escapeHtml(correctLabels)}`}</strong>
       ${answerStrip}
       <div dir="rtl">${renderTechnicalRichText(explanation,q)}</div>`;
   }
 }
 
 function updateNavigator(){
-  const answered=Object.keys(state.answers).length;
+  const rankedLearning=isCurrentVoucherRankedLearning();
+  const questions=state.currentExam?.questions||[];
+  const answered=questions.filter(q=>rankedLearning?voucherRankedQuestionAnswered(q):isQuestionAnswered(q,state.answers?.[q.id])).length;
   const markedCount=(state.markedQuestions||[]).length;
+  const remaining=Math.max(0,questions.length-answered);
   $("answeredCount").textContent=markedCount?`${answered} answered · ${markedCount} marked`:`${answered} answered`;
+  const summary=$("voucherNavSummary");
+  if(summary)summary.textContent=`Answered ${answered} / ${questions.length} · Marked ${markedCount} · Remaining ${remaining}`;
+  document.querySelectorAll("[data-voucher-nav-filter]").forEach(control=>{
+    const active=control.dataset.voucherNavFilter===(state.voucherNavigatorFilter||"all");
+    control.classList.toggle("active",active);
+    control.setAttribute("aria-pressed",active?"true":"false");
+  });
 
   const instant=state.feedbackMode==="instant";
   $("questionNavLegend")?.classList.toggle("exam-mode-legend",!instant);
 
+  if(isCurrentVoucherDomainRanked()){
+    renderVoucherDomainQuestionNavigator();
+    return;
+  }
+
   document.querySelectorAll(".nav-number").forEach((btn,domIndex)=>{
     const stableIndex=Number(btn.dataset.navIndex);
     const index=Number.isInteger(stableIndex)?stableIndex:domIndex;
-    const q=state.currentExam.questions[index];
+    const q=questions[index];
     if(!q)return;
     const selected=state.answers[q.id];
-    const marked=state.markedQuestions.includes(q.id);
+    const answeredNow=rankedLearning?voucherRankedQuestionAnswered(q):isQuestionAnswered(q,selected);
+    const multi=isMultiSelectQuestion(q);
+    const structured=isStructuredQuestion(q);
+    const instantReady=instant&&(rankedLearning?isCurrentQuestionConfirmed(q):(structured?isQuestionAnswered(q,selected):(!multi||Boolean(state.confirmedMultiAnswers[q.id]))));
+    const marked=(state.markedQuestions||[]).includes(q.id);
+    const filter=state.voucherNavigatorFilter||"all";
+    const matches=filter==="all"||(filter==="answered"&&answeredNow)||(filter==="unanswered"&&!answeredNow)||(filter==="marked"&&marked);
 
     btn.classList.toggle("current",index===state.currentIndex);
     btn.classList.toggle("marked",marked);
+    btn.classList.toggle("out-of-filter",!matches&&index===state.currentIndex);
+    btn.classList.toggle("hidden",!matches&&index!==state.currentIndex);
     btn.classList.remove("answered","correct","wrong","answered-neutral");
 
-    if(selected){
-      if(instant){
-        btn.classList.add(selected===q.correctAnswer?"correct":"wrong");
-      }else{
-        btn.classList.add("answered-neutral");
-      }
+    if(answeredNow){
+      if(instantReady)btn.classList.add(isAnswerCorrect(q,selected)?"correct":"wrong");
+      else btn.classList.add("answered-neutral");
     }
 
     const status=marked
-      ?`Marked for review${selected?"; answered":""}`
-      :selected
-        ?instant
-          ?selected===q.correctAnswer?"Correct":"Incorrect"
+      ?`Marked for review${answeredNow?"; answered":""}`
+      :answeredNow
+        ?instantReady
+          ?isAnswerCorrect(q,selected)?"Correct":"Incorrect"
           :"Answered"
         :"Unanswered";
     btn.setAttribute("aria-label",`Question ${index+1}: ${status}${index===state.currentIndex?"; current":""}`);
   });
 }
-$("prevQuestionBtn").addEventListener("click",()=>{if(state.currentIndex>0){state.currentIndex--;persistProgress();renderQuestion()}});
-$("nextQuestionBtn").addEventListener("click",()=>{if(state.currentIndex<state.currentExam.questions.length-1){state.currentIndex++;persistProgress();renderQuestion()}});
+document.querySelectorAll("[data-voucher-nav-filter]").forEach(btn=>btn.addEventListener("click",()=>setVoucherNavigatorFilter(btn.dataset.voucherNavFilter)));
+$("voucherDomainNavToggle")?.addEventListener("click",()=>{
+  if(!isCurrentVoucherDomainRanked())return;
+  const card=document.querySelector("#examView .question-nav-card");
+  const open=!card?.classList.contains("domain-nav-open");
+  card?.classList.toggle("domain-nav-open",open);
+  $("voucherDomainNavToggle")?.setAttribute("aria-expanded",open?"true":"false");
+});
+$("prevQuestionBtn").addEventListener("click",()=>{
+  const nextIndex=moveQuestionIndex({currentIndex:state.currentIndex,totalQuestions:state.currentExam?.questions?.length||0,direction:-1});
+  if(nextIndex===state.currentIndex)return;
+  state.currentIndex=nextIndex;persistProgress();renderQuestion();scrollToQuestionCard();
+});
+$("nextQuestionBtn").addEventListener("click",()=>{
+  const nextIndex=moveQuestionIndex({currentIndex:state.currentIndex,totalQuestions:state.currentExam?.questions?.length||0,direction:1});
+  if(nextIndex===state.currentIndex)return;
+  state.currentIndex=nextIndex;persistProgress();renderQuestion();scrollToQuestionCard();
+});
 $("submitExamBtn").addEventListener("click",()=>finishExam(false));
+
+function activeSolveElapsedSeconds(now=Date.now()){
+  if(!state.startedAt)return 0;
+  const effectiveNow=state.solvePauseStartedAt?Number(state.solvePauseStartedAt):Number(now);
+  return Math.max(0,Math.floor((effectiveNow-Number(state.startedAt))/1000));
+}
+function pauseActiveSolveClock(){
+  if(state.timerPolicy!=="active-solve"||state.solvePauseStartedAt)return;
+  state.solvePauseStartedAt=Date.now();
+}
+function resumeActiveSolveClock(){
+  if(state.timerPolicy!=="active-solve"||!state.solvePauseStartedAt)return;
+  state.startedAt+=Math.max(0,Date.now()-Number(state.solvePauseStartedAt));
+  state.solvePauseStartedAt=null;
+}
+
+function syncVoucherRankedTimerPhase(){
+  if(!isCurrentVoucherRankedLearning()){state.voucherTimerPhase=null;return}
+  const q=state.currentExam?.questions?.[state.currentIndex];
+  if(!q)return;
+  const next=voucherTimerPhaseForQuestion({exam:state.currentExam.exam,questionId:q.id,selected:state.answers[q.id],confirmedAnswers:state.confirmedVoucherAnswers,confirmedMultiAnswers:state.confirmedMultiAnswers});
+  state.voucherTimerPhase=next||VOUCHER_TIMER_PHASE_SOLVING;
+  if(isCurrentVoucherActiveSolveRanked()){
+    if(state.voucherTimerPhase===VOUCHER_TIMER_PHASE_FEEDBACK){pauseActiveSolveClock();stopTimer();updateTimerDisplay();}
+    else{resumeActiveSolveClock();if($("examView")?.classList.contains("active"))startTimerIfNeeded();}
+    return;
+  }
+  if(state.voucherTimerPhase===VOUCHER_TIMER_PHASE_FEEDBACK)stopTimer();
+  else if($("examView")?.classList.contains("active"))startTimerIfNeeded();
+}
+function scrollToQuestionCard(){
+  requestAnimationFrame(()=>document.querySelector("#examView .question-card")?.scrollIntoView({behavior:"auto",block:"start"}));
+}
 
 function updateTimerPolicyHint(){
   const display=$("timerDisplay");
   if(!display)return;
-  display.title=timerPolicyLabel();
+  display.title=examTimerPolicyLabel({policy:state.timerPolicy,voucherTimerPhase:state.voucherTimerPhase});
   display.classList.toggle("ranked-continuous",state.timerPolicy==="continuous-ranked");
 }
 $("exitExamBtn").addEventListener("click",()=>{
   const mistakePractice=Boolean(state.currentExam?.exam?.generatedFromMistakes);
   const message=mistakePractice
     ?"Exit My Mistakes practice? Your answers and current question will be saved so you can resume later. This practice never enters Ranking."
+    :state.timerPolicy==="active-solve"
+      ?"Exit this ranked learning session? Your answers, first-pass state and current question will be saved. Active solve time pauses while you are away. The attempt becomes official only after every question is answered."
     :state.timerPolicy==="continuous-ranked"
       ?"Exit this ranked exam? Your answers and current question will be saved, but ranked elapsed time (and the countdown, when enabled) will CONTINUE while you are away. The attempt is not added to Ranking until it is submitted."
       :"Exit the exam? Your answers, question position and remaining time will be saved. The timer will pause until you resume.";
@@ -3505,12 +5846,21 @@ $("exitExamBtn").addEventListener("click",()=>{
   persistProgress();
   state.timerSuspendedAt=null;
   if(mistakePractice) routeTo("mistakesView");
+  else if(state.currentExam?.exam?.generatedFromVoucher) routeTo("voucherExamView");
   else if(isStandardTrackExam()) returnToSelectedTrack();
   else routeTo("dashboardView");
 });
 
 function startTimerIfNeeded(){
   stopTimer();
+  if(state.timerPolicy==="active-solve"){
+    const show=state.currentExam?.exam?.generatedFromVoucher?.timerDisplay!==false;
+    $("timerDisplay").classList.toggle("hidden",!show);
+    updateTimerDisplay();updateTimerPolicyHint();
+    if(state.solvePauseStartedAt)return;
+    state.timerId=setInterval(()=>{updateTimerDisplay();if(activeSolveElapsedSeconds()%5===0)persistProgress();},1000);
+    return;
+  }
   if(state.remainingSeconds===null){
     $("timerDisplay").classList.add("hidden");
     updateTimerPolicyHint();
@@ -3519,6 +5869,7 @@ function startTimerIfNeeded(){
   $("timerDisplay").classList.remove("hidden");
   updateTimerDisplay();
   updateTimerPolicyHint();
+  if(isCurrentVoucherRankedLearning()&&state.voucherTimerPhase===VOUCHER_TIMER_PHASE_FEEDBACK)return;
   state.timerId=setInterval(()=>{
     state.remainingSeconds=Math.max(0,(state.remainingSeconds??0)-1);
     updateTimerDisplay();
@@ -3527,7 +5878,7 @@ function startTimerIfNeeded(){
   },1000);
 }
 function updateTimerDisplay(){
-  const total=Math.max(0,state.remainingSeconds ?? 0);
+  const total=state.timerPolicy==="active-solve"?activeSolveElapsedSeconds():Math.max(0,state.remainingSeconds ?? 0);
   $("timerDisplay").textContent=`${String(Math.floor(total/60)).padStart(2,"0")}:${String(total%60).padStart(2,"0")}`;
 }
 function stopTimer(){
@@ -3538,6 +5889,25 @@ function stopTimer(){
 document.addEventListener("visibilitychange",()=>{
   const examActive=$("examView")?.classList.contains("active");
   if(!examActive || !state.currentExam)return;
+
+  if(isCurrentVoucherRankedLearning()&&!isCurrentVoucherActiveSolveRanked()){
+    if(document.hidden){
+      if(state.timerSuspendedAt)return;
+      state.timerSuspendedAt=Date.now();
+      stopTimer();
+      persistProgress();
+      return;
+    }
+    if(!state.timerSuspendedAt)return;
+    const adjusted=applyVoucherRankedAwayTime({phase:state.voucherTimerPhase,remainingSeconds:state.remainingSeconds,savedAtEpoch:state.timerSuspendedAt,nowEpoch:Date.now()});
+    state.remainingSeconds=adjusted.remainingSeconds;
+    state.timerSuspendedAt=null;
+    updateTimerDisplay();
+    persistProgress();
+    if(state.remainingSeconds!==null&&state.remainingSeconds<=0){showToast("The Ranked Challenge solve timer expired while you were away.");finishExam(true);return}
+    startTimerIfNeeded();
+    return;
+  }
 
   if(document.hidden){
     if(state.timerSuspendedAt)return;
@@ -3554,8 +5924,8 @@ document.addEventListener("visibilitychange",()=>{
   if(state.timerPolicy==="continuous-ranked"){
     if(state.remainingSeconds!==null)state.remainingSeconds=Math.max(0,state.remainingSeconds-awaySeconds);
     // Keep startedAt unchanged: ranked elapsed time includes time away.
-  }else{
-    // Practice / Instant Feedback / untimed study-style attempts pause elapsed time while away.
+  }else if(!(state.timerPolicy==="active-solve"&&state.solvePauseStartedAt)){
+    // Practice and active-solve sessions pause elapsed time while away.
     state.startedAt+=awayMs;
   }
 
@@ -3592,18 +5962,160 @@ function finishMistakesPractice(autoSubmitted=false){
     masteredGained,improving,autoSubmitted:Boolean(autoSubmitted),completedAt:new Date().toISOString()
   };
   clearExamProgress();
-  emitAnalytics("mistakes_practice_complete",{
+  const mode=state.examMode||resolveExamMode({exam:state.currentExam?.exam,feedbackMode:"instant",rankedActivity:false});
+  emitAnalytics(mode.analyticsCompleteEvent,{
     courseId:null,trackId:null,moduleId:null,examId:state.currentExam?.exam?.id||null,feedbackMode:"instant",
-    metadata:{questions:questions.length,correct:result.correct,masteredGained,ranked:false}
+    metadata:{questions:questions.length,correct:result.correct,masteredGained,ranked:false,modeId:mode.id}
   });
-  state.currentExam=null;state.currentRegistryItem=null;state.currentRankedActivity=false;
-  state.answers={};state.markedQuestions=[];state.currentIndex=0;state.mistakesPracticeKeys=[];
+  state.currentExam=null;state.currentRegistryItem=null;state.currentRankedActivity=false;state.examMode=null;
+  state.answers={};state.confirmedMultiAnswers={};state.markedQuestions=[];state.currentIndex=0;state.mistakesPracticeKeys=[];
   showToast(`${result.correct}/${questions.length} correct • My Mistakes updated`);
   routeTo("mistakesView");
 }
 
+function voucherDomainSectionBreakdown(questions=state.currentExam?.questions||[],answers=state.answers){
+  if(!isCurrentVoucherDomainRanked()||!state.voucherContentArchitecture)return calculateSubjectBreakdown();
+  const out={};
+  for(const q of questions){
+    const session=voucherDomainQuestionSession(q);
+    const label=session?.title||"PL-300 Section";
+    out[label] ||= {correct:0,wrong:0,unanswered:0,total:0};
+    const row=out[label];row.total+=1;
+    const selected=answers?.[q.id];
+    if(!isQuestionAnswered(q,selected))row.unanswered+=1;
+    else if(isAnswerCorrect(q,selected))row.correct+=1;
+    else row.wrong+=1;
+  }
+  return out;
+}
+
+function finishVoucherExam(autoSubmitted=false){
+  const ctx=state.currentExam?.exam?.generatedFromVoucher;
+  if(!ctx)return;
+  const domainRanked=isCurrentVoucherDomainRanked();
+  const sessionRanked=isCurrentVoucherSessionRanked();
+  const activeSolveRanked=domainRanked||sessionRanked;
+  if(activeSolveRanked)resumeActiveSolveClock();
+  stopTimer();
+
+  const questions=state.currentExam.questions;
+  const result=calculateResult(questions,state.answers);
+  const mode=state.examMode||resolveExamMode({exam:state.currentExam?.exam,feedbackMode:state.feedbackMode,rankedActivity:state.currentRankedActivity});
+  const rankedLearning=mode.voucherRankedLearning;
+  const allowed=Number(state.currentExam.exam.settings?.timer?.durationMinutes)||0;
+  const timeTakenSeconds=activeSolveRanked
+    ?activeSolveElapsedSeconds()
+    :rankedLearning
+      ?voucherRankedSolveTimeSeconds({allowedDurationMinutes:allowed,remainingSeconds:state.remainingSeconds})
+      :Math.max(0,Math.floor((Date.now()-state.startedAt)/1000));
+  const submittedAt=new Date().toISOString();
+  const clientAttemptId=createUuid();
+  const subjectBreakdown=domainRanked?voucherDomainSectionBreakdown(questions,state.answers):calculateSubjectBreakdown();
+  const topicBreakdown=topicPerformance(questions,state.answers);
+
+  let rankedMeta=null;
+  let rankEligible=false;
+  let previousRanked=null;
+  let readiness=null;
+  let improvementDelta=null;
+
+  if(domainRanked){
+    const domain=findVoucherContentArchitectureDomain({architecture:state.voucherContentArchitecture,domainId:ctx.domainId});
+    const sections=sessionsForVoucherDomain({architecture:state.voucherContentArchitecture,domainId:ctx.domainId});
+    const firstPassCorrect=currentFirstPassCorrect();
+    const attemptNumber=voucherRankedDomainLocalAttempts(ctx.voucherExamId,ctx.domainId).length+1;
+    rankedMeta=buildVoucherDomainAttemptMeta({
+      domainId:ctx.domainId,
+      domainTitle:domain?.title||ctx.domainTitle||state.currentExam.exam.title,
+      sectionIds:sections.map(section=>section.id),
+      result,totalQuestions:questions.length,firstPassCorrect,attemptNumber
+    });
+    rankEligible=rankedMeta.officialRankEligible;
+  }else if(sessionRanked){
+    const session=voucherArchitectureSession(ctx.sessionId);
+    const firstPassCorrect=currentFirstPassCorrect();
+    const attemptNumber=voucherRankedSessionLocalAttempts(ctx.voucherExamId,ctx.sessionId).length+1;
+    rankedMeta=buildVoucherSessionAttemptMeta({
+      sessionId:ctx.sessionId,domainId:ctx.domainId,sessionTitle:session?.title||state.currentExam.exam.title,
+      result,totalQuestions:questions.length,firstPassCorrect,attemptNumber
+    });
+    rankEligible=rankedMeta.officialRankEligible;
+  }else{
+    rankEligible=isVoucherRankEligibleAttempt({sizeMode:ctx.sizeMode,rankEligible:ctx.rankEligible===true,rankingMode:ctx.rankingMode});
+    previousRanked=getVoucherAttempts(mistakeOwnerId(),ctx.voucherExamId)
+      .filter(attempt=>attempt.rankEligible===true&&attempt.sizeMode==="real")
+      .sort((a,b)=>String(b.submittedAt||"").localeCompare(String(a.submittedAt||"")))[0]||null;
+    readiness=voucherReadinessLevel(result.percentage);
+    improvementDelta=rankedLearning&&previousRanked?result.percentage-Number(previousRanked.percentage||0):null;
+  }
+
+  const record={
+    id:clientAttemptId,
+    examId:ctx.voucherExamId,
+    runtimeExamId:state.currentExam.exam.id,
+    examTitle:state.currentExam.exam.title,
+    studentName:state.studentName,
+    trackId:ctx.trackId,
+    percentage:result.percentage,correct:result.correct,wrong:result.wrong,unanswered:result.unanswered,total:questions.length,
+    passed:result.percentage>=Number(state.currentExam.exam.settings?.passingScore??70),
+    timeTakenSeconds,submittedAt,autoSubmitted:Boolean(autoSubmitted),clientAttemptId,onlineSynced:false,
+    subjectBreakdown,topicBreakdown,excelBreakdown:null,officialContext:null,feedbackMode:state.feedbackMode,examCategory:"Voucher Mock",
+    mockKind:ctx.mockKind,sizeMode:ctx.sizeMode,sourceId:ctx.sourceId||null,timed:Boolean(ctx.timed),
+    allowedDurationMinutes:state.currentExam.exam.settings?.timer?.enabled?Number(state.currentExam.exam.settings.timer.durationMinutes)||null:null,
+    voucherMode:rankedMeta?.voucherMode||mode.resultMode||"practice",
+    rankingMode:domainRanked?"domain":sessionRanked?"session":ctx.rankingMode||null,
+    readinessLevel:activeSolveRanked?null:(rankedLearning?readiness?.label||null:null),
+    solveTimePolicy:activeSolveRanked?"active-solve":rankedLearning?"solve-only":null,
+    improvementDelta:activeSolveRanked?null:improvementDelta,
+    rankEligible,
+    ...(rankedMeta||{})
+  };
+
+  recordAttemptMistakeOutcomes(questions,state.answers,state.currentExam.exam);
+  markVoucherQuestionsSeen(mistakeOwnerId(),ctx.voucherExamId,questions.map(q=>q.id));
+  saveVoucherAttempt(mistakeOwnerId(),record);
+
+  let onlineAttempt=null;
+  if(domainRanked&&record.officialRankEligible){
+    onlineAttempt=buildOnlineAttemptPayload({
+      playerId:state.playerId,studentName:state.studentName,exam:state.currentExam.exam,result,totalQuestions:questions.length,
+      timeTakenSeconds,feedbackMode:state.feedbackMode,clientAttemptId,
+      examId:voucherDomainRankingActivityId(ctx.trackId,ctx.voucherExamId,ctx.domainId),
+      examTitle:`Voucher • PL-300 • ${record.domainTitle||ctx.domainId}`
+    });
+    Object.assign(onlineAttempt,buildVoucherDomainOnlineOverrides({totalQuestions:questions.length,firstPassCorrect:record.firstPassCorrect}));
+  }else if(sessionRanked&&record.officialRankEligible){
+    onlineAttempt=buildOnlineAttemptPayload({
+      playerId:state.playerId,studentName:state.studentName,exam:state.currentExam.exam,result,totalQuestions:questions.length,
+      timeTakenSeconds,feedbackMode:state.feedbackMode,clientAttemptId,
+      examId:voucherSessionRankingActivityId(ctx.trackId,ctx.voucherExamId,ctx.sessionId),
+      examTitle:`Voucher • PL-300 • ${record.sessionTitle||ctx.sessionId}`
+    });
+    Object.assign(onlineAttempt,buildVoucherSessionOnlineOverrides({totalQuestions:questions.length,firstPassCorrect:record.firstPassCorrect}));
+  }else if(!activeSolveRanked&&rankEligible){
+    onlineAttempt=buildOnlineAttemptPayload({
+      playerId:state.playerId,studentName:state.studentName,exam:state.currentExam.exam,result,totalQuestions:questions.length,
+      timeTakenSeconds,feedbackMode:state.feedbackMode,clientAttemptId,
+      examId:voucherRankingActivityId(ctx.trackId,ctx.voucherExamId,ctx.fullBankRanked?"full-bank":"real"),
+      examTitle:`Voucher • ${state.currentExam.exam.title}`
+    });
+  }
+  if(onlineAttempt)queuePendingAttempt(onlineAttempt);
+  clearExamProgress();
+
+  state.lastResult={...result,record,onlineAttempt,newBadges:[]};
+  renderResult();
+  emitAnalytics(mode.analyticsCompleteEvent,{
+    courseId:"voucher",trackId:ctx.trackId,moduleId:ctx.voucherExamId,examId:state.currentExam?.exam?.id||null,feedbackMode:state.feedbackMode,
+    metadata:{voucher:true,mockKind:ctx.mockKind,sizeMode:ctx.sizeMode,rankEligible,officialRankEligible:record.officialRankEligible??null,modeId:mode.id,rankingMode:record.rankingMode}
+  });
+  routeTo("resultView");
+  if(onlineAttempt)void syncFinishedAttempt(onlineAttempt);
+}
+
 function finishExam(autoSubmitted){
   if(state.currentExam?.exam?.generatedFromMistakes){finishMistakesPractice(autoSubmitted);return}
+  if(state.currentExam?.exam?.generatedFromVoucher){finishVoucherExam(autoSubmitted);return}
   stopTimer();
   const beforeAchievements=getAchievements(getUserResults()).filter(a=>a.unlocked).map(a=>a.id);
   const result=calculateResult(state.currentExam.questions,state.answers);
@@ -3614,31 +6126,18 @@ function finishExam(autoSubmitted){
   const topicBreakdown=topicPerformance(state.currentExam.questions,state.answers);
   const excelBreakdown=buildExcelTrackResultMetadata(state.currentExam.exam,state.currentExam.questions,state.answers);
   const officialContext=state.currentExam.exam.generatedFromOfficialQbank || null;
-  const record={
-    examId:state.currentExam.exam.id,examTitle:state.currentExam.exam.title,studentName:state.studentName,
-    percentage:result.percentage,correct:result.correct,wrong:result.wrong,unanswered:result.unanswered,
-    timeTakenSeconds,submittedAt:new Date().toISOString(),autoSubmitted,
-    clientAttemptId,onlineSynced:false,subjectBreakdown,topicBreakdown,excelBreakdown,officialContext,
-    feedbackMode:state.feedbackMode,examCategory:state.currentExam.exam.category || "Exam"
-  };
+  const submittedAt=new Date().toISOString();
+  const record=buildStandardResultRecord({
+    exam:state.currentExam.exam,result,studentName:state.studentName,timeTakenSeconds,submittedAt,autoSubmitted,clientAttemptId,
+    subjectBreakdown,topicBreakdown,excelBreakdown,officialContext,feedbackMode:state.feedbackMode
+  });
 
   recordAttemptMistakeOutcomes(state.currentExam.questions,state.answers,state.currentExam.exam);
 
-  const onlineAttempt={
-    player_id:state.playerId,
-    student_name:state.studentName,
-    exam_id:state.currentExam.exam.id,
-    exam_title:state.currentExam.exam.title,
-    exam_version:state.currentExam.exam.version || "1.0",
-    score:result.correct,
-    wrong:result.wrong,
-    unanswered:result.unanswered,
-    total_questions:state.currentExam.questions.length,
-    percentage:result.percentage,
-    time_taken_seconds:timeTakenSeconds,
-    feedback_mode:state.feedbackMode,
-    client_attempt_id:clientAttemptId
-  };
+  const onlineAttempt=buildOnlineAttemptPayload({
+    playerId:state.playerId,studentName:state.studentName,exam:state.currentExam.exam,result,totalQuestions:state.currentExam.questions.length,
+    timeTakenSeconds,feedbackMode:state.feedbackMode,clientAttemptId
+  });
 
   if(state.currentExam.exam.generatedFromOfficialQbank){
     const wrongByTrack={};
@@ -3662,13 +6161,14 @@ function finishExam(autoSubmitted){
   state.lastResult.newBadges=afterAchievements.filter(a=>!beforeAchievements.includes(a.id));
 
   renderResult();
-  emitAnalytics(state.feedbackMode==="instant"?"practice_complete":"exam_complete",{
+  const mode=state.examMode||resolveExamMode({exam:state.currentExam?.exam,feedbackMode:state.feedbackMode,rankedActivity:state.currentRankedActivity});
+  emitAnalytics(mode.analyticsCompleteEvent,{
     courseId:state.selectedCourse?.id||null,
     trackId:state.selectedTrack?.id||state.currentExam?.exam?.generatedFromOfficialQbank?.trackId||state.currentRegistryItem?.trackId||null,
     moduleId:state.selectedModule?.id||null,
     examId:state.currentExam?.exam?.id||null,
     feedbackMode:state.feedbackMode,
-    metadata:{official:Boolean(state.currentExam?.exam?.generatedFromOfficialQbank)}
+    metadata:{official:mode.official,modeId:mode.id}
   });
   routeTo("resultView");
   if(shouldSyncAttemptOnline(state.currentRankedActivity))syncFinishedAttempt(onlineAttempt);
@@ -3682,7 +6182,15 @@ async function syncFinishedAttempt(onlineAttempt){
     removePendingAttempt(onlineAttempt.client_attempt_id);
     markResultSynced(onlineAttempt.client_attempt_id);
 
-    const board=await getLeaderboard(onlineAttempt.exam_id);
+    const rankingId=String(onlineAttempt.exam_id||"");
+    const domainRanking=rankingId.includes("::domain::");
+    const sessionRanking=rankingId.includes("::session::");
+    const rows=(domainRanking||sessionRanking)?await fetchAttemptsForExamIds([onlineAttempt.exam_id]):null;
+    const board=domainRanking
+      ?buildVoucherDomainLeaderboard(rows,{expectedQuestions:Number(onlineAttempt.total_questions)||0})
+      :sessionRanking
+        ?buildVoucherSessionLeaderboard(rows,{expectedQuestions:Number(onlineAttempt.total_questions)||0})
+        :await getLeaderboard(onlineAttempt.exam_id);
     const me=board.find(x=>x.player_id===state.playerId);
     setResultSyncUI("synced",me,board);
   }catch(error){
@@ -3718,7 +6226,17 @@ function setResultSyncUI(mode,me=null,board=[]){
   if(me){
     rank.textContent=`#${me.rank} of ${board.length}`;
     const previous=board[me.rank-2];
-    if(me.rank===1){
+    const sessionRanking=Number.isFinite(Number(me.firstPassPercentage))&&Number.isFinite(Number(me.attemptCount));
+    if(sessionRanking){
+      if(me.rank===1){
+        status.textContent=`You are #1 • Mastery ${Number(me.percentage)||0}% • First Pass ${Number(me.firstPassPercentage)||0}% • reached in ${Number(me.attemptCount)||1} attempt${Number(me.attemptCount)===1?"":"s"}.`;
+      }else if(previous){
+        if(Number(previous.percentage)>Number(me.percentage))status.textContent=`${Math.round((Number(previous.percentage)-Number(me.percentage))*10)/10} mastery point${Number(previous.percentage)-Number(me.percentage)===1?"":"s"} behind #${previous.rank}.`;
+        else if(Number(previous.firstPassPercentage)>Number(me.firstPassPercentage))status.textContent=`Same Mastery; First Pass is ${Math.round((Number(previous.firstPassPercentage)-Number(me.firstPassPercentage))*10)/10} point${Number(previous.firstPassPercentage)-Number(me.firstPassPercentage)===1?"":"s"} behind #${previous.rank}.`;
+        else if(Number(previous.attemptCount)<Number(me.attemptCount))status.textContent=`Same Mastery and First Pass; #${previous.rank} reached that result in fewer Attempts.`;
+        else status.textContent=`Same Mastery, First Pass and Attempts; Active Solve Time is the tie-breaker.`;
+      }else status.textContent="Your official ranked-learning attempt is now on the shared leaderboard.";
+    }else if(me.rank===1){
       status.textContent="You are currently #1 on this exam.";
     }else if(previous){
       if(previous.percentage>me.percentage){
@@ -3766,18 +6284,7 @@ function escapeHtml(value){
 }
 
 function calculateSubjectBreakdown(){
-  const groups={};
-  for(const q of state.currentExam?.questions || []){
-    const label=q.track || q.trackId;
-    if(!label) continue;
-    groups[label] ||= {total:0,correct:0,wrong:0,unanswered:0};
-    groups[label].total++;
-    const selected=state.answers[q.id] ?? null;
-    if(selected===null) groups[label].unanswered++;
-    else if(selected===q.correctAnswer) groups[label].correct++;
-    else groups[label].wrong++;
-  }
-  return groups;
+  return buildExamSubjectBreakdown(state.currentExam?.questions||[],state.answers);
 }
 
 function renderTopicBreakdown(){
@@ -3829,6 +6336,10 @@ function renderExcelTrackBreakdown(){
 function renderSubjectBreakdown(){
   const section=$("resultSubjectBreakdown");
   const grid=$("resultSubjectBreakdownGrid");
+  const rankedDomain=state.lastResult?.record?.voucherMode==="ranked-domain";
+  const eyebrow=section?.querySelector(".eyebrow"),title=section?.querySelector("h3");
+  if(eyebrow)eyebrow.textContent=rankedDomain?"SECTION ANALYTICS":"SUBJECT BREAKDOWN";
+  if(title)title.textContent=rankedDomain?"Performance by PL-300 section":"Performance by track";
   const data=state.lastResult?.record?.subjectBreakdown || {};
   const entries=Object.entries(data);
   if(entries.length<2){
@@ -3861,16 +6372,20 @@ function animateScore(target){
 function renderResult(){
   const {record}=state.lastResult,score=state.lastResult,pass=state.currentExam.exam.settings?.passingScore ?? 60;
   const officialCtx=state.currentExam.exam.generatedFromOfficialQbank || null;
-  setResultSyncUI(shouldSyncAttemptOnline(state.currentRankedActivity)?"syncing":"local");
-  let headline="Keep practicing";
-  if(officialCtx?.kind==="section")headline="Section Completed";
-  else if(record.percentage>=90)headline="Excellent work";
-  else if(record.percentage>=80)headline="Great job";
-  else if(record.percentage>=pass)headline="Good progress";
-  $("resultHeadline").textContent=headline;
-  $("resultSubline").textContent=officialCtx?.kind==="section"
-    ?`${officialLevelMeta(officialCtx.levelId)?.title || "Data Analysis"} • ${state.currentExam.exam.module} • Section ${officialCtx.sectionNumber} — your attempt is saved and ranked by your best score.`
-    :"Your attempt has been saved on this device.";
+  const voucherCtx=state.currentExam.exam.generatedFromVoucher || null;
+  const rankedDomainResult=Boolean(voucherCtx&&record.voucherMode==="ranked-domain");
+  const rankedSessionResult=Boolean(voucherCtx&&record.voucherMode==="ranked-session");
+  setResultSyncUI(voucherCtx?(record.rankEligible?"syncing":"local"):shouldSyncAttemptOnline(state.currentRankedActivity)?"syncing":"local");
+  $("resultHeadline").textContent=resultHeadline({percentage:record.percentage,passingScore:pass,officialKind:officialCtx?.kind||null});
+  $("resultSubline").textContent=rankedDomainResult
+    ?`${record.domainTitle||"PL-300 Domain"} • ${record.feedbackMode==="instant"?"Instant Feedback":"Feedback at End"} • ${record.officialRankEligible?"Official Domain Rank":"Provisional — complete every question for Official Domain Rank"}.`
+    :rankedSessionResult
+      ?`${record.sessionTitle||"PL-300 Session"} • Legacy Session Attempt.`
+      :voucherCtx
+      ?`${state.currentExam.exam.module} • ${voucherCtx.sizeMode==="real"?"Real Exam Size":voucherCtx.sizeMode==="full-ranked"?"Full Bank Ranked Exam":voucherCtx.mockKind==="source"?"Full Source Mock":`Random ${voucherCtx.sizeMode}`} — saved in your Voucher history${record.rankEligible?" and eligible for Voucher Ranking":""}.`
+      :officialCtx?.kind==="section"
+      ?`${officialLevelMeta(officialCtx.levelId)?.title || "Data Analysis"} • ${state.currentExam.exam.module} • Section ${officialCtx.sectionNumber} — your attempt is saved and ranked by your best score.`
+      :"Your attempt has been saved on this device.";
   $("resultPercent").textContent="0%";
   $("resultScore").textContent=`${record.correct} / ${state.currentExam.questions.length}`;
   $("correctCount").textContent=score.correct;$("wrongCount").textContent=score.wrong;$("unansweredCount").textContent=score.unanswered;
@@ -3881,11 +6396,24 @@ function renderResult(){
   $("celebration").classList.toggle("hidden",record.percentage<80);
   setTimeout(()=>animateScore(record.percentage),120);
 
-  const best=getBestForExam(record.examId,state.studentName);
+  const best=rankedDomainResult
+    ?voucherBestRankedDomainAttempt(voucherCtx.voucherExamId,record.domainId)
+    :rankedSessionResult
+      ?voucherBestRankedSessionAttempt(voucherCtx.voucherExamId,record.sessionId)
+    :voucherCtx?.fullBankRanked
+      ?getBestVoucherAttempt(mistakeOwnerId(),voucherCtx.voucherExamId,{rankEligibleOnly:true,sizeMode:"full-ranked"})
+      :voucherCtx?getBestVoucherAttempt(mistakeOwnerId(),voucherCtx.voucherExamId,{rankEligibleOnly:Boolean(record.rankEligible),sizeMode:record.rankEligible?"real":null}):getBestForExam(record.examId,state.studentName);
   $("resultBestScore").textContent=best?`${best.percentage}%`:`${record.percentage}%`;
   const resultCtx=state.currentExam.exam.generatedFromOfficialQbank || null;
-  $("viewResultRankingBtn").classList.toggle("hidden",!state.currentRankedActivity);
-  if(resultCtx?.kind==="section"){
+  const rankedVoucherResult=Boolean(voucherCtx&&record.voucherMode==="ranked-learning");
+  $("viewResultRankingBtn").classList.toggle("hidden",voucherCtx?(rankedDomainResult?false:rankedSessionResult?false:!record.rankEligible):!state.currentRankedActivity);
+  $("voucherResultImproveBtn")?.classList.toggle("hidden",rankedDomainResult||!rankedVoucherResult||rankedSessionResult);
+  $("reviewBtn")?.classList.toggle("primary-btn",rankedDomainResult||!rankedVoucherResult||rankedSessionResult);
+  $("reviewBtn")?.classList.toggle("secondary-btn",!rankedDomainResult&&rankedVoucherResult&&!rankedSessionResult);
+  if(voucherCtx){
+    $("nextExamBtn").textContent=(rankedDomainResult||rankedSessionResult)?"Back to PL-300 →":"Back to Voucher Exam →";
+    $("retakeBtn").textContent=rankedDomainResult?"Retake Domain":rankedSessionResult?"Retake Legacy Session":voucherCtx.fullBankRanked?"Retake Full Bank Ranked Exam":rankedVoucherResult?"Retake Ranked Challenge":"Build Another Mock";
+  }else if(resultCtx?.kind==="section"){
     const meta=officialTrackMeta(resultCtx.trackId);
     const hasNext=Boolean(meta?.sections?.some(s=>s.sectionNumber===resultCtx.sectionNumber+1));
     $("nextExamBtn").textContent=hasNext?"Next Section →":"Back to Track →";
@@ -3902,7 +6430,18 @@ function renderResult(){
   }
 
   const improve=$("improvementMessage");
-  if(state.previousBest && record.percentage>state.previousBest.percentage){
+  if(rankedDomainResult){
+    improve.textContent=`First-Pass Accuracy: ${Number(record.firstPassPercentage)||0}% • ${record.officialRankEligible?"Official Domain Rank eligible":"Provisional — answer every question to join the shared Domain Ranking"} • Active Solve Time ${formatDuration(record.timeTakenSeconds)}. Section breakdown below shows where to review next.`;
+    improve.classList.remove("hidden");
+  }else if(rankedSessionResult){
+    improve.textContent=`Legacy Session result • First-Pass Accuracy ${Number(record.firstPassPercentage)||0}% • Active Solve Time ${formatDuration(record.timeTakenSeconds)}.`;
+    improve.classList.remove("hidden");
+  }else if(rankedVoucherResult){
+    const delta=Number(record.improvementDelta);
+    const deltaText=Number.isFinite(delta)?(delta>0?` • ↗ +${delta}% vs previous ranked attempt`:delta<0?` • ${delta}% vs previous ranked attempt`:` • matched your previous ranked score`):"";
+    improve.textContent=`Digilians Readiness: ${record.readinessLevel||voucherReadinessLevel(record.percentage).label}${deltaText}. Use Improve My Level to focus on weak domains, mistakes and unseen questions.`;
+    improve.classList.remove("hidden");
+  }else if(state.previousBest && record.percentage>state.previousBest.percentage){
     improve.textContent=`↗ Improved by ${record.percentage-state.previousBest.percentage}% from your previous best.`;
     improve.classList.remove("hidden");
   }else improve.classList.add("hidden");
@@ -3915,21 +6454,58 @@ function renderResult(){
 }
 $("reviewBtn").addEventListener("click",renderReview);
 $("viewMistakesBtn")?.addEventListener("click",()=>routeTo("mistakesView"));
-$("retakeBtn").addEventListener("click",()=>routeTo("setupView"));
-$("reviewRetakeBtn").addEventListener("click",()=>routeTo("setupView"));
+$("voucherResultImproveBtn")?.addEventListener("click",()=>{
+  if(state.voucherExamConfig)void prepareVoucherImprovementSession(state.voucherExamConfig);
+  else routeTo("voucherExamView");
+});
+$("retakeBtn").addEventListener("click",()=>{
+  const voucherCtx=state.currentExam?.exam?.generatedFromVoucher;
+  if(voucherCtx&&state.lastResult?.record?.voucherMode==="ranked-domain"){
+    void prepareVoucherRankedDomain(voucherCtx.domainId,{feedbackMode:state.lastResult.record.feedbackMode||"instant",timerDisplay:voucherCtx.timerDisplay!==false});
+    return;
+  }
+  if(voucherCtx&&state.lastResult?.record?.voucherMode==="ranked-session"){
+    const ctx=voucherCtx;
+    void prepareVoucherRankedSession(ctx.sessionId,{feedbackMode:state.lastResult.record.feedbackMode||"instant",timerDisplay:ctx.timerDisplay!==false});
+    return;
+  }
+  if(voucherCtx&&state.lastResult?.record?.voucherMode==="full-bank-ranked"){
+    void prepareVoucherMock({mockKind:"random",sizeMode:"full-ranked",sourceId:null,timed:true,feedbackMode:"exam",fullBankRanked:true});
+    return;
+  }
+  if(voucherCtx&&state.lastResult?.record?.voucherMode==="ranked-learning"){
+    void prepareVoucherMock({mockKind:"random",sizeMode:"real",sourceId:null,timed:true,feedbackMode:"instant",rankedLearning:true});
+    return;
+  }
+  routeTo(voucherCtx?"voucherExamView":"setupView");
+});
+$("reviewRetakeBtn").addEventListener("click",()=>routeTo(state.currentExam?.exam?.generatedFromVoucher?"voucherExamView":"setupView"));
 $("viewResultRankingBtn").addEventListener("click",()=>{
   if(!state.lastResult?.record?.examId)return;
+  const voucherCtx=state.currentExam?.exam?.generatedFromVoucher;
+  if(voucherCtx){
+    if(state.lastResult?.record?.voucherMode==="ranked-domain")openVoucherDomainRanking(voucherCtx.trackId,voucherCtx.voucherExamId,voucherCtx.domainId);
+    else if(state.lastResult?.record?.voucherMode==="ranked-session")openVoucherSessionRanking(voucherCtx.trackId,voucherCtx.voucherExamId,voucherCtx.sessionId);
+    else if(voucherCtx.fullBankRanked)openVoucherFullBankRanking(voucherCtx.trackId,voucherCtx.voucherExamId);
+    else openVoucherExamRanking(voucherCtx.trackId,voucherCtx.voucherExamId);
+    return;
+  }
   requireRankedIdentity(()=>{
     state.rankingMode="exam";
     state.rankingExamId=state.lastResult.record.examId;
-    try{
-      localStorage.setItem("digilians_ranking_mode","exam");
-      localStorage.setItem("digilians_last_ranking_exam_id",state.rankingExamId);
-    }catch{}
+    persistRankingMode("exam");
+    setLastRankingExamId(state.rankingExamId);
     routeTo("rankingView");
   },"Enter your name to open this leaderboard.");
 });
 $("nextExamBtn").addEventListener("click",()=>{
+  const voucherCtx=state.currentExam?.exam?.generatedFromVoucher;
+  if(voucherCtx){
+    state.voucherTrackId=voucherCtx.trackId||state.voucherTrackId;
+    state.voucherExamId=voucherCtx.voucherExamId||state.voucherExamId;
+    routeTo("voucherExamView");
+    return;
+  }
   const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
   if(ctx?.kind==="section"){
     const meta=officialTrackMeta(ctx.trackId);
@@ -3961,22 +6537,22 @@ function renderReview(){
   const list=$("reviewList");list.innerHTML="";$("reviewTitle").textContent=state.currentExam.exam.title;
   state.currentExam.questions.forEach((q,index)=>{
     const selected=state.answers[q.id] ?? null;
-    const selectedOption=q.options.find(o=>o.id===selected),correctOption=q.options.find(o=>o.id===q.correctAnswer);
-    const isCorrect=selected===q.correctAnswer;
+    const selectedIds=selectedAnswerIds(selected),correctIds=correctAnswerIds(q);
+    const isCorrect=isAnswerCorrect(q,selected);
     const item=document.createElement("article");item.className="review-item";
     item.innerHTML=`
       <span class="eyebrow">QUESTION ${String(index+1).padStart(2,"0")}</span>
       <div class="review-question-content">${renderTechnicalQuestion(q.question,q)}</div>
       <div class="review-answer ${isCorrect?"correct":"wrong"}"><strong>Your answer:</strong>
-        ${selected?`<span class="review-answer-id">${escapeHtml(selected)}.</span> ${renderTechnicalOption(selectedOption?.text || "",q)}`:"Unanswered"}
+        ${isQuestionAnswered(q,selected)?`<span class="review-answer-id">${escapeHtml(answerDisplayText(q,selected))}</span> ${answerOptionText(q,selected)}`:"Unanswered"}
       </div>
       <div class="review-answer correct"><strong>Correct answer:</strong>
-        <span class="review-answer-id">${escapeHtml(q.correctAnswer)}.</span> ${renderTechnicalOption(correctOption?.text || "",q)}
+        <span class="review-answer-id">${escapeHtml(answerDisplayText(q,correctIds))}</span> ${answerOptionText(q,correctIds)}
       </div>
       <div class="review-explanation">
         <strong>Explanation:</strong><br>
         <div dir="rtl">${renderTechnicalRichText(q.deepExplanation?.summary || q.aiExplanation?.ar || q.explanation?.ar || q.explanation?.en || "No explanation provided.",q)}</div>
-        ${q.deepExplanation?`<div class="review-option-reasons" dir="rtl">${q.options.map(o=>`<p><b>${escapeHtml(o.id)} ${o.id===q.correctAnswer?"✓":"✕"}:</b> ${renderTechnicalRichText(q.deepExplanation.options?.[o.id]||"",q)}</p>`).join("")}</div>`:""}
+        ${q.deepExplanation?`<div class="review-option-reasons" dir="rtl">${q.options.map(o=>`<p><b>${escapeHtml(optionDisplayLabel(q,o.id))} ${correctIds.includes(String(o.id))?"✓":"✕"}:</b> ${renderTechnicalRichText(q.deepExplanation.options?.[o.id]||"",q)}</p>`).join("")}</div>`:""}
       </div>`;
     list.appendChild(item);
   });
@@ -3984,6 +6560,8 @@ function renderReview(){
 }
 
 $("reviewHomeBtn").addEventListener("click",()=>{
+  const voucherCtx=state.currentExam?.exam?.generatedFromVoucher;
+  if(voucherCtx){routeTo("voucherExamView");return}
   const ctx=state.currentExam?.exam?.generatedFromOfficialQbank;
   if(ctx?.kind==="section"||ctx?.kind==="track-random"){
     state.officialLevelId=ctx.levelId || state.officialLevelId;
@@ -4061,7 +6639,7 @@ function populateRankingExamSelect(){
   const availableIds=[...select.options].map(o=>o.value),validDataIds=dataAnalysisIds.filter(id=>availableIds.includes(id));let preferred="";
   if(state.rankingExamId && availableIds.includes(state.rankingExamId))preferred=state.rankingExamId;
   try{
-    const last=localStorage.getItem("digilians_last_ranking_exam_id")||"";
+    const last=getRankingPreferences().lastExamId;
     if(!preferred && last && availableIds.includes(last))preferred=last;
   }catch{}
   if(!preferred&&validDataIds.length){
@@ -4079,24 +6657,6 @@ function populateRankingExamSelect(){
   select.value=preferred;state.rankingExamId=select.value||preferred;
 }
 
-function rankingLevel(levelId){
-  return (state.officialRegistry.levels||[]).find(x=>x.levelId===levelId)||null;
-}
-function fixedSectionCatalog(levelId,trackId=null){
-  const level=rankingLevel(levelId);
-  if(!level)return [];
-  return (level.tracks||[])
-    .filter(track=>!trackId || track.trackId===trackId)
-    .flatMap(track=>(track.sections||[]).map(section=>({
-      examId:officialSectionExamId(level.levelId,track.trackId,section.sectionNumber,track.sourceRevision||"source-r1"),
-      levelId:level.levelId,
-      trackId:track.trackId,
-      track:track.track,
-      sectionId:section.sectionId,
-      sectionTitle:section.title,
-      questionCount:section.questionCount
-    })));
-}
 function populateRankingTrackControls(){
   const levelSelect=$("rankingTrackLevelSelect"),trackSelect=$("rankingTrackSelect");
   if(!levelSelect||!trackSelect)return;
@@ -4111,7 +6671,7 @@ function populateRankingTrackControls(){
   if(!levels.some(x=>x.levelId===state.rankingTrackLevelId))state.rankingTrackLevelId=levels[0]?.levelId||"junior-data-analysis";
   levelSelect.value=state.rankingTrackLevelId;
 
-  const level=rankingLevel(state.rankingTrackLevelId);
+  const level=findRankingLevel(state.officialRegistry,state.rankingTrackLevelId);
   trackSelect.innerHTML="";
   for(const track of level?.tracks||[]){
     const option=document.createElement("option");
@@ -4121,35 +6681,37 @@ function populateRankingTrackControls(){
   if(!(level?.tracks||[]).some(x=>x.trackId===state.rankingTrackId))state.rankingTrackId=level?.tracks?.[0]?.trackId||null;
   trackSelect.value=state.rankingTrackId||"";
 }
-function rankingModeLevelId(){
-  if(state.rankingMode==="professional-overall")return "professional-data-analysis";
-  if(state.rankingMode==="track")return state.rankingTrackLevelId;
-  return "junior-data-analysis";
-}
-function rankingScopeForMode(){
-  if(state.rankingMode==="exam")return null;
-  const levelId=rankingModeLevelId();
-  const level=rankingLevel(levelId);
-  const track=state.rankingMode==="track"?(level?.tracks||[]).find(x=>x.trackId===state.rankingTrackId):null;
-  const sections=fixedSectionCatalog(levelId,track?.trackId||null);
-  return {
-    levelId,level,track,sections,
-    name:track?`${level.title} • ${track.track}`:level?.title||"Official QBank",
-    maxScore:sections.reduce((sum,s)=>sum+s.questionCount,0),
-    sectionCount:sections.length
-  };
-}
 function setRankingMode(mode,{render=true}={}){
   state.rankingMode=mode;
-  try{localStorage.setItem("digilians_ranking_mode",mode)}catch{}
+  persistRankingMode(mode);
   if(render)renderRanking();
 }
+function isVoucherRankingCenterMode(mode=state.rankingMode){
+  return mode==="voucher-exam"||mode==="voucher-track";
+}
+
+function populateVoucherRankingControls(){
+  const trackSelect=$("rankingVoucherTrackSelect");
+  if(!trackSelect)return;
+  const tracks=state.voucherRegistry?.tracks||[];
+  const preferred=state.voucherRankingTrackId||getPrimaryTrack()||tracks[0]?.id||"";
+  state.voucherRankingTrackId=tracks.some(track=>track.id===preferred)?preferred:(tracks[0]?.id||"");
+  trackSelect.innerHTML=tracks.length
+    ?tracks.map(track=>`<option value="${escapeHtml(track.id)}">${escapeHtml(track.title)}</option>`).join("")
+    :'<option value="">No Voucher tracks</option>';
+  trackSelect.value=state.voucherRankingTrackId||"";
+  trackSelect.disabled=!tracks.length;
+  $("rankingVoucherExamField")?.classList.toggle("hidden",state.rankingMode!=="voucher-exam");
+}
+
 function syncRankingModeUI(){
   document.querySelectorAll("[data-ranking-mode]").forEach(btn=>btn.classList.toggle("active",btn.dataset.rankingMode===state.rankingMode));
   $("rankingTrackToolbar").classList.toggle("hidden",state.rankingMode!=="track");
   $("rankingExamToolbar").classList.toggle("hidden",state.rankingMode!=="exam");
+  $("rankingVoucherToolbar")?.classList.toggle("hidden",!isVoucherRankingCenterMode());
   $("rankingScopeSummary").classList.toggle("hidden",state.rankingMode==="exam");
   populateRankingTrackControls();
+  populateVoucherRankingControls();
   if(state.rankingMode==="exam")populateRankingExamSelect();
 }
 
@@ -4236,7 +6798,7 @@ async function syncCurrentAvatarToRanking(){
   }
 }
 
-function renderPodium(board,{aggregate=false,maxScore=0}={}){
+function renderPodium(board,{aggregate=false,maxScore=0,unitLabel="sections"}={}){
   const podium=$("leaderboardPodium");podium.innerHTML="";
   if(!board.length){
     podium.innerHTML=`<div class="status-card info"><div class="status-icon">✦</div><div><strong>Be the first on this leaderboard</strong><p>No shared ranked results have been submitted for this scope yet.</p></div></div>`;
@@ -4249,7 +6811,7 @@ function renderPodium(board,{aggregate=false,maxScore=0}={}){
     const classes=entry.rank===1?"first":entry.rank===2?"second":"third";
     place.className=`podium-place ${classes} ${entry.player_id===state.playerId?"you":""}`;
     const main=aggregate?`${entry.totalScore}/${maxScore}`:`${entry.percentage}%`;
-    const sub=aggregate?`${entry.completedSections}/${entry.totalSections} sections • ${entry.percentage}%`:"Best attempt";
+    const sub=aggregate?`${entry.completedSections}/${entry.totalSections} ${unitLabel} • ${entry.percentage}%`:"Best attempt";
     place.innerHTML=`
       <span>${entry.rank}</span>
       ${rankingAvatarHtml(entry,entry.player_id===state.playerId)}
@@ -4302,10 +6864,10 @@ function renderOnlineLeaderboard(board){
     }
   }
 }
-function renderAggregateLeaderboard(result,scope){
+function renderAggregateLeaderboard(result,scope,{unitLabel="sections"}={}){
   setAggregateTableMode();
   const {board,maxScore,totalSections}=result;
-  renderPodium(board,{aggregate:true,maxScore});
+  renderPodium(board,{aggregate:true,maxScore,unitLabel});
   const list=$("leaderboardList");list.innerHTML="";
 
   if(!board.length){
@@ -4336,15 +6898,15 @@ function renderAggregateLeaderboard(result,scope){
 
   const gap=$("rankingGap");
   if(!me){
-    gap.textContent=`Solve the fixed sections in ${scope.name} to enter this Total Grades ranking.`;
+    gap.textContent=unitLabel==="exams"?`Complete ranked Real Exam Size attempts in ${scope.name} to enter this Overall ranking.`:`Solve the fixed sections in ${scope.name} to enter this Total Grades ranking.`;
   }else if(me.rank===1){
     gap.textContent=me.completedSections===totalSections
-      ?"You completed the full scope and currently lead the Total Grades ranking."
-      :`You currently lead with ${me.completedSections}/${totalSections} fixed sections completed.`;
+      ?`You completed the full ${unitLabel==="exams"?"Voucher exam":"section"} scope and currently lead this ranking.`
+      :`You currently lead with ${me.completedSections}/${totalSections} ${unitLabel} completed.`;
   }else{
     const previous=board[me.rank-2];
     if(previous.completedSections>me.completedSections){
-      gap.textContent=`Complete ${previous.completedSections-me.completedSections} more fixed section${previous.completedSections-me.completedSections===1?"":"s"} to match #${previous.rank}'s completion.`;
+      gap.textContent=`Complete ${previous.completedSections-me.completedSections} more ${unitLabel==="exams"?"ranked exam":"fixed section"}${previous.completedSections-me.completedSections===1?"":"s"} to match #${previous.rank}'s completion.`;
     }else if(previous.totalScore>me.totalScore){
       gap.textContent=`You are ${previous.totalScore-me.totalScore} mark${previous.totalScore-me.totalScore===1?"":"s"} behind #${previous.rank}.`;
     }else{
@@ -4352,8 +6914,17 @@ function renderAggregateLeaderboard(result,scope){
     }
   }
 }
+function setRankingSummaryLabels({name="Scope",marks="Total Marks",sections="Fixed Sections",scoring="Scoring"}={}){
+  $("rankingScopeNameLabel").textContent=name;
+  $("rankingScopeMarksLabel").textContent=marks;
+  $("rankingScopeSectionsLabel").textContent=sections;
+  $("rankingScopeScoringLabel").textContent=scoring;
+}
+
 function updateRankingScopeSummary(scope){
   if(!scope)return;
+  setRankingSummaryLabels();
+  $("rankingRuleIcon").textContent="Σ";
   $("rankingScopeName").textContent=scope.name;
   $("rankingScopeMarks").textContent=scope.maxScore;
   $("rankingScopeSections").textContent=scope.sectionCount;
@@ -4365,16 +6936,152 @@ function updateRankingScopeSummary(scope){
     ?`Best attempt from each fixed ${scope.track.track} section. Completion ranks first, then total marks, then total time. Random Practice/Exam do not add marks.`
     :`Best attempt per fixed section across the full ${scope.level?.title||"bank"}. Completion ranks first, then total marks, then total time. Random Practice, Random Exam and Final simulations do not add marks.`;
 }
+
+function showVoucherRankingCenterEmpty(title,message){
+  const status=$("leaderboardStatus"),content=$("leaderboardContent");
+  status.className="status-card info";
+  status.classList.remove("hidden");
+  status.innerHTML=`<div class="status-icon">V</div><div><strong>${escapeHtml(title)}</strong><p>${escapeHtml(message)}</p></div>`;
+  content.classList.add("hidden");
+}
+
+function updateVoucherRankingCenterSummary({mode,trackId,examSpec=null,examSpecs=[]}={}){
+  const meta=voucherTrackMeta(trackId);
+  const totalMarks=mode==="voucher-track"
+    ?examSpecs.reduce((sum,item)=>sum+(Number(item.totalQuestions)||0),0)
+    :(Number(examSpec?.totalQuestions)||0);
+  $("rankingRuleIcon").textContent="V";
+  if(mode==="voucher-track"){
+    setRankingSummaryLabels({sections:"Ranked Exams"});
+    $("rankingScopeName").textContent=`${meta?.title||"Voucher"} Voucher`;
+    $("rankingScopeMarks").textContent=totalMarks;
+    $("rankingScopeSections").textContent=examSpecs.length;
+    $("rankingScopeScoring").textContent="Best Real Exam Size";
+    $("rankingRuleTitle").textContent="Voucher Track Overall";
+    $("rankingRuleText").textContent="Best Real Exam Size attempt from every released Voucher exam. Total correct answers use the fixed total question volume; only Primary Track members enter the Overall ranking.";
+  }else{
+    setRankingSummaryLabels({sections:"Mode"});
+    $("rankingScopeName").textContent=examSpec?.title||"Voucher Exam";
+    $("rankingScopeMarks").textContent=totalMarks||"—";
+    $("rankingScopeSections").textContent="Real Exam Size";
+    $("rankingScopeScoring").textContent="Best Attempt";
+    $("rankingRuleTitle").textContent="Voucher Exam Leaderboard";
+    $("rankingRuleText").textContent="Real Exam Size only. Best attempt per learner; higher score ranks first and faster completion time breaks ties.";
+  }
+}
+
+async function populateVoucherRankingExamSelect(trackId){
+  const select=$("rankingVoucherExamSelect");
+  if(!select)return [];
+  select.disabled=true;
+  select.innerHTML='<option value="">Loading released Real Exams…</option>';
+  const specs=await voucherRankedExamSpecs(trackId);
+  if(!specs.length){
+    state.voucherRankingExamId=null;
+    select.innerHTML='<option value="">No released Real Exams yet</option>';
+    return [];
+  }
+  if(!specs.some(spec=>spec.examId===state.voucherRankingExamId))state.voucherRankingExamId=specs[0].examId;
+  select.innerHTML=specs.map(spec=>`<option value="${escapeHtml(spec.examId)}">${escapeHtml(spec.title)}</option>`).join("");
+  select.value=state.voucherRankingExamId;
+  select.disabled=false;
+  return specs;
+}
+
+async function renderVoucherRankingCenter(requestId){
+  const mode=state.rankingMode;
+  const tracks=state.voucherRegistry?.tracks||[];
+  if(!state.voucherRankingTrackId)state.voucherRankingTrackId=getPrimaryTrack()||tracks[0]?.id||"";
+  const trackId=state.voucherRankingTrackId;
+  populateVoucherRankingControls();
+  setRankingLoading("Loading released Voucher Real Exam leaderboards.");
+
+  if(!trackId){
+    updateVoucherRankingCenterSummary({mode,trackId:"",examSpecs:[]});
+    showVoucherRankingCenterEmpty("No Voucher tracks are available","Voucher ranking will appear here after the Voucher registry is available.");
+    return;
+  }
+
+  let specs=[];
+  try{specs=await populateVoucherRankingExamSelect(trackId)}catch(error){
+    if(requestId===state.rankingRequestId)showRankingError(error);
+    return;
+  }
+  if(requestId!==state.rankingRequestId)return;
+
+  if(!specs.length){
+    updateVoucherRankingCenterSummary({mode,trackId,examSpecs:[]});
+    const title=mode==="voucher-track"?"No Voucher exams have been released yet":"No rank-eligible Real Exam is available in this track yet";
+    const message=mode==="voucher-track"
+      ?"Track Overall activates automatically after the first released Voucher exam has a Real Exam Size configuration."
+      :"Voucher Exam Ranking activates automatically after a released exam has a rank-eligible Real Exam Size.";
+    showVoucherRankingCenterEmpty(title,message);
+    return;
+  }
+
+  if(mode==="voucher-exam"){
+    const spec=specs.find(item=>item.examId===state.voucherRankingExamId)||specs[0];
+    state.voucherRankingExamId=spec.examId;
+    $("rankingVoucherExamSelect").value=spec.examId;
+    updateVoucherRankingCenterSummary({mode,trackId,examSpec:spec,examSpecs:specs});
+    try{
+      const rows=await fetchAttemptsForExamIds([spec.activityId]);
+      if(requestId!==state.rankingRequestId)return;
+      const board=buildVoucherExamLeaderboard(rows);
+      await refreshSharedRankingAvatars(board);
+      if(requestId!==state.rankingRequestId)return;
+      renderOnlineLeaderboard(board);
+      $("rankingAttemptsLabel").textContent="Real Attempts";
+      $("rankingAttempts").textContent=getVoucherAttempts(state.playerId,spec.examId).filter(attempt=>attempt?.rankEligible===true).length;
+      const me=board.find(row=>row.player_id===state.playerId);
+      if(!me)$("rankingGap").textContent="Complete this Voucher Real Exam Size attempt to join the leaderboard.";
+      showRankingContent();
+    }catch(error){if(requestId===state.rankingRequestId)showRankingError(error)}
+    return;
+  }
+
+  updateVoucherRankingCenterSummary({mode,trackId,examSpecs:specs});
+  try{
+    const rows=await fetchAttemptsForExamIds(specs.map(spec=>spec.activityId));
+    if(requestId!==state.rankingRequestId)return;
+    const playerIds=[...new Set(rows.map(row=>row.player_id).filter(Boolean))];
+    let primaryTracks;
+    try{
+      if(state.playerId&&getPrimaryTrack())await syncVoucherPrimaryTrack(state.playerId,getPrimaryTrack());
+      primaryTracks=await fetchVoucherPrimaryTracks(playerIds);
+    }catch{
+      throw new Error("Voucher Track Overall needs the Voucher Profiles Supabase migration and an online connection.");
+    }
+    const board=buildVoucherTrackOverallLeaderboard({trackId,exams:specs,rows,primaryTracks});
+    const normalized=board.map(row=>({...row,totalScore:row.totalCorrect,completedSections:row.completedExams,totalSections:row.totalExams}));
+    await refreshSharedRankingAvatars(normalized);
+    if(requestId!==state.rankingRequestId)return;
+    renderAggregateLeaderboard({board:normalized,maxScore:specs.reduce((sum,item)=>sum+(Number(item.totalQuestions)||0),0),totalSections:specs.length},{name:`${voucherTrackMeta(trackId)?.title||trackId} Voucher`},{unitLabel:"exams"});
+    $("rankingBestLabel").textContent="Total Correct";
+    $("rankingAttemptsLabel").textContent="Ranked Exams";
+    const primary=getPrimaryTrack();
+    const me=board.find(row=>row.player_id===state.playerId);
+    if(primary!==trackId){
+      $("rankingGap").textContent=`View only: your Primary Track is ${primaryTrackTitle(primary)||"not selected"}. Only ${voucherTrackMeta(trackId)?.title||trackId} members enter this Overall ranking.`;
+    }else if(!me){
+      $("rankingGap").textContent="Complete a Real Exam Size attempt in this Voucher track to enter Track Overall.";
+    }
+    showRankingContent();
+  }catch(error){if(requestId===state.rankingRequestId)showRankingError(error)}
+}
 async function renderRanking(){
   $("rankingLocalName").textContent=state.studentName || "Guest";
   const requestId=++state.rankingRequestId;
 
-  try{
-    const savedMode=localStorage.getItem("digilians_ranking_mode");
-    if(savedMode && ["junior-overall","professional-overall","track","exam"].includes(savedMode) && !state.rankingMode)state.rankingMode=savedMode;
-  }catch{}
+  const savedMode=getRankingPreferences().mode;
+  if(savedMode && isRankingMode(savedMode) && !state.rankingMode)state.rankingMode=savedMode;
 
   syncRankingModeUI();
+
+  if(state.rankingMode==="voucher-exam"||state.rankingMode==="voucher-track"){
+    await renderVoucherRankingCenter(requestId);
+    return;
+  }
 
   if(state.rankingMode==="exam"){
     $("rankingRuleTitle").textContent="Individual Exam Leaderboard";
@@ -4398,7 +7105,7 @@ async function renderRanking(){
     return;
   }
 
-  const scope=rankingScopeForMode();
+  const scope=buildRankingScope({mode:state.rankingMode,trackLevelId:state.rankingTrackLevelId,trackId:state.rankingTrackId,officialRegistry:state.officialRegistry,sectionExamId:officialSectionExamId});
   updateRankingScopeSummary(scope);
   setRankingLoading(`Combining best attempts from ${scope.sectionCount} fixed section leaderboard${scope.sectionCount===1?"":"s"}.`);
   try{
@@ -4420,25 +7127,33 @@ document.querySelectorAll("[data-ranking-mode]").forEach(btn=>btn.addEventListen
 }));
 $("rankingTrackLevelSelect").addEventListener("change",e=>{
   state.rankingTrackLevelId=e.target.value;
-  state.rankingTrackId=rankingLevel(state.rankingTrackLevelId)?.tracks?.[0]?.trackId||null;
-  try{
-    localStorage.setItem("digilians_ranking_track_level",state.rankingTrackLevelId);
-    localStorage.setItem("digilians_ranking_track",state.rankingTrackId||"");
-  }catch{}
+  state.rankingTrackId=findRankingLevel(state.officialRegistry,state.rankingTrackLevelId)?.tracks?.[0]?.trackId||null;
+  setRankingTrackPreference(state.rankingTrackLevelId,state.rankingTrackId||"");
   renderRanking();
 });
 $("rankingTrackSelect").addEventListener("change",e=>{
   state.rankingTrackId=e.target.value;
-  try{localStorage.setItem("digilians_ranking_track",state.rankingTrackId)}catch{}
+  setRankingTrackPreference(state.rankingTrackLevelId,state.rankingTrackId);
   renderRanking();
 });
 $("rankingExamSelect").addEventListener("change",e=>{
   state.rankingExamId=e.target.value;
   state.rankingMode="exam";
-  try{
-    localStorage.setItem("digilians_ranking_mode","exam");
-    localStorage.setItem("digilians_last_ranking_exam_id",state.rankingExamId);
-  }catch{}
+  persistRankingMode("exam");
+  setLastRankingExamId(state.rankingExamId);
+  renderRanking();
+});
+$("rankingVoucherTrackSelect")?.addEventListener("change",e=>{
+  state.voucherRankingTrackId=e.target.value;
+  state.voucherRankingExamId=null;
+  setVoucherRankingTrackPreference(state.voucherRankingTrackId||"");
+  renderRanking();
+});
+$("rankingVoucherExamSelect")?.addEventListener("change",e=>{
+  state.voucherRankingExamId=e.target.value||null;
+  state.rankingMode="voucher-exam";
+  persistRankingMode("voucher-exam");
+  setVoucherRankingExamPreference(state.voucherRankingExamId||"");
   renderRanking();
 });
 $("refreshLeaderboardBtn").addEventListener("click",()=>renderRanking());
@@ -4666,7 +7381,7 @@ document.addEventListener("keydown",event=>{
 
 // Opening a higher-level modal/route from Profile closes the drawer first,
 // preventing modal-on-drawer stacking and keeping one clear active layer.
-["openMyMistakesBtn","openBackupRestoreBtn","openWhatsNewBtn","openAnalyticsBtn","openValidatorBtn","changeAvatarBtn"].forEach(id=>{
+["openMyMistakesBtn","openBackupRestoreBtn","openWhatsNewBtn","openAnalyticsBtn","openValidatorBtn","changeAvatarBtn","changePrimaryTrackBtn"].forEach(id=>{
   $(id)?.addEventListener("click",closeProfile,{capture:true});
 });
 
@@ -4682,6 +7397,10 @@ $("changeAvatarBtn")?.addEventListener("click",()=>{
     }
   });
 });
+$("changePrimaryTrackBtn")?.addEventListener("click",()=>{
+  ensurePrimaryTrack({required:false,mode:"change"});
+});
+
 $("changeNameBtn").addEventListener("click",()=>{
   closeProfile();closeRankedIdentity();clearStudentName();state.studentName="";syncUserUI();
   $("studentName").value="";$("returningUserEntry").classList.add("hidden");$("newUserEntry").classList.remove("hidden");routeTo("welcomeView");
@@ -4724,7 +7443,9 @@ async function init(){
     return;
   }
 
-  state.studentName=getStudentName();syncUserUI();
+  state.studentName=getStudentName();
+  state.primaryTrackId=getPrimaryTrack();
+  syncUserUI();
   if(state.studentName && hasAvatarProfile())void syncCurrentAvatarToRanking();
   retryPendingAttempts();
   if(state.studentName){

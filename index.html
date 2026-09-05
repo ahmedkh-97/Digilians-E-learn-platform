@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" data-build-version="0.20.23">
+<html lang="en" data-theme="light" data-build-version="0.22.1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -21,13 +21,14 @@
     })();
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0.20.23" />
+  <link rel="stylesheet" href="assets/css/tokens.css?v=0.22.1" />
+  <link rel="stylesheet" href="assets/css/style.css?v=0.22.1" />
 </head>
 <body>
-  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.20.23">
+  <div id="environmentBanner" class="environment-banner hidden" data-build-version="0.22.1">
     <strong>DIGILIANS TEST MODE</strong>
     <span>This is a LOCAL TEST build — not the live deployment.</span>
-    <b>V0.20.23</b>
+    <b>V0.22.1</b>
   </div>
   <script>
     (function () {
@@ -44,7 +45,7 @@
   <!-- STARTUP / CRASH RECOVERY — independent from app.js -->
   <div id="fatalRecovery" class="fatal-recovery hidden" role="alertdialog" aria-modal="true" aria-labelledby="fatalRecoveryTitle">
     <article class="fatal-recovery-card">
-      <span class="fatal-recovery-badge">RECOVERY MODE · V0.20.23</span>
+      <span class="fatal-recovery-badge">RECOVERY MODE · V0.22.1</span>
       <div class="fatal-recovery-icon">!</div>
       <h2 id="fatalRecoveryTitle">The platform could not start correctly.</h2>
       <p id="fatalRecoveryMessage">A startup error prevented the application from loading.</p>
@@ -132,7 +133,7 @@
         <span class="whats-new-badge">DIGILIANS E-LEARN UPDATE</span>
         <div class="whats-new-version-row">
           <h2 id="whatsNewTitle">What’s New</h2>
-          <span id="whatsNewVersion">V0.20.23</span>
+          <span id="whatsNewVersion">V0.22.1</span>
         </div>
         <p id="whatsNewSubtitle">Latest improvements, fixes and learning upgrades.</p>
       </div>
@@ -173,6 +174,7 @@
         <button data-route="dashboardView" class="nav-link active">Home</button>
         <button data-route="learnView" class="nav-link">Learn</button>
         <button data-route="officialQbankView" class="nav-link">Official QBank</button>
+        <button data-route="voucherView" class="nav-link">Voucher</button>
         <button data-route="examsView" class="nav-link">Exams</button>
         <button data-route="mistakesView" class="nav-link">My Mistakes</button>
         <button data-route="rankingView" class="nav-link">Ranking</button>
@@ -331,6 +333,15 @@
           <button class="primary-btn" id="openOfficialHomeBtn">Open Official QBank <span>→</span></button>
         </section>
 
+        <section class="voucher-home-card" id="voucherHomeCard">
+          <div>
+            <span class="eyebrow">VOUCHER MOCK CENTER</span>
+            <h3>Prepare for your Voucher exam with source-based mocks</h3>
+            <p>Your primary track: <strong id="voucherHomePrimaryTrack">Not selected</strong>. Practice any track without affecting the Data Analysis course ranking.</p>
+          </div>
+          <button class="primary-btn" id="openVoucherHomeBtn">Open Voucher <span>→</span></button>
+        </section>
+
         <div class="stats-grid">
           <article class="stat-card">
             <div class="stat-icon">✓</div>
@@ -375,6 +386,53 @@
             <div id="homeAchievements" class="mini-achievements"></div>
           </div>
         </section>
+      </section>
+
+      <!-- VOUCHER HUB -->
+      <section id="voucherView" class="view">
+        <section class="voucher-hero" aria-labelledby="voucherHeroTitle">
+          <div class="voucher-hero-copy">
+            <div class="voucher-hero-kicker"><span>NEW</span> VOUCHER MOCK CENTER</div>
+            <h2 id="voucherHeroTitle">Choose your track.<br><span>Train like it’s exam day.</span></h2>
+            <p>Source-based mocks, smart random practice and detailed explanations — built to turn preparation into measurable progress.</p>
+            <div class="voucher-hero-highlights" aria-label="Voucher capabilities">
+              <span><b>01</b> Full Source Practice + PDF Coverage</span>
+              <span><b>02</b> Detailed Explanations</span>
+              <span><b>03</b> Real Exam Ranking</span>
+            </div>
+          </div>
+          <div class="voucher-hero-visual" aria-hidden="true">
+            <div class="voucher-orbit voucher-orbit-one"></div>
+            <div class="voucher-orbit voucher-orbit-two"></div>
+            <div class="voucher-hero-mark"><span>V</span><strong>5</strong><small>TRACKS</small></div>
+            <div class="voucher-floating-pill voucher-floating-pill-one">70% PASS</div>
+            <div class="voucher-floating-pill voucher-floating-pill-two">RANKED</div>
+          </div>
+        </section>
+        <div class="voucher-section-intro">
+          <div><span class="eyebrow">YOUR NEXT CHALLENGE</span><h3>Pick a Voucher track</h3></div>
+          <span class="voucher-independent-badge">INDEPENDENT PREP</span>
+        </div>
+        <div id="voucherTrackGrid" class="voucher-track-grid"></div>
+      </section>
+
+      <!-- VOUCHER TRACK -->
+      <section id="voucherTrackView" class="view">
+        <div class="context-bar"><button class="back-btn" id="voucherTrackBackBtn">← Voucher</button><div class="breadcrumb" id="voucherTrackBreadcrumb">Voucher / Track</div><span class="pill subtle desktop-only">MOCK EXAMS</span></div>
+        <div class="page-heading"><div><span class="eyebrow">VOUCHER TRACK</span><h2 id="voucherTrackTitle">Track</h2><p>Choose the certification exam you want to prepare for.</p></div></div>
+        <div id="voucherExamGrid" class="voucher-exam-grid"></div>
+      </section>
+
+      <!-- VOUCHER EXAM -->
+      <section id="voucherExamView" class="view">
+        <div class="context-bar"><button class="back-btn" id="voucherExamBackBtn">← Track</button><div class="breadcrumb" id="voucherExamBreadcrumb">Voucher / Track / Exam</div><span class="pill subtle desktop-only">70% PASS</span></div>
+        <div id="voucherExamBody"></div>
+      </section>
+
+      <!-- VOUCHER SOURCE REVIEW -->
+      <section id="voucherSourceReviewView" class="view">
+        <div class="context-bar"><button class="back-btn" id="voucherSourceReviewBackBtn">← PL-300</button><div class="breadcrumb" id="voucherSourceReviewBreadcrumb">Voucher / Microsoft PL-300 / Source PDF Review</div><span class="pill subtle desktop-only">NON-RANKED</span></div>
+        <div id="voucherSourceReviewBody"></div>
       </section>
 
       <!-- LEARN -->
@@ -817,8 +875,12 @@
             <option value="all">All sources</option>
             <option value="official-qbank">Official QBank</option>
             <option value="course">Course Practice / Exam</option>
+            <option value="voucher">Voucher</option>
           </select>
           <select id="mistakesTrackFilter" class="official-select" aria-label="Filter mistakes by track"><option value="all">All tracks</option></select>
+          <select id="mistakesExamFilter" class="official-select hidden" aria-label="Filter Voucher mistakes by exam"><option value="all">All exams</option></select>
+          <select id="mistakesDomainFilter" class="official-select hidden" aria-label="Filter Voucher mistakes by PL-300 domain"><option value="all">All domains</option></select>
+          <select id="mistakesSectionFilter" class="official-select hidden" aria-label="Filter Voucher mistakes by PL-300 section"><option value="all">All sections</option></select>
           <select id="mistakesTopicFilter" class="official-select" aria-label="Filter mistakes by topic"><option value="all">All topics</option></select>
           <select id="mistakesStatusFilter" class="official-select" aria-label="Filter mistakes by mastery status">
             <option value="active">Active mistakes</option>
@@ -903,6 +965,7 @@
           <div class="exam-progress-meta">
             <span id="questionCounter">Question 1 / 10</span>
             <span id="timerDisplay" class="timer hidden">00:00</span>
+            <button type="button" id="voucherDomainNavToggle" class="secondary-btn voucher-domain-nav-toggle hidden" aria-expanded="false">Sections</button>
           </div>
         </div>
 
@@ -916,6 +979,14 @@
               <div><span class="eyebrow">NAVIGATOR</span><h4>Questions</h4></div>
               <span class="answered-count" id="answeredCount" aria-live="polite">0 answered</span>
             </div>
+            <div id="voucherNavSummary" class="voucher-nav-summary hidden" aria-live="polite"></div>
+            <div id="voucherNavFilters" class="voucher-nav-filters hidden" role="group" aria-label="Filter Voucher questions">
+              <button type="button" data-voucher-nav-filter="all" aria-pressed="true">All</button>
+              <button type="button" data-voucher-nav-filter="unanswered" aria-pressed="false">Unanswered</button>
+              <button type="button" data-voucher-nav-filter="answered" aria-pressed="false">Answered</button>
+              <button type="button" data-voucher-nav-filter="marked" aria-pressed="false">Marked</button>
+            </div>
+            <div id="voucherDomainSectionNav" class="voucher-domain-section-nav hidden" aria-label="Domain sections"></div>
             <div id="questionNavigator" class="question-navigator"></div>
             <div class="nav-legend" id="questionNavLegend">
               <span><i class="legend-dot current"></i> Current</span>
@@ -935,11 +1006,15 @@
               <button class="mark-review-btn" id="markReviewBtn" type="button" aria-pressed="false">☆ Mark for Review</button>
             </div>
             <div id="questionText" class="question-text-content" role="heading" aria-level="2"></div>
+            <div id="voucherQuestionVisual" class="voucher-question-visual hidden"></div>
+            <div id="voucherSelectionStatus" class="voucher-selection-status hidden" aria-live="polite"></div>
             <div id="optionsList" class="options-list"></div>
+            <button type="button" id="multiSelectConfirmBtn" class="primary-btn multi-select-confirm hidden">Confirm selection ✓</button>
             <div id="instantFeedback" class="feedback-box hidden" aria-live="polite"></div>
 
             <div class="exam-actions">
               <button class="secondary-btn" id="prevQuestionBtn">← Previous</button>
+              <button class="secondary-btn hidden" id="stickyMarkReviewBtn" type="button" aria-pressed="false">☆ Mark</button>
               <button class="primary-btn" id="nextQuestionBtn">Next <span>→</span></button>
               <button class="primary-btn hidden" id="submitExamBtn">Submit Exam <span>✓</span></button>
             </div>
@@ -999,6 +1074,7 @@
             <div id="improvementMessage" class="improvement-card hidden"></div>
 
             <div class="result-actions">
+              <button class="primary-btn hidden" id="voucherResultImproveBtn">Improve My Level <span>→</span></button>
               <button class="primary-btn" id="reviewBtn">Review Answers <span>→</span></button>
               <button class="secondary-btn" id="viewMistakesBtn">My Mistakes ↺</button>
               <button class="secondary-btn" id="retakeBtn">Retake</button>
@@ -1040,6 +1116,27 @@
         <div id="reviewList" class="review-list"></div>
       </section>
 
+      <!-- VOUCHER RANKING -->
+      <section id="voucherRankingView" class="view">
+        <div class="page-heading ranking-heading">
+          <div>
+            <span class="eyebrow">VOUCHER RANKING</span>
+            <h2 id="voucherRankingTitle">Voucher Leaderboard</h2>
+            <p id="voucherRankingRule">Real Exam Size only • Best attempt per exam.</p>
+          </div>
+          <button type="button" class="ghost-btn" id="voucherRankingBackBtn">← Back to Voucher</button>
+        </div>
+        <div id="voucherRankingSummary" class="ranking-scope-summary"></div>
+        <div id="voucherRankingStatus" class="status-card info">
+          <div class="status-icon">↗</div><div><strong>Loading Voucher ranking…</strong><p>Fetching shared Real Exam results.</p></div>
+        </div>
+        <div id="voucherRankingContent" class="voucher-ranking-content hidden">
+          <div class="voucher-ranking-head"><span>Rank</span><span>Student</span><span>Score</span><span>Time</span></div>
+          <div id="voucherRankingList" class="voucher-ranking-list"></div>
+          <div id="voucherRankingPersonal" class="personal-ranking-card"></div>
+        </div>
+      </section>
+
       <!-- RANKING -->
       <section id="rankingView" class="view">
         <div class="page-heading ranking-heading">
@@ -1058,10 +1155,12 @@
           <button class="ranking-mode-tab" data-ranking-mode="professional-overall" role="tab">Professional Overall</button>
           <button class="ranking-mode-tab" data-ranking-mode="track" role="tab">Track Overall</button>
           <button class="ranking-mode-tab" data-ranking-mode="exam" role="tab">Exam Ranking</button>
+          <button class="ranking-mode-tab voucher-ranking-tab" data-ranking-mode="voucher-track" role="tab">Voucher Track Overall</button>
+          <button class="ranking-mode-tab voucher-ranking-tab" data-ranking-mode="voucher-exam" role="tab">Voucher Exam Ranking</button>
         </div>
 
         <div class="ranking-rule-card">
-          <span class="ranking-rule-icon">Σ</span>
+          <span class="ranking-rule-icon" id="rankingRuleIcon">Σ</span>
           <div>
             <strong id="rankingRuleTitle">Full Bank Total Grades</strong>
             <p id="rankingRuleText">Best attempt per fixed section • completion ranks first • Random Practice, Random Exam and Final simulations do not add marks to the bank total.</p>
@@ -1088,11 +1187,23 @@
           <span class="live-chip"><i></i> LIVE</span>
         </div>
 
+        <div id="rankingVoucherToolbar" class="leaderboard-toolbar ranking-scope-toolbar voucher-ranking-toolbar hidden">
+          <div class="ranking-toolbar-field">
+            <label for="rankingVoucherTrackSelect">Voucher Track</label>
+            <select id="rankingVoucherTrackSelect" aria-label="Choose Voucher ranking track"></select>
+          </div>
+          <div class="ranking-toolbar-field grow" id="rankingVoucherExamField">
+            <label for="rankingVoucherExamSelect">Real Exam leaderboard</label>
+            <select id="rankingVoucherExamSelect" aria-label="Choose Voucher exam leaderboard"></select>
+          </div>
+          <span class="live-chip voucher-live-chip"><i></i> VOUCHER LIVE</span>
+        </div>
+
         <div id="rankingScopeSummary" class="ranking-scope-summary">
-          <div><span>Scope</span><strong id="rankingScopeName">Junior Data Analysis</strong></div>
-          <div><span>Total Marks</span><strong id="rankingScopeMarks">930</strong></div>
-          <div><span>Fixed Sections</span><strong id="rankingScopeSections">21</strong></div>
-          <div><span>Scoring</span><strong id="rankingScopeScoring">Best per section</strong></div>
+          <div><span id="rankingScopeNameLabel">Scope</span><strong id="rankingScopeName">Junior Data Analysis</strong></div>
+          <div><span id="rankingScopeMarksLabel">Total Marks</span><strong id="rankingScopeMarks">930</strong></div>
+          <div><span id="rankingScopeSectionsLabel">Fixed Sections</span><strong id="rankingScopeSections">21</strong></div>
+          <div><span id="rankingScopeScoringLabel">Scoring</span><strong id="rankingScopeScoring">Best per section</strong></div>
         </div>
 
         <div class="leaderboard-preview ranking-preview">
@@ -1385,7 +1496,7 @@
       </div>
       <div class="footer-credit">
         <button type="button" class="footer-version-btn" id="footerWhatsNewBtn">
-          <span id="footerVersionText">V0.20.23</span>
+          <span id="footerVersionText">V0.22.1</span>
           <i id="footerUpdateDot" class="footer-update-dot hidden" aria-label="Update available"></i>
           What’s New
         </button>
@@ -1404,7 +1515,14 @@
       <span class="avatar large" id="drawerAvatar">G</span>
       <h3 id="drawerName">Guest</h3>
       <p>Your profile lives on this device — no password required. Ranked activities use your saved name.</p>
-      <button type="button" class="avatar-change-inline" id="changeAvatarBtn">Change Avatar ✦</button>
+      <div class="profile-primary-track">
+        <span>PRIMARY TRACK</span>
+        <strong id="profilePrimaryTrack">Not selected</strong>
+      </div>
+      <div class="profile-identity-actions">
+        <button type="button" class="avatar-change-inline" id="changeAvatarBtn">Change Avatar ✦</button>
+        <button type="button" class="avatar-change-inline" id="changePrimaryTrackBtn">Change Primary Track</button>
+      </div>
     </div>
 
     <div class="profile-stats">
@@ -1429,7 +1547,7 @@
       </button>
       <button class="secondary-btn wide update-drawer-btn" id="openWhatsNewBtn">
         <span>What’s New & Updates</span>
-        <b id="profileVersionBadge">V0.20.23</b>
+        <b id="profileVersionBadge">V0.22.1</b>
       </button>
       <button class="secondary-btn wide" id="changeNameBtn">Change saved name</button>
     </div>
@@ -1449,6 +1567,54 @@
     </div>
   </aside>
 
+
+
+  <!-- VOUCHER SAVED ATTEMPT -->
+  <div id="voucherSavedAttemptModal" class="voucher-saved-attempt-backdrop hidden" aria-hidden="true">
+    <article id="voucherSavedAttemptDialog" class="voucher-saved-attempt-card" role="dialog" aria-modal="true" aria-labelledby="voucherSavedAttemptTitle">
+      <span class="eyebrow">SAVED VOUCHER ATTEMPT</span>
+      <h3 id="voucherSavedAttemptTitle">Saved attempt found</h3>
+      <div id="voucherSavedAttemptMeta" class="voucher-saved-attempt-meta"></div>
+      <div class="voucher-saved-attempt-actions">
+        <button type="button" class="primary-btn" id="voucherSavedAttemptResumeBtn">Resume Attempt →</button>
+        <button type="button" class="secondary-btn" id="voucherSavedAttemptNewBtn">Start New Attempt</button>
+        <button type="button" class="ghost-btn" id="voucherSavedAttemptCancelBtn">Cancel</button>
+      </div>
+    </article>
+  </div>
+
+  <!-- VOUCHER QUESTION VISUAL -->
+  <div id="voucherVisualModal" class="voucher-visual-backdrop hidden" aria-hidden="true">
+    <article class="voucher-visual-card" role="dialog" aria-modal="true" aria-labelledby="voucherVisualCaption">
+      <button type="button" class="voucher-visual-close" id="voucherVisualCloseBtn" aria-label="Close visual">×</button>
+      <img id="voucherVisualImage" alt="Voucher question visual">
+      <p id="voucherVisualCaption">Voucher question visual</p>
+    </article>
+  </div>
+
+  <!-- PRIMARY VOUCHER TRACK CHOOSER -->
+  <div id="primaryTrackModal" class="primary-track-backdrop hidden" aria-hidden="true">
+    <article class="primary-track-card" role="dialog" aria-modal="true" aria-labelledby="primaryTrackModalTitle">
+      <div class="primary-track-head">
+        <span class="eyebrow">VOUCHER PROFILE</span>
+        <h3 id="primaryTrackModalTitle">Choose your primary track</h3>
+        <p id="primaryTrackModalSubtitle">This sets your official Voucher Track Overall competition. You can still explore every track.</p>
+      </div>
+      <div class="primary-track-options" role="radiogroup" aria-label="Primary Voucher track">
+        <label class="primary-track-option"><input type="radio" name="primaryTrackOption" value="data-analysis"><span><strong>Data Analysis</strong><small>Analytics, BI, SQL, Python and data tools</small></span></label>
+        <label class="primary-track-option"><input type="radio" name="primaryTrackOption" value="marketing"><span><strong>Marketing</strong><small>Marketing Voucher preparation</small></span></label>
+        <label class="primary-track-option"><input type="radio" name="primaryTrackOption" value="graphic-design"><span><strong>Graphic Design</strong><small>Graphic Design Voucher preparation</small></span></label>
+        <label class="primary-track-option"><input type="radio" name="primaryTrackOption" value="ui-ux"><span><strong>UI/UX</strong><small>UI/UX Voucher preparation</small></span></label>
+        <label class="primary-track-option"><input type="radio" name="primaryTrackOption" value="media-production"><span><strong>Media Production</strong><small>Media Production Voucher preparation</small></span></label>
+      </div>
+      <p id="primaryTrackError" class="field-error" aria-live="polite"></p>
+      <div class="primary-track-actions">
+        <button type="button" class="secondary-btn" id="primaryTrackCancelBtn">Cancel</button>
+        <button type="button" class="primary-btn" id="primaryTrackSaveBtn">Save Primary Track →</button>
+      </div>
+      <small class="primary-track-note">You can change this later from Profile. Changing it never deletes learning progress or previous attempts.</small>
+    </article>
+  </div>
 
 
 
@@ -1510,7 +1676,7 @@
         <section class="backup-action-card">
           <span class="backup-action-kicker">EXPORT</span>
           <h4>Save a Progress Backup</h4>
-          <p>Downloads your profile, Study progress, Quick Checks, Official QBank progress, results and resumable exam state.</p>
+          <p>Downloads your profile, Primary Track, Voucher history, Study progress, Quick Checks, Official QBank progress, results and resumable exam state.</p>
           <button type="button" class="primary-btn wide" id="exportProgressBackupBtn">Export Progress Backup ↓</button>
           <small>Private Admin credentials, Analytics visitor IDs and update state are never exported.</small>
         </section>
@@ -1608,9 +1774,9 @@
 
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="assets/js/analytics.js?v=0.20.23"></script>
-  <script type="module" src="assets/js/update-manager.js?v=0.20.23"></script>
-  <script type="module" src="assets/js/backup-restore.js?v=0.20.23"></script>
-  <script type="module" src="assets/js/app.js?v=0.20.23"></script>
+  <script type="module" src="assets/js/analytics.js?v=0.22.1"></script>
+  <script type="module" src="assets/js/update-manager.js?v=0.22.1"></script>
+  <script type="module" src="assets/js/backup-restore.js?v=0.22.1"></script>
+  <script type="module" src="assets/js/app.js?v=0.22.1"></script>
 </body>
 </html>

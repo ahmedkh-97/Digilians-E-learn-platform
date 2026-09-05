@@ -1,5 +1,6 @@
+import {getStoredAvatarProfile,setStoredAvatarProfile,clearStoredAvatarProfile} from "./storage.js?v=0.22.1";
 
-const STORAGE_KEY="digilians.avatarProfile";
+
 const PROFILE_VERSION=2;
 
 const AVATARS=[
@@ -29,9 +30,6 @@ let pickerContext={mode:"change",name:"",onDone:null,required:false};
 let pickerReturnFocus=null;
 
 function byId(id){return document.getElementById(id)}
-function safeGet(key){try{return localStorage.getItem(key)}catch{return null}}
-function safeSet(key,value){try{localStorage.setItem(key,value);return true}catch{return false}}
-function safeRemove(key){try{localStorage.removeItem(key);return true}catch{return false}}
 function esc(value){
   return String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch]));
 }
@@ -55,7 +53,7 @@ function normalizeProfile(parsed){
 }
 
 export function getAvatarProfile(){
-  const raw=safeGet(STORAGE_KEY);
+  const raw=getStoredAvatarProfile();
   if(!raw)return null;
   try{return normalizeProfile(JSON.parse(raw))}catch{return null}
 }
@@ -72,11 +70,11 @@ export function saveAvatarProfile({gender,avatarId}){
     avatarId,
     updatedAt:new Date().toISOString()
   };
-  safeSet(STORAGE_KEY,JSON.stringify(profile));
+  setStoredAvatarProfile(JSON.stringify(profile));
   return profile;
 }
 
-export function clearAvatarProfile(){safeRemove(STORAGE_KEY)}
+export function clearAvatarProfile(){clearStoredAvatarProfile()}
 export function getAvatarById(id){return AVATARS.find(x=>x.id===id)||null}
 export function listAvatars(filter="all"){
   return filter==="all"?[...AVATARS]:AVATARS.filter(x=>x.gender===filter);
@@ -275,7 +273,6 @@ if(typeof window!=="undefined" && typeof document!=="undefined"){
 }
 
 export const avatarProfileTestApi={
-  STORAGE_KEY,
   PROFILE_VERSION,
   AVATARS,
   initials,

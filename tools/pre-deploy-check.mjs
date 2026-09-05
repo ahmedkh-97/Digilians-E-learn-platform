@@ -15,14 +15,24 @@ const full=rel=>path.join(ROOT,rel);
 console.log('\nDigilians E-Learn — Full Pre-Deploy Check\n');
 
 const required=[
-  'index.html','VERSION.txt','assets/css/style.css','assets/js/app.js','assets/js/storage.js','assets/js/exam.js',
+  'index.html','VERSION.txt','assets/css/tokens.css','assets/css/style.css','assets/css/pl300.css','assets/js/app.js','assets/js/storage.js','assets/js/exam.js','assets/js/exam-structured.js','assets/js/exam-engine.js','assets/js/exam-modes.js','assets/js/exam-session.js','assets/js/exam-timer.js','assets/js/exam-answers.js','assets/js/exam-navigation.js','assets/js/exam-persistence.js','assets/js/exam-feedback.js','assets/js/exam-results.js','assets/js/voucher-engine.js','assets/js/voucher-content-architecture.js','assets/js/voucher-ranked-learning.js','assets/js/voucher-domain-ranked-learning.js','assets/js/voucher-domain-navigation.js','assets/js/voucher-section-analytics.js','assets/js/ranking-scopes.js','voucher/tracks/data-analysis/microsoft-pl-300/content-architecture.json',
   'data/changelog.json','data/exams.json','data/learning.json','data/question-banks.json','data/official-qbank.json',
-  'tools/quick-local-check.mjs','tools/local-server.mjs','tools/excel-intake-check.mjs'
+  'tools/quick-local-check.mjs','tools/local-server.mjs','tools/excel-intake-check.mjs','tools/architecture-check.mjs','tools/pl300-visual-audit.mjs','tools/pl300-full-ranked-index.mjs','voucher/tracks/data-analysis/microsoft-pl-300/full-ranked-index.json'
 ];
 for(const rel of required) fs.existsSync(full(rel))?pass(`Required file: ${rel}`):fail(`Missing required file: ${rel}`);
 
 const excel=spawnSync(process.execPath,[full('tools/excel-intake-check.mjs')],{cwd:ROOT,encoding:'utf8'});
 excel.status===0?pass('Excel production gate — 29 source / 24 Groups / 96 lessons / 294 / Week 3 / 123'):fail(`Excel production gate\n${excel.stdout||''}${excel.stderr||''}`);
+
+const architecture=spawnSync(process.execPath,[full('tools/architecture-check.mjs')],{cwd:ROOT,encoding:'utf8'});
+architecture.status===0?pass('Architecture gate'):fail(`Architecture gate\n${architecture.stdout||''}${architecture.stderr||''}`);
+
+const pl300Visual=spawnSync(process.execPath,[full('tools/pl300-visual-audit.mjs')],{cwd:ROOT,encoding:'utf8'});
+const pl300Released=(pl300Visual.stdout||'').match(/Released questions:\s*(\d+)/)?.[1]||'unknown';
+pl300Visual.status===0?pass(`PL-300 visual production audit — ${pl300Released} released / safe visual coverage`):fail(`PL-300 visual production audit\n${pl300Visual.stdout||''}${pl300Visual.stderr||''}`);
+
+const pl300FullRank=spawnSync(process.execPath,[full('tools/pl300-full-ranked-index.mjs'),'--check'],{cwd:ROOT,encoding:'utf8'});
+pl300FullRank.status===0?pass('PL-300 Full Ranked Learning index — 509 source occurrences / drift-safe'):fail(`PL-300 Full Ranked Learning index\n${pl300FullRank.stdout||''}${pl300FullRank.stderr||''}`);
 
 const jsonFiles=[]; const sourceFiles=[];
 function walk(dir){
@@ -36,7 +46,7 @@ function walk(dir){
     }
   }
 }
-walk(full('data')); walk(full('assets/js')); walk(full('tools'));
+walk(full('data')); walk(full('voucher')); walk(full('assets/js')); walk(full('tools'));
 let badJson=0;
 for(const file of jsonFiles){try{JSON.parse(fs.readFileSync(file,'utf8'))}catch(error){badJson++;fail(`JSON ${path.relative(ROOT,file)}: ${error.message}`)}}
 if(!badJson)pass(`JSON parse: ${jsonFiles.length}/${jsonFiles.length}`);
@@ -47,6 +57,9 @@ for(const file of sourceFiles){
   if(r.status!==0){badSyntax++;fail(`Syntax ${path.relative(ROOT,file)}: ${(r.stderr||r.stdout||'').trim()}`)}
 }
 if(!badSyntax)pass(`JS/MJS syntax: ${sourceFiles.length}/${sourceFiles.length}`);
+
+const releaseIdentity=spawnSync(process.execPath,['--test',full('tests/release-identity-gate.test.mjs')],{cwd:ROOT,encoding:'utf8'});
+releaseIdentity.status===0?pass('Release identity gate'):fail(`Release identity gate\n${(releaseIdentity.stdout||'').trim()}\n${(releaseIdentity.stderr||'').trim()}`);
 
 const testDir=full('tests');
 const testFiles=fs.readdirSync(testDir).filter(name=>name.endsWith('.test.mjs')).sort().map(name=>path.join(testDir,name));

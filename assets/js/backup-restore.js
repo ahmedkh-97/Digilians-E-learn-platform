@@ -1,6 +1,6 @@
 
-import {resolveBuildVersion} from "./build-version.js?v=0.20.23";
-import {CURRENT_STORAGE_SCHEMA_VERSION,STORAGE_SCHEMA_KEY} from "./storage-safety.js?v=0.20.23";
+import {resolveBuildVersion} from "./build-version.js?v=0.22.1";
+import {CURRENT_STORAGE_SCHEMA_VERSION,STORAGE_SCHEMA_KEY} from "./storage-safety.js?v=0.22.1";
 
 const BACKUP_FORMAT="digilians-progress-backup";
 const BACKUP_SCHEMA_VERSION=1;
@@ -10,6 +10,7 @@ export const BACKUP_KEYS=[
   STORAGE_SCHEMA_KEY,
   "digilians.studentName",
   "digilians.playerId",
+  "digilians.primaryTrack",
   "digilians.avatarProfile",
   "digilians.theme",
   "digilians.results",
@@ -20,6 +21,7 @@ export const BACKUP_KEYS=[
   "digilians.studyProgress",
   "digilians.quickChecks",
   "digilians.mistakes",
+  "digilians.voucher",
   "digilians_ranking_mode",
   "digilians_ranking_track_level",
   "digilians_ranking_track",
@@ -34,7 +36,8 @@ const JSON_KEYS=new Set([
   "digilians.officialQbank",
   "digilians.studyProgress",
   "digilians.quickChecks",
-  "digilians.mistakes"
+  "digilians.mistakes",
+  "digilians.voucher"
 ]);
 
 const ARRAY_KEYS=new Set([
@@ -118,6 +121,7 @@ export function summarizeBackupData(data={}){
   const quick=parse("digilians.quickChecks",{users:{}});
   const mistakes=parse("digilians.mistakes",{schemaVersion:1,owners:{}});
   const official=parse("digilians.officialQbank",{tracks:{}});
+  const voucher=parse("digilians.voucher",{schemaVersion:1,owners:{}});
   const examProgress=parse("digilians.examProgress",null);
 
   let studyModules=0;
@@ -128,9 +132,13 @@ export function summarizeBackupData(data={}){
     for(const sections of Object.values(modules||{}))quickChecks+=Object.keys(sections||{}).length;
   }
 
+  const voucherAttempts=Object.values(voucher?.owners||{}).reduce((sum,owner)=>sum+(Array.isArray(owner?.attempts)?owner.attempts.length:0),0);
+
   return {
     studentName:data["digilians.studentName"]||"",
+    primaryTrack:data["digilians.primaryTrack"]||"",
     results:Array.isArray(results)?results.length:0,
+    voucherAttempts,
     studyModules,
     quickChecks,
     mistakes:Object.values(mistakes?.owners||{}).reduce((sum,owner)=>sum+Object.keys(owner?.items||{}).length,0),
@@ -163,6 +171,9 @@ function validateScalar(key,value){
   if(key==="digilians.playerId" && value && !/^[0-9a-f-]{20,}$/i.test(value)){
     throw new Error("Invalid player ID");
   }
+  if(key==="digilians.primaryTrack" && value && !["data-analysis","marketing","graphic-design","ui-ux","media-production"].includes(value)){
+    throw new Error("Invalid Primary Track value");
+  }
   if(key==="digilians_ranking_mode" && value && !["exam","track"].includes(value)){
     throw new Error("Invalid ranking mode");
   }
@@ -171,7 +182,12 @@ function validateScalar(key,value){
     if(!Number.isInteger(schema) || schema<1)throw new Error("Invalid learner storage schema");
     if(schema>CURRENT_STORAGE_SCHEMA_VERSION)throw new Error("Backup uses a newer learner storage schema. Open it with the latest platform version.");
   }
-  if(JSON_KEYS.has(key))parseJsonKey(key,value);
+  if(JSON_KEYS.has(key)){
+    const parsed=parseJsonKey(key,value);
+    if(key==="digilians.voucher" && (Number(parsed?.schemaVersion)!==1 || !parsed?.owners || typeof parsed.owners!=="object" || Array.isArray(parsed.owners))){
+      throw new Error("Invalid Voucher progress store");
+    }
+  }
 }
 
 export async function validateBackupDocument(doc,{verifyChecksum=true}={}){
@@ -325,6 +341,37 @@ function mergeMistakes(current,incoming){
   return out;
 }
 
+function mergeVoucher(current,incoming){
+  const out=structuredClone(current||{schemaVersion:1,owners:{}});
+  out.schemaVersion=1;
+  out.owners ||= {};
+  for(const [ownerId,record] of Object.entries(incoming?.owners||{})){
+    const target=out.owners[ownerId]||{attempts:[],seenByExam:{},sourcePractice:{},updatedAt:null};
+    target.attempts=Array.isArray(target.attempts)?target.attempts:[];
+    target.seenByExam=target.seenByExam&&typeof target.seenByExam==="object"?target.seenByExam:{};
+    target.sourcePractice=target.sourcePractice&&typeof target.sourcePractice==="object"&&!Array.isArray(target.sourcePractice)?target.sourcePractice:{};
+    const attemptMap=new Map(target.attempts.filter(x=>x?.id).map(x=>[String(x.id),x]));
+    for(const attempt of record?.attempts||[]){
+      if(attempt?.id)attemptMap.set(String(attempt.id),attempt);
+    }
+    target.attempts=[...attemptMap.values()];
+    for(const [examId,ids] of Object.entries(record?.seenByExam||{})){
+      target.seenByExam[examId]=[...new Set([...(target.seenByExam[examId]||[]),...(Array.isArray(ids)?ids:[])].map(String).filter(Boolean))];
+    }
+    for(const [questionId,practice] of Object.entries(record?.sourcePractice||{})){
+      const currentPractice=target.sourcePractice[questionId];
+      const curPracticeTime=Date.parse(currentPractice?.answeredAt||0)||0;
+      const inPracticeTime=Date.parse(practice?.answeredAt||0)||0;
+      if(!currentPractice || inPracticeTime>=curPracticeTime)target.sourcePractice[questionId]=practice;
+    }
+    const curTime=Date.parse(target.updatedAt||0)||0;
+    const inTime=Date.parse(record?.updatedAt||0)||0;
+    if(inTime>=curTime)target.updatedAt=record?.updatedAt||target.updatedAt;
+    out.owners[ownerId]=target;
+  }
+  return out;
+}
+
 function parsed(storage,key,fallback){
   try{
     const raw=safeGet(storage,key);
@@ -373,6 +420,12 @@ export function mergeBackupIntoStorageData(currentData,incomingData){
     if(key==="digilians.mistakes"){
       const current=(()=>{try{return JSON.parse(currentData[key]||'{"schemaVersion":1,"owners":{}}')}catch{return {schemaVersion:1,owners:{}}}})();
       out[key]=JSON.stringify(mergeMistakes(current,JSON.parse(incomingData[key])));
+      continue;
+    }
+
+    if(key==="digilians.voucher"){
+      const current=(()=>{try{return JSON.parse(currentData[key]||'{"schemaVersion":1,"owners":{}}')}catch{return {schemaVersion:1,owners:{}}}})();
+      out[key]=JSON.stringify(mergeVoucher(current,JSON.parse(incomingData[key])));
       continue;
     }
 
@@ -460,6 +513,8 @@ function renderSummary(summary){
   if(!el)return;
   el.innerHTML=`
     <div><span>Results</span><strong>${summary.results}</strong></div>
+    <div><span>Voucher Attempts</span><strong>${summary.voucherAttempts}</strong></div>
+    <div><span>Primary Track</span><strong>${summary.primaryTrack||"—"}</strong></div>
     <div><span>Study Modules</span><strong>${summary.studyModules}</strong></div>
     <div><span>Quick Checks</span><strong>${summary.quickChecks}</strong></div>
     <div><span>My Mistakes</span><strong>${summary.mistakes}</strong></div>
@@ -623,6 +678,7 @@ export const backupRestoreTestApi={
   mergeStudyProgress,
   mergeQuickChecks,
   mergeOfficialQbank,
+  mergeVoucher,
   BACKUP_FORMAT,
   BACKUP_SCHEMA_VERSION,
   SENSITIVE_EXCLUDED_PREFIXES
