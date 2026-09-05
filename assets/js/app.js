@@ -909,6 +909,15 @@ function voucherSourceReviewAnswerHtml(question,practiceRecord=voucherSourcePrac
   });
 }
 
+
+function selectVoucherSourceReviewPart(partId='all'){
+  voucherSourceResetSolveTimer();
+  const requested=String(partId||'all');
+  state.voucherSourceReviewPartId=requested==='all'||state.voucherSourceReviewParts.some(part=>String(part.id)===requested)?requested:'all';
+  state.voucherSourceReviewIndex=0;
+  renderVoucherSourceReview();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 function renderVoucherSourceReview(){
   const body=$("voucherSourceReviewBody");
   if(!body)return;
@@ -934,7 +943,7 @@ function renderVoucherSourceReview(){
   }
   const rankRecord=voucherFullRankRecord(q);
   const practiceRecord=voucherSourcePracticeRecord(q);
-  if(!practiceRecord)voucherSourceStartSolveTimer(q);
+  if(!practiceRecord&&state.voucherSourceReviewPartId!=="all")voucherSourceStartSolveTimer(q);
   const visualHtml=(q.questionVisuals||[]).map(path=>`<img src="${escapeHtml(path)}" alt="Source visual for question ${escapeHtml(q.questionNumber||"")}" loading="lazy">`).join("");
   const retrying=state.voucherSourcePracticeRetrying?.has?.(String(q.id||""));
   const sourceAttemptLocked=pl300FullRankedLearning.sourceAttemptLocked(practiceRecord,retrying);
@@ -942,7 +951,7 @@ function renderVoucherSourceReview(){
   const nativeHtml=voucherSourcePracticeNative?.renderNativePractice(q,practiceRecord,state.voucherSourcePracticeNativeInputs,{locked:sourceAttemptLocked,retrying})||"";
   const metrics=voucherSourcePracticeSummary();
   const practiceState=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
-  const {partTotal,partCompleted,activePartLabel,partOptionsHtml,filterLabel}=pl300FullRankedLearning.buildPl300PartViewState({parts:state.voucherSourceReviewParts,activePartId:state.voucherSourceReviewPartId,records:practiceState.records||{},totalAll,completedAll:metrics.completedOccurrences,activeFilter:state.voucherSourceReviewFilter});
+  const {partTotal,partCompleted,activePartLabel,partOptionsHtml,partCatalogHtml,showPartCatalog,filterLabel}=pl300FullRankedLearning.buildPl300PartViewState({parts:state.voucherSourceReviewParts,activePartId:state.voucherSourceReviewPartId,records:practiceState.records||{},totalAll,completedAll:metrics.completedOccurrences,activeFilter:state.voucherSourceReviewFilter});
   const pageLabel=Number(q.pageStart)===Number(q.pageEnd)?`Page ${q.pageStart}`:`Pages ${q.pageStart}–${q.pageEnd}`;
   const objective=rankRecord?.mode==="objective";
   const sourceType=String(q.sourceType||q.reviewMode||"source").replace(/-/g," ").toUpperCase();
@@ -957,19 +966,14 @@ function renderVoucherSourceReview(){
   body.innerHTML=pl300FullRankedLearning.buildPl300FullRankedReviewMarkup({
     sourceTitle,source01Count,source02Count,objectiveCount,checkpointCount,metrics,activeFilter:state.voucherSourceReviewFilter,totalAll,
     questionsLength:questions.length,currentIndex:state.voucherSourceReviewIndex,filterLabel,objective,typeLabel,sourceLabel,questionNumber:q.questionNumber||"",
-    partOptionsHtml,activePartLabel,partCompleted,partTotal,
+    partOptionsHtml,partCatalogHtml,showPartCatalog,activePartLabel,partCompleted,partTotal,
     occurrence:q.occurrence||1,pageLabel,domainId:rankRecord?.domainId||"",recordStatus,questionHtml:renderTechnicalRichText(q.questionText||""),
     visualHtml,optionsHtml,nativeHtml,revealOpen,answerHtml:voucherSourceReviewAnswerHtml(q,practiceRecord)
   });
 
-  $("sourceReviewPart")?.addEventListener("change",event=>{
-    voucherSourceResetSolveTimer();
-    const requested=String(event.target?.value||"all");
-    state.voucherSourceReviewPartId=requested==="all"||state.voucherSourceReviewParts.some(part=>String(part.id)===requested)?requested:"all";
-    state.voucherSourceReviewIndex=0;
-    renderVoucherSourceReview();
-    window.scrollTo({top:0,behavior:"smooth"});
-  });
+  body.querySelectorAll('[data-pl300-part-select]').forEach(button=>button.addEventListener('click',()=>selectVoucherSourceReviewPart(button.dataset.pl300PartSelect)));
+  body.querySelector('[data-pl300-parts-back]')?.addEventListener('click',()=>selectVoucherSourceReviewPart('all'));
+  if(showPartCatalog){voucherSourceResetSolveTimer();return;}
   body.querySelectorAll('[data-source-review-filter]').forEach(button=>button.addEventListener('click',()=>{
     voucherSourceResetSolveTimer();
     state.voucherSourceReviewFilter=button.dataset.sourceReviewFilter||"all";
