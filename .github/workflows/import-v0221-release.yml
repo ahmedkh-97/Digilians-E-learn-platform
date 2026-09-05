@@ -1,0 +1,128 @@
+name: Import V0.22.1 Release
+
+on:
+  push:
+    branches:
+      - release/v0.22.1-pl300-full-ranked-509
+    paths:
+      - .github/workflows/import-v0221-release.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release branch
+        uses: actions/checkout@v4
+        with:
+          ref: release/v0.22.1-pl300-full-ranked-509
+          fetch-depth: 0
+
+      - name: Install browser tooling
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Download release archive from firestorage.ai
+        env:
+          SHARE_URL: https://firestorage.ai/ja/f/a3HUHa4ggdg_
+          EXPECTED_FILE: digilians-e-learn-platform-v0.22.1-pl300-full-ranked-learning-509.zip
+        run: |
+          cat > /tmp/download_release.py <<'PY'
+          import os
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright
+
+          share_url = os.environ['SHARE_URL']
+          expected = os.environ['EXPECTED_FILE']
+          out = Path('/tmp/release.zip')
+
+          with sync_playwright() as p:
+              browser = p.chromium.launch(headless=True)
+              page = browser.new_page(accept_downloads=True)
+              page.goto(share_url, wait_until='domcontentloaded', timeout=120000)
+              page.wait_for_timeout(4000)
+
+              candidates = [
+                  page.get_by_text(expected, exact=True),
+                  page.get_by_role('link', name=expected),
+                  page.get_by_role('button', name=expected),
+                  page.get_by_role('link', name='ダウンロード'),
+                  page.get_by_role('button', name='ダウンロード'),
+                  page.get_by_role('link', name='Download'),
+                  page.get_by_role('button', name='Download'),
+              ]
+
+              clicked = False
+              for locator in candidates:
+                  try:
+                      if locator.count() > 0 and locator.first.is_visible():
+                          with page.expect_download(timeout=120000) as info:
+                              locator.first.click()
+                          download = info.value
+                          download.save_as(out)
+                          clicked = True
+                          break
+                  except Exception:
+                      pass
+
+              if not clicked:
+                  links = page.locator('a')
+                  for i in range(links.count()):
+                      link = links.nth(i)
+                      try:
+                          href = link.get_attribute('href') or ''
+                          text = (link.inner_text() or '').strip()
+                          if 'download' in href.lower() or expected in text:
+                              with page.expect_download(timeout=120000) as info:
+                                  link.click()
+                              info.value.save_as(out)
+                              clicked = True
+                              break
+                      except Exception:
+                          pass
+
+              browser.close()
+
+          if not clicked or not out.exists() or out.stat().st_size < 1_000_000:
+              raise SystemExit('Could not download the expected release archive from firestorage.ai')
+          print(f'Downloaded {out.stat().st_size} bytes to {out}')
+          PY
+          python /tmp/download_release.py
+
+      - name: Replace repository contents with release package
+        run: |
+          rm -rf /tmp/release-unpacked
+          mkdir -p /tmp/release-unpacked
+          unzip -q /tmp/release.zip -d /tmp/release-unpacked
+
+          # Preserve repository metadata and GitHub configuration; replace production tree.
+          rsync -a --delete \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            /tmp/release-unpacked/ ./
+
+          # The importer is temporary and must not ship in the production branch.
+          rm -f .github/workflows/import-v0221-release.yml
+
+      - name: Verify imported release identity
+        run: |
+          test -f VERSION.txt
+          grep -q '^0.22.1$' VERSION.txt
+          test -f voucher/tracks/data-analysis/microsoft-pl-300/full-source-bank.json
+          node tools/quick-local-check.mjs
+
+      - name: Commit imported release
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+            exit 0
+          fi
+          git commit -m 'release: v0.22.1 PL-300 full ranked learning 509/509'
+          git push origin HEAD:release/v0.22.1-pl300-full-ranked-509
