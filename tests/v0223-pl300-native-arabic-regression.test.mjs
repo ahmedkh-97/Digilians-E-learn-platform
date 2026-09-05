@@ -32,6 +32,14 @@ function countsBy(key){
   },{});
 }
 
+function nativeKindCounts(){
+  return all.filter(q=>q.reviewMode==='native-structured').reduce((out,q)=>{
+    const kind=nativeInteractionKind(q);
+    out[kind]=(out[kind]||0)+1;
+    return out;
+  },{});
+}
+
 test('V0.22.3 exhaustive source audit preserves every PL-300 occurrence exactly once',()=>{
   assert.equal(src1.questionCount,369);
   assert.equal(src2.questionCount,140);
@@ -75,6 +83,7 @@ test('all 78 structured items resolve to an explicit supported interaction kind'
     assert.equal(kind,structuredInteractionKind({...q,responseType:'structured'}));
     assert.ok((q.nativeResponse?.fields||[]).every(field=>Array.isArray(field.expected)&&field.expected.some(v=>String(v).trim())),q.id);
   }
+  console.log('PL300_NATIVE_KIND_COUNTS='+JSON.stringify(nativeKindCounts()));
   assert.deepEqual(bad,[]);
 });
 
