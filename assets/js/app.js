@@ -46,7 +46,7 @@ import {
 import {
   createExamSession,resolveExamMode,
   selectSingleAnswerState,toggleMultiSelectAnswerState,confirmMultiSelectAnswerState,confirmVoucherRankedAnswerState,updateStructuredAnswerState,confirmStructuredAnswerState,
-  isStructuredQuestion,structuredFields,structuredFieldChoices,structuredAnswerFields,structuredAnswerComplete,structuredExpectedDisplay,structuredSelectedDisplay,structuredFieldCorrect,
+  isStructuredQuestion,structuredFields,structuredFieldChoices,structuredInteractionKind,structuredBinaryChoices,structuredAnswerFields,structuredAnswerComplete,structuredExpectedDisplay,structuredSelectedDisplay,structuredFieldCorrect,
   normalizeNavigatorFilter,toggleMarkedQuestionState,moveQuestionIndex,setQuestionIndex,
   examTimerPolicyLabel,
   buildExamProgressSnapshot,getActiveExamProgress,effectiveSavedRemainingSeconds,voucherSavedAttemptMatches as matchesVoucherSavedAttempt,
@@ -5353,48 +5353,12 @@ function answerOptionText(question,selected){
   }).join('');
 }
 
-function renderRankedStructuredInputs(question,list,{selected,confirmed,feedbackReady}={}){
-  const values=structuredAnswerFields(selected);
-  const showFieldFeedback=state.feedbackMode==='instant'&&feedbackReady&&structuredAnswerComplete(question,selected);
+function renderRankedStructuredInputs(q,list,{selected,confirmed,feedbackReady}={}){
+  const values=structuredAnswerFields(selected),fields=structuredFields(q),kind=structuredInteractionKind(q),done=structuredAnswerComplete(q,selected),instant=state.feedbackMode==='instant',locked=Boolean(confirmed)||(instant&&!isCurrentVoucherRankedLearning()&&done),feedback=instant&&feedbackReady&&done;
   list.classList.add('ranked-structured-list');
-  for(const field of structuredFields(question)){
-    const row=document.createElement('label');
-    row.className='ranked-structured-field';
-    row.innerHTML=`<span class="ranked-structured-label">${escapeHtml(field.label||field.id)}</span>`;
-    const choices=structuredFieldChoices(field);
-    const input=choices.length?document.createElement('select'):document.createElement('input');
-    if(choices.length){
-      const placeholder=document.createElement('option');
-      placeholder.value='';
-      placeholder.textContent='Select an answer';
-      input.appendChild(placeholder);
-      for(const choice of choices){
-        const option=document.createElement('option');
-        option.value=choice;
-        option.textContent=choice;
-        input.appendChild(option);
-      }
-    }else{
-      input.type='text';
-      input.autocomplete='off';
-      input.spellcheck=false;
-      input.placeholder='Type the source answer';
-    }
-    input.setAttribute('data-ranked-structured-field',String(field.id));
-    input.value=String(values?.[field.id]??'');
-    input.disabled=Boolean(confirmed)||(state.feedbackMode==='instant'&&!isCurrentVoucherRankedLearning()&&structuredAnswerComplete(question,selected));
-    if(showFieldFeedback)input.classList.add(structuredFieldCorrect(field,input.value)?'correct':'wrong');
-    input.addEventListener(choices.length?'change':'input',event=>updateStructuredField(question,field.id,event.target.value));
-    row.appendChild(input);
-    if(showFieldFeedback){
-      const expected=String((field.expected||[])[0]??'');
-      const note=document.createElement('small');
-      note.className='ranked-structured-expected';
-      note.textContent=structuredFieldCorrect(field,input.value)?'Correct ✓':`Expected: ${expected}`;
-      row.appendChild(note);
-    }
-    list.appendChild(row);
-  }
+  const grade=(row,f,v)=>{if(!feedback)return;const ok=structuredFieldCorrect(f,v),n=document.createElement('small');row.classList.add(ok?'correct':'wrong');n.className='ranked-structured-expected';n.textContent=ok?'Correct ✓':`Expected: ${String((f.expected||[])[0]??'')}`;row.append(n)};
+  if(kind==='yes-no'){for(const f of fields){const row=document.createElement('div');row.className='ranked-structured-field';row.innerHTML=`<span class="ranked-structured-label">${escapeHtml(f.label||f.id)}</span><div class="ranked-structured-binary-controls"></div>`;for(const c of structuredBinaryChoices(q,f)){const b=document.createElement('button'),on=String(values?.[f.id]??'').toLowerCase()===String(c).toLowerCase();b.type='button';b.className=`ranked-structured-binary-option${on?' selected':''}`;b.textContent=c;b.ariaPressed=on;b.disabled=locked;b.onclick=()=>updateStructuredField(q,f.id,c);row.lastElementChild.append(b)}grade(row,f,values?.[f.id]);list.append(row)}return}
+  for(const f of fields){const row=document.createElement('label'),choices=structuredFieldChoices(f),input=choices.length?document.createElement('select'):document.createElement('input');row.className='ranked-structured-field';row.innerHTML=`<span class="ranked-structured-label">${escapeHtml(f.label||f.id)}</span>`;if(choices.length)input.innerHTML='<option value="">Select</option>'+choices.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');else input.type='text';input.setAttribute('data-ranked-structured-field',f.id);input.value=String(values?.[f.id]??'');input.disabled=locked;if(feedback)input.classList.add(structuredFieldCorrect(f,input.value)?'correct':'wrong');input.addEventListener(choices.length?'change':'input',e=>updateStructuredField(q,f.id,e.target.value));row.append(input);grade(row,f,input.value);list.append(row)}
 }
 function renderQuestion(){
   const qs=state.currentExam.questions,q=qs[state.currentIndex];
