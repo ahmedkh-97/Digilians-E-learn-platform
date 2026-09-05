@@ -1,0 +1,40 @@
+name: V0.22.3 PL-300 Native Regression
+
+on:
+  push:
+    branches:
+      - release/v0.22.3-pl300-native-arabic-regression
+
+permissions:
+  contents: write
+
+jobs:
+  native-regression:
+    if: ${{ !contains(github.event.head_commit.message, '[skip v0223-ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply deterministic ranked native renderer patch
+        run: node tools/v0223-patch-ranked-native.mjs
+      - name: V0.22.3 exhaustive PL-300 gate
+        run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs
+      - name: Full Node regression
+        run: node --test tests/*.test.mjs
+      - name: Pre-deploy gate
+        run: node tools/pre-deploy-check.mjs
+      - name: Commit generated renderer patch
+        run: |
+          if git diff --quiet -- assets/js/app.js assets/css/pl300.css; then
+            echo "Renderer already patched."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/js/app.js assets/css/pl300.css
+          git commit -m "feat: complete V0.22.3 ranked native renderer [skip v0223-ci]"
+          git push
