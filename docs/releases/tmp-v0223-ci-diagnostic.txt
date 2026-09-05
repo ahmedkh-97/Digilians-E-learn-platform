@@ -1,30 +1,30 @@
 V0.22.3 CI diagnostic
-run=33974212676
-sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
+run=33974298157
+sha=f96319a398fbf10eb4373626bf7fb0197926fde4
 
 ===== FOCUSED =====
 2-# Subtest: progress backups carry the learner storage schema marker
 3-ok 1 - progress backups carry the learner storage schema marker
 4-  ---
-5-  duration_ms: 18.138691
+5-  duration_ms: 19.021306
 6-  type: 'test'
 7-  ...
 8-# Subtest: restore validation refuses learner data from a future storage schema
 9-ok 2 - restore validation refuses learner data from a future storage schema
 10-  ---
-11-  duration_ms: 6.626278
+11-  duration_ms: 7.762817
 12-  type: 'test'
 13-  ...
 14:# Subtest: restore rolls back all learner keys when a browser write fails mid-apply
 15:ok 3 - restore rolls back all learner keys when a browser write fails mid-apply
 16-  ---
-17-  duration_ms: 3.172337
+17-  duration_ms: 3.346263
 18-  type: 'test'
 19-  ...
 20-# Subtest: Official section exposes level, track and current topic
 21-ok 4 - Official section exposes level, track and current topic
 22-  ---
-23-  duration_ms: 1.991759
+23-  duration_ms: 2.069508
 24-  type: 'test'
 25-  ...
 26-# Subtest: Professional Official random exam keeps level and current question topic
@@ -33,25 +33,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 242-# Subtest: ambiguous concept families resolve to source-specific semantic answers
 243-ok 41 - ambiguous concept families resolve to source-specific semantic answers
 244-  ---
-245-  duration_ms: 6.911456
+245-  duration_ms: 13.26563
 246-  type: 'test'
 247-  ...
 248-# Subtest: generic fallback stems are not truncated or context-poor
 249-ok 42 - generic fallback stems are not truncated or context-poor
 250-  ---
-251-  duration_ms: 8.888302
+251-  duration_ms: 10.928114
 252-  type: 'test'
 253-  ...
 254:# Subtest: current release metadata keeps Excel Practice startup modules cache-busted consistently
 255:ok 43 - current release metadata keeps Excel Practice startup modules cache-busted consistently
 256-  ---
-257-  duration_ms: 8.995133
+257-  duration_ms: 6.555863
 258-  type: 'test'
 259-  ...
 260-# Subtest: Excel intake metadata marks Study and Practice approved, Full Track Exam ready, and Week Exams locked
 261-ok 44 - Excel intake metadata marks Study and Practice approved, Full Track Exam ready, and Week Exams locked
 262-  ---
-263-  duration_ms: 6.201807
+263-  duration_ms: 3.214449
 264-  type: 'test'
 265-  ...
 266-# Subtest: Practice stems are learner-facing and correct-answer positions are balanced
@@ -60,25 +60,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 536-# Subtest: full local test runs pre-deploy before localhost
 537-ok 90 - full local test runs pre-deploy before localhost
 538-  ---
-539-  duration_ms: 0.3456
+539-  duration_ms: 0.361031
 540-  type: 'test'
 541-  ...
 542-# Subtest: quick check protects answered-only My Mistakes behavior before localhost starts
 543-ok 91 - quick check protects answered-only My Mistakes behavior before localhost starts
 544-  ---
-545-  duration_ms: 0.293422
+545-  duration_ms: 0.27976
 546-  type: 'test'
 547-  ...
 548:# Subtest: quick check blocks localhost on Voucher infrastructure and regression failures
 549:ok 92 - quick check blocks localhost on Voucher infrastructure and regression failures
 550-  ---
-551-  duration_ms: 0.314153
+551-  duration_ms: 0.307812
 552-  type: 'test'
 553-  ...
 554-# Subtest: quick check permanently guards the Windows no-Node local-start fallback
 555-ok 93 - quick check permanently guards the Windows no-Node local-start fallback
 556-  ---
-557-  duration_ms: 0.306721
+557-  duration_ms: 0.342157
 558-  type: 'test'
 559-  ...
 560-# Subtest: full pre-deploy validates Voucher JSON alongside core data
@@ -87,25 +87,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 968-# Subtest: PL-300 text review retains 201 approved text questions while native ranking expands the master bank
 969-ok 162 - PL-300 text review retains 201 approved text questions while native ranking expands the master bank
 970-  ---
-971-  duration_ms: 1.520459
+971-  duration_ms: 1.406916
 972-  type: 'test'
 973-  ...
 974-# Subtest: all 20 conservative wave-3 candidates are production approved with reviewed Arabic explanations
 975-ok 163 - all 20 conservative wave-3 candidates are production approved with reviewed Arabic explanations
 976-  ---
-977-  duration_ms: 1.072775
+977-  duration_ms: 1.074548
 978-  type: 'test'
 979-  ...
 980:# Subtest: the other 70 questions have a final fail-closed disposition instead of an unresolved review state
 981:ok 164 - the other 70 questions have a final fail-closed disposition instead of an unresolved review state
 982-  ---
-983-  duration_ms: 0.590308
+983-  duration_ms: 0.579518
 984-  type: 'test'
 985-  ...
 986-# Subtest: known answer-key conflicts remain withheld and source scoring is not silently changed
 987-ok 165 - known answer-key conflicts remain withheld and source scoring is not silently changed
 988-  ---
-989-  duration_ms: 1.551246
+989-  duration_ms: 1.618871
 990-  type: 'test'
 991-  ...
 992-# Subtest: legacy Q&A and Power View questions stay out of production
@@ -114,31 +114,31 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1124-# Subtest: ranked study checkpoints require evidence review and never expose self-awarded competitive correctness
 1125-ok 188 - ranked study checkpoints require evidence review and never expose self-awarded competitive correctness
 1126-  ---
-1127-  duration_ms: 0.615787
+1127-  duration_ms: 0.48888
 1128-  type: 'test'
 1129-  ...
 1130-# Subtest: PL-300 full ranked UI consumes completion-first metrics from the dedicated lazy module
 1131-ok 189 - PL-300 full ranked UI consumes completion-first metrics from the dedicated lazy module
 1132-  ---
-1133-  duration_ms: 0.344408
+1133-  duration_ms: 0.321588
 1134-  type: 'test'
 1135-  ...
 1136:# Subtest: full ranked source-review presentation is lazy-rendered by the PL-300 module instead of inflating startup app payload
 1137:ok 190 - full ranked source-review presentation is lazy-rendered by the PL-300 module instead of inflating startup app payload
 1138-  ---
-1139-  duration_ms: 0.383017
+1139-  duration_ms: 0.345883
 1140-  type: 'test'
 1141-  ...
 1142:# Subtest: PL-300 full source review exposes both PDFs and all 509 actual question blocks
 1143:ok 191 - PL-300 full source review exposes both PDFs and all 509 actual question blocks
 1144-  ---
-1145-  duration_ms: 17.64396
+1145-  duration_ms: 16.398026
 1146-  type: 'test'
 1147-  ...
 1148-# Subtest: every source-review entry is traceable and reviewable without inventing a scored answer
 1149-ok 192 - every source-review entry is traceable and reviewable without inventing a scored answer
 1150-  ---
-1151-  duration_ms: 14.450978
+1151-  duration_ms: 15.132122
 1152-  type: 'test'
 1153-  ...
 1154-# Subtest: Full Ranked review UI exposes a primary Study Part selector and selected-part progress
@@ -147,25 +147,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1184-# Subtest: part filtering keeps source-bank order and limits navigation to the selected mini part
 1185-ok 198 - part filtering keeps source-bank order and limits navigation to the selected mini part
 1186-  ---
-1187-  duration_ms: 3.039817
+1187-  duration_ms: 2.341494
 1188-  type: 'test'
 1189-  ...
 1190-# Subtest: part selector markup exposes All 509 plus grouped domain → section → part labels
 1191-ok 199 - part selector markup exposes All 509 plus grouped domain → section → part labels
 1192-  ---
-1193-  duration_ms: 1.359537
+1193-  duration_ms: 1.475794
 1194-  type: 'test'
 1195-  ...
 1196:# Subtest: part view state centralizes selector label and progress without bloating startup app code
 1197:ok 200 - part view state centralizes selector label and progress without bloating startup app code
 1198-  ---
-1199-  duration_ms: 1.594781
+1199-  duration_ms: 1.531979
 1200-  type: 'test'
 1201-  ...
 1202-# Subtest: source-backed native fields can expose explicit choice lists
 1203-ok 201 - source-backed native fields can expose explicit choice lists
 1204-  ---
-1205-  duration_ms: 1.770155
+1205-  duration_ms: 1.778347
 1206-  type: 'test'
 1207-  ...
 1208-# Subtest: Full Ranked native renderer uses select dropdowns when source choices exist
@@ -174,25 +174,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1214-# Subtest: master ranked bank carries the same source-backed choices for structured exam mode
 1215-ok 203 - master ranked bank carries the same source-backed choices for structured exam mode
 1216-  ---
-1217-  duration_ms: 0.393322
+1217-  duration_ms: 0.345031
 1218-  type: 'test'
 1219-  ...
 1220-# Subtest: ranked exam structured renderer switches source-backed choice fields to select controls
 1221-ok 204 - ranked exam structured renderer switches source-backed choice fields to select controls
 1222-  ---
-1223-  duration_ms: 0.640845
+1223-  duration_ms: 0.55915
 1224-  type: 'test'
 1225-  ...
 1226:# Subtest: all 78 native candidates have an explicit fail-closed ranking review decision
 1227:ok 205 - all 78 native candidates have an explicit fail-closed ranking review decision
 1228-  ---
-1229-  duration_ms: 1.671937
+1229-  duration_ms: 1.69948
 1230-  type: 'test'
 1231-  ...
 1232-# Subtest: approved native candidates are promoted exactly once as structured ranked questions
 1233-ok 206 - approved native candidates are promoted exactly once as structured ranked questions
 1234-  ---
-1235-  duration_ms: 25.496449
+1235-  duration_ms: 24.433631
 1236-  type: 'test'
 1237-  ...
 1238-# Subtest: withheld native duplicates, conflicts and ambiguous items never enter ranked master bank
@@ -201,25 +201,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1250-# Subtest: structured normalization is case, punctuation, unicode and whitespace tolerant
 1251-ok 209 - structured normalization is case, punctuation, unicode and whitespace tolerant
 1252-  ---
-1253-  duration_ms: 1.971739
+1253-  duration_ms: 1.879786
 1254-  type: 'test'
 1255-  ...
 1256-# Subtest: structured answer state is complete only when all required fields are filled
 1257-ok 210 - structured answer state is complete only when all required fields are filled
 1258-  ---
-1259-  duration_ms: 0.433563
+1259-  duration_ms: 0.485904
 1260-  type: 'test'
 1261-  ...
 1262:# Subtest: structured answers score against source-backed expected values
 1263:ok 211 - structured answers score against source-backed expected values
 1264-  ---
-1265-  duration_ms: 0.515346
+1265-  duration_ms: 0.604635
 1266-  type: 'test'
 1267-  ...
 1268-# Subtest: shared result engine includes structured questions without changing MCQ scoring
 1269-ok 212 - shared result engine includes structured questions without changing MCQ scoring
 1270-  ---
-1271-  duration_ms: 1.207599
+1271-  duration_ms: 1.367182
 1272-  type: 'test'
 1273-  ...
 1274-# Subtest: payload validation accepts complete structured scoring contracts and rejects malformed ones
@@ -228,25 +228,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1334-# Subtest: structured My Mistakes questions remain practiceable without invented MCQ options
 1335-ok 223 - structured My Mistakes questions remain practiceable without invented MCQ options
 1336-  ---
-1337-  duration_ms: 0.489457
+1337-  duration_ms: 0.379476
 1338-  type: 'test'
 1339-  ...
 1340-# Subtest: PL-300 visual audit accepts approved native structured source-evidence visuals
 1341-ok 224 - PL-300 visual audit accepts approved native structured source-evidence visuals
 1342-  ---
-1343-  duration_ms: 101.239615
+1343-  duration_ms: 114.393473
 1344-  type: 'test'
 1345-  ...
 1346:# Subtest: PL-300 source practice promotes evidence-backed visuals while fail-closed source reveals remain checkpoint candidates
 1347:ok 225 - PL-300 source practice promotes evidence-backed visuals while fail-closed source reveals remain checkpoint candidates
 1348-  ---
-1349-  duration_ms: 16.971968
+1349-  duration_ms: 18.218682
 1350-  type: 'test'
 1351-  ...
 1352-# Subtest: native source records stay practice-scoped while only explicit reviewed copies enter the ranked master bank
 1353-ok 226 - native source records stay practice-scoped while only explicit reviewed copies enter the ranked master bank
 1354-  ---
-1355-  duration_ms: 30.609186
+1355-  duration_ms: 40.470875
 1356-  type: 'test'
 1357-  ...
 1358-# Subtest: voucher storage and source-practice UI support native structured answers
@@ -255,37 +255,37 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1370-# Subtest: PL-300 official-weight blueprint resolves to 60 questions
 1371-ok 229 - PL-300 official-weight blueprint resolves to 60 questions
 1372-  ---
-1373-  duration_ms: 0.495837
+1373-  duration_ms: 0.492606
 1374-  type: 'test'
 1375-  ...
 1376-# Subtest: PL-300 draft master bank preserves stable option IDs, provenance and multi-select answer sets
 1377-ok 230 - PL-300 draft master bank preserves stable option IDs, provenance and multi-select answer sets
 1378-  ---
-1379-  duration_ms: 23.122224
+1379-  duration_ms: 22.004502
 1380-  type: 'test'
 1381-  ...
 1382:# Subtest: PL-300 production subset is fail-closed, current-scope and large enough for all configured mock sizes
 1383:ok 231 - PL-300 production subset is fail-closed, current-scope and large enough for all configured mock sizes
 1384-  ---
-1385-  duration_ms: 1.457475
+1385-  duration_ms: 1.486715
 1386-  type: 'test'
 1387-  ...
 1388-# Subtest: production subset supports the fixed 60-question real-exam quota after domain review
 1389-ok 232 - production subset supports the fixed 60-question real-exam quota after domain review
 1390-  ---
-1391-  duration_ms: 0.307744
+1391-  duration_ms: 0.409742
 1392-  type: 'test'
 1393-  ...
 1394:# Subtest: non-production questions stay excluded from Random and Real generation by the existing fail-closed engine
 1395:ok 233 - non-production questions stay excluded from Random and Real generation by the existing fail-closed engine
 1396-  ---
-1397-  duration_ms: 0.170717
+1397-  duration_ms: 0.196566
 1398-  type: 'test'
 1399-  ...
 1400-# Subtest: production PL-300 excludes unreviewed standalone Source 2 questions
 1401-ok 234 - production PL-300 excludes unreviewed standalone Source 2 questions
 1402-  ---
-1403-  duration_ms: 2.184229
+1403-  duration_ms: 1.988217
 1404-  type: 'test'
 1405-  ...
 1406-# Subtest: owner-approved Source 2 RLS conflict Q307 uses RLS scoring and enters the reviewed production set
@@ -294,25 +294,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1412-# Subtest: conservative PL-300 production set still supports all mock sizes and the fixed real-exam quota
 1413-ok 236 - conservative PL-300 production set still supports all mock sizes and the fixed real-exam quota
 1414-  ---
-1415-  duration_ms: 0.386402
+1415-  duration_ms: 0.40339
 1416-  type: 'test'
 1417-  ...
 1418-# Subtest: approved scatter conflict is promoted as the 201st ranked question with preserved source provenance
 1419-ok 237 - approved scatter conflict is promoted as the 201st ranked question with preserved source provenance
 1420-  ---
-1421-  duration_ms: 44.919532
+1421-  duration_ms: 37.678482
 1422-  type: 'test'
 1423-  ...
 1424:# Subtest: the malformed tooltip variants remain available only as fail-closed source reveal practice
 1425:ok 238 - the malformed tooltip variants remain available only as fail-closed source reveal practice
 1426-  ---
-1427-  duration_ms: 26.727121
+1427-  duration_ms: 26.197451
 1428-  type: 'test'
 1429-  ...
 1430-# Subtest: release metadata reflects 265 ranked questions while all 509 source blocks remain practiceable
 1431-ok 239 - release metadata reflects 265 ranked questions while all 509 source blocks remain practiceable
 1432-  ---
-1433-  duration_ms: 5.989037
+1433-  duration_ms: 5.663051
 1434-  type: 'test'
 1435-  ...
 1436-# Subtest: ranked learning styles define .voucher-ranked-learning-overview
@@ -321,25 +321,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1670-# Subtest: owner-approved conflict resolution leaves no unlinked rankable text blocks
 1671-ok 279 - owner-approved conflict resolution leaves no unlinked rankable text blocks
 1672-  ---
-1673-  duration_ms: 5.310235
+1673-  duration_ms: 5.138214
 1674-  type: 'test'
 1675-  ...
 1676-# Subtest: PL-300 source review supports auto-scored text practice
 1677-ok 280 - PL-300 source review supports auto-scored text practice
 1678-  ---
-1679-  duration_ms: 0.835948
+1679-  duration_ms: 0.932
 1680-  type: 'test'
 1681-  ...
 1682:# Subtest: fail-closed source questions use required study checkpoints without self-awarded correctness
 1683:ok 281 - fail-closed source questions use required study checkpoints without self-awarded correctness
 1684-  ---
-1685-  duration_ms: 0.428615
+1685-  duration_ms: 0.433342
 1686-  type: 'test'
 1687-  ...
 1688-# Subtest: full ranked source practice displays persistent completion and objective answer-state styling
 1689-ok 282 - full ranked source practice displays persistent completion and objective answer-state styling
 1690-  ---
-1691-  duration_ms: 2.205
+1691-  duration_ms: 1.585271
 1692-  type: 'test'
 1693-  ...
 1694-# Subtest: native structured source practice has responsive answer-field styling
@@ -348,25 +348,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1754-# Subtest: PL-300 visual audit derives released question count from config instead of a stale literal
 1755-ok 293 - PL-300 visual audit derives released question count from config instead of a stale literal
 1756-  ---
-1757-  duration_ms: 0.743259
+1757-  duration_ms: 1.022861
 1758-  type: 'test'
 1759-  ...
 1760-# Subtest: PL-300 Wave 2 expands the reviewed current-scope bank beyond 170 questions
 1761-ok 294 - PL-300 Wave 2 expands the reviewed current-scope bank beyond 170 questions
 1762-  ---
-1763-  duration_ms: 1.620029
+1763-  duration_ms: 1.299494
 1764-  type: 'test'
 1765-  ...
 1766:# Subtest: Wave 2 remains fail-closed for known unresolved or stale answer-key conflicts
 1767:ok 295 - Wave 2 remains fail-closed for known unresolved or stale answer-key conflicts
 1768-  ---
-1769-  duration_ms: 0.540243
+1769-  duration_ms: 0.345859
 1770-  type: 'test'
 1771-  ...
 1772-# Subtest: standalone Source 2 production remains an explicit reviewed allowlist
 1773-ok 296 - standalone Source 2 production remains an explicit reviewed allowlist
 1774-  ---
-1775-  duration_ms: 3.050933
+1775-  duration_ms: 2.056689
 1776-  type: 'test'
 1777-  ...
 1778-# Subtest: Wave 2 does not admit legacy/out-of-scope or incomplete case-study payloads
@@ -375,55 +375,55 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1790-# Subtest: Platform Health scope switch is local and does not refetch analytics
 1791-ok 299 - Platform Health scope switch is local and does not refetch analytics
 1792-  ---
-1793-  duration_ms: 1.079856
+1793-  duration_ms: 1.794333
 1794-  type: 'test'
 1795-  ...
 1796-# Subtest: Platform Health has distinct visual treatment for warning rows
 1797-ok 300 - Platform Health has distinct visual treatment for warning rows
 1798-  ---
-1799-  duration_ms: 0.386051
+1799-  duration_ms: 0.409411
 1800-  type: 'test'
 1801-  ...
 1802:# Subtest: client error classification distinguishes startup criticals, runtime errors, warnings, and benign noise
 1803:ok 301 - client error classification distinguishes startup criticals, runtime errors, warnings, and benign noise
 1804-  ---
-1805-  duration_ms: 8.800741
+1805-  duration_ms: 9.286556
 1806-  type: 'test'
 1807-  ...
 1808-# Subtest: health aggregation exposes severity counts, current-version errors, and last error timestamp
 1809-ok 302 - health aggregation exposes severity counts, current-version errors, and last error timestamp
 1810-  ---
-1811-  duration_ms: 5.442694
+1811-  duration_ms: 4.705184
 1812-  type: 'test'
 1813-  ...
 1814-# Subtest: historical app_error events without severity remain classifiable
 1815-ok 303 - historical app_error events without severity remain classifiable
 1816-  ---
-1817-  duration_ms: 6.989173
+1817-  duration_ms: 7.717863
 1818-  type: 'test'
 1819-  ...
 1820:# Subtest: failed to fetch is classified as a network warning instead of a critical/error TypeError
 1821:ok 304 - failed to fetch is classified as a network warning instead of a critical/error TypeError
 1822-  ---
-1823-  duration_ms: 3.444346
+1823-  duration_ms: 3.314648
 1824-  type: 'test'
 1825-  ...
 1826-# Subtest: health defaults to current-version sessions and errors while preserving all-version history
 1827-ok 305 - health defaults to current-version sessions and errors while preserving all-version history
 1828-  ---
-1829-  duration_ms: 13.034865
+1829-  duration_ms: 16.203459
 1830-  type: 'test'
 1831-  ...
 1832:# Subtest: current-version health rate uses only sessions that actually ran the current build
 1833:ok 306 - current-version health rate uses only sessions that actually ran the current build
 1834-  ---
-1835-  duration_ms: 2.874979
+1835-  duration_ms: 4.336044
 1836-  type: 'test'
 1837-  ...
 1838-# Subtest: full track exam navigation returns to the selected learning track
 1839-ok 307 - full track exam navigation returns to the selected learning track
 1840-  ---
-1841-  duration_ms: 3.079197
+1841-  duration_ms: 2.917547
 1842-  type: 'test'
 1843-  ...
 1844-# Subtest: track exam setup labels its back action with the selected track
@@ -432,23 +432,23 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1874-# Subtest: entry CTA is inert until platform data is ready
 1875-ok 313 - entry CTA is inert until platform data is ready
 1876-  ---
-1877-  duration_ms: 3.570817
+1877-  duration_ms: 4.392438
 1878-  type: 'test'
 1879-  ...
 1880-# Subtest: saved theme is applied before the main stylesheet to avoid a light-mode flash
 1881-ok 314 - saved theme is applied before the main stylesheet to avoid a light-mode flash
 1882-  ---
-1883-  duration_ms: 1.311795
+1883-  duration_ms: 1.25081
 1884-  type: 'test'
 1885-  ...
 1886:# Subtest: startup payload stays within the stabilization performance budget
 1887:not ok 315 - startup payload stays within the stabilization performance budget
 1888-  ---
-1889-  duration_ms: 66.82272
+1889-  duration_ms: 64.518052
 1890-  type: 'test'
 1891-  location: '/home/runner/work/Digilians-E-learn-platform/Digilians-E-learn-platform/tests/platform-ux-performance.test.mjs:45:1'
 1892:  failureType: 'testCodeFailure'
-1893:  error: 'startup gzip estimate 450.4KB exceeds 450KB budget'
+1893:  error: 'startup gzip estimate 450.0KB exceeds 450KB budget'
 1894:  code: 'ERR_ASSERTION'
 1895:  name: 'AssertionError'
 1896:  expected: true
@@ -466,25 +466,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 1908:# Subtest: startup has an independent recovery state for load failures and timeouts
 1909:ok 316 - startup has an independent recovery state for load failures and timeouts
 1910-  ---
-1911-  duration_ms: 0.576258
+1911-  duration_ms: 0.906174
 1912-  type: 'test'
 1913-  ...
 1914-# Subtest: pre-deploy permanently enforces the UX/performance stabilization gate
 1915-ok 317 - pre-deploy permanently enforces the UX/performance stabilization gate
 1916-  ---
-1917-  duration_ms: 0.196466
+1917-  duration_ms: 0.281636
 1918-  type: 'test'
 1919-  ...
 1920:# Subtest: PL-300 feature CSS is lazy-loaded instead of inflating the startup stylesheet
 1921:ok 318 - PL-300 feature CSS is lazy-loaded instead of inflating the startup stylesheet
 1922-  ---
-1923-  duration_ms: 3.578478
+1923-  duration_ms: 6.61554
 1924-  type: 'test'
 1925-  ...
 1926-# Subtest: pre-deploy runs the path portability regression gate
 1927-ok 319 - pre-deploy runs the path portability regression gate
 1928-  ---
-1929-  duration_ms: 1.226256
+1929-  duration_ms: 1.359306
 1930-  type: 'test'
 1931-  ...
 1932-# Subtest: pre-deploy requires the lazy PL-300 stylesheet used by ranked/source-review views
@@ -493,25 +493,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 2292-# Subtest: reset clears only the current owner mistake history
 2293-ok 380 - reset clears only the current owner mistake history
 2294-  ---
-2295-  duration_ms: 2.384481
+2295-  duration_ms: 2.690974
 2296-  type: 'test'
 2297-  ...
 2298-# Subtest: official reset removes only mistake flags and preserves study state
 2299-ok 381 - official reset removes only mistake flags and preserves study state
 2300-  ---
-2301-  duration_ms: 0.735978
+2301-  duration_ms: 0.809495
 2302-  type: 'test'
 2303-  ...
 2304:# Subtest: startup and exam code do not call crypto.randomUUID directly
 2305:ok 382 - startup and exam code do not call crypto.randomUUID directly
 2306-  ---
-2307-  duration_ms: 4.166443
+2307-  duration_ms: 3.971946
 2308-  type: 'test'
 2309-  ...
 2310-# Subtest: createUuid falls back to crypto.getRandomValues when randomUUID is unavailable
 2311-ok 383 - createUuid falls back to crypto.getRandomValues when randomUUID is unavailable
 2312-  ---
-2313-  duration_ms: 3.178346
+2313-  duration_ms: 3.383191
 2314-  type: 'test'
 2315-  ...
 2316-# Subtest: createUuid has a last-resort UUID fallback when Web Crypto is absent
@@ -520,31 +520,31 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 2328-# Subtest: analytics filters benign browser noise before counting/reporting app errors
 2329-ok 386 - analytics filters benign browser noise before counting/reporting app errors
 2330-  ---
-2331-  duration_ms: 0.602467
+2331-  duration_ms: 0.559951
 2332-  type: 'test'
 2333-  ...
 2334-# Subtest: runtime compatibility helper stays cache-busted across the current release
 2335-ok 387 - runtime compatibility helper stays cache-busted across the current release
 2336-  ---
-2337-  duration_ms: 3.946202
+2337-  duration_ms: 3.642773
 2338-  type: 'test'
 2339-  ...
 2340:# Subtest: startup-critical storage import is cache-busted with the current release
 2341:ok 388 - startup-critical storage import is cache-busted with the current release
 2342-  ---
-2343-  duration_ms: 1.072495
+2343-  duration_ms: 1.205351
 2344-  type: 'test'
 2345-  ...
 2346:# Subtest: storage module exposes the reset API required by app startup
 2347:ok 389 - storage module exposes the reset API required by app startup
 2348-  ---
-2349-  duration_ms: 0.262185
+2349-  duration_ms: 0.253782
 2350-  type: 'test'
 2351-  ...
 2352-# Subtest: storage schema migrates an unversioned install non-destructively to the current version
 2353-ok 390 - storage schema migrates an unversioned install non-destructively to the current version
 2354-  ---
-2355-  duration_ms: 2.048775
+2355-  duration_ms: 2.142735
 2356-  type: 'test'
 2357-  ...
 2358-# Subtest: future storage schema is refused without mutating learner data
@@ -553,25 +553,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 2532-# Subtest: PL-300 primary hierarchy is ranked learning first instead of challenge first
 2533-ok 420 - PL-300 primary hierarchy is ranked learning first instead of challenge first
 2534-  ---
-2535-  duration_ms: 0.235905
+2535-  duration_ms: 0.189132
 2536-  type: 'test'
 2537-  ...
 2538-# Subtest: ranked-learning controls preserve accessible dialog, live regions and text-labelled states
 2539-ok 421 - ranked-learning controls preserve accessible dialog, live regions and text-labelled states
 2540-  ---
-2541-  duration_ms: 2.373053
+2541-  duration_ms: 2.137986
 2542-  type: 'test'
 2543-  ...
 2544:# Subtest: content architecture validation fails closed on missing, unknown, or duplicate mapping contracts
 2545:ok 422 - content architecture validation fails closed on missing, unknown, or duplicate mapping contracts
 2546-  ---
-2547-  duration_ms: 2.781157
+2547-  duration_ms: 2.146291
 2548-  type: 'test'
 2549-  ...
 2550-# Subtest: session filtering returns only mapped questions and preserves master-bank order
 2551-ok 423 - session filtering returns only mapped questions and preserves master-bank order
 2552-  ---
-2553-  duration_ms: 0.535726
+2553-  duration_ms: 2.411068
 2554-  type: 'test'
 2555-  ...
 2556-# Subtest: view model aggregates deterministic domain/session counts and seen progress
@@ -580,25 +580,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 2820-# Subtest: session ranking activity id is stable and session-scoped
 2821-ok 468 - session ranking activity id is stable and session-scoped
 2822-  ---
-2823-  duration_ms: 1.445537
+2823-  duration_ms: 1.742871
 2824-  type: 'test'
 2825-  ...
 2826-# Subtest: first pass percentage uses completed question volume
 2827-ok 469 - first pass percentage uses completed question volume
 2828-  ---
-2829-  duration_ms: 0.254654
+2829-  duration_ms: 0.271154
 2830-  type: 'test'
 2831-  ...
 2832:# Subtest: session rank status is official only when every expected question has an answer
 2833:ok 470 - session rank status is official only when every expected question has an answer
 2834-  ---
-2835-  duration_ms: 1.118163
+2835-  duration_ms: 1.263069
 2836-  type: 'test'
 2837-  ...
 2838-# Subtest: session leaderboard ranks mastery, first-pass accuracy, fewer attempts, active solve time, then earliest achievement
 2839-ok 471 - session leaderboard ranks mastery, first-pass accuracy, fewer attempts, active solve time, then earliest achievement
 2840-  ---
-2841-  duration_ms: 1.905148
+2841-  duration_ms: 1.969944
 2842-  type: 'test'
 2843-  ...
 2844-# Subtest: session attempt metadata distinguishes official completion and first-pass accuracy
@@ -607,25 +607,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 2964-# Subtest: Voucher registry exposes exactly the five approved tracks
 2965-ok 492 - Voucher registry exposes exactly the five approved tracks
 2966-  ---
-2967-  duration_ms: 1.515672
+2967-  duration_ms: 1.454485
 2968-  type: 'test'
 2969-  ...
 2970-# Subtest: Data Analysis is released while the other approved Voucher tracks remain Coming Soon
 2971-ok 493 - Data Analysis is released while the other approved Voucher tracks remain Coming Soon
 2972-  ---
-2973-  duration_ms: 1.617015
+2973-  duration_ms: 4.215058
 2974-  type: 'test'
 2975-  ...
 2976:# Subtest: exam config fails closed when Real Exam metadata is incomplete
 2977:ok 494 - exam config fails closed when Real Exam metadata is incomplete
 2978-  ---
-2979-  duration_ms: 0.307023
+2979-  duration_ms: 0.308002
 2980-  type: 'test'
 2981-  ...
 2982-# Subtest: ranked Domain completion records Domain mastery, first pass, active solve and scoped ranking ID
 2983-ok 495 - ranked Domain completion records Domain mastery, first pass, active solve and scoped ranking ID
 2984-  ---
-2985-  duration_ms: 1.603424
+2985-  duration_ms: 1.782905
 2986-  type: 'test'
 2987-  ...
 2988-# Subtest: legacy challenge and full-bank activity IDs remain in completion code only for historical compatibility
@@ -634,25 +634,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 3066-# Subtest: voucher backup merge preserves source practice records
 3067-ok 509 - voucher backup merge preserves source practice records
 3068-  ---
-3069-  duration_ms: 1.302972
+3069-  duration_ms: 1.443033
 3070-  type: 'test'
 3071-  ...
 3072-# Subtest: native structured source answers persist and contribute only to local practice summary
 3073-ok 510 - native structured source answers persist and contribute only to local practice summary
 3074-  ---
-3075-  duration_ms: 2.934749
+3075-  duration_ms: 3.048028
 3076-  type: 'test'
 3077-  ...
 3078:# Subtest: native structured source result fails closed when no answer fields are provided
 3079:ok 511 - native structured source result fails closed when no answer fields are provided
 3080-  ---
-3081-  duration_ms: 0.716058
+3081-  duration_ms: 0.761176
 3082-  type: 'test'
 3083-  ...
 3084-# Subtest: voucher source practice persists auto-scored and self-graded source items
 3085-ok 512 - voucher source practice persists auto-scored and self-graded source items
 3086-  ---
-3087-  duration_ms: 2.09855
+3087-  duration_ms: 2.926762
 3088-  type: 'test'
 3089-  ...
 3090-# Subtest: Voucher attempts stay in their own store and best eligible attempt is selected
@@ -661,25 +661,25 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 3204-# Subtest: PowerShell fallback scripts avoid ambiguous unbraced variable-colon interpolation
 3205-ok 532 - PowerShell fallback scripts avoid ambiguous unbraced variable-colon interpolation
 3206-  ---
-3207-  duration_ms: 0.976911
+3207-  duration_ms: 0.989229
 3208-  type: 'test'
 3209-  ...
 3210-# Subtest: Windows fallback server is loopback-only, prevents path traversal, and chooses a free port
 3211-ok 533 - Windows fallback server is loopback-only, prevents path traversal, and chooses a free port
 3212-  ---
-3213-  duration_ms: 0.417619
+3213-  duration_ms: 0.392269
 3214-  type: 'test'
 3215-  ...
 3216:# Subtest: developer QA scripts explain that Node 20+ is required instead of failing with command-not-found
 3217:ok 534 - developer QA scripts explain that Node 20+ is required instead of failing with command-not-found
 3218-  ---
-3219-  duration_ms: 0.322936
+3219-  duration_ms: 0.328231
 3220-  type: 'test'
 3221-  ...
 3222-# Subtest: local testing guide separates ordinary localhost use from developer QA requirements
 3223-ok 535 - local testing guide separates ordinary localhost use from developer QA requirements
 3224-  ---
-3225-  duration_ms: 0.501635
+3225-  duration_ms: 0.518975
 3226-  type: 'test'
 3227-  ...
 3228-# Subtest: workspace has no redundant HTML mirrors when Markdown source exists
@@ -690,7 +690,7 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 3246-# Subtest: README stays current-state focused instead of becoming a release archive
 3247-ok 539 - README stays current-state focused instead of becoming a release archive
 3248-  ---
-3249-  duration_ms: 0.420082
+3249-  duration_ms: 0.448945
 3250-  type: 'test'
 3251-  ...
 3252-1..539
@@ -701,238 +701,238 @@ sha=4d5df907d8e990fe3d559b05d83e7bfd83ac2319
 3257-# cancelled 0
 3258-# skipped 0
 3259-# todo 0
-3260-# duration_ms 4215.113724
+3260-# duration_ms 4287.59757
 
 ===== TAIL =====
-  duration_ms: 1.163852
+  duration_ms: 1.416043
   type: 'test'
   ...
 # Subtest: only explicit Real Exam Size Voucher attempts are marked ranked
 ok 502 - only explicit Real Exam Size Voucher attempts are marked ranked
   ---
-  duration_ms: 0.440984
+  duration_ms: 0.470926
   type: 'test'
   ...
 # Subtest: Real Voucher payload explicitly marks Ranked Learning Challenge
 ok 503 - Real Voucher payload explicitly marks Ranked Learning Challenge
   ---
-  duration_ms: 1.397184
+  duration_ms: 1.732752
   type: 'test'
   ...
 # Subtest: Voucher saved attempt uses accessible in-app modal instead of browser confirm
 ok 504 - Voucher saved attempt uses accessible in-app modal instead of browser confirm
   ---
-  duration_ms: 2.094524
+  duration_ms: 2.100025
   type: 'test'
   ...
 # Subtest: Voucher surfaces map their legacy border token to the platform line token
 ok 505 - Voucher surfaces map their legacy border token to the platform line token
   ---
-  duration_ms: 1.215309
+  duration_ms: 0.98398
   type: 'test'
   ...
 # Subtest: Custom Practice explicitly tells learners that question counts are selectable controls
 ok 506 - Custom Practice explicitly tells learners that question counts are selectable controls
   ---
-  duration_ms: 0.273782
+  duration_ms: 0.216232
   type: 'test'
   ...
 # Subtest: Practice size cards expose strong default, hover, focus and selected affordances
 ok 507 - Practice size cards expose strong default, hover, focus and selected affordances
   ---
-  duration_ms: 1.280978
+  duration_ms: 1.008105
   type: 'test'
   ...
 # Subtest: Practice size cards have dedicated dark-mode default, hover and selected treatments
 ok 508 - Practice size cards have dedicated dark-mode default, hover and selected treatments
   ---
-  duration_ms: 0.662137
+  duration_ms: 0.639519
   type: 'test'
   ...
 # Subtest: voucher backup merge preserves source practice records
 ok 509 - voucher backup merge preserves source practice records
   ---
-  duration_ms: 1.302972
+  duration_ms: 1.443033
   type: 'test'
   ...
 # Subtest: native structured source answers persist and contribute only to local practice summary
 ok 510 - native structured source answers persist and contribute only to local practice summary
   ---
-  duration_ms: 2.934749
+  duration_ms: 3.048028
   type: 'test'
   ...
 # Subtest: native structured source result fails closed when no answer fields are provided
 ok 511 - native structured source result fails closed when no answer fields are provided
   ---
-  duration_ms: 0.716058
+  duration_ms: 0.761176
   type: 'test'
   ...
 # Subtest: voucher source practice persists auto-scored and self-graded source items
 ok 512 - voucher source practice persists auto-scored and self-graded source items
   ---
-  duration_ms: 2.09855
+  duration_ms: 2.926762
   type: 'test'
   ...
 # Subtest: Voucher attempts stay in their own store and best eligible attempt is selected
 ok 513 - Voucher attempts stay in their own store and best eligible attempt is selected
   ---
-  duration_ms: 1.495272
+  duration_ms: 1.540895
   type: 'test'
   ...
 # Subtest: seen question IDs are deduplicated per exam
 ok 514 - seen question IDs are deduplicated per exam
   ---
-  duration_ms: 1.25549
+  duration_ms: 1.034965
   type: 'test'
   ...
 # Subtest: Voucher store round-trips independently
 ok 515 - Voucher store round-trips independently
   ---
-  duration_ms: 1.407079
+  duration_ms: 1.155539
   type: 'test'
   ...
 # Subtest: best Voucher ranked attempt can be isolated by size mode
 ok 516 - best Voucher ranked attempt can be isolated by size mode
   ---
-  duration_ms: 0.444218
+  duration_ms: 0.386949
   type: 'test'
   ...
 # Subtest: Voucher is first-class navigation plus Home entry
 ok 517 - Voucher is first-class navigation plus Home entry
   ---
-  duration_ms: 0.947176
+  duration_ms: 1.407248
   type: 'test'
   ...
 # Subtest: Voucher has Hub, Track, and Exam views
 ok 518 - Voucher has Hub, Track, and Exam views
   ---
-  duration_ms: 0.19239
+  duration_ms: 0.266205
   type: 'test'
   ...
 # Subtest: Voucher UI is registry driven and supports Coming Soon
 ok 519 - Voucher UI is registry driven and supports Coming Soon
   ---
-  duration_ms: 0.160381
+  duration_ms: 0.274341
   type: 'test'
   ...
 # Subtest: Voucher question visual assets have an enlargement control contract
 ok 520 - Voucher question visual assets have an enlargement control contract
   ---
-  duration_ms: 0.250618
+  duration_ms: 0.288938
   type: 'test'
   ...
 # Subtest: Voucher child navigation resets scroll instantly instead of smooth-scrolling through the next view
 ok 521 - Voucher child navigation resets scroll instantly instead of smooth-scrolling through the next view
   ---
-  duration_ms: 1.310363
+  duration_ms: 1.411254
   type: 'test'
   ...
 # Subtest: Voucher track exam cards hydrate reviewed count from exam config rather than stale registry copy
 ok 522 - Voucher track exam cards hydrate reviewed count from exam config rather than stale registry copy
   ---
-  duration_ms: 0.331239
+  duration_ms: 0.36039
   type: 'test'
   ...
 # Subtest: Quick Practice sizes remain available only as a secondary non-ranked tool
 ok 523 - Quick Practice sizes remain available only as a secondary non-ranked tool
   ---
-  duration_ms: 0.354093
+  duration_ms: 0.360791
   type: 'test'
   ...
 # Subtest: PL-300 primary hierarchy is Ranked Learning with Domains and Sections, not legacy challenge or Session-ranked blocks
 ok 524 - PL-300 primary hierarchy is Ranked Learning with Domains and Sections, not legacy challenge or Session-ranked blocks
   ---
-  duration_ms: 0.42487
+  duration_ms: 0.442593
   type: 'test'
   ...
 # Subtest: Voucher layout supports Domain Ranked Learning, grouped section navigator, secondary source review and mobile cards
 ok 525 - Voucher layout supports Domain Ranked Learning, grouped section navigator, secondary source review and mobile cards
   ---
-  duration_ms: 2.541136
+  duration_ms: 2.733393
   type: 'test'
   ...
 # Subtest: Voucher hub uses a premium hero with capability highlights
 ok 526 - Voucher hub uses a premium hero with capability highlights
   ---
-  duration_ms: 0.979124
+  duration_ms: 1.049081
   type: 'test'
   ...
 # Subtest: Voucher track cards expose track-specific visual tone and richer coming-soon state
 ok 527 - Voucher track cards expose track-specific visual tone and richer coming-soon state
   ---
-  duration_ms: 0.258209
+  duration_ms: 0.262699
   type: 'test'
   ...
 # Subtest: Voucher redesign provides premium interaction styling without hiding content
 ok 528 - Voucher redesign provides premium interaction styling without hiding content
   ---
-  duration_ms: 0.693073
+  duration_ms: 0.574328
   type: 'test'
   ...
 # Subtest: package ships a Windows-native local-start fallback
 ok 529 - package ships a Windows-native local-start fallback
   ---
-  duration_ms: 1.089941
+  duration_ms: 0.954155
   type: 'test'
   ...
 # Subtest: START-LOCAL uses the Windows-native PowerShell path for ordinary localhost use
 ok 530 - START-LOCAL uses the Windows-native PowerShell path for ordinary localhost use
   ---
-  duration_ms: 0.542797
+  duration_ms: 0.480844
   type: 'test'
   ...
 # Subtest: Windows fallback basic check protects required runtime files and JSON
 ok 531 - Windows fallback basic check protects required runtime files and JSON
   ---
-  duration_ms: 1.243723
+  duration_ms: 1.141974
   type: 'test'
   ...
 # Subtest: PowerShell fallback scripts avoid ambiguous unbraced variable-colon interpolation
 ok 532 - PowerShell fallback scripts avoid ambiguous unbraced variable-colon interpolation
   ---
-  duration_ms: 0.976911
+  duration_ms: 0.989229
   type: 'test'
   ...
 # Subtest: Windows fallback server is loopback-only, prevents path traversal, and chooses a free port
 ok 533 - Windows fallback server is loopback-only, prevents path traversal, and chooses a free port
   ---
-  duration_ms: 0.417619
+  duration_ms: 0.392269
   type: 'test'
   ...
 # Subtest: developer QA scripts explain that Node 20+ is required instead of failing with command-not-found
 ok 534 - developer QA scripts explain that Node 20+ is required instead of failing with command-not-found
   ---
-  duration_ms: 0.322936
+  duration_ms: 0.328231
   type: 'test'
   ...
 # Subtest: local testing guide separates ordinary localhost use from developer QA requirements
 ok 535 - local testing guide separates ordinary localhost use from developer QA requirements
   ---
-  duration_ms: 0.501635
+  duration_ms: 0.518975
   type: 'test'
   ...
 # Subtest: workspace has no redundant HTML mirrors when Markdown source exists
 ok 536 - workspace has no redundant HTML mirrors when Markdown source exists
   ---
-  duration_ms: 4.930183
+  duration_ms: 6.563377
   type: 'test'
   ...
 # Subtest: stale root intake and final-clean markers are absent
 ok 537 - stale root intake and final-clean markers are absent
   ---
-  duration_ms: 0.35195
+  duration_ms: 0.31151
   type: 'test'
   ...
 # Subtest: temporary superpowers planning workspace is not shipped
 ok 538 - temporary superpowers planning workspace is not shipped
   ---
-  duration_ms: 0.190516
+  duration_ms: 0.201214
   type: 'test'
   ...
 # Subtest: README stays current-state focused instead of becoming a release archive
 ok 539 - README stays current-state focused instead of becoming a release archive
   ---
-  duration_ms: 0.420082
+  duration_ms: 0.448945
   type: 'test'
   ...
 1..539
@@ -943,4 +943,4 @@ ok 539 - README stays current-state focused instead of becoming a release archiv
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 4215.113724
+# duration_ms 4287.59757
