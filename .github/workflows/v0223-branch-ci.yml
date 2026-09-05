@@ -21,6 +21,15 @@ jobs:
           node-version: '22'
       - name: Apply deterministic ranked native renderer patch
         run: python3 tools/v0223_patch_ranked_native.py
+      - name: Diagnose source text gaps
+        run: |
+          node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
+          const root='voucher/tracks/data-analysis/microsoft-pl-300/';
+          const all=['source-01-review-bank.json','source-02-review-bank.json'].flatMap(name=>JSON.parse(fs.readFileSync(root+name,'utf8')).questions);
+          const gaps=all.filter(q=>!String(q.questionText||'').trim()).map(q=>({id:q.id,sourceType:q.sourceType,reviewMode:q.reviewMode,questionVisuals:q.questionVisuals?.length||0,answerVisuals:q.answerVisuals?.length||0,sourceExplanation:Boolean(String(q.sourceExplanation||'').trim())}));
+          console.log('PL300_QUESTION_TEXT_GAPS='+JSON.stringify(gaps));
+          NODE
       - name: V0.22.3 exhaustive PL-300 gate
         run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs
       - name: Full Node regression
