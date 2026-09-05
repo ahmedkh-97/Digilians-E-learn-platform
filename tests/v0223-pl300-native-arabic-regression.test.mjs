@@ -43,7 +43,10 @@ test('V0.22.3 exhaustive source audit preserves every PL-300 occurrence exactly 
     'scored-text':321,
     'source-reveal':110
   });
-  assert.ok(all.every(q=>String(q.questionText||'').trim()),'every occurrence needs question text');
+  const visualOnly=all.filter(q=>!String(q.questionText||'').trim());
+  assert.deepEqual(visualOnly.map(q=>q.id),['pl300-source-01-q164']);
+  assert.ok(visualOnly.every(q=>Array.isArray(q.questionVisuals)&&q.questionVisuals.length>0));
+  assert.ok(all.every(q=>String(q.questionText||'').trim()||(Array.isArray(q.questionVisuals)&&q.questionVisuals.length>0)),'every occurrence needs question text or preserved question visual evidence');
 });
 
 test('every scored item has a deterministic answer contract and every source reveal keeps evidence',()=>{
