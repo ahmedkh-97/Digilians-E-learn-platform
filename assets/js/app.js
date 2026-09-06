@@ -951,7 +951,7 @@ function renderVoucherSourceReview(){
   const nativeHtml=voucherSourcePracticeNative?.renderNativePractice(q,practiceRecord,state.voucherSourcePracticeNativeInputs,{locked:sourceAttemptLocked,retrying})||"";
   const metrics=voucherSourcePracticeSummary();
   const practiceState=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
-  const {partTotal,partCompleted,activePartLabel,partOptionsHtml,partCatalogHtml,showPartCatalog,filterLabel}=pl300FullRankedLearning.buildPl300PartViewState({parts:state.voucherSourceReviewParts,activePartId:state.voucherSourceReviewPartId,records:practiceState.records||{},totalAll,completedAll:metrics.completedOccurrences,activeFilter:state.voucherSourceReviewFilter});
+  const {partTotal,partCompleted,activePartLabel,partOptionsHtml,partCatalogHtml,showPartCatalog,filterLabel}=pl300FullRankedLearning.buildPl300PartViewState({parts:state.voucherSourceReviewParts,activePartId:state.voucherSourceReviewPartId,records:practiceState.records||{},index:state.voucherFullRankedIndex,totalAll,completedAll:metrics.completedOccurrences,activeFilter:state.voucherSourceReviewFilter});
   const pageLabel=Number(q.pageStart)===Number(q.pageEnd)?`Page ${q.pageStart}`:`Pages ${q.pageStart}–${q.pageEnd}`;
   const objective=rankRecord?.mode==="objective";
   const sourceType=String(q.sourceType||q.reviewMode||"source").replace(/-/g," ").toUpperCase();
@@ -965,7 +965,7 @@ function renderVoucherSourceReview(){
   const sourceLabel=q.sourceId==="source-01"?"Source 01":"Source 02";
   body.innerHTML=pl300FullRankedLearning.buildPl300FullRankedReviewMarkup({
     sourceTitle,source01Count,source02Count,objectiveCount,checkpointCount,metrics,activeFilter:state.voucherSourceReviewFilter,totalAll,
-    questionsLength:questions.length,currentIndex:state.voucherSourceReviewIndex,filterLabel,objective,typeLabel,sourceLabel,questionNumber:q.questionNumber||"",
+    questionsLength:questions.length,currentIndex:state.voucherSourceReviewIndex,filterLabel,objective,question:q,typeLabel,sourceLabel,questionNumber:q.questionNumber||"",
     partOptionsHtml,partCatalogHtml,showPartCatalog,activePartLabel,partCompleted,partTotal,
     occurrence:q.occurrence||1,pageLabel,domainId:rankRecord?.domainId||"",recordStatus,questionHtml:renderTechnicalRichText(q.questionText||""),
     visualHtml,optionsHtml,nativeHtml,revealOpen,answerHtml:voucherSourceReviewAnswerHtml(q,practiceRecord)
