@@ -42,6 +42,13 @@
             "label": "Visualization type",
             "expected": [
               "KPI"
+            ],
+            "choices": [
+              "Card",
+              "Donut chart",
+              "Gauge",
+              "Key influencers",
+              "KPI"
             ]
           },
           {
@@ -49,6 +56,13 @@
             "label": "Indicator",
             "expected": [
               "Sales[sales_amount]"
+            ],
+            "choices": [
+              "Date[month]",
+              "Sales[sales_amount]",
+              "Sales[sales_id]",
+              "Targets[sales_target]",
+              "Weekly_Returns[total_returns]"
             ]
           },
           {
@@ -56,6 +70,13 @@
             "label": "Trend axis",
             "expected": [
               "Date[month]"
+            ],
+            "choices": [
+              "Date[month]",
+              "Sales[sales_amount]",
+              "Sales[sales_id]",
+              "Targets[sales_target]",
+              "Weekly_Returns[total_returns]"
             ]
           },
           {
@@ -63,6 +84,13 @@
             "label": "Target goals",
             "expected": [
               "Targets[sales_target]"
+            ],
+            "choices": [
+              "Date[month]",
+              "Sales[sales_amount]",
+              "Sales[sales_id]",
+              "Targets[sales_target]",
+              "Weekly_Returns[total_returns]"
             ]
           }
         ],
@@ -346,6 +374,11 @@
             "label": "Box 1",
             "expected": [
               "Top N"
+            ],
+            "choices": [
+              "Top N",
+              "Basic",
+              "Advanced"
             ]
           },
           {
@@ -353,6 +386,11 @@
             "label": "Box 2",
             "expected": [
               "Visual"
+            ],
+            "choices": [
+              "Page",
+              "Visual",
+              "Report"
             ]
           }
         ],
@@ -640,6 +678,13 @@
             "label": "Box 1",
             "expected": [
               "Background color"
+            ],
+            "choices": [
+              "Background color",
+              "Data bars",
+              "Font color",
+              "Icons",
+              "Web URL"
             ]
           },
           {
@@ -647,6 +692,11 @@
             "label": "Box 2",
             "expected": [
               "Field value"
+            ],
+            "choices": [
+              "Color scale",
+              "Field value",
+              "Rules"
             ]
           }
         ],
@@ -1063,6 +1113,12 @@
             "label": "Box 1",
             "expected": [
               "Hide"
+            ],
+            "choices": [
+              "Change Type",
+              "Delete",
+              "Hide",
+              "Sort"
             ]
           },
           {
@@ -1070,6 +1126,12 @@
             "label": "Box 2",
             "expected": [
               "Delete"
+            ],
+            "choices": [
+              "Change Type",
+              "Delete",
+              "Hide",
+              "Sort"
             ]
           }
         ],
@@ -1495,21 +1557,42 @@
             "id": "field-1",
             "label": "Step 1",
             "expected": [
-              "Convert list to table"
+              "Convert the list to a table."
+            ],
+            "choices": [
+              "Expand the columns.",
+              "Expand the records.",
+              "Add columns that use data type conversions.",
+              "Set the data types.",
+              "Convert the list to a table."
             ]
           },
           {
             "id": "field-2",
             "label": "Step 2",
             "expected": [
-              "Expand Column"
+              "Expand the records."
+            ],
+            "choices": [
+              "Expand the columns.",
+              "Expand the records.",
+              "Add columns that use data type conversions.",
+              "Set the data types.",
+              "Convert the list to a table."
             ]
           },
           {
             "id": "field-3",
             "label": "Step 3",
             "expected": [
-              "Set Date type"
+              "Set the data types."
+            ],
+            "choices": [
+              "Expand the columns.",
+              "Expand the records.",
+              "Add columns that use data type conversions.",
+              "Set the data types.",
+              "Convert the list to a table."
             ]
           }
         ],
@@ -2296,21 +2379,45 @@
             "id": "field-1",
             "label": "Step 1",
             "expected": [
-              "Merge [Region_Manager] and [Manager] by using an inner join"
+              "Merge [Region_Manager] and [Manager] by using an inner join."
+            ],
+            "choices": [
+              "Merge [Region_Manager] and [Manager] by using an inner join.",
+              "Merge [Sales_Manager] and [Sales_Region] by using a left join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join as a new query named [Sales_Region_and_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using a right join as a new query named [Sales_Region_and_Region_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using an inner join."
             ]
           },
           {
             "id": "field-2",
             "label": "Step 2",
             "expected": [
-              "Merge [Sales_Region] and [Sales_Manager] by using an inner join"
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join."
+            ],
+            "choices": [
+              "Merge [Region_Manager] and [Manager] by using an inner join.",
+              "Merge [Sales_Manager] and [Sales_Region] by using a left join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join as a new query named [Sales_Region_and_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using a right join as a new query named [Sales_Region_and_Region_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using an inner join."
             ]
           },
           {
             "id": "field-3",
             "label": "Step 3",
             "expected": [
-              "Merge [Sales_Region] and [Region_Manager] by using an inner join"
+              "Merge [Sales_Region] and [Region_Manager] by using an inner join."
+            ],
+            "choices": [
+              "Merge [Region_Manager] and [Manager] by using an inner join.",
+              "Merge [Sales_Manager] and [Sales_Region] by using a left join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join as a new query named [Sales_Region_and_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using a right join as a new query named [Sales_Region_and_Region_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using an inner join."
             ]
           }
         ],
@@ -2603,6 +2710,13 @@
             "label": "Box 1",
             "expected": [
               "CALCULATE"
+            ],
+            "choices": [
+              "CALCULATE",
+              "CONCATENATEX",
+              "SUM",
+              "SUMX",
+              "TOPN"
             ]
           },
           {
@@ -2610,6 +2724,13 @@
             "label": "Box 2",
             "expected": [
               "SUM"
+            ],
+            "choices": [
+              "CALCULATE",
+              "CONCATENATEX",
+              "SUM",
+              "SUMX",
+              "TOPN"
             ]
           },
           {
@@ -2617,12 +2738,25 @@
             "label": "Box 3",
             "expected": [
               "TOPN"
+            ],
+            "choices": [
+              "CALCULATE",
+              "CONCATENATEX",
+              "SUM",
+              "SUMX",
+              "TOPN"
             ]
           },
           {
             "id": "box-4",
             "label": "Box 4",
             "expected": [
+              "[TransactionDate]"
+            ],
+            "choices": [
+              "[TransactionID]",
+              "[Amount]",
+              "[ItemsOrdered]",
               "[TransactionDate]"
             ]
           }
@@ -3101,6 +3235,13 @@
             "label": "Box 1",
             "expected": [
               "TOPN"
+            ],
+            "choices": [
+              "ASC",
+              "DESC",
+              "FILTER",
+              "SUMMARIZE",
+              "TOPN"
             ]
           },
           {
@@ -3108,6 +3249,13 @@
             "label": "Box 2",
             "expected": [
               "SUMMARIZE"
+            ],
+            "choices": [
+              "ASC",
+              "DESC",
+              "FILTER",
+              "SUMMARIZE",
+              "TOPN"
             ]
           },
           {
@@ -3115,6 +3263,13 @@
             "label": "Box 3",
             "expected": [
               "DESC"
+            ],
+            "choices": [
+              "ASC",
+              "DESC",
+              "FILTER",
+              "SUMMARIZE",
+              "TOPN"
             ]
           }
         ],
@@ -3885,21 +4040,45 @@
             "id": "field-1",
             "label": "Step 1",
             "expected": [
-              "From Power BI Desktop, select Get Data, and then select Folder"
+              "From Power BI Desktop, select Get Data, and then select Folder."
+            ],
+            "choices": [
+              "From Power BI Desktop, remove the Attributes column.",
+              "From Power Query Editor, remove the Content column.",
+              "From Power BI Desktop, select Get Data, and then select Text/CSV.",
+              "From Power BI Desktop, select Get Data, and then select Folder.",
+              "From Power Query Editor, expand the Attributes column.",
+              "From Power Query Editor, combine the Content column."
             ]
           },
           {
             "id": "field-2",
             "label": "Step 2",
             "expected": [
-              "From Power Query Editor, remove the Content column"
+              "From Power Query Editor, remove the Content column."
+            ],
+            "choices": [
+              "From Power BI Desktop, remove the Attributes column.",
+              "From Power Query Editor, remove the Content column.",
+              "From Power BI Desktop, select Get Data, and then select Text/CSV.",
+              "From Power BI Desktop, select Get Data, and then select Folder.",
+              "From Power Query Editor, expand the Attributes column.",
+              "From Power Query Editor, combine the Content column."
             ]
           },
           {
             "id": "field-3",
             "label": "Step 3",
             "expected": [
-              "From Power Query Editor, expand the Attributes column"
+              "From Power Query Editor, expand the Attributes column."
+            ],
+            "choices": [
+              "From Power BI Desktop, remove the Attributes column.",
+              "From Power Query Editor, remove the Content column.",
+              "From Power BI Desktop, select Get Data, and then select Text/CSV.",
+              "From Power BI Desktop, select Get Data, and then select Folder.",
+              "From Power Query Editor, expand the Attributes column.",
+              "From Power Query Editor, combine the Content column."
             ]
           }
         ],
@@ -4670,6 +4849,11 @@
             "label": "Box 1",
             "expected": [
               "CONTOSO BIKES report"
+            ],
+            "choices": [
+              "CONTOSO BIKES report",
+              "CONTOSO dashboard",
+              "Realtime dashboard"
             ]
           },
           {
@@ -4677,6 +4861,12 @@
             "label": "Box 2",
             "expected": [
               "three datasets"
+            ],
+            "choices": [
+              "one dataset",
+              "two datasets",
+              "three datasets",
+              "four datasets"
             ]
           }
         ],
@@ -5040,6 +5230,14 @@
             "label": "Box 1",
             "expected": [
               "CALCULATE"
+            ],
+            "choices": [
+              "CALCULATE",
+              "CALCULATETABLE",
+              "DATEADD",
+              "DIVIDE",
+              "FILTER",
+              "FIND"
             ]
           },
           {
@@ -5047,6 +5245,14 @@
             "label": "Box 2",
             "expected": [
               "DATEADD"
+            ],
+            "choices": [
+              "CALCULATE",
+              "CALCULATETABLE",
+              "DATEADD",
+              "DIVIDE",
+              "FILTER",
+              "FIND"
             ]
           },
           {
@@ -5054,6 +5260,14 @@
             "label": "Box 3",
             "expected": [
               "DIVIDE"
+            ],
+            "choices": [
+              "CALCULATE",
+              "CALCULATETABLE",
+              "DATEADD",
+              "DIVIDE",
+              "FILTER",
+              "FIND"
             ]
           }
         ],
@@ -5180,13 +5394,25 @@
             "label": "Box 1",
             "expected": [
               "Table.RemoveColumns"
+            ],
+            "choices": [
+              "Table.CombineColumn",
+              "Table.FindText",
+              "Table.FromList",
+              "Table.RemoveColumns"
             ]
           },
           {
             "id": "box-2",
             "label": "Box 2",
             "expected": [
-              "List.Select Get a list of columns"
+              "List.Select"
+            ],
+            "choices": [
+              "List.Contains",
+              "List.Select",
+              "Table.FindText",
+              "Table.FromList"
             ]
           },
           {
@@ -5194,6 +5420,12 @@
             "label": "Box 3",
             "expected": [
               "Text.EndsWith"
+            ],
+            "choices": [
+              "Text.Contains",
+              "Text.EndsWith",
+              "Text.From",
+              "Text.StartsWith"
             ]
           }
         ],
@@ -5321,21 +5553,45 @@
             "id": "step-1",
             "label": "Step 1",
             "expected": [
-              "Declare a variable and call it any name you prefer"
+              "CALCULATE"
+            ],
+            "choices": [
+              "ALL",
+              "CALCULATE",
+              "COUNTROWS",
+              "EVALUATE",
+              "SUM",
+              "SUMX"
             ]
           },
           {
             "id": "step-2",
             "label": "Step 2",
             "expected": [
-              "Calculate the row count on the table"
+              "COUNTROWS"
+            ],
+            "choices": [
+              "ALL",
+              "CALCULATE",
+              "COUNTROWS",
+              "EVALUATE",
+              "SUM",
+              "SUMX"
             ]
           },
           {
             "id": "step-3",
             "label": "Step 3",
             "expected": [
-              "Apply filter to ALL of the values in the table under the column name email address and equate it to the variable"
+              "ALL"
+            ],
+            "choices": [
+              "ALL",
+              "CALCULATE",
+              "COUNTROWS",
+              "EVALUATE",
+              "SUM",
+              "SUMX"
             ]
           }
         ],

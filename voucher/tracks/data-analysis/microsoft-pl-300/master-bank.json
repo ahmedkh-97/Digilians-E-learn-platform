@@ -16219,6 +16219,11 @@
           {
             "id": "box-1",
             "label": "Box 1",
+            "choices": [
+              "Import",
+              "DirectQuery",
+              "Dual"
+            ],
             "expected": [
               "Dual"
             ]
@@ -16226,6 +16231,11 @@
           {
             "id": "box-2",
             "label": "Box 2",
+            "choices": [
+              "Import",
+              "DirectQuery",
+              "Dual"
+            ],
             "expected": [
               "Dual"
             ]
@@ -16233,6 +16243,11 @@
           {
             "id": "box-3",
             "label": "Box 3",
+            "choices": [
+              "Import",
+              "DirectQuery",
+              "Dual"
+            ],
             "expected": [
               "DirectQuery"
             ]
@@ -16240,6 +16255,11 @@
           {
             "id": "box-4",
             "label": "Box 4",
+            "choices": [
+              "Import",
+              "DirectQuery",
+              "Dual"
+            ],
             "expected": [
               "Import"
             ]
@@ -16506,6 +16526,12 @@
             "label": "Box 1",
             "expected": [
               "69"
+            ],
+            "choices": [
+              "4",
+              "65",
+              "69",
+              "73"
             ]
           },
           {
@@ -16513,6 +16539,12 @@
             "label": "Box 2",
             "expected": [
               "4"
+            ],
+            "choices": [
+              "4",
+              "65",
+              "69",
+              "73"
             ]
           }
         ],
@@ -16586,6 +16618,11 @@
             "label": "Box 1",
             "expected": [
               "Merge"
+            ],
+            "choices": [
+              "Append",
+              "Merge",
+              "Transpose"
             ]
           },
           {
@@ -16593,6 +16630,11 @@
             "label": "Box 2",
             "expected": [
               "Disable the query load"
+            ],
+            "choices": [
+              "Delete the query.",
+              "Disable the query load.",
+              "Exclude the query from report refresh."
             ]
           }
         ],
@@ -16664,21 +16706,45 @@
             "id": "step-1",
             "label": "Step 1",
             "expected": [
-              "Get data and select folder"
+              "From Power BI Desktop, select Get Data, and then select Folder."
+            ],
+            "choices": [
+              "From Power BI Desktop, select Get Data, and then select Folder.",
+              "From Power Query Editor, expand the Attributes column.",
+              "From Power Query Editor, remove the Content column.",
+              "From Power Query Editor, remove the Attributes column.",
+              "From Power BI Desktop, select Get Data, and then select Text/CSV.",
+              "From Power Query Editor, combine the Content column."
             ]
           },
           {
             "id": "step-2",
             "label": "Step 2",
             "expected": [
-              "Remove the content column"
+              "From Power Query Editor, remove the Content column."
+            ],
+            "choices": [
+              "From Power BI Desktop, select Get Data, and then select Folder.",
+              "From Power Query Editor, expand the Attributes column.",
+              "From Power Query Editor, remove the Content column.",
+              "From Power Query Editor, remove the Attributes column.",
+              "From Power BI Desktop, select Get Data, and then select Text/CSV.",
+              "From Power Query Editor, combine the Content column."
             ]
           },
           {
             "id": "step-3",
             "label": "Step 3",
             "expected": [
-              "Expand the attributes column"
+              "From Power Query Editor, expand the Attributes column."
+            ],
+            "choices": [
+              "From Power BI Desktop, select Get Data, and then select Folder.",
+              "From Power Query Editor, expand the Attributes column.",
+              "From Power Query Editor, remove the Content column.",
+              "From Power Query Editor, remove the Attributes column.",
+              "From Power BI Desktop, select Get Data, and then select Text/CSV.",
+              "From Power Query Editor, combine the Content column."
             ]
           }
         ],
@@ -16753,6 +16819,11 @@
             "label": "Connection timeout",
             "expected": [
               "10 minutes"
+            ],
+            "choices": [
+              "unlimited",
+              "one minute",
+              "10 minutes"
             ]
           },
           {
@@ -16760,6 +16831,11 @@
             "label": "Navigator display",
             "expected": [
               "Only tables that contain data"
+            ],
+            "choices": [
+              "all the tables",
+              "only tables that contain data",
+              "only tables that contain hierarchies"
             ]
           }
         ],
@@ -16833,6 +16909,11 @@
             "label": "Data source type",
             "expected": [
               "Folder"
+            ],
+            "choices": [
+              "Folder",
+              "JSON",
+              "Text/CSV"
             ]
           },
           {
@@ -16840,6 +16921,12 @@
             "label": "Transformation",
             "expected": [
               "Delete the Content column"
+            ],
+            "choices": [
+              "Combine the files of the Content column.",
+              "Delete the Attribute column.",
+              "Delete the Content column.",
+              "Expand the Attribute column."
             ]
           }
         ],
@@ -16912,6 +16999,12 @@
             "label": "Employee review data",
             "expected": [
               "Private"
+            ],
+            "choices": [
+              "None",
+              "Organizational",
+              "Private",
+              "Public"
             ]
           },
           {
@@ -16919,6 +17012,12 @@
             "label": "Sales opportunities",
             "expected": [
               "Organizational"
+            ],
+            "choices": [
+              "None",
+              "Organizational",
+              "Private",
+              "Public"
             ]
           }
         ],
@@ -16992,12 +17091,22 @@
             "label": "Start on row 3",
             "expected": [
               "Remove top rows"
+            ],
+            "choices": [
+              "Keep top rows",
+              "Remove errors",
+              "Remove top rows"
             ]
           },
           {
             "id": "field-2",
             "label": "Use row 3 as column names",
             "expected": [
+              "Use first row as headers"
+            ],
+            "choices": [
+              "Rename",
+              "Replace values",
               "Use first row as headers"
             ]
           }
@@ -17072,6 +17181,12 @@
             "label": "Fact table",
             "expected": [
               "Test Result"
+            ],
+            "choices": [
+              "Date",
+              "Patient",
+              "Test",
+              "Test Result"
             ]
           },
           {
@@ -17079,6 +17194,12 @@
             "label": "Surrogate key",
             "expected": [
               "Patient key"
+            ],
+            "choices": [
+              "Date of birth",
+              "Last name",
+              "Patient key",
+              "Patient source ID"
             ]
           }
         ],
@@ -17152,6 +17273,11 @@
             "label": "Customer ID",
             "expected": [
               "Remove the column"
+            ],
+            "choices": [
+              "Change the data type to Binary.",
+              "Remove any duplicate values.",
+              "Remove the column."
             ]
           },
           {
@@ -17159,6 +17285,11 @@
             "label": "PurchaseDateTime",
             "expected": [
               "Split the column into separate date and time columns"
+            ],
+            "choices": [
+              "Change the data type to Duration.",
+              "Remove the column.",
+              "Split the column into separate date and time columns."
             ]
           }
         ],
@@ -17232,6 +17363,12 @@
             "label": "Data source",
             "expected": [
               "Web"
+            ],
+            "choices": [
+              "Dataflows",
+              "JSON",
+              "OData",
+              "Web"
             ]
           },
           {
@@ -17239,6 +17376,12 @@
             "label": "Authentication",
             "expected": [
               "Basic"
+            ],
+            "choices": [
+              "Anonymous",
+              "Basic",
+              "Organizational account",
+              "Web API"
             ]
           }
         ],
@@ -17311,6 +17454,12 @@
             "label": "Row label",
             "expected": [
               "Name"
+            ],
+            "choices": [
+              "Cost Center",
+              "Headcount",
+              "ID",
+              "Name"
             ]
           },
           {
@@ -17318,12 +17467,22 @@
             "label": "Key column",
             "expected": [
               "ID"
+            ],
+            "choices": [
+              "Cost Center",
+              "Headcount",
+              "ID",
+              "Name"
             ]
           },
           {
             "id": "field-3",
             "label": "Featured table",
             "expected": [
+              "Yes"
+            ],
+            "choices": [
+              "No",
               "Yes"
             ]
           }
@@ -17399,6 +17558,11 @@
             "label": "Box 1",
             "expected": [
               "cross filter direction"
+            ],
+            "choices": [
+              "Cardinality",
+              "Cross filter direction",
+              "Assume Referential Integrity"
             ]
           },
           {
@@ -17406,6 +17570,11 @@
             "label": "Box 2",
             "expected": [
               "Star schema"
+            ],
+            "choices": [
+              "star schema",
+              "snowflake schema",
+              "denormalized table"
             ]
           }
         ],
@@ -17478,21 +17647,45 @@
             "id": "step-1",
             "label": "Step 1",
             "expected": [
-              "Merge [Region_Manager] and [Manager] by using an inner join"
+              "Merge [Region_Manager] and [Manager] by using an inner join."
+            ],
+            "choices": [
+              "Merge [Region_Manager] and [Manager] by using an inner join.",
+              "Merge [Sales_Manager] and [Sales_Region] by using a left join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join as a new query named [Sales_Region_and_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using a right join as a new query named [Sales_Region_and_Region_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using an inner join."
             ]
           },
           {
             "id": "step-2",
             "label": "Step 2",
             "expected": [
-              "Merge [Sales_Region] and [Sales_Manager] by using an inner join"
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join."
+            ],
+            "choices": [
+              "Merge [Region_Manager] and [Manager] by using an inner join.",
+              "Merge [Sales_Manager] and [Sales_Region] by using a left join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join as a new query named [Sales_Region_and_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using a right join as a new query named [Sales_Region_and_Region_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using an inner join."
             ]
           },
           {
             "id": "step-3",
             "label": "Step 3",
             "expected": [
-              "Merge [Sales_Region] and [Region_Manager] by using an inner join"
+              "Merge [Sales_Region] and [Region_Manager] by using an inner join."
+            ],
+            "choices": [
+              "Merge [Region_Manager] and [Manager] by using an inner join.",
+              "Merge [Sales_Manager] and [Sales_Region] by using a left join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join.",
+              "Merge [Sales_Region] and [Sales_Manager] by using an inner join as a new query named [Sales_Region_and_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using a right join as a new query named [Sales_Region_and_Region_Manager].",
+              "Merge [Sales_Region] and [Region_Manager] by using an inner join."
             ]
           }
         ],
@@ -17654,28 +17847,64 @@
             "id": "step-1",
             "label": "Step 1",
             "expected": [
-              "Use first row as header"
+              "Use the first row as headers."
+            ],
+            "choices": [
+              "Use headers as the first row.",
+              "Rename the Measure column as Year.",
+              "Rename the Attribute column as Year.",
+              "Use the first row as headers.",
+              "Transpose the table.",
+              "Unpivot all the columns other than Measure.",
+              "Change the data type of the Year column to Date."
             ]
           },
           {
             "id": "step-2",
             "label": "Step 2",
             "expected": [
-              "Unpivot all columns other than \"Measure\""
+              "Unpivot all the columns other than Measure."
+            ],
+            "choices": [
+              "Use headers as the first row.",
+              "Rename the Measure column as Year.",
+              "Rename the Attribute column as Year.",
+              "Use the first row as headers.",
+              "Transpose the table.",
+              "Unpivot all the columns other than Measure.",
+              "Change the data type of the Year column to Date."
             ]
           },
           {
             "id": "step-3",
             "label": "Step 3",
             "expected": [
-              "Rename \"Attribute\" to \"Year\""
+              "Rename the Attribute column as Year."
+            ],
+            "choices": [
+              "Use headers as the first row.",
+              "Rename the Measure column as Year.",
+              "Rename the Attribute column as Year.",
+              "Use the first row as headers.",
+              "Transpose the table.",
+              "Unpivot all the columns other than Measure.",
+              "Change the data type of the Year column to Date."
             ]
           },
           {
             "id": "step-4",
             "label": "Step 4",
             "expected": [
-              "Change data type of \"Year\" column to Date"
+              "Change the data type of the Year column to Date."
+            ],
+            "choices": [
+              "Use headers as the first row.",
+              "Rename the Measure column as Year.",
+              "Rename the Attribute column as Year.",
+              "Use the first row as headers.",
+              "Transpose the table.",
+              "Unpivot all the columns other than Measure.",
+              "Change the data type of the Year column to Date."
             ]
           }
         ],
@@ -17751,6 +17980,12 @@
             "label": "Box 1",
             "expected": [
               "Hide"
+            ],
+            "choices": [
+              "Change Type",
+              "Delete",
+              "Hide",
+              "Sort"
             ]
           },
           {
@@ -17758,6 +17993,12 @@
             "label": "Box 2",
             "expected": [
               "Delete"
+            ],
+            "choices": [
+              "Change Type",
+              "Delete",
+              "Hide",
+              "Sort"
             ]
           }
         ],
@@ -17831,6 +18072,12 @@
             "label": "Box 1",
             "expected": [
               "Teacher Dimension"
+            ],
+            "choices": [
+              "Attendance fact",
+              "Class dimension",
+              "Teacher dimension",
+              "Teacher fact"
             ]
           },
           {
@@ -17838,6 +18085,12 @@
             "label": "Box 2",
             "expected": [
               "Class Dimension"
+            ],
+            "choices": [
+              "Attendance fact",
+              "Class dimension",
+              "Teacher dimension",
+              "Teacher fact"
             ]
           }
         ],
@@ -17998,6 +18251,11 @@
             "label": "Relationship cardinality",
             "expected": [
               "One-to-many"
+            ],
+            "choices": [
+              "One-to-many",
+              "One-to-one",
+              "Many-to-many"
             ]
           },
           {
@@ -18005,6 +18263,10 @@
             "label": "Cross-filter direction",
             "expected": [
               "Single"
+            ],
+            "choices": [
+              "Single",
+              "Both"
             ]
           }
         ],
@@ -18166,6 +18428,14 @@
             "label": "Box 1",
             "expected": [
               "CALCULATE"
+            ],
+            "choices": [
+              "CALCULATE",
+              "CALCULATETABLE",
+              "DATEADD",
+              "DIVIDE",
+              "FILTER",
+              "FIND"
             ]
           },
           {
@@ -18173,6 +18443,14 @@
             "label": "Box 2",
             "expected": [
               "DATEADD"
+            ],
+            "choices": [
+              "CALCULATE",
+              "CALCULATETABLE",
+              "DATEADD",
+              "DIVIDE",
+              "FILTER",
+              "FIND"
             ]
           },
           {
@@ -18180,6 +18458,14 @@
             "label": "Box 3",
             "expected": [
               "DIVIDE"
+            ],
+            "choices": [
+              "CALCULATE",
+              "CALCULATETABLE",
+              "DATEADD",
+              "DIVIDE",
+              "FILTER",
+              "FIND"
             ]
           }
         ],
@@ -18253,6 +18539,14 @@
             "label": "Box 1",
             "expected": [
               "TOPN"
+            ],
+            "choices": [
+              "ASC",
+              "DESC",
+              "RELATEDTABLE",
+              "CALCULATETABLE",
+              "MAXX",
+              "TOPN"
             ]
           },
           {
@@ -18260,6 +18554,14 @@
             "label": "Box 2",
             "expected": [
               "DESC"
+            ],
+            "choices": [
+              "ASC",
+              "DESC",
+              "RELATEDTABLE",
+              "CALCULATETABLE",
+              "MAXX",
+              "TOPN"
             ]
           }
         ],
@@ -18333,6 +18635,14 @@
             "label": "Box 1",
             "expected": [
               "YEAR"
+            ],
+            "choices": [
+              "CALENDAR",
+              "CALENDARAUTO",
+              "DATE",
+              "EOMONTH",
+              "TODAY",
+              "YEAR"
             ]
           },
           {
@@ -18340,6 +18650,14 @@
             "label": "Box 2",
             "expected": [
               "TODAY"
+            ],
+            "choices": [
+              "CALENDAR",
+              "CALENDARAUTO",
+              "DATE",
+              "EOMONTH",
+              "TODAY",
+              "YEAR"
             ]
           },
           {
@@ -18347,6 +18665,14 @@
             "label": "Box 3",
             "expected": [
               "CALENDAR"
+            ],
+            "choices": [
+              "CALENDAR",
+              "CALENDARAUTO",
+              "DATE",
+              "EOMONTH",
+              "TODAY",
+              "YEAR"
             ]
           }
         ],
@@ -18421,6 +18747,12 @@
             "label": "Box 1",
             "expected": [
               "TOTALYTD"
+            ],
+            "choices": [
+              "TOTALYTD",
+              "CALCULATE",
+              "SUM",
+              "EVALUATE"
             ]
           },
           {
@@ -18428,6 +18760,12 @@
             "label": "Box 2",
             "expected": [
               "'Date'[Date]"
+            ],
+            "choices": [
+              "'Date'[Date]",
+              "TODAY()",
+              "EOMONTH('Date'[Date])",
+              "LASTDATE('Date'[Date])"
             ]
           }
         ],
@@ -18501,6 +18839,13 @@
             "label": "Step 1",
             "expected": [
               "Total Sales"
+            ],
+            "choices": [
+              "Month",
+              "Total Cost",
+              "Total Order Qty",
+              "Total Sales",
+              "Year"
             ]
           },
           {
@@ -18508,6 +18853,12 @@
             "label": "Step 2",
             "expected": [
               "Date"
+            ],
+            "choices": [
+              "Date",
+              "Month",
+              "Total Sales",
+              "Year"
             ]
           },
           {
@@ -18515,6 +18866,12 @@
             "label": "Step 3",
             "expected": [
               "Months"
+            ],
+            "choices": [
+              "Days",
+              "Months",
+              "Quarters",
+              "Years"
             ]
           }
         ],
@@ -18588,7 +18945,14 @@
             "id": "step-1",
             "label": "Step 1",
             "expected": [
-              "Calculate"
+              "CALCULATE"
+            ],
+            "choices": [
+              "ALL",
+              "ALLSELECTED",
+              "CALCULATE",
+              "FILTER",
+              "SELECTEDVALUE"
             ]
           },
           {
@@ -18596,6 +18960,13 @@
             "label": "Step 2",
             "expected": [
               "ALLSELECTED"
+            ],
+            "choices": [
+              "ALL",
+              "ALLSELECTED",
+              "CALCULATE",
+              "FILTER",
+              "SELECTEDVALUE"
             ]
           }
         ],
@@ -18669,6 +19040,12 @@
             "label": "Function",
             "expected": [
               "HASONEVALUE"
+            ],
+            "choices": [
+              "CALCULATE",
+              "HASONEVALUE",
+              "SELECTEDVALUE",
+              "WINDOW"
             ]
           },
           {
@@ -18676,6 +19053,12 @@
             "label": "Rank method",
             "expected": [
               "DENSE"
+            ],
+            "choices": [
+              "DEFAULT",
+              "DENSE",
+              "FIRST",
+              "SKIP"
             ]
           }
         ],
@@ -18749,6 +19132,12 @@
             "label": "Value",
             "expected": [
               "Whole number"
+            ],
+            "choices": [
+              "Decimal number",
+              "Fixed decimal number",
+              "Percentage",
+              "Whole number"
             ]
           },
           {
@@ -18756,6 +19145,12 @@
             "label": "Datetime",
             "expected": [
               "Date"
+            ],
+            "choices": [
+              "Date",
+              "Date/time/timezone",
+              "Datetime",
+              "Time"
             ]
           }
         ],
@@ -18828,13 +19223,25 @@
             "id": "box-1",
             "label": "Box 1",
             "expected": [
-              "adding more fields to Explain By"
+              "adding more fields to Explain by"
+            ],
+            "choices": [
+              "turning on Cross-report",
+              "adding more fields to Explain by",
+              "adding more fields to Expand by",
+              "moving fields from Explain by to Expand by"
             ]
           },
           {
             "id": "box-2",
             "label": "Box 2",
             "expected": [
+              "3"
+            ],
+            "choices": [
+              "0.11",
+              ".2",
+              "1",
               "3"
             ]
           }
@@ -18909,6 +19316,11 @@
             "label": "Box 1",
             "expected": [
               "Total Sales"
+            ],
+            "choices": [
+              "City",
+              "Occupation",
+              "Total Sales"
             ]
           },
           {
@@ -18916,6 +19328,11 @@
             "label": "Box 2",
             "expected": [
               "Occupation"
+            ],
+            "choices": [
+              "City",
+              "Occupation",
+              "Total Sales"
             ]
           }
         ],
@@ -18989,21 +19406,45 @@
             "id": "step-1",
             "label": "Step 1",
             "expected": [
-              "From DashboardA, select the TilaA options, and then select View Insights"
+              "From DashboardA, select the TileA options, and then select View insights."
+            ],
+            "choices": [
+              "From Focus mode, pin the relevant visuals to DashboardA.",
+              "From Focus mode, review the generated visuals.",
+              "From DashboardA, select the TileA options, and then select View insights.",
+              "From ReportA, select the treemap visual options, and then select Spotlight.",
+              "From ReportA, select Get insights.",
+              "From DashboardA, select TileA to open ReportA."
             ]
           },
           {
             "id": "step-2",
             "label": "Step 2",
             "expected": [
-              "From Focus mode, review the generated visuals"
+              "From Focus mode, review the generated visuals."
+            ],
+            "choices": [
+              "From Focus mode, pin the relevant visuals to DashboardA.",
+              "From Focus mode, review the generated visuals.",
+              "From DashboardA, select the TileA options, and then select View insights.",
+              "From ReportA, select the treemap visual options, and then select Spotlight.",
+              "From ReportA, select Get insights.",
+              "From DashboardA, select TileA to open ReportA."
             ]
           },
           {
             "id": "step-3",
             "label": "Step 3",
             "expected": [
-              "From Focus mode, pin the relevant visuals to DashboardA"
+              "From Focus mode, pin the relevant visuals to DashboardA."
+            ],
+            "choices": [
+              "From Focus mode, pin the relevant visuals to DashboardA.",
+              "From Focus mode, review the generated visuals.",
+              "From DashboardA, select the TileA options, and then select View insights.",
+              "From ReportA, select the treemap visual options, and then select Spotlight.",
+              "From ReportA, select Get insights.",
+              "From DashboardA, select TileA to open ReportA."
             ]
           }
         ],
@@ -19077,6 +19518,11 @@
             "label": "Box 1",
             "expected": [
               "not affect"
+            ],
+            "choices": [
+              "cross-filter",
+              "cross-highlight",
+              "not affect"
             ]
           },
           {
@@ -19084,6 +19530,11 @@
             "label": "Box 2",
             "expected": [
               "cross-filter"
+            ],
+            "choices": [
+              "cross-filter",
+              "cross-highlight",
+              "not affect"
             ]
           }
         ],
@@ -19156,7 +19607,13 @@
             "id": "field-1",
             "label": "Unique values",
             "expected": [
-              "20"
+              "are 20 values that occur"
+            ],
+            "choices": [
+              "are 20 values that occur",
+              "are 365 values that occur",
+              "are 277,329 values that occur",
+              "is one value that occurs"
             ]
           },
           {
@@ -19164,6 +19621,12 @@
             "label": "Value below Peer, flowering species",
             "expected": [
               "Elm, American"
+            ],
+            "choices": [
+              "Ash, Green",
+              "Crabapple, Flowering",
+              "Elm, American",
+              "Spruce, Blue"
             ]
           }
         ],
@@ -19237,12 +19700,22 @@
             "label": "Box 1",
             "expected": [
               "Line"
+            ],
+            "choices": [
+              "Line",
+              "Pie",
+              "Treemap"
             ]
           },
           {
             "id": "box-2",
             "label": "Box 2",
             "expected": [
+              "Populate the axis with a date field"
+            ],
+            "choices": [
+              "Select the Show value as option",
+              "Enable Cross-report drill-through",
               "Populate the axis with a date field"
             ]
           }
@@ -19316,6 +19789,12 @@
             "label": "Box 1",
             "expected": [
               "2"
+            ],
+            "choices": [
+              "1",
+              "2",
+              "3",
+              "4"
             ]
           },
           {
@@ -19323,6 +19802,11 @@
             "label": "Box 2",
             "expected": [
               "Display"
+            ],
+            "choices": [
+              "Data",
+              "Display",
+              "Current page"
             ]
           }
         ],
@@ -19397,14 +19881,24 @@
             "id": "box-1",
             "label": "Box 1",
             "expected": [
-              "Update Dashboard Mobile Layout"
+              "Dashboard mobile layout"
+            ],
+            "choices": [
+              "Dashboard mobile layout",
+              "Dashboard web layout",
+              "Report mobile layout"
             ]
           },
           {
             "id": "box-2",
             "label": "Box 2",
             "expected": [
-              "Resize and move total sales and total quantity"
+              "The Total Sales and Total Quantity tiles"
+            ],
+            "choices": [
+              "The SubTotal map tile",
+              "The Total Sales and Total Quantity tiles",
+              "The Total Sales by Parent Category tile"
             ]
           }
         ],
@@ -19478,14 +19972,25 @@
             "id": "field-1",
             "label": "Visual type",
             "expected": [
-              "Line"
+              "a line"
+            ],
+            "choices": [
+              "a line",
+              "a line and clustered column",
+              "an area"
             ]
           },
           {
             "id": "field-2",
             "label": "Analytics feature",
             "expected": [
-              "Anomaly detection"
+              "anomaly detection"
+            ],
+            "choices": [
+              "a custom visual",
+              "a trendline",
+              "anomaly detection",
+              "line chart markers"
             ]
           }
         ],
@@ -19558,7 +20063,13 @@
             "id": "field-1",
             "label": "Reference line",
             "expected": [
-              "Average reference line"
+              "an average reference line"
+            ],
+            "choices": [
+              "a trend line",
+              "a secondary axis",
+              "an average reference line",
+              "two measures in the Values bucket"
             ]
           },
           {
@@ -19566,6 +20077,12 @@
             "label": "Drill field well",
             "expected": [
               "Axis"
+            ],
+            "choices": [
+              "Axis",
+              "Values",
+              "Legend",
+              "Secondary values"
             ]
           }
         ],
@@ -19639,6 +20156,11 @@
             "label": "Box 1",
             "expected": [
               "A scatter plot of Quantity Ordered and Unit Price by item"
+            ],
+            "choices": [
+              "A column chart of Quantity Ordered and Unit Price by year",
+              "A line chart of Quantity Ordered and Unit Price by item",
+              "A scatter plot of Quantity Ordered and Unit Price by item"
             ]
           },
           {
@@ -19646,6 +20168,11 @@
             "label": "Box 2",
             "expected": [
               "Automatically find clusters"
+            ],
+            "choices": [
+              "Automatically find clusters",
+              "Explain the decrease",
+              "Find where the distribution is different"
             ]
           }
         ],
@@ -19718,13 +20245,23 @@
             "label": "Visual",
             "expected": [
               "Matrix"
+            ],
+            "choices": [
+              "Bar chart",
+              "Card",
+              "Matrix"
             ]
           },
           {
             "id": "field-2",
             "label": "Drill behavior",
             "expected": [
-              "Apply drill down filters to Selected Visual"
+              "Apply drill down filters to Selected visual"
+            ],
+            "choices": [
+              "Edit Interactions to Filter",
+              "Edit Interactions to None",
+              "Apply drill down filters to Selected visual"
             ]
           }
         ],
@@ -19796,7 +20333,12 @@
             "id": "field-1",
             "label": "Report1",
             "expected": [
-              "Power BI Paginated (.rdl)"
+              "Power BI paginated (.rdl)"
+            ],
+            "choices": [
+              "Microsoft SQL Server Reporting Services (SSRS) (.rdlc)",
+              "Power BI (.pbix)",
+              "Power BI paginated (.rdl)"
             ]
           },
           {
@@ -19804,6 +20346,11 @@
             "label": "Report2",
             "expected": [
               "Power BI (.pbix)"
+            ],
+            "choices": [
+              "Microsoft SQL Server Reporting Services (SSRS) (.rdlc)",
+              "Power BI (.pbix)",
+              "Power BI paginated (.rdl)"
             ]
           }
         ],
@@ -19876,6 +20423,11 @@
             "label": "First answer",
             "expected": [
               "Column Quality"
+            ],
+            "choices": [
+              "Column distribution",
+              "Column profile",
+              "Column quality"
             ]
           },
           {
@@ -19883,6 +20435,11 @@
             "label": "Second answer",
             "expected": [
               "Column Quality"
+            ],
+            "choices": [
+              "Column distribution",
+              "Column profile",
+              "Column quality"
             ]
           }
         ],
@@ -19955,21 +20512,45 @@
             "id": "field-1",
             "label": "Step 1",
             "expected": [
-              "Open a report in Editing view"
+              "Open powerbi.com."
+            ],
+            "choices": [
+              "Open Power BI Desktop.",
+              "Pin the page.",
+              "Pin each visual.",
+              "Open powerbi.com.",
+              "Open the Sales report.",
+              "Create a new report."
             ]
           },
           {
             "id": "field-2",
             "label": "Step 2",
             "expected": [
-              "With no visualizations selected, select Pin to a dashboard"
+              "Open the Sales report."
+            ],
+            "choices": [
+              "Open Power BI Desktop.",
+              "Pin the page.",
+              "Pin each visual.",
+              "Open powerbi.com.",
+              "Open the Sales report.",
+              "Create a new report."
             ]
           },
           {
             "id": "field-3",
             "label": "Step 3",
             "expected": [
-              "Pin the live page to an existing or new dashboard"
+              "Pin the page."
+            ],
+            "choices": [
+              "Open Power BI Desktop.",
+              "Pin the page.",
+              "Pin each visual.",
+              "Open powerbi.com.",
+              "Open the Sales report.",
+              "Create a new report."
             ]
           }
         ],
@@ -20043,6 +20624,12 @@
             "label": "Box 1",
             "expected": [
               "Member"
+            ],
+            "choices": [
+              "Admin",
+              "Contributor",
+              "Member",
+              "Viewer"
             ]
           },
           {
@@ -20050,6 +20637,12 @@
             "label": "Box 2",
             "expected": [
               "Contributor"
+            ],
+            "choices": [
+              "Admin",
+              "Contributor",
+              "Member",
+              "Viewer"
             ]
           }
         ],
@@ -20122,14 +20715,24 @@
             "id": "field-1",
             "label": "Analyze externally",
             "expected": [
-              "Use Analyze in Excel"
+              "use Analyze in Excel with"
+            ],
+            "choices": [
+              "assign sensitivity labels to",
+              "use Analyze in Excel with",
+              "delete"
             ]
           },
           {
             "id": "field-2",
             "label": "Permission",
             "expected": [
-              "Grant Build permission"
+              "grant the Build permission for"
+            ],
+            "choices": [
+              "grant the Build permission for",
+              "grant the Read permission for",
+              "remove a table from"
             ]
           }
         ],
@@ -20202,14 +20805,26 @@
             "id": "field-1",
             "label": "HR dataset",
             "expected": [
-              "Grant User1 the Build permission"
+              "Grant User1 the Build permission for the HR dataset."
+            ],
+            "choices": [
+              "Assign User1 the Contributor role for WorkspaceA.",
+              "Grant User1 the Build permission for the HR dataset.",
+              "Grant User1 read permissions for the HR dataset.",
+              "Grant User1 share permissions for the HR dataset."
             ]
           },
           {
             "id": "field-2",
             "label": "WorkspaceB",
             "expected": [
-              "Assign User1 the Contributor role"
+              "Assign User1 the Contributor role for WorkspaceB."
+            ],
+            "choices": [
+              "Assign User1 the Admin role for WorkspaceB.",
+              "Assign User1 the Contributor role for WorkspaceA.",
+              "Assign User1 the Contributor role for WorkspaceB.",
+              "Assign User1 the Member role for WorkspaceB."
             ]
           }
         ],
@@ -20283,6 +20898,11 @@
             "label": "Box 1",
             "expected": [
               "dashboard"
+            ],
+            "choices": [
+              "report",
+              "bookmark",
+              "dashboard"
             ]
           },
           {
@@ -20290,6 +20910,11 @@
             "label": "Box 2",
             "expected": [
               "data alert"
+            ],
+            "choices": [
+              "data alert",
+              "phone view",
+              "subscription"
             ]
           }
         ],
@@ -20366,6 +20991,13 @@
             "label": "Box 1",
             "expected": [
               "CALCULATE"
+            ],
+            "choices": [
+              "ALL",
+              "ALLEXCEPT",
+              "CALCULATE",
+              "DIVIDE",
+              "FILTER"
             ]
           },
           {
@@ -20373,6 +21005,13 @@
             "label": "Box 2",
             "expected": [
               "ALL"
+            ],
+            "choices": [
+              "ALL",
+              "ALLEXCEPT",
+              "CALCULATE",
+              "DIVIDE",
+              "FILTER"
             ]
           },
           {
@@ -20380,6 +21019,13 @@
             "label": "Box 3",
             "expected": [
               "DIVIDE"
+            ],
+            "choices": [
+              "ALL",
+              "ALLEXCEPT",
+              "CALCULATE",
+              "DIVIDE",
+              "FILTER"
             ]
           }
         ],
@@ -20447,7 +21093,7 @@
       "options": [],
       "responseType": "structured",
       "nativeResponse": {
-        "interaction": "fields",
+        "interaction": "ordered-fields",
         "scoring": "normalized-text",
         "evidence": "source-explanation",
         "fields": [
@@ -20455,28 +21101,56 @@
             "id": "step-1",
             "label": "Step 1",
             "expected": [
-              "Create four roles"
+              "From Power BI Desktop, create four roles."
+            ],
+            "choices": [
+              "From powerbi.com, assign the analysts the Contributor role to the workspace.",
+              "From Power BI Desktop, add a Table Filter DAX Expression to the roles.",
+              "From powerbi.com, add role members to the roles.",
+              "From Power BI Desktop, create four roles.",
+              "From Power BI Desktop, publish the dataset to powerbi.com."
             ]
           },
           {
             "id": "step-2",
             "label": "Step 2",
             "expected": [
-              "add DAX filters"
+              "From Power BI Desktop, add a Table Filter DAX Expression to the roles."
+            ],
+            "choices": [
+              "From powerbi.com, assign the analysts the Contributor role to the workspace.",
+              "From Power BI Desktop, add a Table Filter DAX Expression to the roles.",
+              "From powerbi.com, add role members to the roles.",
+              "From Power BI Desktop, create four roles.",
+              "From Power BI Desktop, publish the dataset to powerbi.com."
             ]
           },
           {
             "id": "step-3",
             "label": "Step 3",
             "expected": [
-              "publish"
+              "From Power BI Desktop, publish the dataset to powerbi.com."
+            ],
+            "choices": [
+              "From powerbi.com, assign the analysts the Contributor role to the workspace.",
+              "From Power BI Desktop, add a Table Filter DAX Expression to the roles.",
+              "From powerbi.com, add role members to the roles.",
+              "From Power BI Desktop, create four roles.",
+              "From Power BI Desktop, publish the dataset to powerbi.com."
             ]
           },
           {
             "id": "step-4",
             "label": "Step 4",
             "expected": [
-              "add role members"
+              "From powerbi.com, add role members to the roles."
+            ],
+            "choices": [
+              "From powerbi.com, assign the analysts the Contributor role to the workspace.",
+              "From Power BI Desktop, add a Table Filter DAX Expression to the roles.",
+              "From powerbi.com, add role members to the roles.",
+              "From Power BI Desktop, create four roles.",
+              "From Power BI Desktop, publish the dataset to powerbi.com."
             ]
           }
         ],
@@ -20640,6 +21314,12 @@
             "label": "Box 1",
             "expected": [
               "CALCULATE"
+            ],
+            "choices": [
+              "SUM",
+              "COUNTX",
+              "CALCULATE",
+              "CALCULATETABLE"
             ]
           },
           {
@@ -20647,6 +21327,12 @@
             "label": "Box 2",
             "expected": [
               "FILTER"
+            ],
+            "choices": [
+              "FILTER",
+              "ALLEXCEPT",
+              "CALCULATE",
+              "DATESBETWEEN"
             ]
           },
           {
@@ -20654,6 +21340,12 @@
             "label": "Box 3",
             "expected": [
               "Orders[Shipped Date] > Orders[Required Date]"
+            ],
+            "choices": [
+              "Orders[OrderDate] > Orders[RequiredDate]",
+              "Orders[ShippedDate] >= Orders[OrderDate]",
+              "Orders[ShippedDate] < Orders[RequiredDate]",
+              "Orders[ShippedDate] > Orders[RequiredDate]"
             ]
           }
         ],
@@ -20728,13 +21420,25 @@
             "label": "Box 1",
             "expected": [
               "many-to-many"
+            ],
+            "choices": [
+              "one-to-one",
+              "one-to-many",
+              "many-to-one",
+              "many-to-many"
             ]
           },
           {
             "id": "box-2",
             "label": "Box 2",
             "expected": [
-              "Customer details"
+              "Customer Details worksheet"
+            ],
+            "choices": [
+              "Orders table",
+              "Suppliers table",
+              "Order Details table",
+              "Customer Details worksheet"
             ]
           }
         ],
@@ -20807,6 +21511,11 @@
             "label": "Box 1",
             "expected": [
               "Top N"
+            ],
+            "choices": [
+              "Top N",
+              "Basic",
+              "Advanced"
             ]
           },
           {
@@ -20814,6 +21523,11 @@
             "label": "Box 2",
             "expected": [
               "Visual"
+            ],
+            "choices": [
+              "Page",
+              "Visual",
+              "Report"
             ]
           }
         ],
@@ -20887,6 +21601,11 @@
             "label": "Box 1",
             "expected": [
               "The Viewer role to the workspace"
+            ],
+            "choices": [
+              "Access permissions to an app",
+              "The Member role to the workspace",
+              "The Viewer role to the workspace"
             ]
           },
           {
@@ -20894,6 +21613,11 @@
             "label": "Box 2",
             "expected": [
               "Build"
+            ],
+            "choices": [
+              "Build",
+              "Delete",
+              "Reshare"
             ]
           }
         ],
@@ -20968,7 +21692,12 @@
             "id": "field-1",
             "label": "Distribution method",
             "expected": [
-              "Using an App"
+              "Using an app"
+            ],
+            "choices": [
+              "Sharing individual reports",
+              "Using a workspace membership",
+              "Using an app"
             ]
           },
           {
@@ -20976,6 +21705,11 @@
             "label": "Audience group",
             "expected": [
               "A mail-enabled security group in Azure Active Directory"
+            ],
+            "choices": [
+              "A dynamic distribution list",
+              "A mail-enabled security group in Azure Active Directory",
+              "Individual user emails"
             ]
           }
         ],
@@ -21051,6 +21785,13 @@
             "label": "Visualization type",
             "expected": [
               "KPI"
+            ],
+            "choices": [
+              "Card",
+              "Donut chart",
+              "Gauge",
+              "Key influencers",
+              "KPI"
             ]
           },
           {
@@ -21058,6 +21799,13 @@
             "label": "Indicator",
             "expected": [
               "Sales[sales_amount]"
+            ],
+            "choices": [
+              "Date[month]",
+              "Sales[sales_amount]",
+              "Sales[sales_id]",
+              "Targets[sales_target]",
+              "Weekly_Returns[total_returns]"
             ]
           },
           {
@@ -21065,6 +21813,13 @@
             "label": "Trend axis",
             "expected": [
               "Date[month]"
+            ],
+            "choices": [
+              "Date[month]",
+              "Sales[sales_amount]",
+              "Sales[sales_id]",
+              "Targets[sales_target]",
+              "Weekly_Returns[total_returns]"
             ]
           },
           {
@@ -21072,6 +21827,13 @@
             "label": "Target goals",
             "expected": [
               "Targets[sales_target]"
+            ],
+            "choices": [
+              "Date[month]",
+              "Sales[sales_amount]",
+              "Sales[sales_id]",
+              "Targets[sales_target]",
+              "Weekly_Returns[total_returns]"
             ]
           }
         ],
@@ -21145,21 +21907,42 @@
             "id": "field-1",
             "label": "Step 1",
             "expected": [
-              "Convert list to table"
+              "Convert the list to a table."
+            ],
+            "choices": [
+              "Expand the columns.",
+              "Expand the records.",
+              "Add columns that use data type conversions.",
+              "Set the data types.",
+              "Convert the list to a table."
             ]
           },
           {
             "id": "field-2",
             "label": "Step 2",
             "expected": [
-              "Expand Column"
+              "Expand the records."
+            ],
+            "choices": [
+              "Expand the columns.",
+              "Expand the records.",
+              "Add columns that use data type conversions.",
+              "Set the data types.",
+              "Convert the list to a table."
             ]
           },
           {
             "id": "field-3",
             "label": "Step 3",
             "expected": [
-              "Set Date type"
+              "Set the data types."
+            ],
+            "choices": [
+              "Expand the columns.",
+              "Expand the records.",
+              "Add columns that use data type conversions.",
+              "Set the data types.",
+              "Convert the list to a table."
             ]
           }
         ],
@@ -21321,6 +22104,13 @@
             "label": "Box 1",
             "expected": [
               "TOPN"
+            ],
+            "choices": [
+              "ASC",
+              "DESC",
+              "FILTER",
+              "SUMMARIZE",
+              "TOPN"
             ]
           },
           {
@@ -21328,6 +22118,13 @@
             "label": "Box 2",
             "expected": [
               "SUMMARIZE"
+            ],
+            "choices": [
+              "ASC",
+              "DESC",
+              "FILTER",
+              "SUMMARIZE",
+              "TOPN"
             ]
           },
           {
@@ -21335,6 +22132,13 @@
             "label": "Box 3",
             "expected": [
               "DESC"
+            ],
+            "choices": [
+              "ASC",
+              "DESC",
+              "FILTER",
+              "SUMMARIZE",
+              "TOPN"
             ]
           }
         ],
@@ -21408,6 +22212,11 @@
             "label": "Box 1",
             "expected": [
               "CONTOSO BIKES report"
+            ],
+            "choices": [
+              "CONTOSO BIKES report",
+              "CONTOSO dashboard",
+              "Realtime dashboard"
             ]
           },
           {
@@ -21415,6 +22224,12 @@
             "label": "Box 2",
             "expected": [
               "three datasets"
+            ],
+            "choices": [
+              "one dataset",
+              "two datasets",
+              "three datasets",
+              "four datasets"
             ]
           }
         ],
@@ -21488,13 +22303,25 @@
             "label": "Box 1",
             "expected": [
               "Table.RemoveColumns"
+            ],
+            "choices": [
+              "Table.CombineColumn",
+              "Table.FindText",
+              "Table.FromList",
+              "Table.RemoveColumns"
             ]
           },
           {
             "id": "box-2",
             "label": "Box 2",
             "expected": [
-              "List.Select Get a list of columns"
+              "List.Select"
+            ],
+            "choices": [
+              "List.Contains",
+              "List.Select",
+              "Table.FindText",
+              "Table.FromList"
             ]
           },
           {
@@ -21502,6 +22329,12 @@
             "label": "Box 3",
             "expected": [
               "Text.EndsWith"
+            ],
+            "choices": [
+              "Text.Contains",
+              "Text.EndsWith",
+              "Text.From",
+              "Text.StartsWith"
             ]
           }
         ],
