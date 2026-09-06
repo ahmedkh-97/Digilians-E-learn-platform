@@ -744,7 +744,7 @@ async function ensurePl300FullRankedLearning(){
   return pl300FullRankedLearning;
 }
 
-async async function loadVoucherFullRankedIndex(config=state.voucherExamConfig){return pl300LearningController.loadFullRankedIndex(config);}
+async function loadVoucherFullRankedIndex(config=state.voucherExamConfig){return pl300LearningController.loadFullRankedIndex(config);}
 
 function voucherFullRankRecord(question){return pl300LearningController?.fullRankRecord(question)||null;}
 

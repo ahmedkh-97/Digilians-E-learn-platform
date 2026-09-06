@@ -5,6 +5,7 @@ import fs from 'node:fs';
 const app=fs.readFileSync(new URL('../assets/js/app.js',import.meta.url),'utf8');
 const css=fs.readFileSync(new URL('../assets/css/style.css',import.meta.url),'utf8')+fs.readFileSync(new URL('../assets/css/pl300.css',import.meta.url),'utf8');
 const fullRank=fs.readFileSync(new URL('../assets/js/pl300-full-ranked-learning.js',import.meta.url),'utf8');
+const controller=fs.readFileSync(new URL('../assets/js/pl300-learning-controller.js',import.meta.url),'utf8');
 const nativeCss=fs.existsSync(new URL('../assets/css/source-practice-native.css',import.meta.url))?fs.readFileSync(new URL('../assets/css/source-practice-native.css',import.meta.url),'utf8'):'';
 
 test('PL-300 source review supports auto-scored text practice',()=>{
@@ -12,7 +13,7 @@ test('PL-300 source review supports auto-scored text practice',()=>{
   assert.match(fullRank,/data-source-practice-option/);
   assert.match(fullRank,/id="sourcePracticeCheckBtn"/);
   assert.match(fullRank,/Check answer/);
-  assert.match(app,/buildSourcePracticeOptionsMarkup/);
+  assert.match(controller,/buildSourcePracticeOptionsMarkup/);
   assert.match(app,/saveVoucherSourcePracticeResult/);
 });
 
