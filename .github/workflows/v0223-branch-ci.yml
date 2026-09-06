@@ -1,15 +1,18 @@
-name: V0.22.5 PL-300 Native Choice Fidelity Repair
+name: V0.22.5 PL-300 Cache Hotfix Validation
 
 on:
   push:
     branches:
-      - hotfix/v0.22.5-pl300-native-choice-fidelity
+      - hotfix/v0.22.5-pl300-cache-bust
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
 
 jobs:
-  native-choice-fidelity:
+  release-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,65 +21,75 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Apply source-backed native choice pools
-        run: python3 tools/v0226-pl300-native-choice-repair.py
-      - name: Regenerate PL-300 full ranked index
-        run: node tools/pl300-full-ranked-index.mjs
-      - name: Native choice fidelity GREEN gate
-        run: node --test tests/v0226-pl300-native-choice-fidelity.test.mjs
-      - name: PL-300 native and ranked regression
-        run: >-
-          node --test
-          tests/pl300-native-dropdowns.test.mjs
-          tests/v0224-pl300-preselect-dropdowns.test.mjs
-          tests/pl300-native-source-practice.test.mjs
-          tests/pl300-native-ranked-interaction.test.mjs
-          tests/pl300-native-ranked-engine.test.mjs
-          tests/pl300-native-ranked-results-mistakes.test.mjs
-          tests/pl300-full-ranked-domain-coverage.test.mjs
-          tests/pl300-source-answer-lock.test.mjs
-          tests/pl300-source-practice-freeze-regression.test.mjs
-          tests/pl300-source-practice-selection-guard.test.mjs
-          tests/pl300-arabic-source-explanation.test.mjs
+      - name: Prepare V0.22.5 release identity
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+
+          previous='0.22.4'
+          version='0.22.5'
+          root=Path('.')
+
+          (root/'VERSION.txt').write_text(version+'\n',encoding='utf-8')
+
+          for relative in [
+            'index.html',
+            'assets/js/app.js',
+            'assets/js/storage.js',
+            'assets/js/analytics.js',
+            'assets/js/update-manager.js',
+            'assets/js/voucher-source-practice-native.js'
+          ]:
+            path=root/relative
+            text=path.read_text(encoding='utf-8').replace(previous,version)
+            if relative=='assets/js/update-manager.js':
+              text=text.replace('PL-300 Pre-entry Parts & Source Dropdowns','PL-300 Runtime Cache & Freeze Hotfix')
+            path.write_text(text,encoding='utf-8')
+
+          changelog_path=root/'data/changelog.json'
+          changelog=json.loads(changelog_path.read_text(encoding='utf-8'))
+          release={
+            'version':version,
+            'title':'PL-300 Runtime Cache & Freeze Hotfix',
+            'date':'2026-09-06',
+            'type':'fix',
+            'summary':'Forces browsers to load the fixed PL-300 source-practice runtime instead of reusing the cached V0.22.4 module that could freeze when entering a part, using Next, or retrying.',
+            'highlights':[
+              'Bumps the runtime build identity to V0.22.5 so GitHub Pages and browser module caches use fresh JavaScript URLs.',
+              'The PL-300 source-practice native module now imports the selection guard with the V0.22.5 cache key, ensuring the MutationObserver-free implementation is loaded.',
+              'The Update Manager detects V0.22.5 as newer than V0.22.4 and can clear application caches before reloading.',
+              'Single-answer instant submit and exact Select 2/3 limits remain unchanged.',
+              'The 509 audit, Arabic explanation coverage, Ranking, My Mistakes, Answer Lock, Retry, Full Regression, and Pre-deploy gates remain protected.'
+            ]
+          }
+          changelog['latest']=version
+          releases=[x for x in changelog.get('releases',[]) if x.get('version')!=version]
+          changelog['releases']=[release,*releases]
+          changelog_path.write_text(json.dumps(changelog,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: V0.22.5 cache-bust regression gate
+        run: node --test tests/v0225-pl300-cache-bust.test.mjs tests/pl300-source-practice-freeze-regression.test.mjs tests/pl300-source-practice-selection-guard.test.mjs
+      - name: V0.22.4 PL-300 behavior gate
+        run: node --test tests/v0224-pl300-preselect-dropdowns.test.mjs
       - name: Exhaustive PL-300 509 audit gate
-        run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs tests/pl300-full-source-review.test.mjs tests/pl300-source-dedup-audit.test.mjs
+        run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs
       - name: Full Node regression
         run: node --test tests/*.test.mjs
-      - name: Validate bounded generated diff
+      - name: Pre-deploy gate
+        run: node tools/pre-deploy-check.mjs
+      - name: Commit green V0.22.5 release identity
+        if: github.event_name == 'push'
         shell: bash
         run: |
-          git diff --check
-          changed=$(git diff --name-only | sort)
-          printf '%s\n' "$changed"
-          allowed=$(printf '%s\n' \
-            voucher/tracks/data-analysis/microsoft-pl-300/full-ranked-index.json \
-            voucher/tracks/data-analysis/microsoft-pl-300/master-bank.json \
-            voucher/tracks/data-analysis/microsoft-pl-300/source-01-review-bank.json \
-            voucher/tracks/data-analysis/microsoft-pl-300/source-02-review-bank.json | sort)
-          while IFS= read -r file; do
-            [ -z "$file" ] && continue
-            printf '%s\n' "$allowed" | grep -Fx -- "$file" >/dev/null || {
-              echo "Unexpected generated change: $file" >&2
-              exit 1
-            }
-          done <<< "$changed"
-      - name: Commit green source-backed generated repair
-        shell: bash
-        run: |
+          if git diff --quiet -- VERSION.txt index.html assets/js/app.js assets/js/storage.js assets/js/analytics.js assets/js/update-manager.js assets/js/voucher-source-practice-native.js data/changelog.json; then
+            echo "V0.22.5 release identity already committed."
+            exit 0
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add voucher/tracks/data-analysis/microsoft-pl-300/source-01-review-bank.json \
-                  voucher/tracks/data-analysis/microsoft-pl-300/source-02-review-bank.json \
-                  voucher/tracks/data-analysis/microsoft-pl-300/master-bank.json \
-                  voucher/tracks/data-analysis/microsoft-pl-300/full-ranked-index.json
+          git add VERSION.txt index.html assets/js/app.js assets/js/storage.js assets/js/analytics.js assets/js/update-manager.js assets/js/voucher-source-practice-native.js data/changelog.json
           git diff --cached --check
-          if git diff --cached --quiet; then
-            echo "No generated PL-300 changes to commit."
-          else
-            git commit -m "fix: sync PL-300 native choices and full ranked index [skip ci]"
-            git push
-          fi
-      - name: Pre-deploy gate on clean committed tree
-        run: |
-          test -z "$(git status --porcelain)"
-          node tools/pre-deploy-check.mjs
+          git commit -m "release: set V0.22.5 cache-bust identity [skip release-prep]"
+          git push
