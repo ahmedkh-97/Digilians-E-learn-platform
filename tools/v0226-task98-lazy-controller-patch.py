@@ -55,7 +55,6 @@ if old_open not in text:
     raise SystemExit('source review open anchor missing')
 text=text.replace(old_open,new_open,1)
 
-# Remove source-review-only filtering/timer mechanics from startup app and leave tiny proxies.
 for pattern,replacement,label in [
     (r"function voucherSourceReviewFilteredQuestions\(\)\{.*?\n\}","function voucherSourceReviewFilteredQuestions(){return pl300LearningController?.filteredQuestions()||[]}",'filter'),
     (r"function voucherSourceStartSolveTimer\(question,\{force=false\}=\{\}\)\{.*?\n\}","function voucherSourceStartSolveTimer(question,options){return pl300LearningController?.startSolveTimer(question,options)}",'timer-start'),
@@ -81,7 +80,6 @@ if count!=1:
     raise SystemExit(f'expected one controller block, replaced {count}')
 app_path.write_text(text,encoding='utf-8')
 
-# Update controller contract: orchestration stays in app; PL-300 mechanics stay lazy.
 test_path=ROOT/'tests/v0226-pl300-learning-controller.test.mjs'
 test=test_path.read_text(encoding='utf-8')
 if "controllerSource=fs.readFileSync" not in test:
@@ -102,5 +100,7 @@ if addition not in release:
     release=release.replace(needle,addition,1)
 release_test.write_text(release,encoding='utf-8')
 
-Path(__file__).unlink()
+patch_path=Path(__file__)
+if patch_path.exists():
+    patch_path.unlink()
 print('PL-300 Smart Retry controller, filtering and solve timer moved behind lazy boundary.')
