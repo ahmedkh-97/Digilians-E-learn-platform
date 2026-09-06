@@ -62,10 +62,12 @@ for pattern,replacement,label in [
     (r"function voucherSourceConsumeSolveSeconds\(question\)\{.*?\n\}","function voucherSourceConsumeSolveSeconds(question){return pl300LearningController?.consumeSolveSeconds(question)||0}",'timer-consume'),
     (r"function voucherSourceResetSolveTimer\(\)\{.*?\n\}","function voucherSourceResetSolveTimer(){return pl300LearningController?.resetSolveTimer()}",'timer-reset'),
 ]:
+    pattern=pattern.replace('\\\\','\\')
     text,count=re.subn(pattern,replacement,text,count=1,flags=re.S)
     if count!=1: raise SystemExit(f'expected one {label} block, replaced {count}')
 
-pattern=re.compile(r"function voucherActiveSourcePart\(\)\{.*?function selectVoucherSourceReviewPart\(partId='all'\)\{.*?\n\}\n",re.S)
+pattern=r"function voucherActiveSourcePart\(\)\{.*?function selectVoucherSourceReviewPart\(partId='all'\)\{.*?\n\}\n"
+pattern=pattern.replace('\\\\','\\')
 replacement="""function voucherActiveSourcePart(){return pl300LearningController?.activePart()||null}
 function persistVoucherSourceLearningState(nextState){return pl300LearningController?.persist(nextState)}
 function updateVoucherLearningAfterScoredSave(args){return pl300LearningController?.updateAfterScoredSave(args)}
@@ -74,7 +76,7 @@ function voucherPartReviewContext(part){return pl300LearningController?.partRevi
 function renderVoucherEndOfPartReview(body,part){return pl300LearningController?.renderEndOfPartReview(body,part)}
 function selectVoucherSourceReviewPart(partId='all'){return pl300LearningController?.selectPart(partId)}
 """
-text,count=pattern.subn(replacement,text,count=1)
+text,count=re.subn(pattern,replacement,text,count=1,flags=re.S)
 if count!=1:
     raise SystemExit(f'expected one controller block, replaced {count}')
 app_path.write_text(text,encoding='utf-8')
