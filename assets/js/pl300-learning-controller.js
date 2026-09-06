@@ -16,6 +16,8 @@ export function createPl300LearningController({
       :questions;
     if(state.voucherSourceReviewWeakIds instanceof Set)partQuestions=partQuestions.filter(q=>state.voucherSourceReviewWeakIds.has(String(q.id)));
     if(state.voucherSourceReviewFilter==='source-01'||state.voucherSourceReviewFilter==='source-02')return partQuestions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);
+    if(state.voucherSourceReviewFilter==='objective')return partQuestions.filter(q=>fullRankRecord(q)?.mode==='objective');
+    if(state.voucherSourceReviewFilter==='checkpoint')return partQuestions.filter(q=>fullRankRecord(q)?.mode==='checkpoint');
     return partQuestions;
   }
 
