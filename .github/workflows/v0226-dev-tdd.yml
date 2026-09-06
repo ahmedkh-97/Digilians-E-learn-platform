@@ -1,0 +1,48 @@
+name: V0.22.6 TDD Dev Validation
+
+on:
+  push:
+    branches:
+      - feature/v0.22.6-pl300-learning-ux
+
+permissions:
+  contents: write
+
+jobs:
+  focused-tdd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply pending V0.22.6 task patches
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          for patch in tools/v0226-task*-patch.py; do
+            python3 "$patch"
+          done
+      - name: V0.22.6 focused TDD and performance gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t V0226_TESTS < <(find tests -maxdepth 1 -type f -name 'v0226*.test.mjs' | sort)
+          node --test "${V0226_TESTS[@]}" tests/pl300-source-answer-lock.test.mjs tests/pl300-full-ranked-learning.test.mjs tests/pl300-mini-parts.test.mjs tests/pl300-mini-parts-ui.test.mjs tests/pl300-full-ranked-storage.test.mjs tests/pl300-full-ranked-ui.test.mjs tests/v0224-pl300-preselect-dropdowns.test.mjs tests/platform-ux-performance.test.mjs
+      - name: Commit green applied task patches
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+            echo 'No generated task patch changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          git commit -m 'refactor: lazy-load PL-300 smart retry controller [skip ci]'
+          git push
