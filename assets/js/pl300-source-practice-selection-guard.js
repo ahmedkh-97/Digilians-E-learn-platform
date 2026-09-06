@@ -1,4 +1,5 @@
 const installedDocuments=new WeakSet();
+const postRenderClickSelector='#sourceReviewNext,#sourceReviewPrev,#sourceReviewJumpBtn,#sourcePracticeRetryBtn,[data-source-review-filter],[data-pl300-part-select],[data-pl300-parts-back]';
 
 export function sourcePracticeRequiredCountFromText(text=''){
   const match=String(text||'').match(/Select\s+(\d+)\s+answers?/i);
@@ -67,7 +68,7 @@ function injectSingleAnswerStyle(doc){
   doc.head.append(style);
 }
 
-export function installSourcePracticeSelectionGuard(doc=globalThis.document,Observer=globalThis.MutationObserver){
+export function installSourcePracticeSelectionGuard(doc=globalThis.document){
   if(!doc||typeof doc.addEventListener!=='function'||installedDocuments.has(doc))return false;
   installedDocuments.add(doc);
   injectSingleAnswerStyle(doc);
@@ -91,8 +92,9 @@ export function installSourcePracticeSelectionGuard(doc=globalThis.document,Obse
   doc.addEventListener('click',event=>{
     const option=event?.target?.closest?.('[data-source-practice-option]');
     const group=option?.closest?.('.source-review-options');
-    if(!option||!group)return;
-    const single=group.classList?.contains?.('single');
+    const postRenderAction=event?.target?.closest?.(postRenderClickSelector);
+    if(!option&&!postRenderAction)return;
+    const single=Boolean(group?.classList?.contains?.('single'));
     queueMicrotask(()=>{
       apply();
       if(!single)return;
@@ -101,10 +103,6 @@ export function installSourcePracticeSelectionGuard(doc=globalThis.document,Obse
     });
   });
 
-  if(root&&typeof Observer==='function'){
-    const observer=new Observer(apply);
-    observer.observe(root,{childList:true,subtree:true});
-  }
   apply();
   return true;
 }
