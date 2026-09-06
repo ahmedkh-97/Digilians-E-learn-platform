@@ -95,8 +95,16 @@ test('active question markup derives interaction label, shows one progress bar, 
   assert.doesNotMatch(html,/NON-RANKED/);
   assert.match(html,/Question 1 of 14/);
   assert.match(html,/Studied 4 of 14/);
+  assert.match(html,/class="source-review-progress-track"/);
   assert.equal((html.match(/class="source-review-progress"/g)||[]).length,1);
   assert.equal((html.match(/pl300-study-part-progress/g)||[]).length,0);
+});
+
+test('progress CSS keeps text metrics readable and applies the 6px height only to the track',()=>{
+  const css=fs.readFileSync(new URL('../assets/css/pl300.css',import.meta.url),'utf8');
+  assert.match(css,/\.source-review-progress-meta\{[^}]*display:flex[^}]*\}/);
+  assert.match(css,/\.source-review-progress-track\{[^}]*height:6px[^}]*\}/);
+  assert.doesNotMatch(css,/\.source-review-progress>div\{[^}]*height:6px/,'generic div selector would crush the progress metadata row');
 });
 
 test('runtime passes the actual question and full ranked index into the V0.22.6 view models',()=>{
