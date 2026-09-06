@@ -1,15 +1,15 @@
 const asCount=value=>Math.max(0,Number.isFinite(Number(value))?Number(value):0);
 const asId=value=>String(value??'').trim();
-const clone=value=>typeof structuredClone==='function'?structuredClone(value):JSON.parse(JSON.stringify(value));
 
 export const PL300_RETRY_DELAY_TRANSITIONS=4;
 
 function normalizePendingItem(item={}){
   const questionId=asId(item?.questionId);
-  if(!questionId)return null;
+  const dueAtSerial=Number(item?.dueAtSerial);
+  if(!questionId||!Number.isFinite(dueAtSerial)||dueAtSerial<0)return null;
   return {
     questionId,
-    dueAtSerial:asCount(item?.dueAtSerial),
+    dueAtSerial:Math.floor(dueAtSerial),
     deferToPartReview:Boolean(item?.deferToPartReview),
     updatedAt:item?.updatedAt?String(item.updatedAt):null
   };
@@ -183,4 +183,4 @@ export function resolvePl300PartResume({part={},index={},records={}}={}){
   return {mode:'complete'};
 }
 
-export const pl300LearningLoopTestApi={normalizePendingItem,normalizePartState,maturedPending,clone};
+export const pl300LearningLoopTestApi={normalizePendingItem,normalizePartState,maturedPending};
