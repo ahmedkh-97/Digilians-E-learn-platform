@@ -68,27 +68,26 @@ anchor = "let voucherSourcePracticeNative=null;\nlet pl300FullRankedLearning=nul
 replacement_anchor = """let voucherSourcePracticeNative=null;
 let pl300FullRankedLearning=null;
 let pl300LearningLoop=null;
-let pl300LearningControllerModule=null;
 let pl300LearningController=null;
 
 async function ensurePl300LearningController(){
   if(pl300LearningController)return pl300LearningController;
-  pl300LearningControllerModule??=await import(`./pl300-learning-controller.js?v=${BUILD_VERSION}`);
-  await ensurePl300LearningLoop();
-  await ensurePl300FullRankedLearning();
-  pl300LearningController=pl300LearningControllerModule.createPl300LearningController({
+  const {createPl300LearningController}=await import(`./pl300-learning-controller.js?v=${BUILD_VERSION}`);
+  pl300LearningController=createPl300LearningController({
     state,
     getRecords:()=>getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||'microsoft-pl-300').records||{},
     saveLearningState:learning=>saveVoucherSourceLearningState(mistakeOwnerId(),state.voucherExamConfig?.id||'microsoft-pl-300',learning),
     learningLoop:pl300LearningLoop,
     fullRankedLearning:pl300FullRankedLearning,
-    renderReview:()=>renderVoucherSourceReview(),
-    scrollTop:()=>window.scrollTo({top:0,behavior:'smooth'})
+    renderReview:renderVoucherSourceReview,
+    scrollTop:()=>window.scrollTo({top:0,behavior:'smooth'}),
+    loadJson,
+    renderRichText:renderTechnicalRichText
   });
   return pl300LearningController;
 }
 """
-if 'let pl300LearningControllerModule=null;' not in src:
+if 'let pl300LearningController=null;' not in src:
     if anchor not in src:
         raise RuntimeError('missing PL-300 lazy-module anchor')
     src = src.replace(anchor, replacement_anchor, 1)
@@ -101,7 +100,16 @@ if 'await ensurePl300LearningController();' not in src:
     src = src.replace(load_anchor, load_replacement, 1)
 
 replacements = {
+    'loadVoucherFullRankedIndex': "async function loadVoucherFullRankedIndex(config=state.voucherExamConfig){return pl300LearningController.loadFullRankedIndex(config);}",
+    'voucherFullRankRecord': "function voucherFullRankRecord(question){return pl300LearningController?.fullRankRecord(question)||null;}",
+    'voucherFullRankMetrics': "function voucherFullRankMetrics(){return pl300LearningController?.fullRankMetrics()||null;}",
     'voucherSourceReviewFilteredQuestions': "function voucherSourceReviewFilteredQuestions(){return pl300LearningController?.filteredQuestions()||[];}",
+    'voucherSourcePracticeRecord': "function voucherSourcePracticeRecord(question){return pl300LearningController?.practiceRecord(question)||null;}",
+    'voucherSourcePracticeCorrectIds': "function voucherSourcePracticeCorrectIds(question){return pl300LearningController?.correctIds(question)||[];}",
+    'voucherSourcePracticeSelection': "function voucherSourcePracticeSelection(question,record=voucherSourcePracticeRecord(question)){return pl300LearningController?.selection(question,record)||[];}",
+    'voucherSourcePracticeSelectionsMatch': "function voucherSourcePracticeSelectionsMatch(question,selected){return Boolean(pl300LearningController?.selectionsMatch(question,selected));}",
+    'voucherSourcePracticeOptionsHtml': "function voucherSourcePracticeOptionsHtml(question,record){return pl300LearningController?.optionsHtml(question,record)||'';}",
+    'voucherSourcePracticeSummary': "function voucherSourcePracticeSummary(){return pl300LearningController.summary();}",
     'voucherSourceStartSolveTimer': "function voucherSourceStartSolveTimer(question,options={}){return pl300LearningController?.startSolveTimer(question,options);}",
     'voucherSourceConsumeSolveSeconds': "function voucherSourceConsumeSolveSeconds(question){return pl300LearningController?.consumeSolveSeconds(question)||0;}",
     'voucherSourceResetSolveTimer': "function voucherSourceResetSolveTimer(){return pl300LearningController?.resetSolveTimer();}",
@@ -118,4 +126,4 @@ for name, replacement in replacements.items():
 
 APP.write_text(src, encoding='utf-8')
 Path(__file__).unlink(missing_ok=True)
-print('Applied final PL-300 lazy-controller extraction and removed patch scaffold.')
+print('Applied final PL-300 lazy-controller/helper extraction and removed patch scaffold.')
