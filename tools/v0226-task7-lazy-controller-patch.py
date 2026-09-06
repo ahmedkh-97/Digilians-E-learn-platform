@@ -50,7 +50,7 @@ def replace_function(text, name, replacement):
     marker = f'function {name}'
     start = text.find(marker)
     if start < 0:
-        if replacement in text:
+        if replacement and replacement in text:
             return text
         raise RuntimeError(f'missing function {name}')
     paren = text.find('(', start + len(marker))
@@ -114,7 +114,8 @@ replacements = {
     'voucherSourceConsumeSolveSeconds': "function voucherSourceConsumeSolveSeconds(question){return pl300LearningController?.consumeSolveSeconds(question)||0;}",
     'voucherSourceResetSolveTimer': "function voucherSourceResetSolveTimer(){return pl300LearningController?.resetSolveTimer();}",
     'voucherActiveSourcePart': "function voucherActiveSourcePart(){return pl300LearningController?.activePart()||null;}",
-    'persistVoucherSourceLearningState': "function persistVoucherSourceLearningState(nextState=state.voucherSourceLearningState){return pl300LearningController?.persist(nextState)||state.voucherSourceLearningState;}",
+    'persistVoucherSourceLearningState': "",
+    'voucherPartRemainingFirstPass': "",
     'updateVoucherLearningAfterScoredSave': "function updateVoucherLearningAfterScoredSave(args={}){return pl300LearningController?.updateAfterScoredSave(args);}",
     'navigateVoucherSourceQuestion': "function navigateVoucherSourceQuestion(nextIndex,options={}){return pl300LearningController?.navigate(nextIndex,options);}",
     'voucherPartReviewContext': "function voucherPartReviewContext(part){return pl300LearningController?.partReviewContext(part)||{records:{},review:{},nextPart:null};}",
