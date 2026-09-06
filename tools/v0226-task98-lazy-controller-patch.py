@@ -32,8 +32,6 @@ async function ensurePl300LearningController(){
     saveLearningState:next=>saveVoucherSourceLearningState(mistakeOwnerId(),state.voucherExamConfig?.id||'microsoft-pl-300',next),
     learningLoop:pl300LearningLoop,
     fullRankedLearning:pl300FullRankedLearning,
-    filteredQuestions:voucherSourceReviewFilteredQuestions,
-    resetTimer:voucherSourceResetSolveTimer,
     renderReview:renderVoucherSourceReview,
     scrollTop:()=>window.scrollTo({top:0,behavior:'smooth'})
   });
@@ -57,6 +55,16 @@ if old_open not in text:
     raise SystemExit('source review open anchor missing')
 text=text.replace(old_open,new_open,1)
 
+# Remove source-review-only filtering/timer mechanics from startup app and leave tiny proxies.
+for pattern,replacement,label in [
+    (r"function voucherSourceReviewFilteredQuestions\(\)\{.*?\n\}","function voucherSourceReviewFilteredQuestions(){return pl300LearningController?.filteredQuestions()||[]}",'filter'),
+    (r"function voucherSourceStartSolveTimer\(question,\{force=false\}=\{\}\)\{.*?\n\}","function voucherSourceStartSolveTimer(question,options){return pl300LearningController?.startSolveTimer(question,options)}",'timer-start'),
+    (r"function voucherSourceConsumeSolveSeconds\(question\)\{.*?\n\}","function voucherSourceConsumeSolveSeconds(question){return pl300LearningController?.consumeSolveSeconds(question)||0}",'timer-consume'),
+    (r"function voucherSourceResetSolveTimer\(\)\{.*?\n\}","function voucherSourceResetSolveTimer(){return pl300LearningController?.resetSolveTimer()}",'timer-reset'),
+]:
+    text,count=re.subn(pattern,replacement,text,count=1,flags=re.S)
+    if count!=1: raise SystemExit(f'expected one {label} block, replaced {count}')
+
 pattern=re.compile(r"function voucherActiveSourcePart\(\)\{.*?function selectVoucherSourceReviewPart\(partId='all'\)\{.*?\n\}\n",re.S)
 replacement="""function voucherActiveSourcePart(){return pl300LearningController?.activePart()||null}
 function persistVoucherSourceLearningState(nextState){return pl300LearningController?.persist(nextState)}
@@ -71,7 +79,7 @@ if count!=1:
     raise SystemExit(f'expected one controller block, replaced {count}')
 app_path.write_text(text,encoding='utf-8')
 
-# Update the controller contract: orchestration stays in app, retry mechanics live in the lazy controller.
+# Update controller contract: orchestration stays in app; PL-300 mechanics stay lazy.
 test_path=ROOT/'tests/v0226-pl300-learning-controller.test.mjs'
 test=test_path.read_text(encoding='utf-8')
 if "controllerSource=fs.readFileSync" not in test:
@@ -80,7 +88,7 @@ if "controllerSource=fs.readFileSync" not in test:
         "const guardSource=fs.readFileSync(new URL('../assets/js/pl300-source-practice-selection-guard.js',import.meta.url),'utf8');\nconst controllerSource=fs.readFileSync(new URL('../assets/js/pl300-learning-controller.js',import.meta.url),'utf8');"
     )
 test=test.replace("  assert.match(appSource,/enqueuePl300DelayedRetry/);\n  assert.match(appSource,/advancePl300RetryQueue/);\n  assert.match(appSource,/resolvePl300PendingRetry/);\n  assert.match(appSource,/function\\s+navigateVoucherSourceQuestion\\s*\\(/);",
-                  "  assert.match(appSource,/import\\(`\\.\\/pl300-learning-controller\\.js\\?v=\\$\\{BUILD_VERSION\\}`\\)/);\n  assert.match(controllerSource,/enqueuePl300DelayedRetry/);\n  assert.match(controllerSource,/advancePl300RetryQueue/);\n  assert.match(controllerSource,/resolvePl300PendingRetry/);\n  assert.match(controllerSource,/function\\s+navigate\\s*\\(/);\n  assert.match(appSource,/function\\s+navigateVoucherSourceQuestion\\s*\\(/);")
+                  "  assert.match(appSource,/import\\(`\\.\\/pl300-learning-controller\\.js\\?v=\\$\\{BUILD_VERSION\\}`\\)/);\n  assert.match(controllerSource,/enqueuePl300DelayedRetry/);\n  assert.match(controllerSource,/advancePl300RetryQueue/);\n  assert.match(controllerSource,/resolvePl300PendingRetry/);\n  assert.match(controllerSource,/function\\s+navigate\\s*\\(/);\n  assert.match(controllerSource,/function\\s+filteredQuestions\\s*\\(/);\n  assert.match(controllerSource,/function\\s+consumeSolveSeconds\\s*\\(/);\n  assert.match(appSource,/function\\s+navigateVoucherSourceQuestion\\s*\\(/);")
 test_path.write_text(test,encoding='utf-8')
 
 release_test=ROOT/'tests/v0226-pl300-release-identity.test.mjs'
@@ -92,6 +100,5 @@ if addition not in release:
     release=release.replace(needle,addition,1)
 release_test.write_text(release,encoding='utf-8')
 
-# This file is temporary scaffolding and must not survive the green patch commit.
 Path(__file__).unlink()
-print('PL-300 Smart Retry controller moved behind the lazy PL-300 boundary.')
+print('PL-300 Smart Retry controller, filtering and solve timer moved behind lazy boundary.')
