@@ -715,6 +715,24 @@ function voucherModeControls(prefix,{timed=true,feedback="exam"}={}){
 let voucherSourcePracticeNative=null;
 let pl300FullRankedLearning=null;
 let pl300LearningLoop=null;
+let pl300LearningController=null;
+
+async function ensurePl300LearningController(){
+  if(pl300LearningController)return pl300LearningController;
+  const {createPl300LearningController}=await import(`./pl300-learning-controller.js?v=${BUILD_VERSION}`);
+  pl300LearningController=createPl300LearningController({
+    state,
+    getRecords:()=>getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||'microsoft-pl-300').records||{},
+    saveLearningState:learning=>saveVoucherSourceLearningState(mistakeOwnerId(),state.voucherExamConfig?.id||'microsoft-pl-300',learning),
+    learningLoop:pl300LearningLoop,
+    fullRankedLearning:pl300FullRankedLearning,
+    renderReview:renderVoucherSourceReview,
+    scrollTop:()=>window.scrollTo({top:0,behavior:'smooth'}),
+    loadJson,
+    renderRichText:renderTechnicalRichText
+  });
+  return pl300LearningController;
+}
 
 async function ensurePl300LearningLoop(){
   pl300LearningLoop??=await import(`./pl300-learning-loop.js?v=${BUILD_VERSION}`);
@@ -726,47 +744,17 @@ async function ensurePl300FullRankedLearning(){
   return pl300FullRankedLearning;
 }
 
-async function loadVoucherFullRankedIndex(config=state.voucherExamConfig){
-  if(state.voucherFullRankedIndex?.examId===config?.id)return state.voucherFullRankedIndex;
-  if(!config?.fullRankedLearning?.indexFile)throw new Error("Full Ranked Learning index is unavailable.");
-  const index=await loadJson(config.fullRankedLearning.indexFile);
-  if(!Array.isArray(index?.records)||Number(index?.questionCount)!==509)throw new Error("Full Ranked Learning index is invalid.");
-  state.voucherFullRankedIndex=index;
-  state.voucherFullRankedIndexByQuestion=new Map(index.records.map(record=>[String(record.questionId),record]));
-  return index;
-}
+async async function loadVoucherFullRankedIndex(config=state.voucherExamConfig){return pl300LearningController.loadFullRankedIndex(config);}
 
-function voucherFullRankRecord(question){
-  return question?.id?state.voucherFullRankedIndexByQuestion?.get?.(String(question.id))||null:null;
-}
+function voucherFullRankRecord(question){return pl300LearningController?.fullRankRecord(question)||null;}
 
-function voucherFullRankMetrics(){
-  if(!pl300FullRankedLearning||!state.voucherFullRankedIndex)return null;
-  const practice=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
-  return pl300FullRankedLearning.buildPl300FullRankMetrics({index:state.voucherFullRankedIndex,records:practice.records||{}});
-}
+function voucherFullRankMetrics(){return pl300LearningController?.fullRankMetrics()||null;}
 
-function voucherSourceStartSolveTimer(question,{force=false}={}){
-  if(!question?.id)return;
-  const id=String(question.id);
-  if(!force&&state.voucherSourceSolveQuestionId===id&&Number.isFinite(Number(state.voucherSourceSolveStartedAt)))return;
-  state.voucherSourceSolveQuestionId=id;
-  state.voucherSourceSolveStartedAt=Date.now();
-}
+function voucherSourceStartSolveTimer(question,options={}){return pl300LearningController?.startSolveTimer(question,options);}
 
-function voucherSourceConsumeSolveSeconds(question){
-  const id=String(question?.id||"");
-  if(!id||state.voucherSourceSolveQuestionId!==id||!Number.isFinite(Number(state.voucherSourceSolveStartedAt)))return 0;
-  const elapsed=Math.max(0,Math.min(1800,Math.round((Date.now()-Number(state.voucherSourceSolveStartedAt))/1000)));
-  state.voucherSourceSolveQuestionId=null;
-  state.voucherSourceSolveStartedAt=null;
-  return elapsed;
-}
+function voucherSourceConsumeSolveSeconds(question){return pl300LearningController?.consumeSolveSeconds(question)||0;}
 
-function voucherSourceResetSolveTimer(){
-  state.voucherSourceSolveQuestionId=null;
-  state.voucherSourceSolveStartedAt=null;
-}
+function voucherSourceResetSolveTimer(){return pl300LearningController?.resetSolveTimer();}
 
 async function hydrateVoucherFullRankedCard(config){
   if(!config?.fullRankedLearning)return;
@@ -828,6 +816,7 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
     if(!config)throw new Error("Open Microsoft PL-300 first.");
     await ensurePl300FullRankedLearning();
     await ensurePl300LearningLoop();
+    await ensurePl300LearningController();
     await loadVoucherFullRankedIndex(config);
     state.voucherSourceLearningState=getVoucherSourceLearningState(mistakeOwnerId(),config.id);
     voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.6");
@@ -872,50 +861,20 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
   }
 }
 
-function voucherSourceReviewFilteredQuestions(){
-  const questions=state.voucherSourceReviewBank?.questions||[];
-  let partQuestions=pl300FullRankedLearning?.filterPl300QuestionsByPart
-    ?pl300FullRankedLearning.filterPl300QuestionsByPart({questions,partId:state.voucherSourceReviewPartId,parts:state.voucherSourceReviewParts})
-    :questions;
-  if(state.voucherSourceReviewWeakIds instanceof Set)partQuestions=partQuestions.filter(q=>state.voucherSourceReviewWeakIds.has(String(q.id)));
-  if(state.voucherSourceReviewFilter==="source-01"||state.voucherSourceReviewFilter==="source-02")return partQuestions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);
-  if(state.voucherSourceReviewFilter==="objective")return partQuestions.filter(q=>voucherFullRankRecord(q)?.mode==="objective");
-  if(state.voucherSourceReviewFilter==="checkpoint")return partQuestions.filter(q=>voucherFullRankRecord(q)?.mode==="checkpoint");
-  return partQuestions;
-}
+function voucherSourceReviewFilteredQuestions(){return pl300LearningController?.filteredQuestions()||[];}
 
-function voucherSourcePracticeRecord(question){
-  if(!question?.id)return null;
-  const practice=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
-  return practice.records?.[question.id]||null;
-}
+function voucherSourcePracticeRecord(question){return pl300LearningController?.practiceRecord(question)||null;}
 
-function voucherSourcePracticeCorrectIds(question){
-  return (Array.isArray(question?.correctAnswers)&&question.correctAnswers.length?question.correctAnswers:[question?.correctAnswer]).filter(Boolean).map(String);
-}
+function voucherSourcePracticeCorrectIds(question){return pl300LearningController?.correctIds(question)||[];}
 
-function voucherSourcePracticeSelection(question,record=voucherSourcePracticeRecord(question)){
-  const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question?.id||""));
-  return pl300FullRankedLearning.sourceAttemptSelection({question,record,tempSelections:state.voucherSourcePracticeSelections,retrying});
-}
+function voucherSourcePracticeSelection(question,record=voucherSourcePracticeRecord(question)){return pl300LearningController?.selection(question,record)||[];}
 
-function voucherSourcePracticeSelectionsMatch(question,selected){
-  const expected=[...voucherSourcePracticeCorrectIds(question)].sort();
-  const actual=[...(selected||[])].map(String).sort();
-  return expected.length===actual.length&&expected.every((id,index)=>id===actual[index]);
-}
+function voucherSourcePracticeSelectionsMatch(question,selected){return Boolean(pl300LearningController?.selectionsMatch(question,selected));}
 
-function voucherSourcePracticeOptionsHtml(question,record){
-  if(question?.reviewMode!=="scored-text"||!Array.isArray(question.options)||!question.options.length)return "";
-  const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question.id||""));
-  const locked=pl300FullRankedLearning.sourceAttemptLocked(record,retrying);
-  return pl300FullRankedLearning.buildSourcePracticeOptionsMarkup({question,record,selected:voucherSourcePracticeSelection(question,record),locked,retrying,renderRichText:renderTechnicalRichText});
-}
+function voucherSourcePracticeOptionsHtml(question,record){return pl300LearningController?.optionsHtml(question,record)||'';}
 
 
-function voucherSourcePracticeSummary(){
-  return voucherFullRankMetrics()||{completedOccurrences:0,totalOccurrences:509,completionPercentage:0,masteredClusters:0,validatedConceptCount:265,validatedAccuracy:0,firstPassPercentage:0,checkpointCompletions:0};
-}
+function voucherSourcePracticeSummary(){return pl300LearningController.summary();}
 
 function voucherSourceReviewAnswerHtml(question,practiceRecord=voucherSourcePracticeRecord(question)){
   return pl300FullRankedLearning.buildPl300FullRankedAnswerMarkup({
@@ -927,109 +886,15 @@ function voucherSourceReviewAnswerHtml(question,practiceRecord=voucherSourcePrac
 
 
 
-function voucherActiveSourcePart(){
-  if(state.voucherSourceReviewPartId==='all')return null;
-  return state.voucherSourceReviewParts.find(part=>String(part.id)===String(state.voucherSourceReviewPartId))||null;
-}
-function persistVoucherSourceLearningState(nextState=state.voucherSourceLearningState){
-  state.voucherSourceLearningState=nextState||{version:1,parts:{}};
-  saveVoucherSourceLearningState(mistakeOwnerId(),state.voucherExamConfig?.id||'microsoft-pl-300',state.voucherSourceLearningState);
-  return state.voucherSourceLearningState;
-}
-function voucherPartRemainingFirstPass(part,records){
-  return (part?.questionIds||[]).filter(id=>!records?.[id]).length;
-}
-function updateVoucherLearningAfterScoredSave({question,correct,wasRetrying=false,hadRecord=false}={}){
-  const part=voucherActiveSourcePart();
-  if(!part||!question?.id||!pl300LearningLoop)return;
-  const examId=state.voucherExamConfig?.id||'microsoft-pl-300';
-  const records=getVoucherSourcePracticeState(mistakeOwnerId(),examId).records||{};
-  let learning=state.voucherSourceLearningState||getVoucherSourceLearningState(mistakeOwnerId(),examId);
-  if(wasRetrying||hadRecord){
-    learning=pl300LearningLoop.resolvePl300PendingRetry({state:learning,partId:part.id,questionId:question.id,correct});
-  }else if(correct===false){
-    learning=pl300LearningLoop.enqueuePl300DelayedRetry({state:learning,partId:part.id,questionId:question.id,remainingFirstPassCount:voucherPartRemainingFirstPass(part,records)});
-  }
-  persistVoucherSourceLearningState(learning);
-  if(correct===true&&state.voucherSourceReviewWeakIds instanceof Set){
-    state.voucherSourceReviewWeakIds.delete(String(question.id));
-    if(!state.voucherSourceReviewWeakIds.size){
-      state.voucherSourceReviewWeakIds=null;
-      state.voucherSourcePartReviewMode='complete';
-    }
-  }
-}
-function navigateVoucherSourceQuestion(nextIndex,{countTransition=true}={}){
-  const questions=voucherSourceReviewFilteredQuestions();
-  if(!questions.length)return;
-  const currentIndex=Math.max(0,Math.min(state.voucherSourceReviewIndex,questions.length-1));
-  const bounded=Math.max(0,Math.min(Number(nextIndex)||0,questions.length-1));
-  const from=questions[currentIndex],requested=questions[bounded];
-  let targetIndex=bounded;
-  const part=voucherActiveSourcePart();
-  if(countTransition&&part&&pl300LearningLoop&&!(state.voucherSourceReviewWeakIds instanceof Set)&&from?.id&&requested?.id&&String(from.id)!==String(requested.id)){
-    const advanced=pl300LearningLoop.advancePl300RetryQueue({state:state.voucherSourceLearningState,partId:part.id,fromQuestionId:from.id,toQuestionId:requested.id});
-    persistVoucherSourceLearningState(advanced.state);
-    if(advanced.maturedQuestionId){
-      const retryIndex=questions.findIndex(question=>String(question.id)===String(advanced.maturedQuestionId));
-      if(retryIndex>=0){
-        targetIndex=retryIndex;
-        state.voucherSourcePracticeRetrying.add(String(advanced.maturedQuestionId));
-      }
-    }
-  }
-  voucherSourceResetSolveTimer();
-  state.voucherSourceReviewIndex=targetIndex;
-  state.voucherSourcePartReviewMode=null;
-  renderVoucherSourceReview();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function voucherPartReviewContext(part){
-  const examId=state.voucherExamConfig?.id||'microsoft-pl-300';
-  const records=getVoucherSourcePracticeState(mistakeOwnerId(),examId).records||{};
-  const review=pl300LearningLoop.buildPl300PartReviewModel({part,index:state.voucherFullRankedIndex,records});
-  const partIndex=state.voucherSourceReviewParts.findIndex(item=>String(item.id)===String(part?.id));
-  const nextPart=partIndex>=0?state.voucherSourceReviewParts[partIndex+1]||null:null;
-  return {records,review,nextPart};
-}
-function renderVoucherEndOfPartReview(body,part){
-  const {review,nextPart}=voucherPartReviewContext(part);
-  body.innerHTML=pl300FullRankedLearning.buildPl300EndOfPartReviewMarkup({part,review,nextPart:nextPart?{id:nextPart.id,label:nextPart.label||nextPart.title||nextPart.id}:null});
-  body.querySelector('[data-pl300-review-weak]')?.addEventListener('click',()=>{
-    state.voucherSourceReviewWeakIds=new Set(review.weakQuestionIds.map(String));
-    state.voucherSourcePartReviewMode=null;
-    state.voucherSourceReviewIndex=0;
-    renderVoucherSourceReview();
-    window.scrollTo({top:0,behavior:'smooth'});
-  });
-  body.querySelector('[data-pl300-continue-next-part]')?.addEventListener('click',event=>{
-    const target=String(event.currentTarget?.dataset?.pl300ContinueNextPart||'all');
-    selectVoucherSourceReviewPart(target||'all');
-  });
-  body.querySelector('[data-pl300-parts-back]')?.addEventListener('click',()=>selectVoucherSourceReviewPart('all'));
-}
+function voucherActiveSourcePart(){return pl300LearningController?.activePart()||null;}
 
-function selectVoucherSourceReviewPart(partId='all'){
-  voucherSourceResetSolveTimer();
-  const requested=String(partId||'all');
-  state.voucherSourceReviewPartId=requested==='all'||state.voucherSourceReviewParts.some(part=>String(part.id)===requested)?requested:'all';
-  state.voucherSourceReviewWeakIds=null;
-  state.voucherSourcePartReviewMode=null;
-  state.voucherSourceReviewFilter='all';
-  state.voucherSourceReviewIndex=0;
-  const part=voucherActiveSourcePart();
-  if(part&&pl300LearningLoop){
-    const records=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||'microsoft-pl-300').records||{};
-    const resume=pl300LearningLoop.resolvePl300PartResume({part,index:state.voucherFullRankedIndex,records});
-    if(resume.mode==='question'){
-      const questions=voucherSourceReviewFilteredQuestions();
-      const index=questions.findIndex(question=>String(question.id)===String(resume.questionId));
-      state.voucherSourceReviewIndex=index>=0?index:0;
-    }else state.voucherSourcePartReviewMode=resume.mode;
-  }
-  renderVoucherSourceReview();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+
+function updateVoucherLearningAfterScoredSave(args={}){return pl300LearningController?.updateAfterScoredSave(args);}
+function navigateVoucherSourceQuestion(nextIndex,options={}){return pl300LearningController?.navigate(nextIndex,options);}
+function voucherPartReviewContext(part){return pl300LearningController?.partReviewContext(part)||{records:{},review:{},nextPart:null};}
+function renderVoucherEndOfPartReview(body,part){return pl300LearningController?.renderEndOfPartReview(body,part);}
+
+function selectVoucherSourceReviewPart(partId='all'){return pl300LearningController?.selectPart(partId);}
 function renderVoucherSourceReview(){
   const body=$("voucherSourceReviewBody");
   if(!body)return;
