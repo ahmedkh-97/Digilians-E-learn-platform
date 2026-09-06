@@ -5,16 +5,17 @@ import * as loop from '../assets/js/pl300-learning-loop.js';
 import * as fullRank from '../assets/js/pl300-full-ranked-learning.js';
 
 const appSource=fs.readFileSync(new URL('../assets/js/app.js',import.meta.url),'utf8');
+const controllerSource=fs.readFileSync(new URL('../assets/js/pl300-learning-controller.js',import.meta.url),'utf8');
 const guardSource=fs.readFileSync(new URL('../assets/js/pl300-source-practice-selection-guard.js',import.meta.url),'utf8');
 
-test('PL-300 controller lazily loads and persists the per-part learning queue',()=>{
-  assert.match(appSource,/getVoucherSourceLearningState/);
-  assert.match(appSource,/saveVoucherSourceLearningState/);
-  assert.match(appSource,/import\(`\.\/pl300-learning-loop\.js\?v=\$\{BUILD_VERSION\}`\)|import\(["']\.\/pl300-learning-loop\.js\?v=/);
-  assert.match(appSource,/enqueuePl300DelayedRetry/);
-  assert.match(appSource,/advancePl300RetryQueue/);
-  assert.match(appSource,/resolvePl300PendingRetry/);
+test('PL-300 controller lazily owns persistence and the per-part learning queue',()=>{
+  assert.match(appSource,/import\(`\.\/pl300-learning-controller\.js\?v=\$\{BUILD_VERSION\}`\)/);
+  assert.match(appSource,/createPl300LearningController/);
   assert.match(appSource,/function\s+navigateVoucherSourceQuestion\s*\(/);
+  assert.match(controllerSource,/saveLearningState/);
+  assert.match(controllerSource,/enqueuePl300DelayedRetry/);
+  assert.match(controllerSource,/advancePl300RetryQueue/);
+  assert.match(controllerSource,/resolvePl300PendingRetry/);
 });
 
 test('delayed retry matures after four different-question transitions and near-end items defer',()=>{
