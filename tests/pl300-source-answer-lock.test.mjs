@@ -45,11 +45,12 @@ test('native structured retry starts blank instead of reusing the saved answer',
 
 import fs from 'node:fs';
 const appSource=fs.readFileSync(new URL('../assets/js/app.js',import.meta.url),'utf8');
+const controllerSource=fs.readFileSync(new URL('../assets/js/pl300-learning-controller.js',import.meta.url),'utf8');
 
-test('PL-300 source review runtime wires locked saved attempts and explicit retry state',()=>{
+test('PL-300 source review runtime wires locked saved attempts and explicit retry state through the lazy controller',()=>{
   assert.match(appSource,/voucherSourcePracticeRetrying\s*:\s*new Set\(\)/);
-  assert.match(appSource,/sourceAttemptLocked\(record,\s*retrying\)/);
-  assert.match(appSource,/buildSourcePracticeOptionsMarkup/);
+  assert.match(controllerSource,/sourceAttemptLocked\(record,\s*retrying\)/);
+  assert.match(controllerSource,/buildSourcePracticeOptionsMarkup/);
   assert.match(appSource,/sourcePracticeRetryBtn[^\n]*addEventListener|\$\("sourcePracticeRetryBtn"\)\?\.addEventListener/s);
 });
 
