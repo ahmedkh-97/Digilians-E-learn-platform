@@ -1,6 +1,21 @@
 {
-  "latest": "0.22.3",
+  "latest": "0.22.4",
   "releases": [
+    {
+      "version": "0.22.4",
+      "title": "PL-300 Pre-entry Parts & Source Dropdowns",
+      "date": "2026-09-05",
+      "type": "fix",
+      "summary": "Moves PL-300 mini-part selection before the question screen and converts the first source Answer Area to source-backed storage-mode dropdowns while preserving the complete 509-occurrence ranked study journey.",
+      "highlights": [
+        "Learners now choose a Domain → Section mini part before entering PL-300 questions instead of changing parts from inside the question screen.",
+        "All mini parts stay bounded to 20 questions or fewer and together cover all 509 unique source occurrences.",
+        "PL-300 Source 01 Question 1 now renders four source-backed dropdowns using only Import, DirectQuery, and Dual from the original answer evidence.",
+        "Native controls remain fail-closed: dropdowns are rendered only when explicit source-backed choices exist; no synthetic distractors are introduced.",
+        "The 509-occurrence source audit, Arabic explanation coverage, Answer Lock, Retry, Instant Feedback, ranking state, and My Mistakes integration remain protected.",
+        "Release validation requires the V0.22.4 behavior gate, the exhaustive PL-300 audit, full Node regression, and pre-deploy gate before merge."
+      ]
+    },
     {
       "version": "0.22.3",
       "title": "PL-300 Native Arabic 509/509",

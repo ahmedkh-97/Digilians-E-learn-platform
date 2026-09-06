@@ -1,4 +1,4 @@
-import {resolveBuildVersion} from "./build-version.js?v=0.22.3";
+import {resolveBuildVersion} from "./build-version.js?v=0.22.4";
 
 
 const UPDATE_KEYS={
@@ -9,7 +9,7 @@ const UPDATE_KEYS={
 const CHECK_INTERVAL_MS=5*60*1000;
 const FOCUS_RECHECK_MS=60*1000;
 
-const FALLBACK_RELEASE={version:"0.22.3",title:"PL-300 Native Arabic 509/509"};
+const FALLBACK_RELEASE={version:"0.22.4",title:"PL-300 Pre-entry Parts & Source Dropdowns"};
 
 export function normalizeVersion(value){
   const raw=String(value??"").trim().replace(/^v/i,"");
@@ -95,7 +95,7 @@ async function fetchChangelog(){
     if(!Array.isArray(data?.releases))throw new Error("Invalid changelog");
     return data;
   }catch(error){
-    console.warn("Changelog unavailable; using bundled release note.",error);
+    console.warn(error);
     return {latest:FALLBACK_RELEASE.version,releases:[FALLBACK_RELEASE]};
   }
 }
@@ -230,7 +230,7 @@ async function clearAppCacheOnly(){
     const names=await caches.keys();
     await Promise.all(names.map(name=>caches.delete(name)));
   }catch(error){
-    console.warn("Cache API cleanup skipped.",error);
+    console.warn(error);
   }
 }
 
@@ -259,7 +259,6 @@ async function installLatestUpdate(){
     }catch{}
     await clearAppCacheOnly();
   }finally{
-    // Intentionally preserves localStorage / Study progress / saved results.
     window.location.replace(buildUpdateUrl(window.location,latest));
   }
 }
@@ -296,7 +295,7 @@ async function checkForUpdates({force=false}={}){
     byId("updateBanner")?.classList.add("hidden");
     return {current,latest:latest||current,updateAvailable:false};
   }catch(error){
-    console.warn("Update check failed. The platform will retry later.",error);
+    console.warn(error);
     updateFooterStatus(null,current);
     return {current,latest:null,updateAvailable:false,error};
   }finally{
@@ -383,7 +382,7 @@ async function initUpdateManager(){
 
 if(typeof window!=="undefined" && typeof document!=="undefined"){
   initUpdateManager().catch(error=>{
-    console.warn("Update manager could not initialize.",error);
+    console.warn(error);
   });
 }
 

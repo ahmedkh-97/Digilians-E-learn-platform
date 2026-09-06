@@ -1,9 +1,9 @@
-name: V0.22.3 PL-300 Release Validation
+name: V0.22.4 PL-300 Release Validation
 
 on:
   push:
     branches:
-      - release/v0.22.3-pl300-native-arabic-regression
+      - hotfix/v0.22.4-pl300-preselect-dropdowns
   pull_request:
     branches:
       - main
@@ -21,55 +21,47 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Prepare V0.22.3 release identity
+      - name: Prepare V0.22.4 release identity
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import json
 
-          version='0.22.3'
+          previous='0.22.3'
+          version='0.22.4'
           root=Path('.')
 
           (root/'VERSION.txt').write_text(version+'\n',encoding='utf-8')
 
-          index=root/'index.html'
-          index_text=index.read_text(encoding='utf-8').replace('0.22.2',version)
-          index.write_text(index_text,encoding='utf-8')
-
-          app=root/'assets/js/app.js'
-          app_text=app.read_text(encoding='utf-8').replace('0.22.2',version)
-          app.write_text(app_text,encoding='utf-8')
-
-          storage=root/'assets/js/storage.js'
-          storage_text=storage.read_text(encoding='utf-8').replace('0.22.2',version)
-          storage.write_text(storage_text,encoding='utf-8')
-
-          analytics=root/'assets/js/analytics.js'
-          analytics_text=analytics.read_text(encoding='utf-8').replace('0.22.2',version)
-          analytics.write_text(analytics_text,encoding='utf-8')
-
-          update=root/'assets/js/update-manager.js'
-          update_text=update.read_text(encoding='utf-8').replace('0.22.2',version)
-          update_text=update_text.replace('PL-300 Study UX & Answer Lock','PL-300 Native Arabic 509/509')
-          update.write_text(update_text,encoding='utf-8')
+          for relative in [
+            'index.html',
+            'assets/js/app.js',
+            'assets/js/storage.js',
+            'assets/js/analytics.js',
+            'assets/js/update-manager.js'
+          ]:
+            path=root/relative
+            text=path.read_text(encoding='utf-8').replace(previous,version)
+            if relative=='assets/js/update-manager.js':
+              text=text.replace('PL-300 Native Arabic 509/509','PL-300 Pre-entry Parts & Source Dropdowns')
+            path.write_text(text,encoding='utf-8')
 
           changelog_path=root/'data/changelog.json'
           changelog=json.loads(changelog_path.read_text(encoding='utf-8'))
           release={
             'version':version,
-            'title':'PL-300 Native Arabic 509/509',
+            'title':'PL-300 Pre-entry Parts & Source Dropdowns',
             'date':'2026-09-05',
-            'type':'feature',
-            'summary':'Closes the PL-300 full-source learning regression with all 509 source occurrences preserved, 78 source-backed native structured interactions, Arabic-first feedback across all 509 occurrences, and release-safe validation without synthetic distractors.',
+            'type':'fix',
+            'summary':'Moves PL-300 mini-part selection before the question screen and converts the first source Answer Area to source-backed storage-mode dropdowns while preserving the complete 509-occurrence ranked study journey.',
             'highlights':[
-              'All 509 PL-300 source occurrences remain studyable: 369 from Source 01 and 140 from Source 02.',
-              'The source journey is explicitly audited as 321 scored-text, 78 native-structured, and 110 source-reveal checkpoints; non-deterministic source-reveal items do not create fake objective accuracy.',
-              'All 78 native structured items resolve to supported source-backed interactions: 71 text-fields, 5 Yes/No, 1 choice-fields, and 1 ordered-fields.',
-              'Arabic explanation resolution covers 509/509 source occurrences while preserving original source explanation evidence.',
-              'pl300-source-01-q164 remains intentionally visual-only instead of inventing missing question wording.',
-              'Answer Lock, intentional Retry, Instant Feedback, navigator/filter state, My Mistakes integration, and source-backed response choices are preserved.',
-              'The protected startup gzip budget remains capped at 450 KB; the release must pass targeted PL-300, full Node regression, and pre-deploy gates before merge.'
+              'Learners now choose a Domain → Section mini part before entering PL-300 questions instead of changing parts from inside the question screen.',
+              'All mini parts stay bounded to 20 questions or fewer and together cover all 509 unique source occurrences.',
+              'PL-300 Source 01 Question 1 now renders four source-backed dropdowns using only Import, DirectQuery, and Dual from the original answer evidence.',
+              'Native controls remain fail-closed: dropdowns are rendered only when explicit source-backed choices exist; no synthetic distractors are introduced.',
+              'The 509-occurrence source audit, Arabic explanation coverage, Answer Lock, Retry, Instant Feedback, ranking state, and My Mistakes integration remain protected.',
+              'Release validation requires the V0.22.4 behavior gate, the exhaustive PL-300 audit, full Node regression, and pre-deploy gate before merge.'
             ]
           }
           changelog['latest']=version
@@ -77,22 +69,25 @@ jobs:
           changelog['releases']=[release,*releases]
           changelog_path.write_text(json.dumps(changelog,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
-      - name: V0.22.3 exhaustive PL-300 gate
+      - name: V0.22.4 PL-300 behavior gate
+        run: node --test tests/v0224-pl300-preselect-dropdowns.test.mjs
+      - name: Exhaustive PL-300 509 audit gate
         run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs
       - name: Full Node regression
         run: node --test tests/*.test.mjs
       - name: Pre-deploy gate
         run: node tools/pre-deploy-check.mjs
-      - name: Commit green release identity
+      - name: Commit green V0.22.4 release identity
         if: github.event_name == 'push'
         shell: bash
         run: |
           if git diff --quiet -- VERSION.txt index.html assets/js/app.js assets/js/storage.js assets/js/analytics.js assets/js/update-manager.js data/changelog.json; then
-            echo "Release identity already committed."
+            echo "V0.22.4 release identity already committed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add VERSION.txt index.html assets/js/app.js assets/js/storage.js assets/js/analytics.js assets/js/update-manager.js data/changelog.json
-          git commit -m "release: set V0.22.3 identity [skip release-prep]"
+          git diff --cached --check
+          git commit -m "release: set V0.22.4 identity [skip release-prep]"
           git push

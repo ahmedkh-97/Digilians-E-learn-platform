@@ -302,11 +302,19 @@ export function buildPl300PartViewState({parts=[],activePartId='all',records={},
     :Math.max(0,Math.min(partTotal,num(completedAll)));
   const activePartLabel=activePart?.label||'All 509 Questions';
   const partOptionsHtml=buildPl300PartOptionsMarkup({parts:list,activePartId});
+  const partCatalogHtml=list.map(part=>{
+    const total=Math.max(0,num(part?.count));
+    const completed=(part?.questionIds||[]).filter(id=>Boolean(records?.[id])).length;
+    const percent=total?Math.round((completed/total)*100):0;
+    const complete=total>0&&completed>=total;
+    const action=completed>0&&!complete?'Continue Part':'Start Part';
+    return `<article class="official-section-card pl300-study-part-card" data-pl300-part-card="${htmlEscape(part?.id||'')}"><div class="official-section-head"><div><span class="eyebrow">${htmlEscape(part?.domainTitle||'PL-300')}</span><h3>${htmlEscape(part?.sectionTitle||'Study Part')}</h3><p>Part ${num(part?.partNumber,1)} · ${total} Questions</p></div><span class="pool-chip ${complete?'ready':'building'}">${completed}/${total}</span></div><div class="progress-track"><div class="progress-fill" style="width:${percent}%"></div></div><button type="button" class="primary-btn wide" data-pl300-part-select="${htmlEscape(part?.id||'')}">${action} →</button></article>`;
+  }).join('');
   const typeFilterLabel=activeFilter==='source-01'?'Source 01':activeFilter==='source-02'?'Source 02':activeFilter==='objective'?'Validated Objective':activeFilter==='checkpoint'?'Study Checkpoints':'All Types';
   const filterLabel=activePart
     ?`${activePart.domainTitle} → ${activePart.sectionTitle} · Part ${activePart.partNumber}${activeFilter!=='all'?` · ${typeFilterLabel}`:''}`
     :(activeFilter==='all'?'All 509':typeFilterLabel);
-  return {activePart,partTotal,partCompleted,activePartLabel,partOptionsHtml,filterLabel};
+  return {activePart,partTotal,partCompleted,activePartLabel,partOptionsHtml,partCatalogHtml,showPartCatalog:!activePart,filterLabel};
 }
 
 export function enrichPl300SourceQuestionsWithArabic({questions=[],index={},masterQuestions=[]}={}){
@@ -394,7 +402,8 @@ export function buildPl300FullRankedReviewMarkup({
   metrics={},activeFilter='all',totalAll=509,questionsLength=0,currentIndex=0,filterLabel='All 509',objective=false,
   typeLabel='',sourceLabel='',questionNumber='',occurrence=1,pageLabel='',domainId='',recordStatus='NOT STUDIED',
   questionHtml='',visualHtml='',optionsHtml='',nativeHtml='',revealOpen=false,answerHtml='',
-  partOptionsHtml='<option value="all">All 509 Questions</option>',activePartLabel='All 509 Questions',partCompleted=0,partTotal=509
+  partOptionsHtml='<option value="all">All 509 Questions</option>',partCatalogHtml='',showPartCatalog=false,
+  activePartLabel='All 509 Questions',partCompleted=0,partTotal=509
 }={}){
   const filterButton=(id,label,count)=>`<button type="button" data-source-review-filter="${id}" class="${activeFilter===id?'active':''}">${label} <b>${count}</b></button>`;
   const index=Math.max(0,num(currentIndex));
@@ -405,16 +414,20 @@ export function buildPl300FullRankedReviewMarkup({
   const studyPartTotal=Math.max(0,num(partTotal,509));
   const studyPartCompleted=Math.max(0,Math.min(studyPartTotal,num(partCompleted)));
   const studyPartProgress=studyPartTotal?(studyPartCompleted/studyPartTotal)*100:0;
-  return `
+  const shell=`
     <section class="source-review-hero full-ranked-source-hero">
       <div><span class="eyebrow">FULL RANKED LEARNING · 509/509</span><h2>${htmlEscape(sourceTitle)}</h2><p>Every source occurrence counts toward Completion. Only validated concepts affect competitive accuracy; checkpoints keep uncertain source items studyable without fake scoring.</p></div>
       <div class="source-review-stats"><span><strong>${num(source01Count)}</strong>Source 01</span><span><strong>${num(source02Count)}</strong>Source 02</span><span><strong>${num(objectiveCount)}</strong>Objective occurrences</span><span><strong>${num(checkpointCount)}</strong>Study checkpoints</span></div>
     </section>
-    <section class="source-practice-summary full-ranked-summary"><span>Completion <strong>${num(metrics.completedOccurrences)} / ${num(metrics.totalOccurrences,509)}</strong> · ${num(metrics.completionPercentage)}%</span><span>Validated Accuracy <strong>${num(metrics.validatedAccuracy)}%</strong></span><span>Mastered <strong>${num(metrics.masteredClusters)} / ${num(metrics.validatedConceptCount,265)}</strong></span><span>First Pass <strong>${num(metrics.firstPassPercentage)}%</strong></span><small>Study Checkpoint completion never counts as Correct. Duplicate source copies are required for coverage but collapse to one validated concept for mastery.</small></section>
-    <section class="pl300-study-part-picker" aria-label="PL-300 study parts">
-      <div class="pl300-study-part-copy"><span class="eyebrow">STUDY IN SMALL PARTS</span><label for="sourceReviewPart">Domain → Section → Mini Part</label><small>Choose a focused part of roughly 15–20 questions. Every part still contributes to the same 509/509 ranked completion.</small></div>
-      <div class="pl300-study-part-control"><select id="sourceReviewPart" aria-label="Choose PL-300 study part">${partOptionsHtml}</select><div class="pl300-study-part-progress"><span>Part Progress</span><strong>${studyPartCompleted} / ${studyPartTotal}</strong><div><i style="width:${studyPartProgress}%"></i></div></div></div>
-      <p>${htmlEscape(activePartLabel)}</p>
+    <section class="source-practice-summary full-ranked-summary"><span>Completion <strong>${num(metrics.completedOccurrences)} / ${num(metrics.totalOccurrences,509)}</strong> · ${num(metrics.completionPercentage)}%</span><span>Validated Accuracy <strong>${num(metrics.validatedAccuracy)}%</strong></span><span>Mastered <strong>${num(metrics.masteredClusters)} / ${num(metrics.validatedConceptCount,265)}</strong></span><span>First Pass <strong>${num(metrics.firstPassPercentage)}%</strong></span><small>Study Checkpoint completion never counts as Correct. Duplicate source copies are required for coverage but collapse to one validated concept for mastery.</small></section>`;
+  if(showPartCatalog){
+    return `${shell}<section class="pl300-study-part-catalog" aria-label="PL-300 study parts"><div class="pl300-study-part-catalog-head"><span class="eyebrow">STUDY IN SMALL PARTS</span><h3>Choose a study part</h3><p>Pick a focused Domain → Section mini part before entering questions. Every part contributes to the same 509/509 ranked completion.</p></div><div class="official-section-grid pl300-study-part-grid">${partCatalogHtml||''}</div></section>`;
+  }
+  return `${shell}
+    <section class="pl300-study-part-context" aria-label="Active PL-300 study part">
+      <button type="button" class="secondary-btn" data-pl300-parts-back>← Back to parts</button>
+      <div><span class="eyebrow">ACTIVE STUDY PART</span><strong>${htmlEscape(activePartLabel)}</strong><small>${studyPartCompleted} / ${studyPartTotal} studied</small></div>
+      <div class="pl300-study-part-progress"><div><i style="width:${studyPartProgress}%"></i></div></div>
     </section>
     <section class="source-review-toolbar">
       <div class="source-review-filters" role="group" aria-label="Full ranked learning filter">
