@@ -815,8 +815,6 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
     const config=state.voucherExamConfig;
     if(!config)throw new Error("Open Microsoft PL-300 first.");
     await ensurePl300FullRankedLearning();
-    await ensurePl300LearningLoop();
-    await ensurePl300LearningController();
     await loadVoucherFullRankedIndex(config);
     state.voucherSourceLearningState=getVoucherSourceLearningState(mistakeOwnerId(),config.id);
     voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.6");
