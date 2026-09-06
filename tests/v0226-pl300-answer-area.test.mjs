@@ -50,7 +50,7 @@ test('structured question presentation clearly separates non-interactive source 
 });
 
 test('structured study layout is two-column on desktop and stacks source before answer on smaller screens',()=>{
-  const css=fs.readFileSync(new URL('../assets/css/pl300.css',ROOT),'utf8');
+  const css=fs.readFileSync(new URL('assets/css/pl300.css',ROOT),'utf8');
   assert.match(css,/\.pl300-structured-study-layout\{[^}]*display:grid[^}]*grid-template-columns:[^}]*\}/);
   assert.match(css,/@media\(max-width:\s*\d+px\)[^{]*\{[\s\S]*?\.pl300-structured-study-layout\{[^}]*grid-template-columns:1fr[^}]*\}/);
   assert.match(css,/\.pl300-source-reference-head\{[^}]*display:flex[^}]*\}/);
