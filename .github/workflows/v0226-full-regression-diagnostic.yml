@@ -1,0 +1,39 @@
+name: V0.22.6 Full Regression Diagnostic
+
+on:
+  push:
+    branches:
+      - feature/v0.22.6-pl300-learning-ux
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Capture full Node regression
+        shell: bash
+        run: |
+          set +e
+          node --test tests/*.test.mjs > full-regression.txt 2>&1
+          code=$?
+          echo "$code" > full-regression-exit-code.txt
+          exit 0
+
+      - name: Upload diagnostic artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: v0226-full-regression-diagnostic
+          path: |
+            full-regression.txt
+            full-regression-exit-code.txt
+          if-no-files-found: error
