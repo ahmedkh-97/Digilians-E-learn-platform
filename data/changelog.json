@@ -1,6 +1,20 @@
 {
-  "latest": "0.22.4",
+  "latest": "0.22.5",
   "releases": [
+    {
+      "version": "0.22.5",
+      "title": "PL-300 Runtime Cache & Freeze Hotfix",
+      "date": "2026-09-06",
+      "type": "fix",
+      "summary": "Forces browsers to load the fixed PL-300 source-practice runtime instead of reusing the cached V0.22.4 module that could freeze when entering a part, using Next, or retrying.",
+      "highlights": [
+        "Bumps the runtime build identity to V0.22.5 so GitHub Pages and browser module caches use fresh JavaScript URLs.",
+        "The PL-300 source-practice native module now imports the selection guard with the V0.22.5 cache key, ensuring the MutationObserver-free implementation is loaded.",
+        "The Update Manager detects V0.22.5 as newer than V0.22.4 and can clear application caches before reloading.",
+        "Single-answer instant submit and exact Select 2/3 limits remain unchanged.",
+        "The 509 audit, Arabic explanation coverage, Ranking, My Mistakes, Answer Lock, Retry, Full Regression, and Pre-deploy gates remain protected."
+      ]
+    },
     {
       "version": "0.22.4",
       "title": "PL-300 Pre-entry Parts & Source Dropdowns",
