@@ -1,6 +1,21 @@
 {
-  "latest": "0.22.6",
+  "latest": "0.22.7",
   "releases": [
+    {
+      "version": "0.22.7",
+      "title": "PL-300 Repeat Part Review Hotfix",
+      "date": "2026-09-06",
+      "type": "fix",
+      "summary": "Restores a non-destructive repeat-study path from End-of-Part Review so learners can review and solve a completed PL-300 part again without rewriting first-pass history or source-backed ranking evidence.",
+      "highlights": [
+        "Adds Review & solve again ↻ to End-of-Part Review so a mastered part can be reopened instead of becoming a one-way completion screen.",
+        "Reopens every question in the selected part as a fresh retry view while preserving saved first-pass correctness, recovery history, attempt history, and mastery evidence.",
+        "Supports scored text, native Answer Area interactions, and source-review checkpoint questions during the repeated part without deleting the original record.",
+        "Keeps previously saved answers hidden while a repeated question is active so the learner can solve it again before reviewing the answer.",
+        "Ships behind a fresh V0.22.7 cache identity so existing GitHub Pages learners receive the hotfix instead of retaining cached V0.22.6 modules.",
+        "Keeps the fixed 450KB startup gzip budget unchanged and does not rewrite any of the 509 PL-300 source-bank questions."
+      ]
+    },
     {
       "version": "0.22.6",
       "title": "PL-300 Learning UX & Smart Review",
