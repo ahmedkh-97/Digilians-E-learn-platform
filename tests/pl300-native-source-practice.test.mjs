@@ -62,5 +62,6 @@ test('voucher storage and source-practice UI support native structured answers',
   assert.ok(app.includes(`import("./voucher-source-practice-native.js?v=${version}")`));
   assert.match(nativeUi,/data-source-native-field/);
   assert.match(nativeUi,/sourcePracticeNativeCheckBtn/);
-  assert.match(nativeUi,/NATIVE \/ AUTO-SCORED/);
+  assert.match(nativeUi,/Answer Area/);
+  assert.doesNotMatch(nativeUi,/NATIVE \/ AUTO-SCORED/);
 });

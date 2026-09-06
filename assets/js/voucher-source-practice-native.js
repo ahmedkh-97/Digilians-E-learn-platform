@@ -107,9 +107,24 @@ export function renderNativePractice(question,record,tempInputs={},options={}){
 
   const complete=fields.every(field=>String(answers?.[field.id]||'').trim());
   const result=graded?`<div class="source-practice-result ${record.correct?'correct':'incorrect'}"><strong>${record.correct?'Correct':'Review'}</strong><span>${record.correct?'All structured answers match the preserved source evidence.':'One or more answers do not match the source evidence.'}</span></div>`:'';
-  const instruction=interaction==='ordered-fields'?'Arrange the source-backed choices in the required positions.':interaction==='yes-no'?'Choose Yes or No for every statement.':'Complete each answer field.';
+  const instruction=interaction==='ordered-fields'?'Arrange the source-backed choices in the required order.':interaction==='yes-no'?'Choose Yes or No for every statement.':interaction==='choice-fields'?'Complete each field using the source-backed options.':'Enter the source-required value in every field.';
   const actions=locked?`<div class="source-practice-actions"><button type="button" class="secondary-btn" id="sourcePracticeNativeRetryBtn">Retry Question</button><small>Saved answer is locked. Retry starts a new attempt.</small></div>`:`<div class="source-practice-actions"><button type="button" class="primary-btn" id="sourcePracticeNativeCheckBtn" ${complete?'':'disabled'}>Check structured answer</button><small>Only explicit source-backed values are auto-scored.</small></div>`;
-  return `<div class="source-native-practice" data-native-interaction="${interaction}"><div class="source-native-head"><span class="eyebrow">NATIVE / AUTO-SCORED</span><p>${instruction} Answers are checked against explicit source evidence; no distractors were invented.</p></div>${body}${actions}${result}</div>`;
+  return `<div class="source-native-practice" data-native-interaction="${interaction}"><div class="source-native-head"><span class="eyebrow">Answer Area</span><p>${instruction} Answers are checked against explicit source evidence; no distractors were invented.</p></div>${body}${actions}${result}</div>`;
+}
+
+function nativeExplicitRationales(question={}){
+  const raw=question?.optionRationalesAr??question?.wrongOptionRationalesAr;
+  if(Array.isArray(raw))return raw.map((text,index)=>[String(index+1),text]).filter(([,text])=>typeof text==='string'&&text.trim());
+  if(raw&&typeof raw==='object')return Object.entries(raw).filter(([,text])=>typeof text==='string'&&text.trim());
+  return [];
+}
+
+function nativeOptionalFeedbackMarkup(question,renderRichText){
+  const rationales=nativeExplicitRationales(question);
+  const rationaleHtml=rationales.length?`<div class="source-review-explanation source-review-rationales" dir="rtl"><span class="eyebrow">ليه الاختيارات التانية غلط؟</span><ul>${rationales.map(([key,text])=>`<li><b>${escapeHtml(key)}</b> — ${renderRichText(String(text).trim())}</li>`).join('')}</ul></div>`:'';
+  const tip=[question?.examTipAr,question?.examTip,question?.sourceTipAr,question?.sourceTip].find(value=>typeof value==='string'&&value.trim());
+  const tipHtml=tip?`<div class="source-review-explanation source-review-exam-tip"><span class="eyebrow">Exam Tip</span>${renderRichText(String(tip).trim())}</div>`:'';
+  return `${rationaleHtml}${tipHtml}`;
 }
 
 export function renderNativeAnswer(question,renderRichText=value=>escapeHtml(value)){
@@ -120,9 +135,10 @@ export function renderNativeAnswer(question,renderRichText=value=>escapeHtml(val
   const explicitArabic=[question?.explanationAr,question?.aiExplanation?.ar,question?.explanation?.ar].find(value=>typeof value==='string'&&value.trim());
   const fallbackAnswers=fields.map(field=>`${String(field.label||field.id||'Answer')}: ${String((field.expected||[])[0]||'—')}`).join('، ');
   const arabic=String(explicitArabic||`الإجابة المعتمدة في المصدر هي: ${fallbackAnswers}. تم تثبيت التصحيح على القيم الموجودة في دليل المصدر بدون إضافة اختيارات من خارج المادة.`).trim();
-  const arabicHtml=arabic?`<div class="source-review-explanation source-review-explanation-ar" dir="rtl"><span class="eyebrow">شرح الإجابة بالعربي</span>${renderRichText(arabic)}</div>`:'';
+  const arabicHtml=arabic?`<div class="source-review-explanation source-review-explanation-ar" dir="rtl"><span class="eyebrow">الشرح بالعربي</span>${renderRichText(arabic)}</div>`:'';
+  const optional=nativeOptionalFeedbackMarkup(question,renderRichText);
   const original=explanation?`<details class="source-original-explanation"><summary>Original Source Explanation</summary><div class="source-review-explanation source-review-explanation-original" dir="ltr">${renderRichText(explanation)}</div></details>`:'';
-  return `<div class="source-review-answer-key"><span class="eyebrow">SOURCE ANSWER</span><ul>${answerLines}</ul></div>${visuals?`<div class="source-review-visual-stack answer-evidence">${visuals}</div>`:''}${arabicHtml}${original}`;
+  return `<div class="source-review-answer-key"><span class="eyebrow">الإجابة الصحيحة</span><ul>${answerLines}</ul></div>${visuals?`<div class="source-review-visual-stack answer-evidence">${visuals}</div>`:''}${arabicHtml}${optional}${original}`;
 }
 
 export function wireNativePractice({root,question,record,tempInputs,onInput,onSave,toast}){
