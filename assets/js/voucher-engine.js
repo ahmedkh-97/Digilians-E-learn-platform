@@ -7,7 +7,8 @@ export {selectVoucherQuestions,shuffleVoucherOptions,buildVoucherExamPayload} fr
 
 export {
   getVoucherSeenQuestionIds,markVoucherQuestionsSeen,saveVoucherAttempt,getBestVoucherAttempt,getVoucherAttempts,
-  getVoucherSourcePracticeState,saveVoucherSourcePracticeResult
+  getVoucherSourcePracticeState,saveVoucherSourcePracticeResult,
+  getVoucherSourceLearningState,saveVoucherSourceLearningState
 } from './voucher-storage.js';
 
 export {
