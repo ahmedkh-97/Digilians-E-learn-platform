@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import * as fullRank from '../assets/js/pl300-full-ranked-learning.js';
 
 const fn=name=>{assert.equal(typeof fullRank[name],'function',`${name} must be exported`);return fullRank[name];};
@@ -96,4 +97,10 @@ test('active question markup derives interaction label, shows one progress bar, 
   assert.match(html,/Studied 4 of 14/);
   assert.equal((html.match(/class="source-review-progress"/g)||[]).length,1);
   assert.equal((html.match(/pl300-study-part-progress/g)||[]).length,0);
+});
+
+test('runtime passes the actual question and full ranked index into the V0.22.6 view models',()=>{
+  const app=fs.readFileSync(new URL('../assets/js/app.js',import.meta.url),'utf8');
+  assert.match(app,/buildPl300PartViewState\(\{[\s\S]{0,500}index:state\.voucherFullRankedIndex/,'part cards need the ranked index for duplicate-safe Mastered metrics');
+  assert.match(app,/buildPl300FullRankedReviewMarkup\(\{[\s\S]{0,650}question:q/,'question header must derive its label from the rendered interaction');
 });
