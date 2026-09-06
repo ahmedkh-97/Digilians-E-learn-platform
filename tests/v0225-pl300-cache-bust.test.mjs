@@ -11,7 +11,7 @@ const nativePractice=read('assets/js/voucher-source-practice-native.js');
 const updateManager=read('assets/js/update-manager.js');
 const changelog=JSON.parse(read('data/changelog.json'));
 
-test('V0.22.6 PL-300 freeze hotfix has a distinct release identity so browsers cannot reuse V0.22.4 modules',()=>{
+test('V0.22.6 PL-300 learning release has a distinct release identity so browsers cannot reuse older modules',()=>{
   assert.equal(version,'0.22.6');
   assert.match(html,/data-build-version="0\.22\.6"/);
   const cacheVersions=[...html.matchAll(/(?:src|href)="[^"]+\?v=([0-9]+\.[0-9]+\.[0-9]+)"/g)].map(match=>match[1]);
