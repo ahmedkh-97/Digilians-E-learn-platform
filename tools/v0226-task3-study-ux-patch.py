@@ -22,7 +22,6 @@ if 'pl300-study-part-metrics' not in text:
     if count!=1:
         raise SystemExit('buildPl300PartViewState block not found')
 
-# Extend review markup to accept the actual question model.
 old_sig="""  typeLabel='',sourceLabel='',questionNumber='',occurrence=1,pageLabel='',domainId='',recordStatus='NOT STUDIED',\n"""
 new_sig="""  question=null,typeLabel='',sourceLabel='',questionNumber='',occurrence=1,pageLabel='',domainId='',recordStatus='NOT STUDIED',\n"""
 if old_sig in text:
@@ -44,8 +43,24 @@ if old_progress in text:
     text=text.replace(old_progress,new_progress,1)
 elif 'source-review-progress-meta' not in text:
     raise SystemExit('Source review progress anchor missing')
-
 text=text.replace('${htmlEscape(typeLabel)}</span><h3>','${htmlEscape(displayTypeLabel)}</span><h3>',1)
-
 path.write_text(text,encoding='utf-8')
+
+# Runtime wiring: the view models require the actual ranked index and question.
+app_path=Path('assets/js/app.js')
+app=app_path.read_text(encoding='utf-8')
+old_view="records:practiceState.records||{},totalAll,completedAll:metrics.completedOccurrences,activeFilter:state.voucherSourceReviewFilter"
+new_view="records:practiceState.records||{},index:state.voucherFullRankedIndex,totalAll,completedAll:metrics.completedOccurrences,activeFilter:state.voucherSourceReviewFilter"
+if old_view in app:
+    app=app.replace(old_view,new_view,1)
+elif new_view not in app:
+    raise SystemExit('app part view-state call anchor missing')
+old_review="questionsLength:questions.length,currentIndex:state.voucherSourceReviewIndex,filterLabel,objective,typeLabel,sourceLabel"
+new_review="questionsLength:questions.length,currentIndex:state.voucherSourceReviewIndex,filterLabel,objective,question:q,typeLabel,sourceLabel"
+if old_review in app:
+    app=app.replace(old_review,new_review,1)
+elif new_review not in app:
+    raise SystemExit('app review markup call anchor missing')
+app_path.write_text(app,encoding='utf-8')
+
 print('V0.22.6 Task 3 study UX patch applied or already present.')
