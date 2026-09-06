@@ -4,11 +4,41 @@ export function createPl300LearningController({
   saveLearningState,
   learningLoop,
   fullRankedLearning,
-  filteredQuestions,
-  resetTimer,
   renderReview,
   scrollTop
 }={}){
+  function filteredQuestions(){
+    const questions=state.voucherSourceReviewBank?.questions||[];
+    let partQuestions=fullRankedLearning?.filterPl300QuestionsByPart
+      ?fullRankedLearning.filterPl300QuestionsByPart({questions,partId:state.voucherSourceReviewPartId,parts:state.voucherSourceReviewParts})
+      :questions;
+    if(state.voucherSourceReviewWeakIds instanceof Set)partQuestions=partQuestions.filter(q=>state.voucherSourceReviewWeakIds.has(String(q.id)));
+    if(state.voucherSourceReviewFilter==='source-01'||state.voucherSourceReviewFilter==='source-02')return partQuestions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);
+    return partQuestions;
+  }
+
+  function startSolveTimer(question,{force=false}={}){
+    if(!question?.id)return;
+    const id=String(question.id);
+    if(!force&&state.voucherSourceSolveQuestionId===id&&Number.isFinite(Number(state.voucherSourceSolveStartedAt)))return;
+    state.voucherSourceSolveQuestionId=id;
+    state.voucherSourceSolveStartedAt=Date.now();
+  }
+
+  function consumeSolveSeconds(question){
+    const id=String(question?.id||'');
+    if(!id||state.voucherSourceSolveQuestionId!==id||!Number.isFinite(Number(state.voucherSourceSolveStartedAt)))return 0;
+    const elapsed=Math.max(0,Math.min(1800,Math.round((Date.now()-Number(state.voucherSourceSolveStartedAt))/1000)));
+    state.voucherSourceSolveQuestionId=null;
+    state.voucherSourceSolveStartedAt=null;
+    return elapsed;
+  }
+
+  function resetSolveTimer(){
+    state.voucherSourceSolveQuestionId=null;
+    state.voucherSourceSolveStartedAt=null;
+  }
+
   function activePart(){
     if(state.voucherSourceReviewPartId==='all')return null;
     return state.voucherSourceReviewParts.find(part=>String(part.id)===String(state.voucherSourceReviewPartId))||null;
@@ -63,7 +93,7 @@ export function createPl300LearningController({
         }
       }
     }
-    resetTimer();
+    resetSolveTimer();
     state.voucherSourceReviewIndex=targetIndex;
     state.voucherSourcePartReviewMode=null;
     renderReview();
@@ -79,7 +109,7 @@ export function createPl300LearningController({
   }
 
   function selectPart(partId='all'){
-    resetTimer();
+    resetSolveTimer();
     const requested=String(partId||'all');
     state.voucherSourceReviewPartId=requested==='all'||state.voucherSourceReviewParts.some(part=>String(part.id)===requested)?requested:'all';
     state.voucherSourceReviewWeakIds=null;
@@ -113,5 +143,5 @@ export function createPl300LearningController({
     body.querySelector('[data-pl300-parts-back]')?.addEventListener('click',()=>selectPart('all'));
   }
 
-  return {activePart,persist,updateAfterScoredSave,navigate,partReviewContext,selectPart,renderEndOfPartReview};
+  return {filteredQuestions,startSolveTimer,consumeSolveSeconds,resetSolveTimer,activePart,persist,updateAfterScoredSave,navigate,partReviewContext,selectPart,renderEndOfPartReview};
 }
