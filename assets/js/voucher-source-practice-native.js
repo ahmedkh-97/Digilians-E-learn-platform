@@ -1,4 +1,4 @@
-import './pl300-source-practice-selection-guard.js?v=0.22.4';
+import './pl300-source-practice-selection-guard.js?v=0.22.5';
 import {
   structuredInteractionKind,
   structuredBinaryChoices,
