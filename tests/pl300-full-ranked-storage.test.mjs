@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  saveVoucherSourcePracticeResult,getVoucherSourcePracticeState,exportVoucherStore,importVoucherStore
+  saveVoucherSourcePracticeResult,getVoucherSourcePracticeState,exportVoucherStore,importVoucherStore,
+  saveVoucherSourceLearningState,getVoucherSourceLearningState
 } from '../assets/js/voucher-storage.js';
 import {mergeBackupIntoStorageData} from '../assets/js/backup-restore.js';
 
@@ -34,9 +35,10 @@ test('ranked study checkpoint completes coverage without self-awarded correctnes
   assert.equal(record.selfGrade,undefined);
 });
 
-test('full ranked source history survives voucher export/import and backup merge',()=>{
+test('full ranked source history and delayed learning state survive voucher export/import and backup merge',()=>{
   const storage=memoryStorage();
   saveVoucherSourcePracticeResult('u','q1',{examId:'microsoft-pl-300',sourceId:'source-01',mode:'native',answers:{box:'Dual'},correct:true,activeSeconds:4,answeredAt:'2026-09-05T08:00:00Z'},{storage});
+  saveVoucherSourceLearningState('u','microsoft-pl-300',{version:1,parts:{p1:{transitionSerial:2,pending:[{questionId:'q3',dueAtSerial:4,deferToPartReview:false}]}}},{storage,updatedAt:'2026-09-05T08:01:00Z'});
   const snapshot=exportVoucherStore({storage});
   const other=memoryStorage();
   assert.equal(importVoucherStore(snapshot,{storage:other}),true);
@@ -45,12 +47,17 @@ test('full ranked source history survives voucher export/import and backup merge
   assert.equal(imported.everCorrect,true);
   assert.equal(imported.attemptCount,1);
   assert.equal(imported.activeSeconds,4);
+  const importedLearning=getVoucherSourceLearningState('u','microsoft-pl-300',{storage:other});
+  assert.equal(importedLearning.parts.p1.transitionSerial,2);
+  assert.equal(importedLearning.parts.p1.pending[0].questionId,'q3');
 
-  const current={'digilians.voucher':JSON.stringify({schemaVersion:1,owners:{u:{attempts:[],seenByExam:{},sourcePractice:{},updatedAt:'2026-09-05T07:00:00Z'}}})};
+  const current={'digilians.voucher':JSON.stringify({schemaVersion:1,owners:{u:{attempts:[],seenByExam:{},sourcePractice:{},sourceLearningByExam:{},updatedAt:'2026-09-05T07:00:00Z'}}})};
   const incoming={'digilians.voucher':JSON.stringify(snapshot)};
   const merged=mergeBackupIntoStorageData(current,incoming);
-  const mergedRecord=JSON.parse(merged['digilians.voucher']).owners.u.sourcePractice.q1;
+  const mergedOwner=JSON.parse(merged['digilians.voucher']).owners.u;
+  const mergedRecord=mergedOwner.sourcePractice.q1;
   assert.equal(mergedRecord.firstPassCorrect,true);
   assert.equal(mergedRecord.everCorrect,true);
   assert.equal(mergedRecord.activeSeconds,4);
+  assert.equal(mergedOwner.sourceLearningByExam['microsoft-pl-300'].parts.p1.transitionSerial,2);
 });
