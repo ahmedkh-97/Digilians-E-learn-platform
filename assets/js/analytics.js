@@ -1,5 +1,5 @@
-import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.22.3";
-import {createUuid,isBenignClientError} from "./runtime-compat.js?v=0.22.3";
+import {resolveBuildVersion,displayBuildVersion} from "./build-version.js?v=0.22.4";
+import {createUuid,isBenignClientError} from "./runtime-compat.js?v=0.22.4";
 
 
 const SUPABASE_URL="https://gbyxpwcjfzxpxxbbwnzf.supabase.co";

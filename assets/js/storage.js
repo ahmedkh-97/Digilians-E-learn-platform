@@ -1,5 +1,5 @@
-import {createUuid} from "./runtime-compat.js?v=0.22.3";
-import {ensureStorageSchema} from "./storage-safety.js?v=0.22.3";
+import {createUuid} from "./runtime-compat.js?v=0.22.4";
+import {ensureStorageSchema} from "./storage-safety.js?v=0.22.4";
 
 
 const storageWarningKeys=new Set();
