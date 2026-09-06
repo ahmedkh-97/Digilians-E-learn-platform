@@ -346,10 +346,11 @@ function mergeVoucher(current,incoming){
   out.schemaVersion=1;
   out.owners ||= {};
   for(const [ownerId,record] of Object.entries(incoming?.owners||{})){
-    const target=out.owners[ownerId]||{attempts:[],seenByExam:{},sourcePractice:{},updatedAt:null};
+    const target=out.owners[ownerId]||{attempts:[],seenByExam:{},sourcePractice:{},sourceLearningByExam:{},updatedAt:null};
     target.attempts=Array.isArray(target.attempts)?target.attempts:[];
     target.seenByExam=target.seenByExam&&typeof target.seenByExam==="object"?target.seenByExam:{};
     target.sourcePractice=target.sourcePractice&&typeof target.sourcePractice==="object"&&!Array.isArray(target.sourcePractice)?target.sourcePractice:{};
+    target.sourceLearningByExam=target.sourceLearningByExam&&typeof target.sourceLearningByExam==="object"&&!Array.isArray(target.sourceLearningByExam)?target.sourceLearningByExam:{};
     const attemptMap=new Map(target.attempts.filter(x=>x?.id).map(x=>[String(x.id),x]));
     for(const attempt of record?.attempts||[]){
       if(attempt?.id)attemptMap.set(String(attempt.id),attempt);
@@ -363,6 +364,13 @@ function mergeVoucher(current,incoming){
       const curPracticeTime=Date.parse(currentPractice?.answeredAt||0)||0;
       const inPracticeTime=Date.parse(practice?.answeredAt||0)||0;
       if(!currentPractice || inPracticeTime>=curPracticeTime)target.sourcePractice[questionId]=practice;
+    }
+    for(const [examId,learning] of Object.entries(record?.sourceLearningByExam||{})){
+      if(!learning||typeof learning!=="object"||Array.isArray(learning))continue;
+      const currentLearning=target.sourceLearningByExam[examId];
+      const curLearningTime=Date.parse(currentLearning?.updatedAt||0)||0;
+      const inLearningTime=Date.parse(learning?.updatedAt||0)||0;
+      if(!currentLearning || inLearningTime>=curLearningTime)target.sourceLearningByExam[examId]=structuredClone(learning);
     }
     const curTime=Date.parse(target.updatedAt||0)||0;
     const inTime=Date.parse(record?.updatedAt||0)||0;

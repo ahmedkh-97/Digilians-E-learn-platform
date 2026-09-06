@@ -1,3 +1,6 @@
+import {buildPl300PartStudyMetrics} from './pl300-learning-loop.js';
+import {structuredInteractionKind} from './exam-structured.js';
+
 const num=(value,fallback=0)=>Number.isFinite(Number(value))?Number(value):fallback;
 const round1=value=>Math.round(num(value)*10)/10;
 const timeValue=value=>{const parsed=Date.parse(value||'');return Number.isFinite(parsed)?parsed:Number.MAX_SAFE_INTEGER;};
@@ -14,6 +17,10 @@ export function sourceAttemptSelection({question,record,tempSelections={},retryi
   if(Array.isArray(temp))return [...temp];
   if(retrying)return [];
   return record?.mode==='auto'&&Array.isArray(record?.selected)?[...record.selected]:[];
+}
+
+export function pl300SourceNextActionLabel(record){
+  return record?'Next →':'Skip for now →';
 }
 
 export function buildSourcePracticeOptionsMarkup({question={},record=null,selected=[],locked=false,retrying=false,renderRichText=value=>htmlEscape(value)}={}){
@@ -33,7 +40,9 @@ export function buildSourcePracticeOptionsMarkup({question={},record=null,select
     ?`<div class="source-practice-result ${record.correct?'correct':'incorrect'}"><strong>${record.correct?'Correct':'Not correct'}</strong><span>${record.correct?'Matches the source key.':'Review the source answer, then retry as a new attempt.'}</span></div>`
     :retrying?'<div class="source-practice-retry-note"><strong>Retry attempt</strong><span>Your saved first-pass answer stays unchanged until you submit this new attempt.</span></div>':'';
   const actions=locked
-    ?'<div class="source-practice-actions"><button type="button" class="secondary-btn" id="sourcePracticeRetryBtn">Retry Question</button><small>Saved answer is locked. Retry creates a new attempt.</small></div>'
+    ?record?.correct===false
+      ?'<div class="source-practice-actions source-practice-recovery-actions"><button type="button" class="primary-btn" id="sourcePracticeRetryLaterBtn">Review & retry later</button><button type="button" class="secondary-btn" id="sourcePracticeRetryBtn">Retry now</button><small>First-pass score stays fixed. Retry can recover mastery without rewriting history.</small></div>'
+      :'<div class="source-practice-actions"><small>Answer saved. Continue when ready.</small></div>'
     :`<div class="source-practice-actions"><button type="button" class="primary-btn" id="sourcePracticeCheckBtn" ${chosen.length?'':'disabled'}>Check answer</button><small>${multi?`Select ${correctIds.size} answers.`:'Select one answer.'}</small></div>`;
   return `<div class="source-review-options ${multi?'multi':'single'}">${options}</div>${actions}${result}`;
 }
@@ -293,7 +302,52 @@ export function buildPl300PartOptionsMarkup({parts=[],activePartId='all'}={}){
   return options.join('');
 }
 
-export function buildPl300PartViewState({parts=[],activePartId='all',records={},totalAll=509,completedAll=0,activeFilter='all'}={}){
+export function pl300InteractionLabel(question={}){
+  if(question?.reviewMode==='source-reveal')return 'STUDY CHECKPOINT';
+  if(question?.reviewMode==='scored-text'){
+    const correct=(Array.isArray(question?.correctAnswers)&&question.correctAnswers.length?question.correctAnswers:[question?.correctAnswer]).filter(Boolean);
+    return correct.length>1?`MULTI SELECT · SELECT ${correct.length}`:'SINGLE CHOICE · RANKED';
+  }
+  if(question?.reviewMode==='native-structured'){
+    const kind=structuredInteractionKind({...question,responseType:'structured'});
+    if(kind==='yes-no')return 'YES / NO · RANKED';
+    if(kind==='ordered-fields')return 'ORDERING · RANKED';
+    if(kind==='choice-fields')return 'DROPDOWNS · RANKED';
+    return 'TEXT ENTRY · RANKED';
+  }
+  return 'STUDY MODE';
+}
+
+export function buildPl300QuestionProgressModel({index=0,length=0,studied=0,total=0}={}){
+  const safeLength=Math.max(0,Math.floor(num(length)));
+  const safeTotal=Math.max(0,Math.floor(num(total,safeLength)));
+  const safeStudied=Math.max(0,Math.min(safeTotal,Math.floor(num(studied))));
+  const position=safeLength?Math.max(1,Math.min(safeLength,Math.floor(num(index))+1)):0;
+  return {
+    questionLabel:`Question ${position} of ${safeLength}`,
+    studiedLabel:`Studied ${safeStudied} of ${safeTotal}`,
+    percentage:safeTotal?Math.round((safeStudied/safeTotal)*100):0
+  };
+}
+
+export function buildPl300PartCardModel({part={},index={},records={}}={}){
+  const metrics=buildPl300PartStudyMetrics({part,index,records});
+  const complete=metrics.total>0&&metrics.studied>=metrics.total;
+  const actionLabel=metrics.studied===0?'Start Part':!complete?'Continue Part':metrics.needReview>0?'Review Mistakes':'Part Mastered ✓';
+  return {
+    total:metrics.total,
+    studied:metrics.studied,
+    firstPassAccuracy:metrics.firstPassAccuracy,
+    firstPassAccuracyLabel:metrics.scored?`${round1(metrics.firstPassAccuracy)}%`:'—',
+    mistakes:metrics.needReview,
+    mastered:metrics.masteredConcepts,
+    completionPercentage:metrics.total?Math.round((metrics.studied/metrics.total)*100):0,
+    complete,
+    actionLabel
+  };
+}
+
+export function buildPl300PartViewState({parts=[],activePartId='all',records={},index={},totalAll=509,completedAll=0,activeFilter='all'}={}){
   const list=Array.isArray(parts)?parts:[];
   const activePart=list.find(part=>String(part?.id||'')===String(activePartId||'all'))||null;
   const partTotal=activePart?.count||Math.max(0,num(totalAll,509));
@@ -303,12 +357,9 @@ export function buildPl300PartViewState({parts=[],activePartId='all',records={},
   const activePartLabel=activePart?.label||'All 509 Questions';
   const partOptionsHtml=buildPl300PartOptionsMarkup({parts:list,activePartId});
   const partCatalogHtml=list.map(part=>{
-    const total=Math.max(0,num(part?.count));
-    const completed=(part?.questionIds||[]).filter(id=>Boolean(records?.[id])).length;
-    const percent=total?Math.round((completed/total)*100):0;
-    const complete=total>0&&completed>=total;
-    const action=completed>0&&!complete?'Continue Part':'Start Part';
-    return `<article class="official-section-card pl300-study-part-card" data-pl300-part-card="${htmlEscape(part?.id||'')}"><div class="official-section-head"><div><span class="eyebrow">${htmlEscape(part?.domainTitle||'PL-300')}</span><h3>${htmlEscape(part?.sectionTitle||'Study Part')}</h3><p>Part ${num(part?.partNumber,1)} · ${total} Questions</p></div><span class="pool-chip ${complete?'ready':'building'}">${completed}/${total}</span></div><div class="progress-track"><div class="progress-fill" style="width:${percent}%"></div></div><button type="button" class="primary-btn wide" data-pl300-part-select="${htmlEscape(part?.id||'')}">${action} →</button></article>`;
+    const model=buildPl300PartCardModel({part,index,records});
+    const mastered=model.actionLabel==='Part Mastered ✓';
+    return `<article class="official-section-card pl300-study-part-card" data-pl300-part-card="${htmlEscape(part?.id||'')}"><div class="official-section-head"><div><span class="eyebrow">${htmlEscape(part?.domainTitle||'PL-300')}</span><h3>${htmlEscape(part?.sectionTitle||'Study Part')}</h3><p>Part ${num(part?.partNumber,1)} · ${model.total} Questions</p></div><span class="pool-chip ${mastered?'ready':'building'}">${model.studied}/${model.total}</span></div><div class="pl300-study-part-metrics"><span>Studied ${model.studied}/${model.total}</span><span>First-pass accuracy ${model.firstPassAccuracyLabel}</span><span>Mistakes ${model.mistakes}</span><span>Mastered ${model.mastered}</span></div><div class="progress-track"><div class="progress-fill" style="width:${model.completionPercentage}%"></div></div><button type="button" class="primary-btn wide" data-pl300-part-select="${htmlEscape(part?.id||'')}">${htmlEscape(model.actionLabel)}${mastered?'':' →'}</button></article>`;
   }).join('');
   const typeFilterLabel=activeFilter==='source-01'?'Source 01':activeFilter==='source-02'?'Source 02':activeFilter==='objective'?'Validated Objective':activeFilter==='checkpoint'?'Study Checkpoints':'All Types';
   const filterLabel=activePart
@@ -356,7 +407,23 @@ export function resolvePl300ArabicExplanation({question={},validatedQuestion=nul
 
 function arabicExplanationMarkup(question,renderRichText){
   const text=resolvePl300ArabicExplanation({question});
-  return text?`<div class="source-review-explanation source-review-explanation-ar" dir="rtl"><span class="eyebrow">شرح الإجابة بالعربي</span>${renderRichText(text)}</div>`:'';
+  return text?`<div class="source-review-explanation source-review-explanation-ar" dir="rtl"><span class="eyebrow">الشرح بالعربي</span>${renderRichText(text)}</div>`:'';
+}
+
+
+function explicitPl300Rationales(question={}){
+  const raw=question?.optionRationalesAr??question?.wrongOptionRationalesAr;
+  if(Array.isArray(raw))return raw.map((text,index)=>[String(index+1),text]).filter(([,text])=>typeof text==='string'&&text.trim());
+  if(raw&&typeof raw==='object')return Object.entries(raw).filter(([,text])=>typeof text==='string'&&text.trim());
+  return [];
+}
+
+function optionalPl300FeedbackMarkup(question,renderRichText){
+  const rationales=explicitPl300Rationales(question);
+  const rationaleHtml=rationales.length?`<div class="source-review-explanation source-review-rationales" dir="rtl"><span class="eyebrow">ليه الاختيارات التانية غلط؟</span><ul>${rationales.map(([key,text])=>`<li><b>${htmlEscape(key)}</b> — ${renderRichText(String(text).trim())}</li>`).join('')}</ul></div>`:'';
+  const tip=[question?.examTipAr,question?.examTip,question?.sourceTipAr,question?.sourceTip].find(value=>typeof value==='string'&&value.trim());
+  const tipHtml=tip?`<div class="source-review-explanation source-review-exam-tip"><span class="eyebrow">Exam Tip</span>${renderRichText(String(tip).trim())}</div>`:'';
+  return `${rationaleHtml}${tipHtml}`;
 }
 
 function originalExplanationMarkup(explanation,renderRichText){
@@ -383,6 +450,7 @@ export function buildPl300FullRankLeaderboardPresentation({board=[],currentPlaye
 export function buildPl300FullRankedAnswerMarkup({question={},completed=false,revealed=false,nativeAnswerHtml='',renderRichText=value=>htmlEscape(value)}={}){
   const explanation=String(question?.sourceExplanation||'').trim();
   const arabic=arabicExplanationMarkup(question,renderRichText);
+  const optional=optionalPl300FeedbackMarkup(question,renderRichText);
   const original=originalExplanationMarkup(explanation,renderRichText);
   if(question?.reviewMode==='scored-text'){
     const ids=(Array.isArray(question?.correctAnswers)&&question.correctAnswers.length?question.correctAnswers:[question?.correctAnswer]).filter(Boolean).map(String);
@@ -390,30 +458,47 @@ export function buildPl300FullRankedAnswerMarkup({question={},completed=false,re
       const option=(question.options||[]).find(item=>String(item.id)===id);
       return `<li><b>${htmlEscape(id)}</b>${option?` — ${renderRichText(option.text||'')}`:''}</li>`;
     }).join('');
-    return `<div class="source-review-answer-key"><span class="eyebrow">SOURCE ANSWER</span><ul>${answerLines||'<li>Answer key unavailable in parsed text.</li>'}</ul></div>${arabic}${original}`;
+    return `<div class="source-review-answer-key"><span class="eyebrow">الإجابة الصحيحة</span><ul>${answerLines||'<li>Answer key unavailable in parsed text.</li>'}</ul></div>${arabic}${optional}${original}`;
   }
-  if(question?.reviewMode==='native-structured')return nativeAnswerHtml||`${arabic}${original}`;
+  if(question?.reviewMode==='native-structured')return nativeAnswerHtml||`${arabic}${optional}${original}`;
   const visuals=(question?.answerVisuals||[]).map(path=>`<img src="${htmlEscape(path)}" alt="Source answer evidence for question ${htmlEscape(question.questionNumber||'')}" loading="lazy">`).join('');
-  return `<div class="source-review-answer-key source-reveal-note"><span class="eyebrow">SOURCE EVIDENCE</span><p>دليل المصدر محفوظ كما هو. السؤال ده لا يتم منحه Correct تنافسي من غير تصحيح موثوق.</p></div>${visuals?`<div class="source-review-visual-stack answer-evidence">${visuals}</div>`:''}${arabic}${original}<div class="source-practice-checkpoint"><span class="eyebrow">RANKED STUDY CHECKPOINT</span><p dir="rtl">إكمال المراجعة يتحسب ضمن 509/509، لكنه لا يضيف إجابة صحيحة وهمية إلى Validated Accuracy.</p><button type="button" class="primary-btn" id="sourcePracticeCheckpointBtn" ${revealed&&!completed?'':'disabled'}>${completed?'تمت مراجعة السؤال':'إكمال نقطة المذاكرة'}</button>${completed?'<small>تم الحفظ كمُراجع، والـAccuracy التنافسي لم يتغير.</small>':'<small>افتح دليل المصدر أولًا ثم أكمل نقطة المذاكرة.</small>'}</div>`;
+  return `<div class="source-review-answer-key source-reveal-note"><span class="eyebrow">SOURCE EVIDENCE</span><p>دليل المصدر محفوظ كما هو. السؤال ده لا يتم منحه Correct تنافسي من غير تصحيح موثوق.</p></div>${visuals?`<div class="source-review-visual-stack answer-evidence">${visuals}</div>`:''}${arabic}${optional}${original}<div class="source-practice-checkpoint"><span class="eyebrow">RANKED STUDY CHECKPOINT</span><p dir="rtl">إكمال المراجعة يتحسب ضمن 509/509، لكنه لا يضيف إجابة صحيحة وهمية إلى Validated Accuracy.</p><button type="button" class="primary-btn" id="sourcePracticeCheckpointBtn" ${revealed&&!completed?'':'disabled'}>${completed?'تمت مراجعة السؤال':'إكمال نقطة المذاكرة'}</button>${completed?'<small>تم الحفظ كمُراجع، والـAccuracy التنافسي لم يتغير.</small>':'<small>افتح دليل المصدر أولًا ثم أكمل نقطة المذاكرة.</small>'}</div>`;
+}
+
+export function buildPl300EndOfPartReviewMarkup({part={},review={},nextPart=null}={}){
+  const studied=Math.max(0,Number(review?.studied)||0);
+  const total=Math.max(0,Number(review?.total)||0);
+  const firstPass=Math.max(0,Number(review?.firstPassCorrect)||0);
+  const recovered=Math.max(0,Number(review?.recovered)||0);
+  const needReview=Math.max(0,Number(review?.needReview)||0);
+  const weakIds=Array.isArray(review?.weakQuestionIds)?review.weakQuestionIds:[];
+  const title=[part?.domainTitle,part?.sectionTitle,part?.partNumber?`Part ${part.partNumber}`:''].filter(Boolean).join(' · ')||'Current Part';
+  const action=needReview
+    ?`<button type="button" class="primary-btn large-btn" data-pl300-review-weak>Review ${needReview} weak question${needReview===1?'':'s'} →</button>`
+    :nextPart
+      ?`<button type="button" class="primary-btn large-btn" data-pl300-continue-next-part="${htmlEscape(nextPart.id||'')}">Continue to next part →</button>`
+      :'<button type="button" class="primary-btn large-btn" data-pl300-continue-next-part="all">Back to all parts →</button>';
+  return `<section class="pl300-end-part-review" data-pl300-end-part-review><span class="eyebrow">END-OF-PART REVIEW</span><h2>End-of-Part Review</h2><p>${htmlEscape(title)}</p><div class="pl300-end-part-metrics"><div>Studied <strong>${studied} / ${total}</strong></div><div>First-pass correct <strong>${firstPass}</strong></div><div>Recovered <strong>${recovered}</strong></div><div>Need review <strong>${needReview}</strong></div></div>${needReview?`<p class="pl300-end-part-note">${weakIds.length} question${weakIds.length===1?'':'s'} still need recovery. Review them before moving on.</p>`:'<p class="pl300-end-part-note">Part mastered. Your first-pass history remains unchanged.</p>'}<div class="pl300-end-part-actions">${action}<button type="button" class="secondary-btn" data-pl300-parts-back>All parts</button></div></section>`;
 }
 
 export function buildPl300FullRankedReviewMarkup({
   sourceTitle='Full Ranked Bank — 509 Questions',source01Count=0,source02Count=0,objectiveCount=0,checkpointCount=0,
   metrics={},activeFilter='all',totalAll=509,questionsLength=0,currentIndex=0,filterLabel='All 509',objective=false,
-  typeLabel='',sourceLabel='',questionNumber='',occurrence=1,pageLabel='',domainId='',recordStatus='NOT STUDIED',
+  question=null,typeLabel='',sourceLabel='',questionNumber='',occurrence=1,pageLabel='',domainId='',recordStatus='NOT STUDIED',
   questionHtml='',visualHtml='',optionsHtml='',nativeHtml='',revealOpen=false,answerHtml='',
   partOptionsHtml='<option value="all">All 509 Questions</option>',partCatalogHtml='',showPartCatalog=false,
+  nextActionLabel='Next →',
   activePartLabel='All 509 Questions',partCompleted=0,partTotal=509
 }={}){
   const filterButton=(id,label,count)=>`<button type="button" data-source-review-filter="${id}" class="${activeFilter===id?'active':''}">${label} <b>${count}</b></button>`;
   const index=Math.max(0,num(currentIndex));
   const length=Math.max(0,num(questionsLength));
-  const progress=length?((index+1)/length)*100:0;
   const copy=num(occurrence,1)>1?` · Copy ${num(occurrence,1)}`:'';
   const domain=domainId?` · ${htmlEscape(domainId)}`:' · Unclassified Source Review';
   const studyPartTotal=Math.max(0,num(partTotal,509));
   const studyPartCompleted=Math.max(0,Math.min(studyPartTotal,num(partCompleted)));
-  const studyPartProgress=studyPartTotal?(studyPartCompleted/studyPartTotal)*100:0;
+  const progressModel=buildPl300QuestionProgressModel({index,length,studied:studyPartCompleted,total:studyPartTotal});
+  const displayTypeLabel=question?pl300InteractionLabel(question):String(typeLabel||'').replace(/NON-RANKED/gi,'STUDY MODE');
   const shell=`
     <section class="source-review-hero full-ranked-source-hero">
       <div><span class="eyebrow">FULL RANKED LEARNING · 509/509</span><h2>${htmlEscape(sourceTitle)}</h2><p>Every source occurrence counts toward Completion. Only validated concepts affect competitive accuracy; checkpoints keep uncertain source items studyable without fake scoring.</p></div>
@@ -427,7 +512,6 @@ export function buildPl300FullRankedReviewMarkup({
     <section class="pl300-study-part-context" aria-label="Active PL-300 study part">
       <button type="button" class="secondary-btn" data-pl300-parts-back>← Back to parts</button>
       <div><span class="eyebrow">ACTIVE STUDY PART</span><strong>${htmlEscape(activePartLabel)}</strong><small>${studyPartCompleted} / ${studyPartTotal} studied</small></div>
-      <div class="pl300-study-part-progress"><div><i style="width:${studyPartProgress}%"></i></div></div>
     </section>
     <section class="source-review-toolbar">
       <div class="source-review-filters" role="group" aria-label="Full ranked learning filter">
@@ -439,16 +523,14 @@ export function buildPl300FullRankedReviewMarkup({
       </div>
       <div class="source-review-jump"><label for="sourceReviewJump">Jump</label><input id="sourceReviewJump" type="number" min="1" max="${length}" value="${index+1}"><button type="button" class="secondary-btn" id="sourceReviewJumpBtn">Go</button></div>
     </section>
-    <section class="source-review-progress"><span>${htmlEscape(filterLabel)}</span><strong>${index+1} / ${length}</strong><div><i style="width:${progress}%"></i></div></section>
+    <section class="source-review-progress"><div class="source-review-progress-meta"><span>${htmlEscape(progressModel.questionLabel)}</span><span>${htmlEscape(progressModel.studiedLabel)}</span></div><small>${htmlEscape(filterLabel)}</small><div class="source-review-progress-track"><i style="width:${progressModel.percentage}%"></i></div></section>
     <article class="source-review-card ${objective?'is-ranked-objective':'is-ranked-checkpoint'}">
-      <div class="source-review-card-head"><div><span class="source-review-type">${htmlEscape(typeLabel)}</span><h3>${htmlEscape(sourceLabel)} · Question ${htmlEscape(questionNumber)}${copy}</h3><small>${htmlEscape(pageLabel)}${domain}</small></div><span class="source-review-status">${htmlEscape(recordStatus)}</span></div>
+      <div class="source-review-card-head"><div><span class="source-review-type">${htmlEscape(displayTypeLabel)}</span><h3>${htmlEscape(sourceLabel)} · Question ${htmlEscape(questionNumber)}${copy}</h3><small>${htmlEscape(pageLabel)}${domain}</small></div><span class="source-review-status">${htmlEscape(recordStatus)}</span></div>
       <div class="source-review-question">${questionHtml}</div>
-      ${visualHtml?`<div class="source-review-visual-stack">${visualHtml}</div>`:''}
-      ${optionsHtml||''}
-      ${nativeHtml||''}
+      ${nativeHtml?(visualHtml?`<div class="pl300-structured-study-layout"><section class="pl300-source-reference"><div class="pl300-source-reference-head"><strong>Original source view</strong><span>Reference only</span></div><div class="source-review-visual-stack">${visualHtml}</div></section><section class="pl300-answer-area">${nativeHtml}</section></div>`:`<section class="pl300-answer-area">${nativeHtml}</section>`):`${visualHtml?`<div class="source-review-visual-stack">${visualHtml}</div>`:''}${optionsHtml||''}`}
       <details class="source-review-reveal" id="sourceReviewReveal" ${revealOpen?'open':''}><summary>Reveal source answer & explanation</summary><div class="source-review-reveal-body">${answerHtml||''}</div></details>
     </article>
-    <nav class="source-review-nav" aria-label="Source question navigation"><button type="button" class="secondary-btn" id="sourceReviewPrev" ${index<=0?'disabled':''}>← Previous</button><span>Question ${index+1} of ${length} · Full Bank 509</span><button type="button" class="primary-btn" id="sourceReviewNext" ${index>=length-1?'disabled':''}>Next →</button></nav>`;
+    <nav class="source-review-nav" aria-label="Source question navigation"><button type="button" class="secondary-btn" id="sourceReviewPrev" ${index<=0?'disabled':''}>← Previous</button><span>Question ${index+1} of ${length} · Full Bank 509</span><button type="button" class="primary-btn" id="sourceReviewNext" ${index>=length-1?'disabled':''}>${htmlEscape(nextActionLabel)}</button></nav>`;
 }
 
 export function buildPl300FullRankedLandingMarkup({domainCount=4,sessionCount=10}={}){

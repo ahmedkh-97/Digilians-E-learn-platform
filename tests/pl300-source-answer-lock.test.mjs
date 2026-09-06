@@ -20,14 +20,22 @@ test('locked scored-text selection always comes from saved attempt, never a stal
   assert.deepEqual(fullRank.sourceAttemptSelection({question:q,record,tempSelections:{},retrying:true}),[]);
 });
 
-test('native structured answer renderer disables fields and exposes Retry Question after grading',()=>{
+test('native structured correct answer stays locked without unnecessary retry actions',()=>{
   const nq={id:'native-1',reviewMode:'native-structured',nativeResponse:{interaction:'fields',fields:[{id:'box-1',label:'Box 1',expected:['A']} ]}};
   const html=native.renderNativePractice(nq,{mode:'native',answers:{'box-1':'A'},correct:true,attemptCount:1},{},{locked:true});
   assert.match(html,/data-source-native-field="box-1"[^>]*disabled/i);
-  assert.match(html,/id="sourcePracticeNativeRetryBtn"/);
+  assert.doesNotMatch(html,/id="sourcePracticeNativeRetryBtn"/);
+  assert.doesNotMatch(html,/id="sourcePracticeRetryLaterBtn"/);
   assert.doesNotMatch(html,/id="sourcePracticeNativeCheckBtn"/);
 });
 
+test('native structured wrong answer exposes delayed recovery and explicit retry-now actions',()=>{
+  const nq={id:'native-wrong',reviewMode:'native-structured',nativeResponse:{interaction:'fields',fields:[{id:'box-1',label:'Box 1',expected:['A']} ]}};
+  const html=native.renderNativePractice(nq,{mode:'native',answers:{'box-1':'B'},correct:false,attemptCount:1},{},{locked:true});
+  assert.match(html,/id="sourcePracticeRetryLaterBtn"/);
+  assert.match(html,/id="sourcePracticeNativeRetryBtn"/);
+  assert.doesNotMatch(html,/id="sourcePracticeNativeCheckBtn"/);
+});
 
 test('native structured retry starts blank instead of reusing the saved answer',()=>{
   const nq={id:'native-2',reviewMode:'native-structured',nativeResponse:{interaction:'fields',fields:[{id:'box-1',label:'Box 1',expected:['A']} ]}};
@@ -37,19 +45,29 @@ test('native structured retry starts blank instead of reusing the saved answer',
 
 import fs from 'node:fs';
 const appSource=fs.readFileSync(new URL('../assets/js/app.js',import.meta.url),'utf8');
+const controllerSource=fs.readFileSync(new URL('../assets/js/pl300-learning-controller.js',import.meta.url),'utf8');
 
-test('PL-300 source review runtime wires locked saved attempts and explicit retry state',()=>{
+test('PL-300 source review runtime wires locked saved attempts and explicit retry state through the lazy controller',()=>{
   assert.match(appSource,/voucherSourcePracticeRetrying\s*:\s*new Set\(\)/);
-  assert.match(appSource,/sourceAttemptLocked\(record,\s*retrying\)/);
-  assert.match(appSource,/buildSourcePracticeOptionsMarkup/);
+  assert.match(controllerSource,/sourceAttemptLocked\(record,\s*retrying\)/);
+  assert.match(controllerSource,/buildSourcePracticeOptionsMarkup/);
   assert.match(appSource,/sourcePracticeRetryBtn[^\n]*addEventListener|\$\("sourcePracticeRetryBtn"\)\?\.addEventListener/s);
 });
 
-test('lazy Full Ranked module renders locked scored-text answers and retry action',()=>{
+test('lazy Full Ranked module keeps correct saved answers locked without retry actions',()=>{
   assert.equal(typeof fullRank.buildSourcePracticeOptionsMarkup,'function');
   const question={id:'q-lock',reviewMode:'scored-text',options:[{id:'A',text:'Alpha'},{id:'B',text:'Beta'}],correctAnswer:'A'};
   const html=fullRank.buildSourcePracticeOptionsMarkup({question,record:{mode:'auto',selected:['A'],correct:true},selected:['A'],locked:true,retrying:false,renderRichText:x=>String(x)});
   assert.match(html,/data-source-practice-option="A"[^>]*disabled/);
+  assert.doesNotMatch(html,/id="sourcePracticeRetryBtn"/);
+  assert.doesNotMatch(html,/id="sourcePracticeRetryLaterBtn"/);
+  assert.doesNotMatch(html,/id="sourcePracticeCheckBtn"/);
+});
+
+test('lazy Full Ranked module exposes smart retry actions only for wrong saved answers',()=>{
+  const question={id:'q-wrong',reviewMode:'scored-text',options:[{id:'A',text:'Alpha'},{id:'B',text:'Beta'}],correctAnswer:'A'};
+  const html=fullRank.buildSourcePracticeOptionsMarkup({question,record:{mode:'auto',selected:['B'],correct:false},selected:['B'],locked:true,retrying:false,renderRichText:x=>String(x)});
+  assert.match(html,/id="sourcePracticeRetryLaterBtn"/);
   assert.match(html,/id="sourcePracticeRetryBtn"/);
   assert.doesNotMatch(html,/id="sourcePracticeCheckBtn"/);
 });

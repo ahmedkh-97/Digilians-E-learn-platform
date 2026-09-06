@@ -1,6 +1,21 @@
 {
-  "latest": "0.22.5",
+  "latest": "0.22.6",
   "releases": [
+    {
+      "version": "0.22.6",
+      "title": "PL-300 Learning UX & Smart Review",
+      "date": "2026-09-06",
+      "type": "learning",
+      "summary": "Upgrades the PL-300 509-question ranked journey into a clearer source-backed learning flow with deliberate recovery, delayed retry, and End-of-Part Review while preserving immutable first-pass scoring and source fidelity.",
+      "highlights": [
+        "Repairs and protects source-backed native choices behind the fresh V0.22.6 cache identity so browsers load the current learner controls instead of stale modules.",
+        "Clarifies part labels, studied progress, and navigation: unanswered questions use Skip for now, while saved answers use Next without rewriting first-pass history.",
+        "Separates Original source view reference evidence from the Answer Area and keeps every interaction fail-closed when explicit source-backed choices do not exist.",
+        "Adds delayed retry after four distinct in-part question transitions plus End-of-Part Review metrics for Studied, First-pass correct, Recovered, and Need review.",
+        "Part cards resume at the first unstudied question, route completed weak parts into review, and expose Continue only after the part is mastered.",
+        "Arabic explanations and learning tips remain source-backed only; no synthetic distractors, rationales, or answer content are introduced."
+      ]
+    },
     {
       "version": "0.22.5",
       "title": "PL-300 Runtime Cache & Freeze Hotfix",

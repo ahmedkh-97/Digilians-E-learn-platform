@@ -25,7 +25,7 @@ test('observed Q5 has a source-grounded Arabic explanation',()=>{
 
 test('source answer markup shows Arabic explanation first and keeps original English explanation collapsible',()=>{
   const html=fullRank.buildPl300FullRankedAnswerMarkup({question:{...q5,reviewMode:'scored-text',options:[{id:'A',text:'x'}],correctAnswer:'A'},renderRichText:v=>v});
-  assert.match(html,/شرح الإجابة بالعربي/);
+  assert.match(html,/الشرح بالعربي/);
   assert.match(html,/dir="rtl"/);
   assert.match(html,/<details[^>]*class="source-original-explanation"/);
   assert.match(html,/Original Source Explanation/);
@@ -33,7 +33,7 @@ test('source answer markup shows Arabic explanation first and keeps original Eng
 
 test('native structured answer markup also surfaces Arabic explanation before original source text',()=>{
   const html=native.renderNativeAnswer(q5,v=>v);
-  assert.match(html,/شرح الإجابة بالعربي/);
+  assert.match(html,/الشرح بالعربي/);
   assert.match(html,/Original Source Explanation/);
 });
 

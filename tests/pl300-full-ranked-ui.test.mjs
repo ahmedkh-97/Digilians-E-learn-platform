@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 const app=fs.readFileSync(new URL('../assets/js/app.js',import.meta.url),'utf8');
+const controller=fs.readFileSync(new URL('../assets/js/pl300-learning-controller.js',import.meta.url),'utf8');
 const css=fs.readFileSync(new URL('../assets/css/pl300.css',import.meta.url),'utf8');
 const fullRank=fs.readFileSync(new URL('../assets/js/pl300-full-ranked-learning.js',import.meta.url),'utf8');
 const version=fs.readFileSync(new URL('../VERSION.txt',import.meta.url),'utf8').trim();
@@ -39,10 +40,11 @@ test('ranked study checkpoints require evidence review and never expose self-awa
   assert.doesNotMatch(app,/SELF-GRADED PRACTICE/);
 });
 
-test('PL-300 full ranked UI consumes completion-first metrics from the dedicated lazy module',()=>{
+test('PL-300 full ranked UI consumes completion-first metrics through the lazy controller and ranked module',()=>{
   assert.ok(app.includes(`pl300-full-ranked-learning.js?v=${version}`));
-  assert.match(app,/buildPl300FullRankMetrics/);
-  assert.match(app,/voucherFullRankedIndex/);
+  assert.match(app,/pl300-learning-controller\.js\?v=/);
+  assert.match(controller,/buildPl300FullRankMetrics/);
+  assert.match(controller,/voucherFullRankedIndex/);
   assert.match(fullRank,/Validated Accuracy/);
   assert.match(fullRank,/Study Checkpoint/);
 });

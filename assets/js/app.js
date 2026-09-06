@@ -6,12 +6,12 @@ import {
   getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
   getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
-} from "./storage.js?v=0.22.5";
+} from "./storage.js?v=0.22.6";
 
 import {validateExamPayload,calculateResult,formatDuration,isAnswered,isQuestionAnswered,isAnswerCorrect,correctAnswerIds,selectedAnswerIds} from "./exam.js";
-import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.5";
+import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.6";
 import {buildAggregateLeaderboard} from "./ranking-engine.js";
-import {isRankingMode,isVoucherRankingMode,findRankingLevel,buildRankingScope} from "./ranking-scopes.js?v=0.22.5";
+import {isRankingMode,isVoucherRankingMode,findRankingLevel,buildRankingScope} from "./ranking-scopes.js?v=0.22.6";
 import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
 import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
@@ -22,18 +22,18 @@ import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
 import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
-import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.22.5";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,isPracticeableMistakeQuestion,patchMistakeContext,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.22.5";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.22.5";
-import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.22.5";
-import {createUuid} from "./runtime-compat.js?v=0.22.5";
-import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.22.5";
-import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.22.5";
+import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.22.6";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,isPracticeableMistakeQuestion,patchMistakeContext,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.22.6";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.22.6";
+import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.22.6";
+import {createUuid} from "./runtime-compat.js?v=0.22.6";
+import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.22.6";
+import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.22.6";
 import {
   validateVoucherRegistry,validateVoucherTrackRegistry,validateVoucherExamConfig,trackAvailability,
   selectVoucherQuestions,shuffleVoucherOptions,buildVoucherExamPayload,
   getVoucherSeenQuestionIds,markVoucherQuestionsSeen,saveVoucherAttempt,getBestVoucherAttempt,getVoucherAttempts,
-  getVoucherSourcePracticeState,saveVoucherSourcePracticeResult,
+  getVoucherSourcePracticeState,saveVoucherSourcePracticeResult,getVoucherSourceLearningState,saveVoucherSourceLearningState,
   voucherRankingActivityId,isVoucherRankEligibleAttempt,buildVoucherExamLeaderboard,buildVoucherTrackOverallLeaderboard,
   VOUCHER_TIMER_PHASE_SOLVING,VOUCHER_TIMER_PHASE_FEEDBACK,voucherTimerPhaseForQuestion,applyVoucherRankedAwayTime,voucherRankedSolveTimeSeconds,
   voucherReadinessLevel,voucherRankedImprovement,voucherWeakDomains,voucherNextRankTarget,selectVoucherImprovementQuestions,
@@ -42,7 +42,7 @@ import {
   voucherSessionRankingActivityId,buildVoucherSessionLeaderboard,resolveVoucherSessionRankStatus,firstPassPercentage,buildVoucherSessionAttemptMeta,buildVoucherSessionOnlineOverrides,
   voucherDomainRankingActivityId,buildVoucherDomainLeaderboard,buildVoucherOverallLeaderboard,resolveVoucherDomainRankStatus,buildVoucherDomainAttemptMeta,buildVoucherDomainOnlineOverrides,
   buildVoucherDomainNavigatorModel,buildVoucherSectionAnalytics
-} from "./voucher-engine.js?v=0.22.5";
+} from "./voucher-engine.js?v=0.22.6";
 import {
   createExamSession,resolveExamMode,
   selectSingleAnswerState,toggleMultiSelectAnswerState,confirmMultiSelectAnswerState,confirmVoucherRankedAnswerState,updateStructuredAnswerState,confirmStructuredAnswerState,
@@ -52,7 +52,9 @@ import {
   buildExamProgressSnapshot,getActiveExamProgress,effectiveSavedRemainingSeconds,voucherSavedAttemptMatches as matchesVoucherSavedAttempt,
   feedbackStateForQuestion,voucherSelectionStatusText,isMultiSelectQuestion as isMultiSelectFeedbackQuestion,
   buildSubjectBreakdown as buildExamSubjectBreakdown,buildStandardResultRecord,buildOnlineAttemptPayload,resultHeadline
-} from "./exam-engine.js?v=0.22.5";
+} from "./exam-engine.js?v=0.22.6";
+
+const BUILD_VERSION='0.22.6';
 
 const state={
   studentName:"",
@@ -134,6 +136,9 @@ const state={
   voucherSourcePracticeSelections:{},
   voucherSourcePracticeNativeInputs:{},
   voucherSourcePracticeRetrying:new Set(),
+  voucherSourceLearningState:{version:1,parts:{}},
+  voucherSourceReviewWeakIds:null,
+  voucherSourcePartReviewMode:null,
   voucherFullRankedIndex:null,
   voucherFullRankedIndexByQuestion:new Map(),
   voucherSourceRevealOpened:new Set(),
@@ -659,7 +664,7 @@ function ensurePl300Styles(doc=globalThis.document){
   if(!doc?.head||doc.querySelector('link[data-pl300-styles]'))return;
   const link=doc.createElement('link');
   link.rel='stylesheet';
-  link.href='assets/css/pl300.css?v=0.22.5';
+  link.href='assets/css/pl300.css?v=0.22.6';
   link.dataset.pl300Styles='1';
   doc.head.append(link);
 }
@@ -709,53 +714,47 @@ function voucherModeControls(prefix,{timed=true,feedback="exam"}={}){
 
 let voucherSourcePracticeNative=null;
 let pl300FullRankedLearning=null;
+let pl300LearningLoop=null;
+let pl300LearningController=null;
+
+async function ensurePl300LearningController(){
+  if(pl300LearningController)return pl300LearningController;
+  const {createPl300LearningController}=await import(`./pl300-learning-controller.js?v=${BUILD_VERSION}`);
+  pl300LearningController=createPl300LearningController({
+    state,
+    getRecords:()=>getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||'microsoft-pl-300').records||{},
+    saveLearningState:learning=>saveVoucherSourceLearningState(mistakeOwnerId(),state.voucherExamConfig?.id||'microsoft-pl-300',learning),
+    learningLoop:pl300LearningLoop,
+    fullRankedLearning:pl300FullRankedLearning,
+    renderReview:renderVoucherSourceReview,
+    scrollTop:()=>window.scrollTo({top:0,behavior:'smooth'}),
+    loadJson,
+    renderRichText:renderTechnicalRichText
+  });
+  return pl300LearningController;
+}
+
+async function ensurePl300LearningLoop(){
+  pl300LearningLoop??=await import(`./pl300-learning-loop.js?v=${BUILD_VERSION}`);
+  return pl300LearningLoop;
+}
 
 async function ensurePl300FullRankedLearning(){
-  pl300FullRankedLearning??=await import("./pl300-full-ranked-learning.js?v=0.22.5");
+  pl300FullRankedLearning??=await import("./pl300-full-ranked-learning.js?v=0.22.6");
   return pl300FullRankedLearning;
 }
 
-async function loadVoucherFullRankedIndex(config=state.voucherExamConfig){
-  if(state.voucherFullRankedIndex?.examId===config?.id)return state.voucherFullRankedIndex;
-  if(!config?.fullRankedLearning?.indexFile)throw new Error("Full Ranked Learning index is unavailable.");
-  const index=await loadJson(config.fullRankedLearning.indexFile);
-  if(!Array.isArray(index?.records)||Number(index?.questionCount)!==509)throw new Error("Full Ranked Learning index is invalid.");
-  state.voucherFullRankedIndex=index;
-  state.voucherFullRankedIndexByQuestion=new Map(index.records.map(record=>[String(record.questionId),record]));
-  return index;
-}
+async function loadVoucherFullRankedIndex(config=state.voucherExamConfig){await ensurePl300LearningLoop();await ensurePl300LearningController();return pl300LearningController.loadFullRankedIndex(config);}
 
-function voucherFullRankRecord(question){
-  return question?.id?state.voucherFullRankedIndexByQuestion?.get?.(String(question.id))||null:null;
-}
+function voucherFullRankRecord(question){return pl300LearningController?.fullRankRecord(question)||null;}
 
-function voucherFullRankMetrics(){
-  if(!pl300FullRankedLearning||!state.voucherFullRankedIndex)return null;
-  const practice=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
-  return pl300FullRankedLearning.buildPl300FullRankMetrics({index:state.voucherFullRankedIndex,records:practice.records||{}});
-}
+function voucherFullRankMetrics(){return pl300LearningController?.fullRankMetrics()||null;}
 
-function voucherSourceStartSolveTimer(question,{force=false}={}){
-  if(!question?.id)return;
-  const id=String(question.id);
-  if(!force&&state.voucherSourceSolveQuestionId===id&&Number.isFinite(Number(state.voucherSourceSolveStartedAt)))return;
-  state.voucherSourceSolveQuestionId=id;
-  state.voucherSourceSolveStartedAt=Date.now();
-}
+function voucherSourceStartSolveTimer(question,options={}){return pl300LearningController?.startSolveTimer(question,options);}
 
-function voucherSourceConsumeSolveSeconds(question){
-  const id=String(question?.id||"");
-  if(!id||state.voucherSourceSolveQuestionId!==id||!Number.isFinite(Number(state.voucherSourceSolveStartedAt)))return 0;
-  const elapsed=Math.max(0,Math.min(1800,Math.round((Date.now()-Number(state.voucherSourceSolveStartedAt))/1000)));
-  state.voucherSourceSolveQuestionId=null;
-  state.voucherSourceSolveStartedAt=null;
-  return elapsed;
-}
+function voucherSourceConsumeSolveSeconds(question){return pl300LearningController?.consumeSolveSeconds(question)||0;}
 
-function voucherSourceResetSolveTimer(){
-  state.voucherSourceSolveQuestionId=null;
-  state.voucherSourceSolveStartedAt=null;
-}
+function voucherSourceResetSolveTimer(){return pl300LearningController?.resetSolveTimer();}
 
 async function hydrateVoucherFullRankedCard(config){
   if(!config?.fullRankedLearning)return;
@@ -794,7 +793,7 @@ async function syncPl300FullRankSnapshot({force=false}={}){
   const signature=[metrics.completedOccurrences,metrics.masteredClusters,metrics.firstPassCorrectClusters,metrics.attemptsToBest,metrics.activeSolveSeconds].join(":");
   if(!force&&signature===state.voucherFullRankLastSyncSignature)return true;
   const payload=pl300FullRankedLearning.buildPl300FullRankOnlineAttempt({
-    playerId:state.playerId,studentName:state.studentName,examVersion:"0.22.5",metrics,
+    playerId:state.playerId,studentName:state.studentName,examVersion:"0.22.6",metrics,
     trackId:state.voucherTrackId||config.trackId||"data-analysis",examId:config.id
   });
   await submitAttemptOnline(payload);
@@ -817,7 +816,8 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
     if(!config)throw new Error("Open Microsoft PL-300 first.");
     await ensurePl300FullRankedLearning();
     await loadVoucherFullRankedIndex(config);
-    voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.5");
+    state.voucherSourceLearningState=getVoucherSourceLearningState(mistakeOwnerId(),config.id);
+    voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.6");
     voucherSourcePracticeNative.ensureNativePracticeStyles();
     const sources=config.sourceReviewSources||[];
     if(sources.length!==2)throw new Error("The two PL-300 source review banks are required.");
@@ -841,6 +841,8 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
     state.voucherSourcePracticeSelections={};
     state.voucherSourcePracticeNativeInputs={};
     state.voucherSourcePracticeRetrying=new Set();
+    state.voucherSourceReviewWeakIds=null;
+    state.voucherSourcePartReviewMode=null;
     state.voucherSourceRevealOpened=new Set();
     state.voucherSourcePendingSeconds={};
     voucherSourceResetSolveTimer();
@@ -857,49 +859,20 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
   }
 }
 
-function voucherSourceReviewFilteredQuestions(){
-  const questions=state.voucherSourceReviewBank?.questions||[];
-  const partQuestions=pl300FullRankedLearning?.filterPl300QuestionsByPart
-    ?pl300FullRankedLearning.filterPl300QuestionsByPart({questions,partId:state.voucherSourceReviewPartId,parts:state.voucherSourceReviewParts})
-    :questions;
-  if(state.voucherSourceReviewFilter==="source-01"||state.voucherSourceReviewFilter==="source-02")return partQuestions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);
-  if(state.voucherSourceReviewFilter==="objective")return partQuestions.filter(q=>voucherFullRankRecord(q)?.mode==="objective");
-  if(state.voucherSourceReviewFilter==="checkpoint")return partQuestions.filter(q=>voucherFullRankRecord(q)?.mode==="checkpoint");
-  return partQuestions;
-}
+function voucherSourceReviewFilteredQuestions(){return pl300LearningController?.filteredQuestions()||[];}
 
-function voucherSourcePracticeRecord(question){
-  if(!question?.id)return null;
-  const practice=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
-  return practice.records?.[question.id]||null;
-}
+function voucherSourcePracticeRecord(question){return pl300LearningController?.practiceRecord(question)||null;}
 
-function voucherSourcePracticeCorrectIds(question){
-  return (Array.isArray(question?.correctAnswers)&&question.correctAnswers.length?question.correctAnswers:[question?.correctAnswer]).filter(Boolean).map(String);
-}
+function voucherSourcePracticeCorrectIds(question){return pl300LearningController?.correctIds(question)||[];}
 
-function voucherSourcePracticeSelection(question,record=voucherSourcePracticeRecord(question)){
-  const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question?.id||""));
-  return pl300FullRankedLearning.sourceAttemptSelection({question,record,tempSelections:state.voucherSourcePracticeSelections,retrying});
-}
+function voucherSourcePracticeSelection(question,record=voucherSourcePracticeRecord(question)){return pl300LearningController?.selection(question,record)||[];}
 
-function voucherSourcePracticeSelectionsMatch(question,selected){
-  const expected=[...voucherSourcePracticeCorrectIds(question)].sort();
-  const actual=[...(selected||[])].map(String).sort();
-  return expected.length===actual.length&&expected.every((id,index)=>id===actual[index]);
-}
+function voucherSourcePracticeSelectionsMatch(question,selected){return Boolean(pl300LearningController?.selectionsMatch(question,selected));}
 
-function voucherSourcePracticeOptionsHtml(question,record){
-  if(question?.reviewMode!=="scored-text"||!Array.isArray(question.options)||!question.options.length)return "";
-  const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question.id||""));
-  const locked=pl300FullRankedLearning.sourceAttemptLocked(record,retrying);
-  return pl300FullRankedLearning.buildSourcePracticeOptionsMarkup({question,record,selected:voucherSourcePracticeSelection(question,record),locked,retrying,renderRichText:renderTechnicalRichText});
-}
+function voucherSourcePracticeOptionsHtml(question,record){return pl300LearningController?.optionsHtml(question,record)||'';}
 
 
-function voucherSourcePracticeSummary(){
-  return voucherFullRankMetrics()||{completedOccurrences:0,totalOccurrences:509,completionPercentage:0,masteredClusters:0,validatedConceptCount:265,validatedAccuracy:0,firstPassPercentage:0,checkpointCompletions:0};
-}
+function voucherSourcePracticeSummary(){return pl300LearningController.summary();}
 
 function voucherSourceReviewAnswerHtml(question,practiceRecord=voucherSourcePracticeRecord(question)){
   return pl300FullRankedLearning.buildPl300FullRankedAnswerMarkup({
@@ -910,14 +883,16 @@ function voucherSourceReviewAnswerHtml(question,practiceRecord=voucherSourcePrac
 }
 
 
-function selectVoucherSourceReviewPart(partId='all'){
-  voucherSourceResetSolveTimer();
-  const requested=String(partId||'all');
-  state.voucherSourceReviewPartId=requested==='all'||state.voucherSourceReviewParts.some(part=>String(part.id)===requested)?requested:'all';
-  state.voucherSourceReviewIndex=0;
-  renderVoucherSourceReview();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+
+function voucherActiveSourcePart(){return pl300LearningController?.activePart()||null;}
+
+
+function updateVoucherLearningAfterScoredSave(args={}){return pl300LearningController?.updateAfterScoredSave(args);}
+function navigateVoucherSourceQuestion(nextIndex,options={}){return pl300LearningController?.navigate(nextIndex,options);}
+function voucherPartReviewContext(part){return pl300LearningController?.partReviewContext(part)||{records:{},review:{},nextPart:null};}
+function renderVoucherEndOfPartReview(body,part){return pl300LearningController?.renderEndOfPartReview(body,part);}
+
+function selectVoucherSourceReviewPart(partId='all'){return pl300LearningController?.selectPart(partId);}
 function renderVoucherSourceReview(){
   const body=$("voucherSourceReviewBody");
   if(!body)return;
@@ -926,8 +901,21 @@ function renderVoucherSourceReview(){
     body.innerHTML='<article class="voucher-empty-card"><h3>Full Ranked Learning unavailable</h3><p>Return to Microsoft PL-300 and open the 509-question ranked bank.</p></article>';
     return;
   }
+  const activePart=voucherActiveSourcePart();
+  if(activePart&&pl300LearningLoop&&!(state.voucherSourceReviewWeakIds instanceof Set)){
+    const {review}=voucherPartReviewContext(activePart);
+    if(state.voucherSourcePartReviewMode||review.completeFirstPass){
+      state.voucherSourcePartReviewMode=review.needReview?'review':'complete';
+      renderVoucherEndOfPartReview(body,activePart);
+      voucherSourceResetSolveTimer();
+      return;
+    }
+  }
   const questions=voucherSourceReviewFilteredQuestions();
-  if(!questions.length)state.voucherSourceReviewIndex=0;
+  if(!questions.length){
+    if(activePart){state.voucherSourceReviewWeakIds=null;state.voucherSourcePartReviewMode='complete';renderVoucherEndOfPartReview(body,activePart);return;}
+    state.voucherSourceReviewIndex=0;
+  }
   state.voucherSourceReviewIndex=Math.max(0,Math.min(state.voucherSourceReviewIndex,Math.max(0,questions.length-1)));
   const q=questions[state.voucherSourceReviewIndex]||null;
   const totalAll=bank.questions?.length||0;
@@ -951,7 +939,7 @@ function renderVoucherSourceReview(){
   const nativeHtml=voucherSourcePracticeNative?.renderNativePractice(q,practiceRecord,state.voucherSourcePracticeNativeInputs,{locked:sourceAttemptLocked,retrying})||"";
   const metrics=voucherSourcePracticeSummary();
   const practiceState=getVoucherSourcePracticeState(mistakeOwnerId(),state.voucherExamConfig?.id||"microsoft-pl-300");
-  const {partTotal,partCompleted,activePartLabel,partOptionsHtml,partCatalogHtml,showPartCatalog,filterLabel}=pl300FullRankedLearning.buildPl300PartViewState({parts:state.voucherSourceReviewParts,activePartId:state.voucherSourceReviewPartId,records:practiceState.records||{},totalAll,completedAll:metrics.completedOccurrences,activeFilter:state.voucherSourceReviewFilter});
+  const {partTotal,partCompleted,activePartLabel,partOptionsHtml,partCatalogHtml,showPartCatalog,filterLabel}=pl300FullRankedLearning.buildPl300PartViewState({parts:state.voucherSourceReviewParts,activePartId:state.voucherSourceReviewPartId,records:practiceState.records||{},index:state.voucherFullRankedIndex,totalAll,completedAll:metrics.completedOccurrences,activeFilter:state.voucherSourceReviewFilter});
   const pageLabel=Number(q.pageStart)===Number(q.pageEnd)?`Page ${q.pageStart}`:`Pages ${q.pageStart}–${q.pageEnd}`;
   const objective=rankRecord?.mode==="objective";
   const sourceType=String(q.sourceType||q.reviewMode||"source").replace(/-/g," ").toUpperCase();
@@ -965,10 +953,10 @@ function renderVoucherSourceReview(){
   const sourceLabel=q.sourceId==="source-01"?"Source 01":"Source 02";
   body.innerHTML=pl300FullRankedLearning.buildPl300FullRankedReviewMarkup({
     sourceTitle,source01Count,source02Count,objectiveCount,checkpointCount,metrics,activeFilter:state.voucherSourceReviewFilter,totalAll,
-    questionsLength:questions.length,currentIndex:state.voucherSourceReviewIndex,filterLabel,objective,typeLabel,sourceLabel,questionNumber:q.questionNumber||"",
+    questionsLength:questions.length,currentIndex:state.voucherSourceReviewIndex,filterLabel,objective,question:q,typeLabel,sourceLabel,questionNumber:q.questionNumber||"",
     partOptionsHtml,partCatalogHtml,showPartCatalog,activePartLabel,partCompleted,partTotal,
     occurrence:q.occurrence||1,pageLabel,domainId:rankRecord?.domainId||"",recordStatus,questionHtml:renderTechnicalRichText(q.questionText||""),
-    visualHtml,optionsHtml,nativeHtml,revealOpen,answerHtml:voucherSourceReviewAnswerHtml(q,practiceRecord)
+    visualHtml,optionsHtml,nativeHtml,revealOpen,answerHtml:voucherSourceReviewAnswerHtml(q,practiceRecord),nextActionLabel:pl300FullRankedLearning.pl300SourceNextActionLabel(practiceRecord)
   });
 
   body.querySelectorAll('[data-pl300-part-select]').forEach(button=>button.addEventListener('click',()=>selectVoucherSourceReviewPart(button.dataset.pl300PartSelect)));
@@ -1000,15 +988,22 @@ function renderVoucherSourceReview(){
     if(!selected.length){showToast("Select an answer first.");return;}
     const correct=voucherSourcePracticeSelectionsMatch(q,selected);
     const activeSeconds=voucherSourceConsumeSolveSeconds(q);
+    const hadRecord=Boolean(practiceRecord);
     saveVoucherSourcePracticeResult(mistakeOwnerId(),q.id,{
       examId:state.voucherExamConfig?.id||"microsoft-pl-300",
       sourceId:q.sourceId||state.voucherSourceReviewSourceId||"",
       mode:"auto",selected,correct,activeSeconds
     });
+    updateVoucherLearningAfterScoredSave({question:q,correct,wasRetrying:retrying,hadRecord});
     delete state.voucherSourcePracticeSelections[q.id];
     state.voucherSourcePracticeRetrying?.delete?.(String(q.id));
     schedulePl300FullRankSync();
     renderVoucherSourceReview();
+  });
+  $("sourcePracticeRetryLaterBtn")?.addEventListener("click",()=>{
+    if(!practiceRecord||practiceRecord.correct!==false)return;
+    if(state.voucherSourceReviewIndex<questions.length-1)navigateVoucherSourceQuestion(state.voucherSourceReviewIndex+1);
+    else renderVoucherSourceReview();
   });
   $("sourcePracticeRetryBtn")?.addEventListener("click",()=>{
     if(!practiceRecord)return;
@@ -1033,7 +1028,10 @@ function renderVoucherSourceReview(){
     onInput:answers=>{voucherSourceStartSolveTimer(q);state.voucherSourcePracticeNativeInputs[q.id]=answers;},
     onSave:({answers,correct})=>{
       const activeSeconds=voucherSourceConsumeSolveSeconds(q);
+      const hadRecord=Boolean(practiceRecord);
+      const wasRetrying=state.voucherSourcePracticeRetrying?.has?.(String(q.id||""));
       saveVoucherSourcePracticeResult(mistakeOwnerId(),q.id,{examId:state.voucherExamConfig?.id||"microsoft-pl-300",sourceId:q.sourceId||state.voucherSourceReviewSourceId||"",mode:"native",answers,correct,activeSeconds});
+      updateVoucherLearningAfterScoredSave({question:q,correct,wasRetrying,hadRecord});
       delete state.voucherSourcePracticeNativeInputs[q.id];
       state.voucherSourcePracticeRetrying?.delete?.(String(q.id));
       schedulePl300FullRankSync();
@@ -1062,12 +1060,11 @@ function renderVoucherSourceReview(){
     schedulePl300FullRankSync();
     renderVoucherSourceReview();
   });
-  $("sourceReviewPrev")?.addEventListener("click",()=>{if(state.voucherSourceReviewIndex>0){voucherSourceResetSolveTimer();state.voucherSourceReviewIndex-=1;renderVoucherSourceReview();window.scrollTo({top:0,behavior:"smooth"})}});
-  $("sourceReviewNext")?.addEventListener("click",()=>{if(state.voucherSourceReviewIndex<questions.length-1){voucherSourceResetSolveTimer();state.voucherSourceReviewIndex+=1;renderVoucherSourceReview();window.scrollTo({top:0,behavior:"smooth"})}});
+  $("sourceReviewPrev")?.addEventListener("click",()=>{if(state.voucherSourceReviewIndex>0)navigateVoucherSourceQuestion(state.voucherSourceReviewIndex-1)});
+  $("sourceReviewNext")?.addEventListener("click",()=>{if(state.voucherSourceReviewIndex<questions.length-1)navigateVoucherSourceQuestion(state.voucherSourceReviewIndex+1)});
   $("sourceReviewJumpBtn")?.addEventListener("click",()=>{
     const requested=Math.max(1,Math.min(questions.length,Number($("sourceReviewJump")?.value)||1));
-    voucherSourceResetSolveTimer();
-    state.voucherSourceReviewIndex=requested-1;renderVoucherSourceReview();window.scrollTo({top:0,behavior:"smooth"});
+    navigateVoucherSourceQuestion(requested-1,{countTransition:false});
   });
 }
 
