@@ -1,4 +1,4 @@
-name: V0.22.6 Full Regression Diagnostic
+name: V0.22.6 Regression Fix Bot
 
 on:
   push:
@@ -6,34 +6,66 @@ on:
       - feature/v0.22.6-pl300-learning-ux
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  diagnose:
+  fix:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: feature/v0.22.6-pl300-learning-ux
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Capture full Node regression
+      - name: Apply narrow verified fixes
         shell: bash
         run: |
-          set +e
-          node --test tests/*.test.mjs > full-regression.txt 2>&1
-          code=$?
-          echo "$code" > full-regression-exit-code.txt
-          exit 0
+          python - <<'PY'
+          from pathlib import Path
 
-      - name: Upload diagnostic artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: v0226-full-regression-diagnostic
-          path: |
-            full-regression.txt
-            full-regression-exit-code.txt
-          if-no-files-found: error
+          app = Path('assets/js/app.js')
+          text = app.read_text()
+          old = 'async async function loadVoucherFullRankedIndex'
+          assert text.count(old) == 1, f'expected exactly one duplicated async, found {text.count(old)}'
+          app.write_text(text.replace(old, 'async function loadVoucherFullRankedIndex', 1))
+
+          cache_test = Path('tests/v0225-pl300-cache-bust.test.mjs')
+          text = cache_test.read_text()
+          old = r'0\.22\.5'
+          count = text.count(old)
+          assert count == 5, f'expected 5 stale V0.22.5 regex expectations, found {count}'
+          cache_test.write_text(text.replace(old, r'0\.22\.6'))
+
+          practice_test = Path('tests/pl300-source-practice-ui.test.mjs')
+          text = practice_test.read_text()
+          anchor = "const fullRank=fs.readFileSync(new URL('../assets/js/pl300-full-ranked-learning.js',import.meta.url),'utf8');\n"
+          assert anchor in text, 'fullRank fixture anchor missing'
+          controller_line = "const controller=fs.readFileSync(new URL('../assets/js/pl300-learning-controller.js',import.meta.url),'utf8');\n"
+          if controller_line not in text:
+              text = text.replace(anchor, anchor + controller_line, 1)
+          old_assert = '  assert.match(app,/buildSourcePracticeOptionsMarkup/);'
+          assert text.count(old_assert) == 1, f'expected stale ownership assertion once, found {text.count(old_assert)}'
+          text = text.replace(old_assert, '  assert.match(controller,/buildSourcePracticeOptionsMarkup/);', 1)
+          practice_test.write_text(text)
+          PY
+
+      - name: Verify targeted regressions and app syntax
+        shell: bash
+        run: |
+          node --check assets/js/app.js
+          node --test tests/pl300-source-practice-ui.test.mjs tests/v0225-pl300-cache-bust.test.mjs
+
+      - name: Remove temporary workflow and commit fixes
+        shell: bash
+        run: |
+          rm -f .github/workflows/v0226-full-regression-diagnostic.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/js/app.js tests/v0225-pl300-cache-bust.test.mjs tests/pl300-source-practice-ui.test.mjs .github/workflows/v0226-full-regression-diagnostic.yml
+          git commit -m "fix: repair V0.22.6 full regression"
+          git push origin HEAD:feature/v0.22.6-pl300-learning-ux
