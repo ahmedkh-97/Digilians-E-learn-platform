@@ -45,19 +45,6 @@ for name in ['tests/v0226-pl300-release-identity.test.mjs','tests/v0225-pl300-ca
 replace('tests/v0226-pl300-release-identity.test.mjs',"assert.equal(changelog.releases?.[0]?.type,'learning');","assert.equal(changelog.releases?.[0]?.type,'fix');",1)
 replace('tests/v0226-pl300-release-identity.test.mjs',"test('V0.22.7 changelog describes the bounded PL-300 learning UX release',()=>{\n  const release=changelog.releases?.[0]||{};\n  const text=[release.title,release.summary,...(release.highlights||[])].join(' ');\n  for(const phrase of ['source-backed','delayed retry','End-of-Part Review','part','Arabic']) assert.match(text,new RegExp(phrase,'i'));\n});","test('V0.22.7 changelog describes the repeat-part hotfix',()=>{\n  const release=changelog.releases?.[0]||{};\n  const text=[release.title,release.summary,...(release.highlights||[])].join(' ');\n  for(const phrase of ['Review & solve again','first-pass','checkpoint','450KB','509']) assert.match(text,new RegExp(phrase,'i'));\n});",1)
 
-replace('.github/workflows/v0223-branch-ci.yml','name: V0.22.6 PL-300 Learning UX Validation','name: V0.22.7 PL-300 Repeat Part Hotfix Validation',1)
-replace('.github/workflows/v0223-branch-ci.yml','      - feature/v0.22.6-pl300-learning-ux\n','      - feature/v0.22.6-pl300-learning-ux\n      - fix/v0.22.7-pl300-repeat-part\n',1)
-replace('.github/workflows/v0223-branch-ci.yml','      - name: Focused V0.22.6 learning UX gate','      - name: Focused PL-300 learning UX gate',1)
-replace('.github/workflows/v0223-branch-ci.yml','          tests/v0226-pl300-learning-controller.test.mjs\n','          tests/v0226-pl300-learning-controller.test.mjs\n          tests/v0227-pl300-repeat-part.test.mjs\n',1)
-
-s=read('tests/v0226-pl300-ci-contract.test.mjs')
-s=s.replace('V0.22.6 release workflow targets feature branch and main PRs','V0.22.7 release workflow targets hotfix branch and main PRs')
-s=s.replace(r'/name:\s*V0\.22\.6 PL-300 Learning UX Validation/',r'/name:\s*V0\.22\.7 PL-300 Repeat Part Hotfix Validation/')
-s=s.replace("assert.match(workflow,/feature\\/v0\\.22\\.6-pl300-learning-ux/);","assert.match(workflow,/fix\\/v0\\.22\\.7-pl300-repeat-part/);")
-s=s.replace('V0.22.6 release workflow protects focused UX, 509 audit, full regression and pre-deploy','V0.22.7 release workflow protects repeat-part UX, 509 audit, full regression and pre-deploy')
-s=s.replace("    'v0226-pl300-learning-controller.test.mjs',","    'v0226-pl300-learning-controller.test.mjs',\n    'v0227-pl300-repeat-part.test.mjs',")
-write('tests/v0226-pl300-ci-contract.test.mjs',s)
-
 repeat_test=r'''import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
