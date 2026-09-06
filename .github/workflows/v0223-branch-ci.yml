@@ -52,8 +52,6 @@ jobs:
         run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs tests/pl300-full-source-review.test.mjs tests/pl300-source-dedup-audit.test.mjs
       - name: Full Node regression
         run: node --test tests/*.test.mjs
-      - name: Pre-deploy gate
-        run: node tools/pre-deploy-check.mjs
       - name: Validate bounded data diff
         shell: bash
         run: |
@@ -76,3 +74,7 @@ jobs:
           git diff --cached --check
           git commit -m "fix: restore PL-300 source-backed native choices [skip ci]"
           git push
+      - name: Pre-deploy gate on clean committed tree
+        run: |
+          test -z "$(git status --porcelain)"
+          node tools/pre-deploy-check.mjs
