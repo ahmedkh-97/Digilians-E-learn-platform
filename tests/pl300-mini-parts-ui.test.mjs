@@ -8,6 +8,7 @@ import {buildPl300FullRankedReviewMarkup} from '../assets/js/pl300-full-ranked-l
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const app=fs.readFileSync(path.join(root,'assets/js/app.js'),'utf8');
 
+// V0.22.4 replaces the legacy in-question selector with pre-entry part cards and an explicit back-to-parts action.
 test('Full Ranked review UI exposes active Study Part context and selected-part progress',()=>{
   const html=buildPl300FullRankedReviewMarkup({
     questionsLength:18,currentIndex:2,filterLabel:'Prepare the Data → Power Query · Part 1',
