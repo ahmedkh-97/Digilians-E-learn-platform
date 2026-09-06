@@ -530,7 +530,7 @@ export function buildPl300FullRankedReviewMarkup({
       ${nativeHtml?(visualHtml?`<div class="pl300-structured-study-layout"><section class="pl300-source-reference"><div class="pl300-source-reference-head"><strong>Original source view</strong><span>Reference only</span></div><div class="source-review-visual-stack">${visualHtml}</div></section><section class="pl300-answer-area">${nativeHtml}</section></div>`:`<section class="pl300-answer-area">${nativeHtml}</section>`):`${visualHtml?`<div class="source-review-visual-stack">${visualHtml}</div>`:''}${optionsHtml||''}`}
       <details class="source-review-reveal" id="sourceReviewReveal" ${revealOpen?'open':''}><summary>Reveal source answer & explanation</summary><div class="source-review-reveal-body">${answerHtml||''}</div></details>
     </article>
-    <nav class="source-review-nav" aria-label="Source question navigation"><button type="button" class="secondary-btn" id="sourceReviewPrev" ${index<=0?'disabled':''}>← Previous</button><span>Question ${index+1} of ${length} · Full Bank 509</span><button type="button" class="primary-btn" id="sourceReviewNext" ${index>=length-1?'disabled':''}>Next →</button></nav>`;
+    <nav class="source-review-nav" aria-label="Source question navigation"><button type="button" class="secondary-btn" id="sourceReviewPrev" ${index<=0?'disabled':''}>← Previous</button><span>Question ${index+1} of ${length} · Full Bank 509</span><button type="button" class="primary-btn" id="sourceReviewNext" ${index>=length-1?'disabled':''}>${htmlEscape(nextActionLabel)}</button></nav>`;
 }
 
 export function buildPl300FullRankedLandingMarkup({domainCount=4,sessionCount=10}={}){
