@@ -77,12 +77,10 @@ export function saveVoucherAttempt(ownerId,attempt,{storage}={}){
   return writeStore(store,storage);
 }
 
-export function getVoucherAttempts(ownerId,examId,{storage,rankEligibleOnly=false,sizeMode=null}={}){
-  let attempts=getVoucherState(ownerId,{storage}).attempts;
-  if(examId)attempts=attempts.filter(x=>String(x?.examId)===String(examId));
-  if(rankEligibleOnly)attempts=attempts.filter(x=>x?.rankEligible===true);
-  if(sizeMode)attempts=attempts.filter(x=>String(x?.sizeMode||'')===String(sizeMode));
-  return attempts;
+export function getVoucherAttempts(ownerId,examId,{storage}={}){
+  const attempts=getVoucherState(ownerId,{storage}).attempts;
+  if(!examId)return attempts;
+  return attempts.filter(x=>String(x?.examId)===String(examId));
 }
 
 function compareAttempts(a,b){
