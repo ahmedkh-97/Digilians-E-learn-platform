@@ -1,63 +1,13 @@
 name: V0.22.7 Repeat Part Hotfix Builder
 
 on:
-  push:
-    branches:
-      - fix/v0.22.7-pl300-repeat-part
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   apply-test-commit:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Apply reviewed hotfix
-        run: python tools/v0227-hotfix-apply.py
-      - name: Remove temporary builder files
-        run: rm -f tools/v0227-hotfix-apply.py .github/workflows/v0227-repeat-hotfix-bot.yml
-      - name: Syntax check
-        run: node --check assets/js/app.js && node --check assets/js/pl300-learning-controller.js && node --check assets/js/pl300-full-ranked-learning.js
-      - name: Focused PL-300 learning UX gate
-        run: >-
-          node --test
-          tests/v0226-pl300-source-practice-fidelity.test.mjs
-          tests/v0226-pl300-native-choice-fidelity.test.mjs
-          tests/v0226-pl300-learning-loop.test.mjs
-          tests/v0226-pl300-learning-storage.test.mjs
-          tests/v0226-pl300-study-ux.test.mjs
-          tests/v0226-pl300-answer-area.test.mjs
-          tests/v0226-pl300-learning-controller.test.mjs
-          tests/v0227-pl300-repeat-part.test.mjs
-          tests/v0226-pl300-release-identity.test.mjs
-          tests/v0226-pl300-ci-contract.test.mjs
-          tests/v0224-pl300-preselect-dropdowns.test.mjs
-          tests/pl300-source-answer-lock.test.mjs
-          tests/pl300-source-practice-selection-guard.test.mjs
-          tests/pl300-source-practice-freeze-regression.test.mjs
-      - name: Release identity and startup performance gate
-        run: node --test tests/v0226-pl300-release-identity.test.mjs tests/v0226-pl300-ci-contract.test.mjs tests/release-identity-gate.test.mjs tests/platform-ux-performance.test.mjs
-      - name: Exhaustive PL-300 509 audit gate
-        run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs
-      - name: PL-300 full-ranked index check
-        run: node tools/pl300-full-ranked-index.mjs --check
-      - name: Full Node regression
-        run: node --test tests/*.test.mjs
-      - name: Pre-deploy gate
-        run: node tools/pre-deploy-check.mjs
-      - name: Diff hygiene
-        run: git diff --check
-      - name: Commit verified hotfix
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "fix: allow repeating mastered PL-300 parts"
-          git push origin HEAD:fix/v0.22.7-pl300-repeat-part
+      - run: echo "Builder paused while its patch is made workflow-neutral."
