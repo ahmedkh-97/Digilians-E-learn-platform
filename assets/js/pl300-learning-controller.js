@@ -5,7 +5,9 @@ export function createPl300LearningController({
   learningLoop,
   fullRankedLearning,
   renderReview,
-  scrollTop
+  scrollTop,
+  loadJson,
+  renderRichText
 }={}){
   function filteredQuestions(){
     const questions=state.voucherSourceReviewBank?.questions||[];
@@ -15,6 +17,55 @@ export function createPl300LearningController({
     if(state.voucherSourceReviewWeakIds instanceof Set)partQuestions=partQuestions.filter(q=>state.voucherSourceReviewWeakIds.has(String(q.id)));
     if(state.voucherSourceReviewFilter==='source-01'||state.voucherSourceReviewFilter==='source-02')return partQuestions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);
     return partQuestions;
+  }
+
+  async function loadFullRankedIndex(config=state.voucherExamConfig){
+    if(state.voucherFullRankedIndex?.examId===config?.id)return state.voucherFullRankedIndex;
+    if(!config?.fullRankedLearning?.indexFile)throw new Error('Full Ranked Learning index is unavailable.');
+    const index=await loadJson(config.fullRankedLearning.indexFile);
+    if(!Array.isArray(index?.records)||Number(index?.questionCount)!==509)throw new Error('Full Ranked Learning index is invalid.');
+    state.voucherFullRankedIndex=index;
+    state.voucherFullRankedIndexByQuestion=new Map(index.records.map(record=>[String(record.questionId),record]));
+    return index;
+  }
+
+  function fullRankRecord(question){
+    return question?.id?state.voucherFullRankedIndexByQuestion?.get?.(String(question.id))||null:null;
+  }
+
+  function fullRankMetrics(){
+    if(!fullRankedLearning||!state.voucherFullRankedIndex)return null;
+    return fullRankedLearning.buildPl300FullRankMetrics({index:state.voucherFullRankedIndex,records:getRecords()});
+  }
+
+  function practiceRecord(question){
+    return question?.id?getRecords()?.[question.id]||null:null;
+  }
+
+  function correctIds(question){
+    return (Array.isArray(question?.correctAnswers)&&question.correctAnswers.length?question.correctAnswers:[question?.correctAnswer]).filter(Boolean).map(String);
+  }
+
+  function selection(question,record=practiceRecord(question)){
+    const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question?.id||''));
+    return fullRankedLearning.sourceAttemptSelection({question,record,tempSelections:state.voucherSourcePracticeSelections,retrying});
+  }
+
+  function selectionsMatch(question,selected){
+    const expected=[...correctIds(question)].sort();
+    const actual=[...(selected||[])].map(String).sort();
+    return expected.length===actual.length&&expected.every((id,index)=>id===actual[index]);
+  }
+
+  function optionsHtml(question,record){
+    if(question?.reviewMode!=='scored-text'||!Array.isArray(question.options)||!question.options.length)return '';
+    const retrying=state.voucherSourcePracticeRetrying?.has?.(String(question.id||''));
+    const locked=fullRankedLearning.sourceAttemptLocked(record,retrying);
+    return fullRankedLearning.buildSourcePracticeOptionsMarkup({question,record,selected:selection(question,record),locked,retrying,renderRichText});
+  }
+
+  function summary(){
+    return fullRankMetrics()||{completedOccurrences:0,totalOccurrences:509,completionPercentage:0,masteredClusters:0,validatedConceptCount:265,validatedAccuracy:0,firstPassPercentage:0,checkpointCompletions:0};
   }
 
   function startSolveTimer(question,{force=false}={}){
@@ -143,5 +194,8 @@ export function createPl300LearningController({
     body.querySelector('[data-pl300-parts-back]')?.addEventListener('click',()=>selectPart('all'));
   }
 
-  return {filteredQuestions,startSolveTimer,consumeSolveSeconds,resetSolveTimer,activePart,persist,updateAfterScoredSave,navigate,partReviewContext,selectPart,renderEndOfPartReview};
+  return {
+    filteredQuestions,loadFullRankedIndex,fullRankRecord,fullRankMetrics,practiceRecord,correctIds,selection,selectionsMatch,optionsHtml,summary,
+    startSolveTimer,consumeSolveSeconds,resetSolveTimer,activePart,persist,updateAfterScoredSave,navigate,partReviewContext,selectPart,renderEndOfPartReview
+  };
 }
