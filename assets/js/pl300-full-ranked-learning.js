@@ -1,3 +1,6 @@
+import {buildPl300PartStudyMetrics} from './pl300-learning-loop.js';
+import {structuredInteractionKind} from './exam-structured.js';
+
 const num=(value,fallback=0)=>Number.isFinite(Number(value))?Number(value):fallback;
 const round1=value=>Math.round(num(value)*10)/10;
 const timeValue=value=>{const parsed=Date.parse(value||'');return Number.isFinite(parsed)?parsed:Number.MAX_SAFE_INTEGER;};
@@ -293,7 +296,52 @@ export function buildPl300PartOptionsMarkup({parts=[],activePartId='all'}={}){
   return options.join('');
 }
 
-export function buildPl300PartViewState({parts=[],activePartId='all',records={},totalAll=509,completedAll=0,activeFilter='all'}={}){
+export function pl300InteractionLabel(question={}){
+  if(question?.reviewMode==='source-reveal')return 'STUDY CHECKPOINT';
+  if(question?.reviewMode==='scored-text'){
+    const correct=(Array.isArray(question?.correctAnswers)&&question.correctAnswers.length?question.correctAnswers:[question?.correctAnswer]).filter(Boolean);
+    return correct.length>1?`MULTI SELECT · SELECT ${correct.length}`:'SINGLE CHOICE · RANKED';
+  }
+  if(question?.reviewMode==='native-structured'){
+    const kind=structuredInteractionKind({...question,responseType:'structured'});
+    if(kind==='yes-no')return 'YES / NO · RANKED';
+    if(kind==='ordered-fields')return 'ORDERING · RANKED';
+    if(kind==='choice-fields')return 'DROPDOWNS · RANKED';
+    return 'TEXT ENTRY · RANKED';
+  }
+  return 'STUDY MODE';
+}
+
+export function buildPl300QuestionProgressModel({index=0,length=0,studied=0,total=0}={}){
+  const safeLength=Math.max(0,Math.floor(num(length)));
+  const safeTotal=Math.max(0,Math.floor(num(total,safeLength)));
+  const safeStudied=Math.max(0,Math.min(safeTotal,Math.floor(num(studied))));
+  const position=safeLength?Math.max(1,Math.min(safeLength,Math.floor(num(index))+1)):0;
+  return {
+    questionLabel:`Question ${position} of ${safeLength}`,
+    studiedLabel:`Studied ${safeStudied} of ${safeTotal}`,
+    percentage:safeTotal?Math.round((safeStudied/safeTotal)*100):0
+  };
+}
+
+export function buildPl300PartCardModel({part={},index={},records={}}={}){
+  const metrics=buildPl300PartStudyMetrics({part,index,records});
+  const complete=metrics.total>0&&metrics.studied>=metrics.total;
+  const actionLabel=metrics.studied===0?'Start Part':!complete?'Continue Part':metrics.needReview>0?'Review Mistakes':'Part Mastered ✓';
+  return {
+    total:metrics.total,
+    studied:metrics.studied,
+    firstPassAccuracy:metrics.firstPassAccuracy,
+    firstPassAccuracyLabel:metrics.scored?`${round1(metrics.firstPassAccuracy)}%`:'—',
+    mistakes:metrics.needReview,
+    mastered:metrics.masteredConcepts,
+    completionPercentage:metrics.total?Math.round((metrics.studied/metrics.total)*100):0,
+    complete,
+    actionLabel
+  };
+}
+
+export function buildPl300PartViewState({parts=[],activePartId='all',records={},index={},totalAll=509,completedAll=0,activeFilter='all'}={}){
   const list=Array.isArray(parts)?parts:[];
   const activePart=list.find(part=>String(part?.id||'')===String(activePartId||'all'))||null;
   const partTotal=activePart?.count||Math.max(0,num(totalAll,509));
@@ -303,12 +351,9 @@ export function buildPl300PartViewState({parts=[],activePartId='all',records={},
   const activePartLabel=activePart?.label||'All 509 Questions';
   const partOptionsHtml=buildPl300PartOptionsMarkup({parts:list,activePartId});
   const partCatalogHtml=list.map(part=>{
-    const total=Math.max(0,num(part?.count));
-    const completed=(part?.questionIds||[]).filter(id=>Boolean(records?.[id])).length;
-    const percent=total?Math.round((completed/total)*100):0;
-    const complete=total>0&&completed>=total;
-    const action=completed>0&&!complete?'Continue Part':'Start Part';
-    return `<article class="official-section-card pl300-study-part-card" data-pl300-part-card="${htmlEscape(part?.id||'')}"><div class="official-section-head"><div><span class="eyebrow">${htmlEscape(part?.domainTitle||'PL-300')}</span><h3>${htmlEscape(part?.sectionTitle||'Study Part')}</h3><p>Part ${num(part?.partNumber,1)} · ${total} Questions</p></div><span class="pool-chip ${complete?'ready':'building'}">${completed}/${total}</span></div><div class="progress-track"><div class="progress-fill" style="width:${percent}%"></div></div><button type="button" class="primary-btn wide" data-pl300-part-select="${htmlEscape(part?.id||'')}">${action} →</button></article>`;
+    const model=buildPl300PartCardModel({part,index,records});
+    const mastered=model.actionLabel==='Part Mastered ✓';
+    return `<article class="official-section-card pl300-study-part-card" data-pl300-part-card="${htmlEscape(part?.id||'')}"><div class="official-section-head"><div><span class="eyebrow">${htmlEscape(part?.domainTitle||'PL-300')}</span><h3>${htmlEscape(part?.sectionTitle||'Study Part')}</h3><p>Part ${num(part?.partNumber,1)} · ${model.total} Questions</p></div><span class="pool-chip ${mastered?'ready':'building'}">${model.studied}/${model.total}</span></div><div class="pl300-study-part-metrics"><span>Studied ${model.studied}/${model.total}</span><span>First-pass accuracy ${model.firstPassAccuracyLabel}</span><span>Mistakes ${model.mistakes}</span><span>Mastered ${model.mastered}</span></div><div class="progress-track"><div class="progress-fill" style="width:${model.completionPercentage}%"></div></div><button type="button" class="primary-btn wide" data-pl300-part-select="${htmlEscape(part?.id||'')}">${htmlEscape(model.actionLabel)}${mastered?'':' →'}</button></article>`;
   }).join('');
   const typeFilterLabel=activeFilter==='source-01'?'Source 01':activeFilter==='source-02'?'Source 02':activeFilter==='objective'?'Validated Objective':activeFilter==='checkpoint'?'Study Checkpoints':'All Types';
   const filterLabel=activePart
@@ -400,7 +445,7 @@ export function buildPl300FullRankedAnswerMarkup({question={},completed=false,re
 export function buildPl300FullRankedReviewMarkup({
   sourceTitle='Full Ranked Bank — 509 Questions',source01Count=0,source02Count=0,objectiveCount=0,checkpointCount=0,
   metrics={},activeFilter='all',totalAll=509,questionsLength=0,currentIndex=0,filterLabel='All 509',objective=false,
-  typeLabel='',sourceLabel='',questionNumber='',occurrence=1,pageLabel='',domainId='',recordStatus='NOT STUDIED',
+  question=null,typeLabel='',sourceLabel='',questionNumber='',occurrence=1,pageLabel='',domainId='',recordStatus='NOT STUDIED',
   questionHtml='',visualHtml='',optionsHtml='',nativeHtml='',revealOpen=false,answerHtml='',
   partOptionsHtml='<option value="all">All 509 Questions</option>',partCatalogHtml='',showPartCatalog=false,
   activePartLabel='All 509 Questions',partCompleted=0,partTotal=509
@@ -408,12 +453,12 @@ export function buildPl300FullRankedReviewMarkup({
   const filterButton=(id,label,count)=>`<button type="button" data-source-review-filter="${id}" class="${activeFilter===id?'active':''}">${label} <b>${count}</b></button>`;
   const index=Math.max(0,num(currentIndex));
   const length=Math.max(0,num(questionsLength));
-  const progress=length?((index+1)/length)*100:0;
   const copy=num(occurrence,1)>1?` · Copy ${num(occurrence,1)}`:'';
   const domain=domainId?` · ${htmlEscape(domainId)}`:' · Unclassified Source Review';
   const studyPartTotal=Math.max(0,num(partTotal,509));
   const studyPartCompleted=Math.max(0,Math.min(studyPartTotal,num(partCompleted)));
-  const studyPartProgress=studyPartTotal?(studyPartCompleted/studyPartTotal)*100:0;
+  const progressModel=buildPl300QuestionProgressModel({index,length,studied:studyPartCompleted,total:studyPartTotal});
+  const displayTypeLabel=question?pl300InteractionLabel(question):String(typeLabel||'').replace(/NON-RANKED/gi,'STUDY MODE');
   const shell=`
     <section class="source-review-hero full-ranked-source-hero">
       <div><span class="eyebrow">FULL RANKED LEARNING · 509/509</span><h2>${htmlEscape(sourceTitle)}</h2><p>Every source occurrence counts toward Completion. Only validated concepts affect competitive accuracy; checkpoints keep uncertain source items studyable without fake scoring.</p></div>
@@ -427,7 +472,6 @@ export function buildPl300FullRankedReviewMarkup({
     <section class="pl300-study-part-context" aria-label="Active PL-300 study part">
       <button type="button" class="secondary-btn" data-pl300-parts-back>← Back to parts</button>
       <div><span class="eyebrow">ACTIVE STUDY PART</span><strong>${htmlEscape(activePartLabel)}</strong><small>${studyPartCompleted} / ${studyPartTotal} studied</small></div>
-      <div class="pl300-study-part-progress"><div><i style="width:${studyPartProgress}%"></i></div></div>
     </section>
     <section class="source-review-toolbar">
       <div class="source-review-filters" role="group" aria-label="Full ranked learning filter">
@@ -439,9 +483,9 @@ export function buildPl300FullRankedReviewMarkup({
       </div>
       <div class="source-review-jump"><label for="sourceReviewJump">Jump</label><input id="sourceReviewJump" type="number" min="1" max="${length}" value="${index+1}"><button type="button" class="secondary-btn" id="sourceReviewJumpBtn">Go</button></div>
     </section>
-    <section class="source-review-progress"><span>${htmlEscape(filterLabel)}</span><strong>${index+1} / ${length}</strong><div><i style="width:${progress}%"></i></div></section>
+    <section class="source-review-progress"><div class="source-review-progress-meta"><span>${htmlEscape(progressModel.questionLabel)}</span><span>${htmlEscape(progressModel.studiedLabel)}</span></div><small>${htmlEscape(filterLabel)}</small><div><i style="width:${progressModel.percentage}%"></i></div></section>
     <article class="source-review-card ${objective?'is-ranked-objective':'is-ranked-checkpoint'}">
-      <div class="source-review-card-head"><div><span class="source-review-type">${htmlEscape(typeLabel)}</span><h3>${htmlEscape(sourceLabel)} · Question ${htmlEscape(questionNumber)}${copy}</h3><small>${htmlEscape(pageLabel)}${domain}</small></div><span class="source-review-status">${htmlEscape(recordStatus)}</span></div>
+      <div class="source-review-card-head"><div><span class="source-review-type">${htmlEscape(displayTypeLabel)}</span><h3>${htmlEscape(sourceLabel)} · Question ${htmlEscape(questionNumber)}${copy}</h3><small>${htmlEscape(pageLabel)}${domain}</small></div><span class="source-review-status">${htmlEscape(recordStatus)}</span></div>
       <div class="source-review-question">${questionHtml}</div>
       ${visualHtml?`<div class="source-review-visual-stack">${visualHtml}</div>`:''}
       ${optionsHtml||''}
