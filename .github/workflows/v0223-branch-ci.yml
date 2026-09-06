@@ -18,20 +18,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Confirm regression gate is RED before data repair
-        shell: bash
-        run: |
-          set +e
-          node --test tests/v0226-pl300-native-choice-fidelity.test.mjs > /tmp/v0226-red.log 2>&1
-          status=$?
-          set -e
-          cat /tmp/v0226-red.log
-          if [ "$status" -eq 0 ]; then
-            echo "Expected the new native-choice fidelity gate to fail before the repair." >&2
-            exit 1
-          fi
       - name: Apply source-backed native choice pools
         run: python3 tools/v0226-pl300-native-choice-repair.py
+      - name: Regenerate PL-300 full ranked index
+        run: node tools/pl300-full-ranked-index.mjs
       - name: Native choice fidelity GREEN gate
         run: node --test tests/v0226-pl300-native-choice-fidelity.test.mjs
       - name: PL-300 native and ranked regression
@@ -52,28 +42,40 @@ jobs:
         run: node --test tests/v0223-pl300-native-arabic-regression.test.mjs tests/pl300-full-source-review.test.mjs tests/pl300-source-dedup-audit.test.mjs
       - name: Full Node regression
         run: node --test tests/*.test.mjs
-      - name: Validate bounded data diff
+      - name: Validate bounded generated diff
         shell: bash
         run: |
           git diff --check
           changed=$(git diff --name-only | sort)
           printf '%s\n' "$changed"
-          expected=$(printf '%s\n' \
+          allowed=$(printf '%s\n' \
+            voucher/tracks/data-analysis/microsoft-pl-300/full-ranked-index.json \
             voucher/tracks/data-analysis/microsoft-pl-300/master-bank.json \
             voucher/tracks/data-analysis/microsoft-pl-300/source-01-review-bank.json \
             voucher/tracks/data-analysis/microsoft-pl-300/source-02-review-bank.json | sort)
-          test "$changed" = "$expected"
-      - name: Commit green source-backed data repair
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            printf '%s\n' "$allowed" | grep -Fx -- "$file" >/dev/null || {
+              echo "Unexpected generated change: $file" >&2
+              exit 1
+            }
+          done <<< "$changed"
+      - name: Commit green source-backed generated repair
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add voucher/tracks/data-analysis/microsoft-pl-300/source-01-review-bank.json \
                   voucher/tracks/data-analysis/microsoft-pl-300/source-02-review-bank.json \
-                  voucher/tracks/data-analysis/microsoft-pl-300/master-bank.json
+                  voucher/tracks/data-analysis/microsoft-pl-300/master-bank.json \
+                  voucher/tracks/data-analysis/microsoft-pl-300/full-ranked-index.json
           git diff --cached --check
-          git commit -m "fix: restore PL-300 source-backed native choices [skip ci]"
-          git push
+          if git diff --cached --quiet; then
+            echo "No generated PL-300 changes to commit."
+          else
+            git commit -m "fix: sync PL-300 native choices and full ranked index [skip ci]"
+            git push
+          fi
       - name: Pre-deploy gate on clean committed tree
         run: |
           test -z "$(git status --porcelain)"
