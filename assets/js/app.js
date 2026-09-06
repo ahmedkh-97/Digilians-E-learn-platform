@@ -6,12 +6,12 @@ import {
   getQuickCheckState,saveQuickCheckState,clearQuickCheckState,
   setLastCourse,getPendingAttempts,queuePendingAttempt,removePendingAttempt,
   getOfficialQbankState,getOfficialTrackState,updateOfficialTrackState,toggleOfficialBookmark,markOfficialReviewed,saveOfficialMistakes,clearOfficialMistakeFlags
-} from "./storage.js?v=0.22.5";
+} from "./storage.js?v=0.22.6";
 
 import {validateExamPayload,calculateResult,formatDuration,isAnswered,isQuestionAnswered,isAnswerCorrect,correctAnswerIds,selectedAnswerIds} from "./exam.js";
-import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.5";
+import {submitAttemptOnline,getLeaderboard,fetchAttemptsForExamIds,syncRankingAvatarProfile,fetchRankingProfiles,syncVoucherPrimaryTrack,fetchVoucherPrimaryTracks} from "./online.js?v=0.22.6";
 import {buildAggregateLeaderboard} from "./ranking-engine.js";
-import {isRankingMode,isVoucherRankingMode,findRankingLevel,buildRankingScope} from "./ranking-scopes.js?v=0.22.5";
+import {isRankingMode,isVoucherRankingMode,findRankingLevel,buildRankingScope} from "./ranking-scopes.js?v=0.22.6";
 import {validateExamJson,buildRegistryEntry} from "./json-validator.js";
 import {validateQuestionBank,buildBankRegistryEntry} from "./bank-validator.js";
 import {getBlueprintReadiness,buildExamFromBlueprint} from "./bank-engine.js";
@@ -22,13 +22,13 @@ import {normalizeStudyText,formatStudyMixedText} from "./study-format.js";
 import {renderPythonLessonV2,chartDecisionOptions,chartSvg} from "./python-study-render.js";
 import {renderSqlStudySectionHtml} from "./sql-study-render.js";
 import {renderExcelStudySectionHtmlV2,renderExcelGroupOverview,renderExcelGroupHeader} from "./excel-study-render.js";
-import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.22.5";
-import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,isPracticeableMistakeQuestion,patchMistakeContext,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.22.5";
-import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.22.5";
-import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.22.5";
-import {createUuid} from "./runtime-compat.js?v=0.22.5";
-import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.22.5";
-import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.22.5";
+import {renderTechnicalQuestion,renderTechnicalOption,renderTechnicalRichText,analyzeTechnicalContent,displayTopicForQuestion} from "./technical-content.js?v=0.22.6";
+import {recordMistakeOutcome,seedMistake,getMistakes,getMistake,getMistakeSummary,topicWeakness,questionFromMistake,isPracticeableMistakeQuestion,patchMistakeContext,clearMistakesForOwner,removeMistake,shouldRecordMistakeOutcome,isLegacyUnansweredOfficialSeed,MASTERY_STREAK} from "./mistakes.js?v=0.22.6";
+import {getAvatarProfile,hasAvatarProfile,renderAvatarInto,openAvatarPicker,avatarMarkup} from "./avatar-profile.js?v=0.22.6";
+import {resolveModuleExamId,moduleAssessmentState,shouldSyncAttemptOnline} from "./module-assessment.js?v=0.22.6";
+import {createUuid} from "./runtime-compat.js?v=0.22.6";
+import {buildExcelTrackResultMetadata} from "./excel-track-results.js?v=0.22.6";
+import {resolveLearningFlowExam,buildLearningFlowExamCard,shouldRenderStandaloneTrackExamRow} from "./learning-flow.js?v=0.22.6";
 import {
   validateVoucherRegistry,validateVoucherTrackRegistry,validateVoucherExamConfig,trackAvailability,
   selectVoucherQuestions,shuffleVoucherOptions,buildVoucherExamPayload,
@@ -42,7 +42,7 @@ import {
   voucherSessionRankingActivityId,buildVoucherSessionLeaderboard,resolveVoucherSessionRankStatus,firstPassPercentage,buildVoucherSessionAttemptMeta,buildVoucherSessionOnlineOverrides,
   voucherDomainRankingActivityId,buildVoucherDomainLeaderboard,buildVoucherOverallLeaderboard,resolveVoucherDomainRankStatus,buildVoucherDomainAttemptMeta,buildVoucherDomainOnlineOverrides,
   buildVoucherDomainNavigatorModel,buildVoucherSectionAnalytics
-} from "./voucher-engine.js?v=0.22.5";
+} from "./voucher-engine.js?v=0.22.6";
 import {
   createExamSession,resolveExamMode,
   selectSingleAnswerState,toggleMultiSelectAnswerState,confirmMultiSelectAnswerState,confirmVoucherRankedAnswerState,updateStructuredAnswerState,confirmStructuredAnswerState,
@@ -52,7 +52,7 @@ import {
   buildExamProgressSnapshot,getActiveExamProgress,effectiveSavedRemainingSeconds,voucherSavedAttemptMatches as matchesVoucherSavedAttempt,
   feedbackStateForQuestion,voucherSelectionStatusText,isMultiSelectQuestion as isMultiSelectFeedbackQuestion,
   buildSubjectBreakdown as buildExamSubjectBreakdown,buildStandardResultRecord,buildOnlineAttemptPayload,resultHeadline
-} from "./exam-engine.js?v=0.22.5";
+} from "./exam-engine.js?v=0.22.6";
 
 const BUILD_VERSION='0.22.6';
 
@@ -664,7 +664,7 @@ function ensurePl300Styles(doc=globalThis.document){
   if(!doc?.head||doc.querySelector('link[data-pl300-styles]'))return;
   const link=doc.createElement('link');
   link.rel='stylesheet';
-  link.href='assets/css/pl300.css?v=0.22.5';
+  link.href='assets/css/pl300.css?v=0.22.6';
   link.dataset.pl300Styles='1';
   doc.head.append(link);
 }
@@ -722,7 +722,7 @@ async function ensurePl300LearningLoop(){
 }
 
 async function ensurePl300FullRankedLearning(){
-  pl300FullRankedLearning??=await import("./pl300-full-ranked-learning.js?v=0.22.5");
+  pl300FullRankedLearning??=await import("./pl300-full-ranked-learning.js?v=0.22.6");
   return pl300FullRankedLearning;
 }
 
@@ -805,7 +805,7 @@ async function syncPl300FullRankSnapshot({force=false}={}){
   const signature=[metrics.completedOccurrences,metrics.masteredClusters,metrics.firstPassCorrectClusters,metrics.attemptsToBest,metrics.activeSolveSeconds].join(":");
   if(!force&&signature===state.voucherFullRankLastSyncSignature)return true;
   const payload=pl300FullRankedLearning.buildPl300FullRankOnlineAttempt({
-    playerId:state.playerId,studentName:state.studentName,examVersion:"0.22.5",metrics,
+    playerId:state.playerId,studentName:state.studentName,examVersion:"0.22.6",metrics,
     trackId:state.voucherTrackId||config.trackId||"data-analysis",examId:config.id
   });
   await submitAttemptOnline(payload);
@@ -830,7 +830,7 @@ async function openVoucherFullRankedLearning({filter="all",continueIncomplete=fa
     await ensurePl300LearningLoop();
     await loadVoucherFullRankedIndex(config);
     state.voucherSourceLearningState=getVoucherSourceLearningState(mistakeOwnerId(),config.id);
-    voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.5");
+    voucherSourcePracticeNative??=await import("./voucher-source-practice-native.js?v=0.22.6");
     voucherSourcePracticeNative.ensureNativePracticeStyles();
     const sources=config.sourceReviewSources||[];
     if(sources.length!==2)throw new Error("The two PL-300 source review banks are required.");

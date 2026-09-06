@@ -1,4 +1,4 @@
-import './pl300-source-practice-selection-guard.js?v=0.22.5';
+import './pl300-source-practice-selection-guard.js?v=0.22.6';
 import {
   structuredInteractionKind,
   structuredBinaryChoices,
@@ -13,7 +13,7 @@ export function ensureNativePracticeStyles(doc=globalThis.document){
   if(!doc?.head||doc.querySelector('link[data-source-native-practice]'))return;
   const link=doc.createElement('link');
   link.rel='stylesheet';
-  link.href='assets/css/source-practice-native.css?v=0.22.3';
+  link.href='assets/css/source-practice-native.css?v=0.22.6';
   link.dataset.sourceNativePractice='1';
   doc.head.append(link);
 }
