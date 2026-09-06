@@ -22,26 +22,27 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -f tools/v0226-task2-storage-patch.py ]]; then
-            python3 tools/v0226-task2-storage-patch.py
-          fi
+          shopt -s nullglob
+          for patch in tools/v0226-task*-patch.py; do
+            python3 "$patch"
+          done
       - name: V0.22.6 focused TDD gates
         shell: bash
         run: |
           set -euo pipefail
           mapfile -t V0226_TESTS < <(find tests -maxdepth 1 -type f -name 'v0226*.test.mjs' | sort)
-          node --test "${V0226_TESTS[@]}" tests/pl300-full-ranked-learning.test.mjs tests/pl300-mini-parts.test.mjs tests/pl300-full-ranked-storage.test.mjs
+          node --test "${V0226_TESTS[@]}" tests/pl300-full-ranked-learning.test.mjs tests/pl300-mini-parts.test.mjs tests/pl300-mini-parts-ui.test.mjs tests/pl300-full-ranked-storage.test.mjs tests/pl300-full-ranked-ui.test.mjs tests/v0224-pl300-preselect-dropdowns.test.mjs
       - name: Commit green applied task patches
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- assets/js/voucher-storage.js assets/js/backup-restore.js; then
+          if git diff --quiet; then
             echo 'No generated task patch changes to commit.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/js/voucher-storage.js assets/js/backup-restore.js
+          git add -u
           git diff --cached --check
-          git commit -m 'feat: finish PL-300 learning state persistence [skip ci]'
+          git commit -m 'feat: apply green V0.22.6 task patch [skip ci]'
           git push
