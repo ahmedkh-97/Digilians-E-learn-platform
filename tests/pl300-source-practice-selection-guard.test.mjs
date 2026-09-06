@@ -7,9 +7,10 @@ import {
 } from '../assets/js/pl300-source-practice-selection-guard.js';
 
 const nativePractice=fs.readFileSync(new URL('../assets/js/voucher-source-practice-native.js',import.meta.url),'utf8');
+const version=fs.readFileSync(new URL('../VERSION.txt',import.meta.url),'utf8').trim();
 
 test('PL-300 source-practice selection guard is lazy-loaded with the source-practice module',()=>{
-  assert.match(nativePractice,/import '\.\/pl300-source-practice-selection-guard\.js\?v=0\.22\.4';/);
+  assert.ok(nativePractice.includes(`import './pl300-source-practice-selection-guard.js?v=${version}';`));
 });
 
 test('selection guard resolves Select 2 and Select 3 requirements',()=>{
