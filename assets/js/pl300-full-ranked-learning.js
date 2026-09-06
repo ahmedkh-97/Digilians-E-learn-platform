@@ -483,7 +483,7 @@ export function buildPl300FullRankedReviewMarkup({
       </div>
       <div class="source-review-jump"><label for="sourceReviewJump">Jump</label><input id="sourceReviewJump" type="number" min="1" max="${length}" value="${index+1}"><button type="button" class="secondary-btn" id="sourceReviewJumpBtn">Go</button></div>
     </section>
-    <section class="source-review-progress"><div class="source-review-progress-meta"><span>${htmlEscape(progressModel.questionLabel)}</span><span>${htmlEscape(progressModel.studiedLabel)}</span></div><small>${htmlEscape(filterLabel)}</small><div><i style="width:${progressModel.percentage}%"></i></div></section>
+    <section class="source-review-progress"><div class="source-review-progress-meta"><span>${htmlEscape(progressModel.questionLabel)}</span><span>${htmlEscape(progressModel.studiedLabel)}</span></div><small>${htmlEscape(filterLabel)}</small><div class="source-review-progress-track"><i style="width:${progressModel.percentage}%"></i></div></section>
     <article class="source-review-card ${objective?'is-ranked-objective':'is-ranked-checkpoint'}">
       <div class="source-review-card-head"><div><span class="source-review-type">${htmlEscape(displayTypeLabel)}</span><h3>${htmlEscape(sourceLabel)} · Question ${htmlEscape(questionNumber)}${copy}</h3><small>${htmlEscape(pageLabel)}${domain}</small></div><span class="source-review-status">${htmlEscape(recordStatus)}</span></div>
       <div class="source-review-question">${questionHtml}</div>
