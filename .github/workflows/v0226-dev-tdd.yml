@@ -1,0 +1,24 @@
+name: V0.22.6 TDD Dev Validation
+
+on:
+  push:
+    branches:
+      - feature/v0.22.6-pl300-learning-ux
+
+permissions:
+  contents: read
+
+jobs:
+  focused-tdd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: V0.22.6 focused TDD gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t V0226_TESTS < <(find tests -maxdepth 1 -type f -name 'v0226*.test.mjs' | sort)
+          node --test "${V0226_TESTS[@]}" tests/pl300-full-ranked-learning.test.mjs tests/pl300-mini-parts.test.mjs
