@@ -1,6 +1,5 @@
 export function createPl300LearningController({
   state,
-  getExamId,
   getRecords,
   saveLearningState,
   learningLoop,
@@ -8,7 +7,6 @@ export function createPl300LearningController({
   filteredQuestions,
   resetTimer,
   renderReview,
-  selectPart,
   scrollTop
 }={}){
   function activePart(){
@@ -80,6 +78,27 @@ export function createPl300LearningController({
     return {records,review,nextPart};
   }
 
+  function selectPart(partId='all'){
+    resetTimer();
+    const requested=String(partId||'all');
+    state.voucherSourceReviewPartId=requested==='all'||state.voucherSourceReviewParts.some(part=>String(part.id)===requested)?requested:'all';
+    state.voucherSourceReviewWeakIds=null;
+    state.voucherSourcePartReviewMode=null;
+    state.voucherSourceReviewFilter='all';
+    state.voucherSourceReviewIndex=0;
+    const part=activePart();
+    if(part&&learningLoop){
+      const resume=learningLoop.resolvePl300PartResume({part,index:state.voucherFullRankedIndex,records:getRecords()});
+      if(resume.mode==='question'){
+        const questions=filteredQuestions();
+        const index=questions.findIndex(question=>String(question.id)===String(resume.questionId));
+        state.voucherSourceReviewIndex=index>=0?index:0;
+      }else state.voucherSourcePartReviewMode=resume.mode;
+    }
+    renderReview();
+    scrollTop();
+  }
+
   function renderEndOfPartReview(body,part){
     const {review,nextPart}=partReviewContext(part);
     body.innerHTML=fullRankedLearning.buildPl300EndOfPartReviewMarkup({part,review,nextPart:nextPart?{id:nextPart.id,label:nextPart.label||nextPart.title||nextPart.id}:null});
@@ -90,12 +109,9 @@ export function createPl300LearningController({
       renderReview();
       scrollTop();
     });
-    body.querySelector('[data-pl300-continue-next-part]')?.addEventListener('click',event=>{
-      const target=String(event.currentTarget?.dataset?.pl300ContinueNextPart||'all');
-      selectPart(target||'all');
-    });
+    body.querySelector('[data-pl300-continue-next-part]')?.addEventListener('click',event=>selectPart(String(event.currentTarget?.dataset?.pl300ContinueNextPart||'all')));
     body.querySelector('[data-pl300-parts-back]')?.addEventListener('click',()=>selectPart('all'));
   }
 
-  return {activePart,persist,updateAfterScoredSave,navigate,partReviewContext,renderEndOfPartReview};
+  return {activePart,persist,updateAfterScoredSave,navigate,partReviewContext,selectPart,renderEndOfPartReview};
 }
