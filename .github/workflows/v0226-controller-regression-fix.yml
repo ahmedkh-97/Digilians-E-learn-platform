@@ -1,0 +1,55 @@
+name: V0.22.6 Controller Regression Fix Bot
+
+on:
+  push:
+    branches:
+      - feature/v0.22.6-pl300-learning-ux
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/v0.22.6-pl300-learning-ux
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply controller regression fixes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          controller = Path('assets/js/pl300-learning-controller.js')
+          text = controller.read_text()
+          old = """    if(state.voucherSourceReviewFilter==='source-01'||state.voucherSourceReviewFilter==='source-02')return partQuestions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);\n    return partQuestions;"""
+          new = """    if(state.voucherSourceReviewFilter==='source-01'||state.voucherSourceReviewFilter==='source-02')return partQuestions.filter(q=>String(q.sourceId)===state.voucherSourceReviewFilter);\n    if(state.voucherSourceReviewFilter==='objective')return partQuestions.filter(q=>fullRankRecord(q)?.mode==='objective');\n    if(state.voucherSourceReviewFilter==='checkpoint')return partQuestions.filter(q=>fullRankRecord(q)?.mode==='checkpoint');\n    return partQuestions;"""
+          if text.count(old) != 1:
+              raise SystemExit(f'controller target count={text.count(old)}')
+          controller.write_text(text.replace(old, new, 1))
+
+          app = Path('assets/js/app.js')
+          text = app.read_text()
+          old = "async function loadVoucherFullRankedIndex(config=state.voucherExamConfig){return pl300LearningController.loadFullRankedIndex(config);}"
+          new = "async function loadVoucherFullRankedIndex(config=state.voucherExamConfig){await ensurePl300LearningLoop();await ensurePl300LearningController();return pl300LearningController.loadFullRankedIndex(config);}"
+          if text.count(old) != 1:
+              raise SystemExit(f'app target count={text.count(old)}')
+          app.write_text(text.replace(old, new, 1))
+          PY
+      - name: Verify targeted regressions
+        run: |
+          node --check assets/js/app.js
+          node --check assets/js/pl300-learning-controller.js
+          node --test tests/v0226-pl300-controller-regressions.test.mjs tests/v0226-pl300-next-action-label.test.mjs
+      - name: Commit fixes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/js/app.js assets/js/pl300-learning-controller.js
+          git diff --cached --check
+          git commit -m "fix: restore PL-300 filters and lazy bootstrap"
+          git push origin HEAD:feature/v0.22.6-pl300-learning-ux
