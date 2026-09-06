@@ -46,18 +46,26 @@ test('question navigation distinguishes unanswered skip from saved next',()=>{
 
 test('end-of-part review exposes study recovery metrics and weak-question actions',()=>{
   assert.equal(typeof fullRank.buildPl300EndOfPartReviewMarkup,'function');
-  const html=fullRank.buildPl300EndOfPartReviewMarkup({
+  const weakHtml=fullRank.buildPl300EndOfPartReviewMarkup({
     part:{id:'part-1',domainTitle:'Prepare data',sectionTitle:'Get data',partNumber:1},
     review:{studied:18,total:18,firstPassCorrect:12,recovered:3,needReview:3,weakQuestionIds:['q2','q7','q9']},
     nextPart:{id:'part-2',label:'Prepare data → Get data · Part 2 · 18 Questions'}
   });
-  assert.match(html,/End-of-Part Review/i);
-  assert.match(html,/Studied\s*<strong>18\s*\/\s*18/i);
-  assert.match(html,/First-pass correct\s*<strong>12/i);
-  assert.match(html,/Recovered\s*<strong>3/i);
-  assert.match(html,/Need review\s*<strong>3/i);
-  assert.match(html,/data-pl300-review-weak[^>]*>Review 3 weak questions/i);
-  assert.match(html,/data-pl300-continue-next-part/i);
+  assert.match(weakHtml,/End-of-Part Review/i);
+  assert.match(weakHtml,/Studied\s*<strong>18\s*\/\s*18/i);
+  assert.match(weakHtml,/First-pass correct\s*<strong>12/i);
+  assert.match(weakHtml,/Recovered\s*<strong>3/i);
+  assert.match(weakHtml,/Need review\s*<strong>3/i);
+  assert.match(weakHtml,/data-pl300-review-weak[^>]*>Review 3 weak questions/i);
+  assert.doesNotMatch(weakHtml,/data-pl300-continue-next-part/i);
+
+  const masteredHtml=fullRank.buildPl300EndOfPartReviewMarkup({
+    part:{id:'part-1',domainTitle:'Prepare data',sectionTitle:'Get data',partNumber:1},
+    review:{studied:18,total:18,firstPassCorrect:15,recovered:3,needReview:0,weakQuestionIds:[]},
+    nextPart:{id:'part-2',label:'Prepare data → Get data · Part 2 · 18 Questions'}
+  });
+  assert.match(masteredHtml,/data-pl300-continue-next-part/i);
+  assert.doesNotMatch(masteredHtml,/data-pl300-review-weak/i);
 });
 
 test('controller preserves review and retry actions across post-render selection guard',()=>{
