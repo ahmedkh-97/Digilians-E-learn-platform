@@ -1,3 +1,5 @@
+import {normalizePl300LearningState} from './pl300-learning-loop.js';
+
 export const VOUCHER_STORAGE_KEY='digilians.voucher';
 
 function resolveStorage(storage){
@@ -29,23 +31,36 @@ function ensureOwner(store,ownerId){
   const id=String(ownerId||'').trim();
   if(!id)throw new Error('Voucher ownerId is required');
   if(!store.owners[id]||typeof store.owners[id]!=='object'){
-    store.owners[id]={attempts:[],seenByExam:{},sourcePractice:{},updatedAt:new Date().toISOString()};
+    store.owners[id]={attempts:[],seenByExam:{},sourcePractice:{},sourceLearningByExam:{},updatedAt:new Date().toISOString()};
   }
   const owner=store.owners[id];
   if(!Array.isArray(owner.attempts))owner.attempts=[];
   if(!owner.seenByExam||typeof owner.seenByExam!=='object')owner.seenByExam={};
   if(!owner.sourcePractice||typeof owner.sourcePractice!=='object'||Array.isArray(owner.sourcePractice))owner.sourcePractice={};
+  if(!owner.sourceLearningByExam||typeof owner.sourceLearningByExam!=='object'||Array.isArray(owner.sourceLearningByExam))owner.sourceLearningByExam={};
   return owner;
+}
+
+function cleanLearningState(value){
+  const normalized=normalizePl300LearningState(value);
+  const updatedAt=value?.updatedAt?String(value.updatedAt):null;
+  return updatedAt?{...normalized,updatedAt}:normalized;
+}
+
+function cleanLearningByExam(value){
+  if(!value||typeof value!=='object'||Array.isArray(value))return {};
+  return Object.fromEntries(Object.entries(value).map(([examId,state])=>[String(examId),cleanLearningState(state)]).filter(([examId])=>examId));
 }
 
 export function getVoucherState(ownerId,{storage}={}){
   const store=readStore(storage);
   const owner=store.owners?.[String(ownerId||'')];
-  if(!owner)return {attempts:[],seenByExam:{},sourcePractice:{},updatedAt:null};
+  if(!owner)return {attempts:[],seenByExam:{},sourcePractice:{},sourceLearningByExam:{},updatedAt:null};
   return {
     attempts:Array.isArray(owner.attempts)?owner.attempts.map(x=>({...x})):[],
     seenByExam:Object.fromEntries(Object.entries(owner.seenByExam||{}).map(([k,v])=>[k,[...(Array.isArray(v)?v:[])]])),
     sourcePractice:Object.fromEntries(Object.entries(owner.sourcePractice||{}).map(([k,v])=>[k,{...(v||{}),selected:Array.isArray(v?.selected)?[...v.selected]:undefined,answers:v?.answers&&typeof v.answers==='object'&&!Array.isArray(v.answers)?{...v.answers}:undefined}])),
+    sourceLearningByExam:cleanLearningByExam(owner.sourceLearningByExam),
     updatedAt:owner.updatedAt||null
   };
 }
@@ -62,10 +77,12 @@ export function saveVoucherAttempt(ownerId,attempt,{storage}={}){
   return writeStore(store,storage);
 }
 
-export function getVoucherAttempts(ownerId,examId,{storage}={}){
-  const attempts=getVoucherState(ownerId,{storage}).attempts;
-  if(!examId)return attempts;
-  return attempts.filter(x=>String(x?.examId)===String(examId));
+export function getVoucherAttempts(ownerId,examId,{storage,rankEligibleOnly=false,sizeMode=null}={}){
+  let attempts=getVoucherState(ownerId,{storage}).attempts;
+  if(examId)attempts=attempts.filter(x=>String(x?.examId)===String(examId));
+  if(rankEligibleOnly)attempts=attempts.filter(x=>x?.rankEligible===true);
+  if(sizeMode)attempts=attempts.filter(x=>String(x?.sizeMode||'')===String(sizeMode));
+  return attempts;
 }
 
 function compareAttempts(a,b){
@@ -106,6 +123,23 @@ export function getVoucherSeenQuestionIds(ownerId,examId,{storage}={}){
   return [...(state.seenByExam?.[String(examId||'')]||[])];
 }
 
+export function getVoucherSourceLearningState(ownerId,examId,{storage}={}){
+  const exam=String(examId||'').trim();
+  if(!exam)return normalizePl300LearningState();
+  const state=getVoucherState(ownerId,{storage}).sourceLearningByExam?.[exam];
+  return state?cleanLearningState(state):normalizePl300LearningState();
+}
+
+export function saveVoucherSourceLearningState(ownerId,examId,state,{storage,updatedAt}={}){
+  const exam=String(examId||'').trim();
+  if(!exam)throw new Error('Voucher source learning examId is required');
+  const store=readStore(storage);
+  const owner=ensureOwner(store,ownerId);
+  const timestamp=String(updatedAt||state?.updatedAt||new Date().toISOString());
+  owner.sourceLearningByExam[exam]={...normalizePl300LearningState(state),updatedAt:timestamp};
+  owner.updatedAt=timestamp;
+  return writeStore(store,storage);
+}
 
 export function saveVoucherSourcePracticeResult(ownerId,questionId,result,{storage}={}){
   const id=String(questionId||'').trim();
@@ -182,6 +216,7 @@ export function importVoucherStore(store,{storage}={}){
         selected:Array.isArray(record?.selected)?[...new Set(record.selected.map(String).filter(Boolean))]:undefined,
         answers:record?.answers&&typeof record.answers==='object'&&!Array.isArray(record.answers)?Object.fromEntries(Object.entries(record.answers).map(([k,v])=>[String(k),String(v??'').trim()]).filter(([,v])=>v)):undefined
       }])),
+      sourceLearningByExam:cleanLearningByExam(value?.sourceLearningByExam),
       updatedAt:value?.updatedAt||null
     };
   }
