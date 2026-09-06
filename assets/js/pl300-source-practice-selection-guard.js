@@ -1,5 +1,5 @@
 const installedDocuments=new WeakSet();
-const postRenderClickSelector='#sourceReviewNext,#sourceReviewPrev,#sourceReviewJumpBtn,#sourcePracticeRetryBtn,[data-source-review-filter],[data-pl300-part-select],[data-pl300-parts-back]';
+const postRenderClickSelector='#sourceReviewNext,#sourceReviewPrev,#sourceReviewJumpBtn,#sourcePracticeRetryBtn,#sourcePracticeNativeRetryBtn,#sourcePracticeRetryLaterBtn,[data-source-review-filter],[data-pl300-part-select],[data-pl300-parts-back],[data-pl300-review-weak],[data-pl300-continue-next-part]';
 
 export function sourcePracticeRequiredCountFromText(text=''){
   const match=String(text||'').match(/Select\s+(\d+)\s+answers?/i);

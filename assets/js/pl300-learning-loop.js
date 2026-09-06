@@ -169,7 +169,7 @@ export function buildPl300PartReviewModel(args={}){
     completeFirstPass:metrics.studied>=metrics.total&&metrics.total>0,
     weakQuestionIds:[...metrics.needReviewQuestionIds],
     primaryAction:metrics.needReview?`Review ${metrics.needReview} weak question${metrics.needReview===1?'':'s'}`:'Continue to next part',
-    secondaryAction:metrics.needReview?'Continue to next part':null
+    secondaryAction:null
   };
 }
 

@@ -19,6 +19,10 @@ export function sourceAttemptSelection({question,record,tempSelections={},retryi
   return record?.mode==='auto'&&Array.isArray(record?.selected)?[...record.selected]:[];
 }
 
+export function pl300SourceNextActionLabel(record){
+  return record?'Next →':'Skip for now →';
+}
+
 export function buildSourcePracticeOptionsMarkup({question={},record=null,selected=[],locked=false,retrying=false,renderRichText=value=>htmlEscape(value)}={}){
   if(question?.reviewMode!=='scored-text'||!Array.isArray(question.options)||!question.options.length)return '';
   const correctIds=new Set((Array.isArray(question.correctAnswers)&&question.correctAnswers.length?question.correctAnswers:[question.correctAnswer]).filter(Boolean).map(String));
@@ -36,7 +40,9 @@ export function buildSourcePracticeOptionsMarkup({question={},record=null,select
     ?`<div class="source-practice-result ${record.correct?'correct':'incorrect'}"><strong>${record.correct?'Correct':'Not correct'}</strong><span>${record.correct?'Matches the source key.':'Review the source answer, then retry as a new attempt.'}</span></div>`
     :retrying?'<div class="source-practice-retry-note"><strong>Retry attempt</strong><span>Your saved first-pass answer stays unchanged until you submit this new attempt.</span></div>':'';
   const actions=locked
-    ?'<div class="source-practice-actions"><button type="button" class="secondary-btn" id="sourcePracticeRetryBtn">Retry Question</button><small>Saved answer is locked. Retry creates a new attempt.</small></div>'
+    ?record?.correct===false
+      ?'<div class="source-practice-actions source-practice-recovery-actions"><button type="button" class="primary-btn" id="sourcePracticeRetryLaterBtn">Review & retry later</button><button type="button" class="secondary-btn" id="sourcePracticeRetryBtn">Retry now</button><small>First-pass score stays fixed. Retry can recover mastery without rewriting history.</small></div>'
+      :'<div class="source-practice-actions"><small>Answer saved. Continue when ready.</small></div>'
     :`<div class="source-practice-actions"><button type="button" class="primary-btn" id="sourcePracticeCheckBtn" ${chosen.length?'':'disabled'}>Check answer</button><small>${multi?`Select ${correctIds.size} answers.`:'Select one answer.'}</small></div>`;
   return `<div class="source-review-options ${multi?'multi':'single'}">${options}</div>${actions}${result}`;
 }
@@ -459,12 +465,29 @@ export function buildPl300FullRankedAnswerMarkup({question={},completed=false,re
   return `<div class="source-review-answer-key source-reveal-note"><span class="eyebrow">SOURCE EVIDENCE</span><p>دليل المصدر محفوظ كما هو. السؤال ده لا يتم منحه Correct تنافسي من غير تصحيح موثوق.</p></div>${visuals?`<div class="source-review-visual-stack answer-evidence">${visuals}</div>`:''}${arabic}${optional}${original}<div class="source-practice-checkpoint"><span class="eyebrow">RANKED STUDY CHECKPOINT</span><p dir="rtl">إكمال المراجعة يتحسب ضمن 509/509، لكنه لا يضيف إجابة صحيحة وهمية إلى Validated Accuracy.</p><button type="button" class="primary-btn" id="sourcePracticeCheckpointBtn" ${revealed&&!completed?'':'disabled'}>${completed?'تمت مراجعة السؤال':'إكمال نقطة المذاكرة'}</button>${completed?'<small>تم الحفظ كمُراجع، والـAccuracy التنافسي لم يتغير.</small>':'<small>افتح دليل المصدر أولًا ثم أكمل نقطة المذاكرة.</small>'}</div>`;
 }
 
+export function buildPl300EndOfPartReviewMarkup({part={},review={},nextPart=null}={}){
+  const studied=Math.max(0,Number(review?.studied)||0);
+  const total=Math.max(0,Number(review?.total)||0);
+  const firstPass=Math.max(0,Number(review?.firstPassCorrect)||0);
+  const recovered=Math.max(0,Number(review?.recovered)||0);
+  const needReview=Math.max(0,Number(review?.needReview)||0);
+  const weakIds=Array.isArray(review?.weakQuestionIds)?review.weakQuestionIds:[];
+  const title=[part?.domainTitle,part?.sectionTitle,part?.partNumber?`Part ${part.partNumber}`:''].filter(Boolean).join(' · ')||'Current Part';
+  const action=needReview
+    ?`<button type="button" class="primary-btn large-btn" data-pl300-review-weak>Review ${needReview} weak question${needReview===1?'':'s'} →</button>`
+    :nextPart
+      ?`<button type="button" class="primary-btn large-btn" data-pl300-continue-next-part="${htmlEscape(nextPart.id||'')}">Continue to next part →</button>`
+      :'<button type="button" class="primary-btn large-btn" data-pl300-continue-next-part="all">Back to all parts →</button>';
+  return `<section class="pl300-end-part-review" data-pl300-end-part-review><span class="eyebrow">END-OF-PART REVIEW</span><h2>End-of-Part Review</h2><p>${htmlEscape(title)}</p><div class="pl300-end-part-metrics"><div>Studied <strong>${studied} / ${total}</strong></div><div>First-pass correct <strong>${firstPass}</strong></div><div>Recovered <strong>${recovered}</strong></div><div>Need review <strong>${needReview}</strong></div></div>${needReview?`<p class="pl300-end-part-note">${weakIds.length} question${weakIds.length===1?'':'s'} still need recovery. Review them before moving on.</p>`:'<p class="pl300-end-part-note">Part mastered. Your first-pass history remains unchanged.</p>'}<div class="pl300-end-part-actions">${action}<button type="button" class="secondary-btn" data-pl300-parts-back>All parts</button></div></section>`;
+}
+
 export function buildPl300FullRankedReviewMarkup({
   sourceTitle='Full Ranked Bank — 509 Questions',source01Count=0,source02Count=0,objectiveCount=0,checkpointCount=0,
   metrics={},activeFilter='all',totalAll=509,questionsLength=0,currentIndex=0,filterLabel='All 509',objective=false,
   question=null,typeLabel='',sourceLabel='',questionNumber='',occurrence=1,pageLabel='',domainId='',recordStatus='NOT STUDIED',
   questionHtml='',visualHtml='',optionsHtml='',nativeHtml='',revealOpen=false,answerHtml='',
   partOptionsHtml='<option value="all">All 509 Questions</option>',partCatalogHtml='',showPartCatalog=false,
+  nextActionLabel='Next →',
   activePartLabel='All 509 Questions',partCompleted=0,partTotal=509
 }={}){
   const filterButton=(id,label,count)=>`<button type="button" data-source-review-filter="${id}" class="${activeFilter===id?'active':''}">${label} <b>${count}</b></button>`;

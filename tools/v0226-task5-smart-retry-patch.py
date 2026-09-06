@@ -23,20 +23,20 @@ p.write_text(text,encoding='utf-8')
 p=ROOT/'assets/js/pl300-full-ranked-learning.js'
 text=p.read_text(encoding='utf-8')
 if 'export function pl300SourceNextActionLabel' not in text:
-    anchor="export function buildSourcePracticeOptionsMarkup({question,record,selected=[],locked=false,retrying=false,renderRichText=value=>htmlEscape(value)}={}){"
+    anchor="export function buildSourcePracticeOptionsMarkup({question={},record=null,selected=[],locked=false,retrying=false,renderRichText=value=>htmlEscape(value)}={}){"
     insert="export function pl300SourceNextActionLabel(record){\n  return record?'Next →':'Skip for now →';\n}\n\n"
     if anchor not in text: raise SystemExit('full-ranked options anchor missing')
     text=text.replace(anchor,insert+anchor,1)
 
 old="""  const actions=locked
     ?'<div class=\"source-practice-actions\"><button type=\"button\" class=\"secondary-btn\" id=\"sourcePracticeRetryBtn\">Retry Question</button><small>Saved answer is locked. Retry creates a new attempt.</small></div>'
-    :`<div class=\"source-practice-actions\"><button type=\"button\" class=\"primary-btn\" id=\"sourcePracticeCheckBtn\" ${selected.length?'':'disabled'}>Check answer</button><small>${multi?`Select ${correctIds.length} answers.`:'Select one answer.'} First-pass scoring is preserved.</small></div>`;
+    :`<div class=\"source-practice-actions\"><button type=\"button\" class=\"primary-btn\" id=\"sourcePracticeCheckBtn\" ${chosen.length?'':'disabled'}>Check answer</button><small>${multi?`Select ${correctIds.size} answers.`:'Select one answer.'}</small></div>`;
 """
 new="""  const actions=locked
     ?record?.correct===false
       ?'<div class=\"source-practice-actions source-practice-recovery-actions\"><button type=\"button\" class=\"primary-btn\" id=\"sourcePracticeRetryLaterBtn\">Review & retry later</button><button type=\"button\" class=\"secondary-btn\" id=\"sourcePracticeRetryBtn\">Retry now</button><small>First-pass score stays fixed. Retry can recover mastery without rewriting history.</small></div>'
       :'<div class=\"source-practice-actions\"><small>Answer saved. Continue when ready.</small></div>'
-    :`<div class=\"source-practice-actions\"><button type=\"button\" class=\"primary-btn\" id=\"sourcePracticeCheckBtn\" ${selected.length?'':'disabled'}>Check answer</button><small>${multi?`Select ${correctIds.length} answers.`:'Select one answer.'} First-pass scoring is preserved.</small></div>`;
+    :`<div class=\"source-practice-actions\"><button type=\"button\" class=\"primary-btn\" id=\"sourcePracticeCheckBtn\" ${chosen.length?'':'disabled'}>Check answer</button><small>${multi?`Select ${correctIds.size} answers.`:'Select one answer.'}</small></div>`;
 """
 if old in text: text=text.replace(old,new,1)
 elif 'sourcePracticeRetryLaterBtn' not in text: raise SystemExit('full-ranked locked action anchor missing')
