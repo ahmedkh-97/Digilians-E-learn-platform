@@ -9,6 +9,7 @@ export function createPl300LearningController({
   loadJson,
   renderRichText
 }={}){
+  let repeatPartId=null;
   function filteredQuestions(){
     const questions=state.voucherSourceReviewBank?.questions||[];
     let partQuestions=fullRankedLearning?.filterPl300QuestionsByPart
@@ -118,7 +119,7 @@ export function createPl300LearningController({
       learning=learningLoop.enqueuePl300DelayedRetry({state:learning,partId:part.id,questionId:question.id,remainingFirstPassCount:remainingFirstPass(part,records)});
     }
     persist(learning);
-    if(correct===true&&state.voucherSourceReviewWeakIds instanceof Set){
+    if(correct===true&&state.voucherSourceReviewWeakIds instanceof Set&&!repeatPartId){
       state.voucherSourceReviewWeakIds.delete(String(question.id));
       if(!state.voucherSourceReviewWeakIds.size){
         state.voucherSourceReviewWeakIds=null;
@@ -161,8 +162,42 @@ export function createPl300LearningController({
     return {records,review,nextPart};
   }
 
+  function clearRepeatPart(){
+    const repeatId=String(repeatPartId||'');
+    if(!repeatId)return;
+    const repeatPart=state.voucherSourceReviewParts.find(part=>String(part?.id||'')===repeatId);
+    for(const id of repeatPart?.questionIds||[])state.voucherSourcePracticeRetrying?.delete?.(String(id));
+    repeatPartId=null;
+  }
+
+  function repeatPart(){
+    const part=activePart();
+    if(!part)return;
+    clearRepeatPart();
+    repeatPartId=String(part.id);
+    state.voucherSourceReviewWeakIds=new Set((part.questionIds||[]).map(String));
+    state.voucherSourcePartReviewMode=null;
+    state.voucherSourceReviewFilter='all';
+    state.voucherSourceReviewIndex=0;
+    state.voucherSourcePracticeRetrying??=new Set();
+    state.voucherSourcePracticeSelections??={};
+    state.voucherSourcePracticeNativeInputs??={};
+    state.voucherSourceRevealOpened??=new Set();
+    for(const id of part.questionIds||[]){
+      const key=String(id);
+      state.voucherSourcePracticeRetrying.add(key);
+      delete state.voucherSourcePracticeSelections[key];
+      delete state.voucherSourcePracticeNativeInputs[key];
+      state.voucherSourceRevealOpened.delete(key);
+    }
+    resetSolveTimer();
+    renderReview();
+    scrollTop();
+  }
+
   function selectPart(partId='all'){
     resetSolveTimer();
+    clearRepeatPart();
     const requested=String(partId||'all');
     state.voucherSourceReviewPartId=requested==='all'||state.voucherSourceReviewParts.some(part=>String(part.id)===requested)?requested:'all';
     state.voucherSourceReviewWeakIds=null;
@@ -193,11 +228,12 @@ export function createPl300LearningController({
       scrollTop();
     });
     body.querySelector('[data-pl300-continue-next-part]')?.addEventListener('click',event=>selectPart(String(event.currentTarget?.dataset?.pl300ContinueNextPart||'all')));
+    body.querySelector('[data-pl300-repeat-part]')?.addEventListener('click',()=>repeatPart());
     body.querySelector('[data-pl300-parts-back]')?.addEventListener('click',()=>selectPart('all'));
   }
 
   return {
     filteredQuestions,loadFullRankedIndex,fullRankRecord,fullRankMetrics,practiceRecord,correctIds,selection,selectionsMatch,optionsHtml,summary,
-    startSolveTimer,consumeSolveSeconds,resetSolveTimer,activePart,persist,updateAfterScoredSave,navigate,partReviewContext,selectPart,renderEndOfPartReview
+    startSolveTimer,consumeSolveSeconds,resetSolveTimer,activePart,persist,updateAfterScoredSave,navigate,partReviewContext,clearRepeatPart,repeatPart,selectPart,renderEndOfPartReview
   };
 }
