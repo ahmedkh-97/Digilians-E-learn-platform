@@ -88,3 +88,10 @@ test('quick check permanently guards the PL-300 200Q final-review contract',()=>
   const quick=read('tools/quick-local-check.mjs');
   assert.match(quick,/tests\/pl300-final-review-wave3\.test\.mjs/);
 });
+
+test('quick check enforces fast hardening audits before localhost starts',()=>{
+  const quick=read('tools/quick-local-check.mjs');
+  for(const token of ['local-reference-audit.mjs','repository-release-consistency.test.mjs']){
+    assert.ok(quick.includes(token),`quick check missing ${token}`);
+  }
+});

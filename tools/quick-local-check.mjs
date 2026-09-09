@@ -46,6 +46,12 @@ for(const rel of ['tests/exam-context.test.mjs','tests/exam-navigator-track-grou
   result.status===0?pass(`Targeted test: ${rel}`):fail(`Targeted test ${rel}\n${(result.stdout||'').trim()}\n${(result.stderr||'').trim()}`);
 }
 
+const references=spawnSync(process.execPath,[full('tools/local-reference-audit.mjs')],{cwd:ROOT,encoding:'utf8'});
+references.status===0?pass('Local reference audit'):fail(`Local reference audit\n${references.stdout||''}${references.stderr||''}`);
+
+const releaseConsistency=spawnSync(process.execPath,['--test',full('tests/repository-release-consistency.test.mjs')],{cwd:ROOT,encoding:'utf8'});
+releaseConsistency.status===0?pass('Repository release consistency'):fail(`Repository release consistency\n${releaseConsistency.stdout||''}${releaseConsistency.stderr||''}`);
+
 const voucher=spawnSync(process.execPath,[full('tools/voucher-integrity-check.mjs')],{cwd:ROOT,encoding:'utf8'});
 voucher.status===0?pass('Voucher integrity gate'):fail(`Voucher integrity gate\n${(voucher.stdout||'').trim()}\n${(voucher.stderr||'').trim()}`);
 

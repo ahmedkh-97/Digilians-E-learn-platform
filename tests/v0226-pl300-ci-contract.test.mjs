@@ -4,10 +4,10 @@ import fs from 'node:fs';
 
 const workflow=fs.readFileSync(new URL('../.github/workflows/v0223-branch-ci.yml',import.meta.url),'utf8');
 
-test('V0.22.6 release workflow targets feature branch and main PRs',()=>{
-  assert.match(workflow,/name:\s*V0\.22\.6 PL-300 Learning UX Validation/);
-  assert.match(workflow,/feature\/v0\.22\.6-pl300-learning-ux/);
-  assert.match(workflow,/pull_request:[\s\S]*?- main/);
+test('permanent workflow validates main pushes and main pull requests',()=>{
+  assert.match(workflow,/name:\s*Digilians Platform Validation/);
+  assert.match(workflow,/push:[\s\S]*?branches:[\s\S]*?- main/);
+  assert.match(workflow,/pull_request:[\s\S]*?branches:[\s\S]*?- main/);
 });
 
 test('V0.22.6 release workflow protects focused UX, 509 audit, full regression and pre-deploy',()=>{

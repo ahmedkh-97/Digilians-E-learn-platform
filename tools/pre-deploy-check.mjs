@@ -61,6 +61,16 @@ if(!badSyntax)pass(`JS/MJS syntax: ${sourceFiles.length}/${sourceFiles.length}`)
 const releaseIdentity=spawnSync(process.execPath,['--test',full('tests/release-identity-gate.test.mjs')],{cwd:ROOT,encoding:'utf8'});
 releaseIdentity.status===0?pass('Release identity gate'):fail(`Release identity gate\n${(releaseIdentity.stdout||'').trim()}\n${(releaseIdentity.stderr||'').trim()}`);
 
+const guardedCommands=[
+  ['Protected payload baseline',[full('tools/protected-payload-baseline.mjs'),'--check','docs/releases/V0.22.7-PROTECTED-PAYLOAD-BASELINE.json']],
+  ['Local reference audit',[full('tools/local-reference-audit.mjs')]],
+  ['Security/privacy audit',[full('tools/security-privacy-audit.mjs')]]
+];
+for(const [label,args] of guardedCommands){
+  const result=spawnSync(process.execPath,args,{cwd:ROOT,encoding:'utf8'});
+  result.status===0?pass(label):fail(`${label}\n${result.stdout||''}${result.stderr||''}`);
+}
+
 const testDir=full('tests');
 const testFiles=fs.readdirSync(testDir).filter(name=>name.endsWith('.test.mjs')).sort().map(name=>path.join(testDir,name));
 const tests=spawnSync(process.execPath,['--test',...testFiles],{cwd:ROOT,encoding:'utf8',maxBuffer:32*1024*1024});
