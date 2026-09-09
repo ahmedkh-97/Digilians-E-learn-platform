@@ -1,9 +1,9 @@
-name: V0.22.6 PL-300 Learning UX Validation
+name: Digilians Platform Validation
 
 on:
   push:
     branches:
-      - feature/v0.22.6-pl300-learning-ux
+      - main
   pull_request:
     branches:
       - main
@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Focused V0.22.6 learning UX gate
+      - name: Focused learning UX gate
         run: >-
           node --test
           tests/v0226-pl300-source-practice-fidelity.test.mjs

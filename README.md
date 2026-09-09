@@ -1,20 +1,18 @@
-# Digilians E-Learn Platform V0.22.2
+# Digilians E-Learn Platform V0.22.7
 
 A local-first learning and assessment platform for the Digilians Data Analysis track.
 
 ## Current release
 
-**V0.22.2 — PL-300 Study UX & Answer Lock**
+**V0.22.7 — PL-300 Repeat Part Review Hotfix**
 
-This release keeps the complete **509/509** PL-300 Full Ranked Learning journey and makes it easier and safer to study in smaller batches.
+This release restores a non-destructive repeat-study path for completed PL-300 parts.
 
-- Submitted answers are now **locked for that attempt**; changing the UI after Check Answer cannot rewrite the graded response.
-- **Retry Question** starts a new attempt while preserving the original First-Pass result.
-- Source-backed Answer Area fields use **native dropdowns** when the original source provides verified choices; no distractors are invented.
-- Reviewed/mapped explanations are **Arabic-first**, with the original English Source Explanation available in a collapsible reference panel.
-- The 509 source occurrences are organized into **34 Domain → Section → Mini Part batches** (up to 20 questions each), while All 509 Questions remains available.
-- **509 completion** and the existing **265 validated-concept mastery weighting** remain unchanged.
-- Repository cleanup is organizational only: Windows launcher/QA scripts live under `tools/windows/`, and development workflow notes live under `docs/development/`.
+- **Review & solve again ↻** reopens every question in a mastered part as a fresh retry view.
+- Saved First-Pass correctness, recovery, attempt history, and mastery evidence remain unchanged.
+- Repeated parts support scored text, native Answer Area interactions, and source-review checkpoints.
+- All **509/509** PL-300 source questions remain preserved without QBank rewrites.
+- The protected startup gzip budget remains fixed at **450 KB**.
 
 Release history is maintained in `data/changelog.json`. Release QA evidence is stored under `docs/releases`, and PL-300 review evidence is stored under `docs/voucher-production`.
 

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "protectedRoots": [
+    "official-qbank/",
+    "question-banks/",
+    "exams/",
+    "data/",
+    "voucher/tracks/data-analysis/microsoft-pl-300/"
+  ],
+  "protectedExclusions": ["data/changelog.json"],
+  "generatedArtifacts": [
+    {
+      "output": "voucher/tracks/data-analysis/microsoft-pl-300/full-ranked-index.json",
+      "generator": "tools/pl300-full-ranked-index.mjs",
+      "inputs": [
+        "voucher/tracks/data-analysis/microsoft-pl-300/source-01-review-bank.json",
+        "voucher/tracks/data-analysis/microsoft-pl-300/source-02-review-bank.json",
+        "voucher/tracks/data-analysis/microsoft-pl-300/master-bank.json",
+        "voucher/tracks/data-analysis/microsoft-pl-300/draft-master-bank.json",
+        "voucher/tracks/data-analysis/microsoft-pl-300/source-dedup-audit.json",
+        "voucher/tracks/data-analysis/microsoft-pl-300/native-ranked-review.json",
+        "voucher/tracks/data-analysis/microsoft-pl-300/content-architecture.json"
+      ],
+      "checkCommand": "node tools/pl300-full-ranked-index.mjs --check"
+    }
+  ],
+  "rules": [
+    {"pattern":"^voucher/tracks/data-analysis/microsoft-pl-300/assets/source-review/","classification":"source"},
+    {"pattern":"^docs/releases/","classification":"historical-evidence"},
+    {"pattern":"^docs/","classification":"documentation"},
+    {"pattern":"^tests/","classification":"test-fixture"},
+    {"pattern":"^tools/","classification":"tooling"},
+    {"pattern":"^\\.github/workflows/","classification":"tooling"},
+    {"pattern":"^assets/","classification":"runtime"},
+    {"pattern":"^(data|exams|official-qbank|question-banks|voucher)/","classification":"runtime-data"},
+    {"pattern":"^supabase/.*\\.sql$","classification":"source"},
+    {"pattern":"^supabase/","classification":"documentation"},
+    {"pattern":"^index\\.html$","classification":"runtime"},
+    {"pattern":"^(README\\.md|VERSION\\.txt)$","classification":"documentation"},
+    {"pattern":"^\\.gitignore$","classification":"tooling"}
+  ]
+}
