@@ -1,18 +1,18 @@
-# Digilians E-Learn Platform V0.22.7
+# Digilians E-Learn Platform V0.22.8
 
 A local-first learning and assessment platform for the Digilians Data Analysis track.
 
 ## Current release
 
-**V0.22.7 — PL-300 Repeat Part Review Hotfix**
+**V0.22.8 — Platform Cache & Release Integrity**
 
-This release restores a non-destructive repeat-study path for completed PL-300 parts.
+This release aligns runtime cache identity and release metadata, with no new learner-facing features.
 
-- **Review & solve again ↻** reopens every question in a mastered part as a fresh retry view.
-- Saved First-Pass correctness, recovery, attempt history, and mastery evidence remain unchanged.
-- Repeated parts support scored text, native Answer Area interactions, and source-review checkpoints.
-- All **509/509** PL-300 source questions remain preserved without QBank rewrites.
-- The protected startup gzip budget remains fixed at **450 KB**.
+- All existing cache-busted current/transitive runtime queries use V0.22.8 cache identity.
+- A permanent exhaustive guard prevents stale module queries across the runtime JavaScript tree.
+- Learner data, assessment content, ranking/scoring, and all **509/509** PL-300 source questions remain unchanged.
+- Learner identity, progress, attempts, first-pass history, mastery, mistakes, marks, resume, backup compatibility, and timer contracts remain unchanged.
+- The protected startup gzip budget remains fixed at **450 KiB**.
 
 Release history is maintained in `data/changelog.json`. Release QA evidence is stored under `docs/releases`, and PL-300 review evidence is stored under `docs/voucher-production`.
 
