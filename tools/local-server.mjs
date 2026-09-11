@@ -7,15 +7,25 @@ import {fileURLToPath} from 'node:url';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const PORT=Number(process.env.PORT||process.argv[2]||4173);
 const HOST='127.0.0.1';
+const BASE_PATH=normalizeBasePath(process.env.BASE_PATH||'');
 const mime={
   '.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8',
   '.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml',
   '.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.ico':'image/x-icon',
   '.md':'text/markdown; charset=utf-8','.txt':'text/plain; charset=utf-8'
 };
+function normalizeBasePath(value){
+  if(!value)return '';
+  if(!/^\/[A-Za-z0-9._~-]+(?:\/[A-Za-z0-9._~-]+)*$/.test(value))throw new Error(`BASE_PATH must be an absolute URL path without a trailing slash: ${value}`);
+  return value;
+}
 function resolveRequest(urlValue){
   const pathname=decodeURIComponent(new URL(urlValue,'http://local').pathname);
-  const relative=pathname==='/'?'index.html':pathname.replace(/^\/+/, '');
+  const projectPath=BASE_PATH
+    ?pathname===BASE_PATH?'/' : pathname.startsWith(`${BASE_PATH}/`)?pathname.slice(BASE_PATH.length):null
+    :pathname;
+  if(projectPath===null)return null;
+  const relative=projectPath==='/'?'index.html':projectPath.replace(/^\/+/, '');
   const target=path.resolve(ROOT,relative);
   if(target!==ROOT && !target.startsWith(ROOT+path.sep))return null;
   return target;
@@ -42,7 +52,7 @@ function openBrowser(url){
   }catch{}
 }
 server.listen(PORT,HOST,()=>{
-  const url=`http://${HOST}:${PORT}/`;
+  const url=`http://${HOST}:${PORT}${BASE_PATH||''}/`;
   console.log(`\nDigilians E-Learn local server: ${url}`);
   console.log('Press Ctrl+C to stop.\n');
   openBrowser(url);

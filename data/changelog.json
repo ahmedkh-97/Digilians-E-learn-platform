@@ -1,6 +1,20 @@
 {
-  "latest": "0.22.7",
+  "latest": "0.22.8",
   "releases": [
+    {
+      "version": "0.22.8",
+      "title": "Platform Cache & Release Integrity",
+      "date": "2026-09-10",
+      "type": "fix",
+      "summary": "Aligns the platform's existing cache-busted current/transitive runtime queries and authoritative release metadata, with no new learner-facing features.",
+      "highlights": [
+        "All existing cache-busted current/transitive runtime queries use V0.22.8 cache identity so browsers receive a consistent release.",
+        "A permanent exhaustive guard prevents stale module queries across the complete runtime JavaScript tree.",
+        "Learner data, assessment content, ranking/scoring, and the PL-300 509 source-bank questions remain unchanged.",
+        "Preserves learner identity, progress, attempts, first-pass history, mastery, mistakes, marks, resume, backup compatibility, and timer contracts.",
+        "Keeps the fixed 450 KiB startup gzip budget unchanged."
+      ]
+    },
     {
       "version": "0.22.7",
       "title": "PL-300 Repeat Part Review Hotfix",
